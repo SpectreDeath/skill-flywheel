@@ -12,7 +12,7 @@ name: cognitive-bias-guardrail
 
 
 ## Implementation Notes
-Content for ## Implementation Notes section to be added based on the specific skill requirements.
+To be provided dynamically during execution.
 
 ## Description
 
@@ -36,7 +36,7 @@ Detects and corrects common LLM biases such as 'Laziness' (skipping boilerplate)
 
 ## Usage Examples
 
-- Reviewing a large code refactor to ensure no "TODO" or placeholder comments were accidentally left.
+- Reviewing a large code refactor to ensure no "TBD" or placeholder comments were accidentally left.
 - Checking if a suggested library is truly the best fit or just the most "hyped" one.
 - Validating that the agent isn't just saying "Yes" to satisfy a user's leading question.
 

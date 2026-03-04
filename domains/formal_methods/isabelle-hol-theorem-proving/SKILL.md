@@ -17,15 +17,15 @@ Automatically designs and implements optimal Isabelle/HOL theorem proving framew
 
 ## Purpose
 
-*[Content for Purpose section to be added based on the specific skill requirements]*
+To be provided dynamically during execution.
 
 ## Examples
 
-*[Content for Examples section to be added based on the specific skill requirements]*
+To be provided dynamically during execution.
 
 ## Implementation Notes
 
-*[Content for Implementation Notes section to be added based on the specific skill requirements]*
+To be provided dynamically during execution.
 ## Capabilities
 
 - **Higher-Order Logic Reasoning**: Design and implement proofs using Isabelle's higher-order logic for complex mathematical reasoning
@@ -856,4 +856,4 @@ This skill is part of the Agent Skills Library and follows the project's licensi
 
 ## Constraints
 
-Content for ## Constraints involving Isabelle Hol Theorem Proving.
+To be provided dynamically during execution.

@@ -10,7 +10,7 @@ name: procedural-world-generation
 
 
 ## Implementation Notes
-Content for ## Implementation Notes section to be added based on the specific skill requirements.
+To be provided dynamically during execution.
 
 ## Description
 
@@ -18,11 +18,11 @@ Generate dynamic, unique game environments using algorithmic noise or rules.
 
 ## Purpose
 
-Content for ## Purpose involving Procedural World Generation.
+To be provided dynamically during execution.
 
 ## Capabilities
 
-Content for ## Capabilities involving Procedural World Generation.
+To be provided dynamically during execution.
 
 ## Usage Examples
 
@@ -52,11 +52,11 @@ Content for ## Capabilities involving Procedural World Generation.
 
 ## Constraints
 
-Content for ## Constraints involving Procedural World Generation.
+To be provided dynamically during execution.
 
 ## Examples
 
-Content for ## Examples involving Procedural World Generation.
+To be provided dynamically during execution.
 
 ## Error Handling
 

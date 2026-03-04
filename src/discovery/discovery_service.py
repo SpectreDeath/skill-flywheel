@@ -8,95 +8,47 @@ mcp = FastMCP("DiscoveryService")
 # Registry path relative to container
 REGISTRY_FILE = Path(os.environ.get("REGISTRY_FILE", "/app/skill_registry.json"))
 
-# Defined domain to service mapping (from docker-compose names)
-# Note: These names must match the service names in docker-compose.yml
-DOMAIN_SERVICE_MAP = {
-    # Orchestration & Meta
-    "orchestration": "mcp-orchestration:8001",
-    "Orchestration": "mcp-orchestration:8001",
-    "skill_registry": "mcp-orchestration:8001",
-    "Skill_Registry": "mcp-orchestration:8001",
-    "SKILL": "mcp-orchestration:8001",
-    "META_SKILL_DISCOVERY": "mcp-orchestration:8001",
-    "Meta_Skill_Discovery": "mcp-orchestration:8001",
-    "meta_agent_enhancement": "mcp-orchestration:8001",
-    "FLOW": "mcp-orchestration:8001",
-    "TEMPLATES": "mcp-orchestration:8001",
-    "agent_evolution": "mcp-orchestration:8001",
-    "Agent_Evolution": "mcp-orchestration:8001",
-    
-    # Security
-    "APPLICATION_SECURITY": "mcp-security:8002",
-    "Application_Security": "mcp-security:8002",
-    "security_engineering": "mcp-security:8002",
-    "Security_Engineering": "mcp-security:8002",
-    "skill_validation": "mcp-security:8002",
-    "Skill_Validation": "mcp-security:8002",
-    "DEVSECOPS": "mcp-security:8002",
-    "forensics": "mcp-security:8002",
-    "Forensics": "mcp-security:8002",
-    "osint_collector": "mcp-security:8002",
-    "Osint_Collector": "mcp-security:8002",
-    
-    # Data & AI
-    "ML_AI": "mcp-data-ai:8003",
-    "DATA_ENGINEERING": "mcp-data-ai:8003",
-    "Data_Engineering": "mcp-data-ai:8003",
-    "probabilistic_models": "mcp-data-ai:8003",
-    "Probabilistic_Models": "mcp-data-ai:8003",
-    "epistemology": "mcp-data-ai:8003",
-    "AI_ETHICS": "mcp-data-ai:8003",
-    "Ai_Ethics": "mcp-data-ai:8003",
-    
-    # DevOps & Infrastructure
-    "DEVOPS": "mcp-devops:8004",
-    "Devops": "mcp-devops:8004",
-    "CLOUD_ENGINEERING": "mcp-devops:8004",
-    "Cloud_Engineering": "mcp-devops:8004",
-    "DATABASE_ENGINEERING": "mcp-devops:8004",
-    "Database_Engineering": "mcp-devops:8004",
-    "MODERN_BACKEND_DEVELOPMENT": "mcp-devops:8004",
-    "Modern_Backend_Development": "mcp-devops:8004",
-    "mcp_tools": "mcp-devops:8004",
-    "EDGE_COMPUTING": "mcp-devops:8004",
-    "Edge_Computing": "mcp-devops:8004",
-    
-    # Engineering
-    "SPECIFICATION_ENGINEERING": "mcp-engineering:8005",
-    "Specification_Engineering": "mcp-engineering:8005",
-    "formal_methods": "mcp-engineering:8005",
-    
-    # UI/Mobile
-    "FRONTEND": "mcp-ux-mobile:8006",
-    "Frontend": "mcp-ux-mobile:8006",
-    "mobile_development": "mcp-ux-mobile:8006",
-    "Mobile_Development": "mcp-ux-mobile:8006",
-    
-    # Advanced
-    "QUANTUM_COMPUTING": "mcp-advanced:8007",
-    "WEB3": "mcp-advanced:8007",
-    "Web3": "mcp-advanced:8007",
-    "ALGO_PATTERNS": "mcp-advanced:8007",
-    "search_algorithms": "mcp-advanced:8007",
-    "Search_Algorithms": "mcp-advanced:8007",
-    "logic": "mcp-advanced:8007",
-    "Logic": "mcp-advanced:8007",
-    "logic_programming": "mcp-advanced:8007",
-    
-    # Strategy
-    "strategy_analysis": "mcp-strategy:8008",
-    "Strategy_Analysis": "mcp-strategy:8008",
-    "epidemiology": "mcp-strategy:8008",
-    "Epidemiology": "mcp-strategy:8008",
-    "game_theory": "mcp-strategy:8008",
-    "Game_Theory": "mcp-strategy:8008",
-    "GAME_DEV": "mcp-strategy:8008",
-    
-    # Agent R&D
-    "AI_AGENT_DEVELOPMENT": "mcp-agent-rd:8009",
-    "Ai_Agent_Development": "mcp-agent-rd:8009",
-    "generated_skills": "mcp-agent-rd:8009"
+# Defined port mapping for specialized domain services
+DOMAIN_PORT_MAP = {
+    "orchestration": 8001,
+    "security": 8002,
+    "data-ai": 8003,
+    "devops": 8004,
+    "engineering": 8005,
+    "ux-mobile": 8006,
+    "advanced": 8007,
+    "strategy": 8008,
+    "agent-rd": 8009
 }
+
+# Service grouping strategy
+SERVICE_GROUPS = {
+    "orchestration": ["orchestration", "skill_registry", "SKILL", "META_SKILL_DISCOVERY", "meta_agent_enhancement", "FLOW", "TEMPLATES", "agent_evolution"],
+    "security": ["APPLICATION_SECURITY", "security_engineering", "skill_validation", "DEVSECOPS", "forensics", "osint_collector"],
+    "data-ai": ["ML_AI", "DATA_ENGINEERING", "probabilistic_models", "epistemology", "AI_ETHICS"],
+    "devops": ["DEVOPS", "CLOUD_ENGINEERING", "DATABASE_ENGINEERING", "MODERN_BACKEND_DEVELOPMENT", "mcp_tools", "EDGE_COMPUTING"],
+    "engineering": ["SPECIFICATION_ENGINEERING", "formal_methods"],
+    "ux-mobile": ["FRONTEND", "mobile_development"],
+    "advanced": ["QUANTUM_COMPUTING", "WEB3", "ALGO_PATTERNS", "search_algorithms", "logic", "logic_programming"],
+    "strategy": ["strategy_analysis", "epidemiology", "game_theory", "GAME_DEV"],
+    "agent-rd": ["AI_AGENT_DEVELOPMENT", "generated_skills"]
+}
+
+def get_domain_service_map():
+    """Dynamically generate the domain to service mapping."""
+    mapping = {}
+    for service, domains in SERVICE_GROUPS.items():
+        port = DOMAIN_PORT_MAP.get(service, 8000)
+        endpoint = f"mcp-{service}:{port}"
+        for domain in domains:
+            mapping[domain] = endpoint
+            # Add common variations
+            mapping[domain.lower()] = endpoint
+            mapping[domain.capitalize()] = endpoint
+            mapping[domain.replace('_', '-')] = endpoint
+    return mapping
+
+DOMAIN_SERVICE_MAP = get_domain_service_map()
 
 @mcp.tool()
 async def list_available_services():

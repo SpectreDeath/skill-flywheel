@@ -1,0 +1,70 @@
+{
+  "generation_date": "2026-02-28T12:36:19.871028",
+  "total_skills": 3,
+  "examples": [
+    {
+      "skill_filename": "SKILL.CH-003.md",
+      "skill_title": "API Gateway Configuration Wizard",
+      "usage_scenario": "Optimizing API Gateway Configuration Wizard for polyglot microservices",
+      "command_example": "agent run SKILL.CH-003.md",
+      "expected_output": "Optimized configuration files, performance benchmarks, and deployment scripts",
+      "integration_points": [
+        "Predictive Observability Engine",
+        "Self-Optimizing Deployment Pipeline",
+        "Intelligent Security Analysis Platform"
+      ],
+      "performance_targets": {
+        "response_time_improvement": "20%",
+        "reliability": "99.9%",
+        "scalability": "10x traffic increase"
+      }
+    },
+    {
+      "skill_filename": "SKILL.CH-006.md",
+      "skill_title": "Performance Bottleneck Detective",
+      "usage_scenario": "Optimizing Performance Bottleneck Detective for polyglot microservices",
+      "command_example": "agent run SKILL.CH-006.md",
+      "expected_output": "Optimized configuration files, performance benchmarks, and deployment scripts",
+      "integration_points": [
+        "Predictive Observability Engine",
+        "Self-Optimizing Deployment Pipeline",
+        "Intelligent Security Analysis Platform"
+      ],
+      "performance_targets": {
+        "response_time_improvement": "20%",
+        "reliability": "99.9%",
+        "scalability": "10x traffic increase"
+      }
+    },
+    {
+      "skill_filename": "SKILL.CH-009.md",
+      "skill_title": "Deployment Pipeline Polyglot Orchestrator",
+      "usage_scenario": "Optimizing Deployment Pipeline Polyglot Orchestrator for polyglot microservices",
+      "command_example": "agent run SKILL.CH-009.md",
+      "expected_output": "Optimized configuration files, performance benchmarks, and deployment scripts",
+      "integration_points": [
+        "Predictive Observability Engine",
+        "Self-Optimizing Deployment Pipeline",
+        "Intelligent Security Analysis Platform"
+      ],
+      "performance_targets": {
+        "response_time_improvement": "20%",
+        "reliability": "99.9%",
+        "scalability": "10x traffic increase"
+      }
+    }
+  ],
+  "benchmarks": {
+    "response_time_improvement": "20%",
+    "throughput_improvement": "20%",
+    "resource_optimization": "20%",
+    "deployment_speed_improvement": "20%"
+  },
+  "best_practices": [
+    "Architecture analysis before optimization",
+    "Environment-specific configurations",
+    "Continuous monitoring and alerting",
+    "Security-first approach",
+    "Performance benchmarking"
+  ]
+}

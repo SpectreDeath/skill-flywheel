@@ -10,7 +10,7 @@ name: database-sharding-plan
 
 
 ## Implementation Notes
-Content for ## Implementation Notes section to be added based on the specific skill requirements.
+To be provided dynamically during execution.
 
 ## Description
 
@@ -18,11 +18,11 @@ Architect and implement horizontal partitioning strategies for large-scale data.
 
 ## Purpose
 
-Content for ## Purpose involving Database Sharding Plan.
+To be provided dynamically during execution.
 
 ## Capabilities
 
-Content for ## Capabilities involving Database Sharding Plan.
+To be provided dynamically during execution.
 
 ## Usage Examples
 
@@ -52,11 +52,11 @@ Content for ## Capabilities involving Database Sharding Plan.
 
 ## Constraints
 
-Content for ## Constraints involving Database Sharding Plan.
+To be provided dynamically during execution.
 
 ## Examples
 
-Content for ## Examples involving Database Sharding Plan.
+To be provided dynamically during execution.
 
 ## Error Handling
 

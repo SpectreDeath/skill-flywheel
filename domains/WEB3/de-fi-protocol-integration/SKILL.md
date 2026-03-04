@@ -10,7 +10,7 @@ name: de-fi-protocol-integration
 
 
 ## Implementation Notes
-Content for ## Implementation Notes section to be added based on the specific skill requirements.
+To be provided dynamically during execution.
 
 ## Description
 
@@ -18,11 +18,11 @@ Connect and interact with decentralized finance liquidity pools and protocols.
 
 ## Purpose
 
-Content for ## Purpose involving De Fi Protocol Integration.
+To be provided dynamically during execution.
 
 ## Capabilities
 
-Content for ## Capabilities involving De Fi Protocol Integration.
+To be provided dynamically during execution.
 
 ## Usage Examples
 
@@ -52,11 +52,11 @@ Content for ## Capabilities involving De Fi Protocol Integration.
 
 ## Constraints
 
-Content for ## Constraints involving De Fi Protocol Integration.
+To be provided dynamically during execution.
 
 ## Examples
 
-Content for ## Examples involving De Fi Protocol Integration.
+To be provided dynamically during execution.
 
 ## Error Handling
 

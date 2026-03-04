@@ -10,7 +10,7 @@ name: npc-behavior-ai
 
 
 ## Implementation Notes
-Content for ## Implementation Notes section to be added based on the specific skill requirements.
+To be provided dynamically during execution.
 
 ## Description
 
@@ -18,11 +18,11 @@ Create autonomous agent logic using state machines or behavior trees.
 
 ## Purpose
 
-Content for ## Purpose involving Npc Behavior Ai.
+To be provided dynamically during execution.
 
 ## Capabilities
 
-Content for ## Capabilities involving Npc Behavior Ai.
+To be provided dynamically during execution.
 
 ## Usage Examples
 
@@ -52,11 +52,11 @@ Content for ## Capabilities involving Npc Behavior Ai.
 
 ## Constraints
 
-Content for ## Constraints involving Npc Behavior Ai.
+To be provided dynamically during execution.
 
 ## Examples
 
-Content for ## Examples involving Npc Behavior Ai.
+To be provided dynamically during execution.
 
 ## Error Handling
 

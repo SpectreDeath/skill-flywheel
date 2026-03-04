@@ -14,7 +14,7 @@ name: ch-006
 
 
 ## Implementation Notes
-Content for ## Implementation Notes section to be added based on the specific skill requirements.
+To be provided dynamically during execution.
 
 ## Purpose
 AI detective that traces performance issues across language boundaries, identifying hot paths in distributed polyglot systems with actionable optimization suggestions

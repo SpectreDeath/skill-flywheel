@@ -20,7 +20,7 @@ name: database-whisperer-ai
 
 
 ## Implementation Notes
-Content for ## Implementation Notes section to be added based on the specific skill requirements.
+To be provided dynamically during execution.
 
 ## 🎯 Purpose
 
@@ -1314,11 +1314,11 @@ uvicorn src.api.main:app --host 0.0.0.0 --port 8000 --log-level debug
 
 ## Description
 
-The Database Whisperer Ai skill provides an automated workflow to address Content for ## Purpose involving Database Whisperer Ai.. It is designed to be highly modular and integrates seamlessly into larger agentic pipelines.
+The Database Whisperer Ai skill provides an automated workflow to address To be provided dynamically during execution.
 
 ## Capabilities
 
-Content for ## Capabilities involving Database Whisperer Ai.
+To be provided dynamically during execution.
 
 ## Usage Examples
 
@@ -1390,12 +1390,12 @@ MIT License - Part of the Open AgentSkills Library.
 
 ## Purpose
 
-Content for ## Purpose involving Database Whisperer Ai.
+To be provided dynamically during execution.
 
 ## Constraints
 
-Content for ## Constraints involving Database Whisperer Ai.
+To be provided dynamically during execution.
 
 ## Examples
 
-Content for ## Examples involving Database Whisperer Ai.
+To be provided dynamically during execution.

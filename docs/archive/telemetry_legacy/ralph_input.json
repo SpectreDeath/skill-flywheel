@@ -1,0 +1,6 @@
+{
+  "problem_statement": "Generate 20 wild ideas for software specification engineering missing capabilities based on usage patterns",
+  "current_approach": "Analyze existing skills for specification patterns",
+  "constraints": "max_15_minutes",
+  "domain_context": "software_specification_engineering"
+}

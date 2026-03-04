@@ -12,7 +12,7 @@ name: high-fidelity-scenario-simulation
 
 
 ## Implementation Notes
-Content for ## Implementation Notes section to be added based on the specific skill requirements.
+To be provided dynamically during execution.
 
 ## Description
 

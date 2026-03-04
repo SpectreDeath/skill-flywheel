@@ -1,0 +1,27 @@
+{
+  "summary": {
+    "total_skills": 0,
+    "mobile_skills": 0,
+    "total_issues": 0,
+    "mobile_specific_issues": 0,
+    "general_issues": 0,
+    "mobile_compliance_score": 100,
+    "issue_summary": {},
+    "severity_breakdown": {}
+  },
+  "compliance_scores": {},
+  "issues": [],
+  "mobile_issues": [],
+  "general_issues": [],
+  "recommendations": [
+    "Use consistent mobile development terminology",
+    "Include real-world mobile development examples",
+    "Document platform-specific limitations and workarounds",
+    "Add mobile-specific error handling patterns",
+    "Include mobile security best practices",
+    "Document battery and network optimization techniques",
+    "Add offline functionality considerations",
+    "Include mobile-specific deployment strategies"
+  ],
+  "mobile_skill_details": {}
+}

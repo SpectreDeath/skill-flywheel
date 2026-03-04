@@ -16,184 +16,24 @@ Comprehensive frontend performance optimization and build tooling strategies for
 
 ## Input Format
 
-### Deployment Configuration Request
-
 ```yaml
-deployment_configuration_request:
-  application_id: string          # Unique application identifier
-  application_name: string        # Application name
-  target_stores: array            # Target app stores (App Store, Google Play, etc.)
-  
-  platform_configurations:
-    ios:
-      bundle_identifier: string   # iOS bundle identifier
-      team_id: string             # Apple Developer Team ID
-      provisioning_profile: string # Provisioning profile name
-      certificate_id: string      # Certificate identifier
-    
-    android:
-      package_name: string        # Android package name
-      keystore_file: string       # Keystore file path
-      keystore_password: string   # Keystore password
-      key_alias: string           # Key alias
-      key_password: string        # Key password
-  
-  compliance_requirements:
-    privacy_policy_url: string    # Privacy policy URL
-    terms_of_service_url: string  # Terms of service URL
-    data_usage_disclosure: object # Data usage disclosure information
-    age_rating: string            # App age rating
-    content_descriptors: array    # Content descriptors
-  
-  deployment_strategy:
-    rollout_strategy: "immediate|staged|phased"
-    rollout_percentage: number    # Initial rollout percentage
-    monitoring_enabled: boolean   # Whether monitoring is enabled
-    rollback_enabled: boolean     # Whether automatic rollback is enabled
-```
-
-### App Store Metadata Schema
-
-```yaml
-app_store_metadata:
-  app_information:
-    app_name: string              # App name
-    subtitle: string              # App subtitle (iOS only)
-    app_description: string       # App description
-    keywords: array               # App keywords
-    support_url: string           # Support URL
-    marketing_url: string         # Marketing URL
-  
-  visual_assets:
-    app_icon: string              # App icon file path
-    screenshots: array            # Screenshots for different devices
-    app_preview: string           # App preview video (iOS only)
-    feature_graphic: string       # Feature graphic (Android only)
-  
-  technical_information:
-    bundle_size: string           # App bundle size
-    supported_devices: array      # Supported device types
-    required_permissions: array   # Required app permissions
-    background_modes: array       # Background modes (iOS only)
-  
-  compliance_information:
-    privacy_policy: string        # Privacy policy content
-    terms_of_service: string      # Terms of service content
-    data_collection_purposes: array # Data collection purposes
-    third_party_integrations: array # Third-party integrations
+request:
+  action: string
+  parameters: object
 ```
 
 ## Output Format
 
-### Deployment Report
-
 ```yaml
-deployment_report:
-  application_id: string
-  deployment_timestamp: timestamp
-  target_stores: array
-  overall_status: "success|failed|partial"
-  
-  store_specific_reports:
-    - store_name: "Apple App Store"
-      status: "submitted|approved|rejected|in_review"
-      submission_id: string
-      review_status: string
-      estimated_review_time: string
-      compliance_status: "compliant|non_compliant"
-      compliance_issues: array
-      next_steps: array
-    
-    - store_name: "Google Play Store"
-      status: "published|pending|rejected"
-      track: "internal|alpha|beta|production"
-      rollout_percentage: number
-      compliance_status: "compliant|non_compliant"
-      compliance_issues: array
-      next_steps: array
-  
-  build_information:
-    build_number: string
-    build_time: string
-    build_artifacts: array
-    code_signing_status: "valid|invalid"
-    bundle_size: string
-  
-  compliance_summary:
-    total_checks: number
-    passed_checks: number
-    failed_checks: number
-    compliance_percentage: number
-    critical_issues: array
-    warnings: array
-  
-  deployment_metrics:
-    deployment_time: string
-    success_rate: number
-    rollback_count: number
-    user_impact: string
-```
-
-### Compliance Validation Report
-
-```yaml
-compliance_validation_report:
-  validation_timestamp: timestamp
-  validation_scope: "full|partial|targeted"
-  
-  app_store_guidelines:
-    apple_app_store:
-      total_guidelines: 100
-      validated_guidelines: 95
-      compliant_guidelines: 92
-      non_compliant_guidelines: 3
-      critical_violations: array
-      warnings: array
-    
-    google_play_store:
-      total_policies: 50
-      validated_policies: 50
-      compliant_policies: 50
-      non_compliant_policies: 0
-      critical_violations: array
-      warnings: array
-  
-  technical_requirements:
-    ios_requirements:
-      app_size: "compliant|non_compliant"
-      launch_screen: "compliant|non_compliant"
-      app_icons: "compliant|non_compliant"
-      bitcode: "compliant|non_compliant"
-    
-    android_requirements:
-      app_bundle: "compliant|non_compliant"
-      target_sdk: "compliant|non_compliant"
-      permissions: "compliant|non_compliant"
-      app_size: "compliant|non_compliant"
-  
-  security_compliance:
-    data_encryption: "compliant|non_compliant"
-    secure_communication: "compliant|non_compliant"
-    authentication_requirements: "compliant|non_compliant"
-    privacy_compliance: "compliant|non_compliant"
-  
-  recommendations:
-    - priority: "high"
-      category: "compliance"
-      recommendation: string
-      impact: string
-      effort: string
-    
-    - priority: "medium"
-      category: "performance"
-      recommendation: string
-      impact: string
-      effort: string
+response:
+  status: string
+  result: object
+  errors: array
 ```
 
 ## Implementation Notes
 
-*[Content for Implementation Notes section to be added based on the specific skill requirements]*
+To be provided dynamically during execution.
 ## When to Use
 
 - Optimizing application loading speed and runtime performance

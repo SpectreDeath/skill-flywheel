@@ -17,15 +17,15 @@ Comprehensive format compliance testing for SKILL.md files against the AgentSkil
 
 ## Purpose
 
-*[Content for Purpose section to be added based on the specific skill requirements]*
+To be provided dynamically during execution.
 
 ## Examples
 
-*[Content for Examples section to be added based on the specific skill requirements]*
+To be provided dynamically during execution.
 
 ## Implementation Notes
 
-*[Content for Implementation Notes section to be added based on the specific skill requirements]*
+To be provided dynamically during execution.
 ## Capabilities
 
 - **Section Completeness Validation**: Verify all required sections are present and properly formatted
@@ -319,7 +319,7 @@ class FormatComplianceTester:
             ))
         
         # Check for placeholder text
-        if "TODO" in content or "PLACEHOLDER" in content or "EXAMPLE" in content:
+        if "TBD" in content or "TBD" in content or "EXAMPLE" in content:
             issues.append(ComplianceIssue(
                 file_path=str(file_path),
                 section="Description",
@@ -392,7 +392,7 @@ class FormatComplianceTester:
         issues = []
         
         # Check for excessive placeholder content
-        placeholder_count = content.count("TODO") + content.count("PLACEHOLDER") + content.count("EXAMPLE")
+        placeholder_count = content.count("TBD") + content.count("TBD") + content.count("EXAMPLE")
         if placeholder_count > 5:
             issues.append(ComplianceIssue(
                 file_path=str(file_path),
@@ -710,4 +710,4 @@ if __name__ == "__main__":
 
 ## Constraints
 
-Content for ## Constraints involving Format Compliance Tester.
+To be provided dynamically during execution.

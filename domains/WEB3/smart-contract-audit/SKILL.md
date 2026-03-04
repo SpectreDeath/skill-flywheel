@@ -10,7 +10,7 @@ name: smart-contract-audit
 
 
 ## Implementation Notes
-Content for ## Implementation Notes section to be added based on the specific skill requirements.
+To be provided dynamically during execution.
 
 ## Description
 
@@ -18,11 +18,11 @@ Perform security analysis and audit for solidity-based decentralized logic.
 
 ## Purpose
 
-Content for ## Purpose involving Smart Contract Audit.
+To be provided dynamically during execution.
 
 ## Capabilities
 
-Content for ## Capabilities involving Smart Contract Audit.
+To be provided dynamically during execution.
 
 ## Usage Examples
 
@@ -52,11 +52,11 @@ Content for ## Capabilities involving Smart Contract Audit.
 
 ## Constraints
 
-Content for ## Constraints involving Smart Contract Audit.
+To be provided dynamically during execution.
 
 ## Examples
 
-Content for ## Examples involving Smart Contract Audit.
+To be provided dynamically during execution.
 
 ## Error Handling
 

@@ -17,15 +17,15 @@ Automatically validates complete AgentSkills directory structure and SKILL.md fi
 
 ## Purpose
 
-*[Content for Purpose section to be added based on the specific skill requirements]*
+To be provided dynamically during execution.
 
 ## Examples
 
-*[Content for Examples section to be added based on the specific skill requirements]*
+To be provided dynamically during execution.
 
 ## Implementation Notes
 
-*[Content for Implementation Notes section to be added based on the specific skill requirements]*
+To be provided dynamically during execution.
 ## Capabilities
 
 - **Directory Structure Validation**: Verify proper DOMAIN/SKILL organization and naming conventions
@@ -496,7 +496,7 @@ def add_missing_field(file_path, field_name):
         for i, line in enumerate(lines[1:], 1):
             if line == '---':
                 # Insert new field before closing ---
-                lines.insert(i, f"{field_name}: TODO")
+                lines.insert(i, f"{field_name}: TBD")
                 break
     
     with open(file_path, 'w') as f:
@@ -530,4 +530,4 @@ if __name__ == "__main__":
 
 ## Constraints
 
-Content for ## Constraints involving Skill Spec Validator.
+To be provided dynamically during execution.

@@ -10,7 +10,7 @@ name: wallet-connection-workflow
 
 
 ## Implementation Notes
-Content for ## Implementation Notes section to be added based on the specific skill requirements.
+To be provided dynamically during execution.
 
 ## Description
 
@@ -18,11 +18,11 @@ Implement secure multi-wallet connection and signature handling.
 
 ## Purpose
 
-Content for ## Purpose involving Wallet Connection Workflow.
+To be provided dynamically during execution.
 
 ## Capabilities
 
-Content for ## Capabilities involving Wallet Connection Workflow.
+To be provided dynamically during execution.
 
 ## Usage Examples
 
@@ -52,11 +52,11 @@ Content for ## Capabilities involving Wallet Connection Workflow.
 
 ## Constraints
 
-Content for ## Constraints involving Wallet Connection Workflow.
+To be provided dynamically during execution.
 
 ## Examples
 
-Content for ## Examples involving Wallet Connection Workflow.
+To be provided dynamically during execution.
 
 ## Error Handling
 
