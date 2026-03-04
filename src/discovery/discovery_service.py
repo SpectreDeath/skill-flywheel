@@ -23,15 +23,16 @@ DOMAIN_PORT_MAP = {
 
 # Service grouping strategy
 SERVICE_GROUPS = {
-    "orchestration": ["orchestration", "skill_registry", "SKILL", "META_SKILL_DISCOVERY", "meta_agent_enhancement", "FLOW", "TEMPLATES", "agent_evolution"],
+    "orchestration": ["orchestration", "skill_registry", "SKILL", "META_SKILL_DISCOVERY", "meta_agent_enhancements", "FLOW", "TEMPLATES", "agent_evolution", "meta_agent_enhancement"],
     "security": ["APPLICATION_SECURITY", "security_engineering", "skill_validation", "DEVSECOPS", "forensics", "osint_collector"],
-    "data-ai": ["ML_AI", "DATA_ENGINEERING", "probabilistic_models", "epistemology", "AI_ETHICS"],
+    "data_ai": ["ML_AI", "DATA_ENGINEERING", "probabilistic_models", "epistemology", "AI_ETHICS"],
     "devops": ["DEVOPS", "CLOUD_ENGINEERING", "DATABASE_ENGINEERING", "MODERN_BACKEND_DEVELOPMENT", "mcp_tools", "EDGE_COMPUTING"],
     "engineering": ["SPECIFICATION_ENGINEERING", "formal_methods"],
-    "ux-mobile": ["FRONTEND", "mobile_development"],
+    "ux_mobile": ["FRONTEND", "mobile_development"],
     "advanced": ["QUANTUM_COMPUTING", "WEB3", "ALGO_PATTERNS", "search_algorithms", "logic", "logic_programming"],
     "strategy": ["strategy_analysis", "epidemiology", "game_theory", "GAME_DEV"],
-    "agent-rd": ["AI_AGENT_DEVELOPMENT", "generated_skills"]
+    "agent_rd": ["AI_AGENT_DEVELOPMENT", "generated_skills"],
+    "fallback": ["General", "ARCHIVED"] # Mapping these to discovery for now as a catch-all or specific routing
 }
 
 def get_domain_service_map():

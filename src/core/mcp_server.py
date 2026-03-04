@@ -75,8 +75,9 @@ def register_skills():
                         log_telemetry(sid, request, duration=time.time() - start_time, status="success")
                         return result
                     except Exception as e:
-                        log_telemetry(sid, request, status=f"error: {str(e)}")
-                        return f"Error loading skill content: {str(e)}"
+                        error_msg = f"Error loading skill content ({path}): {str(e)}"
+                        log_telemetry(sid, request, status=f"error: {error_msg}")
+                        return error_msg
                 return skill_tool
 
             # Register the tool with a unique name
