@@ -1,0 +1,253 @@
+# FLOW: Self-Replicating Flywheel
+#
+# Complete automation pipeline for exponential skill library growth.
+# Orchestrates Ralph Wiggum → Skill Evolution → Full automation.
+
+name: "Self-Replicating Flywheel"
+description: "Complete automation pipeline for exponential skill library growth"
+version: "1.0.0"
+author: "Agent Skills Library"
+
+# Pipeline Configuration
+pipeline:
+  - name: "Usage Pattern Analysis"
+    skill: "SKILL.skill_evolution.md"
+    inputs:
+      usage_logs: "auto-scan"
+      analysis_focus: "pattern_detection"
+      time_window: "last_30_days"
+    outputs:
+      - "usage_analysis_report.json"
+      - "pattern_insights.md"
+    timeout: 300
+    retry_attempts: 2
+
+  - name: "Ralph Wiggum Chaos Generation"
+    skill: "SKILL.ralph_wiggum.md"
+    inputs:
+      problem_statement: "Generate 11 wild ideas for missing capabilities based on usage patterns"
+      current_approach: "usage_analysis_report.json"
+      constraints: "max_15_minutes"
+      domain_context: "agent_skills_library"
+    outputs:
+      - "ralph_dump.md"
+      - "chaos_ranking.json"
+      - "top_3_ideas.md"
+    timeout: 600
+    retry_attempts: 1
+    depends_on: ["Usage Pattern Analysis"]
+
+  - name: "Pattern Validation & Variant Selection"
+    skill: "SKILL.skill_evolution.md"
+    inputs:
+      ralph_output: "top_3_ideas.md"
+      usage_patterns: "usage_analysis_report.json"
+      validation_criteria: "impact_potential"
+      max_variants: 3
+    outputs:
+      - "validated_variants.json"
+      - "variant_selection_report.md"
+    timeout: 400
+    retry_attempts: 1
+    depends_on: ["Ralph Wiggum Chaos Generation"]
+
+  - name: "Automated Skill Generation"
+    skill: "SKILL.skill_drafting.md"
+    inputs:
+      natural_language_description: "Create specialized skill variants based on validated_variants.json"
+      environment_constraints: "agent_skills_library_standards"
+      examples: "Include real usage examples from pattern_insights.md"
+      variant_count: 3
+    outputs:
+      - "generated_skills/"
+      - "skill_manifest.json"
+    timeout: 900
+    retry_attempts: 2
+    depends_on: ["Pattern Validation & Variant Selection"]
+
+  - name: "Skill Quality Assurance"
+    skill: "SKILL.skill_critiquing.md"
+    inputs:
+      skill_files: "generated_skills/*.md"
+      specific_concerns: "quality_standards_compliance"
+      context: "agent_skills_library"
+    outputs:
+      - "critiqued_skills/"
+      - "quality_report.md"
+    timeout: 600
+    retry_attempts: 1
+    depends_on: ["Automated Skill Generation"]
+
+  - name: "Library Integration & Indexing"
+    skill: "SKILL.skill_evolution.md"
+    inputs:
+      new_skills: "critiqued_skills/"
+      skill_catalog: "skills/SKILL_INDEX.md"
+      integration_mode: "auto_update"
+      metrics_tracking: "enabled"
+      folder_organization: "enabled"
+    outputs:
+      - "updated_skill_catalog.md"
+      - "integration_report.md"
+      - "metrics_dashboard.md"
+    timeout: 400
+    retry_attempts: 1
+    depends_on: ["Skill Quality Assurance"]
+
+  - name: "Folder Organization & Domain Routing"
+    skill: "SKILL.skill_evolution.md"
+    inputs:
+      skills_to_organize: "critiqued_skills/"
+      domain_detection: "auto"
+      folder_structure: "DOMAIN/[domain_name]/"
+      experimental_output: "EXPERIMENTAL/"
+      archived_skills: "ARCHIVED/"
+      never_delete: true
+    outputs:
+      - "organized_skills_report.md"
+      - "domain_mapping.json"
+      - "folder_structure_summary.md"
+    timeout: 300
+    retry_attempts: 1
+    depends_on: ["Library Integration & Indexing"]
+
+  - name: "Generate Usage Documentation"
+    skill: "SKILL.skill_drafting.md"
+    inputs:
+      natural_language_description: "Create comprehensive usage documentation for new skills"
+      environment_constraints: "include_examples_and_benchmarks"
+      examples: "Generate DEMO.md with real-world usage scenarios"
+    outputs:
+      - "DEMO.md"
+      - "usage_examples.md"
+      - "performance_benchmarks.md"
+    timeout: 500
+    retry_attempts: 1
+    depends_on: ["Library Integration & Indexing"]
+
+  - name: "Cross-Platform Validation"
+    skill: "SKILL.skill_evolution.md"
+    inputs:
+      skills_to_test: "generated_skills/"
+      platforms: ["cline", "goose", "raw_llama3"]
+      validation_strategy: "comprehensive"
+    outputs:
+      - "platform_validation_report.md"
+      - "compatibility_matrix.json"
+    timeout: 800
+    retry_attempts: 1
+    depends_on: ["Generate Usage Documentation"]
+
+# Pipeline Settings
+settings:
+  parallel_execution: true
+  fail_fast: false
+  continue_on_partial_failure: true
+  output_format: "markdown"
+  report_level: "comprehensive"
+  
+  # NEW: Folder Organization Rules
+  folder_organization:
+    production_core: "SKILL/"  # Max 29 skills
+    domain_ecosystems: "DOMAIN/"  # Specialized ecosystems
+    experimental_output: "EXPERIMENTAL/"  # Ralph chaos output
+    archived_skills: "ARCHIVED/"  # Deprecated skills only
+    never_delete_skills: true
+    use_domain_routing: true
+
+# Success Criteria
+success_criteria:
+  - "Usage analysis identifies clear patterns and opportunities"
+  - "Ralph Wiggum generates 11 chaotic ideas with quality scores"
+  - "Pattern validation selects 3 high-impact variants"
+  - "Automated skill generation creates 3 complete SKILL.*.md files"
+  - "Quality assurance passes all compliance checks"
+  - "Library integration updates skill catalog successfully"
+  - "Usage documentation includes examples and benchmarks"
+  - "Cross-platform validation confirms compatibility"
+
+# Error Handling
+error_handling:
+  timeout_policy: "continue_with_partial"
+  failure_policy: "continue_with_warnings"
+  rollback_strategy: "none"
+  notification_level: "on_critical_failure"
+
+# Output Artifacts
+artifacts:
+  primary_outputs:
+    - "generated_skills/"
+    - "updated_skill_catalog.md"
+    - "DEMO.md"
+  detailed_reports:
+    - "usage_analysis_report.json"
+    - "pattern_insights.md"
+    - "chaos_ranking.json"
+    - "top_3_ideas.md"
+    - "variant_selection_report.md"
+    - "quality_report.md"
+    - "integration_report.md"
+    - "platform_validation_report.md"
+  metrics_and_diagnostics:
+    - "metrics_dashboard.md"
+    - "compatibility_matrix.json"
+    - "skill_manifest.json"
+    - "performance_benchmarks.md"
+
+# Quality Metrics
+quality_metrics:
+  chaos_quality_score: "minimum_7_out_of_10"
+  gold_extraction_rate: "minimum_60_percent"
+  innovation_potential: "minimum_8_out_of_10"
+  cross_platform_compatibility: "100_percent"
+  documentation_quality: "comprehensive_with_examples"
+
+# Usage Instructions
+usage:
+  - "Run: agent run FLOW.full_cycle.yaml"
+  - "Monitor progress through metrics_dashboard.md"
+  - "Review generated skills in generated_skills/ directory"
+  - "Test new skills using platform_validation_report.md"
+  - "Update skill_catalog.md with new entries"
+  - "Share DEMO.md for team onboarding"
+
+# Prerequisites
+prerequisites:
+  - "Access to skill execution logs (last 30 days)"
+  - "All meta-skills available: ralph_wiggum, skill_evolution, skill_drafting, skill_critiquing"
+  - "Write access to skills/ directory"
+  - "Cross-platform testing environments configured"
+  - "Performance benchmarking tools available"
+
+# Estimated Runtime
+estimated_runtime: "45-60 minutes depending on library size"
+
+# Automation Triggers
+automation_triggers:
+  - "Weekly automated runs for continuous improvement"
+  - "Manual trigger when library growth stalls"
+  - "Trigger when usage patterns indicate missing capabilities"
+  - "Trigger when new platforms are added"
+
+# Singularity Test
+singularity_test:
+  description: "Point pipeline at 'skills for video game development'"
+  expected_output: "Complete game_dev/ folder with 5 specialized skills"
+  validation: "All skills pass cross-platform testing"
+  success_criteria: "Production-ready skill ecosystem"
+
+# Continuous Improvement
+continuous_improvement:
+  - "Track Gold Extraction Rate across cycles"
+  - "Monitor Chaos Quality Score trends"
+  - "Update Ralph Wiggum prompts based on success patterns"
+  - "Refine variant selection algorithms"
+  - "Optimize pipeline performance based on metrics"
+
+# Emergency Stop Conditions
+emergency_stop:
+  - "Gold Extraction Rate drops below 30%"
+  - "Chaos Quality Score consistently below 5"
+  - "Cross-platform compatibility fails"
+  - "Generated skills fail quality assurance"
+  - "Pipeline runtime exceeds 90 minutes"

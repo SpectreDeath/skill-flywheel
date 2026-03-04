@@ -1,0 +1,6 @@
+mcp
+fastmcp
+pyyaml
+pathlib
+google-genai
+openai

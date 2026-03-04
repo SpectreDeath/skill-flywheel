@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+.env
+.mypy_cache/
+
+# IDEs
+.vscode/
+.cursor/
+.idea/
+
+# Project Specific
+telemetry/
+usage_analysis_report.json
+master_compliance_report.json
+compliance_check_results.json
+audit_report.json
+validated_variants.json
+
+# System
+.DS_Store
+Thumbs.db

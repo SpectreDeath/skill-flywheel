@@ -1,0 +1,291 @@
+# FLOW: Cross-Platform Stress Test Matrix
+#
+# Comprehensive testing framework across Cline, Goose, and Raw Llama3.
+# Validates self-replicating flywheel on all supported platforms.
+
+name: "Cross-Platform Stress Test Matrix"
+description: "Comprehensive testing framework across Cline, Goose, and Raw Llama3"
+version: "1.0.0"
+author: "Agent Skills Library"
+
+# Test Matrix Configuration
+test_matrix:
+  platforms:
+    - name: "Cline"
+      description: "Primary development environment"
+      capabilities: ["file_operations", "tool_execution", "mcp_integration"]
+      expected_score: 5
+    - name: "Goose (VS Code Extension)"
+      description: "VS Code extension environment"
+      capabilities: ["file_operations", "tool_execution", "limited_mcp"]
+      expected_score: 5
+    - name: "Raw Llama3"
+      description: "File-read-only environment"
+      capabilities: ["file_operations", "no_tool_execution", "no_mcp"]
+      expected_score: 4
+
+  test_scenarios:
+    - name: "Basic Skill Execution"
+      description: "Test core skill functionality"
+      skills: ["skill_drafting", "skill_critiquing", "skill_evolution"]
+      complexity: "low"
+      expected_duration: "5 minutes"
+      
+    - name: "Ralph Wiggum Chaos Loop"
+      description: "Test chaotic idea generation and refinement"
+      skills: ["ralph_wiggum"]
+      complexity: "medium"
+      expected_duration: "10 minutes"
+      
+    - name: "Full Flywheel Cycle"
+      description: "Complete self-replicating pipeline"
+      skills: ["full_cycle"]
+      complexity: "high"
+      expected_duration: "45 minutes"
+      
+    - name: "Legacy Codebase Audit"
+      description: "Test on complex, real-world codebase"
+      skills: ["quality_audit"]
+      complexity: "high"
+      expected_duration: "30 minutes"
+      
+    - name: "New Skill Generation"
+      description: "Generate entirely new skill category"
+      skills: ["skill_pipeline"]
+      complexity: "medium"
+      expected_duration: "20 minutes"
+
+# Pipeline Configuration
+pipeline:
+  - name: "Platform Detection & Setup"
+    skill: "SKILL.skill_evolution.md"
+    inputs:
+      platform_detection: "auto"
+      environment_validation: "comprehensive"
+      capability_mapping: "enabled"
+    outputs:
+      - "platform_capabilities.json"
+      - "environment_readiness.md"
+    timeout: 300
+    retry_attempts: 2
+
+  - name: "Baseline Performance Testing"
+    skill: "SKILL.perf_audit.md"
+    inputs:
+      test_scenarios: "all"
+      performance_metrics: ["execution_time", "memory_usage", "success_rate"]
+      baseline_comparison: "enabled"
+    outputs:
+      - "baseline_performance.json"
+      - "performance_baselines.md"
+    timeout: 600
+    retry_attempts: 1
+    depends_on: ["Platform Detection & Setup"]
+
+  - name: "Core Skills Stress Test"
+    skill: "SKILL.skill_evolution.md"
+    inputs:
+      skills_to_test: ["skill_drafting", "skill_critiquing", "skill_evolution"]
+      test_iterations: 5
+      error_tolerance: "low"
+      platform_specific: "true"
+    outputs:
+      - "core_skills_results.json"
+      - "stress_test_report.md"
+    timeout: 900
+    retry_attempts: 1
+    depends_on: ["Baseline Performance Testing"]
+
+  - name: "Ralph Wiggum Chaos Validation"
+    skill: "SKILL.ralph_wiggum.md"
+    inputs:
+      problem_statement: "Test Ralph Wiggum across all platforms with identical inputs"
+      chaos_consistency: "enabled"
+      platform_comparison: "true"
+      validation_metrics: ["chaos_quality", "gold_extraction", "innovation_potential"]
+    outputs:
+      - "ralph_consistency_report.json"
+      - "chaos_validation.md"
+    timeout: 1200
+    retry_attempts: 1
+    depends_on: ["Core Skills Stress Test"]
+
+  - name: "Full Flywheel Integration Test"
+    skill: "FLOW.full_cycle.yaml"
+    inputs:
+      test_mode: "validation_only"
+      platform_specific: "true"
+      metrics_collection: "comprehensive"
+      error_handling: "strict"
+    outputs:
+      - "flywheel_integration_results.json"
+      - "integration_test_report.md"
+    timeout: 2400
+    retry_attempts: 1
+    depends_on: ["Ralph Wiggum Chaos Validation"]
+
+  - name: "Legacy Codebase Compatibility Test"
+    skill: "FLOW.quality_audit.yaml"
+    inputs:
+      test_repository: "complex_legacy_codebase"
+      platform_specific: "true"
+      compatibility_check: "enabled"
+      performance_monitoring: "enabled"
+    outputs:
+      - "legacy_compatibility_results.json"
+      - "compatibility_report.md"
+    timeout: 1800
+    retry_attempts: 1
+    depends_on: ["Full Flywheel Integration Test"]
+
+  - name: "New Skill Category Generation Test"
+    skill: "FLOW.skill_pipeline.yaml"
+    inputs:
+      skill_description: "Generate skills for video game development"
+      platform_specific: "true"
+      validation_required: "strict"
+      cross_platform_testing: "enabled"
+    outputs:
+      - "new_category_results.json"
+      - "category_generation_report.md"
+    timeout: 1500
+    retry_attempts: 1
+    depends_on: ["Legacy Codebase Compatibility Test"]
+
+  - name: "Metrics Aggregation & Scoring"
+    skill: "SKILL.skill_evolution.md"
+    inputs:
+      test_results: "all_platform_results"
+      scoring_algorithm: "weighted_average"
+      platform_comparison: "enabled"
+      singularity_validation: "true"
+    outputs:
+      - "final_stress_test_scores.json"
+      - "cross_platform_validation_report.md"
+      - "singularity_test_results.md"
+    timeout: 600
+    retry_attempts: 1
+    depends_on: ["New Skill Category Generation Test"]
+
+# Platform-Specific Configurations
+platform_configurations:
+  cline:
+    file_operations: "full"
+    tool_execution: "enabled"
+    mcp_integration: "full"
+    timeout_multiplier: 1.0
+    retry_attempts: 2
+    
+  goose:
+    file_operations: "full"
+    tool_execution: "enabled"
+    mcp_integration: "limited"
+    timeout_multiplier: 1.2
+    retry_attempts: 1
+    
+  raw_llama3:
+    file_operations: "read_only"
+    tool_execution: "disabled"
+    mcp_integration: "disabled"
+    timeout_multiplier: 1.5
+    retry_attempts: 0
+
+# Success Criteria
+success_criteria:
+  platform_compatibility:
+    cline_score: "5/5"
+    goose_score: "5/5"
+    llama3_score: "4/5"
+    
+  functionality_validation:
+    core_skills: "100_percent_success"
+    ralph_wiggum: "consistent_across_platforms"
+    full_cycle: "production_ready"
+    
+  performance_requirements:
+    execution_time_variance: "under_20_percent"
+    memory_usage: "within_acceptable_limits"
+    error_rate: "under_5_percent"
+
+# Error Handling
+error_handling:
+  timeout_policy: "platform_specific"
+  failure_policy: "continue_with_platform_notes"
+  rollback_strategy: "none"
+  notification_level: "on_platform_failure"
+
+# Output Artifacts
+artifacts:
+  primary_reports:
+    - "cross_platform_validation_report.md"
+    - "singularity_test_results.md"
+    - "final_stress_test_scores.json"
+  detailed_results:
+    - "platform_capabilities.json"
+    - "baseline_performance.json"
+    - "core_skills_results.json"
+    - "ralph_consistency_report.json"
+    - "flywheel_integration_results.json"
+    - "legacy_compatibility_results.json"
+    - "new_category_results.json"
+  validation_outputs:
+    - "environment_readiness.md"
+    - "performance_baselines.md"
+    - "stress_test_report.md"
+    - "chaos_validation.md"
+    - "integration_test_report.md"
+    - "compatibility_report.md"
+    - "category_generation_report.md"
+
+# Quality Gates
+quality_gates:
+  platform_readiness: "all_platforms_pass"
+  core_functionality: "100_percent_success"
+  performance_consistency: "within_20_percent_variance"
+  cross_platform_compatibility: "minimum_4_out_of_5"
+  singularity_validation: "production_ready"
+
+# Usage Instructions
+usage:
+  - "Run: agent run FLOW.stress_test.yaml"
+  - "Monitor platform-specific progress"
+  - "Review cross-platform validation report"
+  - "Validate singularity test results"
+  - "Address any platform-specific issues"
+  - "Update platform configurations as needed"
+
+# Prerequisites
+prerequisites:
+  - "Access to all three platforms (Cline, Goose, Raw Llama3)"
+  - "Test repositories for legacy codebase testing"
+  - "Performance monitoring tools configured"
+  - "Error tracking and logging enabled"
+  - "Platform-specific timeout and retry configurations"
+
+# Estimated Runtime
+estimated_runtime: "2-4 hours depending on platform performance"
+
+# Platform-Specific Notes
+platform_notes:
+  cline:
+    - "Full capabilities available"
+    - "Expected highest performance scores"
+    - "Primary development and testing platform"
+    
+  goose:
+    - "VS Code extension limitations apply"
+    - "MCP integration may be limited"
+    - "File operations should work normally"
+    
+  raw_llama3:
+    - "File read-only operations only"
+    - "No tool execution or MCP integration"
+    - "Focus on documentation and analysis skills"
+
+# Emergency Stop Conditions
+emergency_stop:
+  - "Any platform fails core functionality tests"
+  - "Performance variance exceeds 50%"
+  - "Singularity test fails completely"
+  - "Critical errors in flywheel integration"
+  - "Platform-specific timeouts exceeded"
