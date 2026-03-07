@@ -19,7 +19,8 @@ DOMAIN_PORT_MAP = {
     "ux-mobile": 8006,
     "advanced": 8007,
     "strategy": 8008,
-    "agent-rd": 8009
+    "agent-rd": 8009,
+    "model-orchestration": 8012
 }
 
 async def check_service_health(host: str, port: int, timeout: float = 1.0) -> bool:
@@ -46,6 +47,7 @@ SERVICE_GROUPS = {
     "advanced": ["QUANTUM_COMPUTING", "WEB3", "ALGO_PATTERNS", "search_algorithms", "logic", "logic_programming"],
     "strategy": ["strategy_analysis", "epidemiology", "game_theory", "GAME_DEV"],
     "agent-rd": ["AI_AGENT_DEVELOPMENT", "generated_skills"],
+    "model-orchestration": ["model_orchestration"],
     "fallback": ["General", "ARCHIVED"] 
 }
 

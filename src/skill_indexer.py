@@ -119,73 +119,73 @@ class SkillIndexer:
     def _parse_skill_file(self, skill_file: Path) -> Optional[SkillMetadata]:
         """
         Parse a SKILL.md file and extract metadata.
-        
-        Args:
-            skill_file (Path): Path to the SKILL.md file
-            
-        Returns:
-            Optional[SkillMetadata]: Parsed skill metadata or None if parsing failed
+        Support both legacy Markdown formatting and new YAML frontmatter.
         """
         try:
             with open(skill_file, 'r', encoding='utf-8') as f:
                 content = f.read()
             
-            # Extract metadata using regex patterns
             metadata = {
-                'name': self._extract_field(content, r'^# (.+)$'),
-                'domain': self._extract_field(content, r'-\*\*Domain:\*\* (.+)$'),
-                'version': self._extract_field(content, r'-\*\*Version:\*\* (.+)$'),
-                'purpose': self._extract_field(content, r'-\*\*Purpose:\*\* (.+)$'),
-                'description': self._extract_field(content, r'-\*\*Description:\*\* (.+)$'),
-                'path': str(skill_file),
+                'path': str(skill_file.relative_to(self.base_path.parent)),
                 'last_modified': skill_file.stat().st_mtime,
-                'complexity': self._extract_field(content, r'-\*\*Complexity:\*\* (.+)$'),
-                'skill_type': self._extract_field(content, r'-\*\*Type:\*\* (.+)$'),
-                'category': self._extract_field(content, r'-\*\*Category:\*\* (.+)$'),
-                'source': self._extract_field(content, r'-\*\*Source:\*\* (.+)$'),
-                'estimated_time': self._extract_field(content, r'-\*\*Estimated Time:\*\* (.+)$'),
-                'difficulty_level': self._extract_field(content, r'-\*\*Difficulty Level:\*\* (.+)$'),
             }
+
+            # Handle YAML Frontmatter
+            if content.startswith('---'):
+                parts = content.split('---', 2)
+                if len(parts) >= 3:
+                    try:
+                        import yaml
+                        fm = yaml.safe_load(parts[1])
+                        # Map YAML keys to SkillMetadata fields
+                        metadata['name'] = str(fm.get('name', '')).replace('SKILL.', '')
+                        metadata['domain'] = fm.get('Domain')
+                        metadata['version'] = str(fm.get('Version'))
+                        metadata['purpose'] = fm.get('Purpose')
+                        metadata['description'] = fm.get('Description')
+                        metadata['complexity'] = fm.get('Complexity')
+                        metadata['skill_type'] = fm.get('Type')
+                        metadata['category'] = fm.get('Category')
+                        metadata['tags'] = fm.get('Tags', [])
+                        metadata['dependencies'] = fm.get('Dependencies', [])
+                        metadata['estimated_time'] = fm.get('Estimated Execution Time')
+                    except Exception as fm_err:
+                        logger.warning(f"YAML parse error in {skill_file}: {fm_err}")
+
+            # Fallback for name from directory name if still missing
+            if not metadata.get('name'):
+                metadata['name'] = skill_file.parent.name.replace('SKILL.', '')
+
+            # Extract Purpose and Description from body headers if still missing
+            if not metadata.get('purpose'):
+                # Look for ## Purpose section
+                purpose_match = re.search(r'## Purpose\n(.*?)(?=\n##|\Z)', content, re.DOTALL)
+                if purpose_match:
+                    metadata['purpose'] = purpose_match.group(1).strip()
             
-            # Extract tags
-            tags_match = re.search(r'-\*\*Tags:\*\*(.*?)(?=\n##|\n-\*\*|\Z)', content, re.DOTALL)
-            if tags_match:
-                tags_text = tags_match.group(1).strip()
-                metadata['tags'] = [tag.strip() for tag in tags_text.split(',') if tag.strip()]
-            else:
-                metadata['tags'] = []
-            
-            # Extract dependencies
-            deps_match = re.search(r'-\*\*Dependencies:\*\*(.*?)(?=\n##|\n-\*\*|\Z)', content, re.DOTALL)
-            if deps_match:
-                deps_text = deps_match.group(1).strip()
-                metadata['dependencies'] = [dep.strip() for dep in deps_text.split(',') if dep.strip()]
-            else:
-                metadata['dependencies'] = []
-            
-            # Extract prerequisites
-            prereq_match = re.search(r'-\*\*Prerequisites:\*\*(.*?)(?=\n##|\n-\*\*|\Z)', content, re.DOTALL)
-            if prereq_match:
-                prereq_text = prereq_match.group(1).strip()
-                metadata['prerequisites'] = [prereq.strip() for prereq in prereq_text.split(',') if prereq.strip()]
-            else:
-                metadata['prerequisites'] = []
-            
+            if not metadata.get('description'):
+                description_match = re.search(r'## Description\n(.*?)(?=\n##|\Z)', content, re.DOTALL)
+                if description_match:
+                    metadata['description'] = description_match.group(1).strip()
+
+            # Legacy Regex Fallbacks (Optional)
+            if not metadata.get('domain'):
+                metadata['domain'] = self._extract_field(content, r'-\*\*Domain:\*\* (.+)$')
+            if not metadata.get('version'):
+                metadata['version'] = self._extract_field(content, r'-\*\*Version:\*\* (.+)$')
+
             # Validate required fields
             required_fields = ['name', 'domain', 'version', 'purpose', 'description']
             for field in required_fields:
                 if not metadata.get(field):
-                    logger.warning(f"Missing required field '{field}' in {skill_file}")
-                    return None
+                    # Final fallback for name based on directory
+                    if field == 'name':
+                        metadata['name'] = skill_file.parent.name.replace('SKILL.', '')
+                    else:
+                        logger.warning(f"Missing required field '{field}' in {skill_file}")
+                        return None
             
-            # Convert difficulty level to int if possible
-            if metadata['difficulty_level']:
-                try:
-                    metadata['difficulty_level'] = int(metadata['difficulty_level'])
-                except ValueError:
-                    metadata['difficulty_level'] = None
-            
-            return SkillMetadata(**metadata)
+            return SkillMetadata(**{k: v for k, v in metadata.items() if k in SkillMetadata.__dataclass_fields__})
             
         except Exception as e:
             logger.error(f"Failed to parse {skill_file}: {e}")
@@ -353,25 +353,15 @@ class SkillIndexer:
         }
         return report
     
-    def export_index(self, output_path: str = "skill_index.json"):
-        """Export the skill index to a JSON file."""
-        index_data = {
-            'skills': {name: asdict(metadata) for name, metadata in self.skills.items()},
-            'domain_index': self.domain_index,
-            'tag_index': self.tag_index,
-            'complexity_index': self.complexity_index,
-            'type_index': self.type_index,
-            'metadata': {
-                'generated_at': datetime.now().isoformat(),
-                'total_skills': len(self.skills),
-                'domains': len(self.domain_index)
-            }
-        }
+    def export_index(self, output_path: str = "skill_registry.json"):
+        """Export the skill index to a JSON file (legacy compatible list format)."""
+        # Maintain legacy format: a list of skill objects
+        index_data = [asdict(metadata) for metadata in self.skills.values()]
         
         with open(output_path, 'w', encoding='utf-8') as f:
             json.dump(index_data, f, indent=2, default=str)
         
-        logger.info(f"Skill index exported to {output_path}")
+        logger.info(f"Skill registry exported to {output_path}")
     
     def load_index(self, input_path: str = "skill_index.json"):
         """Load a skill index from a JSON file."""
@@ -421,8 +411,8 @@ def main():
     for tag, skills in report['top_tags'][:10]:
         print(f"  {tag}: {len(skills)} skills")
     
-    # Export index
-    indexer.export_index()
+    # Export index (rebuild skill_registry.json)
+    indexer.export_index("skill_registry.json")
     
     # Demonstrate search functionality
     print("\n=== Search Examples ===")

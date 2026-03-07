@@ -105,6 +105,24 @@ class AgentOrchestrator:
             
         return None
 
+    async def select_mission_model(self, task_description: str, agent_name: str) -> Dict[str, Any]:
+        """Query the MCP server to select the optimal model for the mission segment."""
+        # Note: In a real system, we'd query the MCP server. 
+        # For this implementation, we call the model_select logic via a standardized mission interface.
+        try:
+            # Simulated MCP tool call to /model-select
+            async with aiohttp.ClientSession() as session:
+                url = f"http://localhost:8000/call/model_select"
+                # hardware_profile would be discovered via PerformanceMonitor
+                payload = {"task": task_description, "hardware_profile": "RTX 4090"}
+                async with session.post(url, json=payload) as resp:
+                    if resp.status == 200:
+                        return await resp.json()
+        except Exception as e:
+            logger.warning(f"Model selection fallback triggered for {agent_name}: {e}")
+        
+        return {"recommended_model": "Llama-3.1-70B", "strategy": "Default Fallback"}
+
     def register_agent(self, agent_config: AgentConfig):
         """Register an agent for orchestration."""
         self.agents[agent_config.name] = agent_config
@@ -285,6 +303,14 @@ class AgentOrchestrator:
                 
             agents_used.extend(domain_agents)
             endpoint = endpoints.get(domain)
+            
+            # Model-Aware Selection for each domain segment
+            for agent_name in domain_agents:
+                selection = await self.select_mission_model(mission_objective, agent_name)
+                logger.info(f"Model Selection for '{agent_name}': {selection.get('recommended_model')} ({selection.get('strategy')})")
+                if agent_name in self.agents:
+                    self.agents[agent_name].model = selection.get("recommended_model", "gpt-4")
+
             if endpoint:
                 logger.info(f"Dispatching mission segment to remote domain '{domain}' at endpoint {endpoint}")
             else:
