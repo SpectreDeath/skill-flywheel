@@ -1,0 +1,48 @@
+{
+  "mission_name": "tutorial_harvesting_flywheel",
+  "mission_description": "Execute flywheel to scan tutorials, extract patterns, and generate skills",
+  "phases": [
+    {
+      "phase_name": "tutorial_scanning",
+      "description": "Scan and catalog all Jupyter tutorials in AI-Tutorial-Codes-Included-main",
+      "skills": ["tutorial_harvesting_engine"],
+      "input": {
+        "source_directory": "../../AI-Tutorial-Codes-Included-main",
+        "file_types": ["*.ipynb", "*.py", "*.md"],
+        "output_format": "comprehensive_catalog"
+      }
+    },
+    {
+      "phase_name": "pattern_extraction",
+      "description": "Extract core algorithms and agent patterns from tutorial content",
+      "skills": ["pattern_extraction_analyzer"],
+      "input": {
+        "tutorial_data": "extracted_tutorial_catalog.json",
+        "analysis_scope": "comprehensive",
+        "pattern_types": ["agent_communication", "workflow_pipeline", "algorithm_optimization", "data_processing"]
+      }
+    },
+    {
+      "phase_name": "skill_generation",
+      "description": "Generate new skills based on extracted patterns",
+      "skills": ["agent_architecture_designer", "multi_agent_workflow_generator", "tool_calling_framework", "rag_pipeline_builder", "hierarchical_planner", "agent_communication_protocol"],
+      "input": {
+        "pattern_catalog": "extracted_patterns.json",
+        "skill_templates": "skill_templates.json",
+        "output_format": "skill_registry_format"
+      }
+    },
+    {
+      "phase_name": "validation",
+      "description": "Validate generated skills and register in skill registry",
+      "skills": ["final_verify"],
+      "input": {
+        "skills_to_validate": "generated_skills.json",
+        "validation_rules": "compliance_rules.json"
+      }
+    }
+  ],
+  "orchestration_strategy": "sequential_with_validation",
+  "error_handling": "continue_on_failure_with_logging",
+  "output_directory": "./flywheel_output"
+}

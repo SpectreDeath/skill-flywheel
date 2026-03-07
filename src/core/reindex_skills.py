@@ -4,8 +4,9 @@ import yaml
 import re
 from pathlib import Path
 
-SKILLS_DIR = Path(r"D:\Skill Flywheel\domains")
-REGISTRY_FILE = Path(r"D:\Skill Flywheel\skill_registry.json")
+WORKSPACE_ROOT = Path(__file__).parent.parent.parent
+SKILLS_DIR = WORKSPACE_ROOT / "domains"
+REGISTRY_FILE = WORKSPACE_ROOT / "skill_registry.json"
 
 def get_skill_metadata(file_path):
     """Extract metadata from a SKILL.md file."""

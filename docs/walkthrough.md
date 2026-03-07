@@ -64,7 +64,7 @@ Successful generation of the orchestration stack:
 ### 4. GitHub Integration
 
 The finalized, sanitized, and containerized codebase has been pushed to:
-`https://github.com/SpectreDeath/skill-flywheel`
+`https://github.com/Organization/skill-flywheel`
 
 The repository is configured with a `.gitignore` to protect local telemetry and environment data.
 

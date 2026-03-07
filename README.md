@@ -48,16 +48,23 @@ The **Discovery Service** acts as the entry point for the entire empire. Use it 
 - `list_available_services`: Returns all active MCP endpoints and their domain coverage.
 - `find_domain_for_skill`: Maps a skill name (e.g., `repo-recon`) to its specific container endpoint.
 
-## 🛡️ Regulatory Compliance & Telemetry
+## 🛡️ Operational Compliance & Telemetry
 
-Every transaction within the empire is logged to a centralized telemetry volume. This ensures all agent actions are auditable and compliant with enterprise standards. Logs are located at `./telemetry/usage_log.jsonl`.
+Every transaction within the ecosystem is logged to a centralized telemetry volume. This ensures all agent actions are auditable and compliant with operational standards. Logs are located at `./telemetry/usage_log.jsonl`.
+
+## ♿ Accessibility & API Resiliency
+
+Skill Flywheel is designed to be functional even without paid API keys. Core services and tools (including Skill Enrichment and Agent Orchestration) verify the presence of `GEMINI_API_KEY` or `OPENAI_API_KEY` and gracefully disable dependent features if they are missing, providing clear feedback instead of system failures.
 
 ## 📁 Repository Structure
 
 - `/src/core`: Shared MCP implementation and registry logic.
 - `/src/discovery`: Routing and discovery service logic.
-- `/domains`: Repository of 233+ valid skills (mounted as a volume).
-- `/telemetry`: Persistent audit logs (mounted as a volume).
+- `/domains`: Repository of 513+ specialized skills.
+- `/docs/analysis`: Architecture and ecosystem analysis reports.
+- `/docs/guides`: User and deployment guides.
+- `/tests`: Comprehensive test suites.
+- `/telemetry`: Persistent audit logs.
 - `/deploy`: Containerization artifacts.
 
 ## 📜 License

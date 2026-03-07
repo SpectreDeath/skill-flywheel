@@ -380,4 +380,4 @@ The 4 context rot detection skills provide comprehensive conversation health man
 - **Cross-domain coordination** for complex conversations
 - **Performance optimization** through resource management
 
-These skills will significantly enhance your MCP container's ability to maintain high-quality, long-running conversations, especially valuable for FDA compliance chats and other critical multi-turn interactions.
+These skills will significantly enhance your MCP container's ability to maintain high-quality, long-running conversations, especially valuable for Agency compliance chats and other critical multi-turn interactions.

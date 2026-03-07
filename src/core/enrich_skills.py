@@ -33,8 +33,8 @@ Return the FULL updated Markdown content.
     
     api_key = os.environ.get("GEMINI_API_KEY")
     if not api_key:
-        print("Error: GEMINI_API_KEY not found.")
-        return content
+        # Accessibility: Graceful disable if key missing
+        return f"ENRICHMENT_DISABLED: Requires GEMINI_API_KEY\n\n{content}"
 
     try:
         client = genai.Client(api_key=api_key)
@@ -48,7 +48,10 @@ Return the FULL updated Markdown content.
         return content
 
 def main():
-    registry_path = Path("skill_registry.json")
+    workspace_root = Path(__file__).parent.parent.parent
+    registry_path = workspace_root / "skill_registry.json"
+    archive_dir = workspace_root / "domains" / "ARCHIVED" / "PLACEHOLDERS"
+    
     if not registry_path.exists():
         print("Registry not found.")
         return
@@ -56,39 +59,57 @@ def main():
     with open(registry_path, 'r', encoding='utf-8') as f:
         registry = json.load(f)
 
-    # Focus on core domains for this pass
-    core_domains = ["APPLICATION_SECURITY", "DATABASE_ENGINEERING", "orchestration", "DEVOPS"]
-    
-    enriched_count = 0
-    for skill in registry:
-        domain = skill.get('domain')
-        if domain not in core_domains:
-            continue
-            
-        skill_path = Path(skill['path'])
-        if not skill_path.exists():
-            continue
+    # 1. Target specifically archived placeholders for systematic re-integration
+    archived_skills = list(archive_dir.glob("**/SKILL*.md"))
+    print(f"Found {len(archived_skills)} archived placeholder skills.")
 
-        with open(skill_path, 'r', encoding='utf-8') as f:
+    enriched_count = 0
+    for skill_file in archived_skills:
+        with open(skill_file, 'r', encoding='utf-8') as f:
             content = f.read()
 
-        # Check if enrichment is needed (contains identifiable placeholders)
-        placeholders = ["dynamically during execution", "*[Content for", "Auto-generated boilerplate"]
-        if any(p in content for p in placeholders):
-            print(f"Enriching {skill['name']} in {domain}...")
-            new_content = enrich_skill_content(content, skill['name'], domain)
-            
-            if new_content and new_content != content:
-                # Basic safety check: ensure some markdown headers still exist
-                if "## " in new_content:
-                    with open(skill_path, 'w', encoding='utf-8') as f:
-                        f.write(new_content)
-                    enriched_count += 1
-                    print(f"Successfully enriched {skill['name']}")
-                else:
-                    print(f"Skipping {skill['name']} - generated content failed sanity check.")
+        # Simple domain extraction from filename or path
+        skill_name = skill_file.parent.name.replace('SKILL.', '')
+        
+        # Find matching entry in registry or infer domain
+        domain = "General"
+        try:
+            domain = skill_file.relative_to(archive_dir).parts[0]
+        except Exception:
+            pass
 
-    print(f"Enrichment session complete. Updated {enriched_count} skills.")
+        print(f"Enriching {skill_name} for domain {domain}...")
+        new_content = enrich_skill_content(content, skill_name, domain)
+        
+        if new_content and new_content != content and "## " in new_content:
+            # Re-integration: Move back to production domains/
+            target_dir = workspace_root / "domains" / domain / f"SKILL.{skill_name}"
+            target_dir.mkdir(parents=True, exist_ok=True)
+            target_file = target_dir / "SKILL.md"
+            
+            with open(target_file, 'w', encoding='utf-8') as f:
+                f.write(new_content)
+            
+            # Remove from archive
+            skill_file.unlink()
+            try:
+                skill_file.parent.rmdir() 
+            except OSError:
+                pass
+                
+            enriched_count += 1
+            print(f"Successfully enriched and re-integrated {skill_name} to {domain}")
+
+    # 2. Re-index registry after re-integration
+    if enriched_count > 0:
+        print("Enrichment complete. Triggering re-index...")
+        # Add src to sys.path to ensure reindex_skills can be imported
+        import sys
+        sys.path.append(str(workspace_root / "src"))
+        from core.reindex_skills import reindex
+        reindex()
+
+    print(f"Enrichment session complete. Updated and re-integrated {enriched_count} skills.")
 
 if __name__ == "__main__":
     main()

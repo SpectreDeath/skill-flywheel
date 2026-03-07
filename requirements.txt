@@ -4,3 +4,10 @@ pyyaml
 pathlib
 google-genai
 openai
+aiohttp
+requests
+scikit-learn
+pandas
+numpy
+joblib
+pytest
