@@ -159,4 +159,4 @@ async def find_domain_for_skill(skill_name: str):
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8000))
     # Discovery service always runs in HTTP mode for container internal access
-    mcp.run(transport="sse")
+    mcp.run(transport="sse", host="0.0.0.0", port=8000)
