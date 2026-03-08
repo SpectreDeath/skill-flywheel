@@ -157,6 +157,6 @@ async def find_domain_for_skill(skill_name: str):
         return f"Error querying registry: {str(e)}"
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 8000))
-    # Discovery service always runs in HTTP mode for container internal access
-    mcp.run(transport="sse")
+    # Discovery service must bind to 0.0.0.0 to be accessible from outside the container
+    # The internal port is set to 8000 to match your Docker Compose mapping
+    mcp.run(transport="sse", host="0.0.0.0", port=8000)
