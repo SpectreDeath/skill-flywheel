@@ -11,3 +11,4 @@ pandas
 numpy
 joblib
 pytest
+uvicorn[standard]
