@@ -159,4 +159,4 @@ async def find_domain_for_skill(skill_name: str):
 if __name__ == "__main__":
     # Discovery service must bind to 0.0.0.0 to be accessible from outside the container
     # The internal port is set to 8000 to match your Docker Compose mapping
-    mcp.run(transport="sse", host="0.0.0.0", port=8000)
+    mcp.run(transport="sse")
