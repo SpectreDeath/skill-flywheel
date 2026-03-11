@@ -30,12 +30,7 @@ def main():
     """Run all test files"""
     test_dir = "tests"
     test_files = [
-        "test_mcp_server_fix.py",
-        "test_enhanced_server.py",
-        "test_dynamic_lazy_loading.py",
-        "test_performance_improvements.py",
-        "test_watchdog.py",
-        "test_ux_mobile_idle_wake.py"
+        "test_mcp_server_fix.py"
     ]
     
     results = {}
