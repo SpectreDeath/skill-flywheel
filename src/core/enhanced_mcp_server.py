@@ -890,15 +890,18 @@ if __name__ == "__main__":
     register_existing_skills()
     
     # Start the enhanced MCP server
-    port = int(os.environ.get("PORT", 8000))
     transport = os.environ.get("MCP_TRANSPORT", "stdio")
+    port = int(os.environ.get("PORT", 8000))
     
     logger.info(f"Starting Enhanced MCP Server: {server_name}")
     logger.info(f"Registry: {REGISTRY_FILE}")
     logger.info(f"Skills Directory: {SKILLS_DIR}")
     logger.info(f"Domains: {', '.join(MCP_DOMAINS) if MCP_DOMAINS else 'All'}")
+    logger.info(f"Port: {port}")
     
+    # Use uvicorn directly for HTTP-based services (like discovery service)
     if transport == "http":
-        mcp.run(transport="http", port=port)
+        import uvicorn
+        uvicorn.run(mcp.sse_app, host="0.0.0.0", port=port)
     else:
         mcp.run()

@@ -1,0 +1,2756 @@
+{
+  "total_skills": 511,
+  "healthy_skills": 21,
+  "failed_skills": 490,
+  "skills": {
+    "qrisp-quantum-algorithms-grover-qpe-qaoa": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: QUANTUM_COMPUTING"
+    },
+    "dynamic-model-router": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: model_orchestration"
+    },
+    "hardware-model-selector": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: model_orchestration"
+    },
+    "model-ensemble-orchestrator": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: model_orchestration"
+    },
+    "model-health-monitor": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: model_orchestration"
+    },
+    "model-latency-predictor": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: model_orchestration"
+    },
+    "multi-model-fusion-engine": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: model_orchestration"
+    },
+    "ralph-chaos-model-selector": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: model_orchestration"
+    },
+    "task-model-optimizer": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: model_orchestration"
+    },
+    "a-coding-guide-to-acp-systems": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "a-coding-implementation-to-end-to-end-transformer-model-optimization-with-hugging-face-optimum-onnx-runtime-and-quantization": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "advanced-ai-evaluator-enterprise-grade-framework": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "advanced-async-python-sdk-tutorial": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "advanced-dspy-qa": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "advanced-ivy-framework-agnostic-ml-tutorial": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "advanced-jax-flax-optax-training-pipeline": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "advanced-litserve-multi-endpoint-api-tutorial": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "advanced-pubmed-research-assistant-tutorial": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "advanced-pykeen-knowledge-graph-embeddings": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "advanced-pyspark-end-to-end-tutorial": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "advanced-reflex-reactive-webapp": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "advanced-serpapi-tutorial": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "agentic-rag-with-routing-and-self-check": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "agentic-voice-ai-autonomous-assistant": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "async-config-tutorial": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "autogluon-end-to-end-tabular-modeling-and-deployment": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "building-an-advanced-convolutional-neural-network-with-attention-for-dna-sequence-classification-and-interpretability": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "chain-of-thought": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "colpali-visual-retrieval": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "competitive-analysis-with-scrapegraph-gemini": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "crewai-gemini-workflow": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "custom-gpt-local-colab-chat": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "dagster-advanced-pipeline": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "daytona-secure-ai-code-execution-tutorial": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "diffusers-image-generation-control-editing": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "dpo-alignment-qlora-ultrafeedback": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "einops-advanced-tensor-workflows": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "embodied-vla-latent-mpc-agent": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "enhanced-brightdata-gemini-scraper-tutorial": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "enterprise-ai-rag-guardrails": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "federated-lora-llm-finetuning-flower": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "gemini-prompt-optimization": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "getting-started-with-asyncio": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "gluonts-advanced-multimodel-tutorial": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "gpt-5": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "griffe-ai-code-analyzer": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "guardrails": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "guide-to-building-an-end-to-end-speech-enhancement-and-recognition-pipeline-with-speechbrain": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "how-to-master-advanced-torchvision-v2-transforms-mixup-cutmix-and-modern-cnn-training-for-state-of-the-art-computer-vision": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "huggingface-trackio-advanced-tutorial": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "hyperopt-conditional-tpe-pipeline": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "hypothesis-property-based-testing": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "intro-to-shap-iq": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "jina-langchain-gemini-ai-assistant": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "json-prompting": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "knowledge-graph": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "kornia-differentiable-vision-loftr-ransac": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "lerobot-pusht-bc-tutorial": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "lightly-ai-self-supervised-active-learning": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "llm-arena-as-a-judge": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "llm-caching": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "llm-parameters": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "lyzr-chatbot-framework-implementation": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "matryoshka-representation-learning-sentencetransformers-msmarco": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "meta-hydra-advanced-implementation": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "minimax": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "mistral-devstral-compact-loading": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "mistral-guardrails": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "mlflow-experiment-tracking-and-model-serving": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "mlflow-intro": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "multi-agent-demo": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "network": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "offline-safety-critical-rl-conservative-q-learning-d3rlpy": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "ollama-langchain-tutorial": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "openai-federated-fraud-detection-from-scratch": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "openbb-advanced-portfolio-market-intelligence": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "opik-local-llm-tracing-and-evaluation": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "oprl-preference-shaped-rl": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "optuna-advanced-hpo": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "pipecat-huggingface-implementation": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "polars-sql-analytics-pipeline": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "presidio": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "prompt-versioning-and-regression-testing-for-llms-with-mlflow": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "pybel-biokg-interactive-tutorial": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "pyversity": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "quantum-state-evolution-and-entanglement-qutip-tutorial": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "rag-context-stuffing": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "rag-deepeval-quality-benchmarking": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "rag-evaluation": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "regression-language-model-transformer-rlm-tutorial": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "removing-semantic-duplicates": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "retrieval-grounded-faithfulness-hallucination-evaluation-ig": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "roboflow-supervision-advanced-tracking-analytics-pipeline": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "routellm": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "self-hosted-llm-ollama": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "self-refine": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "semantic-caching": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "semantic-highlighting": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "shap-iq-visuals": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "shapiq-explainable-ai-feature-and-interaction-analysis": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "smart-python-to-r-converter-with-gemini-validation": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "streaming-voice-agent-latency-budgets-end-to-end": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "tinydev-gemini-implementation": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "tinygrad-transformer-minigpt": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "tpot-advanced-pipeline-optimization": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "transformer-nqs-netket-j1j2-vmc": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "tree-kg-hierarchical-knowledge-graph-multi-hop-reasoning": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "trulens-llm-instrumentation-feedback-evaluation": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "unsloth-qlora-stable-sft": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "upstage-groundedness-check-tutorial": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "verbalized-sampling": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "voice-ai-whisperx-advanced-tutorial": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "zarr-implementation-tutorial": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "zero-padding-cnn": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "agent": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: mcp_tools"
+    },
+    "agent-demo": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: mcp_tools"
+    },
+    "app": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: mcp_tools"
+    },
+    "context-aware-assistant-mcp-gemini-langchain-langgraph": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: mcp_tools"
+    },
+    "custom-mcp-tools-integration-with-fastmcp": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: mcp_tools"
+    },
+    "langgraph-acp-structured-message-bus-multi-agent-system": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: mcp_tools"
+    },
+    "mcp-tutorial-server": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: mcp_tools"
+    },
+    "model-context-protocol-integration": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: mcp_tools"
+    },
+    "stateless-async-mcp-protocol-demo": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: mcp_tools"
+    },
+    "test-server": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: mcp_tools"
+    },
+    "sat-solver-optimization": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: logic"
+    },
+    "active-learning": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: DATA_ENGINEERING"
+    },
+    "advanced-bokeh-interactive-dashboard": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: DATA_ENGINEERING"
+    },
+    "advanced-panel-interactive-dashboard": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: DATA_ENGINEERING"
+    },
+    "advanced-pygwalker-interactive-eda": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: DATA_ENGINEERING"
+    },
+    "advanced-pygwalker-visual-analysis": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: DATA_ENGINEERING"
+    },
+    "advanced-pytest-custom-plugins-fixtures-tutorial": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: DATA_ENGINEERING"
+    },
+    "advanced-textual-data-dashboard": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: DATA_ENGINEERING"
+    },
+    "building-an-end-to-end-data-science-workflow-with-machine-learning-interpretability-and-gemini-ai-assistance": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: DATA_ENGINEERING"
+    },
+    "cognitive-complexity-auditing-with-complexipy": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: DATA_ENGINEERING"
+    },
+    "ctgan-sdv-synthetic-data-pipeline": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: DATA_ENGINEERING"
+    },
+    "daft-end-to-end-ml-pipeline": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: DATA_ENGINEERING"
+    },
+    "dash-plotly-local-online-dashboard": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: DATA_ENGINEERING"
+    },
+    "diagonal-decision-boundary": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: DATA_ENGINEERING"
+    },
+    "folium-interactive-geospatial-visualization": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: DATA_ENGINEERING"
+    },
+    "ibis-portable-in-database-feature-engineering": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: DATA_ENGINEERING"
+    },
+    "imbalanced-datasets": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: DATA_ENGINEERING"
+    },
+    "kernel-pca": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: DATA_ENGINEERING"
+    },
+    "kv-caching": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: DATA_ENGINEERING"
+    },
+    "lilac-functional-data-pipeline": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: DATA_ENGINEERING"
+    },
+    "matlab-python-oct2py-colab-tutorial": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: DATA_ENGINEERING"
+    },
+    "modin-powered-dataframes": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: DATA_ENGINEERING"
+    },
+    "networkit-largegraph-analytics-pipeline": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: DATA_ENGINEERING"
+    },
+    "numpyro-hierarchical-regression-advanced": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: DATA_ENGINEERING"
+    },
+    "pandera-production-grade-dataframe-validation": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: DATA_ENGINEERING"
+    },
+    "polyfactory-production-grade-mock-data-generation": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: DATA_ENGINEERING"
+    },
+    "softmax": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: DATA_ENGINEERING"
+    },
+    "synthetic-data-creation": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: DATA_ENGINEERING"
+    },
+    "tqdm-production-progress-monitoring": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: DATA_ENGINEERING"
+    },
+    "unified-tool-orchestration-framework": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: DATA_ENGINEERING"
+    },
+    "vaex-large-scale-analytics-and-ml-pipeline": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: DATA_ENGINEERING"
+    },
+    "apache-beam-batch-and-stream-windowing": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: CLOUD_ENGINEERING"
+    },
+    "decentralized-gossip-federated-learning-with-differential-privacy": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: CLOUD_ENGINEERING"
+    },
+    "distributed-vector-db-sharding-replication-quorum": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: CLOUD_ENGINEERING"
+    },
+    "elastic-vector-db-consistent-hashing-rag": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: CLOUD_ENGINEERING"
+    },
+    "huey-async-tasks": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: CLOUD_ENGINEERING"
+    },
+    "kombu-task-routing": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: CLOUD_ENGINEERING"
+    },
+    "pbft-asyncio-byzantine-latency-simulator": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: CLOUD_ENGINEERING"
+    },
+    "rpc-vs-event-driven-failure-dynamics-distributed-systems": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: CLOUD_ENGINEERING"
+    },
+    "game-dev-multiplayer": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ARCHIVED"
+    },
+    "game-dev-performance": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ARCHIVED"
+    },
+    "game-dev-unity": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ARCHIVED"
+    },
+    "web3-blockchain-development": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ARCHIVED"
+    },
+    "web3-defi-development": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ARCHIVED"
+    },
+    "web3-smart-contract-security": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ARCHIVED"
+    },
+    "d-app-frontend-bridging": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: WEB3"
+    },
+    "de-fi-protocol-integration": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: WEB3"
+    },
+    "gas-optimization-techniques": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: WEB3"
+    },
+    "layer-2-scaling-0": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: WEB3"
+    },
+    "layer-2-scaling-1": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: WEB3"
+    },
+    "layer-2-scaling-2": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: WEB3"
+    },
+    "layer-2-scaling-3": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: WEB3"
+    },
+    "layer-2-scaling-4": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: WEB3"
+    },
+    "nft-minting-pipeline": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: WEB3"
+    },
+    "smart-contract-audit": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: WEB3"
+    },
+    "wallet-connection-workflow": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: WEB3"
+    },
+    "executable_spec_harness": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: SPECIFICATION_ENGINEERING"
+    },
+    "ralph_chaos_wildcard": {
+      "healthy": true,
+      "response_time": 0.10212039947509766,
+      "error": null
+    },
+    "specification-api-design": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: SPECIFICATION_ENGINEERING"
+    },
+    "specification-architecture-decisions": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: SPECIFICATION_ENGINEERING"
+    },
+    "specification-lifecycle-management": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: APPLICATION_SECURITY"
+    },
+    "specification-prd-generation": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: SPECIFICATION_ENGINEERING"
+    },
+    "specification-synchronization": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: APPLICATION_SECURITY"
+    },
+    "specification-technical-authoring": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: SPECIFICATION_ENGINEERING"
+    },
+    "specification-test-planning": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: SPECIFICATION_ENGINEERING"
+    },
+    "specification-traceability": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: APPLICATION_SECURITY"
+    },
+    "specification-validation-framework": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: APPLICATION_SECURITY"
+    },
+    "specification-version-control": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: APPLICATION_SECURITY"
+    },
+    "spec_contract_authoring": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: SPECIFICATION_ENGINEERING"
+    },
+    "spec_evolution_engine": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: SPECIFICATION_ENGINEERING"
+    },
+    "spec_guardrail_enforcement": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: SPECIFICATION_ENGINEERING"
+    },
+    "spec_regression_monitoring": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: SPECIFICATION_ENGINEERING"
+    },
+    "spec_to_task_decomposition": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: SPECIFICATION_ENGINEERING"
+    },
+    "dependency-analyzer": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: skill_validation"
+    },
+    "format-compliance-tester": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: skill_validation"
+    },
+    "frontmatter-validator": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: skill_validation"
+    },
+    "naming-convention-checker": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: skill_validation"
+    },
+    "skill-spec-validator": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: skill_validation"
+    },
+    "autonomous-evolution-controller": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: skill_registry"
+    },
+    "capability-index": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: skill_registry"
+    },
+    "library-health": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: skill_registry"
+    },
+    "multi-skill-chaining": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: skill_registry"
+    },
+    "skill-recommendation": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: skill_registry"
+    },
+    "task-skill-router": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: skill_registry"
+    },
+    "compliance-framework-generation": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: security_engineering"
+    },
+    "pentesting-workflow-automation": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: security_engineering"
+    },
+    "secrets-management-detection": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: security_engineering"
+    },
+    "secure-architecture-review": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: security_engineering"
+    },
+    "vulnerability-scanning-prioritization": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: security_engineering"
+    },
+    "a-star-pathfinding": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: search_algorithms"
+    },
+    "ant-colony-optimization": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: search_algorithms"
+    },
+    "genetic-algorithm-optimization": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: search_algorithms"
+    },
+    "simulated-annealing": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: search_algorithms"
+    },
+    "tabu-search": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: search_algorithms"
+    },
+    "bayesian-networks": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: probabilistic_models"
+    },
+    "gaussian-processes": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: probabilistic_models"
+    },
+    "markov-models": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: probabilistic_models"
+    },
+    "probabilistic-graphical-models": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: probabilistic_models"
+    },
+    "probabilistic-programming": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: probabilistic_models"
+    },
+    "dynamic-skill-selection-routing": {
+      "healthy": true,
+      "response_time": 0.09462451934814453,
+      "error": null
+    },
+    "multi-skill-workflow-coordination": {
+      "healthy": true,
+      "response_time": 0.047446489334106445,
+      "error": null
+    },
+    "parallel-skill-execution": {
+      "healthy": true,
+      "response_time": 0.09031200408935547,
+      "error": null
+    },
+    "skill-dependency-resolution": {
+      "healthy": true,
+      "response_time": 0.04410743713378906,
+      "error": null
+    },
+    "skill-failure-recovery-retry": {
+      "healthy": true,
+      "response_time": 0.045250654220581055,
+      "error": null
+    },
+    "autonomous_mission_planner": {
+      "healthy": true,
+      "response_time": 0.0891876220703125,
+      "error": null
+    },
+    "context_health_analyzer": {
+      "healthy": true,
+      "response_time": 0.09162306785583496,
+      "error": null
+    },
+    "context_pruning_engine": {
+      "healthy": true,
+      "response_time": 0.040766239166259766,
+      "error": null
+    },
+    "context_rot_detector": {
+      "healthy": true,
+      "response_time": 0.04196453094482422,
+      "error": null
+    },
+    "conversation_reset_optimizer": {
+      "healthy": true,
+      "response_time": 0.08602094650268555,
+      "error": null
+    },
+    "cross_domain_workflow_orchestrator": {
+      "healthy": true,
+      "response_time": 0.03989219665527344,
+      "error": null
+    },
+    "domain_portfolio_manager": {
+      "healthy": true,
+      "response_time": 0.08231091499328613,
+      "error": null
+    },
+    "empire_health_monitor": {
+      "healthy": true,
+      "response_time": 0.0876467227935791,
+      "error": null
+    },
+    "mcp_load_balancer": {
+      "healthy": true,
+      "response_time": 0.08523893356323242,
+      "error": null
+    },
+    "multi_skill_chaining_engine": {
+      "healthy": true,
+      "response_time": 0.08576345443725586,
+      "error": null
+    },
+    "skill_team_assembler": {
+      "healthy": true,
+      "response_time": 0.08548736572265625,
+      "error": null
+    },
+    "ch-003": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: generated_skills"
+    },
+    "ch-006": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: generated_skills"
+    },
+    "ch-009": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: generated_skills"
+    },
+    "app-store-compliance-deployment": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: mobile_development"
+    },
+    "cross-platform-architecture": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: mobile_development"
+    },
+    "mobile-performance-optimization": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: mobile_development"
+    },
+    "mobile-security-hardening": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: mobile_development"
+    },
+    "native-module-integration": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: mobile_development"
+    },
+    "ml-ai-research-experimentation": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "ml-computer-vision-image-processing": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "ml-data-science-analytics": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "ml-deep-learning-frameworks": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "ml-engineering-mlops": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "vector-embedding-opt-0": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "vector-embedding-opt-1": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "vector-embedding-opt-2": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "vector-embedding-opt-3": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "vector-embedding-opt-4": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ML_AI"
+    },
+    "capability-gap-analysis": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: META_SKILL_DISCOVERY"
+    },
+    "skill-proximity-search": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: META_SKILL_DISCOVERY"
+    },
+    "agentic-workflow-optimization": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: meta_agent_enhancement"
+    },
+    "cognitive-bias-guardrail": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: meta_agent_enhancement"
+    },
+    "high-fidelity-scenario-simulation": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: meta_agent_enhancement"
+    },
+    "orthogonal-concept-synthesis": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: meta_agent_enhancement"
+    },
+    "recursive-logic-audit": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: meta_agent_enhancement"
+    },
+    "constraint-satisfaction-sat-solvers": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: logic_programming"
+    },
+    "formal-verification-techniques": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: logic_programming"
+    },
+    "logic-based-optimization": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: logic_programming"
+    },
+    "logic-programming-frameworks": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: logic_programming"
+    },
+    "temporal-logic-applications": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: logic_programming"
+    },
+    "constraint-programming": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: logic"
+    },
+    "datalog-reasoning": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: logic"
+    },
+    "prolog-knowledge-rep": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: logic"
+    },
+    "temporal-logic": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: logic"
+    },
+    "game-state-persistence": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: GAME_DEV"
+    },
+    "gameplay-loop-design": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: GAME_DEV"
+    },
+    "npc-behavior-ai": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: GAME_DEV"
+    },
+    "npc-behavior-tree-0": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: GAME_DEV"
+    },
+    "npc-behavior-tree-1": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: GAME_DEV"
+    },
+    "npc-behavior-tree-2": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: GAME_DEV"
+    },
+    "npc-behavior-tree-3": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: GAME_DEV"
+    },
+    "npc-behavior-tree-4": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: GAME_DEV"
+    },
+    "physics-system-simulation": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: GAME_DEV"
+    },
+    "procedural-world-generation": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: GAME_DEV"
+    },
+    "shader-effect-development": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: GAME_DEV"
+    },
+    "frontend-performance-build-tooling": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: FRONTEND"
+    },
+    "frontend-react-nextjs-typescript": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: FRONTEND"
+    },
+    "frontend-state-management-data-flow": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: FRONTEND"
+    },
+    "frontend-testing-quality-assurance": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: FRONTEND"
+    },
+    "frontend-ui-ux-design-system": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: FRONTEND"
+    },
+    "coq-proof-engine": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: formal_methods"
+    },
+    "formal-verification-methods": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: formal_methods"
+    },
+    "isabelle-hol-theorem-proving": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: formal_methods"
+    },
+    "model-checking-frameworks": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: formal_methods"
+    },
+    "tla-plus-specification": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: formal_methods"
+    },
+    "belief-revision": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: epistemology"
+    },
+    "epistemic-guardrails": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: epistemology"
+    },
+    "evidence-weighting": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: epistemology"
+    },
+    "hypothesis-competition": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: epistemology"
+    },
+    "source-reliability": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: epistemology"
+    },
+    "devops-cicd-automation": {
+      "healthy": true,
+      "response_time": 0.08161091804504395,
+      "error": null
+    },
+    "devops-container-orchestration": {
+      "healthy": true,
+      "response_time": 0.08459782600402832,
+      "error": null
+    },
+    "devops-infrastructure-as-code": {
+      "healthy": true,
+      "response_time": 0.0847005844116211,
+      "error": null
+    },
+    "devops-monitoring-observability": {
+      "healthy": true,
+      "response_time": 0.08469319343566895,
+      "error": null
+    },
+    "data-migration-strategy": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: DATABASE_ENGINEERING"
+    },
+    "database-backup-restore": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: DATABASE_ENGINEERING"
+    },
+    "database-sharding-plan": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: DATABASE_ENGINEERING"
+    },
+    "db-sharding-strategy-0": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: DATABASE_ENGINEERING"
+    },
+    "db-sharding-strategy-1": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: DATABASE_ENGINEERING"
+    },
+    "db-sharding-strategy-2": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: DATABASE_ENGINEERING"
+    },
+    "db-sharding-strategy-3": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: DATABASE_ENGINEERING"
+    },
+    "db-sharding-strategy-4": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: DATABASE_ENGINEERING"
+    },
+    "high-availability-replication": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: DATABASE_ENGINEERING"
+    },
+    "index-strategy-optimization": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: DATABASE_ENGINEERING"
+    },
+    "query-performance-optimization": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: DATABASE_ENGINEERING"
+    },
+    "database-security-ninja": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: generated_skills"
+    },
+    "database-whisperer-ai": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: generated_skills"
+    },
+    "query-time-machine": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: generated_skills"
+    },
+    "ai-proactive-threat-modeling": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: APPLICATION_SECURITY"
+    },
+    "api-design": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: APPLICATION_SECURITY"
+    },
+    "automated-security-testing": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: APPLICATION_SECURITY"
+    },
+    "compliance-audit": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: APPLICATION_SECURITY"
+    },
+    "deps-audit": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: APPLICATION_SECURITY"
+    },
+    "developer-centric-security-training": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: APPLICATION_SECURITY"
+    },
+    "intelligent-security-analysis-platform": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: APPLICATION_SECURITY"
+    },
+    "metrics-dashboard": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: APPLICATION_SECURITY"
+    },
+    "perf-audit": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: APPLICATION_SECURITY"
+    },
+    "predictive-observability-engine": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: APPLICATION_SECURITY"
+    },
+    "ralph-wiggum": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: APPLICATION_SECURITY"
+    },
+    "refactor-plan": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: APPLICATION_SECURITY"
+    },
+    "secure-sdlc-integration": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: APPLICATION_SECURITY"
+    },
+    "self-optimizing-deployment-pipeline": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: APPLICATION_SECURITY"
+    },
+    "test-survey": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: APPLICATION_SECURITY"
+    },
+    "zero-day-patch-flow-0": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: APPLICATION_SECURITY"
+    },
+    "zero-day-patch-flow-1": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: APPLICATION_SECURITY"
+    },
+    "zero-day-patch-flow-2": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: APPLICATION_SECURITY"
+    },
+    "zero-day-patch-flow-3": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: APPLICATION_SECURITY"
+    },
+    "zero-day-patch-flow-4": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: APPLICATION_SECURITY"
+    },
+    "zero-trust-architecture-implementation": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: APPLICATION_SECURITY"
+    },
+    "algorithm-strategy-selection": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ALGO_PATTERNS"
+    },
+    "algorithmic-decomposition": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ALGO_PATTERNS"
+    },
+    "complexity-analysis": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ALGO_PATTERNS"
+    },
+    "design-pattern-recommender": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ALGO_PATTERNS"
+    },
+    "pattern-from-code": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: ALGO_PATTERNS"
+    },
+    "autonomous-tool-learning": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: agent_evolution"
+    },
+    "dynamic-context-adaptation": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: agent_evolution"
+    },
+    "multi-agent-synergy": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: agent_evolution"
+    },
+    "recursive-reasoning-refinement": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: agent_evolution"
+    },
+    "self-improvement-loop": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: agent_evolution"
+    },
+    "repo-recon": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: APPLICATION_SECURITY"
+    },
+    "security-scan": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: APPLICATION_SECURITY"
+    },
+    "skill-critiquing": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: APPLICATION_SECURITY"
+    },
+    "skill-drafting": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: APPLICATION_SECURITY"
+    },
+    "skill-evolution": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: APPLICATION_SECURITY"
+    },
+    "ai-assisted-vulnerability-prioritization-ml-nlp": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: APPLICATION_SECURITY"
+    },
+    "auth": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: APPLICATION_SECURITY"
+    },
+    "autoattack-adversarial-robustness-benchmarking": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: APPLICATION_SECURITY"
+    },
+    "building-a-hybrid-rule-based-and-machine-learning-framework-to-detect-and-defend-against-jailbreak-prompts-in-llm-systems": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: APPLICATION_SECURITY"
+    },
+    "config": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: APPLICATION_SECURITY"
+    },
+    "finance": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: APPLICATION_SECURITY"
+    },
+    "multiturn-crescendo-llm-safety-evaluation-with-garak": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: APPLICATION_SECURITY"
+    },
+    "robust-llm-safety-filters-adaptive-attack-defense": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: APPLICATION_SECURITY"
+    },
+    "server": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: APPLICATION_SECURITY"
+    },
+    "single-turn-attacks": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: APPLICATION_SECURITY"
+    },
+    "targeted-data-poisoning-label-flipping-cifar10-pytorch": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: APPLICATION_SECURITY"
+    },
+    "zero-trust-network-simulation-policy-engine": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: APPLICATION_SECURITY"
+    },
+    "adaptive-meta-reasoning-agent": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "advanced-ai-agent-hugging-face": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "advanced-google-adk-multi-agent-tutorial": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "advanced-langgraph-multi-agent-pipeline": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "advanced-neural-agent": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "advanced-ocr-ai-agent": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "advanced-peer-multiagent-tutorial": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "advanced-stable-baselines3-trading-agent": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "agent-executor": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "agent-lightning-prompt-optimization": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "agent-orchestration-with-mistral-agents-api": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "agent2agent-collaboration": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "agentic-ai-langchain-autogen-huggingface": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "agentic-ai-time-series-forecasting-darts-hf": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "agentic-benchmarking-empirical-study": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "agentic-data-infrastructure-strategy-qwen": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "agentic-deep-rl-curriculum-ucb-meta-control": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "agentic-multi-agent-rl-gridworld": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "agentic-rag-tutorial": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "agentscope-multi-agent-incident-response": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "ai-crypto-agent-secure-comms": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "ai-desktop-automation-agent-tutorial": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "autogen-semantickernel-gemini-flash-multiagent-tutorial": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "autogen-teamtool-roundrobin": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "autonomous-prior-auth-agent-healthcare-rcm": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "beeai-multi-agent-workflow": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "biocypher-agent-tutorial": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "building-advanced-mcp-agents-with-multi-agent-coordination": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "camel-multi-agent-research-pipeline": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "cipher-memory-agent": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "client": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "cognee-agent-tutorial-with-huggingface-integration": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "computer-use-agent-local-ai": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "context-folding-llm-agent-long-horizon": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "cost-aware-planning-agent-budget-constrained": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "crewai-multiagent-gemini": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "custom-tool-for-ai-agent": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "customizable-multitool-ai-agent-with-claude": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "deep-research-agent": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "emi-agent": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "enterprise-agentic-benchmarking-framework": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "exploration-agents-problem-solving": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "gemini-agent-network": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "gemini-autogen-multiagent-framework": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "gemini-pandas-agent": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "gemini-semantic-agent-orchestrator": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "getting-started-with-mistral-agents-api": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "graph-agent-framework-with-gemini": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "graphagent-gemini-advanced-tutorial": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "graphaiagent-langgraph-gemini-workflow": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "handoff": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "hierarchical-planner-ai-agent-open-source-llm": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "how-to-build-an-advanced-end-to-end-voice-ai-agent-using-hugging-face-pipelines": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "how-to-enable-function-calling-in-mistral-agents": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "hrm-braininspired-ai-agent-huggingface": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "human-in-the-loop-plan-execute-agent-langgraph-streamlit": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "inflation-agent": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "langchain-deepagents": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "langchain-xgboost-agentic-pipeline-tutorial": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "langgraph-gemini-multiagent-research-team": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "langgraph-time-travel-research-agent": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "live-python-execution-and-validation-agent": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "main": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "mcp-gemini-agent-tutorial": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "meta-cognitive-reasoning-controller": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "mle-agent-ollama-local-pipeline": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "multi-agent-omics-integration-pipeline": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "nebius-llama3-multitool-agent": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "neuro-symbolic-hybrid-agent": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "nomic-gemini-multi-agent-ai": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "openai-agents-multiagent-research": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "openai-swarm-multi-agent-incident-response": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "paperqa2-gemini-research-agent": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "parlant": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "parsl-ai-agent-pipeline": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "primisai-nexus-multi-agent-workflow": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "production-ready-custom-ai-agents-workflows": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "prolog-gemini-langgraph-react-agent": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "sage-ai-agent-gemini-implementation": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "secure-ai-agent-with-guardrails": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "self-improving-ai-agent-with-gemini": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "self-verifying-dataops-agent-local-hf": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "semantic-kernel-gemini-agent": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "smartwebagent-tavily-gemini-webintelligence2": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "smolagents-advanced-multi-agent-orchestration": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "smolagents-fleet-maintenance-autonomous-agent": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "streamlit-ai-agent-multitool-interface": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "supervisor-framework-crewai-gemini": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "swiss-army-knife-research-agent-tool-using-ai": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "uagents-gemini-event-driven-tutorial": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "uagents-multi-agent-marketplace": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "value-alignment-and-ethics-in-agentic-systems": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "wetlab-protocol-planner-codegen": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: AI_AGENT_DEVELOPMENT"
+    },
+    "agent_architecture_designer": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: agentic_ai"
+    },
+    "agent_communication_protocol": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: agentic_ai"
+    },
+    "hierarchical_planner": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: agentic_ai"
+    },
+    "multi_agent_workflow_generator": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: agentic_ai"
+    },
+    "pattern_extraction_analyzer": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: agentic_ai"
+    },
+    "rag_pipeline_builder": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: agentic_ai"
+    },
+    "advanced-multitool-agentic-ai": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: agentic_ai"
+    },
+    "agentic-ai-planner-executor-critic": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: agentic_ai"
+    },
+    "agentic-ai-with-langgraph-adaptive-memory-reflexion": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: agentic_ai"
+    },
+    "agentic-chain-of-thought-pruning-dynamic-reasoning": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: agentic_ai"
+    },
+    "agentic-llamaindex-rag-self-evaluation": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: agentic_ai"
+    },
+    "agentic-logistics-swarm-simulation": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: agentic_ai"
+    },
+    "agentic-scientific-discovery-pipeline": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: agentic_ai"
+    },
+    "agentic-workflow-tool-driven-route-optimization": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: agentic_ai"
+    },
+    "agentic-zettelkasten-memory-martechpost": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: agentic_ai"
+    },
+    "anemoi-semi-centralized-peer-critic-loop-langgraph": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: agentic_ai"
+    },
+    "atomic-agents-advanced-rag-pipeline": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: agentic_ai"
+    },
+    "camel-multi-agent-pipeline": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: agentic_ai"
+    },
+    "constitutional-dual-agent-financial-governance": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: agentic_ai"
+    },
+    "control-plane-agentic-ai-system": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: agentic_ai"
+    },
+    "critic-augmented-risk-aware-agent": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: agentic_ai"
+    },
+    "evermem-persistent-agent-os-faiss-sqlite": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: agentic_ai"
+    },
+    "gemini-agentic-medical-authorization-workflow": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: agentic_ai"
+    },
+    "glass-box-governance-auditable-human-in-loop-agentic-workflows": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: agentic_ai"
+    },
+    "graphbit-production-agentic-workflows-offline-to-llm": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: agentic_ai"
+    },
+    "griptape-customer-support-automation-pipeline": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: agentic_ai"
+    },
+    "griptape-local-agentic-story-pipeline": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: agentic_ai"
+    },
+    "local-multi-agent-manager": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: agentic_ai"
+    },
+    "mem0-universal-memory-layer-agents": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: agentic_ai"
+    },
+    "memory-driven-agentic-ai": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: agentic_ai"
+    },
+    "memory-engineering-short-term-long-term-episodic-agents": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: agentic_ai"
+    },
+    "meta-agent-auto-designer": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: agentic_ai"
+    },
+    "model-native-agentic-ai-end-to-end-rl": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: agentic_ai"
+    },
+    "multi-agent-incident-response-haystack": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: agentic_ai"
+    },
+    "neural-memory-agents-continual-learning": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: agentic_ai"
+    },
+    "openclaw-local-agent-runtime": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: agentic_ai"
+    },
+    "outlines-typed-structured-generation": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: agentic_ai"
+    },
+    "persistent-memory-personalised-agentic-ai": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: agentic_ai"
+    },
+    "preemptive-churn-agent": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: agentic_ai"
+    },
+    "procedural-memory-agent-skill-learning": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: agentic_ai"
+    },
+    "pydantic-ai-contract-first-agentic-decision-system": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: agentic_ai"
+    },
+    "pydanticai-bulletproof-agentic-workflows": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: agentic_ai"
+    },
+    "self-organizing-agent-memory-long-horizon-reasoning": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: agentic_ai"
+    },
+    "spacy-agentic-ai-system": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: agentic_ai"
+    },
+    "stateful-tutor-long-term-memory-agent": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: agentic_ai"
+    },
+    "strands-agentic-red-teaming-tool-injection-harness": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: agentic_ai"
+    },
+    "streaming-decision-agent-online-replanning": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: agentic_ai"
+    },
+    "test": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: agentic_ai"
+    },
+    "transactional-agentic-ai-langgraph-two-phase-commit": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: agentic_ai"
+    },
+    "tree-of-thoughts-multi-branch-reasoning-agent": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: agentic_ai"
+    },
+    "ultra-agentic-ai-hybrid-retrieval-guardrails-episodic-memory": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: agentic_ai"
+    },
+    "tool_calling_framework": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: agentic_ai"
+    },
+    "tutorial_harvesting_engine": {
+      "healthy": false,
+      "response_time": 0.0,
+      "error": "Unknown domain: agentic_ai"
+    }
+  },
+  "by_domain": {
+    "QUANTUM_COMPUTING": {
+      "total": 1,
+      "healthy": 0,
+      "failed": 1,
+      "avg_response_time": 0.0
+    },
+    "model_orchestration": {
+      "total": 8,
+      "healthy": 0,
+      "failed": 8,
+      "avg_response_time": 0.0
+    },
+    "ML_AI": {
+      "total": 115,
+      "healthy": 0,
+      "failed": 115,
+      "avg_response_time": 0.0
+    },
+    "mcp_tools": {
+      "total": 10,
+      "healthy": 0,
+      "failed": 10,
+      "avg_response_time": 0.0
+    },
+    "logic": {
+      "total": 5,
+      "healthy": 0,
+      "failed": 5,
+      "avg_response_time": 0.0
+    },
+    "DATA_ENGINEERING": {
+      "total": 30,
+      "healthy": 0,
+      "failed": 30,
+      "avg_response_time": 0.0
+    },
+    "CLOUD_ENGINEERING": {
+      "total": 8,
+      "healthy": 0,
+      "failed": 8,
+      "avg_response_time": 0.0
+    },
+    "ARCHIVED": {
+      "total": 6,
+      "healthy": 0,
+      "failed": 6,
+      "avg_response_time": 0.0
+    },
+    "WEB3": {
+      "total": 11,
+      "healthy": 0,
+      "failed": 11,
+      "avg_response_time": 0.0
+    },
+    "SPECIFICATION_ENGINEERING": {
+      "total": 11,
+      "healthy": 0,
+      "failed": 11,
+      "avg_response_time": 0.0
+    },
+    "orchestration": {
+      "total": 17,
+      "healthy": 17,
+      "failed": 0,
+      "avg_response_time": 0.07292726460625143
+    },
+    "APPLICATION_SECURITY": {
+      "total": 43,
+      "healthy": 0,
+      "failed": 43,
+      "avg_response_time": 0.0
+    },
+    "skill_validation": {
+      "total": 5,
+      "healthy": 0,
+      "failed": 5,
+      "avg_response_time": 0.0
+    },
+    "skill_registry": {
+      "total": 6,
+      "healthy": 0,
+      "failed": 6,
+      "avg_response_time": 0.0
+    },
+    "security_engineering": {
+      "total": 5,
+      "healthy": 0,
+      "failed": 5,
+      "avg_response_time": 0.0
+    },
+    "search_algorithms": {
+      "total": 5,
+      "healthy": 0,
+      "failed": 5,
+      "avg_response_time": 0.0
+    },
+    "probabilistic_models": {
+      "total": 5,
+      "healthy": 0,
+      "failed": 5,
+      "avg_response_time": 0.0
+    },
+    "generated_skills": {
+      "total": 6,
+      "healthy": 0,
+      "failed": 6,
+      "avg_response_time": 0.0
+    },
+    "mobile_development": {
+      "total": 5,
+      "healthy": 0,
+      "failed": 5,
+      "avg_response_time": 0.0
+    },
+    "META_SKILL_DISCOVERY": {
+      "total": 2,
+      "healthy": 0,
+      "failed": 2,
+      "avg_response_time": 0.0
+    },
+    "meta_agent_enhancement": {
+      "total": 5,
+      "healthy": 0,
+      "failed": 5,
+      "avg_response_time": 0.0
+    },
+    "logic_programming": {
+      "total": 5,
+      "healthy": 0,
+      "failed": 5,
+      "avg_response_time": 0.0
+    },
+    "GAME_DEV": {
+      "total": 11,
+      "healthy": 0,
+      "failed": 11,
+      "avg_response_time": 0.0
+    },
+    "FRONTEND": {
+      "total": 5,
+      "healthy": 0,
+      "failed": 5,
+      "avg_response_time": 0.0
+    },
+    "formal_methods": {
+      "total": 5,
+      "healthy": 0,
+      "failed": 5,
+      "avg_response_time": 0.0
+    },
+    "epistemology": {
+      "total": 5,
+      "healthy": 0,
+      "failed": 5,
+      "avg_response_time": 0.0
+    },
+    "DEVOPS": {
+      "total": 4,
+      "healthy": 4,
+      "failed": 0,
+      "avg_response_time": 0.08390063047409058
+    },
+    "DATABASE_ENGINEERING": {
+      "total": 11,
+      "healthy": 0,
+      "failed": 11,
+      "avg_response_time": 0.0
+    },
+    "ALGO_PATTERNS": {
+      "total": 5,
+      "healthy": 0,
+      "failed": 5,
+      "avg_response_time": 0.0
+    },
+    "agent_evolution": {
+      "total": 5,
+      "healthy": 0,
+      "failed": 5,
+      "avg_response_time": 0.0
+    },
+    "AI_AGENT_DEVELOPMENT": {
+      "total": 93,
+      "healthy": 0,
+      "failed": 93,
+      "avg_response_time": 0.0
+    },
+    "agentic_ai": {
+      "total": 53,
+      "healthy": 0,
+      "failed": 53,
+      "avg_response_time": 0.0
+    }
+  }
+}

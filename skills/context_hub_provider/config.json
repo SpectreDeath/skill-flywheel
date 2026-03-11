@@ -1,0 +1,97 @@
+{
+  "name": "context_hub_provider",
+  "version": "1.0.0",
+  "description": "Context Hub Provider skill for Strategy & Analysis domain",
+  "domain": "strategy_analysis",
+  "author": "Skill Flywheel Team",
+  "license": "MIT",
+  "dependencies": {
+    "python": ">=3.8",
+    "subprocess": "built-in",
+    "json": "built-in",
+    "logging": "built-in",
+    "pathlib": "built-in"
+  },
+  "mcp_integration": {
+    "enabled": true,
+    "functions": [
+      {
+        "name": "get_context_hub_info",
+        "description": "Get information about the context hub system",
+        "timeout": 30,
+        "retry_attempts": 2
+      },
+      {
+        "name": "list_skills",
+        "description": "List available skills in the context hub",
+        "timeout": 60,
+        "retry_attempts": 2
+      },
+      {
+        "name": "create_skill",
+        "description": "Create a new skill in the context hub",
+        "timeout": 120,
+        "retry_attempts": 1
+      },
+      {
+        "name": "analyze_context",
+        "description": "Analyze context data using the context hub",
+        "timeout": 180,
+        "retry_attempts": 1
+      },
+      {
+        "name": "synthesize_skills",
+        "description": "Synthesize new skills based on requirements",
+        "timeout": 300,
+        "retry_attempts": 1
+      }
+    ]
+  },
+  "chub_cli": {
+    "required": true,
+    "search_paths": [
+      "chub",
+      "/usr/local/bin/chub",
+      "/usr/bin/chub",
+      "context-hub/cli/chub",
+      "d:/Skill Flywheel/context-hub/cli/chub"
+    ],
+    "version_check": true,
+    "timeout": 10
+  },
+  "domain_config": {
+    "default_domain": "strategy_analysis",
+    "supported_domains": [
+      "strategy_analysis",
+      "business_strategy",
+      "data_analysis",
+      "competitive_analysis"
+    ],
+    "auto_create_domain": true
+  },
+  "performance": {
+    "max_concurrent_operations": 3,
+    "cache_results": true,
+    "cache_ttl": 300,
+    "memory_limit_mb": 256
+  },
+  "logging": {
+    "level": "INFO",
+    "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    "file": "context_hub_provider.log",
+    "max_file_size": "10MB",
+    "backup_count": 5
+  },
+  "error_handling": {
+    "timeout_retry_delay": 5,
+    "max_retries": 3,
+    "fallback_to_json_parsing": true,
+    "graceful_degradation": true
+  },
+  "security": {
+    "validate_input": true,
+    "sanitize_output": true,
+    "allow_shell_commands": false,
+    "input_size_limit": 1048576
+  }
+}

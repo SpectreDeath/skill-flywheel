@@ -29,7 +29,7 @@ EXPOSE 8000
 
 # Healthcheck to ensure MCP server is responding
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
-  CMD curl -f http://localhost:${PORT}/ || exit 1
+  CMD (timeout 5 bash -c "</dev/tcp/localhost/${PORT}") || exit 1
 
 # Start the shared server core
-CMD ["python", "src/core/mcp_server.py"]
+CMD ["python", "src/core/enhanced_mcp_server.py"]

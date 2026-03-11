@@ -23,3 +23,7 @@ validated_variants.json
 # System
 .DS_Store
 Thumbs.db
+
+# Database and Logs
+*.db
+*.log

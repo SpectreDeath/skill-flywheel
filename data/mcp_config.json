@@ -1,0 +1,5202 @@
+{
+  "version": "1.0.0",
+  "generated_at": "2026-03-09T21:30:47.967130Z",
+  "services": {
+    "orchestration": {
+      "name": "mcp-orchestration",
+      "type": "http",
+      "url": "http://mcp-orchestration:8001",
+      "health_check": "http://mcp-orchestration:8001/health",
+      "domains": [
+        "orchestration",
+        "skill_registry",
+        "SKILL",
+        "META_SKILL_DISCOVERY",
+        "meta_agent_enhancement",
+        "FLOW",
+        "TEMPLATES",
+        "agent_evolution"
+      ],
+      "status": "active"
+    },
+    "security": {
+      "name": "mcp-security",
+      "type": "http",
+      "url": "http://mcp-security:8002",
+      "health_check": "http://mcp-security:8002/health",
+      "domains": [
+        "APPLICATION_SECURITY",
+        "security_engineering",
+        "skill_validation",
+        "DEVSECOPS",
+        "forensics",
+        "osint_collector"
+      ],
+      "status": "active"
+    },
+    "data-ai": {
+      "name": "mcp-data-ai",
+      "type": "http",
+      "url": "http://mcp-data-ai:8003",
+      "health_check": "http://mcp-data-ai:8003/health",
+      "domains": [
+        "ML_AI",
+        "DATA_ENGINEERING",
+        "probabilistic_models",
+        "epistemology",
+        "AI_ETHICS"
+      ],
+      "status": "active"
+    },
+    "devops": {
+      "name": "mcp-devops",
+      "type": "http",
+      "url": "http://mcp-devops:8004",
+      "health_check": "http://mcp-devops:8004/health",
+      "domains": [
+        "DEVOPS",
+        "CLOUD_ENGINEERING",
+        "DATABASE_ENGINEERING",
+        "MODERN_BACKEND_DEVELOPMENT",
+        "mcp_tools",
+        "EDGE_COMPUTING"
+      ],
+      "status": "active"
+    },
+    "engineering": {
+      "name": "mcp-engineering",
+      "type": "http",
+      "url": "http://mcp-engineering:8005",
+      "health_check": "http://mcp-engineering:8005/health",
+      "domains": [
+        "SPECIFICATION_ENGINEERING",
+        "formal_methods"
+      ],
+      "status": "active"
+    },
+    "ux-mobile": {
+      "name": "mcp-ux-mobile",
+      "type": "http",
+      "url": "http://mcp-ux-mobile:8006",
+      "health_check": "http://mcp-ux-mobile:8006/health",
+      "domains": [
+        "FRONTEND",
+        "mobile_development"
+      ],
+      "status": "active"
+    },
+    "advanced": {
+      "name": "mcp-advanced",
+      "type": "http",
+      "url": "http://mcp-advanced:8007",
+      "health_check": "http://mcp-advanced:8007/health",
+      "domains": [
+        "QUANTUM_COMPUTING",
+        "WEB3",
+        "ALGO_PATTERNS",
+        "search_algorithms",
+        "logic",
+        "logic_programming"
+      ],
+      "status": "active"
+    },
+    "strategy": {
+      "name": "mcp-strategy",
+      "type": "http",
+      "url": "http://mcp-strategy:8008",
+      "health_check": "http://mcp-strategy:8008/health",
+      "domains": [
+        "strategy_analysis",
+        "epidemiology",
+        "game_theory",
+        "GAME_DEV"
+      ],
+      "status": "active"
+    },
+    "agent-rd": {
+      "name": "mcp-agent-rd",
+      "type": "http",
+      "url": "http://mcp-agent-rd:8009",
+      "health_check": "http://mcp-agent-rd:8009/health",
+      "domains": [
+        "AI_AGENT_DEVELOPMENT",
+        "generated_skills"
+      ],
+      "status": "active"
+    },
+    "model-orchestration": {
+      "name": "mcp-model-orchestration",
+      "type": "http",
+      "url": "http://mcp-model-orchestration:8012",
+      "health_check": "http://mcp-model-orchestration:8012/health",
+      "domains": [
+        "model_orchestration"
+      ],
+      "status": "active"
+    },
+    "fallback": {
+      "name": "mcp-fallback",
+      "type": "http",
+      "url": "http://mcp-fallback:8000",
+      "health_check": "http://mcp-fallback:8000/health",
+      "domains": [
+        "General",
+        "ARCHIVED"
+      ],
+      "status": "active"
+    }
+  },
+    "skills": {
+    "context_hub_provider": {
+      "service": "strategy",
+      "endpoint": "http://mcp-strategy:8008",
+      "domain": "Strategy & Analysis",
+      "status": "routed"
+    },
+    "qrisp-quantum-algorithms-grover-qpe-qaoa": {
+      "service": "advanced",
+      "endpoint": "http://mcp-advanced:8007",
+      "domain": "QUANTUM_COMPUTING",
+      "status": "routed"
+    },
+    "dynamic-model-router": {
+      "service": "model-orchestration",
+      "endpoint": "http://mcp-model-orchestration:8012",
+      "domain": "model_orchestration",
+      "status": "routed"
+    },
+    "hardware-model-selector": {
+      "service": "model-orchestration",
+      "endpoint": "http://mcp-model-orchestration:8012",
+      "domain": "model_orchestration",
+      "status": "routed"
+    },
+    "model-ensemble-orchestrator": {
+      "service": "model-orchestration",
+      "endpoint": "http://mcp-model-orchestration:8012",
+      "domain": "model_orchestration",
+      "status": "routed"
+    },
+    "model-health-monitor": {
+      "service": "model-orchestration",
+      "endpoint": "http://mcp-model-orchestration:8012",
+      "domain": "model_orchestration",
+      "status": "routed"
+    },
+    "model-latency-predictor": {
+      "service": "model-orchestration",
+      "endpoint": "http://mcp-model-orchestration:8012",
+      "domain": "model_orchestration",
+      "status": "routed"
+    },
+    "multi-model-fusion-engine": {
+      "service": "model-orchestration",
+      "endpoint": "http://mcp-model-orchestration:8012",
+      "domain": "model_orchestration",
+      "status": "routed"
+    },
+    "ralph-chaos-model-selector": {
+      "service": "model-orchestration",
+      "endpoint": "http://mcp-model-orchestration:8012",
+      "domain": "model_orchestration",
+      "status": "routed"
+    },
+    "task-model-optimizer": {
+      "service": "model-orchestration",
+      "endpoint": "http://mcp-model-orchestration:8012",
+      "domain": "model_orchestration",
+      "status": "routed"
+    },
+    "a-coding-guide-to-acp-systems": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "a-coding-implementation-to-end-to-end-transformer-model-optimization-with-hugging-face-optimum-onnx-runtime-and-quantization": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "advanced-ai-evaluator-enterprise-grade-framework": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "advanced-async-python-sdk-tutorial": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "advanced-dspy-qa": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "advanced-ivy-framework-agnostic-ml-tutorial": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "advanced-jax-flax-optax-training-pipeline": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "advanced-litserve-multi-endpoint-api-tutorial": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "advanced-pubmed-research-assistant-tutorial": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "advanced-pykeen-knowledge-graph-embeddings": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "advanced-pyspark-end-to-end-tutorial": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "advanced-reflex-reactive-webapp": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "advanced-serpapi-tutorial": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "agentic-rag-with-routing-and-self-check": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "agentic-voice-ai-autonomous-assistant": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "async-config-tutorial": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "autogluon-end-to-end-tabular-modeling-and-deployment": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "building-an-advanced-convolutional-neural-network-with-attention-for-dna-sequence-classification-and-interpretability": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "chain-of-thought": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "colpali-visual-retrieval": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "competitive-analysis-with-scrapegraph-gemini": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "crewai-gemini-workflow": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "custom-gpt-local-colab-chat": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "dagster-advanced-pipeline": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "daytona-secure-ai-code-execution-tutorial": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "diffusers-image-generation-control-editing": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "dpo-alignment-qlora-ultrafeedback": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "einops-advanced-tensor-workflows": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "embodied-vla-latent-mpc-agent": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "enhanced-brightdata-gemini-scraper-tutorial": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "enterprise-ai-rag-guardrails": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "federated-lora-llm-finetuning-flower": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "gemini-prompt-optimization": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "getting-started-with-asyncio": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "gluonts-advanced-multimodel-tutorial": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "gpt-5": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "griffe-ai-code-analyzer": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "guardrails": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "guide-to-building-an-end-to-end-speech-enhancement-and-recognition-pipeline-with-speechbrain": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "how-to-master-advanced-torchvision-v2-transforms-mixup-cutmix-and-modern-cnn-training-for-state-of-the-art-computer-vision": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "huggingface-trackio-advanced-tutorial": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "hyperopt-conditional-tpe-pipeline": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "hypothesis-property-based-testing": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "intro-to-shap-iq": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "jina-langchain-gemini-ai-assistant": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "json-prompting": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "knowledge-graph": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "kornia-differentiable-vision-loftr-ransac": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "lerobot-pusht-bc-tutorial": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "lightly-ai-self-supervised-active-learning": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "llm-arena-as-a-judge": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "llm-caching": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "llm-parameters": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "lyzr-chatbot-framework-implementation": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "matryoshka-representation-learning-sentencetransformers-msmarco": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "meta-hydra-advanced-implementation": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "minimax": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "mistral-devstral-compact-loading": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "mistral-guardrails": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "mlflow-experiment-tracking-and-model-serving": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "mlflow-intro": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "multi-agent-demo": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "network": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "offline-safety-critical-rl-conservative-q-learning-d3rlpy": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "ollama-langchain-tutorial": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "openai-federated-fraud-detection-from-scratch": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "openbb-advanced-portfolio-market-intelligence": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "opik-local-llm-tracing-and-evaluation": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "oprl-preference-shaped-rl": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "optuna-advanced-hpo": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "pipecat-huggingface-implementation": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "polars-sql-analytics-pipeline": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "presidio": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "prompt-versioning-and-regression-testing-for-llms-with-mlflow": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "pybel-biokg-interactive-tutorial": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "pyversity": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "quantum-state-evolution-and-entanglement-qutip-tutorial": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "rag-context-stuffing": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "rag-deepeval-quality-benchmarking": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "rag-evaluation": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "regression-language-model-transformer-rlm-tutorial": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "removing-semantic-duplicates": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "retrieval-grounded-faithfulness-hallucination-evaluation-ig": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "roboflow-supervision-advanced-tracking-analytics-pipeline": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "routellm": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "self-hosted-llm-ollama": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "self-refine": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "semantic-caching": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "semantic-highlighting": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "shap-iq-visuals": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "shapiq-explainable-ai-feature-and-interaction-analysis": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "smart-python-to-r-converter-with-gemini-validation": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "streaming-voice-agent-latency-budgets-end-to-end": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "tinydev-gemini-implementation": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "tinygrad-transformer-minigpt": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "tpot-advanced-pipeline-optimization": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "transformer-nqs-netket-j1j2-vmc": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "tree-kg-hierarchical-knowledge-graph-multi-hop-reasoning": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "trulens-llm-instrumentation-feedback-evaluation": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "unsloth-qlora-stable-sft": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "upstage-groundedness-check-tutorial": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "verbalized-sampling": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "voice-ai-whisperx-advanced-tutorial": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "zarr-implementation-tutorial": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "zero-padding-cnn": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "agent": {
+      "service": "devops",
+      "endpoint": "http://mcp-devops:8004",
+      "domain": "mcp_tools",
+      "status": "routed"
+    },
+    "agent-demo": {
+      "service": "devops",
+      "endpoint": "http://mcp-devops:8004",
+      "domain": "mcp_tools",
+      "status": "routed"
+    },
+    "app": {
+      "service": "devops",
+      "endpoint": "http://mcp-devops:8004",
+      "domain": "mcp_tools",
+      "status": "routed"
+    },
+    "context-aware-assistant-mcp-gemini-langchain-langgraph": {
+      "service": "devops",
+      "endpoint": "http://mcp-devops:8004",
+      "domain": "mcp_tools",
+      "status": "routed"
+    },
+    "custom-mcp-tools-integration-with-fastmcp": {
+      "service": "devops",
+      "endpoint": "http://mcp-devops:8004",
+      "domain": "mcp_tools",
+      "status": "routed"
+    },
+    "langgraph-acp-structured-message-bus-multi-agent-system": {
+      "service": "devops",
+      "endpoint": "http://mcp-devops:8004",
+      "domain": "mcp_tools",
+      "status": "routed"
+    },
+    "mcp-tutorial-server": {
+      "service": "devops",
+      "endpoint": "http://mcp-devops:8004",
+      "domain": "mcp_tools",
+      "status": "routed"
+    },
+    "model-context-protocol-integration": {
+      "service": "devops",
+      "endpoint": "http://mcp-devops:8004",
+      "domain": "mcp_tools",
+      "status": "routed"
+    },
+    "stateless-async-mcp-protocol-demo": {
+      "service": "devops",
+      "endpoint": "http://mcp-devops:8004",
+      "domain": "mcp_tools",
+      "status": "routed"
+    },
+    "test-server": {
+      "service": "devops",
+      "endpoint": "http://mcp-devops:8004",
+      "domain": "mcp_tools",
+      "status": "routed"
+    },
+    "sat-solver-optimization": {
+      "service": "advanced",
+      "endpoint": "http://mcp-advanced:8007",
+      "domain": "logic",
+      "status": "routed"
+    },
+    "active-learning": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "DATA_ENGINEERING",
+      "status": "routed"
+    },
+    "advanced-bokeh-interactive-dashboard": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "DATA_ENGINEERING",
+      "status": "routed"
+    },
+    "advanced-panel-interactive-dashboard": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "DATA_ENGINEERING",
+      "status": "routed"
+    },
+    "advanced-pygwalker-interactive-eda": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "DATA_ENGINEERING",
+      "status": "routed"
+    },
+    "advanced-pygwalker-visual-analysis": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "DATA_ENGINEERING",
+      "status": "routed"
+    },
+    "advanced-pytest-custom-plugins-fixtures-tutorial": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "DATA_ENGINEERING",
+      "status": "routed"
+    },
+    "advanced-textual-data-dashboard": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "DATA_ENGINEERING",
+      "status": "routed"
+    },
+    "building-an-end-to-end-data-science-workflow-with-machine-learning-interpretability-and-gemini-ai-assistance": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "DATA_ENGINEERING",
+      "status": "routed"
+    },
+    "cognitive-complexity-auditing-with-complexipy": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "DATA_ENGINEERING",
+      "status": "routed"
+    },
+    "ctgan-sdv-synthetic-data-pipeline": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "DATA_ENGINEERING",
+      "status": "routed"
+    },
+    "daft-end-to-end-ml-pipeline": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "DATA_ENGINEERING",
+      "status": "routed"
+    },
+    "dash-plotly-local-online-dashboard": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "DATA_ENGINEERING",
+      "status": "routed"
+    },
+    "diagonal-decision-boundary": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "DATA_ENGINEERING",
+      "status": "routed"
+    },
+    "folium-interactive-geospatial-visualization": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "DATA_ENGINEERING",
+      "status": "routed"
+    },
+    "ibis-portable-in-database-feature-engineering": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "DATA_ENGINEERING",
+      "status": "routed"
+    },
+    "imbalanced-datasets": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "DATA_ENGINEERING",
+      "status": "routed"
+    },
+    "kernel-pca": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "DATA_ENGINEERING",
+      "status": "routed"
+    },
+    "kv-caching": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "DATA_ENGINEERING",
+      "status": "routed"
+    },
+    "lilac-functional-data-pipeline": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "DATA_ENGINEERING",
+      "status": "routed"
+    },
+    "matlab-python-oct2py-colab-tutorial": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "DATA_ENGINEERING",
+      "status": "routed"
+    },
+    "modin-powered-dataframes": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "DATA_ENGINEERING",
+      "status": "routed"
+    },
+    "networkit-largegraph-analytics-pipeline": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "DATA_ENGINEERING",
+      "status": "routed"
+    },
+    "numpyro-hierarchical-regression-advanced": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "DATA_ENGINEERING",
+      "status": "routed"
+    },
+    "pandera-production-grade-dataframe-validation": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "DATA_ENGINEERING",
+      "status": "routed"
+    },
+    "polyfactory-production-grade-mock-data-generation": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "DATA_ENGINEERING",
+      "status": "routed"
+    },
+    "softmax": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "DATA_ENGINEERING",
+      "status": "routed"
+    },
+    "synthetic-data-creation": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "DATA_ENGINEERING",
+      "status": "routed"
+    },
+    "tqdm-production-progress-monitoring": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "DATA_ENGINEERING",
+      "status": "routed"
+    },
+    "unified-tool-orchestration-framework": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "DATA_ENGINEERING",
+      "status": "routed"
+    },
+    "vaex-large-scale-analytics-and-ml-pipeline": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "DATA_ENGINEERING",
+      "status": "routed"
+    },
+    "apache-beam-batch-and-stream-windowing": {
+      "service": "devops",
+      "endpoint": "http://mcp-devops:8004",
+      "domain": "CLOUD_ENGINEERING",
+      "status": "routed"
+    },
+    "decentralized-gossip-federated-learning-with-differential-privacy": {
+      "service": "devops",
+      "endpoint": "http://mcp-devops:8004",
+      "domain": "CLOUD_ENGINEERING",
+      "status": "routed"
+    },
+    "distributed-vector-db-sharding-replication-quorum": {
+      "service": "devops",
+      "endpoint": "http://mcp-devops:8004",
+      "domain": "CLOUD_ENGINEERING",
+      "status": "routed"
+    },
+    "elastic-vector-db-consistent-hashing-rag": {
+      "service": "devops",
+      "endpoint": "http://mcp-devops:8004",
+      "domain": "CLOUD_ENGINEERING",
+      "status": "routed"
+    },
+    "huey-async-tasks": {
+      "service": "devops",
+      "endpoint": "http://mcp-devops:8004",
+      "domain": "CLOUD_ENGINEERING",
+      "status": "routed"
+    },
+    "kombu-task-routing": {
+      "service": "devops",
+      "endpoint": "http://mcp-devops:8004",
+      "domain": "CLOUD_ENGINEERING",
+      "status": "routed"
+    },
+    "pbft-asyncio-byzantine-latency-simulator": {
+      "service": "devops",
+      "endpoint": "http://mcp-devops:8004",
+      "domain": "CLOUD_ENGINEERING",
+      "status": "routed"
+    },
+    "rpc-vs-event-driven-failure-dynamics-distributed-systems": {
+      "service": "devops",
+      "endpoint": "http://mcp-devops:8004",
+      "domain": "CLOUD_ENGINEERING",
+      "status": "routed"
+    },
+    "game-dev-multiplayer": {
+      "service": "fallback",
+      "endpoint": "http://mcp-fallback:8000",
+      "domain": "ARCHIVED",
+      "status": "routed"
+    },
+    "game-dev-performance": {
+      "service": "fallback",
+      "endpoint": "http://mcp-fallback:8000",
+      "domain": "ARCHIVED",
+      "status": "routed"
+    },
+    "game-dev-unity": {
+      "service": "fallback",
+      "endpoint": "http://mcp-fallback:8000",
+      "domain": "ARCHIVED",
+      "status": "routed"
+    },
+    "web3-blockchain-development": {
+      "service": "fallback",
+      "endpoint": "http://mcp-fallback:8000",
+      "domain": "ARCHIVED",
+      "status": "routed"
+    },
+    "web3-defi-development": {
+      "service": "fallback",
+      "endpoint": "http://mcp-fallback:8000",
+      "domain": "ARCHIVED",
+      "status": "routed"
+    },
+    "web3-smart-contract-security": {
+      "service": "fallback",
+      "endpoint": "http://mcp-fallback:8000",
+      "domain": "ARCHIVED",
+      "status": "routed"
+    },
+    "d-app-frontend-bridging": {
+      "service": "advanced",
+      "endpoint": "http://mcp-advanced:8007",
+      "domain": "WEB3",
+      "status": "routed"
+    },
+    "de-fi-protocol-integration": {
+      "service": "advanced",
+      "endpoint": "http://mcp-advanced:8007",
+      "domain": "WEB3",
+      "status": "routed"
+    },
+    "gas-optimization-techniques": {
+      "service": "advanced",
+      "endpoint": "http://mcp-advanced:8007",
+      "domain": "WEB3",
+      "status": "routed"
+    },
+    "layer-2-scaling-0": {
+      "service": "advanced",
+      "endpoint": "http://mcp-advanced:8007",
+      "domain": "WEB3",
+      "status": "routed"
+    },
+    "layer-2-scaling-1": {
+      "service": "advanced",
+      "endpoint": "http://mcp-advanced:8007",
+      "domain": "WEB3",
+      "status": "routed"
+    },
+    "layer-2-scaling-2": {
+      "service": "advanced",
+      "endpoint": "http://mcp-advanced:8007",
+      "domain": "WEB3",
+      "status": "routed"
+    },
+    "layer-2-scaling-3": {
+      "service": "advanced",
+      "endpoint": "http://mcp-advanced:8007",
+      "domain": "WEB3",
+      "status": "routed"
+    },
+    "layer-2-scaling-4": {
+      "service": "advanced",
+      "endpoint": "http://mcp-advanced:8007",
+      "domain": "WEB3",
+      "status": "routed"
+    },
+    "nft-minting-pipeline": {
+      "service": "advanced",
+      "endpoint": "http://mcp-advanced:8007",
+      "domain": "WEB3",
+      "status": "routed"
+    },
+    "smart-contract-audit": {
+      "service": "advanced",
+      "endpoint": "http://mcp-advanced:8007",
+      "domain": "WEB3",
+      "status": "routed"
+    },
+    "wallet-connection-workflow": {
+      "service": "advanced",
+      "endpoint": "http://mcp-advanced:8007",
+      "domain": "WEB3",
+      "status": "routed"
+    },
+    "executable_spec_harness": {
+      "service": "engineering",
+      "endpoint": "http://mcp-engineering:8005",
+      "domain": "SPECIFICATION_ENGINEERING",
+      "status": "routed"
+    },
+    "ralph_chaos_wildcard": {
+      "service": "orchestration",
+      "endpoint": "http://mcp-orchestration:8001",
+      "domain": "orchestration",
+      "status": "routed"
+    },
+    "specification-api-design": {
+      "service": "engineering",
+      "endpoint": "http://mcp-engineering:8005",
+      "domain": "SPECIFICATION_ENGINEERING",
+      "status": "routed"
+    },
+    "specification-architecture-decisions": {
+      "service": "engineering",
+      "endpoint": "http://mcp-engineering:8005",
+      "domain": "SPECIFICATION_ENGINEERING",
+      "status": "routed"
+    },
+    "specification-lifecycle-management": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "domain": "APPLICATION_SECURITY",
+      "status": "routed"
+    },
+    "specification-prd-generation": {
+      "service": "engineering",
+      "endpoint": "http://mcp-engineering:8005",
+      "domain": "SPECIFICATION_ENGINEERING",
+      "status": "routed"
+    },
+    "specification-synchronization": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "domain": "APPLICATION_SECURITY",
+      "status": "routed"
+    },
+    "specification-technical-authoring": {
+      "service": "engineering",
+      "endpoint": "http://mcp-engineering:8005",
+      "domain": "SPECIFICATION_ENGINEERING",
+      "status": "routed"
+    },
+    "specification-test-planning": {
+      "service": "engineering",
+      "endpoint": "http://mcp-engineering:8005",
+      "domain": "SPECIFICATION_ENGINEERING",
+      "status": "routed"
+    },
+    "specification-traceability": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "domain": "APPLICATION_SECURITY",
+      "status": "routed"
+    },
+    "specification-validation-framework": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "domain": "APPLICATION_SECURITY",
+      "status": "routed"
+    },
+    "specification-version-control": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "domain": "APPLICATION_SECURITY",
+      "status": "routed"
+    },
+    "spec_contract_authoring": {
+      "service": "engineering",
+      "endpoint": "http://mcp-engineering:8005",
+      "domain": "SPECIFICATION_ENGINEERING",
+      "status": "routed"
+    },
+    "spec_evolution_engine": {
+      "service": "engineering",
+      "endpoint": "http://mcp-engineering:8005",
+      "domain": "SPECIFICATION_ENGINEERING",
+      "status": "routed"
+    },
+    "spec_guardrail_enforcement": {
+      "service": "engineering",
+      "endpoint": "http://mcp-engineering:8005",
+      "domain": "SPECIFICATION_ENGINEERING",
+      "status": "routed"
+    },
+    "spec_regression_monitoring": {
+      "service": "engineering",
+      "endpoint": "http://mcp-engineering:8005",
+      "domain": "SPECIFICATION_ENGINEERING",
+      "status": "routed"
+    },
+    "spec_to_task_decomposition": {
+      "service": "engineering",
+      "endpoint": "http://mcp-engineering:8005",
+      "domain": "SPECIFICATION_ENGINEERING",
+      "status": "routed"
+    },
+    "dependency-analyzer": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "domain": "skill_validation",
+      "status": "routed"
+    },
+    "format-compliance-tester": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "domain": "skill_validation",
+      "status": "routed"
+    },
+    "frontmatter-validator": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "domain": "skill_validation",
+      "status": "routed"
+    },
+    "naming-convention-checker": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "domain": "skill_validation",
+      "status": "routed"
+    },
+    "skill-spec-validator": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "domain": "skill_validation",
+      "status": "routed"
+    },
+    "autonomous-evolution-controller": {
+      "service": "orchestration",
+      "endpoint": "http://mcp-orchestration:8001",
+      "domain": "skill_registry",
+      "status": "routed"
+    },
+    "capability-index": {
+      "service": "orchestration",
+      "endpoint": "http://mcp-orchestration:8001",
+      "domain": "skill_registry",
+      "status": "routed"
+    },
+    "library-health": {
+      "service": "orchestration",
+      "endpoint": "http://mcp-orchestration:8001",
+      "domain": "skill_registry",
+      "status": "routed"
+    },
+    "multi-skill-chaining": {
+      "service": "orchestration",
+      "endpoint": "http://mcp-orchestration:8001",
+      "domain": "skill_registry",
+      "status": "routed"
+    },
+    "skill-recommendation": {
+      "service": "orchestration",
+      "endpoint": "http://mcp-orchestration:8001",
+      "domain": "skill_registry",
+      "status": "routed"
+    },
+    "task-skill-router": {
+      "service": "orchestration",
+      "endpoint": "http://mcp-orchestration:8001",
+      "domain": "skill_registry",
+      "status": "routed"
+    },
+    "compliance-framework-generation": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "domain": "security_engineering",
+      "status": "routed"
+    },
+    "pentesting-workflow-automation": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "domain": "security_engineering",
+      "status": "routed"
+    },
+    "secrets-management-detection": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "domain": "security_engineering",
+      "status": "routed"
+    },
+    "secure-architecture-review": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "domain": "security_engineering",
+      "status": "routed"
+    },
+    "vulnerability-scanning-prioritization": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "domain": "security_engineering",
+      "status": "routed"
+    },
+    "a-star-pathfinding": {
+      "service": "advanced",
+      "endpoint": "http://mcp-advanced:8007",
+      "domain": "search_algorithms",
+      "status": "routed"
+    },
+    "ant-colony-optimization": {
+      "service": "advanced",
+      "endpoint": "http://mcp-advanced:8007",
+      "domain": "search_algorithms",
+      "status": "routed"
+    },
+    "genetic-algorithm-optimization": {
+      "service": "advanced",
+      "endpoint": "http://mcp-advanced:8007",
+      "domain": "search_algorithms",
+      "status": "routed"
+    },
+    "simulated-annealing": {
+      "service": "advanced",
+      "endpoint": "http://mcp-advanced:8007",
+      "domain": "search_algorithms",
+      "status": "routed"
+    },
+    "tabu-search": {
+      "service": "advanced",
+      "endpoint": "http://mcp-advanced:8007",
+      "domain": "search_algorithms",
+      "status": "routed"
+    },
+    "bayesian-networks": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "probabilistic_models",
+      "status": "routed"
+    },
+    "gaussian-processes": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "probabilistic_models",
+      "status": "routed"
+    },
+    "markov-models": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "probabilistic_models",
+      "status": "routed"
+    },
+    "probabilistic-graphical-models": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "probabilistic_models",
+      "status": "routed"
+    },
+    "probabilistic-programming": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "probabilistic_models",
+      "status": "routed"
+    },
+    "dynamic-skill-selection-routing": {
+      "service": "orchestration",
+      "endpoint": "http://mcp-orchestration:8001",
+      "domain": "orchestration",
+      "status": "routed"
+    },
+    "multi-skill-workflow-coordination": {
+      "service": "orchestration",
+      "endpoint": "http://mcp-orchestration:8001",
+      "domain": "orchestration",
+      "status": "routed"
+    },
+    "parallel-skill-execution": {
+      "service": "orchestration",
+      "endpoint": "http://mcp-orchestration:8001",
+      "domain": "orchestration",
+      "status": "routed"
+    },
+    "skill-dependency-resolution": {
+      "service": "orchestration",
+      "endpoint": "http://mcp-orchestration:8001",
+      "domain": "orchestration",
+      "status": "routed"
+    },
+    "skill-failure-recovery-retry": {
+      "service": "orchestration",
+      "endpoint": "http://mcp-orchestration:8001",
+      "domain": "orchestration",
+      "status": "routed"
+    },
+    "autonomous_mission_planner": {
+      "service": "orchestration",
+      "endpoint": "http://mcp-orchestration:8001",
+      "domain": "orchestration",
+      "status": "routed"
+    },
+    "context_health_analyzer": {
+      "service": "orchestration",
+      "endpoint": "http://mcp-orchestration:8001",
+      "domain": "orchestration",
+      "status": "routed"
+    },
+    "context_pruning_engine": {
+      "service": "orchestration",
+      "endpoint": "http://mcp-orchestration:8001",
+      "domain": "orchestration",
+      "status": "routed"
+    },
+    "context_rot_detector": {
+      "service": "orchestration",
+      "endpoint": "http://mcp-orchestration:8001",
+      "domain": "orchestration",
+      "status": "routed"
+    },
+    "conversation_reset_optimizer": {
+      "service": "orchestration",
+      "endpoint": "http://mcp-orchestration:8001",
+      "domain": "orchestration",
+      "status": "routed"
+    },
+    "cross_domain_workflow_orchestrator": {
+      "service": "orchestration",
+      "endpoint": "http://mcp-orchestration:8001",
+      "domain": "orchestration",
+      "status": "routed"
+    },
+    "domain_portfolio_manager": {
+      "service": "orchestration",
+      "endpoint": "http://mcp-orchestration:8001",
+      "domain": "orchestration",
+      "status": "routed"
+    },
+    "empire_health_monitor": {
+      "service": "orchestration",
+      "endpoint": "http://mcp-orchestration:8001",
+      "domain": "orchestration",
+      "status": "routed"
+    },
+    "mcp_load_balancer": {
+      "service": "orchestration",
+      "endpoint": "http://mcp-orchestration:8001",
+      "domain": "orchestration",
+      "status": "routed"
+    },
+    "multi_skill_chaining_engine": {
+      "service": "orchestration",
+      "endpoint": "http://mcp-orchestration:8001",
+      "domain": "orchestration",
+      "status": "routed"
+    },
+    "skill_team_assembler": {
+      "service": "orchestration",
+      "endpoint": "http://mcp-orchestration:8001",
+      "domain": "orchestration",
+      "status": "routed"
+    },
+    "ch-003": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "generated_skills",
+      "status": "routed"
+    },
+    "ch-006": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "generated_skills",
+      "status": "routed"
+    },
+    "ch-009": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "generated_skills",
+      "status": "routed"
+    },
+    "app-store-compliance-deployment": {
+      "service": "ux-mobile",
+      "endpoint": "http://mcp-ux-mobile:8006",
+      "domain": "mobile_development",
+      "status": "routed"
+    },
+    "cross-platform-architecture": {
+      "service": "ux-mobile",
+      "endpoint": "http://mcp-ux-mobile:8006",
+      "domain": "mobile_development",
+      "status": "routed"
+    },
+    "mobile-performance-optimization": {
+      "service": "ux-mobile",
+      "endpoint": "http://mcp-ux-mobile:8006",
+      "domain": "mobile_development",
+      "status": "routed"
+    },
+    "mobile-security-hardening": {
+      "service": "ux-mobile",
+      "endpoint": "http://mcp-ux-mobile:8006",
+      "domain": "mobile_development",
+      "status": "routed"
+    },
+    "native-module-integration": {
+      "service": "ux-mobile",
+      "endpoint": "http://mcp-ux-mobile:8006",
+      "domain": "mobile_development",
+      "status": "routed"
+    },
+    "ml-ai-research-experimentation": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "ml-computer-vision-image-processing": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "ml-data-science-analytics": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "ml-deep-learning-frameworks": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "ml-engineering-mlops": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "vector-embedding-opt-0": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "vector-embedding-opt-1": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "vector-embedding-opt-2": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "vector-embedding-opt-3": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "vector-embedding-opt-4": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "ML_AI",
+      "status": "routed"
+    },
+    "capability-gap-analysis": {
+      "service": "orchestration",
+      "endpoint": "http://mcp-orchestration:8001",
+      "domain": "META_SKILL_DISCOVERY",
+      "status": "routed"
+    },
+    "skill-proximity-search": {
+      "service": "orchestration",
+      "endpoint": "http://mcp-orchestration:8001",
+      "domain": "META_SKILL_DISCOVERY",
+      "status": "routed"
+    },
+    "agentic-workflow-optimization": {
+      "service": "orchestration",
+      "endpoint": "http://mcp-orchestration:8001",
+      "domain": "meta_agent_enhancement",
+      "status": "routed"
+    },
+    "cognitive-bias-guardrail": {
+      "service": "orchestration",
+      "endpoint": "http://mcp-orchestration:8001",
+      "domain": "meta_agent_enhancement",
+      "status": "routed"
+    },
+    "high-fidelity-scenario-simulation": {
+      "service": "orchestration",
+      "endpoint": "http://mcp-orchestration:8001",
+      "domain": "meta_agent_enhancement",
+      "status": "routed"
+    },
+    "orthogonal-concept-synthesis": {
+      "service": "orchestration",
+      "endpoint": "http://mcp-orchestration:8001",
+      "domain": "meta_agent_enhancement",
+      "status": "routed"
+    },
+    "recursive-logic-audit": {
+      "service": "orchestration",
+      "endpoint": "http://mcp-orchestration:8001",
+      "domain": "meta_agent_enhancement",
+      "status": "routed"
+    },
+    "constraint-satisfaction-sat-solvers": {
+      "service": "advanced",
+      "endpoint": "http://mcp-advanced:8007",
+      "domain": "logic_programming",
+      "status": "routed"
+    },
+    "formal-verification-techniques": {
+      "service": "advanced",
+      "endpoint": "http://mcp-advanced:8007",
+      "domain": "logic_programming",
+      "status": "routed"
+    },
+    "logic-based-optimization": {
+      "service": "advanced",
+      "endpoint": "http://mcp-advanced:8007",
+      "domain": "logic_programming",
+      "status": "routed"
+    },
+    "logic-programming-frameworks": {
+      "service": "advanced",
+      "endpoint": "http://mcp-advanced:8007",
+      "domain": "logic_programming",
+      "status": "routed"
+    },
+    "temporal-logic-applications": {
+      "service": "advanced",
+      "endpoint": "http://mcp-advanced:8007",
+      "domain": "logic_programming",
+      "status": "routed"
+    },
+    "constraint-programming": {
+      "service": "advanced",
+      "endpoint": "http://mcp-advanced:8007",
+      "domain": "logic",
+      "status": "routed"
+    },
+    "datalog-reasoning": {
+      "service": "advanced",
+      "endpoint": "http://mcp-advanced:8007",
+      "domain": "logic",
+      "status": "routed"
+    },
+    "prolog-knowledge-rep": {
+      "service": "advanced",
+      "endpoint": "http://mcp-advanced:8007",
+      "domain": "logic",
+      "status": "routed"
+    },
+    "temporal-logic": {
+      "service": "advanced",
+      "endpoint": "http://mcp-advanced:8007",
+      "domain": "logic",
+      "status": "routed"
+    },
+    "game-state-persistence": {
+      "service": "strategy",
+      "endpoint": "http://mcp-strategy:8008",
+      "domain": "GAME_DEV",
+      "status": "routed"
+    },
+    "gameplay-loop-design": {
+      "service": "strategy",
+      "endpoint": "http://mcp-strategy:8008",
+      "domain": "GAME_DEV",
+      "status": "routed"
+    },
+    "npc-behavior-ai": {
+      "service": "strategy",
+      "endpoint": "http://mcp-strategy:8008",
+      "domain": "GAME_DEV",
+      "status": "routed"
+    },
+    "npc-behavior-tree-0": {
+      "service": "strategy",
+      "endpoint": "http://mcp-strategy:8008",
+      "domain": "GAME_DEV",
+      "status": "routed"
+    },
+    "npc-behavior-tree-1": {
+      "service": "strategy",
+      "endpoint": "http://mcp-strategy:8008",
+      "domain": "GAME_DEV",
+      "status": "routed"
+    },
+    "npc-behavior-tree-2": {
+      "service": "strategy",
+      "endpoint": "http://mcp-strategy:8008",
+      "domain": "GAME_DEV",
+      "status": "routed"
+    },
+    "npc-behavior-tree-3": {
+      "service": "strategy",
+      "endpoint": "http://mcp-strategy:8008",
+      "domain": "GAME_DEV",
+      "status": "routed"
+    },
+    "npc-behavior-tree-4": {
+      "service": "strategy",
+      "endpoint": "http://mcp-strategy:8008",
+      "domain": "GAME_DEV",
+      "status": "routed"
+    },
+    "physics-system-simulation": {
+      "service": "strategy",
+      "endpoint": "http://mcp-strategy:8008",
+      "domain": "GAME_DEV",
+      "status": "routed"
+    },
+    "procedural-world-generation": {
+      "service": "strategy",
+      "endpoint": "http://mcp-strategy:8008",
+      "domain": "GAME_DEV",
+      "status": "routed"
+    },
+    "shader-effect-development": {
+      "service": "strategy",
+      "endpoint": "http://mcp-strategy:8008",
+      "domain": "GAME_DEV",
+      "status": "routed"
+    },
+    "frontend-performance-build-tooling": {
+      "service": "ux-mobile",
+      "endpoint": "http://mcp-ux-mobile:8006",
+      "domain": "FRONTEND",
+      "status": "routed"
+    },
+    "frontend-react-nextjs-typescript": {
+      "service": "ux-mobile",
+      "endpoint": "http://mcp-ux-mobile:8006",
+      "domain": "FRONTEND",
+      "status": "routed"
+    },
+    "frontend-state-management-data-flow": {
+      "service": "ux-mobile",
+      "endpoint": "http://mcp-ux-mobile:8006",
+      "domain": "FRONTEND",
+      "status": "routed"
+    },
+    "frontend-testing-quality-assurance": {
+      "service": "ux-mobile",
+      "endpoint": "http://mcp-ux-mobile:8006",
+      "domain": "FRONTEND",
+      "status": "routed"
+    },
+    "frontend-ui-ux-design-system": {
+      "service": "ux-mobile",
+      "endpoint": "http://mcp-ux-mobile:8006",
+      "domain": "FRONTEND",
+      "status": "routed"
+    },
+    "coq-proof-engine": {
+      "service": "engineering",
+      "endpoint": "http://mcp-engineering:8005",
+      "domain": "formal_methods",
+      "status": "routed"
+    },
+    "formal-verification-methods": {
+      "service": "engineering",
+      "endpoint": "http://mcp-engineering:8005",
+      "domain": "formal_methods",
+      "status": "routed"
+    },
+    "isabelle-hol-theorem-proving": {
+      "service": "engineering",
+      "endpoint": "http://mcp-engineering:8005",
+      "domain": "formal_methods",
+      "status": "routed"
+    },
+    "model-checking-frameworks": {
+      "service": "engineering",
+      "endpoint": "http://mcp-engineering:8005",
+      "domain": "formal_methods",
+      "status": "routed"
+    },
+    "tla-plus-specification": {
+      "service": "engineering",
+      "endpoint": "http://mcp-engineering:8005",
+      "domain": "formal_methods",
+      "status": "routed"
+    },
+    "belief-revision": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "epistemology",
+      "status": "routed"
+    },
+    "epistemic-guardrails": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "epistemology",
+      "status": "routed"
+    },
+    "evidence-weighting": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "epistemology",
+      "status": "routed"
+    },
+    "hypothesis-competition": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "epistemology",
+      "status": "routed"
+    },
+    "source-reliability": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "domain": "epistemology",
+      "status": "routed"
+    },
+    "devops-cicd-automation": {
+      "service": "devops",
+      "endpoint": "http://mcp-devops:8004",
+      "domain": "DEVOPS",
+      "status": "routed"
+    },
+    "devops-container-orchestration": {
+      "service": "devops",
+      "endpoint": "http://mcp-devops:8004",
+      "domain": "DEVOPS",
+      "status": "routed"
+    },
+    "devops-infrastructure-as-code": {
+      "service": "devops",
+      "endpoint": "http://mcp-devops:8004",
+      "domain": "DEVOPS",
+      "status": "routed"
+    },
+    "devops-monitoring-observability": {
+      "service": "devops",
+      "endpoint": "http://mcp-devops:8004",
+      "domain": "DEVOPS",
+      "status": "routed"
+    },
+    "data-migration-strategy": {
+      "service": "devops",
+      "endpoint": "http://mcp-devops:8004",
+      "domain": "DATABASE_ENGINEERING",
+      "status": "routed"
+    },
+    "database-backup-restore": {
+      "service": "devops",
+      "endpoint": "http://mcp-devops:8004",
+      "domain": "DATABASE_ENGINEERING",
+      "status": "routed"
+    },
+    "database-sharding-plan": {
+      "service": "devops",
+      "endpoint": "http://mcp-devops:8004",
+      "domain": "DATABASE_ENGINEERING",
+      "status": "routed"
+    },
+    "db-sharding-strategy-0": {
+      "service": "devops",
+      "endpoint": "http://mcp-devops:8004",
+      "domain": "DATABASE_ENGINEERING",
+      "status": "routed"
+    },
+    "db-sharding-strategy-1": {
+      "service": "devops",
+      "endpoint": "http://mcp-devops:8004",
+      "domain": "DATABASE_ENGINEERING",
+      "status": "routed"
+    },
+    "db-sharding-strategy-2": {
+      "service": "devops",
+      "endpoint": "http://mcp-devops:8004",
+      "domain": "DATABASE_ENGINEERING",
+      "status": "routed"
+    },
+    "db-sharding-strategy-3": {
+      "service": "devops",
+      "endpoint": "http://mcp-devops:8004",
+      "domain": "DATABASE_ENGINEERING",
+      "status": "routed"
+    },
+    "db-sharding-strategy-4": {
+      "service": "devops",
+      "endpoint": "http://mcp-devops:8004",
+      "domain": "DATABASE_ENGINEERING",
+      "status": "routed"
+    },
+    "high-availability-replication": {
+      "service": "devops",
+      "endpoint": "http://mcp-devops:8004",
+      "domain": "DATABASE_ENGINEERING",
+      "status": "routed"
+    },
+    "index-strategy-optimization": {
+      "service": "devops",
+      "endpoint": "http://mcp-devops:8004",
+      "domain": "DATABASE_ENGINEERING",
+      "status": "routed"
+    },
+    "query-performance-optimization": {
+      "service": "devops",
+      "endpoint": "http://mcp-devops:8004",
+      "domain": "DATABASE_ENGINEERING",
+      "status": "routed"
+    },
+    "database-security-ninja": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "generated_skills",
+      "status": "routed"
+    },
+    "database-whisperer-ai": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "generated_skills",
+      "status": "routed"
+    },
+    "query-time-machine": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "generated_skills",
+      "status": "routed"
+    },
+    "ai-proactive-threat-modeling": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "domain": "APPLICATION_SECURITY",
+      "status": "routed"
+    },
+    "api-design": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "domain": "APPLICATION_SECURITY",
+      "status": "routed"
+    },
+    "automated-security-testing": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "domain": "APPLICATION_SECURITY",
+      "status": "routed"
+    },
+    "compliance-audit": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "domain": "APPLICATION_SECURITY",
+      "status": "routed"
+    },
+    "deps-audit": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "domain": "APPLICATION_SECURITY",
+      "status": "routed"
+    },
+    "developer-centric-security-training": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "domain": "APPLICATION_SECURITY",
+      "status": "routed"
+    },
+    "intelligent-security-analysis-platform": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "domain": "APPLICATION_SECURITY",
+      "status": "routed"
+    },
+    "metrics-dashboard": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "domain": "APPLICATION_SECURITY",
+      "status": "routed"
+    },
+    "perf-audit": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "domain": "APPLICATION_SECURITY",
+      "status": "routed"
+    },
+    "predictive-observability-engine": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "domain": "APPLICATION_SECURITY",
+      "status": "routed"
+    },
+    "ralph-wiggum": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "domain": "APPLICATION_SECURITY",
+      "status": "routed"
+    },
+    "refactor-plan": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "domain": "APPLICATION_SECURITY",
+      "status": "routed"
+    },
+    "secure-sdlc-integration": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "domain": "APPLICATION_SECURITY",
+      "status": "routed"
+    },
+    "self-optimizing-deployment-pipeline": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "domain": "APPLICATION_SECURITY",
+      "status": "routed"
+    },
+    "test-survey": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "domain": "APPLICATION_SECURITY",
+      "status": "routed"
+    },
+    "zero-day-patch-flow-0": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "domain": "APPLICATION_SECURITY",
+      "status": "routed"
+    },
+    "zero-day-patch-flow-1": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "domain": "APPLICATION_SECURITY",
+      "status": "routed"
+    },
+    "zero-day-patch-flow-2": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "domain": "APPLICATION_SECURITY",
+      "status": "routed"
+    },
+    "zero-day-patch-flow-3": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "domain": "APPLICATION_SECURITY",
+      "status": "routed"
+    },
+    "zero-day-patch-flow-4": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "domain": "APPLICATION_SECURITY",
+      "status": "routed"
+    },
+    "zero-trust-architecture-implementation": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "domain": "APPLICATION_SECURITY",
+      "status": "routed"
+    },
+    "algorithm-strategy-selection": {
+      "service": "advanced",
+      "endpoint": "http://mcp-advanced:8007",
+      "domain": "ALGO_PATTERNS",
+      "status": "routed"
+    },
+    "algorithmic-decomposition": {
+      "service": "advanced",
+      "endpoint": "http://mcp-advanced:8007",
+      "domain": "ALGO_PATTERNS",
+      "status": "routed"
+    },
+    "complexity-analysis": {
+      "service": "advanced",
+      "endpoint": "http://mcp-advanced:8007",
+      "domain": "ALGO_PATTERNS",
+      "status": "routed"
+    },
+    "design-pattern-recommender": {
+      "service": "advanced",
+      "endpoint": "http://mcp-advanced:8007",
+      "domain": "ALGO_PATTERNS",
+      "status": "routed"
+    },
+    "pattern-from-code": {
+      "service": "advanced",
+      "endpoint": "http://mcp-advanced:8007",
+      "domain": "ALGO_PATTERNS",
+      "status": "routed"
+    },
+    "autonomous-tool-learning": {
+      "service": "orchestration",
+      "endpoint": "http://mcp-orchestration:8001",
+      "domain": "agent_evolution",
+      "status": "routed"
+    },
+    "dynamic-context-adaptation": {
+      "service": "orchestration",
+      "endpoint": "http://mcp-orchestration:8001",
+      "domain": "agent_evolution",
+      "status": "routed"
+    },
+    "multi-agent-synergy": {
+      "service": "orchestration",
+      "endpoint": "http://mcp-orchestration:8001",
+      "domain": "agent_evolution",
+      "status": "routed"
+    },
+    "recursive-reasoning-refinement": {
+      "service": "orchestration",
+      "endpoint": "http://mcp-orchestration:8001",
+      "domain": "agent_evolution",
+      "status": "routed"
+    },
+    "self-improvement-loop": {
+      "service": "orchestration",
+      "endpoint": "http://mcp-orchestration:8001",
+      "domain": "agent_evolution",
+      "status": "routed"
+    },
+    "repo-recon": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "domain": "APPLICATION_SECURITY",
+      "status": "routed"
+    },
+    "security-scan": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "domain": "APPLICATION_SECURITY",
+      "status": "routed"
+    },
+    "skill-critiquing": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "domain": "APPLICATION_SECURITY",
+      "status": "routed"
+    },
+    "skill-drafting": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "domain": "APPLICATION_SECURITY",
+      "status": "routed"
+    },
+    "skill-evolution": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "domain": "APPLICATION_SECURITY",
+      "status": "routed"
+    },
+    "ai-assisted-vulnerability-prioritization-ml-nlp": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "domain": "APPLICATION_SECURITY",
+      "status": "routed"
+    },
+    "auth": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "domain": "APPLICATION_SECURITY",
+      "status": "routed"
+    },
+    "autoattack-adversarial-robustness-benchmarking": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "domain": "APPLICATION_SECURITY",
+      "status": "routed"
+    },
+    "building-a-hybrid-rule-based-and-machine-learning-framework-to-detect-and-defend-against-jailbreak-prompts-in-llm-systems": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "domain": "APPLICATION_SECURITY",
+      "status": "routed"
+    },
+    "config": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "domain": "APPLICATION_SECURITY",
+      "status": "routed"
+    },
+    "finance": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "domain": "APPLICATION_SECURITY",
+      "status": "routed"
+    },
+    "multiturn-crescendo-llm-safety-evaluation-with-garak": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "domain": "APPLICATION_SECURITY",
+      "status": "routed"
+    },
+    "robust-llm-safety-filters-adaptive-attack-defense": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "domain": "APPLICATION_SECURITY",
+      "status": "routed"
+    },
+    "server": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "domain": "APPLICATION_SECURITY",
+      "status": "routed"
+    },
+    "single-turn-attacks": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "domain": "APPLICATION_SECURITY",
+      "status": "routed"
+    },
+    "targeted-data-poisoning-label-flipping-cifar10-pytorch": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "domain": "APPLICATION_SECURITY",
+      "status": "routed"
+    },
+    "zero-trust-network-simulation-policy-engine": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "domain": "APPLICATION_SECURITY",
+      "status": "routed"
+    },
+    "adaptive-meta-reasoning-agent": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "advanced-ai-agent-hugging-face": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "advanced-google-adk-multi-agent-tutorial": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "advanced-langgraph-multi-agent-pipeline": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "advanced-neural-agent": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "advanced-ocr-ai-agent": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "advanced-peer-multiagent-tutorial": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "advanced-stable-baselines3-trading-agent": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "agent-executor": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "agent-lightning-prompt-optimization": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "agent-orchestration-with-mistral-agents-api": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "agent2agent-collaboration": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "agentic-ai-langchain-autogen-huggingface": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "agentic-ai-time-series-forecasting-darts-hf": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "agentic-benchmarking-empirical-study": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "agentic-data-infrastructure-strategy-qwen": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "agentic-deep-rl-curriculum-ucb-meta-control": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "agentic-multi-agent-rl-gridworld": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "agentic-rag-tutorial": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "agentscope-multi-agent-incident-response": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "ai-crypto-agent-secure-comms": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "ai-desktop-automation-agent-tutorial": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "autogen-semantickernel-gemini-flash-multiagent-tutorial": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "autogen-teamtool-roundrobin": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "autonomous-prior-auth-agent-healthcare-rcm": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "beeai-multi-agent-workflow": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "biocypher-agent-tutorial": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "building-advanced-mcp-agents-with-multi-agent-coordination": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "camel-multi-agent-research-pipeline": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "cipher-memory-agent": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "client": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "cognee-agent-tutorial-with-huggingface-integration": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "computer-use-agent-local-ai": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "context-folding-llm-agent-long-horizon": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "cost-aware-planning-agent-budget-constrained": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "crewai-multiagent-gemini": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "custom-tool-for-ai-agent": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "customizable-multitool-ai-agent-with-claude": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "deep-research-agent": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "emi-agent": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "enterprise-agentic-benchmarking-framework": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "exploration-agents-problem-solving": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "gemini-agent-network": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "gemini-autogen-multiagent-framework": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "gemini-pandas-agent": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "gemini-semantic-agent-orchestrator": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "getting-started-with-mistral-agents-api": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "graph-agent-framework-with-gemini": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "graphagent-gemini-advanced-tutorial": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "graphaiagent-langgraph-gemini-workflow": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "handoff": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "hierarchical-planner-ai-agent-open-source-llm": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "how-to-build-an-advanced-end-to-end-voice-ai-agent-using-hugging-face-pipelines": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "how-to-enable-function-calling-in-mistral-agents": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "hrm-braininspired-ai-agent-huggingface": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "human-in-the-loop-plan-execute-agent-langgraph-streamlit": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "inflation-agent": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "langchain-deepagents": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "langchain-xgboost-agentic-pipeline-tutorial": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "langgraph-gemini-multiagent-research-team": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "langgraph-time-travel-research-agent": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "live-python-execution-and-validation-agent": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "main": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "mcp-gemini-agent-tutorial": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "meta-cognitive-reasoning-controller": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "mle-agent-ollama-local-pipeline": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "multi-agent-omics-integration-pipeline": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "nebius-llama3-multitool-agent": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "neuro-symbolic-hybrid-agent": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "nomic-gemini-multi-agent-ai": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "openai-agents-multiagent-research": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "openai-swarm-multi-agent-incident-response": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "paperqa2-gemini-research-agent": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "parlant": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "parsl-ai-agent-pipeline": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "primisai-nexus-multi-agent-workflow": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "production-ready-custom-ai-agents-workflows": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "prolog-gemini-langgraph-react-agent": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "sage-ai-agent-gemini-implementation": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "secure-ai-agent-with-guardrails": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "self-improving-ai-agent-with-gemini": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "self-verifying-dataops-agent-local-hf": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "semantic-kernel-gemini-agent": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "smartwebagent-tavily-gemini-webintelligence2": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "smolagents-advanced-multi-agent-orchestration": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "smolagents-fleet-maintenance-autonomous-agent": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "streamlit-ai-agent-multitool-interface": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "supervisor-framework-crewai-gemini": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "swiss-army-knife-research-agent-tool-using-ai": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "uagents-gemini-event-driven-tutorial": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "uagents-multi-agent-marketplace": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "value-alignment-and-ethics-in-agentic-systems": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    },
+    "wetlab-protocol-planner-codegen": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "domain": "AI_AGENT_DEVELOPMENT",
+      "status": "routed"
+    }
+  },
+  "routing": {
+    "context_hub_provider": {
+      "service": "strategy",
+      "endpoint": "http://mcp-strategy:8008",
+      "priority": 1
+    },
+    "qrisp-quantum-algorithms-grover-qpe-qaoa": {
+      "service": "advanced",
+      "endpoint": "http://mcp-advanced:8007",
+      "priority": 1
+    },
+    "dynamic-model-router": {
+      "service": "model-orchestration",
+      "endpoint": "http://mcp-model-orchestration:8012",
+      "priority": 1
+    },
+    "hardware-model-selector": {
+      "service": "model-orchestration",
+      "endpoint": "http://mcp-model-orchestration:8012",
+      "priority": 1
+    },
+    "model-ensemble-orchestrator": {
+      "service": "model-orchestration",
+      "endpoint": "http://mcp-model-orchestration:8012",
+      "priority": 1
+    },
+    "model-health-monitor": {
+      "service": "model-orchestration",
+      "endpoint": "http://mcp-model-orchestration:8012",
+      "priority": 1
+    },
+    "model-latency-predictor": {
+      "service": "model-orchestration",
+      "endpoint": "http://mcp-model-orchestration:8012",
+      "priority": 1
+    },
+    "multi-model-fusion-engine": {
+      "service": "model-orchestration",
+      "endpoint": "http://mcp-model-orchestration:8012",
+      "priority": 1
+    },
+    "ralph-chaos-model-selector": {
+      "service": "model-orchestration",
+      "endpoint": "http://mcp-model-orchestration:8012",
+      "priority": 1
+    },
+    "task-model-optimizer": {
+      "service": "model-orchestration",
+      "endpoint": "http://mcp-model-orchestration:8012",
+      "priority": 1
+    },
+    "a-coding-guide-to-acp-systems": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "a-coding-implementation-to-end-to-end-transformer-model-optimization-with-hugging-face-optimum-onnx-runtime-and-quantization": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "advanced-ai-evaluator-enterprise-grade-framework": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "advanced-async-python-sdk-tutorial": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "advanced-dspy-qa": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "advanced-ivy-framework-agnostic-ml-tutorial": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "advanced-jax-flax-optax-training-pipeline": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "advanced-litserve-multi-endpoint-api-tutorial": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "advanced-pubmed-research-assistant-tutorial": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "advanced-pykeen-knowledge-graph-embeddings": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "advanced-pyspark-end-to-end-tutorial": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "advanced-reflex-reactive-webapp": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "advanced-serpapi-tutorial": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "agentic-rag-with-routing-and-self-check": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "agentic-voice-ai-autonomous-assistant": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "async-config-tutorial": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "autogluon-end-to-end-tabular-modeling-and-deployment": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "building-an-advanced-convolutional-neural-network-with-attention-for-dna-sequence-classification-and-interpretability": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "chain-of-thought": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "colpali-visual-retrieval": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "competitive-analysis-with-scrapegraph-gemini": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "crewai-gemini-workflow": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "custom-gpt-local-colab-chat": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "dagster-advanced-pipeline": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "daytona-secure-ai-code-execution-tutorial": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "diffusers-image-generation-control-editing": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "dpo-alignment-qlora-ultrafeedback": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "einops-advanced-tensor-workflows": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "embodied-vla-latent-mpc-agent": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "enhanced-brightdata-gemini-scraper-tutorial": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "enterprise-ai-rag-guardrails": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "federated-lora-llm-finetuning-flower": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "gemini-prompt-optimization": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "getting-started-with-asyncio": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "gluonts-advanced-multimodel-tutorial": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "gpt-5": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "griffe-ai-code-analyzer": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "guardrails": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "guide-to-building-an-end-to-end-speech-enhancement-and-recognition-pipeline-with-speechbrain": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "how-to-master-advanced-torchvision-v2-transforms-mixup-cutmix-and-modern-cnn-training-for-state-of-the-art-computer-vision": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "huggingface-trackio-advanced-tutorial": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "hyperopt-conditional-tpe-pipeline": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "hypothesis-property-based-testing": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "intro-to-shap-iq": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "jina-langchain-gemini-ai-assistant": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "json-prompting": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "knowledge-graph": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "kornia-differentiable-vision-loftr-ransac": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "lerobot-pusht-bc-tutorial": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "lightly-ai-self-supervised-active-learning": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "llm-arena-as-a-judge": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "llm-caching": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "llm-parameters": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "lyzr-chatbot-framework-implementation": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "matryoshka-representation-learning-sentencetransformers-msmarco": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "meta-hydra-advanced-implementation": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "minimax": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "mistral-devstral-compact-loading": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "mistral-guardrails": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "mlflow-experiment-tracking-and-model-serving": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "mlflow-intro": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "multi-agent-demo": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "network": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "offline-safety-critical-rl-conservative-q-learning-d3rlpy": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "ollama-langchain-tutorial": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "openai-federated-fraud-detection-from-scratch": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "openbb-advanced-portfolio-market-intelligence": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "opik-local-llm-tracing-and-evaluation": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "oprl-preference-shaped-rl": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "optuna-advanced-hpo": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "pipecat-huggingface-implementation": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "polars-sql-analytics-pipeline": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "presidio": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "prompt-versioning-and-regression-testing-for-llms-with-mlflow": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "pybel-biokg-interactive-tutorial": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "pyversity": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "quantum-state-evolution-and-entanglement-qutip-tutorial": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "rag-context-stuffing": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "rag-deepeval-quality-benchmarking": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "rag-evaluation": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "regression-language-model-transformer-rlm-tutorial": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "removing-semantic-duplicates": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "retrieval-grounded-faithfulness-hallucination-evaluation-ig": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "roboflow-supervision-advanced-tracking-analytics-pipeline": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "routellm": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "self-hosted-llm-ollama": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "self-refine": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "semantic-caching": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "semantic-highlighting": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "shap-iq-visuals": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "shapiq-explainable-ai-feature-and-interaction-analysis": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "smart-python-to-r-converter-with-gemini-validation": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "streaming-voice-agent-latency-budgets-end-to-end": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "tinydev-gemini-implementation": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "tinygrad-transformer-minigpt": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "tpot-advanced-pipeline-optimization": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "transformer-nqs-netket-j1j2-vmc": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "tree-kg-hierarchical-knowledge-graph-multi-hop-reasoning": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "trulens-llm-instrumentation-feedback-evaluation": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "unsloth-qlora-stable-sft": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "upstage-groundedness-check-tutorial": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "verbalized-sampling": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "voice-ai-whisperx-advanced-tutorial": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "zarr-implementation-tutorial": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "zero-padding-cnn": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "agent": {
+      "service": "devops",
+      "endpoint": "http://mcp-devops:8004",
+      "priority": 1
+    },
+    "agent-demo": {
+      "service": "devops",
+      "endpoint": "http://mcp-devops:8004",
+      "priority": 1
+    },
+    "app": {
+      "service": "devops",
+      "endpoint": "http://mcp-devops:8004",
+      "priority": 1
+    },
+    "context-aware-assistant-mcp-gemini-langchain-langgraph": {
+      "service": "devops",
+      "endpoint": "http://mcp-devops:8004",
+      "priority": 1
+    },
+    "custom-mcp-tools-integration-with-fastmcp": {
+      "service": "devops",
+      "endpoint": "http://mcp-devops:8004",
+      "priority": 1
+    },
+    "langgraph-acp-structured-message-bus-multi-agent-system": {
+      "service": "devops",
+      "endpoint": "http://mcp-devops:8004",
+      "priority": 1
+    },
+    "mcp-tutorial-server": {
+      "service": "devops",
+      "endpoint": "http://mcp-devops:8004",
+      "priority": 1
+    },
+    "model-context-protocol-integration": {
+      "service": "devops",
+      "endpoint": "http://mcp-devops:8004",
+      "priority": 1
+    },
+    "stateless-async-mcp-protocol-demo": {
+      "service": "devops",
+      "endpoint": "http://mcp-devops:8004",
+      "priority": 1
+    },
+    "test-server": {
+      "service": "devops",
+      "endpoint": "http://mcp-devops:8004",
+      "priority": 1
+    },
+    "sat-solver-optimization": {
+      "service": "advanced",
+      "endpoint": "http://mcp-advanced:8007",
+      "priority": 1
+    },
+    "active-learning": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "advanced-bokeh-interactive-dashboard": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "advanced-panel-interactive-dashboard": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "advanced-pygwalker-interactive-eda": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "advanced-pygwalker-visual-analysis": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "advanced-pytest-custom-plugins-fixtures-tutorial": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "advanced-textual-data-dashboard": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "building-an-end-to-end-data-science-workflow-with-machine-learning-interpretability-and-gemini-ai-assistance": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "cognitive-complexity-auditing-with-complexipy": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "ctgan-sdv-synthetic-data-pipeline": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "daft-end-to-end-ml-pipeline": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "dash-plotly-local-online-dashboard": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "diagonal-decision-boundary": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "folium-interactive-geospatial-visualization": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "ibis-portable-in-database-feature-engineering": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "imbalanced-datasets": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "kernel-pca": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "kv-caching": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "lilac-functional-data-pipeline": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "matlab-python-oct2py-colab-tutorial": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "modin-powered-dataframes": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "networkit-largegraph-analytics-pipeline": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "numpyro-hierarchical-regression-advanced": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "pandera-production-grade-dataframe-validation": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "polyfactory-production-grade-mock-data-generation": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "softmax": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "synthetic-data-creation": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "tqdm-production-progress-monitoring": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "unified-tool-orchestration-framework": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "vaex-large-scale-analytics-and-ml-pipeline": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "apache-beam-batch-and-stream-windowing": {
+      "service": "devops",
+      "endpoint": "http://mcp-devops:8004",
+      "priority": 1
+    },
+    "decentralized-gossip-federated-learning-with-differential-privacy": {
+      "service": "devops",
+      "endpoint": "http://mcp-devops:8004",
+      "priority": 1
+    },
+    "distributed-vector-db-sharding-replication-quorum": {
+      "service": "devops",
+      "endpoint": "http://mcp-devops:8004",
+      "priority": 1
+    },
+    "elastic-vector-db-consistent-hashing-rag": {
+      "service": "devops",
+      "endpoint": "http://mcp-devops:8004",
+      "priority": 1
+    },
+    "huey-async-tasks": {
+      "service": "devops",
+      "endpoint": "http://mcp-devops:8004",
+      "priority": 1
+    },
+    "kombu-task-routing": {
+      "service": "devops",
+      "endpoint": "http://mcp-devops:8004",
+      "priority": 1
+    },
+    "pbft-asyncio-byzantine-latency-simulator": {
+      "service": "devops",
+      "endpoint": "http://mcp-devops:8004",
+      "priority": 1
+    },
+    "rpc-vs-event-driven-failure-dynamics-distributed-systems": {
+      "service": "devops",
+      "endpoint": "http://mcp-devops:8004",
+      "priority": 1
+    },
+    "game-dev-multiplayer": {
+      "service": "fallback",
+      "endpoint": "http://mcp-fallback:8000",
+      "priority": 1
+    },
+    "game-dev-performance": {
+      "service": "fallback",
+      "endpoint": "http://mcp-fallback:8000",
+      "priority": 1
+    },
+    "game-dev-unity": {
+      "service": "fallback",
+      "endpoint": "http://mcp-fallback:8000",
+      "priority": 1
+    },
+    "web3-blockchain-development": {
+      "service": "fallback",
+      "endpoint": "http://mcp-fallback:8000",
+      "priority": 1
+    },
+    "web3-defi-development": {
+      "service": "fallback",
+      "endpoint": "http://mcp-fallback:8000",
+      "priority": 1
+    },
+    "web3-smart-contract-security": {
+      "service": "fallback",
+      "endpoint": "http://mcp-fallback:8000",
+      "priority": 1
+    },
+    "d-app-frontend-bridging": {
+      "service": "advanced",
+      "endpoint": "http://mcp-advanced:8007",
+      "priority": 1
+    },
+    "de-fi-protocol-integration": {
+      "service": "advanced",
+      "endpoint": "http://mcp-advanced:8007",
+      "priority": 1
+    },
+    "gas-optimization-techniques": {
+      "service": "advanced",
+      "endpoint": "http://mcp-advanced:8007",
+      "priority": 1
+    },
+    "layer-2-scaling-0": {
+      "service": "advanced",
+      "endpoint": "http://mcp-advanced:8007",
+      "priority": 1
+    },
+    "layer-2-scaling-1": {
+      "service": "advanced",
+      "endpoint": "http://mcp-advanced:8007",
+      "priority": 1
+    },
+    "layer-2-scaling-2": {
+      "service": "advanced",
+      "endpoint": "http://mcp-advanced:8007",
+      "priority": 1
+    },
+    "layer-2-scaling-3": {
+      "service": "advanced",
+      "endpoint": "http://mcp-advanced:8007",
+      "priority": 1
+    },
+    "layer-2-scaling-4": {
+      "service": "advanced",
+      "endpoint": "http://mcp-advanced:8007",
+      "priority": 1
+    },
+    "nft-minting-pipeline": {
+      "service": "advanced",
+      "endpoint": "http://mcp-advanced:8007",
+      "priority": 1
+    },
+    "smart-contract-audit": {
+      "service": "advanced",
+      "endpoint": "http://mcp-advanced:8007",
+      "priority": 1
+    },
+    "wallet-connection-workflow": {
+      "service": "advanced",
+      "endpoint": "http://mcp-advanced:8007",
+      "priority": 1
+    },
+    "executable_spec_harness": {
+      "service": "engineering",
+      "endpoint": "http://mcp-engineering:8005",
+      "priority": 1
+    },
+    "ralph_chaos_wildcard": {
+      "service": "orchestration",
+      "endpoint": "http://mcp-orchestration:8001",
+      "priority": 1
+    },
+    "specification-api-design": {
+      "service": "engineering",
+      "endpoint": "http://mcp-engineering:8005",
+      "priority": 1
+    },
+    "specification-architecture-decisions": {
+      "service": "engineering",
+      "endpoint": "http://mcp-engineering:8005",
+      "priority": 1
+    },
+    "specification-lifecycle-management": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "priority": 1
+    },
+    "specification-prd-generation": {
+      "service": "engineering",
+      "endpoint": "http://mcp-engineering:8005",
+      "priority": 1
+    },
+    "specification-synchronization": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "priority": 1
+    },
+    "specification-technical-authoring": {
+      "service": "engineering",
+      "endpoint": "http://mcp-engineering:8005",
+      "priority": 1
+    },
+    "specification-test-planning": {
+      "service": "engineering",
+      "endpoint": "http://mcp-engineering:8005",
+      "priority": 1
+    },
+    "specification-traceability": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "priority": 1
+    },
+    "specification-validation-framework": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "priority": 1
+    },
+    "specification-version-control": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "priority": 1
+    },
+    "spec_contract_authoring": {
+      "service": "engineering",
+      "endpoint": "http://mcp-engineering:8005",
+      "priority": 1
+    },
+    "spec_evolution_engine": {
+      "service": "engineering",
+      "endpoint": "http://mcp-engineering:8005",
+      "priority": 1
+    },
+    "spec_guardrail_enforcement": {
+      "service": "engineering",
+      "endpoint": "http://mcp-engineering:8005",
+      "priority": 1
+    },
+    "spec_regression_monitoring": {
+      "service": "engineering",
+      "endpoint": "http://mcp-engineering:8005",
+      "priority": 1
+    },
+    "spec_to_task_decomposition": {
+      "service": "engineering",
+      "endpoint": "http://mcp-engineering:8005",
+      "priority": 1
+    },
+    "dependency-analyzer": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "priority": 1
+    },
+    "format-compliance-tester": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "priority": 1
+    },
+    "frontmatter-validator": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "priority": 1
+    },
+    "naming-convention-checker": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "priority": 1
+    },
+    "skill-spec-validator": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "priority": 1
+    },
+    "autonomous-evolution-controller": {
+      "service": "orchestration",
+      "endpoint": "http://mcp-orchestration:8001",
+      "priority": 1
+    },
+    "capability-index": {
+      "service": "orchestration",
+      "endpoint": "http://mcp-orchestration:8001",
+      "priority": 1
+    },
+    "library-health": {
+      "service": "orchestration",
+      "endpoint": "http://mcp-orchestration:8001",
+      "priority": 1
+    },
+    "multi-skill-chaining": {
+      "service": "orchestration",
+      "endpoint": "http://mcp-orchestration:8001",
+      "priority": 1
+    },
+    "skill-recommendation": {
+      "service": "orchestration",
+      "endpoint": "http://mcp-orchestration:8001",
+      "priority": 1
+    },
+    "task-skill-router": {
+      "service": "orchestration",
+      "endpoint": "http://mcp-orchestration:8001",
+      "priority": 1
+    },
+    "compliance-framework-generation": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "priority": 1
+    },
+    "pentesting-workflow-automation": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "priority": 1
+    },
+    "secrets-management-detection": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "priority": 1
+    },
+    "secure-architecture-review": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "priority": 1
+    },
+    "vulnerability-scanning-prioritization": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "priority": 1
+    },
+    "a-star-pathfinding": {
+      "service": "advanced",
+      "endpoint": "http://mcp-advanced:8007",
+      "priority": 1
+    },
+    "ant-colony-optimization": {
+      "service": "advanced",
+      "endpoint": "http://mcp-advanced:8007",
+      "priority": 1
+    },
+    "genetic-algorithm-optimization": {
+      "service": "advanced",
+      "endpoint": "http://mcp-advanced:8007",
+      "priority": 1
+    },
+    "simulated-annealing": {
+      "service": "advanced",
+      "endpoint": "http://mcp-advanced:8007",
+      "priority": 1
+    },
+    "tabu-search": {
+      "service": "advanced",
+      "endpoint": "http://mcp-advanced:8007",
+      "priority": 1
+    },
+    "bayesian-networks": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "gaussian-processes": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "markov-models": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "probabilistic-graphical-models": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "probabilistic-programming": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "dynamic-skill-selection-routing": {
+      "service": "orchestration",
+      "endpoint": "http://mcp-orchestration:8001",
+      "priority": 1
+    },
+    "multi-skill-workflow-coordination": {
+      "service": "orchestration",
+      "endpoint": "http://mcp-orchestration:8001",
+      "priority": 1
+    },
+    "parallel-skill-execution": {
+      "service": "orchestration",
+      "endpoint": "http://mcp-orchestration:8001",
+      "priority": 1
+    },
+    "skill-dependency-resolution": {
+      "service": "orchestration",
+      "endpoint": "http://mcp-orchestration:8001",
+      "priority": 1
+    },
+    "skill-failure-recovery-retry": {
+      "service": "orchestration",
+      "endpoint": "http://mcp-orchestration:8001",
+      "priority": 1
+    },
+    "autonomous_mission_planner": {
+      "service": "orchestration",
+      "endpoint": "http://mcp-orchestration:8001",
+      "priority": 1
+    },
+    "context_health_analyzer": {
+      "service": "orchestration",
+      "endpoint": "http://mcp-orchestration:8001",
+      "priority": 1
+    },
+    "context_pruning_engine": {
+      "service": "orchestration",
+      "endpoint": "http://mcp-orchestration:8001",
+      "priority": 1
+    },
+    "context_rot_detector": {
+      "service": "orchestration",
+      "endpoint": "http://mcp-orchestration:8001",
+      "priority": 1
+    },
+    "conversation_reset_optimizer": {
+      "service": "orchestration",
+      "endpoint": "http://mcp-orchestration:8001",
+      "priority": 1
+    },
+    "cross_domain_workflow_orchestrator": {
+      "service": "orchestration",
+      "endpoint": "http://mcp-orchestration:8001",
+      "priority": 1
+    },
+    "domain_portfolio_manager": {
+      "service": "orchestration",
+      "endpoint": "http://mcp-orchestration:8001",
+      "priority": 1
+    },
+    "empire_health_monitor": {
+      "service": "orchestration",
+      "endpoint": "http://mcp-orchestration:8001",
+      "priority": 1
+    },
+    "mcp_load_balancer": {
+      "service": "orchestration",
+      "endpoint": "http://mcp-orchestration:8001",
+      "priority": 1
+    },
+    "multi_skill_chaining_engine": {
+      "service": "orchestration",
+      "endpoint": "http://mcp-orchestration:8001",
+      "priority": 1
+    },
+    "skill_team_assembler": {
+      "service": "orchestration",
+      "endpoint": "http://mcp-orchestration:8001",
+      "priority": 1
+    },
+    "ch-003": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "ch-006": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "ch-009": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "app-store-compliance-deployment": {
+      "service": "ux-mobile",
+      "endpoint": "http://mcp-ux-mobile:8006",
+      "priority": 1
+    },
+    "cross-platform-architecture": {
+      "service": "ux-mobile",
+      "endpoint": "http://mcp-ux-mobile:8006",
+      "priority": 1
+    },
+    "mobile-performance-optimization": {
+      "service": "ux-mobile",
+      "endpoint": "http://mcp-ux-mobile:8006",
+      "priority": 1
+    },
+    "mobile-security-hardening": {
+      "service": "ux-mobile",
+      "endpoint": "http://mcp-ux-mobile:8006",
+      "priority": 1
+    },
+    "native-module-integration": {
+      "service": "ux-mobile",
+      "endpoint": "http://mcp-ux-mobile:8006",
+      "priority": 1
+    },
+    "ml-ai-research-experimentation": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "ml-computer-vision-image-processing": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "ml-data-science-analytics": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "ml-deep-learning-frameworks": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "ml-engineering-mlops": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "vector-embedding-opt-0": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "vector-embedding-opt-1": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "vector-embedding-opt-2": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "vector-embedding-opt-3": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "vector-embedding-opt-4": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "capability-gap-analysis": {
+      "service": "orchestration",
+      "endpoint": "http://mcp-orchestration:8001",
+      "priority": 1
+    },
+    "skill-proximity-search": {
+      "service": "orchestration",
+      "endpoint": "http://mcp-orchestration:8001",
+      "priority": 1
+    },
+    "agentic-workflow-optimization": {
+      "service": "orchestration",
+      "endpoint": "http://mcp-orchestration:8001",
+      "priority": 1
+    },
+    "cognitive-bias-guardrail": {
+      "service": "orchestration",
+      "endpoint": "http://mcp-orchestration:8001",
+      "priority": 1
+    },
+    "high-fidelity-scenario-simulation": {
+      "service": "orchestration",
+      "endpoint": "http://mcp-orchestration:8001",
+      "priority": 1
+    },
+    "orthogonal-concept-synthesis": {
+      "service": "orchestration",
+      "endpoint": "http://mcp-orchestration:8001",
+      "priority": 1
+    },
+    "recursive-logic-audit": {
+      "service": "orchestration",
+      "endpoint": "http://mcp-orchestration:8001",
+      "priority": 1
+    },
+    "constraint-satisfaction-sat-solvers": {
+      "service": "advanced",
+      "endpoint": "http://mcp-advanced:8007",
+      "priority": 1
+    },
+    "formal-verification-techniques": {
+      "service": "advanced",
+      "endpoint": "http://mcp-advanced:8007",
+      "priority": 1
+    },
+    "logic-based-optimization": {
+      "service": "advanced",
+      "endpoint": "http://mcp-advanced:8007",
+      "priority": 1
+    },
+    "logic-programming-frameworks": {
+      "service": "advanced",
+      "endpoint": "http://mcp-advanced:8007",
+      "priority": 1
+    },
+    "temporal-logic-applications": {
+      "service": "advanced",
+      "endpoint": "http://mcp-advanced:8007",
+      "priority": 1
+    },
+    "constraint-programming": {
+      "service": "advanced",
+      "endpoint": "http://mcp-advanced:8007",
+      "priority": 1
+    },
+    "datalog-reasoning": {
+      "service": "advanced",
+      "endpoint": "http://mcp-advanced:8007",
+      "priority": 1
+    },
+    "prolog-knowledge-rep": {
+      "service": "advanced",
+      "endpoint": "http://mcp-advanced:8007",
+      "priority": 1
+    },
+    "temporal-logic": {
+      "service": "advanced",
+      "endpoint": "http://mcp-advanced:8007",
+      "priority": 1
+    },
+    "game-state-persistence": {
+      "service": "strategy",
+      "endpoint": "http://mcp-strategy:8008",
+      "priority": 1
+    },
+    "gameplay-loop-design": {
+      "service": "strategy",
+      "endpoint": "http://mcp-strategy:8008",
+      "priority": 1
+    },
+    "npc-behavior-ai": {
+      "service": "strategy",
+      "endpoint": "http://mcp-strategy:8008",
+      "priority": 1
+    },
+    "npc-behavior-tree-0": {
+      "service": "strategy",
+      "endpoint": "http://mcp-strategy:8008",
+      "priority": 1
+    },
+    "npc-behavior-tree-1": {
+      "service": "strategy",
+      "endpoint": "http://mcp-strategy:8008",
+      "priority": 1
+    },
+    "npc-behavior-tree-2": {
+      "service": "strategy",
+      "endpoint": "http://mcp-strategy:8008",
+      "priority": 1
+    },
+    "npc-behavior-tree-3": {
+      "service": "strategy",
+      "endpoint": "http://mcp-strategy:8008",
+      "priority": 1
+    },
+    "npc-behavior-tree-4": {
+      "service": "strategy",
+      "endpoint": "http://mcp-strategy:8008",
+      "priority": 1
+    },
+    "physics-system-simulation": {
+      "service": "strategy",
+      "endpoint": "http://mcp-strategy:8008",
+      "priority": 1
+    },
+    "procedural-world-generation": {
+      "service": "strategy",
+      "endpoint": "http://mcp-strategy:8008",
+      "priority": 1
+    },
+    "shader-effect-development": {
+      "service": "strategy",
+      "endpoint": "http://mcp-strategy:8008",
+      "priority": 1
+    },
+    "frontend-performance-build-tooling": {
+      "service": "ux-mobile",
+      "endpoint": "http://mcp-ux-mobile:8006",
+      "priority": 1
+    },
+    "frontend-react-nextjs-typescript": {
+      "service": "ux-mobile",
+      "endpoint": "http://mcp-ux-mobile:8006",
+      "priority": 1
+    },
+    "frontend-state-management-data-flow": {
+      "service": "ux-mobile",
+      "endpoint": "http://mcp-ux-mobile:8006",
+      "priority": 1
+    },
+    "frontend-testing-quality-assurance": {
+      "service": "ux-mobile",
+      "endpoint": "http://mcp-ux-mobile:8006",
+      "priority": 1
+    },
+    "frontend-ui-ux-design-system": {
+      "service": "ux-mobile",
+      "endpoint": "http://mcp-ux-mobile:8006",
+      "priority": 1
+    },
+    "coq-proof-engine": {
+      "service": "engineering",
+      "endpoint": "http://mcp-engineering:8005",
+      "priority": 1
+    },
+    "formal-verification-methods": {
+      "service": "engineering",
+      "endpoint": "http://mcp-engineering:8005",
+      "priority": 1
+    },
+    "isabelle-hol-theorem-proving": {
+      "service": "engineering",
+      "endpoint": "http://mcp-engineering:8005",
+      "priority": 1
+    },
+    "model-checking-frameworks": {
+      "service": "engineering",
+      "endpoint": "http://mcp-engineering:8005",
+      "priority": 1
+    },
+    "tla-plus-specification": {
+      "service": "engineering",
+      "endpoint": "http://mcp-engineering:8005",
+      "priority": 1
+    },
+    "belief-revision": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "epistemic-guardrails": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "evidence-weighting": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "hypothesis-competition": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "source-reliability": {
+      "service": "data-ai",
+      "endpoint": "http://mcp-data-ai:8003",
+      "priority": 1
+    },
+    "devops-cicd-automation": {
+      "service": "devops",
+      "endpoint": "http://mcp-devops:8004",
+      "priority": 1
+    },
+    "devops-container-orchestration": {
+      "service": "devops",
+      "endpoint": "http://mcp-devops:8004",
+      "priority": 1
+    },
+    "devops-infrastructure-as-code": {
+      "service": "devops",
+      "endpoint": "http://mcp-devops:8004",
+      "priority": 1
+    },
+    "devops-monitoring-observability": {
+      "service": "devops",
+      "endpoint": "http://mcp-devops:8004",
+      "priority": 1
+    },
+    "data-migration-strategy": {
+      "service": "devops",
+      "endpoint": "http://mcp-devops:8004",
+      "priority": 1
+    },
+    "database-backup-restore": {
+      "service": "devops",
+      "endpoint": "http://mcp-devops:8004",
+      "priority": 1
+    },
+    "database-sharding-plan": {
+      "service": "devops",
+      "endpoint": "http://mcp-devops:8004",
+      "priority": 1
+    },
+    "db-sharding-strategy-0": {
+      "service": "devops",
+      "endpoint": "http://mcp-devops:8004",
+      "priority": 1
+    },
+    "db-sharding-strategy-1": {
+      "service": "devops",
+      "endpoint": "http://mcp-devops:8004",
+      "priority": 1
+    },
+    "db-sharding-strategy-2": {
+      "service": "devops",
+      "endpoint": "http://mcp-devops:8004",
+      "priority": 1
+    },
+    "db-sharding-strategy-3": {
+      "service": "devops",
+      "endpoint": "http://mcp-devops:8004",
+      "priority": 1
+    },
+    "db-sharding-strategy-4": {
+      "service": "devops",
+      "endpoint": "http://mcp-devops:8004",
+      "priority": 1
+    },
+    "high-availability-replication": {
+      "service": "devops",
+      "endpoint": "http://mcp-devops:8004",
+      "priority": 1
+    },
+    "index-strategy-optimization": {
+      "service": "devops",
+      "endpoint": "http://mcp-devops:8004",
+      "priority": 1
+    },
+    "query-performance-optimization": {
+      "service": "devops",
+      "endpoint": "http://mcp-devops:8004",
+      "priority": 1
+    },
+    "database-security-ninja": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "database-whisperer-ai": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "query-time-machine": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "ai-proactive-threat-modeling": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "priority": 1
+    },
+    "api-design": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "priority": 1
+    },
+    "automated-security-testing": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "priority": 1
+    },
+    "compliance-audit": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "priority": 1
+    },
+    "deps-audit": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "priority": 1
+    },
+    "developer-centric-security-training": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "priority": 1
+    },
+    "intelligent-security-analysis-platform": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "priority": 1
+    },
+    "metrics-dashboard": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "priority": 1
+    },
+    "perf-audit": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "priority": 1
+    },
+    "predictive-observability-engine": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "priority": 1
+    },
+    "ralph-wiggum": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "priority": 1
+    },
+    "refactor-plan": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "priority": 1
+    },
+    "secure-sdlc-integration": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "priority": 1
+    },
+    "self-optimizing-deployment-pipeline": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "priority": 1
+    },
+    "test-survey": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "priority": 1
+    },
+    "zero-day-patch-flow-0": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "priority": 1
+    },
+    "zero-day-patch-flow-1": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "priority": 1
+    },
+    "zero-day-patch-flow-2": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "priority": 1
+    },
+    "zero-day-patch-flow-3": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "priority": 1
+    },
+    "zero-day-patch-flow-4": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "priority": 1
+    },
+    "zero-trust-architecture-implementation": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "priority": 1
+    },
+    "algorithm-strategy-selection": {
+      "service": "advanced",
+      "endpoint": "http://mcp-advanced:8007",
+      "priority": 1
+    },
+    "algorithmic-decomposition": {
+      "service": "advanced",
+      "endpoint": "http://mcp-advanced:8007",
+      "priority": 1
+    },
+    "complexity-analysis": {
+      "service": "advanced",
+      "endpoint": "http://mcp-advanced:8007",
+      "priority": 1
+    },
+    "design-pattern-recommender": {
+      "service": "advanced",
+      "endpoint": "http://mcp-advanced:8007",
+      "priority": 1
+    },
+    "pattern-from-code": {
+      "service": "advanced",
+      "endpoint": "http://mcp-advanced:8007",
+      "priority": 1
+    },
+    "autonomous-tool-learning": {
+      "service": "orchestration",
+      "endpoint": "http://mcp-orchestration:8001",
+      "priority": 1
+    },
+    "dynamic-context-adaptation": {
+      "service": "orchestration",
+      "endpoint": "http://mcp-orchestration:8001",
+      "priority": 1
+    },
+    "multi-agent-synergy": {
+      "service": "orchestration",
+      "endpoint": "http://mcp-orchestration:8001",
+      "priority": 1
+    },
+    "recursive-reasoning-refinement": {
+      "service": "orchestration",
+      "endpoint": "http://mcp-orchestration:8001",
+      "priority": 1
+    },
+    "self-improvement-loop": {
+      "service": "orchestration",
+      "endpoint": "http://mcp-orchestration:8001",
+      "priority": 1
+    },
+    "repo-recon": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "priority": 1
+    },
+    "security-scan": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "priority": 1
+    },
+    "skill-critiquing": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "priority": 1
+    },
+    "skill-drafting": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "priority": 1
+    },
+    "skill-evolution": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "priority": 1
+    },
+    "ai-assisted-vulnerability-prioritization-ml-nlp": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "priority": 1
+    },
+    "auth": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "priority": 1
+    },
+    "autoattack-adversarial-robustness-benchmarking": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "priority": 1
+    },
+    "building-a-hybrid-rule-based-and-machine-learning-framework-to-detect-and-defend-against-jailbreak-prompts-in-llm-systems": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "priority": 1
+    },
+    "config": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "priority": 1
+    },
+    "finance": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "priority": 1
+    },
+    "multiturn-crescendo-llm-safety-evaluation-with-garak": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "priority": 1
+    },
+    "robust-llm-safety-filters-adaptive-attack-defense": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "priority": 1
+    },
+    "server": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "priority": 1
+    },
+    "single-turn-attacks": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "priority": 1
+    },
+    "targeted-data-poisoning-label-flipping-cifar10-pytorch": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "priority": 1
+    },
+    "zero-trust-network-simulation-policy-engine": {
+      "service": "security",
+      "endpoint": "http://mcp-security:8002",
+      "priority": 1
+    },
+    "adaptive-meta-reasoning-agent": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "advanced-ai-agent-hugging-face": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "advanced-google-adk-multi-agent-tutorial": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "advanced-langgraph-multi-agent-pipeline": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "advanced-neural-agent": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "advanced-ocr-ai-agent": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "advanced-peer-multiagent-tutorial": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "advanced-stable-baselines3-trading-agent": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "agent-executor": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "agent-lightning-prompt-optimization": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "agent-orchestration-with-mistral-agents-api": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "agent2agent-collaboration": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "agentic-ai-langchain-autogen-huggingface": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "agentic-ai-time-series-forecasting-darts-hf": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "agentic-benchmarking-empirical-study": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "agentic-data-infrastructure-strategy-qwen": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "agentic-deep-rl-curriculum-ucb-meta-control": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "agentic-multi-agent-rl-gridworld": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "agentic-rag-tutorial": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "agentscope-multi-agent-incident-response": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "ai-crypto-agent-secure-comms": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "ai-desktop-automation-agent-tutorial": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "autogen-semantickernel-gemini-flash-multiagent-tutorial": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "autogen-teamtool-roundrobin": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "autonomous-prior-auth-agent-healthcare-rcm": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "beeai-multi-agent-workflow": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "biocypher-agent-tutorial": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "building-advanced-mcp-agents-with-multi-agent-coordination": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "camel-multi-agent-research-pipeline": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "cipher-memory-agent": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "client": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "cognee-agent-tutorial-with-huggingface-integration": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "computer-use-agent-local-ai": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "context-folding-llm-agent-long-horizon": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "cost-aware-planning-agent-budget-constrained": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "crewai-multiagent-gemini": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "custom-tool-for-ai-agent": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "customizable-multitool-ai-agent-with-claude": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "deep-research-agent": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "emi-agent": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "enterprise-agentic-benchmarking-framework": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "exploration-agents-problem-solving": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "gemini-agent-network": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "gemini-autogen-multiagent-framework": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "gemini-pandas-agent": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "gemini-semantic-agent-orchestrator": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "getting-started-with-mistral-agents-api": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "graph-agent-framework-with-gemini": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "graphagent-gemini-advanced-tutorial": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "graphaiagent-langgraph-gemini-workflow": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "handoff": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "hierarchical-planner-ai-agent-open-source-llm": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "how-to-build-an-advanced-end-to-end-voice-ai-agent-using-hugging-face-pipelines": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "how-to-enable-function-calling-in-mistral-agents": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "hrm-braininspired-ai-agent-huggingface": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "human-in-the-loop-plan-execute-agent-langgraph-streamlit": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "inflation-agent": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "langchain-deepagents": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "langchain-xgboost-agentic-pipeline-tutorial": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "langgraph-gemini-multiagent-research-team": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "langgraph-time-travel-research-agent": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "live-python-execution-and-validation-agent": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "main": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "mcp-gemini-agent-tutorial": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "meta-cognitive-reasoning-controller": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "mle-agent-ollama-local-pipeline": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "multi-agent-omics-integration-pipeline": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "nebius-llama3-multitool-agent": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "neuro-symbolic-hybrid-agent": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "nomic-gemini-multi-agent-ai": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "openai-agents-multiagent-research": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "openai-swarm-multi-agent-incident-response": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "paperqa2-gemini-research-agent": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "parlant": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "parsl-ai-agent-pipeline": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "primisai-nexus-multi-agent-workflow": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "production-ready-custom-ai-agents-workflows": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "prolog-gemini-langgraph-react-agent": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "sage-ai-agent-gemini-implementation": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "secure-ai-agent-with-guardrails": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "self-improving-ai-agent-with-gemini": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "self-verifying-dataops-agent-local-hf": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "semantic-kernel-gemini-agent": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "smartwebagent-tavily-gemini-webintelligence2": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "smolagents-advanced-multi-agent-orchestration": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "smolagents-fleet-maintenance-autonomous-agent": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "streamlit-ai-agent-multitool-interface": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "supervisor-framework-crewai-gemini": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "swiss-army-knife-research-agent-tool-using-ai": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "uagents-gemini-event-driven-tutorial": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "uagents-multi-agent-marketplace": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "value-alignment-and-ethics-in-agentic-systems": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    },
+    "wetlab-protocol-planner-codegen": {
+      "service": "agent-rd",
+      "endpoint": "http://mcp-agent-rd:8009",
+      "priority": 1
+    }
+  }
+}

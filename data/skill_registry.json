@@ -7110,6 +7110,25 @@
     "difficulty_level": null
   },
   {
+    "name": "context_hub_provider",
+    "domain": "mcp_tools",
+    "version": "1.0.0",
+    "purpose": "Provides a Python wrapper for the chub CLI tool, exposing its functionality as MCP tools. Enables agents to search for, retrieve, and annotate documentation and skills from the Context Hub system.",
+    "description": "This skill provides a Python wrapper for the chub CLI tool, exposing its functionality as MCP tools. It enables agents to search for, retrieve, and annotate documentation and skills from the Context Hub system.",
+    "path": "domains\\\\mcp_tools\\\\SKILL.context_hub_provider\\\\SKILL.md",
+    "last_modified": 1773178527.0,
+    "complexity": "Medium",
+    "skill_type": "Custom",
+    "category": "Model Context Protocol",
+    "source": "Custom Implementation",
+    "tags": [],
+    "dependencies": [],
+    "prerequisites": [],
+    "estimated_time": "100ms - 2 minutes",
+    "difficulty_level": null,
+    "source_file": "context_hub_provider.py"
+  },
+  {
     "name": "client",
     "domain": "AI_AGENT_DEVELOPMENT",
     "version": "1.0.0",

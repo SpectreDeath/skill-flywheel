@@ -1,72 +1,37 @@
-# Skill Flywheel: Enterprise-Grade Multi-Container MCP Architecture
+# Skill Flywheel
 
-Skill Flywheel is a production-ready, highly scalable Model Context Protocol (MCP) ecosystem. It features a distributed architecture of 9 specialized domain servers orchestrated through a central Discovery Service, providing isolation, horizontal scaling, and built-in regulatory compliance auditing.
+Enterprise-Grade Multi-Container MCP Architecture with 513+ specialized skills.
 
-## 🏗️ Architecture Overview
-
-The system is organized into logical domain groups, each running in its own isolated container:
-
-- **Discovery Service** (Port 8000): Central registry and routing engine.
-- **Orchestration** (Port 8001): Core empire management and meta-skills.
-- **Security** (Port 8002): Application security, forensics, and osint.
-- **Data & AI** (Port 8003): ML/AI research, data engineering, and ethics.
-- **DevOps** (Port 8004): Cloud, database, and infrastructure engineering.
-- **Engineering** (Port 8005): Specification engineering and formal methods.
-- **UX & Mobile** (Port 8006): Frontend and mobile development.
-- **Advanced** (Port 8007): Quantum computing, Web3, and complex algorithms.
-- **Strategy** (Port 8008): Strategy analysis, epidemiology, and game theory.
-- **Agent R&D** (Port 8009): AI agent development and autonomous evolution.
+## 🏗️ Architecture
+A distributed ecosystem of 9 domain-specific servers orchestrated by a central Discovery Service.
+- **Discovery Service**: Central registry and routing (Port 8000).
+- **Domains**: Orchestration, Security, Data & AI, DevOps, Engineering, UX & Mobile, Advanced, Strategy, Agent R&D.
 
 ## 🚀 Quick Start
+```bash
+# Start the orchestration stack
+docker compose up -d
 
-### Prerequisites
+# Verify status
+docker compose ps
+```
+Visit http://localhost:8000/health to verify.
 
-- [Docker Desktop](https://www.docker.com/products/docker-desktop/) installed and running.
-- [Docker Compose](https://docs.docker.com/compose/install/) (included with Docker Desktop).
-
-### Deployment
-
-1. Clone the repository.
-2. Run the orchestration stack:
-
-   ```bash
-   docker compose up -d
-   ```
-
-3. Verify the status:
-
-   ```bash
-   docker compose ps
-   ```
-
-## 🔍 Service Discovery
-
-The **Discovery Service** acts as the entry point for the entire empire. Use it to find which server hosts a specific skill.
-
-### Discovery Tools
-
-- `list_available_services`: Returns all active MCP endpoints and their domain coverage.
-- `find_domain_for_skill`: Maps a skill name (e.g., `repo-recon`) to its specific container endpoint.
-
-## 🛡️ Operational Compliance & Telemetry
-
-Every transaction within the ecosystem is logged to a centralized telemetry volume. This ensures all agent actions are auditable and compliant with operational standards. Logs are located at `./telemetry/usage_log.jsonl`.
-
-## ♿ Accessibility & API Resiliency
-
-Skill Flywheel is designed to be functional even without paid API keys. Core services and tools (including Skill Enrichment and Agent Orchestration) verify the presence of `GEMINI_API_KEY` or `OPENAI_API_KEY` and gracefully disable dependent features if they are missing, providing clear feedback instead of system failures.
+## 🔍 Key Features
+- **Scalable Discovery**: Dynamically routes requests across containers.
+- **Operational Compliance**: Centralized telemetry and auditing.
+- **Resilient Connectivity**: Graceful degradation without paid API keys.
+- **Advanced Core**: ML-driven optimization and automated security scanning.
 
 ## 📁 Repository Structure
+- `/src/core`: Shared logic and specialized core components.
+- `/src/discovery`: Routing and discovery service.
+- `/domains`: Repository of specialized skills.
+- `/docs`: Comprehensive documentation index.
+- `/tests`: Automated test suites.
 
-- `/src/core`: Shared MCP implementation and registry logic.
-- `/src/discovery`: Routing and discovery service logic.
-- `/domains`: Repository of 513+ specialized skills.
-- `/docs/analysis`: Architecture and ecosystem analysis reports.
-- `/docs/guides`: User and deployment guides.
-- `/tests`: Comprehensive test suites.
-- `/telemetry`: Persistent audit logs.
-- `/deploy`: Containerization artifacts.
+## 📚 Documentation
+For detailed guides and architecture deep dives, see the [Documentation Index](docs/README.md).
 
 ## 📜 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+Licensed under the MIT License.
