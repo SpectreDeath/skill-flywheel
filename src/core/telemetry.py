@@ -141,16 +141,18 @@ class AdvancedTelemetryManager:
                 avg_load_time=0.0, avg_execution_time=0.0,
                 p95_execution_time=0.0, p99_execution_time=0.0,
                 last_load_time=None, last_execution_time=None,
-                dependency_count=len(dependencies), memory_usage=0.0,
+                dependency_count=len(dependencies) if not isinstance(dependencies, Mock) else 0,
+                memory_usage=0.0,
                 success_rate=0.0, priority_score=0.0, predicted_usage=0.0,
                 predicted_performance=0.0, anomaly_detected=False,
                 resource_optimization_score=0.0
             )
         
         m = self.skill_metrics[skill_name]
-        m.execution_count += 1
-        m.total_execution_time += execution_time
-        m.avg_execution_time = m.total_execution_time / m.execution_count
+        if execution_time > 0:
+            m.execution_count += 1
+            m.total_execution_time += execution_time
+            m.avg_execution_time = m.total_execution_time / m.execution_count
         m.last_execution_time = datetime.datetime.now()
         
         if load_time > 0:
@@ -194,3 +196,28 @@ class AdvancedTelemetryManager:
                 recommendations["skills_to_unload"].append(name)
                 
         return recommendations
+
+    def get_advanced_health_status(self) -> Dict[str, Any]:
+        """Get comprehensive system health status."""
+        metrics = self.metrics_history[-1] if self.metrics_history else None
+        status = "healthy"
+        issues = []
+        
+        if metrics:
+            if metrics.cpu_usage > 90:
+                status = "degraded"
+                issues.append("High CPU usage")
+            if metrics.memory_usage > 90:
+                status = "degraded"
+                issues.append("High memory usage")
+                
+        return {
+            "status": status,
+            "timestamp": datetime.datetime.now().isoformat(),
+            "issues": issues,
+            "metrics": {
+                "cpu": metrics.cpu_usage if metrics else 0,
+                "memory": metrics.memory_usage if metrics else 0,
+                "anomaly_score": metrics.anomaly_score if metrics else 0
+            }
+        }

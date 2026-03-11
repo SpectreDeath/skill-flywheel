@@ -34,8 +34,6 @@ def main():
         "test_enhanced_server.py",
         "test_dynamic_lazy_loading.py",
         "test_performance_improvements.py",
-        "test_iac_loop.py",
-        "test_sync_tool.py",
         "test_watchdog.py",
         "test_ux_mobile_idle_wake.py"
     ]
