@@ -115,7 +115,7 @@ class ToolIntegrationSystem:
             self.logger.error(f"Failed to register tool {signature.name}: {e}")
             return False
     
-    def execute_tool(self, tool_name: str, params: Dict[str, Any]) -> Dict[str, Any]:
+    def invoke_tool(self, tool_name: str, params: Dict[str, Any]) -> Dict[str, Any]:
         """
         Execute a registered tool
         

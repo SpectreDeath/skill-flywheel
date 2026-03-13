@@ -297,7 +297,7 @@ class DeploymentAutomation:
         self.logger.info(f"Created deployment: {deployment_id}")
         return deployment_id
     
-    async def execute_deployment(self,
+    async def invoke_deployment(self,
                                 deployment_id: str,
                                 environment: EnvironmentType,
                                 package_version: Optional[str] = None) -> str:

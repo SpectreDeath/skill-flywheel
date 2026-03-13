@@ -327,7 +327,7 @@ class DataPipelineManager:
         self.logger.info(f"Created pipeline: {pipeline_id}")
         return pipeline_id
     
-    async def execute_pipeline(self, pipeline_id: str) -> str:
+    async def invoke_pipeline(self, pipeline_id: str) -> str:
         """
         Execute a data pipeline
         

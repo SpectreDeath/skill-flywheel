@@ -162,7 +162,7 @@ class InfrastructureAsCode:
         
         return plan_id
     
-    async def execute_deployment(self, plan_id: str, 
+    async def invoke_deployment(self, plan_id: str,
                                provider: CloudProvider,
                                dry_run: bool = False) -> str:
         """

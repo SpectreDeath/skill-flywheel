@@ -219,7 +219,7 @@ class Agent:
         else:
             return None
     
-    async def execute_task(self, task: AgentTask):
+    async def invoke_task(self, task: AgentTask):
         """Execute a task"""
         self.state = AgentState.BUSY
         self.last_activity = time.time()
@@ -451,7 +451,7 @@ class ToolUseModule:
         """Register a tool that can be used"""
         self.available_tools[tool_name] = tool_function
     
-    async def execute(self, tool_request: Dict[str, Any]) -> Dict[str, Any]:
+    async def invoke(self, tool_request: Dict[str, Any]) -> Dict[str, Any]:
         """Execute a tool"""
         tool_name = tool_request.get("tool_name")
         parameters = tool_request.get("parameters", {})

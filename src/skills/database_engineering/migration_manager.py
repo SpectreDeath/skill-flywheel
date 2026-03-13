@@ -264,7 +264,7 @@ class MigrationManager:
         self.logger.info(f"Created migration plan: {plan_id} (target: {target_version})")
         return plan_id
     
-    async def execute_migration(self, plan_id: str, connection_id: str) -> Dict[str, Any]:
+    async def invoke_migration(self, plan_id: str, connection_id: str) -> Dict[str, Any]:
         """
         Execute a migration plan
         
