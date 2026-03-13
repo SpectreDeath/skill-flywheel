@@ -327,7 +327,7 @@ class NodeJSOptimizationAnalyzer:
             }
         }
 
-def invoke(config: Dict[str, Any]) -> Dict[str, Any]:
+async def invoke(config: Dict[str, Any]) -> Dict[str, Any]:
     """
     Main entry point for the Node.js optimization analyzer skill
     

@@ -229,7 +229,7 @@ async def batch_api_calls(calls: List[Dict[str, Any]],
     """
     api_client = APIIntegration(config)
     
-    async def execute_call(call_config: Dict[str, Any]) -> Dict[str, Any]:
+    async def invoke_call(call_config: Dict[str, Any]) -> Dict[str, Any]:
         """Execute a single API call"""
         try:
             method = call_config.get('method', 'GET').upper()
@@ -249,7 +249,7 @@ async def batch_api_calls(calls: List[Dict[str, Any]],
     
     async def limited_call(call_config: Dict[str, Any]):
         async with semaphore:
-            return await execute_call(call_config)
+            return await invoke_call(call_config)
     
     # Execute all calls concurrently
     tasks = [limited_call(call) for call in calls]
@@ -392,6 +392,160 @@ async def example_usage():
         
     except APIError as e:
         print(f"API Error: {e}")
+
+async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
+    """
+    Entry point for skill invocation.
+    
+    Args:
+        payload: dict of input parameters including:
+            - action: "make_request", "batch_calls", "transform_data", "health_check"
+            - request_data: Request configuration for make_request
+            - batch_data: Batch call configuration
+            - transform_data: Data transformation configuration
+            - config_data: API configuration
+            
+    Returns:
+        dict with 'result' key and optional 'metadata'
+    """
+    action = payload.get("action", "health_check")
+    
+    try:
+        if action == "make_request":
+            request_data = payload.get("request_data", {})
+            
+            # Create API configuration
+            config_data = request_data.get("config", {})
+            config = APIConfig(
+                base_url=config_data.get("base_url", "https://jsonplaceholder.typicode.com"),
+                auth_type=AuthType(config_data.get("auth_type", "none")),
+                api_key=config_data.get("api_key"),
+                username=config_data.get("username"),
+                password=config_data.get("password"),
+                bearer_token=config_data.get("bearer_token"),
+                timeout=config_data.get("timeout", 30),
+                max_retries=config_data.get("max_retries", 3),
+                retry_delay=config_data.get("retry_delay", 1.0),
+                rate_limit_delay=config_data.get("rate_limit_delay", 0.1),
+                headers=config_data.get("headers")
+            )
+            
+            api_client = APIIntegration(config)
+            
+            # Make request
+            response = await api_client.make_request(
+                method=request_data.get("method", "GET"),
+                endpoint=request_data.get("endpoint", "/"),
+                data=request_data.get("data"),
+                params=request_data.get("params"),
+                headers=request_data.get("headers")
+            )
+            
+            return {
+                "result": response,
+                "metadata": {
+                    "action": "make_request",
+                    "timestamp": datetime.now().isoformat()
+                }
+            }
+        
+        elif action == "batch_calls":
+            batch_data = payload.get("batch_data", {})
+            
+            # Create API configuration
+            config_data = batch_data.get("config", {})
+            config = APIConfig(
+                base_url=config_data.get("base_url", "https://jsonplaceholder.typicode.com"),
+                auth_type=AuthType(config_data.get("auth_type", "none")),
+                api_key=config_data.get("api_key"),
+                username=config_data.get("username"),
+                password=config_data.get("password"),
+                bearer_token=config_data.get("bearer_token"),
+                timeout=config_data.get("timeout", 30),
+                max_retries=config_data.get("max_retries", 3),
+                retry_delay=config_data.get("retry_delay", 1.0),
+                rate_limit_delay=config_data.get("rate_limit_delay", 0.1),
+                headers=config_data.get("headers")
+            )
+            
+            calls = batch_data.get("calls", [])
+            results = await batch_api_calls(calls, config)
+            
+            return {
+                "result": results,
+                "metadata": {
+                    "action": "batch_calls",
+                    "timestamp": datetime.now().isoformat(),
+                    "call_count": len(calls)
+                }
+            }
+        
+        elif action == "transform_data":
+            transform_data = payload.get("transform_data", {})
+            
+            data = transform_data.get("data", {})
+            mapping = transform_data.get("mapping", {})
+            filters = transform_data.get("filters", [])
+            
+            transformed = transform_data(data, mapping, filters)
+            
+            return {
+                "result": transformed,
+                "metadata": {
+                    "action": "transform_data",
+                    "timestamp": datetime.now().isoformat()
+                }
+            }
+        
+        elif action == "health_check":
+            config_data = payload.get("config_data", {})
+            
+            config = APIConfig(
+                base_url=config_data.get("base_url", "https://jsonplaceholder.typicode.com"),
+                auth_type=AuthType(config_data.get("auth_type", "none")),
+                api_key=config_data.get("api_key"),
+                username=config_data.get("username"),
+                password=config_data.get("password"),
+                bearer_token=config_data.get("bearer_token"),
+                timeout=config_data.get("timeout", 10),
+                max_retries=config_data.get("max_retries", 3),
+                retry_delay=config_data.get("retry_delay", 1.0),
+                rate_limit_delay=config_data.get("rate_limit_delay", 0.1),
+                headers=config_data.get("headers")
+            )
+            
+            result = await health_check(config)
+            
+            return {
+                "result": result,
+                "metadata": {
+                    "action": "health_check",
+                    "timestamp": datetime.now().isoformat()
+                }
+            }
+        
+        else:
+            return {
+                "result": {
+                    "error": f"Unknown action: {action}"
+                },
+                "metadata": {
+                    "action": action,
+                    "timestamp": datetime.now().isoformat()
+                }
+            }
+    
+    except Exception as e:
+        logger.error(f"Error in api_integration: {e}")
+        return {
+            "result": {
+                "error": str(e)
+            },
+            "metadata": {
+                "action": action,
+                "timestamp": datetime.now().isoformat()
+            }
+        }
 
 if __name__ == "__main__":
     asyncio.run(example_usage())
