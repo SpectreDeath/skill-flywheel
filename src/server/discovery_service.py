@@ -60,13 +60,119 @@ async def health():
     except Exception as e:
         return {"status": "down", "error": str(e)}
 
+@app.get("/health/detailed")
+async def detailed_health():
+    """Detailed health check endpoint that provides comprehensive system status"""
+    try:
+        with get_db() as db:
+            cursor = db.cursor()
+            
+            # Get overall system health
+            cursor.execute("SELECT COUNT(*) as total FROM skills")
+            total_skills = cursor.fetchone()["total"]
+            
+            cursor.execute("SELECT COUNT(*) as healthy FROM skills WHERE health_status = 'healthy'")
+            healthy_skills = cursor.fetchone()["healthy"]
+            
+            cursor.execute("SELECT COUNT(*) as unhealthy FROM skills WHERE health_status = 'unhealthy'")
+            unhealthy_skills = cursor.fetchone()["unhealthy"]
+            
+            cursor.execute("SELECT COUNT(*) as unknown FROM skills WHERE health_status = 'unknown'")
+            unknown_skills = cursor.fetchone()["unknown"]
+            
+            # Get recent activity
+            cursor.execute("SELECT COUNT(*) as recent_invocations FROM skills WHERE last_invoked > datetime('now', '-1 hour')")
+            recent_invocations = cursor.fetchone()["recent_invocations"]
+            
+            # Get skill domains
+            cursor.execute("SELECT DISTINCT domain FROM skills")
+            domains = [row["domain"] for row in cursor.fetchall()]
+            
+            # Calculate health percentage
+            health_percentage = (healthy_skills / total_skills * 100) if total_skills > 0 else 0
+            
+            return {
+                "status": "healthy",
+                "timestamp": datetime.utcnow().isoformat(),
+                "system_overview": {
+                    "total_skills": total_skills,
+                    "healthy_skills": healthy_skills,
+                    "unhealthy_skills": unhealthy_skills,
+                    "unknown_skills": unknown_skills,
+                    "health_percentage": round(health_percentage, 2)
+                },
+                "activity": {
+                    "recent_invocations_last_hour": recent_invocations
+                },
+                "domains": domains,
+                "database": {
+                    "path": DB_PATH,
+                    "accessible": True
+                }
+            }
+            
+    except Exception as e:
+        return {
+            "status": "unhealthy",
+            "timestamp": datetime.utcnow().isoformat(),
+            "error": str(e),
+            "database": {
+                "path": DB_PATH,
+                "accessible": False
+            }
+        }
+
 @app.get("/skills")
-async def list_skills():
+async def list_skills(page: int = 1, limit: int = 20):
+    """
+    List skills with pagination support.
+    
+    Args:
+        page: Page number (1-based), defaults to 1
+        limit: Number of skills per page, defaults to 20
+    
+    Returns:
+        Paginated list of skills with metadata
+    """
+    if page < 1:
+        page = 1
+    if limit < 1:
+        limit = 20
+    elif limit > 100:
+        limit = 100  # Maximum limit to prevent overwhelming responses
+        
+    offset = (page - 1) * limit
+    
     with get_db() as db:
         cursor = db.cursor()
-        cursor.execute("SELECT skill_id, name, domain, version, health_status FROM skills")
+        
+        # Get total count for pagination metadata
+        cursor.execute("SELECT COUNT(*) FROM skills")
+        total_count = cursor.fetchone()[0]
+        
+        # Get paginated skills
+        cursor.execute(
+            "SELECT skill_id, name, domain, version, health_status FROM skills ORDER BY name LIMIT ? OFFSET ?",
+            (limit, offset)
+        )
         rows = cursor.fetchall()
-        return [dict(row) for row in rows]
+        
+        # Calculate pagination metadata
+        total_pages = (total_count + limit - 1) // limit  # Ceiling division
+        has_next = page < total_pages
+        has_prev = page > 1
+        
+        return {
+            "skills": [dict(row) for row in rows],
+            "pagination": {
+                "page": page,
+                "limit": limit,
+                "total": total_count,
+                "total_pages": total_pages,
+                "has_next": has_next,
+                "has_prev": has_prev
+            }
+        }
 
 @app.get("/skills/{skill_id}")
 async def get_skill(skill_id: str):
