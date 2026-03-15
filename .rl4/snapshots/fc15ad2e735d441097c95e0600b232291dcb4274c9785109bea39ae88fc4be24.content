@@ -1,0 +1,180 @@
+# FLOW: Skill Development Pipeline
+#
+# Meta-pipeline for creating and improving Agent Skills.
+# Uses the meta-skills to bootstrap new skills efficiently.
+
+name: "Skill Development Pipeline"
+description: "Meta-pipeline for creating and improving Agent Skills using existing meta-skills"
+version: "1.0.0"
+author: "Agent Skills Library"
+
+# Pipeline Configuration
+pipeline:
+  - name: "Skill Drafting"
+    skill: "SKILL.skill_drafting.md"
+    inputs:
+      natural_language_description: "${SKILL_DESCRIPTION}"
+      environment_constraints: "${ENVIRONMENT_CONSTRAINTS}"
+      examples: "${EXAMPLES}"
+    outputs:
+      - "drafted_skill.md"
+      - "open_questions.md"
+    timeout: 300
+    retry_attempts: 2
+
+  - name: "Skill Critiquing"
+    skill: "SKILL.skill_critiquing.md"
+    inputs:
+      skill_file: "drafted_skill.md"
+      specific_concerns: "${CRITIQUE_FOCUS}"
+      context: "${ENVIRONMENT_CONTEXT}"
+    outputs:
+      - "critiqued_skill.md"
+      - "improvement_suggestions.md"
+    timeout: 400
+    retry_attempts: 1
+    depends_on: ["Skill Drafting"]
+
+  - name: "Skill Refinement"
+    skill: "SKILL.skill_drafting.md"
+    inputs:
+      natural_language_description: "Refine the skill based on critique feedback and suggestions"
+      environment_constraints: "${ENVIRONMENT_CONSTRAINTS}"
+      examples: "Incorporate all improvement suggestions from the critique phase"
+      additional_context: "Use improvement_suggestions.md as input for refinement"
+    outputs:
+      - "refined_skill.md"
+      - "validation_checklist.md"
+    timeout: 300
+    retry_attempts: 1
+    depends_on: ["Skill Critiquing"]
+
+  - name: "Skill Validation"
+    skill: "SKILL.skill_critiquing.md"
+    inputs:
+      skill_file: "refined_skill.md"
+      specific_concerns: "final_validation"
+      context: "${VALIDATION_CONTEXT}"
+    outputs:
+      - "validated_skill.md"
+      - "quality_assessment.md"
+    timeout: 200
+    retry_attempts: 1
+    depends_on: ["Skill Refinement"]
+
+  - name: "Generate Skill Assets"
+    skill: "SKILL.skill_drafting.md"
+    inputs:
+      natural_language_description: "Create supporting assets for the validated skill"
+      environment_constraints: "${ASSET_REQUIREMENTS}"
+      examples: "Generate scripts, templates, and documentation needed for the skill"
+    outputs:
+      - "skill_assets/"
+      - "asset_manifest.json"
+    timeout: 400
+    retry_attempts: 1
+    depends_on: ["Skill Validation"]
+
+  - name: "Final Skill Package"
+    skill: "SKILL.skill_drafting.md"
+    inputs:
+      natural_language_description: "Package the complete skill with all assets and documentation"
+      environment_constraints: "Follow the standard skill template structure"
+      examples: "Create final skill file with proper naming, assets, and documentation"
+      additional_context: "Include asset_manifest.json and quality_assessment.md"
+    outputs:
+      - "final_skill_package/"
+      - "deployment_instructions.md"
+    timeout: 300
+    retry_attempts: 1
+    depends_on: ["Generate Skill Assets"]
+
+# Pipeline Settings
+settings:
+  parallel_execution: false  # Sequential for quality control
+  fail_fast: true            # Stop on any failure
+  continue_on_partial_failure: false
+  output_format: "markdown"
+  report_level: "detailed"
+
+# Success Criteria
+success_criteria:
+  - "Skill drafting produces complete skill specification"
+  - "Skill critiquing identifies and addresses quality issues"
+  - "Skill refinement incorporates all valid suggestions"
+  - "Skill validation confirms quality standards are met"
+  - "All required assets are generated and documented"
+  - "Final package follows standard structure and naming conventions"
+
+# Error Handling
+error_handling:
+  timeout_policy: "fail_pipeline"
+  failure_policy: "stop_on_failure"
+  rollback_strategy: "none"
+  notification_level: "on_any_failure"
+
+# Output Artifacts
+artifacts:
+  primary_output: "final_skill_package/"
+  intermediate_files:
+    - "drafted_skill.md"
+    - "critiqued_skill.md"
+    - "refined_skill.md"
+    - "validated_skill.md"
+  documentation:
+    - "open_questions.md"
+    - "improvement_suggestions.md"
+    - "validation_checklist.md"
+    - "quality_assessment.md"
+    - "deployment_instructions.md"
+  assets:
+    - "skill_assets/"
+    - "asset_manifest.json"
+
+# Input Parameters
+input_parameters:
+  required:
+    - "SKILL_DESCRIPTION: Natural language description of the desired skill"
+    - "ENVIRONMENT_CONSTRAINTS: Environment and tool limitations"
+  optional:
+    - "EXAMPLES: Specific examples or use cases"
+    - "CRITIQUE_FOCUS: Areas to focus on during critique"
+    - "ENVIRONMENT_CONTEXT: Additional context for skill execution"
+    - "VALIDATION_CONTEXT: Context for final validation"
+    - "ASSET_REQUIREMENTS: Specific asset requirements"
+
+# Usage Instructions
+usage:
+  - "Set required environment variables: SKILL_DESCRIPTION, ENVIRONMENT_CONSTRAINTS"
+  - "Optionally set: EXAMPLES, CRITIQUE_FOCUS, ENVIRONMENT_CONTEXT, VALIDATION_CONTEXT, ASSET_REQUIREMENTS"
+  - "Run: agent run FLOW.skill_pipeline.yaml"
+  - "Review intermediate outputs for quality assurance"
+  - "Use final_skill_package/ for deployment to agent skills directory"
+  - "Test the skill in your target agent environment"
+
+# Prerequisites
+prerequisites:
+  - "Access to SKILL.skill_drafting.md and SKILL.skill_critiquing.md"
+  - "Properly configured agent environment"
+  - "Clear understanding of skill requirements and constraints"
+  - "Access to any external tools or APIs the skill will use"
+
+# Estimated Runtime
+estimated_runtime: "15-25 minutes depending on skill complexity"
+
+# Quality Gates
+quality_gates:
+  drafting_quality: "completeness_check"
+  critiquing_quality: "issue_resolution_check"
+  refinement_quality: "suggestion_incorporation_check"
+  validation_quality: "standards_compliance_check"
+  asset_quality: "completeness_and_functionality_check"
+
+# Best Practices
+best_practices:
+  - "Provide detailed and specific skill descriptions"
+  - "Clearly define environment constraints and assumptions"
+  - "Include realistic examples and edge cases"
+  - "Review intermediate outputs before proceeding"
+  - "Test the final skill in isolation before deployment"
+  - "Document any known limitations or dependencies"

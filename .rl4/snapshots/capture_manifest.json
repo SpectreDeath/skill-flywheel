@@ -1,0 +1,20 @@
+{
+  "version": "2.0",
+  "type": "day1_snapshot",
+  "captured_at": "2026-02-27T16:05:16.764Z",
+  "workspace_root": "d:\\Cline",
+  "stats": {
+    "config_files": 0,
+    "source_files": 20,
+    "total_files": 20,
+    "total_bytes": 133914,
+    "total_kb": 131,
+    "total_mb": 0.13
+  },
+  "reconstruction_ready": true,
+  "limits_used": {
+    "max_files": 500,
+    "max_file_size_kb": 1024,
+    "max_total_size_mb": 50
+  }
+}

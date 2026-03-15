@@ -1,0 +1,516 @@
+{
+  "chains": [
+    {
+      "file": "skills\\validated_variants.json",
+      "trajectory": "converging",
+      "hot_score": 0.42,
+      "versions": 4,
+      "reversals": 3,
+      "last_reversal": {
+        "from_v": 2,
+        "to_v": 3,
+        "reverted_lines": 7,
+        "thread_changed": false,
+        "time_gap_hours": 2.88
+      },
+      "causing_prompts": []
+    },
+    {
+      "file": "skills\\SKILL_INDEX.md",
+      "trajectory": "converging",
+      "hot_score": 0.41,
+      "versions": 14,
+      "reversals": 4,
+      "last_reversal": {
+        "from_v": 9,
+        "to_v": 11,
+        "reverted_lines": 3,
+        "thread_changed": false,
+        "time_gap_hours": 0.03
+      },
+      "causing_prompts": []
+    },
+    {
+      "file": "skills\\README.md",
+      "trajectory": "converging",
+      "hot_score": 0.38,
+      "versions": 16,
+      "reversals": 3,
+      "last_reversal": {
+        "from_v": 13,
+        "to_v": 14,
+        "reverted_lines": 2,
+        "thread_changed": false,
+        "time_gap_hours": 15.46
+      },
+      "causing_prompts": []
+    },
+    {
+      "file": "skills\\ralph_dump.md",
+      "trajectory": "exploring",
+      "hot_score": 0.36,
+      "versions": 3,
+      "reversals": 2,
+      "last_reversal": {
+        "from_v": 1,
+        "to_v": 2,
+        "reverted_lines": 63,
+        "thread_changed": false,
+        "time_gap_hours": 2.86
+      },
+      "causing_prompts": []
+    },
+    {
+      "file": "skills\\chaos_ranking.json",
+      "trajectory": "converging",
+      "hot_score": 0.36,
+      "versions": 3,
+      "reversals": 2,
+      "last_reversal": {
+        "from_v": 1,
+        "to_v": 2,
+        "reverted_lines": 42,
+        "thread_changed": false,
+        "time_gap_hours": 2.88
+      },
+      "causing_prompts": []
+    },
+    {
+      "file": "skills\\top_3_ideas.md",
+      "trajectory": "exploring",
+      "hot_score": 0.36,
+      "versions": 3,
+      "reversals": 2,
+      "last_reversal": {
+        "from_v": 1,
+        "to_v": 2,
+        "reverted_lines": 66,
+        "thread_changed": false,
+        "time_gap_hours": 2.88
+      },
+      "causing_prompts": []
+    },
+    {
+      "file": "Agent_Skills_Development_Guide.md",
+      "trajectory": "converging",
+      "hot_score": 0.27,
+      "versions": 7,
+      "reversals": 1,
+      "last_reversal": {
+        "from_v": 4,
+        "to_v": 6,
+        "reverted_lines": 1,
+        "thread_changed": false,
+        "time_gap_hours": 0.04
+      },
+      "causing_prompts": []
+    },
+    {
+      "file": "skills\\usage_analysis_report.json",
+      "trajectory": "converging",
+      "hot_score": 0.26,
+      "versions": 2,
+      "reversals": 1,
+      "last_reversal": {
+        "from_v": 0,
+        "to_v": 1,
+        "reverted_lines": 22,
+        "thread_changed": false,
+        "time_gap_hours": 2.85
+      },
+      "causing_prompts": []
+    },
+    {
+      "file": "skills\\pattern_insights.md",
+      "trajectory": "converging",
+      "hot_score": 0.26,
+      "versions": 2,
+      "reversals": 1,
+      "last_reversal": {
+        "from_v": 0,
+        "to_v": 1,
+        "reverted_lines": 20,
+        "thread_changed": false,
+        "time_gap_hours": 2.86
+      },
+      "causing_prompts": []
+    },
+    {
+      "file": "skills\\SKILL\\SKILL.ralph_wiggum.md",
+      "trajectory": "linear",
+      "hot_score": 0.12,
+      "versions": 4,
+      "reversals": 0,
+      "last_reversal": null,
+      "causing_prompts": []
+    },
+    {
+      "file": "skills\\SKILL.skill_drafting.md",
+      "trajectory": "exploring",
+      "hot_score": 0.09,
+      "versions": 3,
+      "reversals": 0,
+      "last_reversal": null,
+      "causing_prompts": []
+    },
+    {
+      "file": "skills\\SKILL.skill_critiquing.md",
+      "trajectory": "exploring",
+      "hot_score": 0.09,
+      "versions": 3,
+      "reversals": 0,
+      "last_reversal": null,
+      "causing_prompts": []
+    },
+    {
+      "file": "skills\\SKILL.repo_recon.md",
+      "trajectory": "exploring",
+      "hot_score": 0.09,
+      "versions": 3,
+      "reversals": 0,
+      "last_reversal": null,
+      "causing_prompts": []
+    },
+    {
+      "file": "skills\\skill_template.md",
+      "trajectory": "exploring",
+      "hot_score": 0.09,
+      "versions": 3,
+      "reversals": 0,
+      "last_reversal": null,
+      "causing_prompts": []
+    },
+    {
+      "file": "skills\\FLOW\\FLOW.full_cycle.yaml",
+      "trajectory": "linear",
+      "hot_score": 0.09,
+      "versions": 3,
+      "reversals": 0,
+      "last_reversal": null,
+      "causing_prompts": []
+    },
+    {
+      "file": "skills\\SKILL\\SKILL.repo_recon.md",
+      "trajectory": "linear",
+      "hot_score": 0.06,
+      "versions": 2,
+      "reversals": 0,
+      "last_reversal": null,
+      "causing_prompts": []
+    },
+    {
+      "file": "skills\\SKILL\\SKILL.skill_evolution.md",
+      "trajectory": "linear",
+      "hot_score": 0.06,
+      "versions": 2,
+      "reversals": 0,
+      "last_reversal": null,
+      "causing_prompts": []
+    },
+    {
+      "file": "skills\\SKILL\\frontend_metrics_dashboard.md",
+      "trajectory": "linear",
+      "hot_score": 0.06,
+      "versions": 2,
+      "reversals": 0,
+      "last_reversal": null,
+      "causing_prompts": []
+    },
+    {
+      "file": "skills\\DOMAIN\\SPECIFICATION_ENGINEERING\\skill_manifest.json",
+      "trajectory": "linear",
+      "hot_score": 0.06,
+      "versions": 2,
+      "reversals": 0,
+      "last_reversal": null,
+      "causing_prompts": []
+    },
+    {
+      "file": "skills\\DOMAIN\\orchestration\\SKILL.dynamic_skill_selection_routing.md",
+      "trajectory": "linear",
+      "hot_score": 0.06,
+      "versions": 2,
+      "reversals": 0,
+      "last_reversal": null,
+      "causing_prompts": []
+    },
+    {
+      "file": "skills\\DOMAIN\\formal_methods\\SKILL.formal_verification_methods.md",
+      "trajectory": "linear",
+      "hot_score": 0.06,
+      "versions": 2,
+      "reversals": 0,
+      "last_reversal": null,
+      "causing_prompts": []
+    },
+    {
+      "file": "skills\\DOMAIN\\search_algorithms\\SKILL.ant_colony_optimization.md",
+      "trajectory": "linear",
+      "hot_score": 0.06,
+      "versions": 2,
+      "reversals": 0,
+      "last_reversal": null,
+      "causing_prompts": []
+    },
+    {
+      "file": "skills\\SKILL.security_scan.md",
+      "trajectory": "linear",
+      "hot_score": 0.03,
+      "versions": 1,
+      "reversals": 0,
+      "last_reversal": null,
+      "causing_prompts": []
+    },
+    {
+      "file": "skills\\SKILL.test_survey.md",
+      "trajectory": "linear",
+      "hot_score": 0.03,
+      "versions": 1,
+      "reversals": 0,
+      "last_reversal": null,
+      "causing_prompts": []
+    },
+    {
+      "file": "skills\\SKILL.deps_audit.md",
+      "trajectory": "linear",
+      "hot_score": 0.03,
+      "versions": 1,
+      "reversals": 0,
+      "last_reversal": null,
+      "causing_prompts": []
+    },
+    {
+      "file": "skills\\SKILL.refactor_plan.md",
+      "trajectory": "linear",
+      "hot_score": 0.03,
+      "versions": 1,
+      "reversals": 0,
+      "last_reversal": null,
+      "causing_prompts": []
+    },
+    {
+      "file": "skills\\SKILL.perf_audit.md",
+      "trajectory": "linear",
+      "hot_score": 0.03,
+      "versions": 1,
+      "reversals": 0,
+      "last_reversal": null,
+      "causing_prompts": []
+    },
+    {
+      "file": "skills\\SKILL.api_design.md",
+      "trajectory": "linear",
+      "hot_score": 0.03,
+      "versions": 1,
+      "reversals": 0,
+      "last_reversal": null,
+      "causing_prompts": []
+    },
+    {
+      "file": "skills\\FLOW.onboard.yaml",
+      "trajectory": "linear",
+      "hot_score": 0.03,
+      "versions": 1,
+      "reversals": 0,
+      "last_reversal": null,
+      "causing_prompts": []
+    },
+    {
+      "file": "skills\\FLOW.quality_audit.yaml",
+      "trajectory": "linear",
+      "hot_score": 0.03,
+      "versions": 1,
+      "reversals": 0,
+      "last_reversal": null,
+      "causing_prompts": []
+    },
+    {
+      "file": "skills\\FLOW.skill_pipeline.yaml",
+      "trajectory": "linear",
+      "hot_score": 0.03,
+      "versions": 1,
+      "reversals": 0,
+      "last_reversal": null,
+      "causing_prompts": []
+    },
+    {
+      "file": "skills\\docs\\README.md",
+      "trajectory": "linear",
+      "hot_score": 0.03,
+      "versions": 1,
+      "reversals": 0,
+      "last_reversal": null,
+      "causing_prompts": []
+    },
+    {
+      "file": "skills\\docs\\skill_index.md",
+      "trajectory": "linear",
+      "hot_score": 0.03,
+      "versions": 1,
+      "reversals": 0,
+      "last_reversal": null,
+      "causing_prompts": []
+    },
+    {
+      "file": "skills\\SKILL\\SKILL.skill_drafting.md",
+      "trajectory": "linear",
+      "hot_score": 0.03,
+      "versions": 1,
+      "reversals": 0,
+      "last_reversal": null,
+      "causing_prompts": []
+    },
+    {
+      "file": "skills\\SKILL\\SKILL.skill_critiquing.md",
+      "trajectory": "linear",
+      "hot_score": 0.03,
+      "versions": 1,
+      "reversals": 0,
+      "last_reversal": null,
+      "causing_prompts": []
+    },
+    {
+      "file": "skills\\DEMO.md",
+      "trajectory": "linear",
+      "hot_score": 0.03,
+      "versions": 1,
+      "reversals": 0,
+      "last_reversal": null,
+      "causing_prompts": []
+    },
+    {
+      "file": "skills\\SKILL\\SKILL.compliance_audit.md",
+      "trajectory": "linear",
+      "hot_score": 0.03,
+      "versions": 1,
+      "reversals": 0,
+      "last_reversal": null,
+      "causing_prompts": []
+    },
+    {
+      "file": "skills\\FLOW\\FLOW.stress_test.yaml",
+      "trajectory": "linear",
+      "hot_score": 0.03,
+      "versions": 1,
+      "reversals": 0,
+      "last_reversal": null,
+      "causing_prompts": []
+    },
+    {
+      "file": "skills\\SKILL\\SKILL.metrics_dashboard.md",
+      "trajectory": "linear",
+      "hot_score": 0.03,
+      "versions": 1,
+      "reversals": 0,
+      "last_reversal": null,
+      "causing_prompts": []
+    },
+    {
+      "file": "skills\\DEMO\\game_dev_singularity_test.md",
+      "trajectory": "linear",
+      "hot_score": 0.03,
+      "versions": 1,
+      "reversals": 0,
+      "last_reversal": null,
+      "causing_prompts": []
+    },
+    {
+      "file": "skills\\SELF_REPLICATING_FLYWHEEL_SUMMARY.md",
+      "trajectory": "linear",
+      "hot_score": 0.03,
+      "versions": 1,
+      "reversals": 0,
+      "last_reversal": null,
+      "causing_prompts": []
+    },
+    {
+      "file": "skills\\SKILL\\SKILL.game_dev_unity.md",
+      "trajectory": "linear",
+      "hot_score": 0.03,
+      "versions": 1,
+      "reversals": 0,
+      "last_reversal": null,
+      "causing_prompts": []
+    },
+    {
+      "file": "skills\\SKILL\\SKILL.game_dev_performance.md",
+      "trajectory": "linear",
+      "hot_score": 0.03,
+      "versions": 1,
+      "reversals": 0,
+      "last_reversal": null,
+      "causing_prompts": []
+    },
+    {
+      "file": "skills\\SKILL\\SKILL.game_dev_multiplayer.md",
+      "trajectory": "linear",
+      "hot_score": 0.03,
+      "versions": 1,
+      "reversals": 0,
+      "last_reversal": null,
+      "causing_prompts": []
+    },
+    {
+      "file": "skills\\DEMO\\game_dev_demo.md",
+      "trajectory": "linear",
+      "hot_score": 0.03,
+      "versions": 1,
+      "reversals": 0,
+      "last_reversal": null,
+      "causing_prompts": []
+    },
+    {
+      "file": "skills\\SKILL\\metrics_dashboard.md",
+      "trajectory": "linear",
+      "hot_score": 0.03,
+      "versions": 1,
+      "reversals": 0,
+      "last_reversal": null,
+      "causing_prompts": []
+    },
+    {
+      "file": "skills\\EXECUTION_SUMMARY.md",
+      "trajectory": "linear",
+      "hot_score": 0.03,
+      "versions": 1,
+      "reversals": 0,
+      "last_reversal": null,
+      "causing_prompts": []
+    },
+    {
+      "file": "skills\\SKILL\\SKILL.web3_blockchain_development.md",
+      "trajectory": "linear",
+      "hot_score": 0.03,
+      "versions": 1,
+      "reversals": 0,
+      "last_reversal": null,
+      "causing_prompts": []
+    },
+    {
+      "file": "skills\\SKILL\\SKILL.web3_smart_contract_security.md",
+      "trajectory": "linear",
+      "hot_score": 0.03,
+      "versions": 1,
+      "reversals": 0,
+      "last_reversal": null,
+      "causing_prompts": []
+    },
+    {
+      "file": "skills\\SKILL\\SKILL.web3_defi_development.md",
+      "trajectory": "linear",
+      "hot_score": 0.03,
+      "versions": 1,
+      "reversals": 0,
+      "last_reversal": null,
+      "causing_prompts": []
+    }
+  ],
+  "coupling": [],
+  "summary": {
+    "total_files_tracked": 171,
+    "files_with_reversals": 9,
+    "hottest_file": "skills\\validated_variants.json",
+    "dominant_trajectory": "linear"
+  },
+  "built_at": "2026-03-15T15:20:07.406Z"
+}

@@ -1,0 +1,12 @@
+{
+  "file_events": {
+    "queue_overflow_strategy": "DROP_OLDEST",
+    "dropped_events_count": 0,
+    "retry_count": 0
+  },
+  "ide_activity": {
+    "queue_overflow_strategy": "DROP_OLDEST",
+    "dropped_events_count": 0,
+    "retry_count": 0
+  }
+}

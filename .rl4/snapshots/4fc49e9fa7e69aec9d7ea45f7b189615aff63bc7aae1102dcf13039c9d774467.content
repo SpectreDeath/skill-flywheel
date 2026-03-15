@@ -1,0 +1,127 @@
+# SKILL: API Design Review
+
+## Purpose
+
+Evaluate and improve the design, usability, and maintainability of APIs (REST, GraphQL, gRPC, etc.). Used to ensure APIs follow best practices, provide good developer experience, and maintain long-term compatibility.
+
+## When to Use
+
+- Before releasing new APIs to production
+- When reviewing existing APIs for improvements or standardization
+- During API versioning and migration planning
+- When onboarding new developers to understand API patterns
+- Before implementing breaking changes to existing APIs
+- During API documentation and specification reviews
+
+## When NOT to Use
+
+- When you need to implement specific API endpoints (use implementation skills instead)
+- When time is severely constrained and only basic functionality matters
+- When the API is already following established, proven patterns
+- When you need real-time API testing or monitoring (use testing tools instead)
+
+## Inputs
+
+- **Required**: API specifications, documentation, or codebase with API endpoints
+- **Optional**: API type (REST, GraphQL, gRPC, WebSocket, etc.)
+- **Optional**: Target audience (internal developers, external partners, public)
+- **Optional**: Performance and scalability requirements
+- **Assumptions**: Access to API documentation, examples, and usage patterns
+
+## Outputs
+
+- **Primary**: API design assessment report (JSON format with issues and recommendations)
+- **Secondary**: API improvement roadmap with prioritized changes
+- **Format**: Markdown report with design patterns, best practice violations, and enhancement suggestions
+
+## Workflow
+
+1. **API Specification Analysis**
+   - Review API documentation completeness and clarity
+   - Analyze endpoint naming conventions and URL structure
+   - Check for consistent data formats and response patterns
+   - Assess error handling and status code usage
+
+2. **Design Pattern Evaluation**
+   - Evaluate adherence to REST principles (if applicable)
+   - Check for proper resource modeling and relationships
+   - Assess query parameter design and filtering capabilities
+   - Review pagination, sorting, and data retrieval patterns
+
+3. **Developer Experience Assessment**
+   - Analyze API discoverability and self-documentation
+   - Check for comprehensive examples and use cases
+   - Evaluate authentication and authorization patterns
+   - Assess SDK and client library availability
+
+4. **Performance and Scalability Review**
+   - Identify potential performance bottlenecks in API design
+   - Check for efficient data transfer and payload optimization
+   - Assess caching strategies and rate limiting
+   - Review versioning and backward compatibility approaches
+
+5. **Security and Compliance Analysis**
+   - Evaluate authentication and authorization mechanisms
+   - Check for proper input validation and sanitization
+   - Assess data privacy and compliance requirements
+   - Review API security best practices implementation
+
+6. **Maintainability and Evolution Planning**
+   - Analyze API versioning strategy and migration paths
+   - Check for deprecation policies and communication
+   - Assess testing and monitoring coverage
+   - Review documentation maintenance processes
+
+7. **API Improvement Strategy Development**
+   - Prioritize design improvements by impact and effort
+   - Design migration strategies for breaking changes
+   - Create standardization guidelines for future APIs
+   - Plan for API governance and review processes
+
+8. **Report Generation and Recommendations**
+   - Document design issues with specific examples and impact
+   - Provide actionable improvement recommendations
+   - Include implementation guidance and best practices
+   - Create API design guidelines and standards
+
+## Constraints
+
+- MUST maintain backward compatibility unless explicitly planning breaking changes
+- SHOULD follow established API design principles and industry standards
+- MUST consider developer experience and ease of use
+- SHOULD plan for API evolution and versioning
+- MUST document all design decisions and rationale
+- SHOULD establish API governance and review processes
+
+## Examples
+
+### Example 1: REST API Design Review
+
+**Input**: REST API specifications with target audience = "external developers", performance requirements = "high throughput"
+**Output**: REST API design assessment with optimization recommendations
+**Focus**: Resource modeling, HTTP methods, status codes, response formats
+**Notes**: Emphasize RESTful principles and developer experience
+
+### Example 2: GraphQL Schema Review
+
+**Input**: GraphQL schema with target audience = "internal teams", performance requirements = "low latency"
+**Output**: GraphQL schema optimization report
+**Focus**: Query complexity, resolver patterns, data fetching efficiency
+**Notes**: Focus on query performance and schema design best practices
+
+### Example 3: API Standardization Assessment
+
+**Input**: Multiple APIs with goal = "standardization", target audience = "all developers"
+**Output**: API standardization roadmap and guidelines
+**Focus**: Consistency across APIs, common patterns, governance
+**Notes**: Establish organization-wide API design standards
+
+## Assets
+
+- api_analyzer.py: Tool for analyzing API specifications and patterns
+- design_checker.py: Script for evaluating API design against best practices
+- performance_assessor.py: Tool for identifying API performance issues
+- security_reviewer.py: Script for API security assessment
+- documentation_reviewer.py: Tool for evaluating API documentation quality
+- standardization_guide.py: Template for API design standards and guidelines
+- migration_planner.py: Tool for planning API versioning and migration strategies

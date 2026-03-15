@@ -1,0 +1,263 @@
+# Agent Skills Library - Quick Demo
+
+This demo shows how to use the Agent Skills Library with any coding agent (Goose, Cline, Cursor, Claude, etc.).
+
+## Quick Start (2 minutes)
+
+### 1. Setup
+```bash
+# Copy skills to your agent's skills directory
+cp -r skills/ ~/.agents/skills/          # For Cline
+cp -r skills/ ~/.goose/skills/           # For Goose
+cp -r skills/ ~/.cursor/skills/          # For Cursor
+cp -r skills/ ~/.claude/skills/          # For Claude
+```
+
+### 2. Basic Usage
+Ask your agent to run any skill directly:
+
+```text
+"Run SKILL.repo_recon.md on this repository and give me a summary."
+```
+
+```text
+"Use SKILL.security_scan.md to check for security issues in the src/ directory."
+```
+
+```text
+"Execute FLOW.onboard.yaml on this project and report the results."
+```
+
+### 3. Advanced Usage
+Combine skills for powerful workflows:
+
+```text
+"First run SKILL.repo_recon.md, then use SKILL.skill_drafting.md to create a refactoring plan based on the findings."
+```
+
+```text
+"Run FLOW.quality_audit.yaml and create a prioritized improvement roadmap."
+```
+
+## Demo Scenarios
+
+### Scenario 1: New Project Onboarding (5 minutes)
+
+**Goal**: Understand a new codebase quickly
+
+**Steps**:
+1. Copy skills to your agent directory
+2. Ask: `"Run FLOW.onboard.yaml on this repository"`
+3. Review the generated reports
+
+**Expected Output**:
+- Project structure overview
+- Technology stack analysis
+- Security scan results
+- Test coverage assessment
+- Dependency health report
+- Onboarding summary with next steps
+
+### Scenario 2: Security Audit (3 minutes)
+
+**Goal**: Identify security vulnerabilities
+
+**Steps**:
+1. Ask: `"Run SKILL.security_scan.md on the src/ directory with focus on secrets and dependencies"`
+2. Review the security findings
+3. Address any critical issues found
+
+**Expected Output**:
+- List of hardcoded secrets/API keys
+- Vulnerable dependencies with CVE details
+- Security configuration issues
+- Prioritized remediation steps
+
+### Scenario 3: Code Quality Assessment (5 minutes)
+
+**Goal**: Evaluate and improve code quality
+
+**Steps**:
+1. Ask: `"Run FLOW.quality_audit.yaml on this project"`
+2. Review the quality metrics
+3. Create an improvement plan based on findings
+
+**Expected Output**:
+- Test coverage analysis
+- Performance bottleneck identification
+- API design review
+- Refactoring recommendations
+- Quality improvement roadmap
+
+### Scenario 4: Skill Development (10 minutes)
+
+**Goal**: Create a new custom skill
+
+**Steps**:
+1. Ask: `"Use SKILL.skill_drafting.md to create a skill for 'automated code review'"`
+2. Review the generated skill
+3. Ask: `"Use SKILL.skill_critiquing.md to review the generated skill"`
+4. Refine based on feedback
+
+**Expected Output**:
+- Complete SKILL.code_review.md file
+- Quality assessment and improvement suggestions
+- Ready-to-use custom skill
+
+## Real-World Examples
+
+### Example 1: Startup Codebase Evaluation
+
+```text
+User: "I just joined this startup. Run FLOW.onboard.yaml on our codebase and tell me what I need to know."
+Agent: [Executes onboarding pipeline]
+Agent: "Here's your onboarding report:
+- Tech Stack: React + Node.js + PostgreSQL
+- Security: 2 critical issues need immediate attention
+- Tests: 65% coverage, good for startup stage
+- Architecture: Well-structured microservices
+- Next Steps: 1) Fix security issues, 2) Add more integration tests, 3) Document API contracts"
+```
+
+### Example 2: Pre-Release Security Check
+
+```text
+User: "We're about to release. Run SKILL.security_scan.md on the entire codebase."
+Agent: [Executes security scan]
+Agent: "Security scan complete:
+- 0 critical vulnerabilities
+- 3 medium-risk issues (outdated dependencies)
+- 1 low-risk issue (verbose logging)
+- All hardcoded secrets properly handled
+- Recommendation: Update dependencies before release"
+```
+
+### Example 3: Technical Due Diligence
+
+```text
+User: "We're evaluating this codebase for acquisition. Run FLOW.quality_audit.yaml and assess technical debt."
+Agent: [Executes quality audit]
+Agent: "Technical assessment complete:
+- Code Quality: B+ (good structure, some technical debt)
+- Performance: A- (well-optimized)
+- Test Coverage: C+ (needs improvement)
+- Technical Debt: Moderate ($50k estimated remediation cost)
+- Recommendation: Proceed with acquisition, budget for 3 months of refactoring"
+```
+
+## Command Reference
+
+### Individual Skills
+
+```bash
+# Repository analysis
+agent run SKILL.repo_recon.md --repo-path "/path/to/repo" --focus "structure,tech_stack"
+
+# Security scanning
+agent run SKILL.security_scan.md --repo-path "/path/to/repo" --focus "secrets,dependencies" --severity "medium"
+
+# Test coverage assessment
+agent run SKILL.test_survey.md --repo-path "/path/to/repo" --coverage-threshold "80%"
+
+# Dependency audit
+agent run SKILL.deps_audit.md --repo-path "/path/to/repo" --security-threshold "high"
+
+# Performance analysis
+agent run SKILL.perf_audit.md --repo-path "/path/to/repo" --target-metrics "response_time"
+
+# API design review
+agent run SKILL.api_design.md --api-specifications "/path/to/api" --target-audience "developers"
+
+# Refactoring planning
+agent run SKILL.refactor_plan.md --repo-path "/path/to/repo" --goals "maintainability,performance"
+
+# Skill creation
+agent run SKILL.skill_drafting.md --input "Create a skill for automated deployment"
+
+# Skill review
+agent run SKILL.skill_critiquing.md --skill-file "SKILL.new_skill.md"
+```
+
+### Pipeline Workflows
+
+```bash
+# Complete project onboarding
+agent run FLOW.onboard.yaml --repo-path "/path/to/repo"
+
+# Comprehensive quality audit
+agent run FLOW.quality_audit.yaml --repo-path "/path/to/repo"
+
+# Meta-skill development
+agent run FLOW.skill_pipeline.yaml --skill-description "Automated code review skill"
+```
+
+## Tips for Success
+
+### 1. Start Simple
+Begin with individual skills before using complex pipelines.
+
+### 2. Use Focus Parameters
+Always specify focus areas to get more relevant results:
+```text
+"Run SKILL.repo_recon.md with focus on 'security,dependencies'"
+```
+
+### 3. Combine Skills Strategically
+Use meta-skills to create custom workflows:
+```text
+"Use SKILL.skill_drafting.md to create a skill for our specific use case, then run it."
+```
+
+### 4. Review and Iterate
+Always review the output and ask follow-up questions:
+```text
+"Based on the security scan results, what should we prioritize?"
+```
+
+### 5. Document Your Workflows
+Save successful skill combinations as custom pipelines for reuse.
+
+## Troubleshooting
+
+### Common Issues
+
+**Issue**: "Skill not found"
+**Solution**: Ensure skills are copied to the correct agent directory
+
+**Issue**: "Permission denied"
+**Solution**: Check file permissions and agent access to the repository
+
+**Issue**: "Results seem incomplete"
+**Solution**: Use focus parameters to target specific areas of interest
+
+**Issue**: "Skill execution failed"
+**Solution**: Check the skill's prerequisites and constraints sections
+
+### Getting Help
+
+1. **Check Examples**: Review the Examples section in each skill
+2. **Use Constraints**: Follow the "When NOT to Use" guidance
+3. **Start Small**: Begin with simpler skills before complex pipelines
+4. **Community**: Share your experiences and learn from others
+
+## Next Steps
+
+After completing this demo:
+
+1. **Customize Skills**: Adapt skills to your specific needs using the meta-skills
+2. **Create Pipelines**: Combine skills into custom workflows for your team
+3. **Share Knowledge**: Contribute improvements back to the library
+4. **Build Community**: Help others learn to use the skills effectively
+
+## Success Stories
+
+### Startup Acceleration
+A startup used FLOW.onboard.yaml to quickly understand their inherited codebase, identifying $20k worth of technical debt and creating a 3-month improvement plan.
+
+### Security Compliance
+A fintech company used SKILL.security_scan.md to achieve SOC2 compliance, identifying and fixing 15 security vulnerabilities before audit.
+
+### Team Onboarding
+An engineering team reduced new hire ramp-up time from 2 weeks to 2 days using the onboarding pipeline and custom skill combinations.
+
+Ready to level up your coding agent? Start with the demos above and build your own workflows!

@@ -1,0 +1,130 @@
+# FLOW: New Project Onboarding Pipeline
+#
+# Comprehensive onboarding workflow for new projects or team members.
+# Orchestrates multiple skills to provide complete project understanding.
+
+name: "New Project Onboarding"
+description: "Complete onboarding pipeline for new projects or team members"
+version: "1.0.0"
+author: "Agent Skills Library"
+
+# Pipeline Configuration
+pipeline:
+  - name: "Repository Reconnaissance"
+    skill: "SKILL.repo_recon.md"
+    inputs:
+      repository_path: "${REPO_PATH}"
+      focus_areas: ["structure", "tech_stack", "architecture"]
+    outputs:
+      - "repo_analysis_report.json"
+      - "project_overview.md"
+    timeout: 300
+    retry_attempts: 2
+
+  - name: "Security Scan"
+    skill: "SKILL.security_scan.md"
+    inputs:
+      repository_path: "${REPO_PATH}"
+      focus_areas: ["secrets", "dependencies", "code_patterns"]
+      severity_threshold: "medium"
+    outputs:
+      - "security_scan_report.json"
+      - "security_findings.md"
+    timeout: 600
+    retry_attempts: 1
+    depends_on: ["Repository Reconnaissance"]
+
+  - name: "Test Coverage Survey"
+    skill: "SKILL.test_survey.md"
+    inputs:
+      repository_path: "${REPO_PATH}"
+      coverage_threshold: "70%"
+      test_frameworks: "auto-detect"
+    outputs:
+      - "test_coverage_report.json"
+      - "test_quality_assessment.md"
+    timeout: 300
+    retry_attempts: 2
+    depends_on: ["Repository Reconnaissance"]
+
+  - name: "Dependencies Audit"
+    skill: "SKILL.deps_audit.md"
+    inputs:
+      repository_path: "${REPO_PATH}"
+      security_threshold: "medium"
+      upgrade_strategy: "conservative"
+    outputs:
+      - "dependencies_audit_report.json"
+      - "dependency_health_report.md"
+    timeout: 400
+    retry_attempts: 1
+    depends_on: ["Security Scan"]
+
+  - name: "Generate Onboarding Summary"
+    skill: "SKILL.skill_drafting.md"
+    inputs:
+      natural_language_description: "Create a comprehensive onboarding summary based on the collected analysis reports"
+      environment_constraints: "Include all findings from repo_recon, security_scan, test_survey, and deps_audit"
+      examples: "Focus on key insights, risks, and next steps for new team members"
+    outputs:
+      - "onboarding_summary.md"
+      - "quick_start_guide.md"
+    timeout: 200
+    retry_attempts: 1
+    depends_on: ["Repository Reconnaissance", "Security Scan", "Test Coverage Survey", "Dependencies Audit"]
+
+# Pipeline Settings
+settings:
+  parallel_execution: true
+  fail_fast: false
+  continue_on_partial_failure: true
+  output_format: "markdown"
+  report_level: "detailed"
+
+# Success Criteria
+success_criteria:
+  - "All core skills complete successfully"
+  - "Security scan identifies no critical vulnerabilities"
+  - "Test coverage meets minimum threshold"
+  - "Dependencies audit shows acceptable risk level"
+  - "Onboarding summary provides actionable insights"
+
+# Error Handling
+error_handling:
+  timeout_policy: "skip_remaining"
+  failure_policy: "continue_with_warnings"
+  rollback_strategy: "none"
+  notification_level: "on_failure"
+
+# Output Artifacts
+artifacts:
+  primary_report: "onboarding_summary.md"
+  detailed_reports:
+    - "project_overview.md"
+    - "security_findings.md"
+    - "test_quality_assessment.md"
+    - "dependency_health_report.md"
+  quick_start: "quick_start_guide.md"
+  data_exports:
+    - "repo_analysis_report.json"
+    - "security_scan_report.json"
+    - "test_coverage_report.json"
+    - "dependencies_audit_report.json"
+
+# Usage Instructions
+usage:
+  - "Set REPO_PATH environment variable to your project directory"
+  - "Run: agent run FLOW.onboard.yaml"
+  - "Review generated reports in order of priority"
+  - "Address any critical security findings immediately"
+  - "Use quick_start_guide.md for immediate onboarding needs"
+
+# Prerequisites
+prerequisites:
+  - "Access to repository files and directories"
+  - "Network access for vulnerability databases (optional)"
+  - "Standard development tools (git, package managers)"
+  - "Appropriate permissions for security scanning"
+
+# Estimated Runtime
+estimated_runtime: "15-25 minutes depending on project size"

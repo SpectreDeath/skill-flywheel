@@ -1,0 +1,1033 @@
+{
+  "version": 1,
+  "workspace_root": "d:\\Cline",
+  "updatedAtMs": 1772406886367,
+  "entries": {
+    "Agent_Skills_Development_Guide.md": {
+      "sha256": "cc21401d35939ab850a6a28908374ed8b87664a530f9d7caaec5e96a8698c935",
+      "size": 16700,
+      "mtimeMs": 1772149695531.3225,
+      "updatedAtMs": 1772149695590
+    },
+    "skills\\SKILL.skill_drafting.md": {
+      "sha256": "26cb2935b1544837828f472857106e2c249ff3ab976340705caed5ee85f65205",
+      "size": 3835,
+      "mtimeMs": 1772150212794.3005,
+      "updatedAtMs": 1772150212875
+    },
+    "skills\\SKILL.skill_critiquing.md": {
+      "sha256": "3a4ad2d1013aeb27f3d27a064cf207044a998fdf8a1a103b268bc64a395db24c",
+      "size": 4173,
+      "mtimeMs": 1772150209177.8687,
+      "updatedAtMs": 1772150209255
+    },
+    "skills\\SKILL.repo_recon.md": {
+      "sha256": "49a28317e34d5bc9b311f16890b5d67dab54f86cb5636425fe52e4473bbaac86",
+      "size": 4300,
+      "mtimeMs": 1772150216448.0457,
+      "updatedAtMs": 1772150216507
+    },
+    "skills\\skill_template.md": {
+      "sha256": "d33160d19d839c19bcc7ba972dffed5c532b23a4676f06453d1e67899df22431",
+      "size": 3289,
+      "mtimeMs": 1772150153677.1445,
+      "updatedAtMs": 1772150153744
+    },
+    "skills\\README.md": {
+      "sha256": "707e309e6132e72a6f361afce790507044e920e7ec0b3a28973e9dddc9dd00ae",
+      "size": 8497,
+      "mtimeMs": 1772207380518.629,
+      "updatedAtMs": 1772207380640
+    },
+    "skills\\SKILL.security_scan.md": {
+      "sha256": "7c8dc494a0b161b5486e0b3d7f7a21d77b265ae3e2e07e55af40caa7253f4ac6",
+      "size": 4980,
+      "mtimeMs": 1772151018373.0217,
+      "updatedAtMs": 1772151018446
+    },
+    "skills\\SKILL.test_survey.md": {
+      "sha256": "b489adf232e464754f07745dcdd9f9794f95b94e76f805553f323cdb83396e42",
+      "size": 4799,
+      "mtimeMs": 1772151108697.4573,
+      "updatedAtMs": 1772151108774
+    },
+    "skills\\SKILL.deps_audit.md": {
+      "sha256": "4e7d90cfd0116cb14394bb88d49c084b1988e09bc941b8029e810c03c625eabc",
+      "size": 5352,
+      "mtimeMs": 1772151204838.5386,
+      "updatedAtMs": 1772151204898
+    },
+    "skills\\SKILL.refactor_plan.md": {
+      "sha256": "c934154b680b2e9e60790023ad19f4065701b1d236ab76779a963be902467079",
+      "size": 5564,
+      "mtimeMs": 1772151307729.557,
+      "updatedAtMs": 1772151307816
+    },
+    "skills\\SKILL.perf_audit.md": {
+      "sha256": "91757035df740baba0545958ed1499c8c86ad4765692ac7a1bf8d864659cbf67",
+      "size": 6123,
+      "mtimeMs": 1772151418987.1895,
+      "updatedAtMs": 1772151419073
+    },
+    "skills\\SKILL.api_design.md": {
+      "sha256": "4fc49e9fa7e69aec9d7ea45f7b189615aff63bc7aae1102dcf13039c9d774467",
+      "size": 5764,
+      "mtimeMs": 1772151530036.5352,
+      "updatedAtMs": 1772151530123
+    },
+    "skills\\FLOW.onboard.yaml": {
+      "sha256": "111119aac3b974a408aad00230e4f11af7da978c6ebb36bcf907a22896fc5fe2",
+      "size": 4219,
+      "mtimeMs": 1772151641152.854,
+      "updatedAtMs": 1772151641231
+    },
+    "skills\\FLOW.quality_audit.yaml": {
+      "sha256": "f856f0071afc3c38bfcabfbd85955bb0dab0fca825191641b9317ebee3cef962",
+      "size": 5725,
+      "mtimeMs": 1772151778738.3887,
+      "updatedAtMs": 1772151778806
+    },
+    "skills\\FLOW.skill_pipeline.yaml": {
+      "sha256": "fc15ad2e735d441097c95e0600b232291dcb4274c9785109bea39ae88fc4be24",
+      "size": 6370,
+      "mtimeMs": 1772151931825.3508,
+      "updatedAtMs": 1772151931906
+    },
+    "skills\\docs\\README.md": {
+      "sha256": "97d890f6fd7d7f191d713c27153420c58705c0bded2aecda2ec36c70fd51815f",
+      "size": 1847,
+      "mtimeMs": 1772152089462.1223,
+      "updatedAtMs": 1772152089532
+    },
+    "skills\\docs\\skill_index.md": {
+      "sha256": "bfcd94d86f243a0b419fb5ea8732aca17c442c9f081e16fd85578f53bf2be7e8",
+      "size": 6096,
+      "mtimeMs": 1772152258942.6985,
+      "updatedAtMs": 1772152259016
+    },
+    "skills\\SKILL\\SKILL.skill_drafting.md": {
+      "sha256": "9310a9df1ed2825fab20fc6f738c38eca45b212eaa8ed178fdf4a54c7074d0a3",
+      "size": 6262,
+      "mtimeMs": 1772205078988.1616,
+      "updatedAtMs": 1772205079065
+    },
+    "skills\\SKILL\\SKILL.skill_critiquing.md": {
+      "sha256": "2b97c90d7221d55864a3ae33d63804deef4c530eb1500b70ee9293104ec20819",
+      "size": 7066,
+      "mtimeMs": 1772205276722.943,
+      "updatedAtMs": 1772205276811
+    },
+    "skills\\SKILL\\SKILL.repo_recon.md": {
+      "sha256": "064cdcf76bbc520562579ec5d3e2e291bc36633af9ac08753bb647a8dfbbd9c4",
+      "size": 10317,
+      "mtimeMs": 1772213549356.6406,
+      "updatedAtMs": 1772213549406
+    },
+    "skills\\DEMO.md": {
+      "sha256": "f6f329ccf4e7918982b8e8689afa8796dca6f93062c07b408f40011402c250ba",
+      "size": 8340,
+      "mtimeMs": 1772205749350.739,
+      "updatedAtMs": 1772205749424
+    },
+    "skills\\SKILL_INDEX.md": {
+      "sha256": "7b811a4ac1138d6afea4fee9e1c50a07dbd0d4d2fe54fa34751b163ff48e7bf1",
+      "size": 12949,
+      "mtimeMs": 1772290563744.5918,
+      "updatedAtMs": 1772290563794
+    },
+    "skills\\SKILL\\SKILL.ralph_wiggum.md": {
+      "sha256": "8bc1af8ded52e1597fe2f85784b1a946b68eb192fccbd59790ec3430e8299497",
+      "size": 12851,
+      "mtimeMs": 1772214699617.2202,
+      "updatedAtMs": 1772214699674
+    },
+    "skills\\SKILL\\SKILL.skill_evolution.md": {
+      "sha256": "040550061272d3d98247f17dc63599575f0276dc9e77e18fec0d638df3ab3458",
+      "size": 9252,
+      "mtimeMs": 1772215594458.1077,
+      "updatedAtMs": 1772215594529
+    },
+    "skills\\SKILL\\SKILL.compliance_audit.md": {
+      "sha256": "ec4dce13510856a3dc124dbc4873d26a3159b1595bc528a7e2c8a7f1bd874598",
+      "size": 9998,
+      "mtimeMs": 1772213601824.6562,
+      "updatedAtMs": 1772213601876
+    },
+    "skills\\FLOW\\FLOW.full_cycle.yaml": {
+      "sha256": "21f91829412e4f0eb69c306cb7614ea5c1df592654b0034cc5386541eae56594",
+      "size": 8565,
+      "mtimeMs": 1772237637290.1997,
+      "updatedAtMs": 1772237637413
+    },
+    "skills\\FLOW\\FLOW.stress_test.yaml": {
+      "sha256": "cc340c9b92af5c2088d32914d9ab9168ef434825cff7d0ec80027a14072a6a84",
+      "size": 9280,
+      "mtimeMs": 1772215801275.6614,
+      "updatedAtMs": 1772215801344
+    },
+    "skills\\SKILL\\SKILL.metrics_dashboard.md": {
+      "sha256": "8ee5e977a5a38b317856536b1a6add63283e1380ca9e228a2ff0bc5a97b7aa62",
+      "size": 9632,
+      "mtimeMs": 1772215928573.3481,
+      "updatedAtMs": 1772215928638
+    },
+    "skills\\DEMO\\game_dev_singularity_test.md": {
+      "sha256": "ac2c0a5225bf3f2e1794a4e1d29849c6534195ea78ea250b76f4808baba9b617",
+      "size": 9846,
+      "mtimeMs": 1772216064140.917,
+      "updatedAtMs": 1772216064214
+    },
+    "skills\\SELF_REPLICATING_FLYWHEEL_SUMMARY.md": {
+      "sha256": "b862879bdef8394b5a7b8893ec8cbabc83f9362e0828e4320ed622c101df6385",
+      "size": 7384,
+      "mtimeMs": 1772216188243.7156,
+      "updatedAtMs": 1772216188333
+    },
+    "skills\\SKILL\\SKILL.game_dev_unity.md": {
+      "sha256": "41f6f42d3de9e330601db641602c2bc5707db32eac787e7e1bcd5955c7ab0fef",
+      "size": 8329,
+      "mtimeMs": 1772222057320.4026,
+      "updatedAtMs": 1772222057387
+    },
+    "skills\\SKILL\\SKILL.game_dev_performance.md": {
+      "sha256": "cc6739eb832a87fff7e9ee926412bcbeb3dbeac1ff311ce8cf230e84e7c79ed7",
+      "size": 9242,
+      "mtimeMs": 1772222155306.3018,
+      "updatedAtMs": 1772222155388
+    },
+    "skills\\SKILL\\SKILL.game_dev_multiplayer.md": {
+      "sha256": "c39cb556fc29e5fe9d1b628a9b08a5ca2b82c8b5b77fe73f00f2f4871923dd34",
+      "size": 8723,
+      "mtimeMs": 1772222252221.9165,
+      "updatedAtMs": 1772222252298
+    },
+    "skills\\DEMO\\game_dev_demo.md": {
+      "sha256": "8a2498b0992c8b45ca3900fb73bf3be5faf109569bfe08ce7ce251fc71066009",
+      "size": 7421,
+      "mtimeMs": 1772222352814.239,
+      "updatedAtMs": 1772222352892
+    },
+    "skills\\SKILL\\metrics_dashboard.md": {
+      "sha256": "248afac30aee231232ac157e1bdce084d73bcff4f07700fdcfaf521f2c3ddbc6",
+      "size": 10642,
+      "mtimeMs": 1772222584374.3042,
+      "updatedAtMs": 1772222584461
+    },
+    "skills\\EXECUTION_SUMMARY.md": {
+      "sha256": "5b4da2683d30878b894a146dd7bae5de52c138c448802bf00b4de2c1c511c2ac",
+      "size": 9275,
+      "mtimeMs": 1772222747365.7087,
+      "updatedAtMs": 1772222747446
+    },
+    "skills\\SKILL\\SKILL.web3_blockchain_development.md": {
+      "sha256": "57468308e3ae0f19ee702c5e6da139bfa42fe2168ed348375e8214cabd28bbce",
+      "size": 9730,
+      "mtimeMs": 1772223045574.2039,
+      "updatedAtMs": 1772223045648
+    },
+    "skills\\SKILL\\SKILL.web3_smart_contract_security.md": {
+      "sha256": "7551603c0ecd15a4b828d8ae80a2e193b18f824b50d5817d1b1bc3503dad51b5",
+      "size": 10030,
+      "mtimeMs": 1772223173916.2617,
+      "updatedAtMs": 1772223173996
+    },
+    "skills\\SKILL\\SKILL.web3_defi_development.md": {
+      "sha256": "1311d354d8f9495daacddd4fc87a37ae6a0656d6eeaa8a0c2509fe841bb95740",
+      "size": 9881,
+      "mtimeMs": 1772223319679.1724,
+      "updatedAtMs": 1772223319754
+    },
+    "skills\\SKILL\\web3_metrics_dashboard.md": {
+      "sha256": "d8cda6828404f673fa2c58686d0fa6c7337f8d28f4c65e387ae661a50527b8d7",
+      "size": 11345,
+      "mtimeMs": 1772223590113.5725,
+      "updatedAtMs": 1772223590191
+    },
+    "skills\\WEB3_EXECUTION_SUMMARY.md": {
+      "sha256": "b0ff0265d3ca64cb043e2f946c53565e29c7366955b99280f7e90a18b0d9bcad",
+      "size": 10954,
+      "mtimeMs": 1772223817235.3938,
+      "updatedAtMs": 1772223817324
+    },
+    "skills\\SKILL\\SKILL.devops_cicd_automation.md": {
+      "sha256": "d54ee2f689524573b421cc05cfadf51016c26b2e0b8bf53139d46de310b83d48",
+      "size": 9805,
+      "mtimeMs": 1772224200634.8728,
+      "updatedAtMs": 1772224200702
+    },
+    "skills\\SKILL\\SKILL.devops_container_orchestration.md": {
+      "sha256": "3c8c07519388f30ccc2f84680c3faf9c5d3960eddb57df8375610ff77deada94",
+      "size": 10006,
+      "mtimeMs": 1772224370528.1016,
+      "updatedAtMs": 1772224370601
+    },
+    "skills\\SKILL\\SKILL.devops_infrastructure_as_code.md": {
+      "sha256": "c17130414bc7b1d6ba3763510df82b532792cfca41139d4fbe0f1577ecc60c48",
+      "size": 10137,
+      "mtimeMs": 1772224546236.4895,
+      "updatedAtMs": 1772224546305
+    },
+    "skills\\SKILL\\SKILL.devops_monitoring_observability.md": {
+      "sha256": "4db9c81c3d452801a59ea4645ae93baf6f8ebf153000a807e944872fa37e0cff",
+      "size": 10146,
+      "mtimeMs": 1772224729905.7363,
+      "updatedAtMs": 1772224729975
+    },
+    "skills\\SKILL\\devops_metrics_dashboard.md": {
+      "sha256": "cbae9b9c39892c14ffcc356e6e5fce8af6c78826d263afa226c5db1b1891c4ad",
+      "size": 13106,
+      "mtimeMs": 1772225091885.0745,
+      "updatedAtMs": 1772225091966
+    },
+    "skills\\DEVOPS_EXECUTION_SUMMARY.md": {
+      "sha256": "617b71f69dc759efb3f560f31a0b332b15500da1301aee840b81b8590b191579",
+      "size": 11707,
+      "mtimeMs": 1772225383589.3982,
+      "updatedAtMs": 1772225383680
+    },
+    "skills\\SKILL\\SKILL.ml_engineering_mlops.md": {
+      "sha256": "c236a7d97e0374dbda1fafd3dd62f3d8ccfc55acb1b0e1abcc54dbe343a3888a",
+      "size": 9830,
+      "mtimeMs": 1772227076458.4897,
+      "updatedAtMs": 1772227076545
+    },
+    "skills\\SKILL\\SKILL.ml_deep_learning_frameworks.md": {
+      "sha256": "7b3156432713931d5ccb78a88464a542a44a51daeb79d1f5bae0e0645b67f50e",
+      "size": 10046,
+      "mtimeMs": 1772227269448.9092,
+      "updatedAtMs": 1772227269532
+    },
+    "skills\\SKILL\\SKILL.ml_data_science_analytics.md": {
+      "sha256": "59b25499345a889e1b85ecb0c0b6032d21b824a569bcbb09c72ed0a5874e030c",
+      "size": 9926,
+      "mtimeMs": 1772227486015.7896,
+      "updatedAtMs": 1772227486107
+    },
+    "skills\\SKILL\\SKILL.ml_ai_research_experimentation.md": {
+      "sha256": "84122899acc8bf97f8001f63f9bed8965068cd109eee2c7c57229eec72ee182e",
+      "size": 10156,
+      "mtimeMs": 1772227733252.1973,
+      "updatedAtMs": 1772227733354
+    },
+    "skills\\SKILL\\SKILL.ml_computer_vision_image_processing.md": {
+      "sha256": "5531a446f02713548172e520d0ff0c7ba28e6e0e82fd749157915f229da29197",
+      "size": 10317,
+      "mtimeMs": 1772227956456.082,
+      "updatedAtMs": 1772227956539
+    },
+    "skills\\SKILL\\ml_metrics_dashboard.md": {
+      "sha256": "09b02bc57f6eb1d727893cc757af90121e240fadf4a3607ce04a472fdf9dfdbd",
+      "size": 14025,
+      "mtimeMs": 1772228425351.0486,
+      "updatedAtMs": 1772228425434
+    },
+    "skills\\ML_EXECUTION_SUMMARY.md": {
+      "sha256": "8386426c20cbe16feb3c1ddfe2bb589830810fff044bdabfcc8564768b7ae7ee",
+      "size": 12665,
+      "mtimeMs": 1772228783591.6528,
+      "updatedAtMs": 1772228783668
+    },
+    "skills\\SKILL\\SKILL.frontend_react_nextjs_typescript.md": {
+      "sha256": "72b5bea12b11529ea065851b82b619f108fcd38b7a5caa963a20f5a568af0953",
+      "size": 10840,
+      "mtimeMs": 1772229600712.708,
+      "updatedAtMs": 1772229600804
+    },
+    "skills\\SKILL\\SKILL.frontend_ui_ux_design_system.md": {
+      "sha256": "8c4f1ebb4b569f73c0e35a6c05c2bf6665686f16265cc4ea525a9594d782f066",
+      "size": 9896,
+      "mtimeMs": 1772229862393.2595,
+      "updatedAtMs": 1772229862482
+    },
+    "skills\\SKILL\\SKILL.frontend_state_management_data_flow.md": {
+      "sha256": "7daf5901aabc2e0614ba2322fd1331053201f9a4f288640d15f3f227677a32e9",
+      "size": 10614,
+      "mtimeMs": 1772230117190.4858,
+      "updatedAtMs": 1772230117283
+    },
+    "skills\\SKILL\\SKILL.frontend_performance_build_tooling.md": {
+      "sha256": "4cca5897d2fd6afdb0b2796d6c8a9695598ecfcf8fb6e7ea5e4505c6cf5cbb6b",
+      "size": 10108,
+      "mtimeMs": 1772230380982.5488,
+      "updatedAtMs": 1772230381097
+    },
+    "skills\\SKILL\\SKILL.frontend_testing_quality_assurance.md": {
+      "sha256": "6db7f7283e7f57540f9c9ca81fb1e18ebcde84afdc64afefcf6f4c1e78439c11",
+      "size": 10446,
+      "mtimeMs": 1772230658089.2307,
+      "updatedAtMs": 1772230658167
+    },
+    "skills\\SKILL\\frontend_metrics_dashboard.md": {
+      "sha256": "6386090d83aba80cdaabb9fdb269ae5066d86ae109b8fb2c03048d23f57a423f",
+      "size": 14025,
+      "mtimeMs": 1772231281167.4807,
+      "updatedAtMs": 1772231281250
+    },
+    "skills\\FRONTEND_EXECUTION_SUMMARY.md": {
+      "sha256": "64d9d8ab0f38dda952c6c53635b7b6e48bf638f1a7311a0c311aeaad3e1a6a05",
+      "size": 12897,
+      "mtimeMs": 1772231800050.3254,
+      "updatedAtMs": 1772231800177
+    },
+    "skills\\ralph_input.json": {
+      "sha256": "ae0ff9e4632257577d5d347c10cf65bb95106ad73e6b43e8bd16593e0ebd80e7",
+      "size": 309,
+      "mtimeMs": 1772232950681.3496,
+      "updatedAtMs": 1772232950818
+    },
+    "skills\\ralph_dump.md": {
+      "sha256": "6af23b98fc2fa95c002a630c72bfaae1e23d207e5a58b23ef55deb437799823f",
+      "size": 5617,
+      "mtimeMs": 1772289823482.5706,
+      "updatedAtMs": 1772289823535
+    },
+    "skills\\chaos_ranking.json": {
+      "sha256": "ccf747d04e26e77c055c404de89c54bf5601a9a65b539a128149d3cc0c9256e5",
+      "size": 6470,
+      "mtimeMs": 1772289907724.3423,
+      "updatedAtMs": 1772289907773
+    },
+    "skills\\top_3_ideas.md": {
+      "sha256": "900f1a0d4f7b930552f55767a72ca2d1ad4a6d504b8374f1ed576411085a7e68",
+      "size": 4722,
+      "mtimeMs": 1772289947256.7437,
+      "updatedAtMs": 1772289947297
+    },
+    "skills\\generated_skills\\SKILL.specification_prd_generation.md": {
+      "sha256": "57cab79c11f45c6e80a03713488a0b40829f335fab006817d33663069de339cb",
+      "size": 11115,
+      "mtimeMs": 1772233860897.9753,
+      "updatedAtMs": 1772233861015
+    },
+    "skills\\generated_skills\\SKILL.specification_technical_authoring.md": {
+      "sha256": "c3ebc54a83351b3c37a33792712449a22e24892f8cb3fd9f18a1804664006b8b",
+      "size": 11357,
+      "mtimeMs": 1772234159431.208,
+      "updatedAtMs": 1772234159536
+    },
+    "skills\\generated_skills\\SKILL.specification_api_design.md": {
+      "sha256": "b17cb33774686b5d719ce67d31158832ceff6a8f3a9ae7d47fc0067c149aac71",
+      "size": 10966,
+      "mtimeMs": 1772234473285.2913,
+      "updatedAtMs": 1772234473389
+    },
+    "skills\\generated_skills\\SKILL.specification_architecture_decisions.md": {
+      "sha256": "bcd69879459bdfff064e538ea5630f64e6c72bd78335d7c059770f76acc20a97",
+      "size": 11215,
+      "mtimeMs": 1772234888998.2507,
+      "updatedAtMs": 1772234889134
+    },
+    "skills\\generated_skills\\SKILL.specification_test_planning.md": {
+      "sha256": "b604440b8946e94225458255a37e91cab766cacff60aa449c81ba4ccb84ea8e6",
+      "size": 11163,
+      "mtimeMs": 1772235354642.1814,
+      "updatedAtMs": 1772235354769
+    },
+    "skills\\generated_skills\\skill_manifest.json": {
+      "sha256": "ef27ee8093594534d21a9543e7e3cb9ca1a0363ecc7ec543e5f48196ddfaa1d5",
+      "size": 6488,
+      "mtimeMs": 1772235676047.7458,
+      "updatedAtMs": 1772235676176
+    },
+    "skills\\generated_skills\\specification_engineering_execution_summary.md": {
+      "sha256": "bec47ab474bbc307a09bb4973665dd0b6c18c25af4f4eeb46230683a58587dfd",
+      "size": 5732,
+      "mtimeMs": 1772236136608.338,
+      "updatedAtMs": 1772236136742
+    },
+    "skills\\generated_skills\\FINAL_EXECUTION_REPORT.md": {
+      "sha256": "ec778e7a876edfc463af52f4f04026b3c214da7f071c2ea14bf6051f4286c20c",
+      "size": 8979,
+      "mtimeMs": 1772236677557.3145,
+      "updatedAtMs": 1772236677693
+    },
+    "skills\\FOLDER_ORGANIZATION_SUMMARY.md": {
+      "sha256": "3f5c45f890ec207116b71e3ba0ee76d8af34617e583d1e6c2602e90f6507940a",
+      "size": 10423,
+      "mtimeMs": 1772238608759.7087,
+      "updatedAtMs": 1772238608874
+    },
+    "skills\\ORGANIZATION_VERIFICATION_REPORT.md": {
+      "sha256": "313af47a95e92b491719b23c8a93d78aa7d6bf9822430e38aa4978cf3762db9a",
+      "size": 6252,
+      "mtimeMs": 1772238991346.027,
+      "updatedAtMs": 1772238991469
+    },
+    "skills\\usage_analysis_report.json": {
+      "sha256": "289fde3ccec9e2918b05060c542c5d4d2db38a7d5861b9eaa21e6a9957852c19",
+      "size": 2441,
+      "mtimeMs": 1772289734191.462,
+      "updatedAtMs": 1772289734233
+    },
+    "skills\\pattern_insights.md": {
+      "sha256": "8b88f210135e523b35ba419f10ccf261b7ccc8e5fa2e2e897d9f17440f745abe",
+      "size": 6798,
+      "mtimeMs": 1772289785791.2004,
+      "updatedAtMs": 1772289785840
+    },
+    "skills\\validated_variants.json": {
+      "sha256": "9fcf6001f475eb5779f21d4a182f42747e9e90fea59c7008a8a04d15cfcbeea9",
+      "size": 6509,
+      "mtimeMs": 1772290005339.4458,
+      "updatedAtMs": 1772290005381
+    },
+    "skills\\SKILL\\SKILL.specification_lifecycle_management.md": {
+      "sha256": "eef8df983aa76b8dc9578c2ac2c701093f65593fa1d2f32feb01f08b4c0d0025",
+      "size": 12660,
+      "mtimeMs": 1772279703175.7476,
+      "updatedAtMs": 1772279703231
+    },
+    "skills\\SKILL\\SKILL.specification_synchronization.md": {
+      "sha256": "714dba97f11853e8ffbd1459e08df1dac365ea9150c72f3288b3f02cc91eec27",
+      "size": 12951,
+      "mtimeMs": 1772279758234.141,
+      "updatedAtMs": 1772279758288
+    },
+    "skills\\SKILL\\SKILL.specification_version_control.md": {
+      "sha256": "430a4f23bb6e1337bdbbea68e4cffc3a05281627f07a56d15414a89b42e3e16c",
+      "size": 12670,
+      "mtimeMs": 1772279821458.6892,
+      "updatedAtMs": 1772279821510
+    },
+    "skills\\SKILL\\SKILL.specification_traceability.md": {
+      "sha256": "ffb04c07c900dd3afa675e206671141394a1495b9550b01289d4380b7224a015",
+      "size": 12734,
+      "mtimeMs": 1772279884716.6482,
+      "updatedAtMs": 1772279884776
+    },
+    "skills\\SKILL\\SKILL.specification_validation_framework.md": {
+      "sha256": "29efb6a8fbaa3a4606f2316d7a3f4c725d6bf87cf98dd4c2ccb73e2ecf525440",
+      "size": 12346,
+      "mtimeMs": 1772279947799.6475,
+      "updatedAtMs": 1772279947861
+    },
+    "skills\\DOMAIN\\SPECIFICATION_ENGINEERING\\SKILL.specification_lifecycle_management.md": {
+      "sha256": "eef8df983aa76b8dc9578c2ac2c701093f65593fa1d2f32feb01f08b4c0d0025",
+      "size": 12660,
+      "mtimeMs": 1772280020391.9927,
+      "updatedAtMs": 1772280020447
+    },
+    "skills\\DOMAIN\\SPECIFICATION_ENGINEERING\\SKILL.specification_synchronization.md": {
+      "sha256": "714dba97f11853e8ffbd1459e08df1dac365ea9150c72f3288b3f02cc91eec27",
+      "size": 12951,
+      "mtimeMs": 1772280105816.8872,
+      "updatedAtMs": 1772280105877
+    },
+    "skills\\DOMAIN\\SPECIFICATION_ENGINEERING\\SKILL.specification_version_control.md": {
+      "sha256": "430a4f23bb6e1337bdbbea68e4cffc3a05281627f07a56d15414a89b42e3e16c",
+      "size": 12670,
+      "mtimeMs": 1772280193960.4556,
+      "updatedAtMs": 1772280194020
+    },
+    "skills\\DOMAIN\\SPECIFICATION_ENGINEERING\\SKILL.specification_traceability.md": {
+      "sha256": "ffb04c07c900dd3afa675e206671141394a1495b9550b01289d4380b7224a015",
+      "size": 12734,
+      "mtimeMs": 1772280303379.7903,
+      "updatedAtMs": 1772280303440
+    },
+    "skills\\DOMAIN\\SPECIFICATION_ENGINEERING\\SKILL.specification_validation_framework.md": {
+      "sha256": "29efb6a8fbaa3a4606f2316d7a3f4c725d6bf87cf98dd4c2ccb73e2ecf525440",
+      "size": 12346,
+      "mtimeMs": 1772280400711.455,
+      "updatedAtMs": 1772280400762
+    },
+    "skills\\DOMAIN\\SPECIFICATION_ENGINEERING\\skill_manifest.json": {
+      "sha256": "c1bda06b862c5b3648608f9f494ca90e940322812eb89c1e35cfc0c5b9a8a682",
+      "size": 17148,
+      "mtimeMs": 1772290452367.2957,
+      "updatedAtMs": 1772290452435
+    },
+    "skills\\DOMAIN\\SPECIFICATION_ENGINEERING\\FINAL_EXECUTION_REPORT.md": {
+      "sha256": "ba42eb2ffbd3a6fe343fec8bdf34c18b7c9993710717a549524222d0f8d62d72",
+      "size": 9145,
+      "mtimeMs": 1772280967593.4575,
+      "updatedAtMs": 1772280967643
+    },
+    "skills\\variant_selection_report.md": {
+      "sha256": "03315815c8746c9fa00a13c031b2875a5c1ce63a7d3d975fe82530c1ff02aac6",
+      "size": 6627,
+      "mtimeMs": 1772290050539.5103,
+      "updatedAtMs": 1772290050585
+    },
+    "skills\\SKILL\\SKILL.predictive_observability_engine.md": {
+      "sha256": "21bc701e320e44a3854b9fb4c294bc98992851b4d31207d3e9132c4f11cc67dd",
+      "size": 13294,
+      "mtimeMs": 1772290127030.6025,
+      "updatedAtMs": 1772290127078
+    },
+    "skills\\SKILL\\SKILL.self_optimizing_deployment_pipeline.md": {
+      "sha256": "173f0b92eaa21bb4010723f0bec5900fb1e61e562a27dd870db47e4fb3d244da",
+      "size": 13601,
+      "mtimeMs": 1772290213005.1294,
+      "updatedAtMs": 1772290213054
+    },
+    "skills\\SKILL\\SKILL.intelligent_security_analysis_platform.md": {
+      "sha256": "a4b183fac2aa09e6c9aa115b6b3ebe1a97d42fa0d23251ffc4e88dea9adb8211",
+      "size": 13518,
+      "mtimeMs": 1772290295980.6633,
+      "updatedAtMs": 1772290296032
+    },
+    "skills\\quality_assurance_report.md": {
+      "sha256": "91bf7ea66b72a4b43e97b8e376fc65118ebd4e301bd8ad0abfacc097d0beacf1",
+      "size": 9584,
+      "mtimeMs": 1772290391745.3418,
+      "updatedAtMs": 1772290391800
+    },
+    "skills\\DOMAIN\\MODERN_BACKEND_DEVELOPMENT\\skill_manifest.json": {
+      "sha256": "d2258e341825dae90dc909daaf95ff465dca58aa9fa2517c16211c4236810efe",
+      "size": 4748,
+      "mtimeMs": 1772290501511.534,
+      "updatedAtMs": 1772290501562
+    },
+    "skills\\library_integration_report.md": {
+      "sha256": "b2f7f05663985a0893e0bfd9833f88359070be6bb8bb4a93bd458cf0955465b1",
+      "size": 7545,
+      "mtimeMs": 1772290645660.6248,
+      "updatedAtMs": 1772290645705
+    },
+    "skills\\folder_organization_report.md": {
+      "sha256": "48858e2a41d648a5e157b818f739d18d5e49cee5e1a2b5cca9a0e88ae40d90bf",
+      "size": 10699,
+      "mtimeMs": 1772290767909.929,
+      "updatedAtMs": 1772290767963
+    },
+    "skills\\usage_documentation.md": {
+      "sha256": "7c414e19aeb091171a0f321fab9a5e583391961c8623d22837d287908c11d919",
+      "size": 19219,
+      "mtimeMs": 1772290969825.009,
+      "updatedAtMs": 1772290969890
+    },
+    "skills\\cross_platform_validation_report.md": {
+      "sha256": "e960479ed46ebe4012e16b85f767bcff220e4092bcf669871a3474f7b75b29dc",
+      "size": 16337,
+      "mtimeMs": 1772291199965.534,
+      "updatedAtMs": 1772291200024
+    },
+    "skills\\MODERN_BACKEND_DEVELOPMENT_EXECUTION_SUMMARY.md": {
+      "sha256": "8645b29887b4a8b2dee9fb5827e654ada5fbb57a817614b214c12daf21c3675b",
+      "size": 13851,
+      "mtimeMs": 1772291376464.3757,
+      "updatedAtMs": 1772291376514
+    },
+    "skills\\DOMAIN\\DATABASE_ENGINEERING\\usage_analysis_report.json": {
+      "sha256": "93d22c41e9bc771bfedd296adb9c03a1eb5403c9e44133b2c22f14b1a8fc3bbb",
+      "size": 8428,
+      "mtimeMs": 1772292081204.977,
+      "updatedAtMs": 1772292081267
+    },
+    "skills\\DOMAIN\\DATABASE_ENGINEERING\\pattern_insights.md": {
+      "sha256": "468d989e83a344b0291bd7560515226cbab739abcb5f080ebe97c465a7a5897e",
+      "size": 10278,
+      "mtimeMs": 1772292233920.559,
+      "updatedAtMs": 1772292233990
+    },
+    "skills\\DOMAIN\\DATABASE_ENGINEERING\\ralph_dump.md": {
+      "sha256": "ca3902fff2993bda28d4ea69f5008fbb6ebbacb03e65f8582cb384fa401e85f8",
+      "size": 6042,
+      "mtimeMs": 1772292360569.8984,
+      "updatedAtMs": 1772292360645
+    },
+    "skills\\DOMAIN\\DATABASE_ENGINEERING\\chaos_ranking.json": {
+      "sha256": "aba2b05e9af3997856f58b4fb528af64951b9cff8f4c5edac8aecc2094dd1ba9",
+      "size": 8514,
+      "mtimeMs": 1772292532026.6865,
+      "updatedAtMs": 1772292532082
+    },
+    "skills\\DOMAIN\\DATABASE_ENGINEERING\\top_3_ideas.md": {
+      "sha256": "5a2a3ab1c4a8afcf144f8ef6d05bddc3da3cfc544ee947e37766189d946e64d4",
+      "size": 6788,
+      "mtimeMs": 1772292665584.295,
+      "updatedAtMs": 1772292665646
+    },
+    "skills\\DOMAIN\\DATABASE_ENGINEERING\\generated_skills\\SKILL.database_whisperer_ai.md": {
+      "sha256": "abeca2ba4454afd5d28f37515633bb76c647ab4acf6b41050f43d4b27a19366e",
+      "size": 43977,
+      "mtimeMs": 1772293384971.8633,
+      "updatedAtMs": 1772293385037
+    },
+    "skills\\DOMAIN\\DATABASE_ENGINEERING\\generated_skills\\SKILL.database_security_ninja.md": {
+      "sha256": "435b3453cc9dd4b10c4471642f58792596c1701776603bcfe0c89e913d70ec47",
+      "size": 66734,
+      "mtimeMs": 1772294348455.64,
+      "updatedAtMs": 1772294348554
+    },
+    "skills\\DOMAIN\\DATABASE_ENGINEERING\\generated_skills\\SKILL.query_time_machine.md": {
+      "sha256": "d05eee97c1ff085e46ba0bf722475b9f8862b2ff8fedb6d5b1bd924d1485b085",
+      "size": 83345,
+      "mtimeMs": 1772295668657.9333,
+      "updatedAtMs": 1772295668756
+    },
+    "skills\\DOMAIN\\DATABASE_ENGINEERING\\generated_skills\\skill_manifest.json": {
+      "sha256": "e4445d74d53e545694b13507bcb15640cfcbb4db38f0858f25e8e5ff4a2f5b34",
+      "size": 8849,
+      "mtimeMs": 1772295842040.9038,
+      "updatedAtMs": 1772295842106
+    },
+    "skills\\SKILL\\SKILL.developer_centric_security_training.md": {
+      "sha256": "cd918cd9112abd5283c5b10241fe240c405829e14ab80b3de4c954d61289a6a3",
+      "size": 6680,
+      "mtimeMs": 1772302883094.6064,
+      "updatedAtMs": 1772302883144
+    },
+    "skills\\SKILL\\SKILL.ai_proactive_threat_modeling.md": {
+      "sha256": "76cfcb2e6e7f0da6fff2c8815965e2dac6e08faa2790bb84c49979b66f333b24",
+      "size": 7800,
+      "mtimeMs": 1772302929511.9922,
+      "updatedAtMs": 1772302929558
+    },
+    "skills\\SKILL\\SKILL.zero_trust_architecture_implementation.md": {
+      "sha256": "b4723cfacf81398f3dd76250f872ae9c7362d9e712f7bfa3f07b050c96df4e67",
+      "size": 8471,
+      "mtimeMs": 1772303003248.3152,
+      "updatedAtMs": 1772303003295
+    },
+    "skills\\SKILL\\SKILL.secure_sdlc_integration.md": {
+      "sha256": "8e6df1a681da42512878ca6def55ee3a387e811b65416ca2184eaff847d645ff",
+      "size": 8736,
+      "mtimeMs": 1772303082260.2556,
+      "updatedAtMs": 1772303082303
+    },
+    "skills\\SKILL\\SKILL.automated_security_testing.md": {
+      "sha256": "fce87f8c25b74776032edd3d9bf986190e52e4fd2b02301a4791c63beb37bc0a",
+      "size": 9130,
+      "mtimeMs": 1772303163605.1616,
+      "updatedAtMs": 1772303163651
+    },
+    "skills\\DOMAIN\\orchestration\\SKILL.multi_skill_workflow_coordination.md": {
+      "sha256": "580ebe527d0980b53fc7741b53237b41efe879522abf0fc2ba08d0b6b3eabf15",
+      "size": 10491,
+      "mtimeMs": 1772308349065.795,
+      "updatedAtMs": 1772308349107
+    },
+    "skills\\DOMAIN\\orchestration\\SKILL.skill_dependency_resolution.md": {
+      "sha256": "5f90bcf740473e6a3e15062213ca8862213a208d6611221dd2e444f3069d1d81",
+      "size": 11205,
+      "mtimeMs": 1772308408632.1743,
+      "updatedAtMs": 1772308408713
+    },
+    "skills\\DOMAIN\\orchestration\\SKILL.parallel_skill_execution.md": {
+      "sha256": "d6a4a26b7932d54c15249c82220400bdf648ca69aeb4a1e91ad000dd840ec4d9",
+      "size": 14614,
+      "mtimeMs": 1772308492517.2375,
+      "updatedAtMs": 1772308492567
+    },
+    "skills\\DOMAIN\\orchestration\\SKILL.skill_failure_recovery_retry.md": {
+      "sha256": "8aa5bd7c48ef9fcab7c6ae5368c6b4a9b1bab09ff3d47bd645757a74de70c231",
+      "size": 15292,
+      "mtimeMs": 1772308584766.9019,
+      "updatedAtMs": 1772308584825
+    },
+    "skills\\DOMAIN\\orchestration\\SKILL.dynamic_skill_selection_routing.md": {
+      "sha256": "15175f55644eb6aabbc965f464e9737288c508c20f9f9289538e80303e78fc00",
+      "size": 15257,
+      "mtimeMs": 1772318418819.406,
+      "updatedAtMs": 1772318418912
+    },
+    "skills\\DOMAIN\\security_engineering\\SKILL.vulnerability_scanning_prioritization.md": {
+      "sha256": "e42bbcad09087045c5e988d8ceab3062c506f29bfefb3297b414cc3acc637e6d",
+      "size": 14220,
+      "mtimeMs": 1772315565580.1697,
+      "updatedAtMs": 1772315565631
+    },
+    "skills\\DOMAIN\\security_engineering\\SKILL.pentesting_workflow_automation.md": {
+      "sha256": "71910846a35a8abe879e696aa30698dfdcd228c7025630f869097b5b539b7d2f",
+      "size": 16530,
+      "mtimeMs": 1772315690171.6628,
+      "updatedAtMs": 1772315690229
+    },
+    "skills\\DOMAIN\\security_engineering\\SKILL.compliance_framework_generation.md": {
+      "sha256": "12fee9c0d4fb7d929f09f5222cbd46c4a3f1a237942fca176227edd32c87ec0b",
+      "size": 17761,
+      "mtimeMs": 1772315823325.755,
+      "updatedAtMs": 1772315823366
+    },
+    "skills\\DOMAIN\\security_engineering\\SKILL.secrets_management_detection.md": {
+      "sha256": "ba4e82f1a64f653fbd26c1a8c32ad9f43f69ebfedab08b22c291c37b4085c744",
+      "size": 16992,
+      "mtimeMs": 1772315967564.019,
+      "updatedAtMs": 1772315967616
+    },
+    "skills\\DOMAIN\\security_engineering\\SKILL.secure_architecture_review.md": {
+      "sha256": "398f9e252b1620f265303945de7670f4c57bc1a6d0761f8e48b36305851e3554",
+      "size": 23600,
+      "mtimeMs": 1772316164100.1108,
+      "updatedAtMs": 1772316164158
+    },
+    "skills\\DOMAIN\\ALGO_PATTERNS\\SKILL.algorithm_strategy_selection.md": {
+      "sha256": "78dbbb315c6f1e311d2dc8235682808d1b8371e356beb18cb9acc1faa1328737",
+      "size": 17390,
+      "mtimeMs": 1772316970287.419,
+      "updatedAtMs": 1772316970342
+    },
+    "skills\\DOMAIN\\ALGO_PATTERNS\\SKILL.algorithmic_decomposition.md": {
+      "sha256": "6f6dff1cdeb99dbe7b3d9ea6415eccd9bed12776367de99c48b81966ba94c3e2",
+      "size": 18352,
+      "mtimeMs": 1772317136816.8374,
+      "updatedAtMs": 1772317136867
+    },
+    "skills\\DOMAIN\\ALGO_PATTERNS\\SKILL.complexity_analysis.md": {
+      "sha256": "dbb5332c8c0508c6da79298a133b7e62f2f72b253c218cb735376d7dbcbc3823",
+      "size": 16712,
+      "mtimeMs": 1772317317870.0664,
+      "updatedAtMs": 1772317317930
+    },
+    "skills\\DOMAIN\\ALGO_PATTERNS\\SKILL.design_pattern_recommender.md": {
+      "sha256": "b1e514d815e765df5ed8ae86b8b7a13753d56b6de8bd63783bb4dc908ffa04e8",
+      "size": 20893,
+      "mtimeMs": 1772317537066.2302,
+      "updatedAtMs": 1772317537135
+    },
+    "skills\\DOMAIN\\ALGO_PATTERNS\\SKILL.pattern_from_code.md": {
+      "sha256": "ad425d1adc1edb16b2f5c8b46d19659eb81eaeb0f1be3f849b40880094a79f43",
+      "size": 18785,
+      "mtimeMs": 1772317762339.9714,
+      "updatedAtMs": 1772317762402
+    },
+    "skills\\DOMAIN\\mobile_development\\SKILL.cross_platform_architecture.md": {
+      "sha256": "bea7a1cda1a88902a72a7e99f5df7192f23c9b277f0bc0cafd783c738b7f6eae",
+      "size": 21915,
+      "mtimeMs": 1772318976813.7612,
+      "updatedAtMs": 1772318976877
+    },
+    "skills\\DOMAIN\\mobile_development\\SKILL.native_module_integration.md": {
+      "sha256": "31f30c2f23e1f4c98506330b595cb42ff3a2de92f8aaa0abeda8ac347e17abe6",
+      "size": 25000,
+      "mtimeMs": 1772319306872.0596,
+      "updatedAtMs": 1772319306935
+    },
+    "skills\\DOMAIN\\mobile_development\\SKILL.mobile_performance_optimization.md": {
+      "sha256": "2983c97cd915b802985f0ee6b9693975227bb217f5dbdb9cc0d1b183ff2706e2",
+      "size": 25932,
+      "mtimeMs": 1772319643253.336,
+      "updatedAtMs": 1772319643319
+    },
+    "skills\\DOMAIN\\mobile_development\\SKILL.app_store_compliance_deployment.md": {
+      "sha256": "2ea5c84249dae321058fecd1b4e969d8f5da63d4f6c670f7a24096de9259f7d3",
+      "size": 27933,
+      "mtimeMs": 1772320333873.6897,
+      "updatedAtMs": 1772320333928
+    },
+    "skills\\DOMAIN\\mobile_development\\SKILL.mobile_security_hardening.md": {
+      "sha256": "16cc4c4de0affa5f10944c422f17567f1b8ec8b1ed763f4ab4baab9a1df1d24e",
+      "size": 29652,
+      "mtimeMs": 1772320728144.6272,
+      "updatedAtMs": 1772320728200
+    },
+    "skills\\DOMAIN\\logic_programming\\SKILL.logic_programming_frameworks.md": {
+      "sha256": "1d6f07cee984067d9cdf73885e679ef33dda6a829cb8716f2cd488c56e46bd12",
+      "size": 22255,
+      "mtimeMs": 1772321785336.4102,
+      "updatedAtMs": 1772321785407
+    },
+    "skills\\DOMAIN\\logic_programming\\SKILL.constraint_satisfaction_sat_solvers.md": {
+      "sha256": "a0e6b006ff21087bd50820648fef1d927675fc362ef9991413e61a09b600ef9f",
+      "size": 24861,
+      "mtimeMs": 1772322161852.5464,
+      "updatedAtMs": 1772322161915
+    },
+    "skills\\DOMAIN\\logic_programming\\SKILL.formal_verification_techniques.md": {
+      "sha256": "ace85f53c1669589fb045a097d5f8b59541f945aeb272d094aff28dec0120cfb",
+      "size": 23586,
+      "mtimeMs": 1772322543800.0488,
+      "updatedAtMs": 1772322543863
+    },
+    "skills\\DOMAIN\\logic_programming\\SKILL.temporal_logic_applications.md": {
+      "sha256": "748bd8807e18d641d94111b560b776fa4b64478bf50576e88f9f0539126c2090",
+      "size": 24064,
+      "mtimeMs": 1772322942162.1028,
+      "updatedAtMs": 1772322942225
+    },
+    "skills\\DOMAIN\\logic_programming\\SKILL.logic_based_optimization.md": {
+      "sha256": "d5bfc2a39ce89eb6ac32b3a9f84eb5408cd5fa1615a55b33af2fcdac4ce153f8",
+      "size": 28001,
+      "mtimeMs": 1772323413131.7317,
+      "updatedAtMs": 1772323413199
+    },
+    "skills\\DOMAIN\\EPISTEMOLOGY_AI_AGENTS": {
+      "sha256": "24cc9c8be6a7902877efd315a7697b23bb8e002697ebe37c409ff25a74cedc48",
+      "size": 13460,
+      "mtimeMs": 1772366162182.7415,
+      "updatedAtMs": 1772366162245
+    },
+    "skills\\DOMAIN\\epistemology\\SKILL.evidence_weighting.md": {
+      "sha256": "584db1f7e408ea9ad297091060d2fea40da518f276f2ab66387e85313c6c6d05",
+      "size": 18656,
+      "mtimeMs": 1772370959320.995,
+      "updatedAtMs": 1772370959392
+    },
+    "skills\\DOMAIN\\epistemology\\SKILL.belief_revision.md": {
+      "sha256": "a1e17d9c1dba09738737c659b5a62f9fe76d337eb69fca67b0d599e0723b54f9",
+      "size": 18996,
+      "mtimeMs": 1772371249012.3782,
+      "updatedAtMs": 1772371249077
+    },
+    "skills\\DOMAIN\\epistemology\\SKILL.source_reliability.md": {
+      "sha256": "0d6b1ef52dcbb4d818eaf91b33e641e7266d1404de6501a05d4875933065a0d6",
+      "size": 19167,
+      "mtimeMs": 1772371567934.0286,
+      "updatedAtMs": 1772371567998
+    },
+    "skills\\DOMAIN\\epistemology\\SKILL.hypothesis_competition.md": {
+      "sha256": "0dbe3ef6757f7558d0d7e07340a627dc70f701e3cb8a7dee2227af22f096dc21",
+      "size": 21525,
+      "mtimeMs": 1772371921134.6128,
+      "updatedAtMs": 1772371921203
+    },
+    "skills\\DOMAIN\\epistemology\\SKILL.epistemic_guardrails.md": {
+      "sha256": "19614abdc7382e1f3a341f2b47a51a46c7acc63d20e597327e77f1ec2ebc7523",
+      "size": 22489,
+      "mtimeMs": 1772372276350.487,
+      "updatedAtMs": 1772372276419
+    },
+    "skills\\DOMAIN\\epistemology\\README.md": {
+      "sha256": "f8907e6460e23336f24e68fdb220d84987c0e17782e3d1b27edb7265b12e8594",
+      "size": 6319,
+      "mtimeMs": 1772372404019.3455,
+      "updatedAtMs": 1772372404084
+    },
+    "skills\\DOMAIN\\logic\\SKILL.prolog_knowledge_rep.md": {
+      "sha256": "be8c7a00234e3a2eea9b60e2839f962d50737fb7e31e68dbf4f0a58684f29fed",
+      "size": 16435,
+      "mtimeMs": 1772374707216.8765,
+      "updatedAtMs": 1772374707292
+    },
+    "skills\\DOMAIN\\logic\\SKILL.sat_solver_optimization.md": {
+      "sha256": "f87ce9547f20d2af98fe4ab513c9c273d70867c0f758ddd64be324f0e555631d",
+      "size": 23018,
+      "mtimeMs": 1772375103243.8494,
+      "updatedAtMs": 1772375103314
+    },
+    "skills\\DOMAIN\\logic\\SKILL.constraint_programming.md": {
+      "sha256": "dca6b87cc44e5dc3717957ce2a50810231e5a07f7be894d880e49117298cbba6",
+      "size": 27552,
+      "mtimeMs": 1772375598985.7585,
+      "updatedAtMs": 1772375599062
+    },
+    "skills\\DOMAIN\\logic\\SKILL.temporal_logic.md": {
+      "sha256": "f0429852aedcfb3d5072b045d8d1fcf8766a441844cb2faa7d8fa15f13510a40",
+      "size": 29295,
+      "mtimeMs": 1772376164753.8098,
+      "updatedAtMs": 1772376164823
+    },
+    "skills\\DOMAIN\\logic\\SKILL.datalog_reasoning.md": {
+      "sha256": "741072ddcafd45730f27a73238dea7024ef70ae1e815cc2a5097c96cadb40e5c",
+      "size": 23506,
+      "mtimeMs": 1772376643189.102,
+      "updatedAtMs": 1772376643263
+    },
+    "skills\\DOMAIN\\logic\\README.md": {
+      "sha256": "e2a1e756cea4932b92f0854c21abb98d693566ff9675e61ff874c4f06dae4e4e",
+      "size": 6494,
+      "mtimeMs": 1772376796114.845,
+      "updatedAtMs": 1772376796186
+    },
+    "skills\\DOMAIN\\formal_methods\\SKILL.tla_plus_specification.md": {
+      "sha256": "24d92e7389400c53fdc3b6f8231983336757940f530b54f31f18fc3050db90e9",
+      "size": 25332,
+      "mtimeMs": 1772379259637.1106,
+      "updatedAtMs": 1772379259732
+    },
+    "skills\\DOMAIN\\formal_methods\\SKILL.coq_proof_engine.md": {
+      "sha256": "32de2d1837b9b3ea92fc12d53c17e26f9430b096a6254c0cf2a5587a9f4c21de",
+      "size": 23494,
+      "mtimeMs": 1772379974241.2551,
+      "updatedAtMs": 1772379974320
+    },
+    "skills\\DOMAIN\\formal_methods\\SKILL.isabelle_hol_theorem_proving.md": {
+      "sha256": "9fe5978c20e6888bbc6962fe5a1423603215dbfc72f13912feb5e0140e666525",
+      "size": 26258,
+      "mtimeMs": 1772380810708.1384,
+      "updatedAtMs": 1772380810799
+    },
+    "skills\\DOMAIN\\formal_methods\\SKILL.model_checking_frameworks.md": {
+      "sha256": "bdef78b04e8e77457f56ab4b47002996d447f0fb7b3b9ff0d251dc66d9df1911",
+      "size": 48641,
+      "mtimeMs": 1772382034248.639,
+      "updatedAtMs": 1772382034331
+    },
+    "skills\\DOMAIN\\formal_methods\\SKILL.formal_verification_methods.md": {
+      "sha256": "8658242ca4ed3567a281400ee4ec8fbfe78b96344beb87f170d24ee6200bea36",
+      "size": 50712,
+      "mtimeMs": 1772385605587.7512,
+      "updatedAtMs": 1772385605672
+    },
+    "skills\\DOMAIN\\formal_methods\\README.md": {
+      "sha256": "e03fca649261e3fe9e1fa380dc2fa435a0a0dd814915abf0eaa5f540d1b4d97d",
+      "size": 9329,
+      "mtimeMs": 1772385868311.424,
+      "updatedAtMs": 1772385868383
+    },
+    "skills\\DOMAIN\\search_algorithms\\SKILL.a_star_pathfinding.md": {
+      "sha256": "846d29a087c10ef5a064a28ded09bfc93ab5113d47bc3a05e22753b69403140a",
+      "size": 45047,
+      "mtimeMs": 1772387454793.1443,
+      "updatedAtMs": 1772387454870
+    },
+    "skills\\DOMAIN\\search_algorithms\\SKILL.genetic_algorithm_optimization.md": {
+      "sha256": "5e164a620a632161db86a859652599944c71e3a438a0075a4e540259bd12d0d1",
+      "size": 51666,
+      "mtimeMs": 1772389117440.3652,
+      "updatedAtMs": 1772389117564
+    },
+    "skills\\DOMAIN\\search_algorithms\\SKILL.simulated_annealing.md": {
+      "sha256": "f2db7b7d05de68b3286e73234efa2cd31fea624430d2a66c1ba2df02f311019b",
+      "size": 51765,
+      "mtimeMs": 1772390745184.8752,
+      "updatedAtMs": 1772390745287
+    },
+    "skills\\DOMAIN\\search_algorithms\\SKILL.tabu_search.md": {
+      "sha256": "fa5734665a62a995303200623fc45b838dd29a6ad73978cbe14646658125362a",
+      "size": 54082,
+      "mtimeMs": 1772392329681.761,
+      "updatedAtMs": 1772392329761
+    },
+    "skills\\DOMAIN\\search_algorithms\\SKILL.ant_colony_optimization.md": {
+      "sha256": "6e52a34e50d919253bdbb72f376801568d4210792b91d757353670145e577415",
+      "size": 55668,
+      "mtimeMs": 1772396622571.8044,
+      "updatedAtMs": 1772396622647
+    },
+    "skills\\DOMAIN\\search_algorithms\\README.md": {
+      "sha256": "fb8d995b65bd27adafbe5b62cdbc83efbb778ce80b4171312214a52c88a29e48",
+      "size": 8044,
+      "mtimeMs": 1772396953468.464,
+      "updatedAtMs": 1772396953575
+    },
+    "skills\\DOMAIN\\probabilistic_models\\SKILL.bayesian_networks.md": {
+      "sha256": "f0f4ae1bcf9f6d6d8d334da8fce3a08a4b527fe96fe94705b409ebd9c2a6f72c",
+      "size": 48414,
+      "mtimeMs": 1772398497418.105,
+      "updatedAtMs": 1772398497509
+    },
+    "skills\\DOMAIN\\probabilistic_models\\SKILL.markov_models.md": {
+      "sha256": "a5ae0520a585ab769211852678eabc8752c4dbdd185b69d639fce9ee8648a95c",
+      "size": 48522,
+      "mtimeMs": 1772400174690.9421,
+      "updatedAtMs": 1772400174786
+    },
+    "skills\\DOMAIN\\probabilistic_models\\SKILL.gaussian_processes.md": {
+      "sha256": "dda7c7cb05f43c8712c14df561e23f0351d8d6623ec3837c54ee62d897e66723",
+      "size": 51713,
+      "mtimeMs": 1772402147131.5183,
+      "updatedAtMs": 1772402147226
+    },
+    "skills\\DOMAIN\\probabilistic_models\\SKILL.probabilistic_graphical_models.md": {
+      "sha256": "d25e8eb383f57962234e197def08e418973f8bc652dfec525c200f237ab1a1a6",
+      "size": 56327,
+      "mtimeMs": 1772404139706.62,
+      "updatedAtMs": 1772404139788
+    },
+    "skills\\DOMAIN\\probabilistic_models\\SKILL.probabilistic_programming.md": {
+      "sha256": "1d49a4b9540e8d62f028ce4af331a31f5d372f0713f9e6f5469ed31e72515224",
+      "size": 53802,
+      "mtimeMs": 1772406424859.5813,
+      "updatedAtMs": 1772406424942
+    },
+    "skills\\DOMAIN\\probabilistic_models\\README.md": {
+      "sha256": "dc6a88766fe311bb304af945b86af8b71f6ee4864c0544bd98bc3293feab4dd0",
+      "size": 8663,
+      "mtimeMs": 1772406886283.067,
+      "updatedAtMs": 1772406886366
+    }
+  }
+}

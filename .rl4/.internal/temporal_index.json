@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "updated_at": "2026-03-15T16:50:07.455Z",
+  "dates": {
+    "2026-02-26": {
+      "file_events_count": 0,
+      "bursts_count": 0,
+      "causal_links_count": 0,
+      "has_daily_timeline": false
+    },
+    "2026-02-27": {
+      "file_events_count": 0,
+      "bursts_count": 0,
+      "causal_links_count": 0,
+      "has_daily_timeline": false
+    },
+    "2026-02-28": {
+      "file_events_count": 0,
+      "bursts_count": 0,
+      "causal_links_count": 0,
+      "has_daily_timeline": false
+    },
+    "2026-03-01": {
+      "file_events_count": 0,
+      "bursts_count": 0,
+      "causal_links_count": 0,
+      "has_daily_timeline": false
+    }
+  }
+}

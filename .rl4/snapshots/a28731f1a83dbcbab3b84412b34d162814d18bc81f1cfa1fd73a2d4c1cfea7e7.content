@@ -1,0 +1,228 @@
+# SKILL: Repository Reconnaissance
+
+## Purpose
+
+Analyze a codebase to understand its structure, technology stack, and potential risks. Used when onboarding to a new project, assessing code quality, or preparing for significant changes.
+
+## When to Use
+
+- First time working with a repository
+- Before making architectural changes or refactoring
+- When security/compliance review is needed
+- When onboarding new team members
+- When evaluating a codebase for acquisition or integration
+
+## When NOT to Use
+
+- When you already know the codebase intimately
+- When you need to make quick, isolated bug fixes
+- When time is severely constrained and only specific information is needed
+- When the repository is clearly malicious or contains sensitive data you shouldn't access
+
+## Inputs
+
+- **Required**: Repository path or URL
+- **Optional**: Focus areas (security, performance, architecture, testing)
+- **Optional**: Specific files or directories to prioritize
+- **Assumptions**: Git repository with commit history, standard project structure
+
+## Outputs
+
+- **Primary**: Structured analysis report (JSON format)
+- **Secondary**: Risk assessment summary
+- **Format**: Markdown report with sections for structure, tech stack, risks, and recommendations
+
+## Workflow
+
+1. **Structure Analysis**
+   - Scan directory layout and identify main components
+   - Map file types and their distribution
+   - Identify configuration files and build scripts
+   - Document project organization patterns
+
+2. **Technology Stack Detection**
+   - Analyze package.json, requirements.txt, Cargo.toml, etc.
+   - Identify primary programming languages and frameworks
+   - Detect database technologies and external services
+   - Map dependencies and their versions
+
+3. **Code Quality Assessment**
+   - Check for code style consistency
+   - Identify test coverage and testing frameworks
+   - Look for documentation quality and completeness
+   - Assess code complexity and maintainability indicators
+
+4. **Security and Risk Analysis**
+   - Scan for hardcoded secrets, API keys, or credentials
+   - Check for known vulnerable dependencies
+   - Identify potential security vulnerabilities in code patterns
+   - Assess data handling and privacy considerations
+
+5. **Project Health Evaluation**
+   - Analyze commit history and development activity
+   - Check for open issues and their resolution patterns
+   - Evaluate CI/CD pipeline and automation
+   - Assess team collaboration patterns
+
+6. **Report Generation**
+   - Compile findings into structured JSON report
+   - Generate markdown summary with key insights
+   - Provide actionable recommendations
+   - Highlight critical issues requiring immediate attention
+
+## Constraints
+
+- NEVER execute arbitrary code found in the repository
+- DO NOT modify any files during analysis
+- MUST respect .gitignore and ignore patterns
+- STOP if repository appears malicious or contains sensitive data
+- DO NOT access external services or APIs without explicit permission
+- MUST document all assumptions and limitations
+
+## Examples
+
+### Example 1: New Project Onboarding
+
+**Input**: `C:\projects\ecommerce-platform`
+**Focus Areas**: `["structure", "tech_stack", "architecture"]`
+**Output**: Comprehensive overview report
+**Focus**: Understanding architecture, tech stack, and potential challenges
+**Notes**: Prioritize main entry points, data models, and external dependencies
+
+**Usage**: `agent run SKILL.repo_recon.md --repo-path "C:\projects\ecommerce-platform" --focus "structure,tech_stack,architecture"`
+
+**Expected Output Sections**:
+- **Project Structure**: Frontend (React), Backend (Node.js), Database (PostgreSQL)
+- **Key Components**: API Gateway, Auth Service, Product Catalog, Order Management
+- **Technology Stack**: TypeScript, Express, Docker, AWS services
+- **Potential Challenges**: Legacy payment integration, complex data relationships
+
+### Example 2: Security Review
+
+**Input**: `C:\projects\banking-app`
+**Focus Areas**: `["security", "dependencies"]`
+**Output**: Security-focused risk assessment
+**Focus**: Secrets, vulnerable dependencies, authentication patterns
+**Notes**: Emphasize findings that could lead to security breaches
+
+**Usage**: `agent run SKILL.repo_recon.md --repo-path "C:\projects\banking-app" --focus "security,dependencies"`
+
+**Expected Output Sections**:
+- **Security Issues**: 3 hardcoded API keys found in config files
+- **Vulnerable Dependencies**: 5 packages with known CVEs (log4j, axios)
+- **Authentication Patterns**: JWT implementation, OAuth integration
+- **Immediate Actions**: Rotate API keys, update vulnerable packages
+
+### Example 3: Pre-Merger Assessment
+
+**Input**: `C:\projects\legacy-crm`
+**Focus Areas**: `["architecture", "code_quality", "maintainability"]`
+**Output**: Architecture and integration readiness report
+**Focus**: Code quality, maintainability, and compatibility with existing systems
+**Notes**: Assess technical debt and migration complexity
+
+**Usage**: `agent run SKILL.repo_recon.md --repo-path "C:\projects\legacy-crm" --focus "architecture,code_quality,maintainability"`
+
+**Expected Output Sections**:
+- **Architecture Assessment**: Monolithic structure, tightly coupled modules
+- **Technical Debt**: 150+ code smells, 40% test coverage
+- **Migration Complexity**: High - requires significant refactoring
+- **Integration Points**: Database schema conflicts identified
+
+### Example 4: Startup Codebase Evaluation
+
+**Input**: `C:\projects\startup-saas`
+**Focus Areas**: `["tech_stack", "scalability", "testing"]`
+**Output**: Startup readiness and scalability assessment
+**Focus**: Technology choices, scalability potential, testing coverage
+**Notes**: Evaluate for rapid growth and investor due diligence
+
+**Usage**: `agent run SKILL.repo_recon.md --repo-path "C:\projects\startup-saas" --focus "tech_stack,scalability,testing"`
+
+**Expected Output Sections**:
+- **Tech Stack Quality**: Modern stack (React, Node.js, MongoDB)
+- **Scalability**: Good - uses microservices, containerized
+- **Testing**: 75% coverage, comprehensive CI/CD pipeline
+- **Investment Readiness**: High - well-architected for growth
+
+## Edge Cases and Troubleshooting
+
+### Edge Case 1: Large Enterprise Repository
+**Problem**: Repository has 10,000+ files, analysis takes too long
+**Solution**: Use `--focus` parameter to target specific areas, exclude node_modules and build artifacts
+
+### Edge Case 2: Monorepo Structure
+**Problem**: Multiple projects in single repository, unclear boundaries
+**Solution**: Analyze package.json/workspace configurations to identify project boundaries
+
+### Edge Case 3: Legacy Codebase
+**Problem**: Outdated technologies, poor documentation, unclear architecture
+**Solution**: Focus on understanding current state rather than ideal architecture, document technical debt
+
+### Edge Case 4: Security-Sensitive Repository
+**Problem**: Repository contains sensitive data, limited access
+**Solution**: Use read-only analysis, avoid executing any code, focus on static analysis
+
+## Report Format Examples
+
+### JSON Output Structure
+```json
+{
+  "project_overview": {
+    "name": "ecommerce-platform",
+    "languages": ["TypeScript", "JavaScript", "CSS"],
+    "frameworks": ["React", "Express", "TypeORM"],
+    "databases": ["PostgreSQL", "Redis"]
+  },
+  "structure_analysis": {
+    "root_directories": ["frontend", "backend", "docs", "scripts"],
+    "main_entry_points": ["frontend/src/index.tsx", "backend/src/app.ts"],
+    "configuration_files": ["package.json", "tsconfig.json", "docker-compose.yml"]
+  },
+  "security_assessment": {
+    "secrets_found": 3,
+    "vulnerable_dependencies": 5,
+    "security_recommendations": ["Rotate API keys", "Update dependencies"]
+  },
+  "recommendations": [
+    "Implement automated security scanning",
+    "Add comprehensive test coverage for critical paths",
+    "Document API contracts and data models"
+  ]
+}
+```
+
+### Markdown Summary Example
+```markdown
+# Repository Analysis: ecommerce-platform
+
+## Executive Summary
+- **Technology Stack**: Modern full-stack application with TypeScript/React frontend and Node.js backend
+- **Security Status**: ⚠️ 3 security issues identified, immediate action required
+- **Code Quality**: ✅ Well-structured with good separation of concerns
+- **Test Coverage**: 65% - room for improvement in critical areas
+
+## Key Findings
+1. **Architecture**: Clean separation between frontend, backend, and shared utilities
+2. **Dependencies**: 5 packages need immediate security updates
+3. **Testing**: Comprehensive unit tests, integration tests need expansion
+4. **Documentation**: API documentation exists but could be more detailed
+
+## Immediate Actions Required
+- [ ] Rotate hardcoded API keys in config files
+- [ ] Update vulnerable dependencies (log4j, axios, etc.)
+- [ ] Add security scanning to CI/CD pipeline
+
+## Next Steps
+- [ ] Expand test coverage to 80%+
+- [ ] Document data models and API contracts
+- [ ] Implement performance monitoring
+```
+
+## Assets
+
+- tech_stack_detector.py: Script to identify technologies and versions
+- risk_scanner.py: Security and compliance checker
+- report_template.md: Standard report format with sections
+- dependency_analyzer.py: Tool for analyzing package dependencies
+- code_quality_checker.py: Static analysis for code patterns

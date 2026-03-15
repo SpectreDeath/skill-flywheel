@@ -1,0 +1,151 @@
+# SKILL: Skill Drafting
+
+## Purpose
+
+Transform messy, high-level intent into a structured, testable `SKILL.md` file following best practices. This meta-skill helps you scaffold new skills quickly while ensuring they meet quality standards.
+
+## When to Use
+
+- You have a rough idea for a new skill but need to formalize it
+- You want to ensure your skill follows established patterns
+- You're building multiple skills and want consistency
+- You need to capture tribal knowledge as reusable workflows
+
+## When NOT to Use
+
+- The task is too trivial for a full skill specification
+- The workflow is highly variable and can't be standardized
+- You already have a well-defined skill template to follow
+- The skill would only be used once
+
+## Inputs
+
+- **Required**: Natural language description of desired capability
+- **Optional**: Environment constraints (tools available, directories, permissions)
+- **Optional**: Examples of similar workflows or desired outputs
+- **Optional**: Known constraints or failure modes to avoid
+
+## Outputs
+
+- **Primary**: Complete `SKILL.md` file with all required sections
+- **Secondary**: List of open questions or missing information
+- **Format**: Markdown file following the standard skill template
+
+## Workflow
+
+1. **Extract Core Elements**: Parse the natural language description to identify:
+   - What the skill should accomplish (purpose)
+   - When it should be triggered (use cases)
+   - What inputs it needs
+   - What outputs it should produce
+
+2. **Identify Missing Information**: Check for:
+   - Unclear scope boundaries
+   - Missing constraints or assumptions
+   - Ambiguous success criteria
+   - Required tools or dependencies
+
+3. **Structure the Skill**: Organize information into standard sections:
+   - Purpose and scope
+   - Input/output specifications
+   - Step-by-step workflow
+   - Constraints and guardrails
+   - Examples and edge cases
+
+4. **Validate Against Best Practices**: Ensure the draft includes:
+   - Clear, testable steps
+   - Appropriate scope (not too broad)
+   - Explicit constraints
+   - Composability considerations
+
+5. **Generate Output**: Create the complete `SKILL.md` file with:
+   - All required sections filled
+   - Clear examples
+   - Identified open questions
+   - Suggested improvements
+
+## Constraints
+
+- NEVER assume tools or capabilities that aren't explicitly mentioned
+- ALWAYS include "when NOT to use" guidance
+- MUST keep steps finite and bounded
+- SHOULD suggest splitting overly broad skills into smaller units
+- MUST ask clarifying questions when requirements are ambiguous
+
+## Examples
+
+### Example 1: Code Review Skill
+
+**Input**: "I want a skill that can review pull requests for common issues like security vulnerabilities, performance problems, and code style violations."
+
+**Output**: Complete `SKILL.code_review.md` with:
+
+- Purpose: Automated PR review for quality gates
+- Inputs: PR URL, focus areas (security, performance, style)
+- Workflow: 1) Fetch code changes 2) Run security scan 3) Check performance patterns 4) Validate style 5) Generate report
+- Constraints: Never block merges, only provide suggestions
+
+**Usage**: `agent run SKILL.skill_drafting.md --input "Create a code review skill for PRs" --constraints "Must work with GitHub, GitLab, and Bitbucket"`
+
+### Example 2: Documentation Generator
+
+**Input**: "Create a skill that generates API documentation from code comments and type definitions."
+
+**Output**: Complete `SKILL.api_docs.md` with:
+
+- Purpose: Auto-generate API docs from source code
+- Inputs: Codebase path, output format preference
+- Workflow: 1) Parse source files 2) Extract comments/types 3) Generate docs 4) Validate links
+- Constraints: Preserve existing manual documentation, only augment
+
+**Usage**: `agent run SKILL.skill_drafting.md --input "Generate API docs from TypeScript code comments" --output-format "markdown"`
+
+### Example 3: Database Migration Skill
+
+**Input**: "I need a skill to safely migrate database schemas with rollback capabilities."
+
+**Output**: Complete `SKILL.db_migration.md` with:
+
+- Purpose: Safe database schema migrations with rollback
+- Inputs: Database connection, migration scripts, target schema version
+- Workflow: 1) Backup current state 2) Validate migration scripts 3) Apply migrations 4) Verify success 5) Update schema version
+- Constraints: Always maintain data integrity, support rollback to previous version
+
+**Usage**: `agent run SKILL.skill_drafting.md --input "Create database migration skill" --constraints "Must support PostgreSQL, MySQL, and SQLite with rollback"`
+
+### Example 4: Performance Monitoring Skill
+
+**Input**: "Build a skill that monitors application performance and alerts on degradation."
+
+**Output**: Complete `SKILL.perf_monitoring.md` with:
+
+- Purpose: Continuous performance monitoring and alerting
+- Inputs: Application metrics, performance thresholds, alerting channels
+- Workflow: 1) Collect metrics 2) Analyze trends 3) Compare against thresholds 4) Generate alerts 5) Create performance reports
+- Constraints: Minimal performance impact, configurable alerting, historical data retention
+
+**Usage**: `agent run SKILL.skill_drafting.md --input "Create performance monitoring skill" --focus-areas "response_time, memory_usage, cpu_utilization"`
+
+## Edge Cases and Troubleshooting
+
+### Edge Case 1: Ambiguous Requirements
+**Problem**: Input description is too vague or generic
+**Solution**: Ask clarifying questions about scope, constraints, and success criteria
+
+### Edge Case 2: Overly Broad Scope
+**Problem**: Skill tries to do too much at once
+**Solution**: Suggest splitting into smaller, focused skills
+
+### Edge Case 3: Missing Dependencies
+**Problem**: Required tools or APIs not specified
+**Solution**: Document assumptions and suggest making dependencies explicit
+
+### Edge Case 4: Unclear Success Criteria
+**Problem**: No way to verify if the skill worked correctly
+**Solution**: Define measurable success criteria and validation steps
+
+## Assets
+
+- skill_template.md: Standard skill structure template
+- best_practices.md: Guidelines for effective skills
+- examples/ directory: Sample skills for reference
