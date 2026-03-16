@@ -4,63 +4,72 @@
     "name": "qrisp-quantum-algorithms-grover-qpe-qaoa",
     "domain": "QUANTUM_COMPUTING",
     "source_doc": "domains\\QUANTUM_COMPUTING\\SKILL.qrisp-quantum-algorithms-grover-qpe-qaoa\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "8e23b4fb-2b06-4c1d-ab96-7f281b521373",
     "name": "dynamic-model-router",
     "domain": "model_orchestration",
     "source_doc": "domains\\model_orchestration\\SKILL.dynamic-model-router\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "00192c01-a28c-4fab-843d-aca3c6d5c6e9",
     "name": "hardware-model-selector",
     "domain": "model_orchestration",
     "source_doc": "domains\\model_orchestration\\SKILL.hardware-model-selector\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "7956f9a1-88a8-4eaf-970f-b1301ac6a7ac",
     "name": "model-ensemble-orchestrator",
     "domain": "model_orchestration",
     "source_doc": "domains\\model_orchestration\\SKILL.model-ensemble-orchestrator\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "1bcf3c62-51a4-4321-aea0-7afeaa036fc2",
     "name": "model-health-monitor",
     "domain": "model_orchestration",
     "source_doc": "domains\\model_orchestration\\SKILL.model-health-monitor\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "33ba74b2-e3df-4641-95dc-38f70f455d0f",
     "name": "model-latency-predictor",
     "domain": "model_orchestration",
     "source_doc": "domains\\model_orchestration\\SKILL.model-latency-predictor\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "949660ae-c6cd-433e-9edc-5f0f3f2d3a50",
     "name": "multi-model-fusion-engine",
     "domain": "model_orchestration",
     "source_doc": "domains\\model_orchestration\\SKILL.multi-model-fusion-engine\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "925e22bf-93e8-47d7-bf55-d76eed3e987a",
     "name": "ralph-chaos-model-selector",
     "domain": "model_orchestration",
     "source_doc": "domains\\model_orchestration\\SKILL.ralph-chaos-model-selector\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "9cc9824c-a647-4322-bed4-670f873e0b7f",
     "name": "task-model-optimizer",
     "domain": "model_orchestration",
     "source_doc": "domains\\model_orchestration\\SKILL.task-model-optimizer\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "8a267627-7edf-4786-8f32-76261b62afa2",
@@ -802,343 +811,400 @@
     "name": "agent",
     "domain": "mcp_tools",
     "source_doc": "domains\\mcp_tools\\SKILL.agent\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "f49f04ce-f84a-4bd6-8524-c02b07cfa37e",
     "name": "agent-demo",
     "domain": "mcp_tools",
     "source_doc": "domains\\mcp_tools\\SKILL.agent-demo\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "98b188c1-1df1-479e-879d-c087efca1634",
     "name": "app",
     "domain": "mcp_tools",
     "source_doc": "domains\\mcp_tools\\SKILL.app\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "be5e0859-a971-47a9-87f9-ac5b5a355e4e",
     "name": "context-aware-assistant-mcp-gemini-langchain-langgraph",
     "domain": "mcp_tools",
     "source_doc": "domains\\mcp_tools\\SKILL.context-aware-assistant-mcp-gemini-langchain-langgraph\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "b4254e04-cb37-4677-9343-f78e37a15187",
     "name": "custom-mcp-tools-integration-with-fastmcp",
     "domain": "mcp_tools",
     "source_doc": "domains\\mcp_tools\\SKILL.custom-mcp-tools-integration-with-fastmcp\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "2a0d7005-9bc1-434d-b4a1-490902ef1d05",
     "name": "langgraph-acp-structured-message-bus-multi-agent-system",
     "domain": "mcp_tools",
     "source_doc": "domains\\mcp_tools\\SKILL.langgraph-acp-structured-message-bus-multi-agent-system\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "658dcd1a-4659-4d67-a24f-0207e42584ab",
     "name": "mcp-tutorial-server",
     "domain": "mcp_tools",
     "source_doc": "domains\\mcp_tools\\SKILL.mcp-tutorial-server\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "d193dec9-67e6-4b18-a066-61f3ff090036",
     "name": "model-context-protocol-integration",
     "domain": "mcp_tools",
     "source_doc": "domains\\mcp_tools\\SKILL.model-context-protocol-integration\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "0a62e996-6a0a-459b-bc11-d71b36e81a2b",
     "name": "stateless-async-mcp-protocol-demo",
     "domain": "mcp_tools",
     "source_doc": "domains\\mcp_tools\\SKILL.stateless-async-mcp-protocol-demo\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "6dc27936-1000-4ea2-90a4-5dc0a3f268f6",
     "name": "test-server",
     "domain": "mcp_tools",
     "source_doc": "domains\\mcp_tools\\SKILL.test-server\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "7aa2ec99-bd55-4fd7-8b8f-850f28fcb6d2",
     "name": "sat-solver-optimization",
     "domain": "logic",
     "source_doc": "domains\\logic\\sat-solver-optimization\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "b5f3e1a2-9c4d-4f8e-b3a6-7d2e5f1c0b9a",
+    "name": "constraint-programming",
+    "domain": "logic",
+    "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\logic\\constraint-programming\\SKILL.md",
+    "status": "SKIPPED_TUTORIAL",
+    "skip_note": "From ARCHIVED/PLACEHOLDERS - misclassified duplicate"
   },
   {
     "skill_id": "2f4ae07c-eb11-42ae-adc6-f7fa4d4afa0e",
     "name": "active-learning",
     "domain": "DATA_ENGINEERING",
     "source_doc": "domains\\DATA_ENGINEERING\\SKILL.active-learning\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "SKIPPED_TUTORIAL",
+    "skip_note": "Visualization library tutorial - not core data engineering skill"
   },
   {
     "skill_id": "a2226b10-59d7-4491-bb0f-7ecd0ff85a08",
     "name": "advanced-bokeh-interactive-dashboard",
     "domain": "DATA_ENGINEERING",
     "source_doc": "domains\\DATA_ENGINEERING\\SKILL.advanced-bokeh-interactive-dashboard\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "SKIPPED_TUTORIAL",
+    "skip_note": "Visualization library tutorial - not core data engineering skill"
   },
   {
     "skill_id": "83c2b35a-213e-481d-90ad-eeec17ceac72",
     "name": "advanced-panel-interactive-dashboard",
     "domain": "DATA_ENGINEERING",
     "source_doc": "domains\\DATA_ENGINEERING\\SKILL.advanced-panel-interactive-dashboard\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "SKIPPED_TUTORIAL",
+    "skip_note": "Visualization library tutorial - not core data engineering skill"
   },
   {
     "skill_id": "28eb06d5-d470-4114-9c6a-0e3e5f528d04",
     "name": "advanced-pygwalker-interactive-eda",
     "domain": "DATA_ENGINEERING",
     "source_doc": "domains\\DATA_ENGINEERING\\SKILL.advanced-pygwalker-interactive-eda\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "SKIPPED_TUTORIAL",
+    "skip_note": "Visualization library tutorial - not core data engineering skill"
   },
   {
     "skill_id": "37bb33b8-0542-46fb-8523-bfc606a275c0",
     "name": "advanced-pygwalker-visual-analysis",
     "domain": "DATA_ENGINEERING",
     "source_doc": "domains\\DATA_ENGINEERING\\SKILL.advanced-pygwalker-visual-analysis\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "SKIPPED_TUTORIAL",
+    "skip_note": "Visualization library tutorial - not core data engineering skill"
   },
   {
     "skill_id": "0f102fc4-c1dc-4f0e-973f-ecdaa175a6e7",
     "name": "advanced-pytest-custom-plugins-fixtures-tutorial",
     "domain": "DATA_ENGINEERING",
     "source_doc": "domains\\DATA_ENGINEERING\\SKILL.advanced-pytest-custom-plugins-fixtures-tutorial\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "SKIPPED_TUTORIAL",
+    "skip_note": "Visualization library tutorial - not core data engineering skill"
   },
   {
     "skill_id": "7e62cb0b-d9e5-471d-a6b9-730d1b97b7ab",
     "name": "advanced-textual-data-dashboard",
     "domain": "DATA_ENGINEERING",
     "source_doc": "domains\\DATA_ENGINEERING\\SKILL.advanced-textual-data-dashboard\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "SKIPPED_TUTORIAL",
+    "skip_note": "Visualization library tutorial - not core data engineering skill"
   },
   {
     "skill_id": "20e6ac2b-8278-44d2-bbd2-e45f1375a3bf",
     "name": "building-an-end-to-end-data-science-workflow-with-machine-learning-interpretability-and-gemini-ai-assistance",
     "domain": "DATA_ENGINEERING",
     "source_doc": "domains\\DATA_ENGINEERING\\SKILL.building-an-end-to-end-data-science-workflow-with-machine-learning-interpretability-and-gemini-ai-assistance\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "SKIPPED_TUTORIAL",
+    "skip_note": "Visualization library tutorial - not core data engineering skill"
   },
   {
     "skill_id": "4793a5ef-3f8a-4258-8470-7f06bcd43cff",
     "name": "cognitive-complexity-auditing-with-complexipy",
     "domain": "DATA_ENGINEERING",
     "source_doc": "domains\\DATA_ENGINEERING\\SKILL.cognitive-complexity-auditing-with-complexipy\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "SKIPPED_TUTORIAL",
+    "skip_note": "Visualization library tutorial - not core data engineering skill"
   },
   {
     "skill_id": "d76b8155-4a75-4d35-9b44-767e18fbab13",
     "name": "ctgan-sdv-synthetic-data-pipeline",
     "domain": "DATA_ENGINEERING",
     "source_doc": "domains\\DATA_ENGINEERING\\SKILL.ctgan-sdv-synthetic-data-pipeline\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "SKIPPED_TUTORIAL",
+    "skip_note": "Visualization library tutorial - not core data engineering skill"
   },
   {
     "skill_id": "dcea1acf-a9e8-419d-9a71-74f03f0ef62a",
     "name": "daft-end-to-end-ml-pipeline",
     "domain": "DATA_ENGINEERING",
     "source_doc": "domains\\DATA_ENGINEERING\\SKILL.daft-end-to-end-ml-pipeline\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "SKIPPED_TUTORIAL",
+    "skip_note": "Visualization library tutorial - not core data engineering skill"
   },
   {
     "skill_id": "3183445a-b6f3-4cf4-bd24-e93bc8478d95",
     "name": "dash-plotly-local-online-dashboard",
     "domain": "DATA_ENGINEERING",
     "source_doc": "domains\\DATA_ENGINEERING\\SKILL.dash-plotly-local-online-dashboard\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "SKIPPED_TUTORIAL",
+    "skip_note": "Visualization library tutorial - not core data engineering skill"
   },
   {
     "skill_id": "41d9e417-a753-484c-b504-431beeaefcf2",
     "name": "diagonal-decision-boundary",
     "domain": "DATA_ENGINEERING",
     "source_doc": "domains\\DATA_ENGINEERING\\SKILL.diagonal-decision-boundary\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "SKIPPED_TUTORIAL",
+    "skip_note": "Visualization library tutorial - not core data engineering skill"
   },
   {
     "skill_id": "9ac2ff34-b263-4eea-9cce-832baa3438af",
     "name": "folium-interactive-geospatial-visualization",
     "domain": "DATA_ENGINEERING",
     "source_doc": "domains\\DATA_ENGINEERING\\SKILL.folium-interactive-geospatial-visualization\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "SKIPPED_TUTORIAL",
+    "skip_note": "Visualization library tutorial - not core data engineering skill"
   },
   {
     "skill_id": "06d7925b-5213-4d65-900e-3781cab4a770",
     "name": "ibis-portable-in-database-feature-engineering",
     "domain": "DATA_ENGINEERING",
     "source_doc": "domains\\DATA_ENGINEERING\\SKILL.ibis-portable-in-database-feature-engineering\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "SKIPPED_TUTORIAL",
+    "skip_note": "Visualization library tutorial - not core data engineering skill"
   },
   {
     "skill_id": "48848014-3667-41a5-82ec-31a42162d791",
     "name": "imbalanced-datasets",
     "domain": "DATA_ENGINEERING",
     "source_doc": "domains\\DATA_ENGINEERING\\SKILL.imbalanced-datasets\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "SKIPPED_TUTORIAL",
+    "skip_note": "Visualization library tutorial - not core data engineering skill"
   },
   {
     "skill_id": "33cd1e85-fadc-442c-a20a-92920aabda97",
     "name": "kernel-pca",
     "domain": "DATA_ENGINEERING",
     "source_doc": "domains\\DATA_ENGINEERING\\SKILL.kernel-pca\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "SKIPPED_TUTORIAL",
+    "skip_note": "Visualization library tutorial - not core data engineering skill"
   },
   {
     "skill_id": "17129261-41c4-4d66-9452-6f5e34cbaf79",
     "name": "kv-caching",
     "domain": "DATA_ENGINEERING",
     "source_doc": "domains\\DATA_ENGINEERING\\SKILL.kv-caching\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "SKIPPED_TUTORIAL",
+    "skip_note": "Visualization library tutorial - not core data engineering skill"
   },
   {
     "skill_id": "d170da2b-e54e-4f81-a657-77b00eb79e8c",
     "name": "lilac-functional-data-pipeline",
     "domain": "DATA_ENGINEERING",
     "source_doc": "domains\\DATA_ENGINEERING\\SKILL.lilac-functional-data-pipeline\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "SKIPPED_TUTORIAL",
+    "skip_note": "Visualization library tutorial - not core data engineering skill"
   },
   {
     "skill_id": "340660ce-6bb7-417f-acf5-e6a075f78ceb",
     "name": "matlab-python-oct2py-colab-tutorial",
     "domain": "DATA_ENGINEERING",
     "source_doc": "domains\\DATA_ENGINEERING\\SKILL.matlab-python-oct2py-colab-tutorial\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "SKIPPED_TUTORIAL",
+    "skip_note": "Visualization library tutorial - not core data engineering skill"
   },
   {
     "skill_id": "65c5da1f-0e34-490a-b682-387873ae1a4f",
     "name": "modin-powered-dataframes",
     "domain": "DATA_ENGINEERING",
     "source_doc": "domains\\DATA_ENGINEERING\\SKILL.modin-powered-dataframes\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "SKIPPED_TUTORIAL",
+    "skip_note": "Visualization library tutorial - not core data engineering skill"
   },
   {
     "skill_id": "f9955ef9-9ede-4f2f-aad7-feb6c1e7c46a",
     "name": "networkit-largegraph-analytics-pipeline",
     "domain": "DATA_ENGINEERING",
     "source_doc": "domains\\DATA_ENGINEERING\\SKILL.networkit-largegraph-analytics-pipeline\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "SKIPPED_TUTORIAL",
+    "skip_note": "Visualization library tutorial - not core data engineering skill"
   },
   {
     "skill_id": "07c29be7-dc47-49ac-a08a-2742dbf901b6",
     "name": "numpyro-hierarchical-regression-advanced",
     "domain": "DATA_ENGINEERING",
     "source_doc": "domains\\DATA_ENGINEERING\\SKILL.numpyro-hierarchical-regression-advanced\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "SKIPPED_TUTORIAL",
+    "skip_note": "Visualization library tutorial - not core data engineering skill"
   },
   {
     "skill_id": "72739fa1-df66-4a22-aa63-ccfee2ed3eeb",
     "name": "pandera-production-grade-dataframe-validation",
     "domain": "DATA_ENGINEERING",
     "source_doc": "domains\\DATA_ENGINEERING\\SKILL.pandera-production-grade-dataframe-validation\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "SKIPPED_TUTORIAL",
+    "skip_note": "Visualization library tutorial - not core data engineering skill"
   },
   {
     "skill_id": "af318286-bfce-4d16-8938-c682ffa7efbd",
     "name": "polyfactory-production-grade-mock-data-generation",
     "domain": "DATA_ENGINEERING",
     "source_doc": "domains\\DATA_ENGINEERING\\SKILL.polyfactory-production-grade-mock-data-generation\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "SKIPPED_TUTORIAL",
+    "skip_note": "Visualization library tutorial - not core data engineering skill"
   },
   {
     "skill_id": "0e793fc7-3706-4dcd-a791-ce3fe0c567f7",
     "name": "softmax",
     "domain": "DATA_ENGINEERING",
     "source_doc": "domains\\DATA_ENGINEERING\\SKILL.softmax\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "SKIPPED_TUTORIAL",
+    "skip_note": "Visualization library tutorial - not core data engineering skill"
   },
   {
     "skill_id": "4a19fec1-0916-49f1-9b4d-277903c4f427",
     "name": "synthetic-data-creation",
     "domain": "DATA_ENGINEERING",
     "source_doc": "domains\\DATA_ENGINEERING\\SKILL.synthetic-data-creation\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "SKIPPED_TUTORIAL",
+    "skip_note": "Visualization library tutorial - not core data engineering skill"
   },
   {
     "skill_id": "0dbff8aa-ce63-4fa9-80bf-91830fcbd109",
     "name": "tqdm-production-progress-monitoring",
     "domain": "DATA_ENGINEERING",
     "source_doc": "domains\\DATA_ENGINEERING\\SKILL.tqdm-production-progress-monitoring\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "SKIPPED_TUTORIAL",
+    "skip_note": "Visualization library tutorial - not core data engineering skill"
   },
   {
     "skill_id": "3c615bea-5624-4078-80ac-cee42cea8d12",
     "name": "unified-tool-orchestration-framework",
     "domain": "DATA_ENGINEERING",
     "source_doc": "domains\\DATA_ENGINEERING\\SKILL.unified-tool-orchestration-framework\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "SKIPPED_TUTORIAL",
+    "skip_note": "Visualization library tutorial - not core data engineering skill"
   },
   {
     "skill_id": "dcce8c8b-77e1-4a8f-987b-627189353f65",
     "name": "vaex-large-scale-analytics-and-ml-pipeline",
     "domain": "DATA_ENGINEERING",
     "source_doc": "domains\\DATA_ENGINEERING\\SKILL.vaex-large-scale-analytics-and-ml-pipeline\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "SKIPPED_TUTORIAL",
+    "skip_note": "Visualization library tutorial - not core data engineering skill"
   },
   {
     "skill_id": "46b8f2c1-44bf-455b-a641-d1351252d435",
     "name": "apache-beam-batch-and-stream-windowing",
     "domain": "CLOUD_ENGINEERING",
     "source_doc": "domains\\CLOUD_ENGINEERING\\SKILL.apache-beam-batch-and-stream-windowing\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "7df16f0e-c0f1-41c9-aed5-fbf81bbfca7a",
     "name": "decentralized-gossip-federated-learning-with-differential-privacy",
     "domain": "CLOUD_ENGINEERING",
     "source_doc": "domains\\CLOUD_ENGINEERING\\SKILL.decentralized-gossip-federated-learning-with-differential-privacy\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "3da5c010-2572-48d6-89ed-992f34952780",
     "name": "distributed-vector-db-sharding-replication-quorum",
     "domain": "CLOUD_ENGINEERING",
     "source_doc": "domains\\CLOUD_ENGINEERING\\SKILL.distributed-vector-db-sharding-replication-quorum\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "a045d571-2398-4266-86dd-4e83af2d09e5",
     "name": "elastic-vector-db-consistent-hashing-rag",
     "domain": "CLOUD_ENGINEERING",
     "source_doc": "domains\\CLOUD_ENGINEERING\\SKILL.elastic-vector-db-consistent-hashing-rag\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "5da86036-522f-4bc8-a699-f36de1081e82",
     "name": "huey-async-tasks",
     "domain": "CLOUD_ENGINEERING",
     "source_doc": "domains\\CLOUD_ENGINEERING\\SKILL.huey-async-tasks\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "183ed509-e08f-49f9-8f73-fb102d6f25ee",
     "name": "kombu-task-routing",
     "domain": "CLOUD_ENGINEERING",
     "source_doc": "domains\\CLOUD_ENGINEERING\\SKILL.kombu-task-routing\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "2738d222-aaeb-4aca-832f-11af5be6a00b",
     "name": "pbft-asyncio-byzantine-latency-simulator",
     "domain": "CLOUD_ENGINEERING",
     "source_doc": "domains\\CLOUD_ENGINEERING\\SKILL.pbft-asyncio-byzantine-latency-simulator\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "3b265e32-20d8-44f4-9adf-5564092c34fb",
     "name": "rpc-vs-event-driven-failure-dynamics-distributed-systems",
     "domain": "CLOUD_ENGINEERING",
     "source_doc": "domains\\CLOUD_ENGINEERING\\SKILL.rpc-vs-event-driven-failure-dynamics-distributed-systems\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "62cd70c2-285f-4c75-b7a6-a4e58b6badf3",
@@ -1887,28 +1953,32 @@
     "name": "constraint-programming",
     "domain": "logic",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\logic\\constraint-programming\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "SKIPPED_TUTORIAL",
+    "skip_note": "From ARCHIVED/PLACEHOLDERS - misclassified duplicate"
   },
   {
     "skill_id": "e97c761f-6905-47c6-a541-1e54c1cf6b2d",
     "name": "datalog-reasoning",
     "domain": "logic",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\logic\\datalog-reasoning\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "SKIPPED_TUTORIAL",
+    "skip_note": "From ARCHIVED/PLACEHOLDERS - misclassified duplicate"
   },
   {
     "skill_id": "75e44b73-8bd7-4857-957d-f82ae64ce929",
     "name": "prolog-knowledge-rep",
     "domain": "logic",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\logic\\prolog-knowledge-rep\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "SKIPPED_TUTORIAL",
+    "skip_note": "From ARCHIVED/PLACEHOLDERS - misclassified duplicate"
   },
   {
     "skill_id": "e8b0b910-a677-4b79-9378-db07fc5d0dd6",
     "name": "temporal-logic",
     "domain": "logic",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\logic\\temporal-logic\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "SKIPPED_TUTORIAL",
+    "skip_note": "From ARCHIVED/PLACEHOLDERS - misclassified duplicate"
   },
   {
     "skill_id": "6bb940cb-5606-44d2-8f18-78ad28566427",
@@ -2370,35 +2440,40 @@
     "name": "algorithm-strategy-selection",
     "domain": "ALGO_PATTERNS",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\ALGO_PATTERNS\\algorithm-strategy-selection\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "SKIPPED_TUTORIAL",
+    "skip_note": "From ARCHIVED/PLACEHOLDERS - misclassified duplicate"
   },
   {
     "skill_id": "f7c75fc5-8b32-448d-ad0f-1ee24e9eb23d",
     "name": "algorithmic-decomposition",
     "domain": "ALGO_PATTERNS",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\ALGO_PATTERNS\\algorithmic-decomposition\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "SKIPPED_TUTORIAL",
+    "skip_note": "From ARCHIVED/PLACEHOLDERS - misclassified duplicate"
   },
   {
     "skill_id": "4358d8c7-0210-48d0-a57b-ecd1866eca92",
     "name": "complexity-analysis",
     "domain": "ALGO_PATTERNS",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\ALGO_PATTERNS\\complexity-analysis\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "SKIPPED_TUTORIAL",
+    "skip_note": "From ARCHIVED/PLACEHOLDERS - misclassified duplicate"
   },
   {
     "skill_id": "ce4eb57c-b729-4053-98fa-ce66b252bfb7",
     "name": "design-pattern-recommender",
     "domain": "ALGO_PATTERNS",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\ALGO_PATTERNS\\design-pattern-recommender\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "SKIPPED_TUTORIAL",
+    "skip_note": "From ARCHIVED/PLACEHOLDERS - misclassified duplicate"
   },
   {
     "skill_id": "b0a8eae3-5837-4320-8a23-4993d8d2aa92",
     "name": "pattern-from-code",
     "domain": "ALGO_PATTERNS",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\ALGO_PATTERNS\\pattern-from-code\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "SKIPPED_TUTORIAL",
+    "skip_note": "From ARCHIVED/PLACEHOLDERS - misclassified duplicate"
   },
   {
     "skill_id": "37ec7812-ca4a-44ce-bbad-017796d1918e",
