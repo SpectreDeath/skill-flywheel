@@ -4,17 +4,15 @@ Welcome to the Skill Flywheel documentation. This directory contains comprehensi
 
 ## 📖 Quick Start & User Guides
 - [Quick Start Guide](../QUICK_START.md): Get up and running in minutes.
-- [Deployment Guide V3](guides/PHASE_3_ADVANCED_FEATURES_GUIDE.md): Advanced deployment and orchestration.
-- [Skill Management](guides/SKILL_ENRICHMENT_GUIDE.md): How to create and manage skills.
+- [Deployment Guide](guides/DEPLOYMENT_GUIDE.md): Deployment and orchestration.
+- [Enhanced MCP Server Guide](guides/ENHANCED_MCP_SERVER_GUIDE.md): MCP server implementation.
 
 ## 🏗️ Architecture & Analysis
-- [Architecture Overview](analysis/ARCHITECTURE_V3.md): Deep dive into the v3 architecture.
-- [Remediation Audit](analysis/REMEDIATION_AUDIT_REPORT.md): Details of the project overhaul.
-- [Security Strategy](analysis/SECURITY_STRATEGY.md): Security implementation details.
+- [Architecture Overview](guides/PHASE_3_ADVANCED_FEATURES_GUIDE.md): Deep dive into the architecture.
+- [Community Guide](guides/COMMUNITY_GUIDE.md): Community contributions.
 
 ## 🛠️ Development
 - [Testing Suite](../tests/README.md): Information on running tests.
-- [API Reference](analysis/API_DOCUMENTATION.md): Detailed API endpoints.
 
 ---
 *Maintained by the Skill Flywheel Core Team.*

@@ -1,6 +1,6 @@
 # Skill Flywheel
 
-Enterprise-Grade Multi-Container MCP Architecture with 513+ specialized skills.
+Enterprise-Grade Multi-Container MCP Architecture with 345+ specialized skills.
 
 ## 🏗️ Architecture
 A distributed ecosystem of 9 domain-specific servers orchestrated by a central Discovery Service.
