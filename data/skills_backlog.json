@@ -1358,7 +1358,8 @@
     "name": "specification-lifecycle-management",
     "domain": "APPLICATION_SECURITY",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\APPLICATION_SECURITY\\specification-lifecycle-management\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "SKIPPED_TUTORIAL",
+    "skip_note": "From ARCHIVED/PLACEHOLDERS - misclassified duplicate"
   },
   {
     "skill_id": "ad8b22f3-4bfc-4620-acf3-9740b4cb7324",
@@ -1372,7 +1373,8 @@
     "name": "specification-synchronization",
     "domain": "APPLICATION_SECURITY",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\APPLICATION_SECURITY\\specification-synchronization\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "SKIPPED_TUTORIAL",
+    "skip_note": "From ARCHIVED/PLACEHOLDERS - misclassified duplicate"
   },
   {
     "skill_id": "2bd68663-9062-4617-8ad2-0402d5f60607",
@@ -1393,21 +1395,24 @@
     "name": "specification-traceability",
     "domain": "APPLICATION_SECURITY",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\APPLICATION_SECURITY\\specification-traceability\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "SKIPPED_TUTORIAL",
+    "skip_note": "From ARCHIVED/PLACEHOLDERS - misclassified duplicate"
   },
   {
     "skill_id": "65a6437f-33ee-4265-abbf-d1a96723fc55",
     "name": "specification-validation-framework",
     "domain": "APPLICATION_SECURITY",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\APPLICATION_SECURITY\\specification-validation-framework\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "SKIPPED_TUTORIAL",
+    "skip_note": "From ARCHIVED/PLACEHOLDERS - misclassified duplicate"
   },
   {
     "skill_id": "f45c032f-3d71-4849-8017-b63ab2ca9397",
     "name": "specification-version-control",
     "domain": "APPLICATION_SECURITY",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\APPLICATION_SECURITY\\specification-version-control\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "SKIPPED_TUTORIAL",
+    "skip_note": "From ARCHIVED/PLACEHOLDERS - misclassified duplicate"
   },
   {
     "skill_id": "2ff99f67-4c7c-4069-a898-2dd6676d9cc5",
@@ -2293,147 +2298,168 @@
     "name": "ai-proactive-threat-modeling",
     "domain": "APPLICATION_SECURITY",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\APPLICATION_SECURITY\\ai-proactive-threat-modeling\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "SKIPPED_TUTORIAL",
+    "skip_note": "From ARCHIVED/PLACEHOLDERS - misclassified duplicate"
   },
   {
     "skill_id": "d4d610e9-ed0f-43d9-9d50-265522f82273",
     "name": "api-design",
     "domain": "APPLICATION_SECURITY",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\APPLICATION_SECURITY\\api-design\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "SKIPPED_TUTORIAL",
+    "skip_note": "From ARCHIVED/PLACEHOLDERS - misclassified duplicate"
   },
   {
     "skill_id": "e597ed33-3f7c-480e-af86-ccf19571eaa6",
     "name": "automated-security-testing",
     "domain": "APPLICATION_SECURITY",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\APPLICATION_SECURITY\\automated-security-testing\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "SKIPPED_TUTORIAL",
+    "skip_note": "From ARCHIVED/PLACEHOLDERS - misclassified duplicate"
   },
   {
     "skill_id": "66b43780-8a11-4394-9315-a15e6a739105",
     "name": "compliance-audit",
     "domain": "APPLICATION_SECURITY",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\APPLICATION_SECURITY\\compliance-audit\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "SKIPPED_TUTORIAL",
+    "skip_note": "From ARCHIVED/PLACEHOLDERS - misclassified duplicate"
   },
   {
     "skill_id": "b2ba607f-f287-438c-a2d9-6da24ef61ce6",
     "name": "deps-audit",
     "domain": "APPLICATION_SECURITY",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\APPLICATION_SECURITY\\deps-audit\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "SKIPPED_TUTORIAL",
+    "skip_note": "From ARCHIVED/PLACEHOLDERS - misclassified duplicate"
   },
   {
     "skill_id": "e97c72e1-f2a3-4c8b-8dcc-aa9f8e2a1124",
     "name": "developer-centric-security-training",
     "domain": "APPLICATION_SECURITY",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\APPLICATION_SECURITY\\developer-centric-security-training\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "SKIPPED_TUTORIAL",
+    "skip_note": "From ARCHIVED/PLACEHOLDERS - misclassified duplicate"
   },
   {
     "skill_id": "7ecc2abd-22c7-46c1-855b-36ec66e2e428",
     "name": "intelligent-security-analysis-platform",
     "domain": "APPLICATION_SECURITY",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\APPLICATION_SECURITY\\intelligent-security-analysis-platform\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "SKIPPED_TUTORIAL",
+    "skip_note": "From ARCHIVED/PLACEHOLDERS - misclassified duplicate"
   },
   {
     "skill_id": "24a823af-5b8e-459c-9abf-6eb776dc34a2",
     "name": "metrics-dashboard",
     "domain": "APPLICATION_SECURITY",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\APPLICATION_SECURITY\\metrics-dashboard\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "SKIPPED_TUTORIAL",
+    "skip_note": "From ARCHIVED/PLACEHOLDERS - misclassified duplicate"
   },
   {
     "skill_id": "a7457906-0cef-4cb3-b8ac-540e32f4c54f",
     "name": "perf-audit",
     "domain": "APPLICATION_SECURITY",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\APPLICATION_SECURITY\\perf-audit\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "SKIPPED_TUTORIAL",
+    "skip_note": "From ARCHIVED/PLACEHOLDERS - misclassified duplicate"
   },
   {
     "skill_id": "9d63c1d2-1ca0-45fd-ae90-70186ac6157c",
     "name": "predictive-observability-engine",
     "domain": "APPLICATION_SECURITY",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\APPLICATION_SECURITY\\predictive-observability-engine\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "SKIPPED_TUTORIAL",
+    "skip_note": "From ARCHIVED/PLACEHOLDERS - misclassified duplicate"
   },
   {
     "skill_id": "c8062849-9913-4e8d-a0fb-dad2248b1beb",
     "name": "ralph-wiggum",
     "domain": "APPLICATION_SECURITY",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\APPLICATION_SECURITY\\ralph-wiggum\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "SKIPPED_TUTORIAL",
+    "skip_note": "From ARCHIVED/PLACEHOLDERS - misclassified duplicate"
   },
   {
     "skill_id": "72cfa960-d09a-4d18-a317-75aca22a2b67",
     "name": "refactor-plan",
     "domain": "APPLICATION_SECURITY",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\APPLICATION_SECURITY\\refactor-plan\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "SKIPPED_TUTORIAL",
+    "skip_note": "From ARCHIVED/PLACEHOLDERS - misclassified duplicate"
   },
   {
     "skill_id": "1781aac3-bb8b-47ce-b62a-9ae39f01043d",
     "name": "secure-sdlc-integration",
     "domain": "APPLICATION_SECURITY",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\APPLICATION_SECURITY\\secure-sdlc-integration\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "SKIPPED_TUTORIAL",
+    "skip_note": "From ARCHIVED/PLACEHOLDERS - misclassified duplicate"
   },
   {
     "skill_id": "9194166f-9810-407e-accc-4150ce74860f",
     "name": "self-optimizing-deployment-pipeline",
     "domain": "APPLICATION_SECURITY",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\APPLICATION_SECURITY\\self-optimizing-deployment-pipeline\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "SKIPPED_TUTORIAL",
+    "skip_note": "From ARCHIVED/PLACEHOLDERS - misclassified duplicate"
   },
   {
     "skill_id": "e4fc35ac-484a-485a-81ca-1dd8404b71f8",
     "name": "test-survey",
     "domain": "APPLICATION_SECURITY",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\APPLICATION_SECURITY\\test-survey\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "SKIPPED_TUTORIAL",
+    "skip_note": "From ARCHIVED/PLACEHOLDERS - misclassified duplicate"
   },
   {
     "skill_id": "11823050-be9a-447d-b70e-7b7a22afba66",
     "name": "zero-day-patch-flow-0",
     "domain": "APPLICATION_SECURITY",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\APPLICATION_SECURITY\\zero-day-patch-flow-0\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "SKIPPED_TUTORIAL",
+    "skip_note": "From ARCHIVED/PLACEHOLDERS - misclassified duplicate"
   },
   {
     "skill_id": "85828917-2ae9-421f-a8bb-5da10ce35cdc",
     "name": "zero-day-patch-flow-1",
     "domain": "APPLICATION_SECURITY",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\APPLICATION_SECURITY\\zero-day-patch-flow-1\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "SKIPPED_TUTORIAL",
+    "skip_note": "From ARCHIVED/PLACEHOLDERS - misclassified duplicate"
   },
   {
     "skill_id": "85b4310c-5c1e-44bb-8bf8-90d9372e6103",
     "name": "zero-day-patch-flow-2",
     "domain": "APPLICATION_SECURITY",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\APPLICATION_SECURITY\\zero-day-patch-flow-2\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "SKIPPED_TUTORIAL",
+    "skip_note": "From ARCHIVED/PLACEHOLDERS - misclassified duplicate"
   },
   {
     "skill_id": "73cb2447-0ea5-4af9-abb7-3dc83c6a6786",
     "name": "zero-day-patch-flow-3",
     "domain": "APPLICATION_SECURITY",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\APPLICATION_SECURITY\\zero-day-patch-flow-3\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "SKIPPED_TUTORIAL",
+    "skip_note": "From ARCHIVED/PLACEHOLDERS - misclassified duplicate"
   },
   {
     "skill_id": "02f466be-fcc6-45d1-8ef3-cb890c9dcaa0",
     "name": "zero-day-patch-flow-4",
     "domain": "APPLICATION_SECURITY",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\APPLICATION_SECURITY\\zero-day-patch-flow-4\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "SKIPPED_TUTORIAL",
+    "skip_note": "From ARCHIVED/PLACEHOLDERS - misclassified duplicate"
   },
   {
     "skill_id": "0a3aa00f-be37-4b64-9eaf-1dd0e76bdabf",
     "name": "zero-trust-architecture-implementation",
     "domain": "APPLICATION_SECURITY",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\APPLICATION_SECURITY\\zero-trust-architecture-implementation\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "SKIPPED_TUTORIAL",
+    "skip_note": "From ARCHIVED/PLACEHOLDERS - misclassified duplicate"
   },
   {
     "skill_id": "1dfec57e-23f9-453c-964a-478e90cf914d",
@@ -3285,370 +3311,1903 @@
     "name": "agent_architecture_designer",
     "domain": "agentic_ai",
     "source_doc": "domains\\agentic_ai\\agent_architecture_designer\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "8cbf9967-98c8-4f5e-b157-45e9b00a25c6",
     "name": "agent_communication_protocol",
     "domain": "agentic_ai",
     "source_doc": "domains\\agentic_ai\\agent_communication_protocol\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "f182f7d6-73ce-43fc-930d-06704b3fdc9a",
     "name": "hierarchical_planner",
     "domain": "agentic_ai",
     "source_doc": "domains\\agentic_ai\\hierarchical_planner\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "a4a491e4-89e4-4d1f-beef-37f3522955dd",
     "name": "multi_agent_workflow_generator",
     "domain": "agentic_ai",
     "source_doc": "domains\\agentic_ai\\multi_agent_workflow_generator\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "b4baffa7-61e9-4122-a13e-85b081fdde3a",
     "name": "pattern_extraction_analyzer",
     "domain": "agentic_ai",
     "source_doc": "domains\\agentic_ai\\pattern_extraction_analyzer\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "9afc1535-0c38-487d-9d68-6cb98b9f0ef1",
     "name": "rag_pipeline_builder",
     "domain": "agentic_ai",
     "source_doc": "domains\\agentic_ai\\rag_pipeline_builder\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "e7bc7a65-463d-4237-9788-4a7be9d76609",
     "name": "advanced-multitool-agentic-ai",
     "domain": "agentic_ai",
     "source_doc": "domains\\agentic_ai\\SKILL.advanced-multitool-agentic-ai\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "9556ed18-af44-4f90-871f-87e98389c91b",
     "name": "agentic-ai-planner-executor-critic",
     "domain": "agentic_ai",
     "source_doc": "domains\\agentic_ai\\SKILL.agentic-ai-planner-executor-critic\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "dd40bddf-22d6-4155-a54d-d86331370a61",
     "name": "agentic-ai-with-langgraph-adaptive-memory-reflexion",
     "domain": "agentic_ai",
     "source_doc": "domains\\agentic_ai\\SKILL.agentic-ai-with-langgraph-adaptive-memory-reflexion\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "bb57d147-829b-4a16-981e-70efb1174eda",
     "name": "agentic-chain-of-thought-pruning-dynamic-reasoning",
     "domain": "agentic_ai",
     "source_doc": "domains\\agentic_ai\\SKILL.agentic-chain-of-thought-pruning-dynamic-reasoning\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "6168bd61-55b3-4ddb-a35a-b0d23d835525",
     "name": "agentic-llamaindex-rag-self-evaluation",
     "domain": "agentic_ai",
     "source_doc": "domains\\agentic_ai\\SKILL.agentic-llamaindex-rag-self-evaluation\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "b8f9a695-abe3-4280-b98d-3972ce020212",
     "name": "agentic-logistics-swarm-simulation",
     "domain": "agentic_ai",
     "source_doc": "domains\\agentic_ai\\SKILL.agentic-logistics-swarm-simulation\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "14b05cae-9e59-4576-9ae4-61932448f5a3",
     "name": "agentic-scientific-discovery-pipeline",
     "domain": "agentic_ai",
     "source_doc": "domains\\agentic_ai\\SKILL.agentic-scientific-discovery-pipeline\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "889e2203-8090-489e-8a2c-13d315e1b7fa",
     "name": "agentic-workflow-tool-driven-route-optimization",
     "domain": "agentic_ai",
     "source_doc": "domains\\agentic_ai\\SKILL.agentic-workflow-tool-driven-route-optimization\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "6e46acab-1b6a-4fdc-ba8a-ec2c6e7c62cf",
     "name": "agentic-zettelkasten-memory-martechpost",
     "domain": "agentic_ai",
     "source_doc": "domains\\agentic_ai\\SKILL.agentic-zettelkasten-memory-martechpost\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "ad8bbcbf-845a-4c67-9183-8947305aad85",
     "name": "anemoi-semi-centralized-peer-critic-loop-langgraph",
     "domain": "agentic_ai",
     "source_doc": "domains\\agentic_ai\\SKILL.anemoi-semi-centralized-peer-critic-loop-langgraph\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "5a25f57b-e14d-4ee3-a907-0a776cdd5bc9",
     "name": "atomic-agents-advanced-rag-pipeline",
     "domain": "agentic_ai",
     "source_doc": "domains\\agentic_ai\\SKILL.atomic-agents-advanced-rag-pipeline\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "51cdace5-a71e-434f-b240-c67ebb85e6fd",
     "name": "camel-multi-agent-pipeline",
     "domain": "agentic_ai",
     "source_doc": "domains\\agentic_ai\\SKILL.camel-multi-agent-pipeline\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "c0523dd8-5b9a-449f-a43d-23e7d8baf3f8",
     "name": "constitutional-dual-agent-financial-governance",
     "domain": "agentic_ai",
     "source_doc": "domains\\agentic_ai\\SKILL.constitutional-dual-agent-financial-governance\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "5aaf724a-8fbe-4d34-b4de-714a037bc7e1",
     "name": "control-plane-agentic-ai-system",
     "domain": "agentic_ai",
     "source_doc": "domains\\agentic_ai\\SKILL.control-plane-agentic-ai-system\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "6ad8aa27-191a-4b76-b188-4018ce7e1372",
     "name": "critic-augmented-risk-aware-agent",
     "domain": "agentic_ai",
     "source_doc": "domains\\agentic_ai\\SKILL.critic-augmented-risk-aware-agent\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "bc71411b-2488-4ddc-a56c-cac741ab658c",
     "name": "evermem-persistent-agent-os-faiss-sqlite",
     "domain": "agentic_ai",
     "source_doc": "domains\\agentic_ai\\SKILL.evermem-persistent-agent-os-faiss-sqlite\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "07599c93-1b23-4a5a-a669-d9ed87e940d1",
     "name": "gemini-agentic-medical-authorization-workflow",
     "domain": "agentic_ai",
     "source_doc": "domains\\agentic_ai\\SKILL.gemini-agentic-medical-authorization-workflow\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "24f72cd5-cea7-4466-902d-aae9fc218c8c",
     "name": "glass-box-governance-auditable-human-in-loop-agentic-workflows",
     "domain": "agentic_ai",
     "source_doc": "domains\\agentic_ai\\SKILL.glass-box-governance-auditable-human-in-loop-agentic-workflows\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "a1b205cb-00a0-4efd-91ca-f789ff99ee75",
     "name": "graphbit-production-agentic-workflows-offline-to-llm",
     "domain": "agentic_ai",
     "source_doc": "domains\\agentic_ai\\SKILL.graphbit-production-agentic-workflows-offline-to-llm\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "9939e989-9b18-45d8-bd9b-a29558c47bfb",
     "name": "griptape-customer-support-automation-pipeline",
     "domain": "agentic_ai",
     "source_doc": "domains\\agentic_ai\\SKILL.griptape-customer-support-automation-pipeline\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "79e8cbeb-8175-4dde-8aef-30d84ab63e6b",
     "name": "griptape-local-agentic-story-pipeline",
     "domain": "agentic_ai",
     "source_doc": "domains\\agentic_ai\\SKILL.griptape-local-agentic-story-pipeline\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "8dfc13f8-2493-4842-bf9a-3784ea522966",
     "name": "local-multi-agent-manager",
     "domain": "agentic_ai",
     "source_doc": "domains\\agentic_ai\\SKILL.local-multi-agent-manager\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "523605e7-58da-44f6-83c8-d6c248369655",
     "name": "mem0-universal-memory-layer-agents",
     "domain": "agentic_ai",
     "source_doc": "domains\\agentic_ai\\SKILL.mem0-universal-memory-layer-agents\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "a50a65f3-5804-468d-be65-653f7f09d40c",
     "name": "memory-driven-agentic-ai",
     "domain": "agentic_ai",
     "source_doc": "domains\\agentic_ai\\SKILL.memory-driven-agentic-ai\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "9ba3d316-a05d-4c6c-b639-e848a3798ff3",
     "name": "memory-engineering-short-term-long-term-episodic-agents",
     "domain": "agentic_ai",
     "source_doc": "domains\\agentic_ai\\SKILL.memory-engineering-short-term-long-term-episodic-agents\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "9b6397cc-53f6-4d61-be96-7143b8ccc3e7",
     "name": "meta-agent-auto-designer",
     "domain": "agentic_ai",
     "source_doc": "domains\\agentic_ai\\SKILL.meta-agent-auto-designer\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "1ef1881f-6cb9-4bd6-93a3-c9ff148ebf0e",
     "name": "model-native-agentic-ai-end-to-end-rl",
     "domain": "agentic_ai",
     "source_doc": "domains\\agentic_ai\\SKILL.model-native-agentic-ai-end-to-end-rl\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "de1c33b4-7e0a-41d6-81d0-b7e8be2f0d0f",
     "name": "multi-agent-incident-response-haystack",
     "domain": "agentic_ai",
     "source_doc": "domains\\agentic_ai\\SKILL.multi-agent-incident-response-haystack\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "e9876cad-c009-44ce-a5f3-3a274e9c78e6",
     "name": "neural-memory-agents-continual-learning",
     "domain": "agentic_ai",
     "source_doc": "domains\\agentic_ai\\SKILL.neural-memory-agents-continual-learning\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "2b9f5ab2-bd0c-4c50-b7f0-b0fd7ab9d6e0",
     "name": "openclaw-local-agent-runtime",
     "domain": "agentic_ai",
     "source_doc": "domains\\agentic_ai\\SKILL.openclaw-local-agent-runtime\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "2ff227d1-8bc8-4b0c-ae36-0150c68d504f",
     "name": "outlines-typed-structured-generation",
     "domain": "agentic_ai",
     "source_doc": "domains\\agentic_ai\\SKILL.outlines-typed-structured-generation\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "b554804a-21f6-40b8-b353-85d0c1c93df7",
     "name": "persistent-memory-personalised-agentic-ai",
     "domain": "agentic_ai",
     "source_doc": "domains\\agentic_ai\\SKILL.persistent-memory-personalised-agentic-ai\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "86bf3522-b7f6-4d6e-914d-ecac7c9250a9",
     "name": "preemptive-churn-agent",
     "domain": "agentic_ai",
     "source_doc": "domains\\agentic_ai\\SKILL.preemptive-churn-agent\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "d5b8e8ff-06f5-49cb-a3bd-b38c097f9115",
     "name": "procedural-memory-agent-skill-learning",
     "domain": "agentic_ai",
     "source_doc": "domains\\agentic_ai\\SKILL.procedural-memory-agent-skill-learning\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "90dc9eed-cd2f-4923-b78a-0ab2223862f4",
     "name": "pydantic-ai-contract-first-agentic-decision-system",
     "domain": "agentic_ai",
     "source_doc": "domains\\agentic_ai\\SKILL.pydantic-ai-contract-first-agentic-decision-system\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "00c7d746-5d80-4da6-b8eb-85e386df6789",
     "name": "pydanticai-bulletproof-agentic-workflows",
     "domain": "agentic_ai",
     "source_doc": "domains\\agentic_ai\\SKILL.pydanticai-bulletproof-agentic-workflows\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "508134bd-1784-48dd-b34e-457f88ac0a9e",
     "name": "self-organizing-agent-memory-long-horizon-reasoning",
     "domain": "agentic_ai",
     "source_doc": "domains\\agentic_ai\\SKILL.self-organizing-agent-memory-long-horizon-reasoning\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "67dbd29a-2265-4be1-923f-17785d3821df",
     "name": "spacy-agentic-ai-system",
     "domain": "agentic_ai",
     "source_doc": "domains\\agentic_ai\\SKILL.spacy-agentic-ai-system\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "4d694fde-4605-4538-a6f0-2544042b0f0a",
     "name": "stateful-tutor-long-term-memory-agent",
     "domain": "agentic_ai",
     "source_doc": "domains\\agentic_ai\\SKILL.stateful-tutor-long-term-memory-agent\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "7c16344d-b718-4860-9f35-d4ed0d96d9cb",
     "name": "strands-agentic-red-teaming-tool-injection-harness",
     "domain": "agentic_ai",
     "source_doc": "domains\\agentic_ai\\SKILL.strands-agentic-red-teaming-tool-injection-harness\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "96f01cf5-f426-4b77-90e4-7fbf2a96f9fb",
     "name": "streaming-decision-agent-online-replanning",
     "domain": "agentic_ai",
     "source_doc": "domains\\agentic_ai\\SKILL.streaming-decision-agent-online-replanning\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "460698c2-81be-4b74-bc1e-b4c4afa88da9",
     "name": "test",
     "domain": "agentic_ai",
     "source_doc": "domains\\agentic_ai\\SKILL.test\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "98839f20-0799-49b4-b9df-4821b2dffc71",
     "name": "transactional-agentic-ai-langgraph-two-phase-commit",
     "domain": "agentic_ai",
     "source_doc": "domains\\agentic_ai\\SKILL.transactional-agentic-ai-langgraph-two-phase-commit\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "1afb00a9-7d69-4982-82b4-92b6cb60322d",
     "name": "tree-of-thoughts-multi-branch-reasoning-agent",
     "domain": "agentic_ai",
     "source_doc": "domains\\agentic_ai\\SKILL.tree-of-thoughts-multi-branch-reasoning-agent\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "4a7485e6-50a2-4aec-a5da-8fdf16a5f7dd",
     "name": "ultra-agentic-ai-hybrid-retrieval-guardrails-episodic-memory",
     "domain": "agentic_ai",
     "source_doc": "domains\\agentic_ai\\SKILL.ultra-agentic-ai-hybrid-retrieval-guardrails-episodic-memory\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "8f9e5fcb-1369-45cb-8cd6-6521bae61552",
     "name": "tool_calling_framework",
     "domain": "agentic_ai",
     "source_doc": "domains\\agentic_ai\\tool_calling_framework\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   },
   {
     "skill_id": "c04ccb30-276f-4eff-8357-eeb91488e102",
     "name": "tutorial_harvesting_engine",
     "domain": "agentic_ai",
     "source_doc": "domains\\agentic_ai\\tutorial_harvesting_engine\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "2f916574-ffca-48e6-9812-c4412f80b912",
+    "name": "adaptive-meta-reasoning-agent",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "cebbd076-8e96-4514-bf94-592b4842165c",
+    "name": "advanced-ai-agent-hugging-face",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "90785dcf-f58e-4185-bc9f-40f3d91ba34c",
+    "name": "advanced-google-adk-multi-agent-tutorial",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "bc9497ca-e5af-4583-bfda-fa0ead2f264c",
+    "name": "advanced-langgraph-multi-agent-pipeline",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "a66aa9a7-1018-46fe-b8f3-b7fe119a7af9",
+    "name": "advanced-neural-agent",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "774af1fc-a868-4363-a0a3-7a2013b9c3d4",
+    "name": "advanced-ocr-ai-agent",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "78784f39-bf06-4b10-9ad1-4432b43bf387",
+    "name": "advanced-peer-multiagent-tutorial",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "0fc5244b-8600-49f3-b2b7-e32ec6e094cf",
+    "name": "advanced-stable-baselines3-trading-agent",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "9bb304c3-76ff-4354-b9ea-fb2f22f28724",
+    "name": "agent-executor",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "004fc771-ce07-4762-9411-79bea8bfb13d",
+    "name": "agent-lightning-prompt-optimization",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "dfa4fe40-f0bb-4326-a9a9-4fc7d49f77b3",
+    "name": "ai-agent-coding-tutor",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "0e3316be-282b-49d4-8c09-8df174a3a00e",
+    "name": "ai-agent-customer-support",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "7ea3bc18-9b37-40aa-99ae-732e44eb1982",
+    "name": "ai-agent-dashboard-builder",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "cf16c675-d87d-4a12-a240-0b2c55e0b501",
+    "name": "ai-agent-debate-system",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "ae95d2a3-9d69-4117-a656-d7c97adf3e2e",
+    "name": "ai-agent-diagnostics",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "fcf13bc0-73c9-49f2-9bcb-e91afae3671f",
+    "name": "ai-agent-email-automation",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "4c0fbfc1-e363-4ebe-98d6-d0124b6388d1",
+    "name": "ai-agent-fintech-fraud-detection",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "04796642-0321-4d7b-9b3f-f1f0a4b3f2fe",
+    "name": "ai-agent-for-swiftui",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "cb99318f-be41-4379-8e40-f2f820a7af97",
+    "name": "ai-agent-hr-recruitment",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "20f5bbe3-7c7c-4382-82b4-f9fc61638928",
+    "name": "ai-agent-legal-contract-review",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "28247cdf-4114-41d6-b948-e1e11ec4b4a9",
+    "name": "ai-agent-learning-platform",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "598453b6-70aa-4871-97cb-46f248207174",
+    "name": "ai-agent-medicine-prescription-assistant",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "1f499924-9473-44aa-bccf-fa21085ce7bd",
+    "name": "ai-agent-product-manager",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "9b296407-dc3d-4704-9d9a-4166830ad1f6",
+    "name": "ai-agent-project-manager",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "5c91f196-db83-49f5-8861-6770979ff93a",
+    "name": "ai-agent-research-assistant",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "d043de5e-e554-4862-81dd-6e19f0c85a7b",
+    "name": "ai-agent-sales-pipeline",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "5093bf62-b97f-4e38-9814-fa69b809b452",
+    "name": "ai-agent-social-media-manager",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "c58d0379-1df6-4b85-b934-cb066505fe5e",
+    "name": "ai-agent-sql-query-builder",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "4604ff7e-7930-4acf-bae1-7df33afa2474",
+    "name": "ai-agent-stock-trader",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "9d302eb6-778b-40ea-9c2a-5c0ac04983ee",
+    "name": "ai-agent-teaching-assistant",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "98629bb8-eff0-4fce-a7c0-d6a3ead55dbc",
+    "name": "ai-agent-travel-planner",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "369c5849-df1d-4130-b332-c71ba236eb2e",
+    "name": "ai-agent-video-analytics",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "4db75a77-140f-4094-ab54-d3fe7fd6b451",
+    "name": "ai-code-agent-tutorial",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "05db2307-f913-4512-b202-baedd06558ec",
+    "name": "ai-multi-agent-debate-tutorial",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "5298d052-b055-4261-9b2c-a6b6941b3bf8",
+    "name": "auto-gen-studio-tutorial",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "e98f5999-40c8-47f9-9586-9edb64564f3f",
+    "name": "autonomous-coding-agent",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "23fb5e0c-ac8a-4f6d-9da6-805269a2a480",
+    "name": "baby-agi-ai",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "9b5028fd-3b63-45d3-b056-01d92289169a",
+    "name": "basic-memory-agent",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "53c8565f-0903-460d-a0a9-b7249d830f2a",
+    "name": "basic-react-agent",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "ea76e960-04fd-4622-ad04-4cd67694f46b",
+    "name": "basic-tools-agent",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "5db29067-f905-48e3-88de-13666c02631d",
+    "name": "claude-computer-use-tutorial",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "dffa2a56-febe-46ac-a9f2-570c2c4e51dc",
+    "name": "cline-auto-debugging-agent",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "ecc359e8-4d1b-4f4e-96e9-fabc86d67ee9",
+    "name": "codegen-multi-agent-collaboration",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "b0b6daa0-7dc3-4602-a8a0-69c7003d7a05",
+    "name": "crew-ai-tutorial",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "9f74e52f-8e72-49fb-acd2-83ffd3b412ea",
+    "name": "cursor-rules-tutorial",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "ba23b05a-4f79-4a36-96c0-5a197818db13",
+    "name": "custom-langgraph-agent",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "1a1aebff-4b44-4482-af9b-492c2b807950",
+    "name": "deep-research-agent",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "e0b92ab7-14e8-4f0b-a179-ae693f1dfb48",
+    "name": "devin-ai-competition-tutorial",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "0fc021b3-e3aa-43be-9b30-dba958003771",
+    "name": "gpt-researcher-tutorial",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "e34ea393-3cc9-4e99-b05b-1aed04365c88",
+    "name": "graph-rag-agent",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "07174e52-77bd-44da-a9a1-cfd6ccce9eeb",
+    "name": "guardrails-agent",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "785fff69-02e3-405f-ba96-ccecf28bd1fe",
+    "name": "huggingface-agent-tutorial",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "2e2fa14d-34bf-43cd-a5dc-3f46c970372f",
+    "name": "langchain-agent-tutorial",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "39990d48-c710-414f-961e-9a5b51736abd",
+    "name": "langgraph-agent-tutorial",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "a406c9cf-32a3-47d9-b5d9-081b674018f8",
+    "name": "langgraph-multi-agent-hierarchical",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "b4558849-f3c2-41c0-bdbf-2998860df41d",
+    "name": "llama-index-agent-tutorial",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "312d6c30-0e9a-464f-88f8-5320556aac3e",
+    "name": "local-coding-agent",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "8b994a93-d9a9-430f-899c-4763901027fd",
+    "name": "Manus",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "fbcf4c41-e134-4ca7-aaa9-96b4d430865b",
+    "name": "meta-agent-coding-tutorial",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "cb81c8b7-ab22-44f2-b4f2-ade02a4f80bb",
+    "name": "multi-agent-collaboration",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "1bee13cf-4ff1-4dc7-854d-a84c9521c758",
+    "name": "multi-agent-debate",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "2bf53f81-f4c3-4ccb-b5ef-e8d53780b381",
+    "name": "multi-agent-financial-analysis",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "1b401b71-5030-49cb-84d2-d662e52f6d9b",
+    "name": "multi-agent-orchestration",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "81b3fb24-7b60-43d2-b50c-3b6346dd008a",
+    "name": "multi-agent-robotics-simulation",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "45e7e33c-f14c-4d6c-b0b2-dd3c5d290990",
+    "name": "multi-agent-security-analysis",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "8187969e-eae0-46f0-8371-868652d80a1d",
+    "name": "openai-agents-sdk-tutorial",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "df5ad57a-e290-48dc-ac92-50e166d72d93",
+    "name": "openai-o1-agent",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "e6c11976-8f43-4c46-a88e-9a5df192f0fc",
+    "name": "operator-agent-tutorial",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "ee3bd336-805b-435b-8be4-ad806fb69e33",
+    "name": "pydantic-ai-agent-tutorial",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "f57b0d23-738d-400c-9149-70ad2e5e7a23",
+    "name": "react-agent-finance",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "8b116d08-50fb-4be9-b68b-7887ab9843f1",
+    "name": "reflexion-agent",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "68e3c8e2-67de-4e56-ba8e-cf6241583165",
+    "name": "rewind-agent",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "0c6971a4-0c61-40f9-b407-f7de69c7619b",
+    "name": "session-agent",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "e410fb79-f53d-4069-b1dc-3417a01645fb",
+    "name": "swarm-agent-tutorial",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "e623be99-d50e-4112-9a2a-85d86ad3d6cc",
+    "name": "tool-calling-agent",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "81e058be-2364-45fd-b07e-e87e7544a971",
+    "name": "trading-agent",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "76e4282c-658e-4a98-a3c5-1a01f072051f",
+    "name": "transformers-agent-tutorial",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "c6ff29d5-373b-48f0-b589-c9aa2a5f1509",
+    "name": "tutorial-assistant-agent",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "85815548-06db-49c4-9d49-dcdd75503482",
+    "name": "vanna-ai-sql-agent",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "44335809-9129-4eb3-8e26-46ff1d63ac68",
+    "name": "video-agent-tutorial",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "6d094bdc-58f1-4b42-97aa-e223b2f1856a",
+    "name": "voice-agent-tutorial",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "fb31a8c7-272f-4219-a4be-b9d90a60ccb3",
+    "name": "web-agent-tutorial",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "593e5d6f-6a61-4335-b94f-17ec191607d9",
+    "name": "x-agent-coding-tutorial",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "8d228de3-4389-4ca5-8c69-a8d605aaa93b",
+    "name": "ai-agent-api-gateway",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "993f20aa-af8a-4c51-a54a-2ff84808ba15",
+    "name": "ai-agent-analytics",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "8410471c-5ad9-4ca5-bbf7-b543199cb4aa",
+    "name": "ai-agent-cache-management",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "d0d2d659-fa64-4f7f-9182-fb3fdd057556",
+    "name": "ai-agent-content-generation",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "f0cade94-8022-4abb-ad2d-7ddbe4aaed21",
+    "name": "ai-agent-data-pipeline",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "365562a1-3662-485f-a586-2c47d11ed083",
+    "name": "ai-agent-ml-ops",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "bcf19639-e14f-4465-8efa-c14b2ffdaaa7",
+    "name": "ai-agent-workflow-automation",
+    "domain": "AI_AGENT_DEVELOPMENT",
+    "source_doc": null,
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "0d6bf61f-c40b-4802-88df-be8259b26d11",
+    "name": "adaptive-computational-agents",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.adaptive-computational-agents\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "a7484354-3f37-4fbf-88c8-447257207ebb",
+    "name": "advanced-ai-agent-huggingface",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.advanced-ai-agent-huggingface\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "8ac16188-f414-4f69-82a1-5e7f0e29a7ba",
+    "name": "advanced-feature-engineering",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.advanced-feature-engineering\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "7d2a014d-6076-43ef-be15-74ad1dad2856",
+    "name": "advanced-ml-pipeline-automation",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.advanced-ml-pipeline-automation\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "b59b8d30-a1a2-4cb6-bc20-be7f124999ac",
+    "name": "advanced-neural-architecture-search",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.advanced-neural-architecture-search\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "dae2a652-d391-49d9-b3d4-01d71f30ba4e",
+    "name": "advanced-pytorch-training",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.advanced-pytorch-training\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "c4d13b61-7f5c-4d82-b148-4f793164b1f8",
+    "name": "advanced-reinforcement-learning",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.advanced-reinforcement-learning\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "873d4f01-99f2-4442-a9fb-ecaaa728b11e",
+    "name": "advanced-time-series-forecasting",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.advanced-time-series-forecasting\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "f1efc29a-8d4a-45e3-af2c-b9349e27b4af",
+    "name": "ai-agent-huggingface",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.ai-agent-huggingface\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "4eef4c5f-d98a-4589-bac6-d1ed8251c911",
+    "name": "ai-coding-agent",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.ai-coding-agent\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "8f70065c-4f84-4ac0-8655-23c50a0f51e9",
+    "name": "ai-embedded-analytics",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.ai-embedded-analytics\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "49522b77-d1d8-4b07-a3a6-faf3e9512ef5",
+    "name": "ai-feature-store",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.ai-feature-store\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "6b48b2f3-9e04-46bc-a554-a109f7734f49",
+    "name": "ai-model-serving",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.ai-model-serving\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "d3357a93-b809-4144-b27e-1270d2516569",
+    "name": "automated-feature-engineering",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.automated-feature-engineering\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "3c177888-96ef-41fe-b823-20949582982f",
+    "name": "automated-ml-autogluon",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.automated-ml-autogluon\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "25611a59-b8e3-4696-9380-f82f751f4423",
+    "name": "automated-ml-pipeline",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.automated-ml-pipeline\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "3c767236-a87a-4aa0-8abd-6d968949f609",
+    "name": "autonomous-learning-agent",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.autonomous-learning-agent\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "3b618ab1-6723-4e9d-aae0-c915ab71cb04",
+    "name": "bayesian-optimization",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.bayesian-optimization\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "a872d90f-83c8-4a39-8131-f30f02dcee76",
+    "name": "causal-inference-ml",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.causal-inference-ml\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "8d224429-6adb-4286-97c5-7ddd71339941",
+    "name": "cifar-10-classification",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.cifar-10-classification\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "24a3aa4d-8ad7-4487-bf7f-fb2b131b6b64",
+    "name": "clustering-algorithms",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.clustering-algorithms\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "8896ec3f-9950-44b8-b0de-0542fc442f61",
+    "name": "collaborative-filtering",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.collaborative-filtering\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "2d2e5134-1e7f-4bfb-aacf-6f513626d4c6",
+    "name": "computer-vision-pipeline",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.computer-vision-pipeline\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "ef951d3b-c618-43a7-86f8-06ce056243b7",
+    "name": "convolutional-neural-networks",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.convolutional-neural-networks\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "b0b8e68e-453c-45ec-a2bd-2238cdceaa93",
+    "name": "custom-datasets-pytorch",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.custom-datasets-pytorch\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "6cb93043-03f3-41c8-988f-2b37e259dad2",
+    "name": "data-augmentation",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.data-augmentation\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "83a3091d-4749-45d5-94a3-ebc5f71e1625",
+    "name": "data-preprocessing",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.data-preprocessing\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "38daa686-d094-4de5-af67-00f6b0dadc22",
+    "name": "decision-trees-random-forests",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.decision-trees-random-forests\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "9b7b9df5-fbaa-41e6-b287-4869a415c750",
+    "name": "deep-learning-fundamentals",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.deep-learning-fundamentals\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "7a1657f0-8586-40ee-b67b-5034aee5f1e6",
+    "name": "deep-reinforcement-learning",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.deep-reinforcement-learning\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "be775997-c73f-4e30-bca7-d445b3197a94",
+    "name": "distributed-training",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.distributed-training\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "b6f45c64-0d66-4fbe-a0b8-c85cf7b60458",
+    "name": "explainable-ai-xai",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.explainable-ai-xai\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "474fcff4-ea7f-4d8a-851b-67c82e5a75a9",
+    "name": "federated-learning",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.federated-learning\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "d93ba74d-ab72-499e-9122-eb0eb06a4c6a",
+    "name": "few-shot-learning",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.few-shot-learning\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "38f94002-86c1-41e4-bfbc-ffba9746797e",
+    "name": "fine-tuning-llms",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.fine-tuning-llms\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "59cde120-c00f-49fb-84e1-d5d0b8ef2d75",
+    "name": "gan-generative-adversarial-networks",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.gan-generative-adversarial-networks\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "7ab8edb5-3a51-4bd2-822d-2c84c6c8d2a0",
+    "name": "gradient-boosting-xgboost",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.gradient-boosting-xgboost\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "89471481-b351-4e2a-bebb-747995a0419e",
+    "name": "graph-neural-networks",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.graph-neural-networks\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "996a31df-9d62-45c4-9d60-dce96629f2b3",
+    "name": "hierarchical-temporal-memory",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.hierarchical-temporal-memory\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "6107fa2d-777c-4d4f-be94-7abf10c677ba",
+    "name": "hyperparameter-tuning",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.hyperparameter-tuning\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "b9224bfd-d792-4ea6-9174-1359e6dd9984",
+    "name": "image-classification",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.image-classification\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "858cad5a-11c9-4353-a1c0-3e8bde70bf52",
+    "name": "image-segmentation",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.image-segmentation\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "35cc90f7-3a88-4a01-b85b-86b3df76bd8d",
+    "name": "knowledge-distillation",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.knowledge-distillation\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "1b0c879c-6a6b-470a-9f69-d36357cd92aa",
+    "name": "langchain-ml-integration",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.langchain-ml-integration\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "b0178c6a-a515-4b8d-ad0e-870a691b21ff",
+    "name": "large-scale-ml-training",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.large-scale-ml-training\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "2b47e55a-2939-46c7-aeae-a7124cda2503",
+    "name": "learning-rate-schedulers",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.learning-rate-schedulers\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "60c10e20-91cf-496e-b92c-44b968aa7d76",
+    "name": "linear-regression-logistic-regression",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.linear-regression-logistic-regression\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "d94d9e07-5f15-494e-9c71-600db9be7631",
+    "name": "llm-finetuning-peft",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.llm-finetuning-peft\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "72fd5cda-1400-4caa-af59-ab9e1f70c435",
+    "name": "llm-training-dpo",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.llm-training-dpo\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "40505bdd-e8af-4af0-b64f-5e1cc08a0c41",
+    "name": "llm-training-peft",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.llm-training-peft\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "83918352-d799-4805-b8e4-d3016c49719b",
+    "name": "long-short-term-memory-networks",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.long-short-term-memory-networks\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "0234e012-a8fe-4adf-a6dc-28a14b0bc8dd",
+    "name": "ml-deployment",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.ml-deployment\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "55f9af45-7a41-4168-b22c-6764f22bcf0b",
+    "name": "ml-experiment-tracking",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.ml-experiment-tracking\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "711f2704-625b-4f13-b116-6dc795a6720c",
+    "name": "ml-model-monitoring",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.ml-model-monitoring\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "6132427b-f2cc-48e1-b23f-0b278068b650",
+    "name": "ml-pipeline-orchestration",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.ml-pipeline-orchestration\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "8b5bd1c9-80b8-48bb-b467-18fe7bd2ee8a",
+    "name": "model-compression",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.model-compression\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "8f79c8b9-4988-44a5-92a8-75e4e2dd7be4",
+    "name": "model-interpretability",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.model-interpretability\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "015f3006-12b1-45fe-8cfa-c8c9e042b37c",
+    "name": "model-optimization",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.model-optimization\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "debdc1e9-2ad4-4a1f-8ce0-f35e7f1f3119",
+    "name": "model-quantization",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.model-quantization\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "38686dfb-274a-4157-ac50-eb9df18c7fea",
+    "name": "multi-modal-learning",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.multi-modal-learning\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "94da308d-8bc4-46c1-a879-733f94cebb4a",
+    "name": "multi-task-learning",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.multi-task-learning\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "ce1231c6-c46e-4bee-8b03-d32cd6380df8",
+    "name": "natural-language-processing",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.natural-language-processing\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "f54bde9e-23bb-44a1-8423-34a613d4f8ce",
+    "name": "neural-machine-translation",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.neural-machine-translation\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "1e87ada7-151e-467c-8cd7-e6fa38b72de9",
+    "name": "neural-network-fundamentals",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.neural-network-fundamentals\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "d8f6ef1d-7b18-452b-93a1-4732cdd39063",
+    "name": "object-detection",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.object-detection\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "559ef51a-32cc-4f72-9391-820b14e14460",
+    "name": "ocr-optical-character-recognition",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.ocr-optical-character-recognition\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "1976c800-26fc-4e3f-b634-f5ab4b83cb3a",
+    "name": "one-shot-learning",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.one-shot-learning\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "97b1f165-0641-4321-937c-2345aff10df3",
+    "name": "optimal-transport",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.optimal-transport\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "8c15b444-3525-467e-b727-1456f02834a0",
+    "name": "pytorch-distributed-training",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.pytorch-distributed-training\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "14a6b310-317a-41c3-86ae-6c4ed143c51b",
+    "name": "pytorch-lightning",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.pytorch-lightning\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "e7298076-0f6d-4fd3-8372-258ce6cd1a24",
+    "name": "pytorch-model-serving",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.pytorch-model-serving\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "ca46c155-9f2f-4e87-a981-181c1077c552",
+    "name": "question-answering-systems",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.question-answering-systems\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "ecd10b66-1d85-438e-9cf8-cffbfb2c3050",
+    "name": "recurrent-neural-networks",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.recurrent-neural-networks\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "b7c17570-2cba-41ac-a750-fffc0fa77295",
+    "name": "reinforcement-learning-fundamentals",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.reinforcement-learning-fundamentals\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "c2738165-18bb-4601-9ca5-6035f65698ce",
+    "name": "reinforcement-learning-ppo",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.reinforcement-learning-ppo\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "41919b9b-8b15-451a-92b3-f4a4accafb2a",
+    "name": "self-supervised-learning",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.self-supervised-learning\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "fcd7d46f-0421-40a5-8ea2-ac967a2aa5a9",
+    "name": "semi-supervised-learning",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.semi-supervised-learning\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "9d8c1d48-11aa-43ec-953c-cf04ca3a3311",
+    "name": "sentiment-analysis",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.sentiment-analysis\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "858de7f6-5064-4e6a-ab01-083f149ce1e1",
+    "name": "sequence-to-sequence-models",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.sequence-to-sequence-models\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "dc970322-35aa-43fb-ba1d-8a5dd8847243",
+    "name": "speech-recognition",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.speech-recognition\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "a56262d7-dce5-49a3-8c44-6795579caf49",
+    "name": "style-transfer",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.style-transfer\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "3cb5fac7-2bc7-4e9d-a273-5f77718498fd",
+    "name": "tensor-processing",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.tensor-processing\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "67190ae9-d541-4b82-928a-b2cc1c3a835b",
+    "name": "text-classification",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.text-classification\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "0cbb53d3-4200-438b-a0d3-73bdcb4c275b",
+    "name": "text-generation",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.text-generation\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "5446eb12-3dd2-4217-acce-c6a3f100fa15",
+    "name": "text-summarization",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.text-summarization\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "71c2e05a-ecd8-41fb-adb9-49f6c48c4edf",
+    "name": "tfidf-vectorization",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.tfidf-vectorization\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "debfb56d-f764-4aaf-94aa-22c0a24e9031",
+    "name": "transfer-learning",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.transfer-learning\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "5e4b431d-a1bc-4896-ac8c-e9ba0503e775",
+    "name": "transformer-architecture",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.transformer-architecture\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "a69f3f20-fb85-4eb8-9121-99c2511a7885",
+    "name": "transformer-fine-tuning",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.transformer-fine-tuning\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "fea78214-149f-466a-b885-b51590a65ba9",
+    "name": "unsupervised-learning",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.unsupervised-learning\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "f1582cea-3924-46c5-8a16-df457ad9af31",
+    "name": "variational-autoencoders",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.variational-autoencoders\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "3a08fd2d-fa67-493f-88ee-f2d4fa273803",
+    "name": "video-classification",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.video-classification\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "42e238e3-f8aa-4fbb-a75d-abf75c300a87",
+    "name": "vision-transformers",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.vision-transformers\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "f9c5858b-099b-47e9-ac2d-9e3c4483679e",
+    "name": "weighted-loss-functions",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.weighted-loss-functions\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "c1adddab-25d3-4902-9db1-96a853a45c47",
+    "name": "word-embeddings",
+    "domain": "ML_AI",
+    "source_doc": "domains\\ML_AI\\SKILL.word-embeddings\\SKILL.md",
+    "status": "IMPLEMENTED",
+    "implemented_at": "2026-03-16"
   }
 ]
