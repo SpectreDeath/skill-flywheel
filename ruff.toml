@@ -23,6 +23,12 @@ ignore = [
 "__init__.py" = ["F401"]
 "tests/*" = ["F401", "B011"]
 
+extend-exclude = [
+    "archive/",
+    "domains/",
+    "docs/audit/",
+]
+
 [format]
 # Use ruff's formatter
 quote-style = "double"
