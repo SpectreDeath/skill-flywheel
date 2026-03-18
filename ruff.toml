@@ -1,0 +1,22 @@
+[lint]
+# Enable rule groups
+select = ["E", "F", "W", "I", "N", "UP", "B", "C4", "SIM", "TID", "ARG", "PLE", "PLR", "PLW"]
+ignore = [
+    "E501",  # Line too long (handled by formatter)
+    "B008",  # Do not perform function calls in argument defaults
+    "ARG001",  # Unused argument
+    "ARG002",  # Unused method argument
+    "PLR0913",  # Too many arguments
+    "W291",  # Trailing whitespace (handled by formatter)
+    "B904",  # Within except clause, raise exceptions with 'from' - stylistic choice
+]
+
+[lint.per-file-ignores]
+"__init__.py" = ["F401"]
+"tests/*" = ["F401", "B011"]
+
+[format]
+# Use ruff's formatter
+quote-style = "double"
+indent-style = "space"
+line-ending = "auto"
