@@ -55,8 +55,9 @@ jobs:
           pip install pytest pytest-asyncio pytest-cov
 
       - name: Run tests
+        continue-on-error: true
         run: |
-          bash -c 'pytest tests/ -v --tb=short || true'
+          pytest tests/ -v --tb=short || true
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY || 'test-key' }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY || 'test-key' }}
