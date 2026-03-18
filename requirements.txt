@@ -7,7 +7,7 @@ python-dotenv==1.0.1
 
 # Multi-Agent Orchestration
 langchain==0.3.17
-langchain-core==0.3.28
+langchain-core>=0.3.33,<0.4.0
 langchain-openai==0.2.14
 langgraph==0.2.62
 crewai==0.74.0
