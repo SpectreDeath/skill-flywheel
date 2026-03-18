@@ -23,8 +23,6 @@ ignore = [
 "__init__.py" = ["F401"]
 "tests/*" = ["F401", "B011"]
 
-[lint.exclude]
-# Exclude legacy/archive directories
 extend-exclude = [
     "archive/",
     "domains/",
