@@ -5209,5 +5209,103 @@
     "source_doc": "domains\\ML_AI\\SKILL.word-embeddings\\SKILL.md",
     "status": "IMPLEMENTED",
     "implemented_at": "2026-03-16"
+  },
+  {
+    "skill_id": "15acb77b-c5d7-4093-baff-d73c9a6870c6",
+    "name": "logical-reasoning",
+    "domain": "COGNITIVE_SKILLS",
+    "source_doc": "domains\\COGNITIVE_SKILLS\\logical-reasoning\\SKILL.md",
+    "status": "NOT_IMPLEMENTED"
+  },
+  {
+    "skill_id": "f4ff1d1e-24b4-4c18-8dcb-fb085be8a5a3",
+    "name": "sequential-problem-solving",
+    "domain": "COGNITIVE_SKILLS",
+    "source_doc": "domains\\COGNITIVE_SKILLS\\sequential-problem-solving\\SKILL.md",
+    "status": "NOT_IMPLEMENTED"
+  },
+  {
+    "skill_id": "eaa8be82-5604-4740-8a89-5e73075f823a",
+    "name": "critical-evaluation",
+    "domain": "COGNITIVE_SKILLS",
+    "source_doc": "domains\\COGNITIVE_SKILLS\\critical-evaluation\\SKILL.md",
+    "status": "NOT_IMPLEMENTED"
+  },
+  {
+    "skill_id": "b9931bd9-dc68-49ff-801f-2708990a6ebd",
+    "name": "analytical-thinking",
+    "domain": "COGNITIVE_SKILLS",
+    "source_doc": "domains\\COGNITIVE_SKILLS\u0007nalytical-thinking\\SKILL.md",
+    "status": "NOT_IMPLEMENTED"
+  },
+  {
+    "skill_id": "0652323e-b97d-4dad-9db0-5868967d4821",
+    "name": "decision-making",
+    "domain": "COGNITIVE_SKILLS",
+    "source_doc": "domains\\COGNITIVE_SKILLS\\decision-making\\SKILL.md",
+    "status": "NOT_IMPLEMENTED"
+  },
+  {
+    "skill_id": "2d526e6b-4f2a-4807-bc51-99d877a555bd",
+    "name": "knowledge-synthesis",
+    "domain": "COGNITIVE_SKILLS",
+    "source_doc": "domains\\COGNITIVE_SKILLS\\knowledge-synthesis\\SKILL.md",
+    "status": "NOT_IMPLEMENTED"
+  },
+  {
+    "skill_id": "50889a3d-f598-438a-8f96-a3d4fae95b5c",
+    "name": "information-retrieval",
+    "domain": "COGNITIVE_SKILLS",
+    "source_doc": "domains\\COGNITIVE_SKILLS\\information-retrieval\\SKILL.md",
+    "status": "NOT_IMPLEMENTED"
+  },
+  {
+    "skill_id": "c4184dfa-3cf2-40b5-9890-42bab80e97c7",
+    "name": "fact-based-assessment",
+    "domain": "COGNITIVE_SKILLS",
+    "source_doc": "domains\\COGNITIVE_SKILLS\fact-based-assessment\\SKILL.md",
+    "status": "NOT_IMPLEMENTED"
+  },
+  {
+    "skill_id": "d71a87ee-d811-428d-8847-9dd7c4fa69f3",
+    "name": "accuracy-and-speed",
+    "domain": "COGNITIVE_SKILLS",
+    "source_doc": "domains\\COGNITIVE_SKILLS\u0007ccuracy-and-speed\\SKILL.md",
+    "status": "NOT_IMPLEMENTED"
+  },
+  {
+    "skill_id": "c03c1e07-2b22-4068-b911-19eca9ba22bc",
+    "name": "focused-selection",
+    "domain": "COGNITIVE_SKILLS",
+    "source_doc": "domains\\COGNITIVE_SKILLS\focused-selection\\SKILL.md",
+    "status": "NOT_IMPLEMENTED"
+  },
+  {
+    "skill_id": "cf6e66b7-24c3-423c-adcd-f75082b2e2d5",
+    "name": "depth-of-understanding",
+    "domain": "COGNITIVE_SKILLS",
+    "source_doc": "domains\\COGNITIVE_SKILLS\\depth-of-understanding\\SKILL.md",
+    "status": "NOT_IMPLEMENTED"
+  },
+  {
+    "skill_id": "da050d3b-9057-4157-8710-6c9e963f6459",
+    "name": "conclusive-thinking",
+    "domain": "COGNITIVE_SKILLS",
+    "source_doc": "domains\\COGNITIVE_SKILLS\\conclusive-thinking\\SKILL.md",
+    "status": "NOT_IMPLEMENTED"
+  },
+  {
+    "skill_id": "deba42cb-dd1b-437a-a7a2-3d462fda29c6",
+    "name": "technique-application",
+    "domain": "COGNITIVE_SKILLS",
+    "source_doc": "domains\\COGNITIVE_SKILLS\technique-application\\SKILL.md",
+    "status": "NOT_IMPLEMENTED"
+  },
+  {
+    "skill_id": "3d9cd6dc-ddf9-4699-bf4b-b0f702259f8a",
+    "name": "convergent-thinking",
+    "domain": "COGNITIVE_SKILLS",
+    "source_doc": "domains\\COGNITIVE_SKILLS\\convergent-thinking\\SKILL.md",
+    "status": "NOT_IMPLEMENTED"
   }
 ]
