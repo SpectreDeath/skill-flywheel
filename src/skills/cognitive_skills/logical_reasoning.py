@@ -5,9 +5,9 @@ Applies rational assessment to draw correct inferences from premises to conclusi
 using formal logical rules.
 """
 
-from typing import Dict, List, Optional, Tuple
 from dataclasses import dataclass
 from enum import Enum
+from typing import Dict, List, Optional, Tuple
 
 
 class LogicalFallacy(Enum):

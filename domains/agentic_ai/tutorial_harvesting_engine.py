@@ -1,6 +1,6 @@
-import os
 import json
 from pathlib import Path
+
 
 def scan_tutorials():
     source_dir = Path("AI-Tutorial-Codes-Included-main")
@@ -26,7 +26,7 @@ def scan_tutorials():
     # Scan for Jupyter notebooks
     for notebook in source_dir.rglob("*.ipynb"):
         try:
-            with open(notebook, 'r', encoding='utf-8') as f:
+            with open(notebook, encoding='utf-8') as f:
                 notebook_data = json.load(f)
             
             # Extract metadata
@@ -82,7 +82,7 @@ def scan_tutorials():
     # Scan for Python files
     for py_file in source_dir.rglob("*.py"):
         try:
-            with open(py_file, 'r', encoding='utf-8') as f:
+            with open(py_file, encoding='utf-8') as f:
                 content = f.read()
             
             tutorial_info = {
@@ -114,7 +114,7 @@ def scan_tutorials():
     # Scan for Markdown files
     for md_file in source_dir.rglob("*.md"):
         try:
-            with open(md_file, 'r', encoding='utf-8') as f:
+            with open(md_file, encoding='utf-8') as f:
                 content = f.read()
             
             tutorial_info = {
@@ -148,7 +148,7 @@ def scan_tutorials():
     with open(output_dir / "extracted_tutorial_catalog.json", 'w') as f:
         json.dump(tutorial_catalog, f, indent=2)
     
-    print(f"Tutorial scanning complete!")
+    print("Tutorial scanning complete!")
     print(f"Total tutorials found: {tutorial_catalog['catalog_metadata']['total_tutorials']}")
     print(f"Total lines of code: {tutorial_catalog['statistics']['total_lines']}")
     print(f"Total size: {tutorial_catalog['statistics']['total_size']} bytes")

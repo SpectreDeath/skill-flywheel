@@ -6,14 +6,14 @@ This script validates all skills in the repository against the mobile_developmen
 and generates comprehensive reports on compliance and quality.
 """
 
-import os
-import sys
 import json
-import yaml
-from pathlib import Path
-from typing import Dict, List, Tuple, Any, Optional
-from dataclasses import dataclass
+import sys
 from collections import defaultdict
+from dataclasses import dataclass
+from pathlib import Path
+from typing import Any, Dict, List, Optional
+
+import yaml
 
 # Add skills directory to path for imports
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
@@ -109,7 +109,7 @@ class MobileDevelopmentValidator:
         issues = []
         
         try:
-            with open(skill_file, 'r', encoding='utf-8') as f:
+            with open(skill_file, encoding='utf-8') as f:
                 content = f.read()
                 lines = content.split('\n')
         except Exception as e:
@@ -145,7 +145,7 @@ class MobileDevelopmentValidator:
     def _is_mobile_skill(self, skill_file: Path) -> bool:
         """Determine if this is a mobile development skill"""
         try:
-            with open(skill_file, 'r', encoding='utf-8') as f:
+            with open(skill_file, encoding='utf-8') as f:
                 content = f.read().lower()
         except:
             return False
@@ -410,7 +410,7 @@ def main():
     
     # Print summary
     summary = report["summary"]
-    print(f"📊 Validation Summary:")
+    print("📊 Validation Summary:")
     print(f"   Total skills: {summary['total_skills']}")
     print(f"   Mobile skills: {summary['mobile_skills']}")
     print(f"   Total issues: {summary['total_issues']}")
@@ -419,23 +419,23 @@ def main():
     print(f"   Mobile compliance score: {summary['mobile_compliance_score']}/100")
     
     # Print issue breakdown
-    print(f"\\n🔍 Issue Breakdown:")
+    print("\\n🔍 Issue Breakdown:")
     for issue_type, count in summary['issue_summary'].items():
         print(f"   {issue_type}: {count}")
     
-    print(f"\\n⚠️  Severity Breakdown:")
+    print("\\n⚠️  Severity Breakdown:")
     for severity, count in summary['severity_breakdown'].items():
         print(f"   {severity}: {count}")
     
     # Print top mobile issues
     if report["mobile_issues"]:
-        print(f"\\n📱 Top Mobile Issues:")
+        print("\\n📱 Top Mobile Issues:")
         for i, issue in enumerate(report["mobile_issues"][:5]):
             print(f"   {i+1}. {issue['message']}")
     
     # Print recommendations
     if report["recommendations"]:
-        print(f"\\n💡 Recommendations:")
+        print("\\n💡 Recommendations:")
         for i, rec in enumerate(report["recommendations"][:10]):
             print(f"   {i+1}. {rec}")
     
@@ -443,14 +443,14 @@ def main():
     with open("mobile_validation_report.json", 'w') as f:
         json.dump(report, f, indent=2)
     
-    print(f"\\n📁 Detailed report saved: mobile_validation_report.json")
+    print("\\n📁 Detailed report saved: mobile_validation_report.json")
     
     # Return success/failure based on compliance score
     if summary['mobile_compliance_score'] < 70:
-        print(f"\\n❌ Mobile compliance score below 70% - review required")
+        print("\\n❌ Mobile compliance score below 70% - review required")
         return 1
     else:
-        print(f"\\n✅ Mobile compliance score acceptable")
+        print("\\n✅ Mobile compliance score acceptable")
         return 0
 
 if __name__ == "__main__":

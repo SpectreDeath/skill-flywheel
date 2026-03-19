@@ -7,11 +7,10 @@ Scans project dependencies for outdated packages and suggests updates:
 - Provides migration guides
 """
 
-import os
 import json
-import re
-from typing import Dict, List, Any, Optional
+import os
 from dataclasses import dataclass
+from typing import Any, Dict, List
 
 
 @dataclass
@@ -46,7 +45,7 @@ def parse_package_json(path: str) -> List[Dependency]:
     """Parse package.json for dependencies"""
     deps = []
     try:
-        with open(path, "r") as f:
+        with open(path) as f:
             data = json.load(f)
 
         all_deps = {**data.get("dependencies", {}), **data.get("devDependencies", {})}
@@ -71,7 +70,7 @@ def parse_requirements_txt(path: str) -> List[Dependency]:
     """Parse requirements.txt for dependencies"""
     deps = []
     try:
-        with open(path, "r") as f:
+        with open(path) as f:
             for line in f:
                 line = line.strip()
                 if line and not line.startswith("#"):
@@ -100,7 +99,7 @@ def parse_go_mod(path: str) -> List[Dependency]:
     """Parse go.mod for dependencies"""
     deps = []
     try:
-        with open(path, "r") as f:
+        with open(path) as f:
             content = f.read()
 
         for line in content.split("\n"):

@@ -8,8 +8,7 @@ Analyzes evolutionary stable strategies and dynamics:
 - Hawk-Dove / Chicken game analysis
 """
 
-from typing import Dict, List, Any, Optional, Tuple
-import math
+from typing import Any, Dict, List, Optional
 
 
 def evolutionary_game_solver(

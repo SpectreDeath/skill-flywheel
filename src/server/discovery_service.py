@@ -212,8 +212,7 @@ async def list_skills(page: int = 1, limit: int = 20):
             - "skills": list of skill dicts with keys: skill_id, name, domain, version, health_status
             - "pagination": dict with page, limit, total, total_pages, has_next, has_prev
     """
-    if page < 1:
-        page = 1
+    page = max(page, 1)
     if limit < 1:
         limit = 20
     elif limit > DEFAULT_LIMIT:
@@ -256,8 +255,7 @@ async def list_skills(page: int = 1, limit: int = 20):
 @app.get("/skills/search")
 async def search_skills(q: str = "", domain: str = "", page: int = 1, limit: int = 20):
     """Search skills by name or description"""
-    if page < 1:
-        page = 1
+    page = max(page, 1)
     if limit < 1:
         limit = 20
     elif limit > DEFAULT_LIMIT:
@@ -311,8 +309,7 @@ async def search_skills(q: str = "", domain: str = "", page: int = 1, limit: int
 @app.get("/skills/domain/{domain}")
 async def get_skills_by_domain(domain: str, page: int = 1, limit: int = 20):
     """Get skills by domain"""
-    if page < 1:
-        page = 1
+    page = max(page, 1)
     if limit < 1:
         limit = 20
     elif limit > DEFAULT_LIMIT:

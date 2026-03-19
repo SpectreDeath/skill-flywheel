@@ -10,10 +10,8 @@ Creates mock objects for testing by:
 """
 
 import ast
-import re
-from typing import Dict, List, Any, Optional, Set
-from dataclasses import dataclass, field
-from collections import defaultdict
+from dataclasses import dataclass
+from typing import Any, Dict, List, Optional, Set
 
 
 @dataclass
@@ -122,11 +120,7 @@ def extract_dependencies(code: str, target: str) -> Set[str]:
     target_node = None
 
     for node in ast.walk(tree):
-        if isinstance(node, ast.ClassDef) and node.name == target:
-            target_found = True
-            target_node = node
-            break
-        elif (
+        if isinstance(node, ast.ClassDef) and node.name == target or (
             isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef))
             and node.name == target
         ):
@@ -155,9 +149,9 @@ def generate_mock_class(class_info: ClassInfo, framework: str = "unittest.mock")
     lines = [f"class {class_info.name}Mock({mock_type}):"]
     lines.append(f'    """Auto-generated mock for {class_info.name}"""')
     lines.append("")
-    lines.append(f"    def __init__(self, *args, **kwargs):")
-    lines.append(f"        super().__init__(*args, **kwargs)")
-    lines.append(f"        self._mock_configs = {{}}")
+    lines.append("    def __init__(self, *args, **kwargs):")
+    lines.append("        super().__init__(*args, **kwargs)")
+    lines.append("        self._mock_configs = {}")
     lines.append("")
 
     for method in class_info.methods:
@@ -174,14 +168,14 @@ def generate_mock_class(class_info: ClassInfo, framework: str = "unittest.mock")
 
         lines.append(f"        mock_method = getattr(self, '{method.name}', None)")
         lines.append(
-            f"        if mock_method and hasattr(mock_method, 'return_value'):"
+            "        if mock_method and hasattr(mock_method, 'return_value'):"
         )
-        lines.append(f"            return mock_method.return_value")
-        lines.append(f"        return None")
+        lines.append("            return mock_method.return_value")
+        lines.append("        return None")
         lines.append("")
 
     for attr in class_info.attributes:
-        lines.append(f"    @property")
+        lines.append("    @property")
         lines.append(f"    def {attr}(self):")
         lines.append(f"        return getattr(self, '_{attr}', None)")
         lines.append("")
@@ -219,21 +213,21 @@ def generate_config_code(
     lines = []
 
     lines.append(f"def configure_{class_info.name.lower()}_mock(mock_obj, config):")
-    lines.append(f'    """Configure mock with return values."""')
+    lines.append('    """Configure mock with return values."""')
     lines.append(f"    configs = config.get('{class_info.name}', {{}})")
     lines.append("")
-    lines.append(f"    for method_name, return_value in configs.items():")
-    lines.append(f"        if hasattr(mock_obj, method_name):")
+    lines.append("    for method_name, return_value in configs.items():")
+    lines.append("        if hasattr(mock_obj, method_name):")
     lines.append(
-        f"            getattr(mock_obj, method_name).return_value = return_value"
+        "            getattr(mock_obj, method_name).return_value = return_value"
     )
-    lines.append(f"        elif hasattr(mock_obj, '_' + method_name):")
-    lines.append(f"            setattr(mock_obj, '_' + method_name, return_value)")
+    lines.append("        elif hasattr(mock_obj, '_' + method_name):")
+    lines.append("            setattr(mock_obj, '_' + method_name, return_value)")
     lines.append("")
-    lines.append(f"    return mock_obj")
+    lines.append("    return mock_obj")
     lines.append("")
 
-    lines.append(f"# Usage example:")
+    lines.append("# Usage example:")
     lines.append(f"# mock = {class_info.name}Mock()")
     lines.append(f"# mock = configure_{class_info.name.lower()}_mock(mock, {{")
     lines.append(f"#     '{class_info.name}': {{")
@@ -241,7 +235,7 @@ def generate_config_code(
     for method in class_info.methods[:3]:
         lines.append(f"#         '{method.name}': <return_value>,")
 
-    lines.append(f"#     }})")
+    lines.append("#     })")
 
     return "\n".join(lines)
 
@@ -270,7 +264,7 @@ def generate_test_code(
     lines.append("")
 
     if class_info:
-        lines.append(f"    def setup_method(self):")
+        lines.append("    def setup_method(self):")
         lines.append(
             f"        self.mock_{class_info.name.lower()} = {class_info.name}Mock()"
         )
@@ -284,8 +278,8 @@ def generate_test_code(
             default_value = _get_default_return_value(method.return_annotation)
             lines.append(f"                    '{method.name}': {default_value},")
 
-        lines.append(f"                }})")
-        lines.append(f"        )")
+        lines.append("                })")
+        lines.append("        )")
         lines.append("")
 
         lines.append(f"    def test_{class_info.name.lower()}_creation(self):")
@@ -298,7 +292,7 @@ def generate_test_code(
                 f"        result = self.mock_{class_info.name.lower()}.{method.name}()"
             )
             lines.append(
-                f"        assert result is not None  # Configure expected return value"
+                "        assert result is not None  # Configure expected return value"
             )
             lines.append("")
 

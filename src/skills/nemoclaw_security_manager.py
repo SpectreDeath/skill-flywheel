@@ -6,11 +6,9 @@ security features including OpenShell guardrails and privacy controls.
 """
 
 import json
-import os
 import subprocess
 from pathlib import Path
 from typing import Any, Dict, List, Optional
-
 
 DEFAULT_POLICY = {
     "version": "1.0",
@@ -63,19 +61,19 @@ class NemOClawSecurityManager:
     def _check_openclaw(self) -> bool:
         """Check if OpenClaw is installed."""
         result = subprocess.run(
-            ["openclaw", "--version"], capture_output=True, text=True
+            ["openclaw", "--version"], capture_output=True, text=True, check=False
         )
         return result.returncode == 0
 
     def _check_nemoclaw(self) -> bool:
         """Check if NemOClaw is installed."""
-        result = subprocess.run(["nemo", "--version"], capture_output=True, text=True)
+        result = subprocess.run(["nemo", "--version"], capture_output=True, text=True, check=False)
         return result.returncode == 0
 
     def _check_openshell(self) -> bool:
         """Check if OpenShell is installed."""
         result = subprocess.run(
-            ["openshell", "--version"], capture_output=True, text=True
+            ["openshell", "--version"], capture_output=True, text=True, check=False
         )
         return result.returncode == 0
 
@@ -86,7 +84,7 @@ class NemOClawSecurityManager:
                 ["nemo", "install", "--model", model],
                 capture_output=True,
                 text=True,
-                timeout=300,
+                timeout=300, check=False,
             )
 
             if result.returncode == 0:
@@ -188,7 +186,7 @@ class NemOClawSecurityManager:
 
         try:
             result = subprocess.run(
-                ["nemo", "policy", "apply", policy_name], capture_output=True, text=True
+                ["nemo", "policy", "apply", policy_name], capture_output=True, text=True, check=False
             )
 
             if result.returncode == 0:

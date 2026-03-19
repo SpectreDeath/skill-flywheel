@@ -11,9 +11,8 @@ Generates property-based tests using Hypothesis by:
 
 import ast
 import re
-from typing import Dict, List, Any, Optional, Set
-from dataclasses import dataclass, field
-from collections import defaultdict
+from dataclasses import dataclass
+from typing import Any, Dict, List, Optional
 
 
 @dataclass

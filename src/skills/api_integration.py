@@ -10,16 +10,17 @@ This skill provides API integration capabilities including:
 - Data transformation
 """
 
-import requests
-import json
-import time
-import logging
-from datetime import datetime
-from typing import Dict, List, Any, Optional, Union
-from dataclasses import dataclass
-from enum import Enum
 import asyncio
+import json
+import logging
+import time
+from dataclasses import dataclass
+from datetime import datetime
+from enum import Enum
 from functools import wraps
+from typing import Any, Dict, List, Optional
+
+import requests
 
 logger = logging.getLogger(__name__)
 

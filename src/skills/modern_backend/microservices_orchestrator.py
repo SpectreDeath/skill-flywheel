@@ -6,19 +6,16 @@ Description: Microservices orchestration and coordination system
 """
 
 import asyncio
+import json
 import logging
+import random
 import time
 import uuid
-import json
-import yaml
-from typing import Dict, Any, List, Optional, Union, Callable
-from dataclasses import dataclass, asdict
-from enum import Enum
-from datetime import datetime, timedelta
 from collections import defaultdict
-import hashlib
-import random
-from pathlib import Path
+from dataclasses import dataclass
+from datetime import datetime
+from enum import Enum
+from typing import Any, Dict, List, Optional
 
 logger = logging.getLogger(__name__)
 
@@ -649,7 +646,7 @@ class MicroservicesOrchestrator:
         registry_file = os.path.join(self.service_registry_path, "registry.json")
         
         if os.path.exists(registry_file):
-            with open(registry_file, 'r') as f:
+            with open(registry_file) as f:
                 registry_data = json.load(f)
             
             # Load services

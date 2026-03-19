@@ -1,9 +1,6 @@
-import time
 import logging
-import hashlib
-import json
 from datetime import datetime
-from typing import Dict, List, Any, Optional
+from typing import Any, Dict
 
 logger = logging.getLogger(__name__)
 
@@ -202,12 +199,12 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
         else:
             return {
-                "result": {"error": "Unknown action: {}".format(action)},
+                "result": {"error": f"Unknown action: {action}"},
                 "metadata": {"action": action, "timestamp": datetime.now().isoformat()},
             }
 
     except Exception as e:
-        logger.error("Error in specification_prd_generation: {}".format(e))
+        logger.error(f"Error in specification_prd_generation: {e}")
         return {
             "result": {"error": str(e)},
             "metadata": {"action": action, "timestamp": datetime.now().isoformat()},

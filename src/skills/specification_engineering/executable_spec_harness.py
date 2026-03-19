@@ -1,9 +1,8 @@
-import time
-import logging
 import hashlib
-import json
+import logging
+import time
 from datetime import datetime
-from typing import Dict, List, Any, Optional
+from typing import Any, Dict, List
 
 logger = logging.getLogger(__name__)
 
@@ -91,7 +90,7 @@ def execute_spec_test(
     for field in required_fields:
         if field not in inputs or inputs[field] in ["", None]:
             result["status"] = "failed"
-            err_msg = "Missing required field: {}".format(field)
+            err_msg = f"Missing required field: {field}"
             result["errors"].append(err_msg)
 
     for field_name, value in inputs.items():
@@ -108,15 +107,13 @@ def execute_spec_test(
                 float(value)
             except:
                 result["status"] = "failed"
-                err_msg = "Invalid type for field {}: expected {}".format(
-                    field_name, expected_type
-                )
+                err_msg = f"Invalid type for field {field_name}: expected {expected_type}"
                 result["errors"].append(err_msg)
 
         if expected_type == "string" and isinstance(value, str):
             if value == "" and field_spec.get("required"):
                 result["status"] = "failed"
-                err_msg = "Empty string for required field {}".format(field_name)
+                err_msg = f"Empty string for required field {field_name}"
                 result["errors"].append(err_msg)
 
     result["execution_time_ms"] = round((time.time() - execution_start) * 1000, 2)
@@ -173,7 +170,7 @@ def validate_spec_executable(spec: Dict[str, Any]) -> Dict[str, Any]:
             issues.append({"type": "error", "message": "Field missing name attribute"})
         if "type" not in field:
             field_name = field.get("name", "unknown")
-            msg = "Field '{}' missing type attribute".format(field_name)
+            msg = f"Field '{field_name}' missing type attribute"
             issues.append({"type": "error", "message": msg})
 
     is_executable = len([i for i in issues if i["type"] == "error"]) == 0
@@ -188,9 +185,7 @@ def validate_spec_executable(spec: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def create_test_harness(spec: Dict[str, Any]) -> Dict[str, Any]:
-    harness_id = "harness-{}".format(
-        hashlib.md5(str(time.time()).encode()).hexdigest()[:8]
-    )
+    harness_id = f"harness-{hashlib.md5(str(time.time()).encode()).hexdigest()[:8]}"
     harness = {
         "harness_id": harness_id,
         "spec_name": spec.get("name", "Unknown"),
@@ -282,12 +277,12 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
         else:
             return {
-                "result": {"error": "Unknown action: {}".format(action)},
+                "result": {"error": f"Unknown action: {action}"},
                 "metadata": {"action": action, "timestamp": datetime.now().isoformat()},
             }
 
     except Exception as e:
-        logger.error("Error in executable_spec_harness: {}".format(e))
+        logger.error(f"Error in executable_spec_harness: {e}")
         return {
             "result": {"error": str(e)},
             "metadata": {"action": action, "timestamp": datetime.now().isoformat()},

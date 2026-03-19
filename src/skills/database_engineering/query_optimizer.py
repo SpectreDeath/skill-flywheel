@@ -7,16 +7,14 @@ Description: Advanced SQL query optimization and performance tuning system
 
 import asyncio
 import logging
-import time
-import uuid
-import json
-from typing import Dict, Any, List, Optional, Union, Tuple
-from dataclasses import dataclass, asdict
-from enum import Enum
-from datetime import datetime, timedelta
 import re
 import statistics
-from collections import defaultdict
+import time
+import uuid
+from dataclasses import asdict, dataclass
+from datetime import datetime
+from enum import Enum
+from typing import Any, Dict, List, Optional
 
 logger = logging.getLogger(__name__)
 
@@ -262,7 +260,7 @@ class QueryOptimizer:
                         index_fields=select_fields + where_fields,
                         index_type="covering",
                         estimated_improvement=40.0,
-                        reason=f"Covering index to avoid table lookups",
+                        reason="Covering index to avoid table lookups",
                         created_at=time.time()
                     )
                     recommendations.append(rec)

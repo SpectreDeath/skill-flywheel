@@ -5,10 +5,10 @@ This script handles both auto-generated and manually created skills.
 """
 
 import os
-import json
 import re
 from pathlib import Path
-from typing import Dict, List, Tuple
+from typing import Dict, List
+
 
 class SkillBatchProcessor:
     def __init__(self, skills_root: str = "skills"):
@@ -32,7 +32,7 @@ class SkillBatchProcessor:
     def analyze_skill_type(self, skill_path: Path) -> Dict:
         """Analyze a skill file to determine its type and current content."""
         try:
-            with open(skill_path, 'r', encoding='utf-8') as f:
+            with open(skill_path, encoding='utf-8') as f:
                 content = f.read()
             
             # Extract existing sections
@@ -129,7 +129,7 @@ class SkillBatchProcessor:
         if skill_type == "auto_generated":
             # For auto-generated skills, create a generic but meaningful purpose
             if "iac-drift-detection" in str(path):
-                return f"## Purpose\nInfrastructure as Code drift detection."
+                return "## Purpose\nInfrastructure as Code drift detection."
             else:
                 return f"## Purpose\n{skill_name} functionality."
         
@@ -294,7 +294,7 @@ class SkillBatchProcessor:
         
         print()
         print("=" * 60)
-        print(f"Processing complete!")
+        print("Processing complete!")
         print(f"Processed: {self.processed_count}")
         print(f"Failed: {self.failed_count}")
         print(f"Total: {len(skill_files)}")

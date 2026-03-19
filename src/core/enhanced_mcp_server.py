@@ -8,20 +8,20 @@ It builds on the existing MCP server infrastructure while adding sophisticated
 new features for managing the 234+ skill empire.
 """
 
-import os
-import json
 import datetime
-import asyncio
+import json
 import logging
+import os
 import subprocess
 import tempfile
-from pathlib import Path
-from typing import Dict, List, Any, Optional, Tuple
-from dataclasses import dataclass, asdict
-from enum import Enum
 import time
+from dataclasses import dataclass
+from enum import Enum
+from pathlib import Path
+from typing import Any, Dict, List
 
 from mcp.server.fastmcp import FastMCP
+
 from src.core.registry_search import search_registry
 
 # Configure logging
@@ -155,7 +155,7 @@ def load_skill_registry() -> List[Dict[str, Any]]:
         return []
     
     try:
-        with open(REGISTRY_FILE, 'r', encoding='utf-8') as f:
+        with open(REGISTRY_FILE, encoding='utf-8') as f:
             return json.load(f)
     except Exception as e:
         logger.error(f"Error loading registry: {e}")
@@ -197,7 +197,7 @@ async def discover_skills(ctx, query: str, domain: str = None, limit: int = 10, 
                 skill_path = REGISTRY_FILE.parent / result['path']
                 if skill_path.exists():
                     try:
-                        with open(skill_path, 'r', encoding='utf-8') as f:
+                        with open(skill_path, encoding='utf-8') as f:
                             content = f.read()
                         result['full_content'] = content
                     except Exception as e:
@@ -303,7 +303,7 @@ async def execute_skill(ctx, skill_id: str, request: str = "", context: Dict[str
         if not skill_path.exists():
             return {"error": f"Skill file not found: {skill_path}"}
         
-        with open(skill_path, 'r', encoding='utf-8') as f:
+        with open(skill_path, encoding='utf-8') as f:
             content = f.read()
         
         # Enhanced execution with context
@@ -408,7 +408,7 @@ async def validate_skill(ctx, skill_id: str, validation_type: str = "all"):
 def validate_skill_format(skill_path: Path) -> Dict[str, Any]:
     """Validate skill format and structure."""
     try:
-        with open(skill_path, 'r', encoding='utf-8') as f:
+        with open(skill_path, encoding='utf-8') as f:
             content = f.read()
         
         # Check for required sections
@@ -448,7 +448,7 @@ def validate_skill_dependencies(skill: Dict[str, Any], all_skills: List[Dict[str
 def validate_skill_security(skill_path: Path) -> Dict[str, Any]:
     """Validate skill security and potential vulnerabilities."""
     try:
-        with open(skill_path, 'r', encoding='utf-8') as f:
+        with open(skill_path, encoding='utf-8') as f:
             content = f.read()
         
         # Basic security checks
@@ -592,7 +592,7 @@ async def benchmark_skill(ctx, skill_id: str, iterations: int = 10, test_data: L
             start_time = time.time()
             
             # Execute skill (simplified for benchmarking)
-            with open(skill_path, 'r', encoding='utf-8') as f:
+            with open(skill_path, encoding='utf-8') as f:
                 content = f.read()
             
             execution_time = time.time() - start_time
@@ -817,8 +817,6 @@ async def find_skill(ctx, query: str, category: str = None):
     Search the AgentSkills library for relevant skills based on a query.
     Useful when you aren't sure which specialized skill to use.
     """
-    import subprocess
-    import json
     
     script_path = Path(__file__).parent / "registry_search.py"
     cmd = ["python", str(script_path), query]
@@ -835,7 +833,7 @@ def register_existing_skills():
         return
 
     try:
-        with open(REGISTRY_FILE, 'r', encoding='utf-8') as f:
+        with open(REGISTRY_FILE, encoding='utf-8') as f:
             registry = json.load(f)
             
         registered_count = 0
@@ -863,7 +861,7 @@ def register_existing_skills():
                     import time
                     start_time = time.time()
                     try:
-                        with open(path, 'r', encoding='utf-8') as f:
+                        with open(path, encoding='utf-8') as f:
                             content = f.read()
                         
                         result = f"SYSTEM INSTRUCTIONS FOR SKILL:\n\n{content}\n\nUSER REQUEST: {request}\n\nGUIDANCE: Follow the Workflow and Constraints sections strictly."

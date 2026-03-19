@@ -11,13 +11,10 @@ Handles GitHub repository synchronization operations including:
 """
 
 import os
-import subprocess
 import re
-import json
-import urllib.parse
-from typing import Dict, List, Any, Optional
+import subprocess
 from dataclasses import dataclass, field
-from datetime import datetime
+from typing import Dict, List
 
 
 @dataclass
@@ -98,7 +95,7 @@ def run_git_command(
         cwd=repo_path,
         capture_output=capture_output,
         text=True,
-        shell=False,
+        shell=False, check=False,
     )
     return result
 
@@ -177,7 +174,7 @@ def clone_repo(repo_path: str, options: dict) -> CloneResult:
             clone_args,
             capture_output=True,
             text=True,
-            shell=False,
+            shell=False, check=False,
         )
 
         if cmd_result.returncode == 0:
@@ -352,14 +349,13 @@ def sync_branch(repo_path: str, options: dict) -> SyncBranchResult:
     if merge_result.returncode == 0:
         result.success = True
         result.message = f"Successfully synced {branch} with {result.upstream_branch}"
+    elif "Already up to date" in merge_result.stdout:
+        result.success = True
+        result.message = (
+            f"{branch} is already up to date with {result.upstream_branch}"
+        )
     else:
-        if "Already up to date" in merge_result.stdout:
-            result.success = True
-            result.message = (
-                f"{branch} is already up to date with {result.upstream_branch}"
-            )
-        else:
-            result.message = merge_result.stderr.strip() or "Sync failed"
+        result.message = merge_result.stderr.strip() or "Sync failed"
 
     return result
 
@@ -399,7 +395,7 @@ def create_pull_request(repo_path: str, options: dict) -> CreatePRResult:
         capture_output=True,
         text=True,
         cwd=repo_path,
-        shell=False,
+        shell=False, check=False,
     )
 
     result.repo_path = repo_path
@@ -457,7 +453,7 @@ def get_repo_status(repo_path: str) -> StatusResult:
             ["git", "rev-parse", "--abbrev-ref", "HEAD"],
             cwd=repo_path,
             capture_output=True,
-            text=True,
+            text=True, check=False,
         )
         if branch_result.returncode == 0:
             result.current_branch = branch_result.stdout.strip()
@@ -467,7 +463,7 @@ def get_repo_status(repo_path: str) -> StatusResult:
             ["git", "remote", "get-url", "origin"],
             cwd=repo_path,
             capture_output=True,
-            text=True,
+            text=True, check=False,
         )
         if remote_result.returncode == 0:
             result.has_remote = True
@@ -478,7 +474,7 @@ def get_repo_status(repo_path: str) -> StatusResult:
             ["git", "diff", "--name-only"],
             cwd=repo_path,
             capture_output=True,
-            text=True,
+            text=True, check=False,
         )
         if diff_result.returncode == 0:
             result.uncommitted_changes = len(
@@ -490,7 +486,7 @@ def get_repo_status(repo_path: str) -> StatusResult:
             ["git", "ls-files", "--others", "--exclude-standard"],
             cwd=repo_path,
             capture_output=True,
-            text=True,
+            text=True, check=False,
         )
         if untracked_result.returncode == 0:
             result.untracked_files = len(
@@ -509,7 +505,7 @@ def get_repo_status(repo_path: str) -> StatusResult:
                 ],
                 cwd=repo_path,
                 capture_output=True,
-                text=True,
+                text=True, check=False,
             )
             if rev_result.returncode == 0:
                 parts = rev_result.stdout.strip().split()

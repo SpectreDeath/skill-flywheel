@@ -7,7 +7,8 @@ This script checks for the presence of required sections without needing API key
 import os
 import re
 from pathlib import Path
-from typing import Dict, List, Tuple
+from typing import Dict, List
+
 
 class ComplianceChecker:
     def __init__(self, skills_root: str = "skills"):
@@ -30,7 +31,7 @@ class ComplianceChecker:
     def check_skill_compliance(self, skill_path: Path) -> Dict:
         """Check compliance of a single skill file."""
         try:
-            with open(skill_path, 'r', encoding='utf-8') as f:
+            with open(skill_path, encoding='utf-8') as f:
                 content = f.read()
             
             # Extract existing sections
@@ -172,7 +173,7 @@ class ComplianceChecker:
                 print(f"  Average score: {stats['average_score']:.1f}%")
                 
                 if stats['missing_sections']:
-                    print(f"  Missing sections:")
+                    print("  Missing sections:")
                     for section, count in sorted(stats['missing_sections'].items(), key=lambda x: x[1], reverse=True):
                         percentage = count / stats['total_skills'] * 100
                         print(f"    - {section}: {count} skills ({percentage:.1f}%)")
@@ -213,7 +214,7 @@ def main():
     with open('compliance_check_results.json', 'w') as f:
         json.dump(results, f, indent=2, default=str)
     
-    print(f"\nResults saved to compliance_check_results.json")
+    print("\nResults saved to compliance_check_results.json")
 
 if __name__ == "__main__":
     main()

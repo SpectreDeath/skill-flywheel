@@ -14,9 +14,9 @@ Supported patterns:
 
 import ast
 import re
-from typing import Dict, List, Any, Optional, Set, Tuple
-from dataclasses import dataclass, field
 from collections import defaultdict
+from dataclasses import dataclass
+from typing import Dict, List, Optional, Tuple
 
 
 @dataclass

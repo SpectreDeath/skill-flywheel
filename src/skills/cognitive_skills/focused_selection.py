@@ -4,8 +4,8 @@ Focused Selection Module
 Filter out irrelevant information to work within the relevant frame of reference.
 """
 
-from typing import Dict, List, Optional, Any, Set
 from dataclasses import dataclass, field
+from typing import Dict, List, Optional, Set
 
 
 @dataclass

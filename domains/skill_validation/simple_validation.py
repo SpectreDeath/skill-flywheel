@@ -5,9 +5,9 @@ Simple Logic Domain Validation Script
 Manually validates the skills/DOMAIN/logic/ domain without complex imports.
 """
 
-import os
 import json
 from pathlib import Path
+
 
 def validate_logic_domain():
     """Validate the logic domain manually"""
@@ -63,7 +63,7 @@ def validate_logic_domain():
         frontmatter_issues = []
         for skill_file in logic_files:
             try:
-                with open(skill_file, 'r', encoding='utf-8') as f:
+                with open(skill_file, encoding='utf-8') as f:
                     content = f.read()
                     # Check if file has YAML frontmatter
                     if not content.startswith('---'):
@@ -116,7 +116,7 @@ def validate_logic_domain():
         # For now, just check if files exist and are readable
         for file in logic_files:
             try:
-                with open(file, 'r', encoding='utf-8') as f:
+                with open(file, encoding='utf-8') as f:
                     content = f.read()
                     # Look for dependency declarations
                     if 'dependencies:' in content.lower():
@@ -144,7 +144,7 @@ def validate_logic_domain():
         
         for file in logic_files:
             try:
-                with open(file, 'r', encoding='utf-8') as f:
+                with open(file, encoding='utf-8') as f:
                     content = f.read()
                     
                     # Check for required sections

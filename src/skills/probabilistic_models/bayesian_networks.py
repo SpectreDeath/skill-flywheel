@@ -14,20 +14,17 @@ Category: Probabilistic Modeling
 Complexity: High
 """
 
-import numpy as np
-import pandas as pd
-import networkx as nx
-from typing import Dict, List, Tuple, Optional, Set, Any, Union
-from dataclasses import dataclass, field
-from collections import defaultdict, Counter
 import itertools
 import logging
 from abc import ABC, abstractmethod
-import heapq
+from collections import defaultdict
+from dataclasses import dataclass, field
+from typing import Any, Dict, List, Optional, Set, Tuple
+
+import networkx as nx
+import numpy as np
+import pandas as pd
 from scipy import stats
-from scipy.special import logsumexp
-import matplotlib.pyplot as plt
-import seaborn as sns
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -811,10 +808,9 @@ class BeliefPropagation(InferenceEngine):
                 state_idx = node.states.index(evidence[var])
                 marginal = np.zeros(node.num_states)
                 marginal[state_idx] = 1.0
-            else:
-                # Normalize
-                if marginal.sum() > 0:
-                    marginal = marginal / marginal.sum()
+            # Normalize
+            elif marginal.sum() > 0:
+                marginal = marginal / marginal.sum()
             
             results[var] = {state: float(marginal[i]) for i, state in enumerate(node.states)}
         
@@ -979,9 +975,8 @@ class BayesianNetworkAnalyzer:
                     for idx in np.ndindex(node.cpt.shape[:-1]):
                         if not np.isclose(np.sum(node.cpt[idx]), 1.0, atol=1e-6):
                             return False
-                else:
-                    if not np.isclose(np.sum(node.cpt), 1.0, atol=1e-6):
-                        return False
+                elif not np.isclose(np.sum(node.cpt), 1.0, atol=1e-6):
+                    return False
         return True
     
     def _check_numerical_stability(self) -> bool:
@@ -1089,13 +1084,12 @@ def main():
                 lc_prob = 0.05
             else:
                 lc_prob = 0.02
+        elif genetics == "high":
+            lc_prob = 0.05
+        elif genetics == "medium":
+            lc_prob = 0.02
         else:
-            if genetics == "high":
-                lc_prob = 0.05
-            elif genetics == "medium":
-                lc_prob = 0.02
-            else:
-                lc_prob = 0.01
+            lc_prob = 0.01
         
         lung_cancer = "yes" if np.random.random() < lc_prob else "no"
         

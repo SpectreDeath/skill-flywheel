@@ -2,27 +2,27 @@
 Unit tests for exceptions module (error classes, handlers)
 """
 
-import pytest
 import logging
-from unittest.mock import Mock, patch, MagicMock
-
-import sys
 import os
+import sys
+from unittest.mock import MagicMock, Mock, patch
+
+import pytest
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from src.core.exceptions import (
-    ErrorCode,
-    SkillFlywheelError,
-    SkillNotFoundError,
-    SkillLoadError,
-    SkillExecutionError,
-    ValidationError,
     ConfigurationError,
-    RegistryError,
-    OrchestrationError,
-    EvolutionError,
+    ErrorCode,
     ErrorResponse,
+    EvolutionError,
+    OrchestrationError,
+    RegistryError,
+    SkillExecutionError,
+    SkillFlywheelError,
+    SkillLoadError,
+    SkillNotFoundError,
+    ValidationError,
     error_handler,
 )
 

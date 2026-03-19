@@ -1,9 +1,8 @@
-import time
-import logging
 import hashlib
-import json
+import logging
+import time
 from datetime import datetime
-from typing import Dict, List, Any, Optional
+from typing import Any, Dict, List
 
 logger = logging.getLogger(__name__)
 
@@ -15,7 +14,7 @@ def generate_architecture_decisions(context: Dict[str, Any]) -> List[Dict[str, A
 
     for req in requirements:
         decision = {
-            "id": "adr-{:03d}".format(len(decisions) + 1),
+            "id": f"adr-{len(decisions) + 1:03d}",
             "title": req.get("title", "Architecture Decision"),
             "status": "proposed",
             "context": req.get("description", ""),
@@ -117,9 +116,7 @@ def create_decision_record(
     decision: Dict[str, Any], context: Dict[str, Any]
 ) -> Dict[str, Any]:
     record = {
-        "record_id": "record-{}".format(
-            hashlib.md5(str(time.time()).encode()).hexdigest()[:8]
-        ),
+        "record_id": f"record-{hashlib.md5(str(time.time()).encode()).hexdigest()[:8]}",
         "decision": decision,
         "context": context,
         "created_at": datetime.now().isoformat(),
@@ -211,12 +208,12 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
         else:
             return {
-                "result": {"error": "Unknown action: {}".format(action)},
+                "result": {"error": f"Unknown action: {action}"},
                 "metadata": {"action": action, "timestamp": datetime.now().isoformat()},
             }
 
     except Exception as e:
-        logger.error("Error in specification_architecture_decisions: {}".format(e))
+        logger.error(f"Error in specification_architecture_decisions: {e}")
         return {
             "result": {"error": str(e)},
             "metadata": {"action": action, "timestamp": datetime.now().isoformat()},

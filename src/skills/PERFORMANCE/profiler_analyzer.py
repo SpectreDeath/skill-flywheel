@@ -9,11 +9,10 @@ This module provides profiler output analysis capabilities:
 - Generate human-readable reports
 """
 
-import re
 import json
-import math
-from typing import Dict, List, Any, Optional
+import re
 from collections import defaultdict
+from typing import Any, Dict, List
 
 
 def profiler_analyzer(profile_data: str, options: dict) -> dict:
@@ -643,7 +642,7 @@ def invoke(payload: dict) -> dict:
         file_path = profile_data.get("file")
         if file_path:
             try:
-                with open(file_path, "r", encoding="utf-8") as f:
+                with open(file_path, encoding="utf-8") as f:
                     profile_data = f.read()
             except Exception as e:
                 return {"status": "error", "error": f"Failed to read profile file: {e}"}

@@ -9,11 +9,11 @@ This module provides SQL query optimization capabilities:
 - Estimate performance impact
 """
 
-import re
 import json
-from typing import Dict, List, Any, Optional, Tuple
-from dataclasses import dataclass, field
+import re
+from dataclasses import dataclass
 from enum import Enum
+from typing import Dict, List, Optional
 
 
 class DatabaseType(Enum):
@@ -597,7 +597,7 @@ def _detect_join_issues(components: QueryComponents) -> List[Dict]:
                     {
                         "severity": "low",
                         "category": "Unnecessary Join Type",
-                        "description": f"LEFT JOIN with NULL check could be INNER JOIN",
+                        "description": "LEFT JOIN with NULL check could be INNER JOIN",
                         "location": f"JOIN {join['table']}",
                         "impact": "LEFT JOIN is slower than INNER JOIN when NULL is filtered",
                         "recommendation": "Change LEFT JOIN to INNER JOIN if NULL values are filtered",
@@ -709,7 +709,7 @@ def _generate_suggestions(
                 "priority": "medium",
                 "category": "Query Restructuring",
                 "description": "Replace multiple subqueries with CTEs for better optimization",
-                "sql_example": f"WITH cte1 AS (SELECT ...), cte2 AS (SELECT ...) SELECT * FROM cte1 JOIN cte2",
+                "sql_example": "WITH cte1 AS (SELECT ...), cte2 AS (SELECT ...) SELECT * FROM cte1 JOIN cte2",
                 "expected_improvement": "20-40% improvement in query planning",
             }
         )

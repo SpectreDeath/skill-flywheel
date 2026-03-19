@@ -10,10 +10,8 @@ Suggests tests to maximize code coverage by:
 """
 
 import ast
-import re
-from typing import Dict, List, Any, Optional, Set
-from dataclasses import dataclass, field
-from collections import defaultdict
+from dataclasses import dataclass
+from typing import Any, List, Optional, Set
 
 
 @dataclass
@@ -177,20 +175,7 @@ def _analyze_function_coverage(
                     )
                 )
 
-        elif isinstance(child, ast.For):
-            if child.lineno in uncovered_lines:
-                gaps.append(
-                    GapInfo(
-                        gap_type="loop",
-                        line=child.lineno,
-                        code=_get_line_code(source_code, child.lineno),
-                        context=f"in function {func_name}",
-                        priority="medium",
-                        impact_score=0.5,
-                    )
-                )
-
-        elif isinstance(child, ast.While):
+        elif isinstance(child, ast.For) or isinstance(child, ast.While):
             if child.lineno in uncovered_lines:
                 gaps.append(
                     GapInfo(

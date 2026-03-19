@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import json
 import logging
-from abc import ABC
 from typing import Any, Dict, List, Optional
 
 from darwinian_evolver.learning_log import LearningLogEntry

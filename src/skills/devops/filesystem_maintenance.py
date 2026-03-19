@@ -9,14 +9,12 @@ Handles file system maintenance tasks including:
 - Backup files (create backup copies)
 """
 
+import hashlib
 import os
 import shutil
-import hashlib
-import json
-from typing import Dict, List, Any, Optional
 from dataclasses import dataclass, field
 from datetime import datetime
-from pathlib import Path
+from typing import Any, Dict, List, Optional
 
 
 @dataclass
@@ -74,7 +72,7 @@ def get_file_hash(filepath: str) -> Optional[str]:
             for chunk in iter(lambda: f.read(8192), b""):
                 hasher.update(chunk)
         return hasher.hexdigest()
-    except (IOError, OSError):
+    except OSError:
         return None
 
 
@@ -176,7 +174,7 @@ def find_large_files(path: str, options: dict) -> List[LargeFile]:
                             modified=datetime.fromtimestamp(mtime).isoformat(),
                         )
                     )
-            except (OSError, IOError):
+            except OSError:
                 continue
 
     large_files.sort(key=lambda x: x.size, reverse=True)
@@ -216,7 +214,7 @@ def analyze_directory_structure(path: str, options: dict) -> Dict[str, Any]:
 
                 ext = os.path.splitext(file_name)[1].lower() or "no_extension"
                 structure["file_types"][ext] = structure["file_types"].get(ext, 0) + 1
-            except (OSError, IOError):
+            except OSError:
                 continue
 
         if current_dir_size > 0:
@@ -237,17 +235,17 @@ def analyze_directory_structure(path: str, options: dict) -> Dict[str, Any]:
     if structure["depth"] > 5:
         structure["suggestions"].append("Consider flattening deep directory structure")
 
-    if any("test" in d.lower() for d in dir_sizes.keys()):
+    if any("test" in d.lower() for d in dir_sizes):
         structure["suggestions"].append(
             "Consider separating test files into dedicated test directories"
         )
 
-    src_found = any("src" in d.lower() for d in dir_sizes.keys())
+    src_found = any("src" in d.lower() for d in dir_sizes)
     if not src_found:
         structure["suggestions"].append("Consider organizing code into 'src' directory")
 
     if (
-        not any("docs" in d.lower() for d in dir_sizes.keys())
+        not any("docs" in d.lower() for d in dir_sizes)
         and structure["total_files"] > 10
     ):
         structure["suggestions"].append(
@@ -282,7 +280,7 @@ def find_duplicates(path: str, options: dict) -> List[DuplicateGroup]:
                     if key not in hash_map:
                         hash_map[key] = []
                     hash_map[key].append((file_path, size))
-            except (OSError, IOError):
+            except OSError:
                 continue
 
     duplicates = []

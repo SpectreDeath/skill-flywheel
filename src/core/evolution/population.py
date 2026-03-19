@@ -34,7 +34,7 @@ class SkillPopulation(BaseWeightedPopulation):
     @classmethod
     def from_snapshot(
         cls, snapshot: bytes, config: Optional[EvolutionConfig] = None
-    ) -> "SkillPopulation":
+    ) -> SkillPopulation:
         """Restore population from snapshot."""
         population = super().from_snapshot(snapshot)
         population.config = config or EvolutionConfig()

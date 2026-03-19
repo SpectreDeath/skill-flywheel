@@ -8,7 +8,7 @@ Analyzes classic and extended prisoner's dilemma scenarios:
 - Evolutionary stability
 """
 
-from typing import Dict, List, Any, Optional
+from typing import Any, Dict, List
 
 
 def prisoners_dilemma_analyzer(
@@ -120,7 +120,7 @@ def _analyze_iterated_pd(
             "outcome": "mutual defection",
             "payoff_per_round": P,
             "total_payoff": P * num_rounds,
-            "analysis": f"Backwards induction: defect in last round, then all previous",
+            "analysis": "Backwards induction: defect in last round, then all previous",
             "exception": "If players are sufficiently patient or rounds uncertain, cooperation possible",
         }
 

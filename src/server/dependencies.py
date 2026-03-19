@@ -6,14 +6,14 @@ common server dependencies like the skill registry loader, performance
 monitor, and telemetry logger.
 """
 
-import os
-import json
 import datetime
+import json
 import logging
-from pathlib import Path
-from typing import Dict, List, Any, Optional
+import os
 from dataclasses import dataclass
 from enum import Enum
+from pathlib import Path
+from typing import Any, Dict, List, Optional
 
 logger = logging.getLogger(__name__)
 
@@ -172,7 +172,7 @@ def get_skill_registry() -> List[Dict[str, Any]]:
         return []
 
     try:
-        with open(REGISTRY_FILE, "r", encoding="utf-8") as f:
+        with open(REGISTRY_FILE, encoding="utf-8") as f:
             _skill_registry = json.load(f)
         return _skill_registry
     except Exception as e:

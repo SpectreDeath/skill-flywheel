@@ -5,14 +5,16 @@ This module provides Darwinian evolution capabilities for optimizing skill
 configurations in the Skill Flywheel system.
 """
 
+from .cli import EvolutionCLI
+from .cli import main as cli_main
 from .config import EvolutionConfig
 from .evaluator import MockSkillExecutor, SkillExecutor, SkillFitnessEvaluator
 from .evolvable_skill_groups import (
-    EvolableSkillGroup,
     EVOLVABLE_SKILL_GROUPS,
+    EvolableSkillGroup,
+    create_genome_for_group,
     get_evolvable_group,
     list_evolvable_groups,
-    create_genome_for_group,
 )
 from .evolver import SkillEvolver, create_skill_evolver
 from .genome import (
@@ -29,15 +31,14 @@ from .runner import (
     run_evolution,
 )
 from .skill_executor import (
-    RealSkillExecutor,
-    SkillLoader,
-    create_real_executor,
-    SkillExecutionError,
-    SkillNotFoundError,
     ExecutionResult,
+    RealSkillExecutor,
+    SkillExecutionError,
+    SkillLoader,
     SkillMetadata,
+    SkillNotFoundError,
+    create_real_executor,
 )
-from .cli import EvolutionCLI, main as cli_main
 
 __all__ = [
     # Config

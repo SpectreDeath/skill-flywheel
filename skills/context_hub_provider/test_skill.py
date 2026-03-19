@@ -6,18 +6,18 @@ This test suite validates the functionality of the context_hub_provider skill
 including CLI integration, error handling, and MCP compatibility.
 """
 
-import unittest
 import json
-import subprocess
-from unittest.mock import Mock, patch, MagicMock
-from pathlib import Path
-import sys
 import os
+import subprocess
+import sys
+import unittest
+from pathlib import Path
+from unittest.mock import Mock, patch
 
 # Add the skill directory to the path
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-from skill import ContextHubProvider, register_skill, execute_function
+from skill import ContextHubProvider, execute_function, register_skill
 
 
 class TestContextHubProvider(unittest.TestCase):
@@ -314,7 +314,7 @@ class TestConfiguration(unittest.TestCase):
         
         self.assertTrue(config_path.exists())
         
-        with open(config_path, 'r') as f:
+        with open(config_path) as f:
             config = json.load(f)
         
         self.assertIn("name", config)

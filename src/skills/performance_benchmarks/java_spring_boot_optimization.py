@@ -15,17 +15,13 @@ Key Features:
 - Enterprise application performance patterns
 """
 
-import time
 import datetime
-import logging
 import json
-import subprocess
-import asyncio
-import os
-import sys
-from typing import Dict, List, Any, Optional, Union
-from dataclasses import dataclass, asdict
+import logging
+from dataclasses import asdict, dataclass
 from pathlib import Path
+from typing import Any, Dict, List, Optional
+
 import psutil
 
 logger = logging.getLogger(__name__)
@@ -126,7 +122,7 @@ class JavaSpringBootOptimizer:
                 config_path = project_dir / "src" / "main" / "resources" / config_file
                 if config_path.exists():
                     try:
-                        with open(config_path, 'r') as f:
+                        with open(config_path) as f:
                             content = f.read()
                         
                         # Parse basic properties
@@ -326,7 +322,7 @@ class JavaSpringBootOptimizer:
             # Find Java files
             for java_file in project_dir.rglob("*.java"):
                 try:
-                    with open(java_file, 'r', encoding='utf-8') as f:
+                    with open(java_file, encoding='utf-8') as f:
                         content = f.read()
                     
                     # Check for Spring annotations

@@ -8,13 +8,13 @@ lists available skills, and performs health checks on each skill.
 
 import asyncio
 import json
+import logging
 import sys
 import time
-import logging
-from typing import Dict, List, Tuple, Any, Optional
-import aiohttp
-import requests
 from datetime import datetime
+from typing import Any, Dict, List, Optional, Tuple
+
+import aiohttp
 
 # Configure logging
 logging.basicConfig(

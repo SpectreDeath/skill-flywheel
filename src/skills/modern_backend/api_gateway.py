@@ -7,18 +7,14 @@ Description: API Gateway and request routing system
 
 import asyncio
 import logging
+import re
 import time
 import uuid
-import json
-import re
-from typing import Dict, Any, List, Optional, Union, Callable
-from dataclasses import dataclass, asdict
-from enum import Enum
-from datetime import datetime, timedelta
 from collections import defaultdict
-import hashlib
-import jwt
-from pathlib import Path
+from dataclasses import dataclass
+from datetime import datetime
+from enum import Enum
+from typing import Any, Dict, List, Optional
 
 logger = logging.getLogger(__name__)
 

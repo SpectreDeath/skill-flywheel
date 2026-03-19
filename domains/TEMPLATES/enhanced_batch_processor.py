@@ -6,9 +6,9 @@ This script extracts information from existing content to generate meaningful se
 
 import os
 import re
-import json
 from pathlib import Path
-from typing import Dict, List, Tuple
+from typing import Dict, List
+
 
 class EnhancedSkillBatchProcessor:
     def __init__(self, skills_root: str = "skills"):
@@ -32,7 +32,7 @@ class EnhancedSkillBatchProcessor:
     def analyze_skill_content(self, skill_path: Path) -> Dict:
         """Analyze a skill file to extract meaningful information."""
         try:
-            with open(skill_path, 'r', encoding='utf-8') as f:
+            with open(skill_path, encoding='utf-8') as f:
                 content = f.read()
             
             # Extract existing sections
@@ -199,7 +199,7 @@ class EnhancedSkillBatchProcessor:
                 f"### Example 2: Advanced Usage\n**Input**: 'Run {skill_name} with focus on high-priority optimization targets.'\n**Output**: Detailed analysis with prioritized recommendations\n**Use Case**: Targeted optimization and improvement planning"
             ]
         
-        return f"## Examples\n\n" + "\n\n".join(examples)
+        return "## Examples\n\n" + "\n\n".join(examples)
     
     def generate_implementation_notes_section(self, skill_info: Dict) -> str:
         """Generate meaningful Implementation Notes section."""
@@ -371,7 +371,7 @@ class EnhancedSkillBatchProcessor:
         
         print()
         print("=" * 60)
-        print(f"Enhanced processing complete!")
+        print("Enhanced processing complete!")
         print(f"Processed: {self.processed_count}")
         print(f"Failed: {self.failed_count}")
         print(f"Total: {len(skill_files)}")

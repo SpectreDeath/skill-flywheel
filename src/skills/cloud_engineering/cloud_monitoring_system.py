@@ -7,14 +7,13 @@ Description: Cloud monitoring and observability system for infrastructure and ap
 
 import asyncio
 import logging
+import statistics
 import time
 import uuid
-import json
-from typing import Dict, Any, List, Optional, Union
-from dataclasses import dataclass, asdict
+from dataclasses import dataclass
+from datetime import datetime
 from enum import Enum
-from datetime import datetime, timedelta
-import statistics
+from typing import Any, Dict, List, Optional
 
 logger = logging.getLogger(__name__)
 

@@ -9,20 +9,17 @@ The server is organized into modular components:
 - dependencies.py: Shared dependencies and configuration
 """
 
-import os
-import sys
 import logging
-from pathlib import Path
+import os
 
 from mcp.server.fastmcp import FastMCP
 
-from src.server.handlers import register_all_handlers
 from src.server.dependencies import (
-    get_skill_registry,
-    filter_skills_by_domain,
-    REGISTRY_FILE,
     MCP_DOMAINS,
+    REGISTRY_FILE,
+    filter_skills_by_domain,
 )
+from src.server.handlers import register_all_handlers
 
 logging.basicConfig(
     level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
@@ -63,7 +60,7 @@ def register_existing_skills(mcp: FastMCP):
         return
 
     try:
-        with open(REGISTRY_FILE, "r", encoding="utf-8") as f:
+        with open(REGISTRY_FILE, encoding="utf-8") as f:
             registry = json.load(f)
 
         skills = filter_skills_by_domain(registry)
@@ -87,7 +84,7 @@ def register_existing_skills(mcp: FastMCP):
             def make_tool(path, sid):
                 async def tool(ctx, request: str = ""):
                     try:
-                        with open(path, "r", encoding="utf-8") as f:
+                        with open(path, encoding="utf-8") as f:
                             content = f.read()
                         return f"SKILL: {sid}\n\n{content}\n\n---\nRequest: {request}"
                     except Exception as e:

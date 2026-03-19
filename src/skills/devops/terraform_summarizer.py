@@ -9,9 +9,8 @@ Supports: JSON and text format Terraform plans
 
 import json
 import re
-from typing import Dict, List, Any, Optional
-from dataclasses import dataclass, field
-
+from dataclasses import dataclass
+from typing import Any, Dict, List, Optional
 
 DESTRUCTIVE_RESOURCE_TYPES = {
     "aws_instance": "EC2 instance deletion",

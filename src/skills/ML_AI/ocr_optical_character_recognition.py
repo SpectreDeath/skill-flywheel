@@ -1,6 +1,5 @@
 import logging
-import datetime
-from typing import Dict, List, Any
+from typing import Any, Dict
 
 logger = logging.getLogger(__name__)
 
@@ -37,7 +36,7 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
         Dictionary with results
     """
     action = payload.get("action", "process")
-    data = payload.get("data", None)
+    data = payload.get("data")
     
     skill = OcrOpticalCharacterRecognition()
     

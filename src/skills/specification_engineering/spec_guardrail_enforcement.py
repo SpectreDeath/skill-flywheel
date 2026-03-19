@@ -1,9 +1,7 @@
-import time
 import logging
 import random
-import hashlib
 from datetime import datetime
-from typing import Dict, List, Any, Optional
+from typing import Any, Dict, List
 
 logger = logging.getLogger(__name__)
 
@@ -76,7 +74,7 @@ def detect_violations(code: str, rules: List[Dict[str, Any]]) -> List[Dict[str, 
             for match in matches:
                 violations.append(
                     {
-                        "rule_id": "{}-{}".format(category, random.randint(1000, 9999)),
+                        "rule_id": f"{category}-{random.randint(1000, 9999)}",
                         "category": category,
                         "description": rule["description"],
                         "severity": rule["severity"],
@@ -108,14 +106,14 @@ def adaptive_testing(spec_data: Dict[str, Any]) -> Dict[str, Any]:
             ]
             variation = random.choice(variations)
             test_case = {
-                "test_id": "stress-test-{:03d}".format(i + 1),
+                "test_id": f"stress-test-{i + 1:03d}",
                 "variation": variation,
                 "modified": True,
-                "description": "Stress test with {} variation".format(variation),
+                "description": f"Stress test with {variation} variation",
             }
         else:
             test_case = {
-                "test_id": "stress-test-{:03d}".format(i + 1),
+                "test_id": f"stress-test-{i + 1:03d}",
                 "variation": "baseline",
                 "modified": False,
                 "description": "Baseline test case",
@@ -295,12 +293,12 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
         else:
             return {
-                "result": {"error": "Unknown action: {}".format(action)},
+                "result": {"error": f"Unknown action: {action}"},
                 "metadata": {"action": action, "timestamp": datetime.now().isoformat()},
             }
 
     except Exception as e:
-        logger.error("Error in spec_guardrail_enforcement: {}".format(e))
+        logger.error(f"Error in spec_guardrail_enforcement: {e}")
         return {
             "result": {"error": str(e)},
             "metadata": {"action": action, "timestamp": datetime.now().isoformat()},

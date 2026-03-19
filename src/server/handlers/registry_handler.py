@@ -6,14 +6,6 @@ listing, searching, and filtering skills by domain.
 """
 
 import logging
-from typing import Dict, List, Any, Optional
-
-from src.server.dependencies import (
-    get_skill_registry,
-    filter_skills_by_domain,
-    REGISTRY_FILE,
-)
-from src.core.registry_search import search_registry
 
 logger = logging.getLogger(__name__)
 

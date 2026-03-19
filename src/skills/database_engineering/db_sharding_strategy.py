@@ -1,8 +1,6 @@
-import time
 import logging
-import hashlib
 from datetime import datetime
-from typing import Dict, List, Any, Optional
+from typing import Any, Dict
 
 logger = logging.getLogger(__name__)
 
@@ -110,12 +108,12 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
         else:
             return {
-                "result": {"error": "Unknown action: {}".format(action)},
+                "result": {"error": f"Unknown action: {action}"},
                 "metadata": {"action": action, "timestamp": datetime.now().isoformat()},
             }
 
     except Exception as e:
-        logger.error("Error in db_sharding_strategy: {}".format(e))
+        logger.error(f"Error in db_sharding_strategy: {e}")
         return {
             "result": {"error": str(e)},
             "metadata": {"action": action, "timestamp": datetime.now().isoformat()},

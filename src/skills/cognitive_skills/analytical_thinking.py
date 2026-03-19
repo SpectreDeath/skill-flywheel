@@ -5,9 +5,8 @@ Systematically break down complex problems into components to identify
 patterns and find optimal solutions.
 """
 
-from typing import Dict, List, Optional, Any, Tuple
 from dataclasses import dataclass, field
-from collections import defaultdict
+from typing import Any, Dict, List
 
 
 @dataclass

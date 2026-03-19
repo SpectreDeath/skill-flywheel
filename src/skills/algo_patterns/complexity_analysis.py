@@ -1,6 +1,6 @@
 import logging
 from datetime import datetime
-from typing import Dict, List, Any
+from typing import Any, Dict
 
 logger = logging.getLogger(__name__)
 
@@ -9,8 +9,8 @@ def analyze_complexity(code: str) -> Dict[str, Any]:
     loops = code.count("for") + code.count("while")
     recursion = code.count("def ") + code.count("async def")
     return {
-        "time_complexity": "O(n^{})".format(loops),
-        "space_complexity": "O({})".format(recursion),
+        "time_complexity": f"O(n^{loops})",
+        "space_complexity": f"O({recursion})",
     }
 
 

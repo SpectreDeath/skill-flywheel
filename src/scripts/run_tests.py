@@ -3,9 +3,10 @@
 Simple test runner for the MCP Server tests
 """
 
+import os
 import subprocess
 import sys
-import os
+
 
 def run_test_file(test_file):
     """Run a specific test file"""
@@ -13,7 +14,7 @@ def run_test_file(test_file):
     try:
         result = subprocess.run([
             sys.executable, "-m", "pytest", test_file, "-v", "--tb=short"
-        ], capture_output=True, text=True, cwd=os.getcwd())
+        ], capture_output=True, text=True, cwd=os.getcwd(), check=False)
         
         print("STDOUT:")
         print(result.stdout)
@@ -68,10 +69,10 @@ def main():
     print(f"Skipped: {skipped}")
     
     if failed > 0:
-        print(f"\n❌ Some tests failed!")
+        print("\n❌ Some tests failed!")
         sys.exit(1)
     else:
-        print(f"\n✅ All tests passed!")
+        print("\n✅ All tests passed!")
         sys.exit(0)
 
 if __name__ == "__main__":

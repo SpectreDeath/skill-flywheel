@@ -8,8 +8,7 @@ Models game theory scenarios for negotiation strategy:
 - Negotiation tactics
 """
 
-from typing import Dict, List, Any, Optional
-from dataclasses import dataclass
+from typing import Any, Dict, List
 
 
 def analyze_payoff_matrix(payoffs: Dict) -> Dict[str, Any]:

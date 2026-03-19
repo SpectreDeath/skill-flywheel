@@ -10,10 +10,8 @@ Identifies untested code paths in Python source code by:
 """
 
 import ast
-import re
-from typing import Dict, List, Any, Optional, Set
 from dataclasses import dataclass, field
-from collections import defaultdict
+from typing import Any, Dict, List, Optional
 
 
 @dataclass
@@ -372,9 +370,7 @@ def calculate_branch_priority(branch: Dict[str, Any]) -> str:
     """Calculate priority for a branch."""
     branch_type = branch.get("type")
 
-    if branch_type == "if":
-        return "high"
-    elif branch_type == "try_except":
+    if branch_type == "if" or branch_type == "try_except":
         return "high"
     elif branch_type == "loop":
         return "medium"

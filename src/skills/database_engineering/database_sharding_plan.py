@@ -1,8 +1,8 @@
-import time
-import logging
 import hashlib
+import logging
+import time
 from datetime import datetime
-from typing import Dict, List, Any, Optional
+from typing import Any, Dict
 
 logger = logging.getLogger(__name__)
 
@@ -86,11 +86,11 @@ def design_shard_topology(analysis: Dict[str, Any]) -> Dict[str, Any]:
     for i in range(shards):
         shard = {
             "shard_id": i,
-            "name": "shard-{:03d}".format(i),
-            "primary_node": "node-{}-primary".format(i),
+            "name": f"shard-{i:03d}",
+            "primary_node": f"node-{i}-primary",
             "replica_nodes": [
-                "node-{}-replica-1".format(i),
-                "node-{}-replica-2".format(i),
+                f"node-{i}-replica-1",
+                f"node-{i}-replica-2",
             ]
             if shards > 2
             else [],
@@ -113,9 +113,7 @@ def design_shard_topology(analysis: Dict[str, Any]) -> Dict[str, Any]:
 
 def generate_resharding_plan(current_shards: int, target_shards: int) -> Dict[str, Any]:
     plan = {
-        "plan_id": "reshard-{}".format(
-            hashlib.md5(str(time.time()).encode()).hexdigest()[:8]
-        ),
+        "plan_id": f"reshard-{hashlib.md5(str(time.time()).encode()).hexdigest()[:8]}",
         "current_shards": current_shards,
         "target_shards": target_shards,
     }
@@ -208,12 +206,12 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
         else:
             return {
-                "result": {"error": "Unknown action: {}".format(action)},
+                "result": {"error": f"Unknown action: {action}"},
                 "metadata": {"action": action, "timestamp": datetime.now().isoformat()},
             }
 
     except Exception as e:
-        logger.error("Error in database_sharding_plan: {}".format(e))
+        logger.error(f"Error in database_sharding_plan: {e}")
         return {
             "result": {"error": str(e)},
             "metadata": {"action": action, "timestamp": datetime.now().isoformat()},

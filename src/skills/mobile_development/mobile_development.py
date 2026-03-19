@@ -8,13 +8,10 @@ This skill handles mobile app architecture, platform-specific features, performa
 optimization, cross-platform development, and mobile-specific UI/UX patterns.
 """
 
-import os
-import re
 import json
-import subprocess
-from typing import Dict, List, Optional, Any, Tuple
-from pathlib import Path
 import logging
+from pathlib import Path
+from typing import Any, Dict, List, Optional
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -305,13 +302,7 @@ class MobileDevelopmentSkill:
         # Analyze project structure
         for item in project_dir.rglob("*"):
             if item.is_file():
-                if item.suffix in [".tsx", ".ts", ".js", ".jsx"]:
-                    project_info["components"].append(str(item))
-                elif item.suffix in [".dart"]:
-                    project_info["components"].append(str(item))
-                elif item.suffix in [".swift", ".m", ".h"]:
-                    project_info["components"].append(str(item))
-                elif item.suffix in [".kt", ".java"]:
+                if item.suffix in [".tsx", ".ts", ".js", ".jsx"] or item.suffix in [".dart"] or item.suffix in [".swift", ".m", ".h"] or item.suffix in [".kt", ".java"]:
                     project_info["components"].append(str(item))
         
         return project_info
@@ -328,7 +319,7 @@ class MobileDevelopmentSkill:
             return "flutter"
         elif (project_dir / "package.json").exists():
             try:
-                with open(project_dir / "package.json", 'r') as f:
+                with open(project_dir / "package.json") as f:
                     package_data = json.load(f)
                 deps = package_data.get("dependencies", {})
                 if "react-native" in deps:
@@ -365,7 +356,7 @@ class MobileDevelopmentSkill:
             package_file = project_dir / "package.json"
             if package_file.exists():
                 try:
-                    with open(package_file, 'r') as f:
+                    with open(package_file) as f:
                         package_data = json.load(f)
                     deps = package_data.get("dependencies", {})
                     dev_deps = package_data.get("devDependencies", {})
@@ -859,56 +850,56 @@ public class {name}Presenter implements {name}Contract.Presenter {{
     def _generate_rest_api(self, platform: str, authentication: str) -> Dict[str, str]:
         """Generate REST API implementation."""
         if platform == "react_native":
-            api_content = f"""import axios from 'axios';
+            api_content = """import axios from 'axios';
 
-class ApiService {{
+class ApiService {
   private baseURL = 'https://api.example.com';
   private token: string | null = null;
   
-  constructor() {{
+  constructor() {
     this.setupInterceptors();
-  }}
+  }
   
-  private setupInterceptors() {{
+  private setupInterceptors() {
     axios.interceptors.request.use(
-      (config) => {{
-        if (this.token) {{
-          config.headers.Authorization = `Bearer ${{this.token}}`;
-        }}
+      (config) => {
+        if (this.token) {
+          config.headers.Authorization = `Bearer ${this.token}`;
+        }
         return config;
-      }},
+      },
       (error) => Promise.reject(error)
     );
-  }}
+  }
   
-  async get<T>(endpoint: string): Promise<T> {{
-    const response = await axios.get(`${{this.baseURL}}${{endpoint}}`);
+  async get<T>(endpoint: string): Promise<T> {
+    const response = await axios.get(`${this.baseURL}${endpoint}`);
     return response.data;
-  }}
+  }
   
-  async post<T>(endpoint: string, data: any): Promise<T> {{
-    const response = await axios.post(`${{this.baseURL}}${{endpoint}}`, data);
+  async post<T>(endpoint: string, data: any): Promise<T> {
+    const response = await axios.post(`${this.baseURL}${endpoint}`, data);
     return response.data;
-  }}
+  }
   
-  async put<T>(endpoint: string, data: any): Promise<T> {{
-    const response = await axios.put(`${{this.baseURL}}${{endpoint}}`, data);
+  async put<T>(endpoint: string, data: any): Promise<T> {
+    const response = await axios.put(`${this.baseURL}${endpoint}`, data);
     return response.data;
-  }}
+  }
   
-  async delete<T>(endpoint: string): Promise<T> {{
-    const response = await axios.delete(`${{this.baseURL}}${{endpoint}}`);
+  async delete<T>(endpoint: string): Promise<T> {
+    const response = await axios.delete(`${this.baseURL}${endpoint}`);
     return response.data;
-  }}
+  }
   
-  setToken(token: string) {{
+  setToken(token: string) {
     this.token = token;
-  }}
+  }
   
-  clearToken() {{
+  clearToken() {
     this.token = null;
-  }}
-}}
+  }
+}
 
 export default new ApiService();
 """

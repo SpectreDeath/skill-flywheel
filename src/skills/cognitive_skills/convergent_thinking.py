@@ -5,19 +5,20 @@ Main skill that orchestrates all convergent thinking sub-skills to solve
 problems by finding the single best answer.
 """
 
-from typing import Dict, List, Optional, Any
+from typing import Any, Dict, List
+
+from .accuracy_and_speed import AccuracySpeedOptimizer
+from .analytical_thinking import AnalyticalThinker
+from .conclusive_thinking import ConclusiveThinker
+from .critical_evaluation import CriticalEvaluator
+from .decision_making import DecisionMaker
+from .depth_of_understanding import DepthUnderstander
+from .fact_based_assessment import FactBasedAssessor
+from .focused_selection import FocusedSelector
+from .information_retrieval import InformationRetriever
+from .knowledge_synthesis import KnowledgeSynthesizer
 from .logical_reasoning import LogicalReasoner
 from .sequential_problem_solving import SequentialProblemSolver
-from .critical_evaluation import CriticalEvaluator
-from .analytical_thinking import AnalyticalThinker
-from .decision_making import DecisionMaker
-from .knowledge_synthesis import KnowledgeSynthesizer
-from .information_retrieval import InformationRetriever
-from .fact_based_assessment import FactBasedAssessor
-from .accuracy_and_speed import AccuracySpeedOptimizer
-from .focused_selection import FocusedSelector
-from .depth_of_understanding import DepthUnderstander
-from .conclusive_thinking import ConclusiveThinker
 from .technique_application import TechniqueApplicator
 
 

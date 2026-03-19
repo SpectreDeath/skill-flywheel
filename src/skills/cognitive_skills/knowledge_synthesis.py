@@ -5,8 +5,8 @@ Combine existing knowledge from multiple sources to form coherent
 solutions and new insights.
 """
 
-from typing import Dict, List, Optional, Any, Set
 from dataclasses import dataclass, field
+from typing import Dict, List, Set
 
 
 @dataclass

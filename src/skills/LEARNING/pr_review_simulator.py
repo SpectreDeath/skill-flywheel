@@ -1,7 +1,5 @@
 import re
-import hashlib
 from collections import defaultdict
-from typing import Any
 
 
 class PRReviewSimulator:
@@ -378,13 +376,12 @@ class PRReviewSimulator:
 
         if style == "strict":
             verdict = "Changes require revisions before merge"
+        elif must_fix > 0:
+            verdict = "Please address critical issues before merging"
+        elif should_fix > 0:
+            verdict = "Changes look good with minor improvements suggested"
         else:
-            if must_fix > 0:
-                verdict = "Please address critical issues before merging"
-            elif should_fix > 0:
-                verdict = "Changes look good with minor improvements suggested"
-            else:
-                verdict = "LGTM! Ready to merge"
+            verdict = "LGTM! Ready to merge"
 
         return {
             "total_issues": total_issues,

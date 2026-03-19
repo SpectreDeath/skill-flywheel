@@ -5,7 +5,6 @@ Test script for verifying skill functionality
 
 import asyncio
 import sys
-import os
 
 # Add src to path
 sys.path.append('src')

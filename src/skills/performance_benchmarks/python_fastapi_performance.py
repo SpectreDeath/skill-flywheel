@@ -15,17 +15,17 @@ Key Features:
 - Response time reduction techniques
 """
 
-import time
-import datetime
-import logging
-import json
 import asyncio
+import datetime
+import json
+import logging
 import statistics
-from typing import Dict, List, Any, Optional, Union, Callable
-from dataclasses import dataclass, asdict
+import time
+from dataclasses import asdict, dataclass
 from pathlib import Path
+from typing import Any, Callable, Dict, List, Optional
+
 import psutil
-import sys
 
 logger = logging.getLogger(__name__)
 
@@ -330,7 +330,7 @@ class FastAPIPerformanceOptimizer:
             return {"error": "FastAPI app file not found"}
         
         try:
-            with open(app_file, 'r') as f:
+            with open(app_file) as f:
                 content = f.read()
             
             analysis = {

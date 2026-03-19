@@ -11,32 +11,26 @@ Type: Jupyter Notebook tutorial
 Category: ML Project Codes
 """
 
-import os
 import json
 import logging
-import subprocess
-from typing import Dict, List, Optional, Tuple, Any
+import os
 from pathlib import Path
-import tempfile
+from typing import Any, Dict, List
 
 # Core dependencies for transformer model optimization
 try:
+    import numpy as np
+    import onnxruntime
     import torch
     import transformers
-    import onnxruntime
-    import numpy as np
-    from transformers import (
-        AutoTokenizer, 
-        AutoModelForSequenceClassification,
-        pipeline
-    )
+    from onnxruntime.quantization import QuantizationMode
     from optimum.onnxruntime import (
         ORTModelForSequenceClassification,
         ORTOptimizer,
-        ORTQuantizer
+        ORTQuantizer,
     )
     from optimum.onnxruntime.configuration import OptimizationConfig
-    from onnxruntime.quantization import QuantizationMode
+    from transformers import AutoModelForSequenceClassification, AutoTokenizer, pipeline
 except ImportError as e:
     raise ImportError(f"Required dependencies not installed: {e}")
 

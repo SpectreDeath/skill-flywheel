@@ -7,21 +7,20 @@ insights for skill execution, agent orchestration, and system health.
 It includes real-time monitoring, historical analysis, and predictive insights.
 """
 
-import os
-import json
-import time
-import logging
 import asyncio
+import json
+import logging
+import queue
 import statistics
-from pathlib import Path
-from typing import Dict, List, Any, Optional, Tuple, Callable
-from dataclasses import dataclass, asdict
+import threading
+import time
+from dataclasses import dataclass
 from datetime import datetime, timedelta
 from enum import Enum
-import threading
-import queue
+from pathlib import Path
+from typing import Any, Callable, Dict, List, Optional, Tuple
+
 import psutil
-import sys
 
 logger = logging.getLogger(__name__)
 

@@ -6,9 +6,8 @@ without generating actual code. Focuses on concepts, best practices, and
 architecture patterns for modern frontend development.
 """
 
-import os
-from typing import Dict, List, Optional, Any
 import logging
+from typing import Any, Dict, List, Optional
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)

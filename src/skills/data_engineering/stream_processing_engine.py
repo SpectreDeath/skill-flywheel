@@ -7,15 +7,14 @@ Description: Real-time stream processing engine for continuous data workflows
 
 import asyncio
 import logging
+import statistics
 import time
 import uuid
-import json
-from typing import Dict, Any, List, Optional, Union, Callable, AsyncGenerator
-from dataclasses import dataclass, asdict
+from collections import deque
+from dataclasses import dataclass
+from datetime import datetime
 from enum import Enum
-from datetime import datetime, timedelta
-import statistics
-from collections import deque, defaultdict
+from typing import Any, Callable, Dict, List, Optional
 
 logger = logging.getLogger(__name__)
 

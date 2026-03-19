@@ -1,13 +1,13 @@
 import logging
-import numpy as np
 import pickle
 from pathlib import Path
+from typing import Any, Dict
 from unittest.mock import Mock
-from sklearn.ensemble import RandomForestRegressor, IsolationForest
-from sklearn.preprocessing import StandardScaler, LabelEncoder
-from sklearn.model_selection import train_test_split
+
+import numpy as np
 from sklearn.metrics import mean_squared_error
-from typing import Any, Dict, Optional
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import LabelEncoder, StandardScaler
 
 logger = logging.getLogger(__name__)
 

@@ -1,15 +1,15 @@
 import asyncio
-import logging
-import json
-import time
 import importlib.util
-from enum import Enum
-from dataclasses import dataclass, asdict, field
+import json
+import logging
+import time
+from collections import defaultdict
+from dataclasses import dataclass, field
 from datetime import datetime
+from enum import Enum
 from pathlib import Path
+from typing import Any, Dict, List, Optional, Set
 from unittest.mock import Mock
-from typing import Any, Dict, List, Optional, Set, Tuple
-from collections import defaultdict, deque
 
 logger = logging.getLogger(__name__)
 
@@ -143,7 +143,7 @@ class EnhancedSkillManager:
         # Load from skill registry
         if self.skill_registry_path.exists():
             try:
-                with open(self.skill_registry_path, 'r') as f:
+                with open(self.skill_registry_path) as f:
                     registry_data = json.load(f)
                 
                 for skill_data in registry_data:

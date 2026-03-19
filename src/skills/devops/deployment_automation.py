@@ -6,22 +6,19 @@ Description: Automated deployment system for applications and infrastructure
 """
 
 import asyncio
+import hashlib
 import logging
+import os
+import shutil
 import time
 import uuid
-import json
-import os
-import subprocess
-import yaml
-import tarfile
-import shutil
-from typing import Dict, Any, List, Optional, Union, Callable
-from dataclasses import dataclass, asdict
+from dataclasses import dataclass
+from datetime import datetime
 from enum import Enum
-from datetime import datetime, timedelta
-import hashlib
+from typing import Any, Dict, List, Optional
+
 import requests
-from pathlib import Path
+import yaml
 
 logger = logging.getLogger(__name__)
 

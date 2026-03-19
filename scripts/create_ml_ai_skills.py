@@ -1,8 +1,7 @@
 import json
-import uuid
-import sqlite3
 import os
-from datetime import datetime
+import sqlite3
+import uuid
 
 SKILLS = [
     (
@@ -244,7 +243,7 @@ def update_database(db_path: str, base_module: str):
 
 def update_backlog(backlog_path: str):
     """Update skills_backlog.json"""
-    with open(backlog_path, "r", encoding="utf-8") as f:
+    with open(backlog_path, encoding="utf-8") as f:
         backlog = json.load(f)
 
     existing_names = {item["name"] for item in backlog}

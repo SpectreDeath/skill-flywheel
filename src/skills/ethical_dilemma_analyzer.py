@@ -7,9 +7,7 @@ Analyzes ethical dilemmas and applies moral frameworks:
 - Identifies stakeholders and impacts
 """
 
-from typing import Dict, List, Any, Optional
-from dataclasses import dataclass
-
+from typing import Any, Dict, List, Optional
 
 MORAL_FRAMEWORKS = {
     "utilitarianism": {
@@ -190,7 +188,7 @@ def invoke(payload: dict) -> dict:
     """MCP skill invocation"""
     action = payload.get("action", "analyze")
     scenario = payload.get("scenario", "")
-    frameworks = payload.get("frameworks", None)
+    frameworks = payload.get("frameworks")
 
     if action == "analyze":
         result = ethical_dilemma_analyzer(scenario, frameworks)

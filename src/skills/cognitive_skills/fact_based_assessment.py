@@ -5,9 +5,9 @@ Evaluate situations and make decisions using observable evidence
 rather than intuition or assumptions.
 """
 
-from typing import Dict, List, Optional, Any, Tuple
 from dataclasses import dataclass
 from enum import Enum
+from typing import Any, Dict, List, Tuple
 
 
 class FactType(Enum):
@@ -163,9 +163,9 @@ class FactBasedAssessor:
         analysis = self.analyze_facts()
 
         if self.facts:
-            conclusion = "Based on {} factual statements".format(len(self.facts))
+            conclusion = f"Based on {len(self.facts)} factual statements"
             if self.opinions:
-                conclusion += " and {} opinion statements".format(len(self.opinions))
+                conclusion += f" and {len(self.opinions)} opinion statements"
             conclusion += "."
 
             return {

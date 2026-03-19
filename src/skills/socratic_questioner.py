@@ -10,8 +10,7 @@ Applies Socratic questioning to explore concepts:
 - Meta-questioning
 """
 
-from typing import Dict, List, Any, Optional
-
+from typing import Any, Dict, List, Optional
 
 QUESTION_TYPES = {
     "clarification": [
@@ -95,7 +94,7 @@ def generate_questions(concept: str, depth: int = 2) -> Dict[str, Any]:
     # Create a questioning sequence
     sequence = []
     for i in range(depth):
-        for q_type in QUESTION_TYPES.keys():
+        for q_type in QUESTION_TYPES:
             if questions[q_type]:
                 q = questions[q_type][i % len(questions[q_type])]
                 sequence.append(
@@ -148,7 +147,7 @@ def invoke(payload: dict) -> dict:
     action = payload.get("action", "question")
     concept = payload.get("concept", "")
     depth = payload.get("depth", 2)
-    focus = payload.get("focus", None)
+    focus = payload.get("focus")
 
     if action == "question":
         result = socratic_questioner(concept, depth, focus)

@@ -11,9 +11,8 @@ This module provides dependency bundle analysis capabilities:
 
 import json
 import re
-from typing import Dict, List, Any, Optional
 from dataclasses import dataclass
-
+from typing import Dict, List, Optional
 
 PACKAGE_SIZES = {
     "moment": {"size": "67KB", "category": "date"},
@@ -850,7 +849,7 @@ def generate_report(analysis: dict) -> str:
 
     recommendations = summary.get("recommendations", [])
     if recommendations:
-        lines.append(f"\nRECOMMENDATIONS:")
+        lines.append("\nRECOMMENDATIONS:")
         lines.append("-" * 40)
         for rec in recommendations:
             lines.append(f"  • {rec}")

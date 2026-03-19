@@ -7,9 +7,9 @@ Probabilistic clustering using GMM:
 - EM algorithm for fitting
 """
 
-from typing import Dict, List, Any, Optional
 import math
 import random
+from typing import Any, Dict, List
 
 
 def _multivariate_normal_pdf(

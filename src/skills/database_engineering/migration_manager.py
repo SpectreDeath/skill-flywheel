@@ -6,18 +6,16 @@ Description: Database schema migration and version control system
 """
 
 import asyncio
+import hashlib
+import json
 import logging
+import os
 import time
 import uuid
-import json
-import os
-import hashlib
-from typing import Dict, Any, List, Optional, Union, Callable
-from dataclasses import dataclass, asdict
+from dataclasses import asdict, dataclass
+from datetime import datetime
 from enum import Enum
-from datetime import datetime, timedelta
-import re
-from collections import defaultdict
+from typing import Any, Dict, List, Optional
 
 logger = logging.getLogger(__name__)
 
@@ -448,7 +446,7 @@ class MigrationManager:
         for filename in migration_files:
             filepath = os.path.join(self.migrations_path, filename)
             try:
-                with open(filepath, 'r') as f:
+                with open(filepath) as f:
                     migration_data = json.load(f)
                     migration = Migration(**migration_data)
                     self.migrations[migration.migration_id] = migration

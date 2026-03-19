@@ -15,18 +15,16 @@ Category: Development
 Estimated Execution Time: 100ms - 2 minutes
 """
 
-import numpy as np
-import time
-import logging
-from typing import List, Dict, Any, Tuple, Optional, Set, Union
-from dataclasses import dataclass, asdict
-from enum import Enum
 import heapq
-from collections import defaultdict, deque
-import json
+import logging
 import threading
-import multiprocessing as mp
-from abc import ABC, abstractmethod
+import time
+from collections import defaultdict, deque
+from dataclasses import asdict, dataclass
+from enum import Enum
+from typing import Any, Dict, List, Optional, Tuple
+
+import numpy as np
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -582,9 +580,7 @@ class SATSolver:
             conflict = False
 
             for clause in clauses:
-                if var in clause and value:
-                    continue  # Clause satisfied
-                elif -var in clause and not value:
+                if var in clause and value or -var in clause and not value:
                     continue  # Clause satisfied
                 elif var in clause and not value:
                     new_clause = [l for l in clause if l != var]
@@ -1017,12 +1013,12 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
         else:
             return {
-                "result": {"error": "Unknown action: {}".format(action)},
+                "result": {"error": f"Unknown action: {action}"},
                 "metadata": {"action": action, "timestamp": datetime.now().isoformat()},
             }
 
     except Exception as e:
-        logger.error("Error in sat_solver_optimization: {}".format(e))
+        logger.error(f"Error in sat_solver_optimization: {e}")
         return {
             "result": {"error": str(e)},
             "metadata": {"action": action, "timestamp": datetime.now().isoformat()},

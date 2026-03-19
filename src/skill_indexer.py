@@ -7,14 +7,11 @@ It scans all domains, extracts metadata from SKILL.md files, and builds a search
 """
 
 import json
-import os
-import re
-import glob
-from pathlib import Path
-from typing import Dict, List, Optional, Set, Any
-from dataclasses import dataclass, asdict
-from datetime import datetime
 import logging
+import re
+from dataclasses import asdict, dataclass
+from pathlib import Path
+from typing import Any, Dict, List, Optional
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -122,7 +119,7 @@ class SkillIndexer:
         Support both legacy Markdown formatting and new YAML frontmatter.
         """
         try:
-            with open(skill_file, 'r', encoding='utf-8') as f:
+            with open(skill_file, encoding='utf-8') as f:
                 content = f.read()
             
             metadata = {
@@ -366,7 +363,7 @@ class SkillIndexer:
     def load_index(self, input_path: str = "skill_index.json"):
         """Load a skill index from a JSON file."""
         try:
-            with open(input_path, 'r', encoding='utf-8') as f:
+            with open(input_path, encoding='utf-8') as f:
                 index_data = json.load(f)
             
             self.skills = {name: SkillMetadata(**metadata) for name, metadata in index_data['skills'].items()}

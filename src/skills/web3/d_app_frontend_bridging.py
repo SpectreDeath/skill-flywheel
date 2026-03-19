@@ -1,8 +1,8 @@
-import time
-import logging
 import hashlib
+import logging
+import time
 from datetime import datetime
-from typing import Dict, List, Any, Optional
+from typing import Any, Dict, List
 
 logger = logging.getLogger(__name__)
 
@@ -19,7 +19,7 @@ def generate_contract_calls(contracts: List[Dict[str, Any]]) -> Dict[str, Any]:
 
         for func in contract.get("functions", []):
             call["methods"][func] = {
-                "signature": "{}".format(func),
+                "signature": f"{func}",
                 "call_data_example": "0x00000000",
             }
 
@@ -43,7 +43,7 @@ def create_event_listeners(
                     + str(hash(event))[:8]
                 ],
             },
-            "handler": "handle{}Event".format(event),
+            "handler": f"handle{event}Event",
         }
         listeners.append(listener)
 
@@ -52,9 +52,7 @@ def create_event_listeners(
 
 def generate_frontend_bridge(config: Dict[str, Any]) -> Dict[str, Any]:
     bridge = {
-        "bridge_id": "dapp-bridge-{}".format(
-            hashlib.md5(str(time.time()).encode()).hexdigest()[:8]
-        ),
+        "bridge_id": f"dapp-bridge-{hashlib.md5(str(time.time()).encode()).hexdigest()[:8]}",
         "web3_provider": config.get("web3_provider", "window.ethereum"),
         "chain_id": config.get("chain_id", 1),
         "contracts": [],
@@ -114,12 +112,12 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
         else:
             return {
-                "result": {"error": "Unknown action: {}".format(action)},
+                "result": {"error": f"Unknown action: {action}"},
                 "metadata": {"action": action, "timestamp": datetime.now().isoformat()},
             }
 
     except Exception as e:
-        logger.error("Error in d_app_frontend_bridging: {}".format(e))
+        logger.error(f"Error in d_app_frontend_bridging: {e}")
         return {
             "result": {"error": str(e)},
             "metadata": {"action": action, "timestamp": datetime.now().isoformat()},

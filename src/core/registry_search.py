@@ -1,4 +1,3 @@
-import os
 import json
 import sys
 from pathlib import Path
@@ -13,7 +12,7 @@ def search_registry(query, max_results=10):
         return [{"error": "Registry file not found. Run reindex_skills.py first."}]
         
     try:
-        with open(REGISTRY_FILE, 'r', encoding='utf-8') as f:
+        with open(REGISTRY_FILE, encoding='utf-8') as f:
             registry = json.load(f)
             
         for skill in registry:

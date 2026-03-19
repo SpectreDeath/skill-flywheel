@@ -1,9 +1,6 @@
 import os
 import subprocess
-import json
-import yaml
-from pathlib import Path
-import re
+
 
 def generate_improvement(skill_content):
     """Call an LLM to improve the skill content if credentials are available."""
@@ -62,7 +59,7 @@ def run_agv_cycle(target_skills):
     PHASE 4: AGI LOOP
     Executes a full cycle: Chaos -> Critique -> Refine -> Validate.
     """
-    print(f"--- INITIALIZING V3.0 AUTONOMOUS CYCLE ---")
+    print("--- INITIALIZING V3.0 AUTONOMOUS CYCLE ---")
     
     for skill_path in target_skills:
         print(f"\n[Target] {skill_path}")
@@ -71,7 +68,7 @@ def run_agv_cycle(target_skills):
             continue
             
         try:
-            with open(skill_path, 'r', encoding='utf-8') as f:
+            with open(skill_path, encoding='utf-8') as f:
                 content = f.read()
                 
             # 1. Ralph Chaos & Critique (LLM Generation)
@@ -89,7 +86,7 @@ def run_agv_cycle(target_skills):
 
     # 4. Validation Gate
     print("\n✅ [Phase 4] Validation: Running final_verify.py...")
-    verify_res = subprocess.run(["python", "final_verify.py"], capture_output=True, text=True)
+    verify_res = subprocess.run(["python", "final_verify.py"], capture_output=True, text=True, check=False)
     if verify_res.returncode == 0:
         print("Validation checks passed.")
     else:
@@ -98,7 +95,7 @@ def run_agv_cycle(target_skills):
 
     # 5. Registry Refresh
     print("\n🔄 [Phase 5] Registry: Refreshing skill index...")
-    subprocess.run(["python", "reindex_skills.py"], capture_output=True)
+    subprocess.run(["python", "reindex_skills.py"], capture_output=True, check=False)
     print("✨ Flywheel cycle complete. Registry is up to date.")
 
 if __name__ == "__main__":

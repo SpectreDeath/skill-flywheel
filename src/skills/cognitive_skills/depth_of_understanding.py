@@ -4,7 +4,7 @@ Depth of Understanding Module
 Build detailed logical justifications through thorough understanding.
 """
 
-from typing import Dict, List, Optional, Any
+from typing import Dict, List
 
 
 class DepthUnderstander:

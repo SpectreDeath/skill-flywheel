@@ -1,9 +1,10 @@
 import logging
 import pickle
-import redis
-from datetime import datetime
 from collections import deque
+from datetime import datetime
 from typing import Any, Dict, Optional
+
+import redis
 
 logger = logging.getLogger(__name__)
 

@@ -16,9 +16,9 @@ Safety: No external dependencies required
 """
 
 import asyncio
-import json
-from typing import Dict, List, Any, Optional, Union
 from dataclasses import dataclass
+from typing import Any, Dict, List, Optional
+
 
 @dataclass
 class SearchResult:

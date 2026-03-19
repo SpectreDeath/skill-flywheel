@@ -2,7 +2,8 @@ from __future__ import annotations
 
 import logging
 import time
-from typing import Any, Dict, Generator, List, Optional, Union
+from collections.abc import Generator
+from typing import Any, Dict, List, Optional, Union
 
 from .config import EvolutionConfig
 from .evaluator import SkillExecutor, SkillFitnessEvaluator
@@ -273,7 +274,6 @@ def list_evolvable_groups() -> List[str]:
 
 
 if __name__ == "__main__":
-    import sys
 
     logging.basicConfig(
         level=logging.INFO,
@@ -313,7 +313,7 @@ if __name__ == "__main__":
     print("\nInitializing runner...")
     runner.initialize()
 
-    print(f"Runner initialized successfully!")
+    print("Runner initialized successfully!")
     print(f"Evolution statistics: {runner.get_statistics()}")
 
     print("\nNote: Full evolution requires LLM client configuration for the mutator.")

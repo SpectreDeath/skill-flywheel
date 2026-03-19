@@ -2,11 +2,12 @@
 Unit tests for Skill Flywheel core modules
 """
 
-import pytest
-from unittest.mock import Mock, patch, MagicMock
-from fastapi.testclient import TestClient
-import sys
 import os
+import sys
+from unittest.mock import MagicMock, Mock, patch
+
+import pytest
+from fastapi.testclient import TestClient
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
@@ -156,8 +157,8 @@ class TestConstants:
 
     def test_discovery_service_constants(self):
         from src.server.discovery_service import (
-            DEFAULT_LIMIT,
             CACHE_THRESHOLD,
+            DEFAULT_LIMIT,
             MIN_JWT_SECRET_LENGTH,
         )
 

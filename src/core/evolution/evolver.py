@@ -3,8 +3,9 @@ from __future__ import annotations
 import json
 import logging
 import random
+from collections.abc import Generator
 from pathlib import Path
-from typing import Any, Dict, Generator, List, Optional
+from typing import Any, Dict, List, Optional
 
 from darwinian_evolver.evolver import Evolver
 from darwinian_evolver.learning_log_view import (
@@ -16,7 +17,7 @@ from darwinian_evolver.problem import MutatorContext
 
 from .config import EvolutionConfig
 from .evaluator import SkillFitnessEvaluator
-from .genome import SkillFitnessResult, SkillGenome
+from .genome import SkillGenome
 from .mutator import LLMMutator
 from .population import EvolutionStatistics, SkillPopulation
 
@@ -102,8 +103,6 @@ class SkillEvolver:
 
     def _populate_initial_population(self) -> None:
         """Populate initial population with mutated variants."""
-        from darwinian_evolver.learning_log import LearningLogEntry
-        from .genome import SkillFailureCase
 
         target_size = self.config.population_size
 

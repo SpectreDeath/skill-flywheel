@@ -8,10 +8,8 @@ This module provides meta-skills for creating and improving other skills:
 
 import os
 import re
-import json
 from pathlib import Path
-from typing import Dict, List, Any, Optional
-
+from typing import Any, Dict, List, Optional
 
 SKILL_TEMPLATE = """---
 Domain: {domain}
@@ -316,14 +314,14 @@ def skill_critiquing(
     try:
         if os.path.isfile(skill_path) or skill_path.endswith(".md"):
             if os.path.exists(skill_path):
-                with open(skill_path, "r", encoding="utf-8") as f:
+                with open(skill_path, encoding="utf-8") as f:
                     content = f.read()
             else:
                 return {"status": "error", "error": f"File not found: {skill_path}"}
         else:
             skill_file = _find_skill_file(skill_path)
             if skill_file and os.path.exists(skill_file):
-                with open(skill_file, "r", encoding="utf-8") as f:
+                with open(skill_file, encoding="utf-8") as f:
                     content = f.read()
             else:
                 return {"status": "error", "error": f"Skill not found: {skill_path}"}

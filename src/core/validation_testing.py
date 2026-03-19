@@ -7,19 +7,16 @@ including multi-framework testing, quality assurance, security scanning,
 and performance benchmarking.
 """
 
-import os
-import json
-import tempfile
-import subprocess
-import time
-import logging
-from pathlib import Path
-from typing import Dict, List, Any, Optional, Tuple, Callable
-from dataclasses import dataclass, asdict
-from enum import Enum
 import asyncio
+import logging
 import re
-import ast
+import subprocess
+import tempfile
+import time
+from dataclasses import asdict, dataclass
+from enum import Enum
+from pathlib import Path
+from typing import Any, Dict, List
 
 logger = logging.getLogger(__name__)
 
@@ -93,7 +90,7 @@ class SkillValidator:
         
         try:
             # Read skill content
-            with open(skill_path, 'r', encoding='utf-8') as f:
+            with open(skill_path, encoding='utf-8') as f:
                 content = f.read()
             
             # Run validations
@@ -574,7 +571,7 @@ class SkillTester:
                 ["python", "-m", "pytest", str(test_file), "-v", "--tb=short"],
                 capture_output=True,
                 text=True,
-                cwd=temp_dir
+                cwd=temp_dir, check=False
             )
             
             # Parse results
@@ -673,7 +670,7 @@ def test_custom_case_{i}():
                 ["python", "-m", "unittest", "test_skill", "-v"],
                 capture_output=True,
                 text=True,
-                cwd=temp_dir
+                cwd=temp_dir, check=False
             )
             
             # Parse results (simplified)
@@ -753,7 +750,7 @@ class TestSkill(unittest.TestCase):
             result = subprocess.run(
                 ["python", "-m", "doctest", str(skill_path), "-v"],
                 capture_output=True,
-                text=True
+                text=True, check=False
             )
             
             # Parse results

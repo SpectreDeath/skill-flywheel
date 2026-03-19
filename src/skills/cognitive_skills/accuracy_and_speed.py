@@ -4,9 +4,8 @@ Accuracy and Speed Module
 Achieve correct answers efficiently under time pressure.
 """
 
-from typing import Dict, List, Optional, Any, Callable
 from dataclasses import dataclass
-import math
+from typing import Any, Callable, Dict, List, Optional
 
 
 class QuestionDifficulty(Enum):

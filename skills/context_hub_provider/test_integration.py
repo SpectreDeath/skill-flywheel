@@ -5,10 +5,9 @@ Integration tests for Context Hub Provider Skill.
 This test suite validates the skill's integration with the actual chub CLI.
 """
 
-import unittest
-import json
-import sys
 import os
+import sys
+import unittest
 
 # Add the skill directory to the path
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))

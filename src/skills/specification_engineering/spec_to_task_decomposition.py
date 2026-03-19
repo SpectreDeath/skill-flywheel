@@ -1,9 +1,9 @@
-import time
+import hashlib
 import logging
 import re
-import hashlib
+import time
 from datetime import datetime
-from typing import Dict, List, Any, Optional
+from typing import Any, Dict, List
 
 logger = logging.getLogger(__name__)
 
@@ -165,7 +165,7 @@ def decompose_specification(spec_data: Dict[str, Any]) -> Dict[str, Any]:
 
     tasks = []
     for i, sentence in enumerate(sentences):
-        task_id = "task-{:03d}".format(i + 1)
+        task_id = f"task-{i + 1:03d}"
 
         complexity = analyze_task_complexity(sentence)
         failure_prob = (
@@ -305,12 +305,12 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
         else:
             return {
-                "result": {"error": "Unknown action: {}".format(action)},
+                "result": {"error": f"Unknown action: {action}"},
                 "metadata": {"action": action, "timestamp": datetime.now().isoformat()},
             }
 
     except Exception as e:
-        logger.error("Error in spec_to_task_decomposition: {}".format(e))
+        logger.error(f"Error in spec_to_task_decomposition: {e}")
         return {
             "result": {"error": str(e)},
             "metadata": {"action": action, "timestamp": datetime.now().isoformat()},

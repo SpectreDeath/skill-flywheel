@@ -15,21 +15,19 @@ Features:
 """
 
 import asyncio
-import logging
-import requests
-import docker
-from docker.errors import APIError, NotFound
-from src.core.docker_utils import DockerUtils
-import json
 import datetime
-import sys
+import json
+import logging
 import os
 import signal
-import threading
+import sys
 import time
-import shutil
 from pathlib import Path
-from typing import List, Dict, Any, Optional
+from typing import Any, Dict, List, Optional
+
+import requests
+
+from src.core.docker_utils import DockerUtils
 
 # Configure logging for the watchdog itself
 logging.basicConfig(
@@ -340,7 +338,7 @@ class WatchdogMonitor:
         config_path = os.environ.get("MCP_CONFIG_FILE", "data/mcp_config.json")
         try:
             if os.path.exists(config_path):
-                with open(config_path, 'r') as f:
+                with open(config_path) as f:
                     config = json.load(f)
                     new_services = []
                     for key, svc in config.get("services", {}).items():

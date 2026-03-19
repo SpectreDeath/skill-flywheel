@@ -10,8 +10,8 @@ Detects performance bottlenecks in Python code by analyzing:
 
 import ast
 import re
-from typing import Dict, List, Any, Optional
 from dataclasses import dataclass
+from typing import Any, Dict, List
 
 
 @dataclass

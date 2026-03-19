@@ -6,12 +6,11 @@ Comprehensive validation script that runs all 5 validators across all 18 domains
 and generates a master compliance report with production readiness assessment.
 """
 
-import os
 import json
 import sys
 from pathlib import Path
-from typing import Dict, List, Any, Tuple
-import subprocess
+from typing import Any, Dict, List
+
 
 class MasterValidationSuite:
     def __init__(self, skills_path: str = "skills"):
@@ -179,7 +178,7 @@ class MasterValidationSuite:
         
         for file in skill_files:
             try:
-                with open(file, 'r', encoding='utf-8') as f:
+                with open(file, encoding='utf-8') as f:
                     content = f.read()
                     
                 if not content.startswith('---'):
@@ -237,7 +236,7 @@ class MasterValidationSuite:
         # For now, just check if files are readable and have basic structure
         for file in skill_files:
             try:
-                with open(file, 'r', encoding='utf-8') as f:
+                with open(file, encoding='utf-8') as f:
                     content = f.read()
                     
                 # Check for dependency section
@@ -264,7 +263,7 @@ class MasterValidationSuite:
         
         for file in skill_files:
             try:
-                with open(file, 'r', encoding='utf-8') as f:
+                with open(file, encoding='utf-8') as f:
                     content = f.read()
                 
                 score = 100
@@ -381,15 +380,14 @@ class MasterValidationSuite:
                 if validator_result["status"] == "PASS":
                     passing_validators += 1
                     total_passing_validators += 1
-                else:
-                    # Collect issues for analysis
-                    if validator_result.get("issues"):
-                        for issue in validator_result["issues"]:
-                            domain_issues.append({
-                                "domain": domain,
-                                "validator": validator_key,
-                                "issue": issue
-                            })
+                # Collect issues for analysis
+                elif validator_result.get("issues"):
+                    for issue in validator_result["issues"]:
+                        domain_issues.append({
+                            "domain": domain,
+                            "validator": validator_key,
+                            "issue": issue
+                        })
             
             if passing_validators == 5:
                 domains_with_5_passing += 1
@@ -452,8 +450,8 @@ class MasterValidationSuite:
         with open("MASTER_COMPLIANCE_REPORT.md", "w") as f:
             f.write(markdown_report)
         
-        print(f"   JSON report saved: master_compliance_report.json")
-        print(f"   Markdown report saved: MASTER_COMPLIANCE_REPORT.md")
+        print("   JSON report saved: master_compliance_report.json")
+        print("   Markdown report saved: MASTER_COMPLIANCE_REPORT.md")
 
     def _generate_markdown_report(self) -> str:
         """Generate markdown format of the master compliance report"""
@@ -485,7 +483,7 @@ class MasterValidationSuite:
             
             markdown += f"| {domain} | {self._status_icon(validators['skill_spec']['status'])} | {self._status_icon(validators['frontmatter']['status'])} | {self._status_icon(validators['naming']['status'])} | {self._status_icon(validators['dependencies']['status'])} | {self._status_icon(validators['compliance']['status'])} ({validators['compliance'].get('score', 'N/A')}) | {status_icon} |\n"
         
-        markdown += f"""
+        markdown += """
 ## Top 3 Issues Found
 
 """
@@ -496,7 +494,7 @@ class MasterValidationSuite:
         else:
             markdown += "No significant issues found.\n"
         
-        markdown += f"""
+        markdown += """
 ## Validator Performance
 
 | Validator | Total Runs | Passing | Success Rate |
@@ -559,7 +557,7 @@ class MasterValidationSuite:
 4. Update validation rules as needed
 """
         
-        markdown += f"""
+        markdown += """
 ## Detailed Results
 
 For detailed validation results for each domain, see the JSON report: `master_compliance_report.json`
@@ -596,14 +594,14 @@ For detailed validation results for each domain, see the JSON report: `master_co
         self.generate_master_report()
         
         print("\n[*] Master Validation Suite Complete!")
-        print(f"[*] Compliance Summary:")
+        print("[*] Compliance Summary:")
         print(f"   * Domains validated: {self.compliance_metrics['total_domains_validated']}/18")
         print(f"   * 5/5 passing: {self.compliance_metrics['domains_with_5_passing']}")
         print(f"   * Overall compliance: {self.compliance_metrics['overall_compliance_percentage']}%")
         print(f"   * Production ready: {'YES' if self.compliance_metrics['production_ready'] else 'NO'}")
-        print(f"\n[*] Reports generated:")
-        print(f"   * MASTER_COMPLIANCE_REPORT.md")
-        print(f"   * master_compliance_report.json")
+        print("\n[*] Reports generated:")
+        print("   * MASTER_COMPLIANCE_REPORT.md")
+        print("   * master_compliance_report.json")
 
 
 def main():

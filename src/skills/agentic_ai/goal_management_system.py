@@ -8,11 +8,11 @@ Description: Intelligent goal management system for AI agents with priority hand
 import asyncio
 import logging
 import time
-from typing import Dict, Any, List, Optional, Union
-from dataclasses import dataclass, asdict
-from enum import Enum
-from datetime import datetime, timedelta
 import uuid
+from dataclasses import asdict, dataclass
+from datetime import datetime
+from enum import Enum
+from typing import Any, Dict, List, Optional
 
 logger = logging.getLogger(__name__)
 

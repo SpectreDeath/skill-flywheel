@@ -1,8 +1,9 @@
-import os
 import json
-import re
+import os
 from pathlib import Path
+
 from google import genai
+
 
 def enrich_skill_content(content, skill_name, domain):
     """Use Gemini to enrich skill content by replacing placeholders."""
@@ -56,7 +57,7 @@ def main():
         print("Registry not found.")
         return
 
-    with open(registry_path, 'r', encoding='utf-8') as f:
+    with open(registry_path, encoding='utf-8') as f:
         registry = json.load(f)
 
     # 1. Target specifically archived placeholders for systematic re-integration
@@ -65,7 +66,7 @@ def main():
 
     enriched_count = 0
     for skill_file in archived_skills:
-        with open(skill_file, 'r', encoding='utf-8') as f:
+        with open(skill_file, encoding='utf-8') as f:
             content = f.read()
 
         # Simple domain extraction from filename or path

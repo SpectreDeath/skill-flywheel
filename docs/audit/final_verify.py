@@ -1,11 +1,12 @@
-import os
-import yaml
 from pathlib import Path
+
+import yaml
+
 
 def validate_skill(file_path):
     issues = []
     try:
-        with open(file_path, 'r', encoding='utf-8') as f:
+        with open(file_path, encoding='utf-8') as f:
             content = f.read()
         
         # 1. Frontmatter Check

@@ -11,23 +11,21 @@ This dashboard provides:
 """
 
 import asyncio
-import json
 import logging
 import os
-import time
 from datetime import datetime, timedelta
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Tuple
-from dataclasses import asdict
-import yaml
-import psutil
+from typing import Any, Dict, List
+
 import GPUtil
-from fastapi import FastAPI, HTTPException, BackgroundTasks, Request
+import psutil
+import uvicorn
+import yaml
+from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import HTMLResponse, JSONResponse
-from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
-import uvicorn
+from fastapi.templating import Jinja2Templates
 
 # Configure logging
 logging.basicConfig(
@@ -67,7 +65,7 @@ class DashboardConfig:
         
         if os.path.exists(self.config_path):
             try:
-                with open(self.config_path, 'r') as f:
+                with open(self.config_path) as f:
                     user_config = yaml.safe_load(f)
                     if user_config and "dashboard" in user_config:
                         default_config["dashboard"].update(user_config["dashboard"])

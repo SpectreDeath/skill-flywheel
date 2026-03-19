@@ -1,17 +1,16 @@
-import os
-import subprocess
 import json
+import os
 from pathlib import Path
 
 # Load audit criteria from file
 CRITERIA_PATH = Path("audit_criteria.md")
-with open(CRITERIA_PATH, 'r', encoding='utf-8') as f:
+with open(CRITERIA_PATH, encoding='utf-8') as f:
     AUDIT_CRITERIA = f.read()
 
 def audit_skill(skill_path):
     """Call an LLM to audit a skill based on criteria."""
     try:
-        with open(skill_path, 'r', encoding='utf-8', errors='ignore') as f:
+        with open(skill_path, encoding='utf-8', errors='ignore') as f:
             skill_content = f.read()
     except Exception as e:
         return {"error": f"Read error: {e}"}

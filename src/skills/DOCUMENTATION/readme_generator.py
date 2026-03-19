@@ -9,13 +9,11 @@ Generates comprehensive README files for various project types:
 - Formats output as Markdown with badges
 """
 
-import os
-import re
 import json
-from typing import Dict, List, Any, Optional
-from pathlib import Path
+import re
 from dataclasses import dataclass, field
-
+from pathlib import Path
+from typing import Dict, List
 
 SUPPORTED_LANGUAGES = {
     "python": {
@@ -211,7 +209,7 @@ def extract_package_info(project_path: str) -> ProjectInfo:
     package_json = path / "package.json"
     if package_json.exists():
         try:
-            with open(package_json, "r", encoding="utf-8") as f:
+            with open(package_json, encoding="utf-8") as f:
                 data = json.load(f)
                 info.name = data.get("name", info.name)
                 info.description = data.get("description", "")
@@ -236,7 +234,7 @@ def extract_package_info(project_path: str) -> ProjectInfo:
                     info.frameworks.append("Express")
                 elif "next" in deps:
                     info.frameworks.append("Next.js")
-        except (json.JSONDecodeError, IOError):
+        except (OSError, json.JSONDecodeError):
             pass
 
     pyproject_toml = path / "pyproject.toml"
@@ -275,7 +273,7 @@ def extract_package_info(project_path: str) -> ProjectInfo:
                     if "[project.optional-dependencies]" in content
                     else "",
                 )
-        except (IOError, IndexError):
+        except (OSError, IndexError):
             pass
 
     setup_py = path / "setup.py"
@@ -294,7 +292,7 @@ def extract_package_info(project_path: str) -> ProjectInfo:
             author_match = re.search(r'author\s*=\s*["\']([^"\']+)["\']', content)
             if author_match:
                 info.author = author_match.group(1)
-        except IOError:
+        except OSError:
             pass
 
     go_mod = path / "go.mod"
@@ -308,7 +306,7 @@ def extract_package_info(project_path: str) -> ProjectInfo:
                     info.name = line.replace("module ", "").strip()
                 elif line.startswith("go "):
                     info.version = line.replace("go ", "").strip()
-        except IOError:
+        except OSError:
             pass
 
     cargo_toml = path / "Cargo.toml"
@@ -323,7 +321,7 @@ def extract_package_info(project_path: str) -> ProjectInfo:
             version_match = re.search(r'version\s*=\s*"([^"]+)"', content)
             if version_match:
                 info.version = version_match.group(1)
-        except IOError:
+        except OSError:
             pass
 
     return info

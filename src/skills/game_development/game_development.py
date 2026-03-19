@@ -8,13 +8,10 @@ This skill handles game architecture, physics, AI, graphics, audio, networking,
 and cross-platform deployment for various game genres and platforms.
 """
 
-import os
-import re
 import json
-import subprocess
-from typing import Dict, List, Optional, Any, Tuple
-from pathlib import Path
 import logging
+from pathlib import Path
+from typing import Any, Dict, List, Optional
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -318,7 +315,7 @@ class GameDevelopmentSkill:
         elif (project_dir / "package.json").exists():
             # Check for game frameworks
             try:
-                with open(project_dir / "package.json", 'r') as f:
+                with open(project_dir / "package.json") as f:
                     package_data = json.load(f)
                 deps = package_data.get("dependencies", {})
                 if "phaser" in deps:
@@ -677,11 +674,11 @@ func die():
     def _generate_pathfinding_ai(self, engine: str, complexity: str) -> Dict[str, str]:
         """Generate pathfinding AI implementation."""
         if engine == "unity":
-            ai_content = f"""using UnityEngine;
+            ai_content = """using UnityEngine;
 using System.Collections.Generic;
 
 public class PathfindingAI : MonoBehaviour
-{{
+{
     private Transform target;
     private List<Vector3> path;
     private int currentWaypoint = 0;
@@ -691,15 +688,15 @@ public class PathfindingAI : MonoBehaviour
     [SerializeField] private float stoppingDistance = 1f;
     
     void Update()
-    {{
+    {
         if (target != null && path != null)
-        {{
+        {
             FollowPath();
-        }}
-    }}
+        }
+    }
     
     void FollowPath()
-    {{
+    {
         if (currentWaypoint >= path.Count)
             return;
             
@@ -712,24 +709,24 @@ public class PathfindingAI : MonoBehaviour
         
         // Move towards waypoint
         if (Vector3.Distance(transform.position, targetWaypoint) < stoppingDistance)
-        {{
+        {
             currentWaypoint++;
-        }}
+        }
         else
-        {{
+        {
             transform.Translate(Vector3.forward * speed * Time.deltaTime);
-        }}
-    }}
+        }
+    }
     
     public void SetPath(List<Vector3> newPath)
-    {{
+    {
         path = newPath;
         currentWaypoint = 0;
-    }}
-}}
+    }
+}
 """
         else:
-            ai_content = f"""// Simplified pathfinding for other engines
+            ai_content = """// Simplified pathfinding for other engines
 // Implementation would vary based on engine capabilities
 """
         
@@ -737,7 +734,7 @@ public class PathfindingAI : MonoBehaviour
     
     def _generate_behavior_tree_ai(self, engine: str, complexity: str) -> Dict[str, str]:
         """Generate behavior tree AI implementation."""
-        ai_content = f"""// Behavior Tree AI Implementation
+        ai_content = """// Behavior Tree AI Implementation
 // Structure varies significantly between engines
 // This is a simplified example
 """
@@ -746,7 +743,7 @@ public class PathfindingAI : MonoBehaviour
     
     def _generate_state_machine_ai(self, engine: str, complexity: str) -> Dict[str, str]:
         """Generate state machine AI implementation."""
-        ai_content = f"""// State Machine AI Implementation
+        ai_content = """// State Machine AI Implementation
 // Structure varies significantly between engines
 // This is a simplified example
 """
@@ -845,7 +842,7 @@ public class {ui_type.ToUpper()}UI : MonoBehaviour
     
     def _generate_unreal_ui(self, ui_type: str, style: str) -> Dict[str, str]:
         """Generate Unreal Engine UI implementation."""
-        ui_content = f"""// Unreal Engine UI Implementation
+        ui_content = """// Unreal Engine UI Implementation
 // Would use UMG (Unreal Motion Graphics)
 """
         
@@ -853,7 +850,7 @@ public class {ui_type.ToUpper()}UI : MonoBehaviour
     
     def _generate_godot_ui(self, ui_type: str, style: str) -> Dict[str, str]:
         """Generate Godot UI implementation."""
-        ui_content = f"""# Godot UI Implementation
+        ui_content = """# Godot UI Implementation
 # Would use Control nodes and GDScript
 """
         
@@ -869,27 +866,27 @@ public class {ui_type.ToUpper()}UI : MonoBehaviour
     
     def _generate_rigidbody_physics(self, engine: str, complexity: str) -> Dict[str, str]:
         """Generate rigidbody physics implementation."""
-        physics_content = f"""// Rigidbody Physics Implementation
+        physics_content = """// Rigidbody Physics Implementation
 // Engine-specific physics integration
 """
         
-        return {f"RigidbodyPhysics.cs": physics_content}
+        return {"RigidbodyPhysics.cs": physics_content}
     
     def _generate_softbody_physics(self, engine: str, complexity: str) -> Dict[str, str]:
         """Generate softbody physics implementation."""
-        physics_content = f"""// Softbody Physics Implementation
+        physics_content = """// Softbody Physics Implementation
 // Engine-specific softbody physics
 """
         
-        return {f"SoftbodyPhysics.cs": physics_content}
+        return {"SoftbodyPhysics.cs": physics_content}
     
     def _generate_fluid_physics(self, engine: str, complexity: str) -> Dict[str, str]:
         """Generate fluid physics implementation."""
-        physics_content = f"""// Fluid Physics Implementation
+        physics_content = """// Fluid Physics Implementation
 // Engine-specific fluid simulation
 """
         
-        return {f"FluidPhysics.cs": physics_content}
+        return {"FluidPhysics.cs": physics_content}
     
     def _get_physics_integration_instructions(self, engine: str, physics_type: str) -> str:
         """Get instructions for integrating physics."""

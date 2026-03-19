@@ -1,9 +1,9 @@
-from .cache_analyzer import cache_analyzer
-from .n_plus_one_detector import n_plus_one_detector
 from .bundle_analyzer import bundle_analyzer
-from .query_optimizer import query_optimizer
+from .cache_analyzer import cache_analyzer
 from .memory_leak_detector import memory_leak_detector
+from .n_plus_one_detector import n_plus_one_detector
 from .profiler_analyzer import profiler_analyzer
+from .query_optimizer import query_optimizer
 
 __all__ = [
     "cache_analyzer",

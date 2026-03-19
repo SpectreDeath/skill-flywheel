@@ -7,7 +7,7 @@ Conducts SWOT (Strengths, Weaknesses, Opportunities, Threats) analysis:
 - Action item generation
 """
 
-from typing import Dict, List, Any, Optional
+from typing import Any, Dict, List
 
 
 def categorize_factors(factors: List[str], category: str) -> List[Dict]:

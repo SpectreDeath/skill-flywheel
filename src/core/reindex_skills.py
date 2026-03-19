@@ -1,8 +1,9 @@
-import os
 import json
-import yaml
+import os
 import re
 from pathlib import Path
+
+import yaml
 
 WORKSPACE_ROOT = Path(__file__).parent.parent.parent
 SKILLS_DIR = WORKSPACE_ROOT / "domains"
@@ -11,7 +12,7 @@ REGISTRY_FILE = WORKSPACE_ROOT / "skill_registry.json"
 def get_skill_metadata(file_path):
     """Extract metadata from a SKILL.md file."""
     try:
-        with open(file_path, 'r', encoding='utf-8') as f:
+        with open(file_path, encoding='utf-8') as f:
             content = f.read()
             
         if not content.startswith('---'):

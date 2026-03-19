@@ -8,10 +8,10 @@ Generates API documentation from Python code snippets using:
 """
 
 import ast
-import re
 import json
-from typing import Dict, List, Any, Optional
+import re
 from dataclasses import dataclass, field
+from typing import Any, Dict, List, Optional
 
 
 @dataclass

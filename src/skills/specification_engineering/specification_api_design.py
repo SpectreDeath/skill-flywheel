@@ -1,9 +1,6 @@
-import time
 import logging
-import hashlib
-import json
 from datetime import datetime
-from typing import Dict, List, Any, Optional
+from typing import Any, Dict, List
 
 logger = logging.getLogger(__name__)
 
@@ -35,13 +32,13 @@ def analyze_api_requirements(requirements: List[str]) -> Dict[str, Any]:
 def generate_api_schema(resource: str) -> Dict[str, Any]:
     schema = {"resource": resource, "endpoints": []}
 
-    base_path = "/{}".format(resource.lower())
+    base_path = f"/{resource.lower()}"
 
     schema["endpoints"].append(
         {
             "path": base_path,
             "method": "GET",
-            "description": "List all {}".format(resource),
+            "description": f"List all {resource}",
             "parameters": [
                 {"name": "page", "type": "integer", "in": "query", "required": False},
                 {"name": "limit", "type": "integer", "in": "query", "required": False},
@@ -51,7 +48,7 @@ def generate_api_schema(resource: str) -> Dict[str, Any]:
                     "description": "Success",
                     "schema": {
                         "type": "array",
-                        "items": {"$ref": "#/definitions/{}".format(resource)},
+                        "items": {"$ref": f"#/definitions/{resource}"},
                     },
                 }
             },
@@ -62,7 +59,7 @@ def generate_api_schema(resource: str) -> Dict[str, Any]:
         {
             "path": base_path + "/{id}",
             "method": "GET",
-            "description": "Get single {}".format(resource),
+            "description": f"Get single {resource}",
             "parameters": [
                 {"name": "id", "type": "string", "in": "path", "required": True}
             ],
@@ -77,9 +74,9 @@ def generate_api_schema(resource: str) -> Dict[str, Any]:
         {
             "path": base_path,
             "method": "POST",
-            "description": "Create {}".format(resource),
+            "description": f"Create {resource}",
             "parameters": [],
-            "requestBody": {"$ref": "#/definitions/{}".format(resource)},
+            "requestBody": {"$ref": f"#/definitions/{resource}"},
             "responses": {
                 "201": {"description": "Created"},
                 "400": {"description": "Bad request"},
@@ -163,7 +160,7 @@ def generate_api_documentation(api_schema: Dict[str, Any]) -> str:
                 )
             doc.append("")
 
-    doc.append("_Generated on {} _".format(datetime.now().isoformat()))
+    doc.append(f"_Generated on {datetime.now().isoformat()} _")
 
     return "\n".join(doc)
 
@@ -270,12 +267,12 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
         else:
             return {
-                "result": {"error": "Unknown action: {}".format(action)},
+                "result": {"error": f"Unknown action: {action}"},
                 "metadata": {"action": action, "timestamp": datetime.now().isoformat()},
             }
 
     except Exception as e:
-        logger.error("Error in specification_api_design: {}".format(e))
+        logger.error(f"Error in specification_api_design: {e}")
         return {
             "result": {"error": str(e)},
             "metadata": {"action": action, "timestamp": datetime.now().isoformat()},

@@ -7,13 +7,11 @@ and generates insights about log data.
 Supports: Common log formats (Apache, Nginx, JSON, Syslog, Custom)
 """
 
-import re
 import json
-from typing import Dict, List, Any, Optional
-from dataclasses import dataclass, field
+import re
 from collections import Counter, defaultdict
-from datetime import datetime
-
+from dataclasses import dataclass, field
+from typing import Any, Dict, List, Optional
 
 SEVERITY_LEVELS = {
     "trace": 0,

@@ -1,12 +1,12 @@
-import logging
-import psutil
-import GPUtil
-import numpy as np
 import datetime
+import logging
 from dataclasses import dataclass, field
+from typing import Any, Dict, List, Optional
 from unittest.mock import Mock
-from typing import List, Dict, Any, Optional
-from prometheus_client import Counter, Histogram, Gauge
+
+import GPUtil
+import psutil
+from prometheus_client import Counter, Gauge, Histogram
 
 logger = logging.getLogger(__name__)
 

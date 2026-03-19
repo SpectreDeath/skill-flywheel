@@ -9,10 +9,10 @@ This module provides memory leak detection capabilities:
 - Suggest fixes for memory issues
 """
 
-import re
 import json
-from typing import Dict, List, Any, Optional
+import re
 from collections import defaultdict
+from typing import List
 
 
 def memory_leak_detector(memory_dump: str, options: dict) -> dict:
@@ -616,7 +616,7 @@ def invoke(payload: dict) -> dict:
         file_path = memory_dump.get("file")
         if file_path:
             try:
-                with open(file_path, "r", encoding="utf-8") as f:
+                with open(file_path, encoding="utf-8") as f:
                     memory_dump = f.read()
             except Exception as e:
                 return {

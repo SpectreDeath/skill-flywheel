@@ -1,8 +1,8 @@
-import time
-import logging
 import hashlib
+import logging
+import time
 from datetime import datetime
-from typing import Dict, List, Any, Optional
+from typing import Any, Dict, List
 
 logger = logging.getLogger(__name__)
 
@@ -95,9 +95,7 @@ def design_failover_strategy(topology: Dict[str, Any]) -> Dict[str, Any]:
     complexity = topology.get("complexity", "low")
 
     strategy = {
-        "strategy_id": "failover-{}".format(
-            hashlib.md5(str(time.time()).encode()).hexdigest()[:8]
-        )
+        "strategy_id": f"failover-{hashlib.md5(str(time.time()).encode()).hexdigest()[:8]}"
     }
 
     if complexity == "low":
@@ -305,12 +303,12 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
         else:
             return {
-                "result": {"error": "Unknown action: {}".format(action)},
+                "result": {"error": f"Unknown action: {action}"},
                 "metadata": {"action": action, "timestamp": datetime.now().isoformat()},
             }
 
     except Exception as e:
-        logger.error("Error in high_availability_replication: {}".format(e))
+        logger.error(f"Error in high_availability_replication: {e}")
         return {
             "result": {"error": str(e)},
             "metadata": {"action": action, "timestamp": datetime.now().isoformat()},

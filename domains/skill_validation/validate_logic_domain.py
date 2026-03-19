@@ -5,9 +5,8 @@ Logic Domain Validation Script
 Validates the skills/DOMAIN/logic/ domain using all 5 validation skills.
 """
 
-import sys
-import os
 import json
+import sys
 from pathlib import Path
 
 # Add current directory to path
@@ -40,11 +39,11 @@ def validate_logic_domain():
         # Import validators from current directory
         import sys
         sys.path.insert(0, '.')
-        from skill_spec_validator import AgentSkillsValidator
-        from frontmatter_validator import FrontmatterValidator
-        from naming_convention_checker import NamingConventionChecker
         from dependency_analyzer import DependencyAnalyzer
         from format_compliance_tester import FormatComplianceTester
+        from frontmatter_validator import FrontmatterValidator
+        from naming_convention_checker import NamingConventionChecker
+        from skill_spec_validator import AgentSkillsValidator
     except ImportError as e:
         print(f"❌ Failed to import validators: {e}")
         return

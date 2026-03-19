@@ -1,9 +1,8 @@
-import time
-import logging
 import hashlib
-import random
-from datetime import datetime, timedelta
-from typing import Dict, List, Any, Optional
+import logging
+import time
+from datetime import datetime
+from typing import Any, Dict, Optional
 
 logger = logging.getLogger(__name__)
 
@@ -15,9 +14,7 @@ def generate_backup_strategy(database: Dict[str, Any]) -> Dict[str, Any]:
     rpo_hours = database.get("recovery_point_objective_hours", 1)
 
     strategy = {
-        "strategy_id": "backup-{}".format(
-            hashlib.md5(str(time.time()).encode()).hexdigest()[:8]
-        ),
+        "strategy_id": f"backup-{hashlib.md5(str(time.time()).encode()).hexdigest()[:8]}",
         "database": database.get("name", "database"),
         "db_type": db_type,
     }
@@ -75,9 +72,7 @@ def create_restore_plan(
     backup_info: Dict[str, Any], target_time: Optional[str] = None
 ) -> Dict[str, Any]:
     restore_plan = {
-        "plan_id": "restore-{}".format(
-            hashlib.md5(str(time.time()).encode()).hexdigest()[:8]
-        ),
+        "plan_id": f"restore-{hashlib.md5(str(time.time()).encode()).hexdigest()[:8]}",
         "target_time": target_time or datetime.now().isoformat(),
     }
 
@@ -236,12 +231,12 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
         else:
             return {
-                "result": {"error": "Unknown action: {}".format(action)},
+                "result": {"error": f"Unknown action: {action}"},
                 "metadata": {"action": action, "timestamp": datetime.now().isoformat()},
             }
 
     except Exception as e:
-        logger.error("Error in database_backup_restore: {}".format(e))
+        logger.error(f"Error in database_backup_restore: {e}")
         return {
             "result": {"error": str(e)},
             "metadata": {"action": action, "timestamp": datetime.now().isoformat()},

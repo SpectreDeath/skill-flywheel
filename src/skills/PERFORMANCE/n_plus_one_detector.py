@@ -9,11 +9,11 @@ This module provides N+1 query detection capabilities:
 - Estimate query count reduction
 """
 
-import re
 import ast
-from typing import Dict, List, Any, Optional
-from dataclasses import dataclass, field
+import re
+from dataclasses import dataclass
 from enum import Enum
+from typing import Dict, List, Optional
 
 
 class ORMType(Enum):
@@ -292,7 +292,7 @@ def _detect_prisma_n_plus_one(
                             NPlusOnePattern(
                                 type="loop_query",
                                 severity="high",
-                                description=f"Prisma N+1: Fetching related data in loop",
+                                description="Prisma N+1: Fetching related data in loop",
                                 location=f"Line {i}",
                                 loop_variable="item",
                                 query_pattern="prisma.*find",
@@ -618,7 +618,7 @@ def _sqlalchemy_fix_suggestion(loop_var: str) -> str:
 
 
 def _django_fix_suggestion(loop_var: str) -> str:
-    return f"Use: Model.objects.prefetch_related('related_field')"
+    return "Use: Model.objects.prefetch_related('related_field')"
 
 
 def _prisma_fix_suggestion() -> str:

@@ -8,7 +8,7 @@ Analyzes sender-receiver signaling games:
 - Cheap talk games
 """
 
-from typing import Dict, List, Any, Optional, Tuple
+from typing import Any, Dict, List, Optional
 
 
 def signaling_game_analyzer(

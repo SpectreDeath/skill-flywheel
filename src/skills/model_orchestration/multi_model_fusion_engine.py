@@ -1,6 +1,6 @@
 import logging
 from datetime import datetime
-from typing import Dict, List, Any, Optional
+from typing import Any, Dict
 
 logger = logging.getLogger(__name__)
 
@@ -17,7 +17,7 @@ class MultiModelFusionEngine:
         for model_id, input_data in inputs.items():
             if model_id in self.models:
                 results[model_id] = {
-                    "output": "Fused output from {}".format(model_id),
+                    "output": f"Fused output from {model_id}",
                     "modality": self.models[model_id]["modality"],
                 }
 
@@ -51,10 +51,10 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
         else:
             return {
-                "result": {"error": "Unknown action: {}".format(action)},
+                "result": {"error": f"Unknown action: {action}"},
                 "metadata": {"action": action},
             }
 
     except Exception as e:
-        logger.error("Error in multi_model_fusion_engine: {}".format(e))
+        logger.error(f"Error in multi_model_fusion_engine: {e}")
         return {"result": {"error": str(e)}, "metadata": {"action": action}}

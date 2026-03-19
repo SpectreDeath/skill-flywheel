@@ -12,12 +12,12 @@ Features:
 - Calculate overall risk score
 """
 
-import re
 import json
-import hashlib
-from typing import Dict, List, Any, Optional
-from dataclasses import dataclass, field
+import re
+from dataclasses import dataclass
 from enum import Enum
+from typing import Dict, List, Optional
+
 from packaging import version as pkg_version
 
 

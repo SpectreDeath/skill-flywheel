@@ -1,12 +1,13 @@
 """Integration test for the skill evolution module."""
 
 import asyncio
+
 from src.core.evolution import (
-    create_skill_evolver,
-    create_initial_genome,
     EvolutionConfig,
-    SkillFitnessEvaluator,
     MockSkillExecutor,
+    SkillFitnessEvaluator,
+    create_initial_genome,
+    create_skill_evolver,
 )
 
 
@@ -24,7 +25,7 @@ async def main():
         },
         orchestration_strategy="sequential",
     )
-    print(f"\nInitial genome:")
+    print("\nInitial genome:")
     print(f"  Skills: {genome.skill_selections}")
     print(f"  Strategy: {genome.orchestration_strategy}")
     print(f"  Parameters: {genome.skill_parameters}")
@@ -92,7 +93,7 @@ async def main():
 
     struct_mutator = StructureMutationMutator()
     struct_mutated = struct_mutator.mutate(genome, [failure_case], [])
-    print(f"\nTesting structure mutation...")
+    print("\nTesting structure mutation...")
     print(f"  Generated {len(struct_mutated)} mutated genome(s)")
     if struct_mutated:
         print(f"  New strategy: {struct_mutated[0].orchestration_strategy}")
@@ -139,6 +140,6 @@ async def main():
 
 
 if __name__ == "__main__":
-    from src.core.evolution.genome import SkillGenome, SkillFitnessResult
+    from src.core.evolution.genome import SkillFitnessResult, SkillGenome
 
     asyncio.run(main())

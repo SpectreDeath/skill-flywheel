@@ -9,14 +9,14 @@ shared context management, and result aggregation.
 """
 
 import asyncio
-import json
 import logging
-import time
-import aiohttp
-from typing import Dict, List, Any, Optional, Callable, Union
-from dataclasses import dataclass, asdict
-from enum import Enum
 import os
+import time
+from dataclasses import dataclass
+from enum import Enum
+from typing import Any, Dict, List, Optional
+
+import aiohttp
 
 logger = logging.getLogger(__name__)
 
@@ -112,7 +112,7 @@ class AgentOrchestrator:
         try:
             # Simulated MCP tool call to /model-select
             async with aiohttp.ClientSession() as session:
-                url = f"http://localhost:8000/call/model_select"
+                url = "http://localhost:8000/call/model_select"
                 # hardware_profile would be discovered via PerformanceMonitor
                 payload = {"task": task_description, "hardware_profile": "RTX 4090"}
                 async with session.post(url, json=payload) as resp:

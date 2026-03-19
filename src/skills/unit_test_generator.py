@@ -8,9 +8,7 @@ Generates unit tests from Python code snippets using:
 """
 
 import ast
-import re
-from typing import Dict, List, Any, Optional
-from dataclasses import dataclass
+from typing import Any, Dict, List
 
 
 def extract_functions(code: str) -> List[Dict[str, Any]]:
@@ -57,9 +55,7 @@ def infer_test_type(func_name: str) -> str:
 
     if "validate" in name_lower or "check" in name_lower:
         return "assertTrue"
-    elif "get" in name_lower or "fetch" in name_lower:
-        return "assertIsNotNone"
-    elif "create" in name_lower or "add" in name_lower:
+    elif "get" in name_lower or "fetch" in name_lower or "create" in name_lower or "add" in name_lower:
         return "assertIsNotNone"
     elif "delete" in name_lower or "remove" in name_lower:
         return "assertTrue"
@@ -126,25 +122,24 @@ def generate_tests(code: str, framework: str = "pytest") -> Dict[str, Any]:
 
             call_args = ", ".join(sample_args)
             if func["is_async"]:
-                test_code.append(f"        # Note: Requires pytest-asyncio")
+                test_code.append("        # Note: Requires pytest-asyncio")
                 test_code.append(f"        result = await {func_name}({call_args})")
             else:
                 test_code.append(f"        result = {func_name}({call_args})")
+        elif func["is_async"]:
+            test_code.append("        # Note: Requires pytest-asyncio")
+            test_code.append(f"        result = await {func_name}()")
         else:
-            if func["is_async"]:
-                test_code.append(f"        # Note: Requires pytest-asyncio")
-                test_code.append(f"        result = await {func_name}()")
-            else:
-                test_code.append(f"        result = {func_name}()")
+            test_code.append(f"        result = {func_name}()")
 
         # Add assertion
         if test_type == "assertIsNotNone":
-            test_code.append(f"        self.assertIsNotNone(result)")
+            test_code.append("        self.assertIsNotNone(result)")
         elif test_type == "assertTrue":
-            test_code.append(f"        self.assertTrue(result)")
+            test_code.append("        self.assertTrue(result)")
         elif test_type == "assertEqual":
-            test_code.append(f"        # Add your expected result")
-            test_code.append(f"        self.assertEqual(result, expected)")
+            test_code.append("        # Add your expected result")
+            test_code.append("        self.assertEqual(result, expected)")
 
     # Add main block for unittest
     if framework == "unittest":

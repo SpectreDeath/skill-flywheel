@@ -9,7 +9,7 @@ Analyzes repeated/iterated strategic interactions:
 - Collusion in oligopoly
 """
 
-from typing import Dict, List, Any, Optional, Tuple
+from typing import Any, Dict, List, Optional
 
 
 def repeated_game_analyzer(

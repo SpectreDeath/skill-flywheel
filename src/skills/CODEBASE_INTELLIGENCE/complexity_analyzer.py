@@ -10,10 +10,8 @@ This module provides skills for analyzing code complexity:
 """
 
 import ast
-import re
-from typing import Dict, List, Any, Optional, Tuple
 from dataclasses import dataclass, field
-from collections import defaultdict
+from typing import List, Optional, Tuple
 
 
 @dataclass

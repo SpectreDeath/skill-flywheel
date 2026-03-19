@@ -1,18 +1,15 @@
-import time
-import logging
 import hashlib
-import json
+import logging
+import time
 from datetime import datetime
-from typing import Dict, List, Any, Optional
+from typing import Any, Dict, List
 
 logger = logging.getLogger(__name__)
 
 
 def generate_test_plan(spec: Dict[str, Any]) -> Dict[str, Any]:
     plan = {
-        "plan_id": "test-plan-{}".format(
-            hashlib.md5(str(time.time()).encode()).hexdigest()[:8]
-        ),
+        "plan_id": f"test-plan-{hashlib.md5(str(time.time()).encode()).hexdigest()[:8]}",
         "title": spec.get("title", "Test Plan"),
         "version": "1.0.0",
         "created_at": datetime.now().isoformat(),
@@ -30,7 +27,7 @@ def generate_test_plan(spec: Dict[str, Any]) -> Dict[str, Any]:
         plan["test_types"].append(
             {
                 "type": test_type,
-                "description": "{} tests".format(test_type.title()),
+                "description": f"{test_type.title()} tests",
                 "coverage": "70%",
                 "tools": ["pytest", "unittest"]
                 if test_type == "unit"
@@ -43,17 +40,17 @@ def generate_test_plan(spec: Dict[str, Any]) -> Dict[str, Any]:
     for i, req in enumerate(requirements):
         test_scenarios.append(
             {
-                "id": "TS-{:03d}".format(i + 1),
+                "id": f"TS-{i + 1:03d}",
                 "requirement": req,
                 "test_cases": [
                     {
-                        "id": "TC-{:03d}".format(i * 2 + 1),
-                        "description": "Verify {}".format(req),
+                        "id": f"TC-{i * 2 + 1:03d}",
+                        "description": f"Verify {req}",
                         "priority": "High",
                     },
                     {
-                        "id": "TC-{:03d}".format(i * 2 + 2),
-                        "description": "Verify edge case for {}".format(req),
+                        "id": f"TC-{i * 2 + 2:03d}",
+                        "description": f"Verify edge case for {req}",
                         "priority": "Medium",
                     },
                 ],
@@ -244,12 +241,12 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
         else:
             return {
-                "result": {"error": "Unknown action: {}".format(action)},
+                "result": {"error": f"Unknown action: {action}"},
                 "metadata": {"action": action, "timestamp": datetime.now().isoformat()},
             }
 
     except Exception as e:
-        logger.error("Error in specification_test_planning: {}".format(e))
+        logger.error(f"Error in specification_test_planning: {e}")
         return {
             "result": {"error": str(e)},
             "metadata": {"action": action, "timestamp": datetime.now().isoformat()},

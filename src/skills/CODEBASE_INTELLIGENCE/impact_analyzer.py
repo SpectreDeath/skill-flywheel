@@ -9,12 +9,10 @@ Analyzes code changes to:
 - Suggest tests to run
 """
 
-import re
 import ast
-import os
-from typing import Dict, List, Any, Optional, Set, Tuple, Union
-from dataclasses import dataclass, field
 from collections import defaultdict
+from dataclasses import dataclass, field
+from typing import Any, Dict, List, Optional, Set, Tuple, Union
 
 
 @dataclass
@@ -263,7 +261,7 @@ def calculate_risk_score(
             breaking_changes.append(f"Indirect chain: {chain}")
 
     if usage_pattern.get("severity") == "high":
-        breaking_changes.append(f"Public API change - may break external consumers")
+        breaking_changes.append("Public API change - may break external consumers")
 
     if usage_pattern.get("decorators"):
         for dec in usage_pattern["decorators"]:

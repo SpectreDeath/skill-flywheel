@@ -6,17 +6,15 @@ Description: Advanced memory management system for AI agents with hierarchical s
 """
 
 import asyncio
+import hashlib
+import json
 import logging
 import time
 import uuid
-import json
-import pickle
-from typing import Dict, Any, List, Optional, Union, Callable
-from dataclasses import dataclass, asdict
+from dataclasses import dataclass
+from datetime import datetime
 from enum import Enum
-from datetime import datetime, timedelta
-import hashlib
-import heapq
+from typing import Any, Dict, List, Optional
 
 logger = logging.getLogger(__name__)
 

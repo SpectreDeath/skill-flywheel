@@ -15,17 +15,13 @@ Key Features:
 - Go runtime optimization recommendations
 """
 
-import time
 import datetime
-import logging
 import json
-import subprocess
-import asyncio
-import os
-import sys
-from typing import Dict, List, Any, Optional, Union
-from dataclasses import dataclass, asdict
+import logging
+from dataclasses import asdict, dataclass
 from pathlib import Path
+from typing import Any, Dict, List, Optional
+
 import psutil
 
 logger = logging.getLogger(__name__)
@@ -275,7 +271,7 @@ class GoPerformanceTuner:
             # Find all Go files
             for go_file in project_dir.rglob("*.go"):
                 try:
-                    with open(go_file, 'r', encoding='utf-8') as f:
+                    with open(go_file, encoding='utf-8') as f:
                         content = f.read()
                     
                     file_analysis = {

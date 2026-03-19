@@ -6,12 +6,12 @@ Description: An intelligent traffic controller that monitors QoS metrics and per
 """
 
 import asyncio
-import time
 import logging
-from typing import Dict, Any, List, Optional, Callable
-from dataclasses import dataclass, asdict
-from enum import Enum
+import time
+from dataclasses import asdict, dataclass
 from datetime import datetime, timedelta
+from enum import Enum
+from typing import Any, Dict, List, Optional
 
 logger = logging.getLogger(__name__)
 

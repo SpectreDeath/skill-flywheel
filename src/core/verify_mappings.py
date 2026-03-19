@@ -11,7 +11,7 @@ def get_registry_domains():
     if not REGISTRY_FILE.exists():
         print(f"Error: Registry file not found at {REGISTRY_FILE}")
         return set()
-    with open(REGISTRY_FILE, 'r', encoding='utf-8') as f:
+    with open(REGISTRY_FILE, encoding='utf-8') as f:
         registry = json.load(f)
     return {skill.get('domain') for skill in registry if skill.get('domain')}
 
@@ -20,7 +20,7 @@ def get_discovery_domains():
         print(f"Error: Discovery service file not found at {DISCOVERY_FILE}")
         return set()
     
-    with open(DISCOVERY_FILE, 'r', encoding='utf-8') as f:
+    with open(DISCOVERY_FILE, encoding='utf-8') as f:
         content = f.read()
     
     # More robust extraction of SERVICE_GROUPS content

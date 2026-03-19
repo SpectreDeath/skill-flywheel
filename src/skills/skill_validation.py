@@ -6,13 +6,12 @@ This module provides validation for skill definitions and implementations:
 - validate_skill_implementation: Validate skill can be loaded and executed
 """
 
+import importlib.util
+import json
 import os
 import re
-import json
-import importlib.util
-from pathlib import Path
-from typing import Dict, List, Any, Optional, Tuple
 from dataclasses import dataclass, field
+from typing import Any, Dict, List
 
 
 @dataclass
@@ -111,7 +110,7 @@ def validate_skill_file(skill_path: str) -> ValidationResult:
 
     # Check file is readable
     try:
-        with open(skill_path, "r", encoding="utf-8") as f:
+        with open(skill_path, encoding="utf-8") as f:
             content = f.read()
     except Exception as e:
         result.errors.append(f"Cannot read skill file: {str(e)}")
@@ -244,7 +243,7 @@ def validate_skill_catalog(catalog_path: str) -> Dict[str, ValidationResult]:
         }
 
     try:
-        with open(catalog_path, "r", encoding="utf-8") as f:
+        with open(catalog_path, encoding="utf-8") as f:
             catalog = json.load(f)
     except Exception as e:
         return {

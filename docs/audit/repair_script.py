@@ -1,6 +1,6 @@
-import os
 import re
 from pathlib import Path
+
 
 def repair_content(content, skill_name, domain):
     original_content = content
@@ -45,7 +45,7 @@ def batch_repair():
     
     for skill_file in skills_root.rglob("SKILL*.md"):
         try:
-            with open(skill_file, 'r', encoding='utf-8') as f:
+            with open(skill_file, encoding='utf-8') as f:
                 content = f.read()
                 
             skill_name = skill_file.stem

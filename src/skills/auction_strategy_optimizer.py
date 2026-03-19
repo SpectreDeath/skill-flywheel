@@ -9,8 +9,7 @@ Optimizes bidding strategies for various auction types:
 - All-pay auctions
 """
 
-from typing import Dict, List, Any, Optional
-import math
+from typing import Any, Dict, List, Optional
 
 
 def auction_strategy_optimizer(

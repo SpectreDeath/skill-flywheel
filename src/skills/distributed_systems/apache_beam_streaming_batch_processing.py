@@ -11,18 +11,16 @@ Type: Advanced Implementation Patterns
 Category: Stream Processing
 """
 
+import json
+import logging
+from datetime import datetime
+from typing import Any, Dict, List, Optional, Tuple
+
 import apache_beam as beam
-from apache_beam.options.pipeline_options import PipelineOptions
-from apache_beam.options.pipeline_options import StandardOptions
 from apache_beam import window
+from apache_beam.options.pipeline_options import PipelineOptions, StandardOptions
 from apache_beam.transforms import trigger
 from apache_beam.transforms.window import TimestampedValue
-import logging
-import json
-from typing import List, Dict, Any, Optional, Tuple
-from datetime import datetime, timedelta
-import apache_beam.transforms.window as window_module
-import apache_beam.transforms.trigger as trigger_module
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)

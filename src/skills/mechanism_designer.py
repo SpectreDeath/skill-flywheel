@@ -9,7 +9,7 @@ Designs mechanisms for strategic interaction:
 - Strategy-proof mechanisms
 """
 
-from typing import Dict, List, Any, Optional, Callable
+from typing import Any, Dict, List, Optional
 
 
 def mechanism_designer(
@@ -129,7 +129,7 @@ def _design_myerson_mechanism(
             "Highest bid wins if >= reserve",
         ],
         "payment_rules": [
-            f"Virtual valuation formula: φ(b) = b - (1 - F(b)) / f(b)",
+            "Virtual valuation formula: φ(b) = b - (1 - F(b)) / f(b)",
             "Optimize using ironed virtual valuations",
         ],
         "properties": {

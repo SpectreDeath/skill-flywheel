@@ -11,11 +11,9 @@ This module provides skills for analyzing Python import dependencies:
 
 import ast
 import os
-import re
-from typing import Dict, List, Any, Optional, Set, Tuple
 from dataclasses import dataclass, field
-from collections import defaultdict
 from pathlib import Path
+from typing import Any, Dict, List, Optional, Set, Tuple
 
 
 @dataclass
@@ -333,7 +331,7 @@ def read_file_or_code(code: str) -> Tuple[Optional[Dict[str, str]], str]:
 
     if os.path.isfile(code):
         try:
-            with open(code, "r", encoding="utf-8") as f:
+            with open(code, encoding="utf-8") as f:
                 return {code: f.read()}, os.path.basename(code)
         except Exception:
             return None, "file_error"

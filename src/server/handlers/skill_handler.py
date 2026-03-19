@@ -6,20 +6,8 @@ information retrieval. These handlers correspond to the MCP tools
 in the enhanced_mcp_server.py.
 """
 
-import datetime
 import logging
-import time
-from pathlib import Path
-from typing import Dict, List, Any, Optional
-
-from src.server.dependencies import (
-    get_skill_registry,
-    filter_skills_by_domain,
-    get_performance_monitor,
-    log_skill_usage,
-    MetricType,
-    REGISTRY_FILE,
-)
+from typing import Any, Dict, List
 
 logger = logging.getLogger(__name__)
 

@@ -12,11 +12,12 @@ Features:
 - Generate comprehensive vulnerability reports
 """
 
-import re
 import json
-from typing import Dict, List, Any, Optional
-from dataclasses import dataclass, field, asdict
+import re
+from dataclasses import asdict, dataclass
 from enum import Enum
+from typing import Dict, List, Optional
+
 from packaging import version as pkg_version
 
 

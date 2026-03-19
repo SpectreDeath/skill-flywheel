@@ -10,17 +10,16 @@ This module provides automatic container scaling based on:
 """
 
 import asyncio
-import docker
 import logging
 import os
 import time
-import requests
-import json
-from datetime import datetime, timedelta
-from typing import Dict, List, Optional, Tuple
-import numpy as np
 from dataclasses import dataclass
-from prometheus_client.parser import text_string_to_metric_families
+from datetime import datetime
+from typing import Dict, List, Optional
+
+import docker
+import numpy as np
+import requests
 
 # Configure logging
 logging.basicConfig(

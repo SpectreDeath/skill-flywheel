@@ -8,8 +8,7 @@ Analyzes competitive landscape and identifies market positioning:
 - Competitive advantage assessment
 """
 
-from typing import Dict, List, Any, Optional
-from dataclasses import dataclass
+from typing import Any, Dict, List, Optional
 
 
 def parse_competitors(competitor_data: List[Dict]) -> List[Dict]:

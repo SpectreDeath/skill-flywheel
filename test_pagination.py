@@ -4,10 +4,8 @@ Test script to verify pagination implementation for the skills endpoint.
 This script tests the new pagination functionality without requiring a running server.
 """
 
-import sqlite3
-import json
 import os
-from pathlib import Path
+import sqlite3
 
 # Change default path depending on if run via uvicorn from root or within src/discovery
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '.'))
@@ -56,8 +54,7 @@ def test_pagination_logic():
                 print(f"\nTesting page={page}, limit={limit}")
                 
                 # Apply parameter validation (same as in the endpoint)
-                if page < 1:
-                    page = 1
+                page = max(page, 1)
                 if limit < 1:
                     limit = 20
                 elif limit > 100:

@@ -4,9 +4,9 @@ Domain: AI_AGENT_DEVELOPMENT
 Description: Tutorial for multi-agent debate systems
 """
 
-import logging
 import datetime
-from typing import Dict, List, Any
+import logging
+from typing import Any, Dict
 
 logger = logging.getLogger(__name__)
 

@@ -5,9 +5,9 @@ Move from problem statement to solution through logical, ordered steps
 with verification at each stage.
 """
 
-from typing import Dict, List, Optional, Any
 from dataclasses import dataclass, field
 from enum import Enum
+from typing import Dict, List, Optional
 
 
 class ProblemStatus(Enum):
@@ -134,7 +134,7 @@ class SequentialProblemSolver:
                 {
                     "step": 2,
                     "action": "Rearrange equation",
-                    "description": f"Goal: get x alone on one side",
+                    "description": "Goal: get x alone on one side",
                 }
             )
 

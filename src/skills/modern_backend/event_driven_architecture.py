@@ -7,18 +7,14 @@ Description: Event-driven architecture and message queuing system
 
 import asyncio
 import logging
+import random
 import time
 import uuid
-import json
-import yaml
-from typing import Dict, Any, List, Optional, Union, Callable, Awaitable
-from dataclasses import dataclass, asdict
+from collections import deque
+from dataclasses import dataclass
+from datetime import datetime
 from enum import Enum
-from datetime import datetime, timedelta
-from collections import defaultdict, deque
-import hashlib
-import random
-from pathlib import Path
+from typing import Any, Dict, List, Optional
 
 logger = logging.getLogger(__name__)
 
@@ -463,9 +459,7 @@ class EventDrivenArchitecture:
             return None
         
         # Get message based on queue type
-        if queue.queue_type == QueueType.FIFO:
-            message = queue.messages.popleft()
-        elif queue.queue_type == QueueType.PRIORITY:
+        if queue.queue_type == QueueType.FIFO or queue.queue_type == QueueType.PRIORITY:
             message = queue.messages.popleft()
         else:
             message = queue.messages.popleft()
@@ -595,7 +589,6 @@ class EventDrivenArchitecture:
         """Send event to callback URL"""
         # In a real implementation, this would make HTTP requests
         # For now, simulate the callback
-        import random
         
         # Simulate network delay and potential failures
         delay = random.uniform(0.1, 1.0)

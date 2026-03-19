@@ -11,9 +11,7 @@ import functools
 import threading
 import time
 from dataclasses import dataclass, field
-from typing import Any, Callable, TypeVar, Union
-
-import yaml
+from typing import Any, Callable, TypeVar
 
 try:
     import pybreaker

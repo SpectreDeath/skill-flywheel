@@ -1,9 +1,7 @@
-import time
 import logging
 import re
-import hashlib
 from datetime import datetime
-from typing import Dict, List, Any, Optional
+from typing import Any, Dict, List
 
 logger = logging.getLogger(__name__)
 
@@ -53,7 +51,7 @@ def analyze_query_patterns(queries: List[str]) -> List[Dict[str, Any]]:
 
         analysis.append(
             {
-                "query_id": "query-{:03d}".format(i + 1),
+                "query_id": f"query-{i + 1:03d}",
                 "query": query[:100] + "..." if len(query) > 100 else query,
                 "issues": issues if issues else ["No major issues detected"],
                 "recommendations": recommendations
@@ -276,12 +274,12 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
         else:
             return {
-                "result": {"error": "Unknown action: {}".format(action)},
+                "result": {"error": f"Unknown action: {action}"},
                 "metadata": {"action": action, "timestamp": datetime.now().isoformat()},
             }
 
     except Exception as e:
-        logger.error("Error in query_performance_optimization: {}".format(e))
+        logger.error(f"Error in query_performance_optimization: {e}")
         return {
             "result": {"error": str(e)},
             "metadata": {"action": action, "timestamp": datetime.now().isoformat()},

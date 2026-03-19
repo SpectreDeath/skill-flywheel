@@ -8,12 +8,11 @@ This skill handles algorithmic problem-solving, pathfinding, optimization,
 heuristic search, and advanced search strategies for various computational problems.
 """
 
-import os
 import heapq
-import math
-from typing import Dict, List, Optional, Any, Tuple, Set, Callable, Union
-from collections import deque, defaultdict
 import logging
+import math
+from collections import deque
+from typing import Any, Dict, List, Optional, Tuple
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -693,7 +692,7 @@ if __name__ == "__main__":
     
     def _implement_a_star(self, problem_type: str) -> Dict[str, str]:
         """Implement A* search algorithm."""
-        a_star_content = f'''import heapq
+        a_star_content = '''import heapq
 from typing import Dict, List, Tuple, Optional, Callable
 
 def a_star_search(graph: Dict[str, List[Tuple[str, float]]], 
@@ -800,20 +799,20 @@ class GridAStar:
 # Example usage
 if __name__ == "__main__":
     # Simple graph example
-    graph = {{
+    graph = {
         'A': [('B', 4), ('C', 2)],
         'B': [('D', 5)],
         'C': [('D', 8), ('E', 10)],
         'D': [('E', 2)],
         'E': []
-    }}
+    }
     
     def simple_heuristic(node: str, goal: str) -> float:
         # Simple heuristic: assume all nodes are equally distant
         return 1.0
     
     result = a_star_search(graph, 'A', 'E', simple_heuristic)
-    print(f"A* path from A to E: {{result}}")
+    print(f"A* path from A to E: {result}")
 '''
         
         return {"a_star_algorithm.py": a_star_content}
@@ -830,7 +829,6 @@ if __name__ == "__main__":
     def _bfs_pathfinding(self, graph: Dict[str, List[Tuple[str, float]]], 
                         start: str, goal: str) -> Dict[str, Any]:
         """BFS pathfinding implementation."""
-        from collections import deque
         
         if start == goal:
             return {"path": [start], "cost": 0.0, "nodes_explored": 1}
@@ -860,7 +858,6 @@ if __name__ == "__main__":
     def _dijkstra_pathfinding(self, graph: Dict[str, List[Tuple[str, float]]], 
                             start: str, goal: str) -> Dict[str, Any]:
         """Dijkstra pathfinding implementation."""
-        import heapq
         
         pq = [(0, start, [start])]
         visited = set()
@@ -896,7 +893,6 @@ if __name__ == "__main__":
     def _a_star_pathfinding(self, graph: Dict[str, List[Tuple[str, float]]], 
                           start: str, goal: str) -> Dict[str, Any]:
         """A* pathfinding implementation."""
-        import heapq
         
         def heuristic(node: str, goal: str) -> float:
             # Simple heuristic for demonstration
@@ -934,7 +930,6 @@ if __name__ == "__main__":
     def _greedy_best_first_pathfinding(self, graph: Dict[str, List[Tuple[str, float]]], 
                                      start: str, goal: str) -> Dict[str, Any]:
         """Greedy Best-First pathfinding implementation."""
-        import heapq
         
         def heuristic(node: str, goal: str) -> float:
             # Simple heuristic for demonstration

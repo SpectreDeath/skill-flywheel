@@ -1,14 +1,12 @@
 #!/usr/bin/env python3
-"""
+r"""
 Generate Skill Flywheel skills from the AI Tutorial library.
 
 Scans D:\GitHub\AI-Tutorial-Codes-Included-main, categorizes each tutorial,
 and produces a SKILL.md file under the appropriate domain directory.
 """
 
-import os
 import re
-import json
 import textwrap
 from pathlib import Path
 

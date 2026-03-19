@@ -6,15 +6,14 @@ Description: A diagnostics engine that performs automated health checks on model
 """
 
 import asyncio
-import json
 import logging
 import subprocess
 import time
-import requests
-from typing import Dict, Any, List, Optional, NamedTuple
 from dataclasses import dataclass
 from enum import Enum
-import psutil
+from typing import Any, Dict, List, Optional
+
+import requests
 
 logger = logging.getLogger(__name__)
 
@@ -165,7 +164,7 @@ class ModelHealthMonitor:
                 ['nvidia-smi', '--query-gpu=memory.total,memory.used', '--format=csv,noheader,nounits'],
                 capture_output=True,
                 text=True,
-                timeout=5
+                timeout=5, check=False
             )
             
             if result.returncode == 0:

@@ -1,9 +1,9 @@
-import time
+import hashlib
 import logging
 import re
-import hashlib
+import time
 from datetime import datetime
-from typing import Dict, List, Any, Optional
+from typing import Any, Dict, List
 
 logger = logging.getLogger(__name__)
 
@@ -19,11 +19,11 @@ def extract_contracts_from_spec(spec_text: str) -> List[Dict[str, Any]]:
             or "api" in section.lower()
             or "interface" in section.lower()
         ):
-            contract_id = "contract-{:03d}".format(i)
+            contract_id = f"contract-{i:03d}"
             contracts.append(
                 {
                     "contract_id": contract_id,
-                    "name": "Contract {}".format(i),
+                    "name": f"Contract {i}",
                     "description": section[:200],
                     "type": "api",
                     "version": "1.0.0",
@@ -116,9 +116,7 @@ def generate_contract_template(contract_type: str) -> Dict[str, Any]:
     }
 
     template = templates.get(contract_type, templates["api"])
-    template["contract_id"] = "contract-{}".format(
-        hashlib.md5(str(time.time()).encode()).hexdigest()[:8]
-    )
+    template["contract_id"] = f"contract-{hashlib.md5(str(time.time()).encode()).hexdigest()[:8]}"
 
     return template
 
@@ -214,7 +212,7 @@ def generate_contract_documentation(contract: Dict[str, Any]) -> str:
             doc.append("  - Allowed values: {}".format(", ".join(field["enum"])))
 
     doc.append("")
-    doc.append("*Generated on {}*".format(datetime.now().isoformat()))
+    doc.append(f"*Generated on {datetime.now().isoformat()}*")
 
     return "\n".join(doc)
 
@@ -293,12 +291,12 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
         else:
             return {
-                "result": {"error": "Unknown action: {}".format(action)},
+                "result": {"error": f"Unknown action: {action}"},
                 "metadata": {"action": action, "timestamp": datetime.now().isoformat()},
             }
 
     except Exception as e:
-        logger.error("Error in spec_contract_authoring: {}".format(e))
+        logger.error(f"Error in spec_contract_authoring: {e}")
         return {
             "result": {"error": str(e)},
             "metadata": {"action": action, "timestamp": datetime.now().isoformat()},

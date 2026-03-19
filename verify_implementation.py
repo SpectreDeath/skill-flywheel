@@ -3,8 +3,8 @@
 Simple verification script to test the pagination implementation
 """
 
-import sys
 import os
+import sys
 
 # Add the current directory to Python path
 sys.path.insert(0, os.path.dirname(__file__))

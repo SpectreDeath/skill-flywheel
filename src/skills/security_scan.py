@@ -5,12 +5,12 @@ This module provides skills for security analysis:
 - security_scan: Detect security vulnerabilities and misconfigurations
 """
 
+import json
 import os
 import re
-import json
+from dataclasses import dataclass
 from pathlib import Path
-from typing import Dict, List, Any, Optional
-from dataclasses import dataclass, field
+from typing import Any, Dict, List, Optional
 
 
 @dataclass
@@ -134,7 +134,7 @@ def scan_for_vulnerabilities(
             rel_path = os.path.relpath(file_path, repo_path)
 
             try:
-                with open(file_path, "r", encoding="utf-8", errors="ignore") as f:
+                with open(file_path, encoding="utf-8", errors="ignore") as f:
                     content = f.read()
                     lines = content.split("\n")
 
@@ -204,7 +204,7 @@ def scan_secrets(repo_path: str) -> List[Dict[str, Any]]:
             rel_path = os.path.relpath(file_path, repo_path)
 
             try:
-                with open(file_path, "r", encoding="utf-8", errors="ignore") as f:
+                with open(file_path, encoding="utf-8", errors="ignore") as f:
                     content = f.read()
 
                     for pattern, secret_type, severity in secret_patterns:
@@ -243,7 +243,7 @@ def scan_dependencies(repo_path: str) -> Dict[str, Any]:
     package_json = os.path.join(repo_path, "package.json")
     if os.path.exists(package_json):
         try:
-            with open(package_json, "r") as f:
+            with open(package_json) as f:
                 data = json.load(f)
                 deps = {
                     **data.get("dependencies", {}),
@@ -260,7 +260,7 @@ def scan_dependencies(repo_path: str) -> Dict[str, Any]:
     requirements_txt = os.path.join(repo_path, "requirements.txt")
     if os.path.exists(requirements_txt):
         try:
-            with open(requirements_txt, "r") as f:
+            with open(requirements_txt) as f:
                 for line in f:
                     line = line.strip()
                     if line and not line.startswith("#"):

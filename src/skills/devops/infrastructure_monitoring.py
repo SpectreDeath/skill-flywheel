@@ -7,18 +7,17 @@ Description: Infrastructure monitoring and alerting system for DevOps
 
 import asyncio
 import logging
+import socket
 import time
 import uuid
-import json
+from collections import defaultdict, deque
+from dataclasses import dataclass
+from datetime import datetime
+from enum import Enum
+from typing import Any, Dict, List, Optional
+
 import psutil
 import requests
-import socket
-from typing import Dict, Any, List, Optional, Union, Callable
-from dataclasses import dataclass, asdict
-from enum import Enum
-from datetime import datetime, timedelta
-import statistics
-from collections import defaultdict, deque
 
 logger = logging.getLogger(__name__)
 
@@ -547,11 +546,7 @@ class InfrastructureMonitor:
                 
                 # Check condition
                 should_alert = False
-                if condition == "greater_than" and current_value > threshold:
-                    should_alert = True
-                elif condition == "less_than" and current_value < threshold:
-                    should_alert = True
-                elif condition == "equals" and current_value == threshold:
+                if condition == "greater_than" and current_value > threshold or condition == "less_than" and current_value < threshold or condition == "equals" and current_value == threshold:
                     should_alert = True
                 
                 # Create alert if needed

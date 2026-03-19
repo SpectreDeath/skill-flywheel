@@ -8,10 +8,10 @@ Description: Advanced reasoning engine for AI agents using chain-of-thought and 
 import asyncio
 import logging
 import time
-from typing import Dict, Any, List, Optional, Union
-from dataclasses import dataclass, asdict
-from enum import Enum
+from dataclasses import asdict, dataclass
 from datetime import datetime
+from enum import Enum
+from typing import Any, Dict, List, Optional
 
 logger = logging.getLogger(__name__)
 

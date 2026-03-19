@@ -12,57 +12,32 @@ This server provides:
 """
 
 import asyncio
-import json
 import logging
 import os
 import sys
 import time
-import uuid
-from datetime import datetime, timedelta
-from pathlib import Path
-from typing import Any, Dict, List, Optional, Tuple, Union, Set, Callable
-from dataclasses import dataclass, asdict, field
-from enum import Enum
-from collections import defaultdict, deque
-import yaml
-import psutil
-import GPUtil
-from fastapi import FastAPI, HTTPException, BackgroundTasks, Request
-from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse
+from dataclasses import asdict
+from typing import Any, Dict
+
 # from pydantic import BaseModel, Field (Unused at top level)
 # LangChain and CrewAI imports moved to methods to avoid Pydantic v1 clash
 import uvicorn
-import numpy as np
-import pandas as pd
-from sklearn.ensemble import RandomForestRegressor, IsolationForest
-from sklearn.preprocessing import StandardScaler, LabelEncoder
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import mean_squared_error, accuracy_score
-import pickle
-import redis
-from prometheus_client import Counter, Histogram, Gauge, start_http_server
-import docker
+import yaml
 from celery import Celery
-from celery.schedules import crontab
+from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
+from prometheus_client import start_http_server
 
+from src.core.cache import AdvancedCache
+from src.core.containers import ContainerManager
 from src.core.ml_models import MLModelManager
+from src.core.resource_optimizer import ResourceOptimizer
+from src.core.skills import EnhancedSkillManager
 from src.core.telemetry import (
-    AdvancedTelemetryManager, 
-    AdvancedPerformanceMetrics, 
-    AdvancedSkillMetrics,
     REQUEST_COUNT,
     REQUEST_DURATION,
-    ACTIVE_SKILLS,
-    CACHE_HIT_RATE,
-    SYSTEM_CPU,
-    SYSTEM_MEMORY
+    AdvancedTelemetryManager,
 )
-from src.core.resource_optimizer import ResourceOptimizer
-from src.core.cache import AdvancedCache
-from src.core.skills import EnhancedSkillManager, SkillMetadata, SkillStatus
-from src.core.containers import ContainerManager
-from src.monitoring.auto_scaler import AutoScaler
 
 # Configure logging
 logging.basicConfig(
@@ -204,7 +179,7 @@ class ServerConfig:
         
         if os.path.exists(self.config_path):
             try:
-                with open(self.config_path, 'r') as f:
+                with open(self.config_path) as f:
                     user_config = yaml.safe_load(f)
                     self._merge_config(default_config, user_config)
             except Exception as e:

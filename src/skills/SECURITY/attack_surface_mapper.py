@@ -10,10 +10,9 @@ Maps attack surfaces in application code by:
 """
 
 import re
-import json
-from typing import Dict, List, Any, Optional, Set, Tuple
 from dataclasses import dataclass, field
 from enum import Enum
+from typing import Any, Dict, List, Optional
 
 
 class RiskLevel(Enum):

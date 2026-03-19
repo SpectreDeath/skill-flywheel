@@ -1,9 +1,7 @@
-import time
-import logging
-import hashlib
 import json
+import logging
 from datetime import datetime
-from typing import Dict, List, Any, Optional
+from typing import Any, Dict
 
 logger = logging.getLogger(__name__)
 
@@ -113,14 +111,14 @@ def format_technical_document(
         output.append("")
         security = doc.get("security", {})
         for key, value in security.items():
-            output.append("- **{}**: {}".format(key, value))
+            output.append(f"- **{key}**: {value}")
         output.append("")
 
         output.append("## Deployment")
         output.append("")
         deployment = doc.get("deployment", {})
         for key, value in deployment.items():
-            output.append("- **{}**: {}".format(key, value))
+            output.append(f"- **{key}**: {value}")
         output.append("")
 
         return "\n".join(output)
@@ -135,7 +133,7 @@ def validate_technical_document(doc: Dict[str, Any]) -> Dict[str, Any]:
     for field in required:
         if field not in doc:
             issues.append(
-                {"type": "warning", "message": "Missing section: {}".format(field)}
+                {"type": "warning", "message": f"Missing section: {field}"}
             )
 
     arch = doc.get("architecture", {})
@@ -212,12 +210,12 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
         else:
             return {
-                "result": {"error": "Unknown action: {}".format(action)},
+                "result": {"error": f"Unknown action: {action}"},
                 "metadata": {"action": action, "timestamp": datetime.now().isoformat()},
             }
 
     except Exception as e:
-        logger.error("Error in specification_technical_authoring: {}".format(e))
+        logger.error(f"Error in specification_technical_authoring: {e}")
         return {
             "result": {"error": str(e)},
             "metadata": {"action": action, "timestamp": datetime.now().isoformat()},

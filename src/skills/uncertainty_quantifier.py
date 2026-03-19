@@ -8,8 +8,7 @@ Calculates confidence levels and uncertainty from evidence:
 """
 
 import math
-from typing import Dict, List, Any, Optional
-from dataclasses import dataclass
+from typing import Any, Dict, List, Optional
 
 
 def bayesian_update(prior: float, likelihood: float, evidence: float) -> float:
@@ -147,7 +146,7 @@ def uncertainty_quantifier(
 def invoke(payload: dict) -> dict:
     """MCP skill invocation"""
     action = payload.get("action", "quantify")
-    evidence = payload.get("evidence", None)
+    evidence = payload.get("evidence")
     n_successes = payload.get("n_successes", 0)
     n_trials = payload.get("n_trials", 0)
     method = payload.get("method", "evidence")

@@ -4,9 +4,9 @@ Domain: AI_AGENT_DEVELOPMENT
 Description: Tutorial for building multi-agent systems with Google ADK
 """
 
-import logging
 import datetime
-from typing import Dict, List, Any
+import logging
+from typing import Any, Dict
 
 logger = logging.getLogger(__name__)
 
@@ -22,7 +22,7 @@ class AdvancedGoogleADKMultiAgentTutorial:
         """Execute Google ADK tutorial task"""
         try:
             lesson = payload.get("lesson", "")
-            exercise = payload.get("exercise", None)
+            exercise = payload.get("exercise")
 
             result = await self._run_tutorial_lesson(lesson, exercise)
 

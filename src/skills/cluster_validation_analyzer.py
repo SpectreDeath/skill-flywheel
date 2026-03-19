@@ -8,8 +8,8 @@ Evaluates cluster quality using multiple metrics:
 - Dunn index
 """
 
-from typing import Dict, List, Any, Optional
 import math
+from typing import Any, Dict, List
 
 
 def _euclidean_distance(p1: List[float], p2: List[float]) -> float:

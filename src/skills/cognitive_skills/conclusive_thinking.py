@@ -4,9 +4,9 @@ Conclusive Thinking Module
 Reach definitive, unambiguous answers that resolve questions completely.
 """
 
-from typing import Dict, List, Optional, Any
 from dataclasses import dataclass
 from enum import Enum
+from typing import Dict, List
 
 
 class ConclusionType(Enum):

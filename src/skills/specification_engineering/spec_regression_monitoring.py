@@ -1,9 +1,7 @@
-import time
 import logging
 import random
-import hashlib
 from datetime import datetime, timedelta
-from typing import Dict, List, Any, Optional
+from typing import Any, Dict, List
 
 logger = logging.getLogger(__name__)
 
@@ -99,7 +97,7 @@ def chaos_violation_detection(spec: Dict[str, Any]) -> Dict[str, Any]:
         vtype = random.choice(violation_types)
         generated_violations.append(
             {
-                "violation_id": "chaos-{:03d}".format(i + 1),
+                "violation_id": f"chaos-{i + 1:03d}",
                 "type": vtype["type"],
                 "severity": vtype["severity"],
                 "description": "Synthetically generated violation for testing",
@@ -297,12 +295,12 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
         else:
             return {
-                "result": {"error": "Unknown action: {}".format(action)},
+                "result": {"error": f"Unknown action: {action}"},
                 "metadata": {"action": action, "timestamp": datetime.now().isoformat()},
             }
 
     except Exception as e:
-        logger.error("Error in spec_regression_monitoring: {}".format(e))
+        logger.error(f"Error in spec_regression_monitoring: {e}")
         return {
             "result": {"error": str(e)},
             "metadata": {"action": action, "timestamp": datetime.now().isoformat()},

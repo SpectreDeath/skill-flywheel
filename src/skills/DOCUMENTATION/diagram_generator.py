@@ -8,10 +8,10 @@ Generates architecture diagrams from code using:
 - Styling with colors and labels
 """
 
-import re
 import ast
-from typing import Dict, List, Any, Optional
+import re
 from dataclasses import dataclass, field
+from typing import Dict, List, Optional
 
 
 @dataclass

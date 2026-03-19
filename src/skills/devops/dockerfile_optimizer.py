@@ -6,11 +6,9 @@ Description: Analyzes and optimizes Dockerfiles for size, build speed, and best 
 """
 
 import re
-import json
-from typing import Dict, Any, List, Optional, Tuple
 from dataclasses import dataclass, field
 from enum import Enum
-
+from typing import Any, Dict, List, Optional
 
 BASE_IMAGE_SIZES = {
     "ubuntu": 80,
@@ -431,7 +429,7 @@ def generate_optimizations(
         optimizations.append(
             {
                 "category": "base_image",
-                "description": f"Switch to Alpine-based image for smaller footprint",
+                "description": "Switch to Alpine-based image for smaller footprint",
                 "before": parser.base_image,
                 "after": alpine_image,
                 "estimated_savings_mb": 200,

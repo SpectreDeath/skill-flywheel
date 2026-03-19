@@ -10,9 +10,7 @@ This module provides cache analysis capabilities:
 """
 
 import re
-import ast
-from typing import Dict, List, Any, Optional, Set, Tuple
-from collections import defaultdict
+from typing import Any, Dict, List
 
 
 def cache_analyzer(code: str, options: dict) -> dict:
@@ -807,7 +805,7 @@ def invoke(payload: dict) -> dict:
         file_path = code.get("file")
         if file_path:
             try:
-                with open(file_path, "r", encoding="utf-8") as f:
+                with open(file_path, encoding="utf-8") as f:
                     code = f.read()
             except Exception as e:
                 return {

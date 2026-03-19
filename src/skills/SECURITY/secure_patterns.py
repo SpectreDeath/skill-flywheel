@@ -1,6 +1,4 @@
 import re
-import ast
-from typing import Dict, List, Any, Optional
 
 
 def secure_patterns(code: str, options: dict = None) -> dict:

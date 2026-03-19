@@ -10,10 +10,8 @@ This module provides skills for mapping API surfaces:
 """
 
 import ast
-import inspect
-from typing import Dict, List, Any, Optional, Set
-from dataclasses import dataclass, field
-from collections import defaultdict
+from dataclasses import dataclass
+from typing import List, Optional
 
 
 @dataclass

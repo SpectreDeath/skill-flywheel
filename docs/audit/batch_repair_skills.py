@@ -1,9 +1,7 @@
+import argparse
 import os
 import subprocess
-import json
-import argparse
 from pathlib import Path
-import re
 
 # REPAIR PROMPTS
 REPAIR_PROMPT = """You are a Senior Skill Architect.
@@ -43,7 +41,7 @@ def repair_skill(skill_path):
     """Repair a single skill using specialized LLM prompt."""
     print(f"🛠️  Repairing: {skill_path}")
     
-    with open(skill_path, 'r', encoding='utf-8') as f:
+    with open(skill_path, encoding='utf-8') as f:
         content = f.read()
         
     if not detect_defects(content):
@@ -80,7 +78,7 @@ def repair_skill(skill_path):
         if repaired_text.endswith("```"): repaired_text = repaired_text[:-3]
         content = repaired_text.strip()
     else:
-        print(f"⚠️  No API key. Performing structural compliance repair...")
+        print("⚠️  No API key. Performing structural compliance repair...")
         content = structural_repair(content)
         
     with open(skill_path, 'w', encoding='utf-8') as f:
@@ -105,12 +103,12 @@ def batch_repair(domain=None):
         if repair_skill(str(skill_file)):
             repaired_count += 1
             
-    print(f"\n--- BATCH REPAIR COMPLETE ---")
+    print("\n--- BATCH REPAIR COMPLETE ---")
     print(f"Total skills repaired: {repaired_count}")
     
     # Reindex
-    subprocess.run(["python", "reindex_skills.py"])
-    subprocess.run(["python", "final_verify.py"])
+    subprocess.run(["python", "reindex_skills.py"], check=False)
+    subprocess.run(["python", "final_verify.py"], check=False)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Batch repair skills for compliance.")

@@ -6,7 +6,6 @@ Provides capabilities for creating, configuring, and managing OpenClaw agents.
 
 import asyncio
 import json
-import os
 import subprocess
 from pathlib import Path
 from typing import Any, Dict, List, Optional
@@ -71,7 +70,7 @@ class OpenClawAgentManager:
         if not config_path.exists():
             return {"error": f"Agent '{agent_name}' not found"}
 
-        with open(config_path, "r") as f:
+        with open(config_path) as f:
             config = json.load(f)
 
         config.update(settings)

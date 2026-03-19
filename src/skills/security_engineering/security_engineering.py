@@ -8,16 +8,10 @@ This skill handles security architecture, risk assessment, penetration testing,
 security compliance, and defensive security measures for software systems.
 """
 
-import os
-import re
-import json
-import subprocess
-from typing import Dict, List, Optional, Any, Tuple
-from pathlib import Path
 import logging
-import hashlib
-import secrets
-from datetime import datetime, timedelta
+import re
+from pathlib import Path
+from typing import Any, Dict, List, Optional
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -504,7 +498,7 @@ class SecurityEngineeringSkill:
         
         for file_path in codebase_dir.rglob("*.py"):
             try:
-                with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
+                with open(file_path, encoding='utf-8', errors='ignore') as f:
                     content = f.read()
                     line_number = 1
                     
@@ -1080,7 +1074,7 @@ if __name__ == "__main__":
         
         for py_file in system_dir.rglob("*.py"):
             try:
-                with open(py_file, 'r') as f:
+                with open(py_file) as f:
                     content = f.read()
                     
                     # Check for unsafe input handling

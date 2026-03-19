@@ -14,18 +14,15 @@ Key Features:
 - Cluster and worker process optimization
 """
 
-import time
 import datetime
-import logging
 import json
-import subprocess
-import asyncio
-import os
-import sys
+import logging
 import statistics
-from typing import Dict, List, Any, Optional, Union
-from dataclasses import dataclass, asdict
+import time
+from dataclasses import asdict, dataclass
 from pathlib import Path
+from typing import Any, Dict, List, Optional
+
 import psutil
 
 logger = logging.getLogger(__name__)
@@ -276,7 +273,7 @@ class NodeJSOptimizationAnalyzer:
             return {"error": "package.json not found"}
         
         try:
-            with open(package_json_path, 'r') as f:
+            with open(package_json_path) as f:
                 package_data = json.load(f)
             
             analysis = {

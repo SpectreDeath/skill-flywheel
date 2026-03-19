@@ -1,7 +1,6 @@
-import time
 import logging
 from datetime import datetime
-from typing import Dict, List, Any, Optional
+from typing import Any, Dict
 
 logger = logging.getLogger(__name__)
 
@@ -111,7 +110,7 @@ def generate_qaoa_circuit(
         "num_qubits": num_qubits,
         "p_layers": p_layers,
         "problem_type": problem_type,
-        "description": "QAOA circuit for {}".format(problem_type),
+        "description": f"QAOA circuit for {problem_type}",
         "implementation_notes": [
             "Initialize all qubits in superposition",
             "For each layer p:",
@@ -172,12 +171,12 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
         else:
             return {
-                "result": {"error": "Unknown action: {}".format(action)},
+                "result": {"error": f"Unknown action: {action}"},
                 "metadata": {"action": action, "timestamp": datetime.now().isoformat()},
             }
 
     except Exception as e:
-        logger.error("Error in qrisp_quantum_algorithms: {}".format(e))
+        logger.error(f"Error in qrisp_quantum_algorithms: {e}")
         return {
             "result": {"error": str(e)},
             "metadata": {"action": action, "timestamp": datetime.now().isoformat()},

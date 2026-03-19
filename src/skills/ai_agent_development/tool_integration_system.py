@@ -9,12 +9,10 @@ import asyncio
 import logging
 import time
 import uuid
-import json
-from typing import Dict, Any, List, Optional, Union, Callable, Type
-from dataclasses import dataclass, asdict
-from enum import Enum
+from dataclasses import dataclass
 from datetime import datetime
-import inspect
+from enum import Enum
+from typing import Any, Callable, Dict, List, Optional
 
 logger = logging.getLogger(__name__)
 
@@ -361,7 +359,7 @@ def create_file_tool():
     def read_file(path: str) -> Dict[str, Any]:
         """Read content from a file"""
         try:
-            with open(path, 'r') as f:
+            with open(path) as f:
                 content = f.read()
             return {"success": True, "content": content}
         except Exception as e:
@@ -416,7 +414,6 @@ def create_search_tool():
     
     def search_local(query: str, path: str = ".") -> Dict[str, Any]:
         """Search local files"""
-        import os
         import glob
         
         try:

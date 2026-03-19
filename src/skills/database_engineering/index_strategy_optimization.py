@@ -1,9 +1,7 @@
-import time
 import logging
 import re
-import hashlib
 from datetime import datetime
-from typing import Dict, List, Any, Optional
+from typing import Any, Dict, List
 
 logger = logging.getLogger(__name__)
 
@@ -88,8 +86,8 @@ def generate_index_strategy(
             for query in queries:
                 query_lower = query.lower()
                 if (
-                    "where {}.".format(col_name) in query_lower
-                    or "where {}".format(col_name) in query_lower
+                    f"where {col_name}." in query_lower
+                    or f"where {col_name}" in query_lower
                 ):
                     index_type = recommend_index_type(column, access_patterns)
                     existing = False
@@ -112,7 +110,7 @@ def generate_index_strategy(
                             }
                         )
 
-                if "order by {}".format(col_name) in query_lower:
+                if f"order by {col_name}" in query_lower:
                     existing = False
                     for idx in indexes:
                         if idx["table"] == table_name and col_name in idx["columns"]:
@@ -278,12 +276,12 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
         else:
             return {
-                "result": {"error": "Unknown action: {}".format(action)},
+                "result": {"error": f"Unknown action: {action}"},
                 "metadata": {"action": action, "timestamp": datetime.now().isoformat()},
             }
 
     except Exception as e:
-        logger.error("Error in index_strategy_optimization: {}".format(e))
+        logger.error(f"Error in index_strategy_optimization: {e}")
         return {
             "result": {"error": str(e)},
             "metadata": {"action": action, "timestamp": datetime.now().isoformat()},

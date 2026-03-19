@@ -10,10 +10,9 @@ This module provides skills for analyzing Python code and suggesting refactoring
 """
 
 import ast
-import re
-from typing import Dict, List, Any, Optional, Set, Tuple
-from dataclasses import dataclass, field
 from collections import defaultdict
+from dataclasses import dataclass
+from typing import Any, Dict, List, Optional, Set, Tuple
 
 
 @dataclass
@@ -501,7 +500,7 @@ def generate_recommendations(
             recommendations.append(
                 Recommendation(
                     title="Introduce Parameter Object",
-                    description=f"Group related parameters into a data class or object to reduce parameter count.",
+                    description="Group related parameters into a data class or object to reduce parameter count.",
                     priority=2,
                     confidence=0.75,
                     effort="low",
@@ -515,7 +514,7 @@ def generate_recommendations(
             recommendations.append(
                 Recommendation(
                     title="Reduce Nesting / Use Guard Clauses",
-                    description=f"Reduce nesting depth by using early returns, guard clauses, or extracting logic.",
+                    description="Reduce nesting depth by using early returns, guard clauses, or extracting logic.",
                     priority=2,
                     confidence=0.7,
                     effort="medium",
@@ -589,7 +588,7 @@ def generate_recommendations(
             recommendations.append(
                 Recommendation(
                     title="Apply Dependency Inversion Principle",
-                    description=f"Depend on abstractions (protocols/interfaces) instead of concrete classes.",
+                    description="Depend on abstractions (protocols/interfaces) instead of concrete classes.",
                     priority=3,
                     confidence=0.6,
                     effort="medium",

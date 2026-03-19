@@ -1,7 +1,6 @@
-import logging
-from datetime import datetime
-from typing import Dict, List, Any
 import hashlib
+import logging
+from typing import Any, Dict
 
 logger = logging.getLogger(__name__)
 
@@ -14,7 +13,7 @@ class ConsistentHashing:
 
     def add_node(self, node_id: str):
         for i in range(self.num_replicas):
-            key = hashlib.md5("{}_{}".format(node_id, i).encode()).hexdigest()
+            key = hashlib.md5(f"{node_id}_{i}".encode()).hexdigest()
             self.ring[key] = node_id
         self.sorted_keys = sorted(self.ring.keys())
 

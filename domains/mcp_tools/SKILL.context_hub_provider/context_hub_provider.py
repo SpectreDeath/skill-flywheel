@@ -18,11 +18,10 @@ Safety: Verifies chub binary existence before execution
 import asyncio
 import json
 import logging
-import subprocess
 import shutil
-from typing import Dict, List, Any, Optional, Union
 from dataclasses import dataclass
 from enum import Enum
+from typing import Any, Dict, List, Optional
 
 logger = logging.getLogger(__name__)
 

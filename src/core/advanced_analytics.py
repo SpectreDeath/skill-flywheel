@@ -7,30 +7,28 @@ optimization, intelligent skill recommendations, automated quality improvement,
 and anomaly detection for the enhanced MCP server.
 """
 
-import os
-import json
-import logging
 import asyncio
-import numpy as np
-import pandas as pd
-from pathlib import Path
-from typing import Dict, List, Any, Optional, Tuple, Callable
-from dataclasses import dataclass, asdict
-from datetime import datetime, timedelta
-from enum import Enum
-import pickle
+import logging
+import statistics
 import warnings
 from collections import defaultdict, deque
-import statistics
+from dataclasses import dataclass
+from datetime import datetime, timedelta
+from enum import Enum
+from pathlib import Path
+from typing import Any, Dict, List, Optional, Tuple
+
+import numpy as np
+import pandas as pd
 
 # ML and Analytics imports
 try:
-    from sklearn.ensemble import IsolationForest, RandomForestRegressor
-    from sklearn.preprocessing import StandardScaler, LabelEncoder
-    from sklearn.model_selection import train_test_split
-    from sklearn.metrics import mean_squared_error, accuracy_score
-    from sklearn.cluster import KMeans
     import joblib
+    from sklearn.cluster import KMeans
+    from sklearn.ensemble import IsolationForest, RandomForestRegressor
+    from sklearn.metrics import accuracy_score, mean_squared_error
+    from sklearn.model_selection import train_test_split
+    from sklearn.preprocessing import LabelEncoder, StandardScaler
     ML_AVAILABLE = True
 except ImportError:
     ML_AVAILABLE = False
@@ -402,9 +400,7 @@ class AnomalyDetector:
         """Determine anomaly type based on metric name."""
         if "execution_time" in metric_name:
             return AnomalyType.PERFORMANCE
-        elif "success_rate" in metric_name:
-            return AnomalyType.QUALITY
-        elif "quality_score" in metric_name:
+        elif "success_rate" in metric_name or "quality_score" in metric_name:
             return AnomalyType.QUALITY
         elif "resource" in metric_name:
             return AnomalyType.USAGE

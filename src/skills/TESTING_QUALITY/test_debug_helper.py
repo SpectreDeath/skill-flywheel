@@ -10,10 +10,9 @@ Analyzes test failures to:
 """
 
 import re
-import ast
-from typing import Dict, List, Any, Optional, Tuple
 from dataclasses import dataclass
 from enum import Enum
+from typing import Any, Dict, List, Optional, Tuple
 
 
 class FailureType(Enum):
@@ -186,7 +185,7 @@ def analyze_assertion_error(
     if "assertEqual" in assertion_line or "assert_equal" in assertion_line:
         return (
             "Values are not equal",
-            f"The test expected one value but got another. Expected: 'expected_value', Got: 'actual_value'",
+            "The test expected one value but got another. Expected: 'expected_value', Got: 'actual_value'",
             "Check the expected vs actual values. Verify the function returns the correct value or fix the test expectation.",
         )
 
@@ -264,8 +263,8 @@ def analyze_import_error(parsed: ParsedError, test_code: str) -> Tuple[str, str,
     if "cannot import" in parsed.message:
         return (
             f"Cannot import from '{module}'",
-            f"The import statement failed - possibly the module or name doesn't exist",
-            f"Check if the module exists and exports the correct names. Verify imports are correct.",
+            "The import statement failed - possibly the module or name doesn't exist",
+            "Check if the module exists and exports the correct names. Verify imports are correct.",
         )
 
     return (
@@ -312,8 +311,8 @@ def analyze_type_error(parsed: ParsedError, test_code: str) -> Tuple[str, str, s
         if match:
             return (
                 f"Missing {match.group(1)} required argument(s)",
-                f"The function call is missing required argument(s)",
-                f"Add the required argument(s) to the function call.",
+                "The function call is missing required argument(s)",
+                "Add the required argument(s) to the function call.",
             )
 
     if "too many" in message and "argument" in message:
@@ -343,7 +342,7 @@ def analyze_attribute_error(
         return (
             f"'{obj_type}' has no attribute '{attr_name}'",
             f"The object of type '{obj_type}' doesn't have the attribute '{attr_name}'",
-            f"Check if the attribute name is correct or if the object type is what you expect. Verify the attribute exists on the class.",
+            "Check if the attribute name is correct or if the object type is what you expect. Verify the attribute exists on the class.",
         )
 
     if "has no attribute" in message:
@@ -396,7 +395,7 @@ def analyze_key_error(parsed: ParsedError, test_code: str) -> Tuple[str, str, st
         return (
             f"Key '{key}' not found",
             f"The dictionary does not contain the key '{key}'",
-            f"Add the key to the dictionary, use dict.get() with a default, or check if the key exists first.",
+            "Add the key to the dictionary, use dict.get() with a default, or check if the key exists first.",
         )
 
     return (

@@ -9,7 +9,6 @@ import os
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
-
 SKILL_TEMPLATE = {
     "manifest": {
         "name": "",
@@ -31,7 +30,7 @@ export const handler = handle_request;
 
 export default {{ handler }};
 """,
-    "handler_mjs": """/**
+    "handler_mjs": r"""/**
  * Handle requests to this skill.
  * 
  * @param {{ action: string, params: Object }} request

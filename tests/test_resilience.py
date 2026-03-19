@@ -2,27 +2,27 @@
 Unit tests for resilience module (circuit breaker, retry with backoff)
 """
 
-import pytest
-import time
+import os
+import sys
 import threading
+import time
 from unittest.mock import Mock, patch
 
-import sys
-import os
+import pytest
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from src.core.resilience import (
     CircuitBreakerConfig,
-    ResilienceError,
     CircuitOpenError,
+    ResilienceError,
     RetryExhaustedError,
     TimeoutError,
-    get_circuit_breaker,
+    _SimpleCircuitBreaker,
     circuit_breaker,
+    get_circuit_breaker,
     retry_with_backoff,
     timeout,
-    _SimpleCircuitBreaker,
 )
 
 

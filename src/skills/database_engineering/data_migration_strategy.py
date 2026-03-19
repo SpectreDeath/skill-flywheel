@@ -1,8 +1,8 @@
-import time
-import logging
 import hashlib
-from datetime import datetime, timedelta
-from typing import Dict, List, Any, Optional
+import logging
+import time
+from datetime import datetime
+from typing import Any, Dict, List
 
 logger = logging.getLogger(__name__)
 
@@ -19,7 +19,7 @@ def assess_migration_complexity(
     if source_db != target_db:
         complexity_score += 30
         factors.append(
-            "Cross-database migration ({} to {})".format(source_db, target_db)
+            f"Cross-database migration ({source_db} to {target_db})"
         )
 
     source_version = source.get("version", "1.0")
@@ -32,12 +32,12 @@ def assess_migration_complexity(
     tables = source.get("tables", [])
     if len(tables) > 50:
         complexity_score += 20
-        factors.append("Large number of tables ({})".format(len(tables)))
+        factors.append(f"Large number of tables ({len(tables)})")
 
     size_gb = source.get("size_gb", 0)
     if size_gb > 100:
         complexity_score += 25
-        factors.append("Large database size ({} GB)".format(size_gb))
+        factors.append(f"Large database size ({size_gb} GB)")
 
     if source.get("has_stored_procedures"):
         complexity_score += 15
@@ -195,9 +195,7 @@ def generate_data_mapping_rules(
 
 def create_rollback_plan(migration: Dict[str, Any]) -> Dict[str, Any]:
     rollback = {
-        "plan_id": "rollback-{}".format(
-            hashlib.md5(str(time.time()).encode()).hexdigest()[:8]
-        ),
+        "plan_id": f"rollback-{hashlib.md5(str(time.time()).encode()).hexdigest()[:8]}",
         "created_at": datetime.now().isoformat(),
     }
 
@@ -291,12 +289,12 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
         else:
             return {
-                "result": {"error": "Unknown action: {}".format(action)},
+                "result": {"error": f"Unknown action: {action}"},
                 "metadata": {"action": action, "timestamp": datetime.now().isoformat()},
             }
 
     except Exception as e:
-        logger.error("Error in data_migration_strategy: {}".format(e))
+        logger.error(f"Error in data_migration_strategy: {e}")
         return {
             "result": {"error": str(e)},
             "metadata": {"action": action, "timestamp": datetime.now().isoformat()},

@@ -4,9 +4,9 @@ Domain: AI_AGENT_DEVELOPMENT
 Description: AI agent system for debate moderation and analysis
 """
 
-import logging
 import datetime
-from typing import Dict, List, Any
+import logging
+from typing import Any, Dict, List
 
 logger = logging.getLogger(__name__)
 

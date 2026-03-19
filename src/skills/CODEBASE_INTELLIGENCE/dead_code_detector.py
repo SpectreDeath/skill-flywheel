@@ -10,12 +10,11 @@ This module provides skills for detecting dead code in Python:
 """
 
 import ast
-import re
 import hashlib
-from typing import Dict, List, Any, Optional, Set, Tuple
-from dataclasses import dataclass, field
-from collections import defaultdict
+import re
+from dataclasses import dataclass
 from difflib import SequenceMatcher
+from typing import Any, Dict, List, Optional, Set, Tuple
 
 
 @dataclass
@@ -177,7 +176,7 @@ def detect_unused_functions(
     unused = []
 
     for func in visitor.functions:
-        if func.name.startswith("_") and not func.name == "__init__":
+        if func.name.startswith("_") and func.name != "__init__":
             continue
 
         if func.name not in visitor.called_names:
@@ -191,7 +190,7 @@ def detect_unused_functions(
             )
 
     for method in visitor.methods:
-        if method.name.startswith("_") and not method.name == "__init__":
+        if method.name.startswith("_") and method.name != "__init__":
             continue
 
         if method.name not in visitor.called_names:
@@ -273,7 +272,7 @@ def detect_unreachable_code(code_lines: List[str]) -> List[Dict[str, Any]]:
     for i, line in enumerate(code_lines):
         stripped = line.strip()
 
-        if stripped.startswith("return") and not "# unreachable after return" in line:
+        if stripped.startswith("return") and "# unreachable after return" not in line:
             code_after = code_lines[i + 1 :] if i + 1 < len(code_lines) else []
             meaningful_lines = [
                 l for l in code_after if l.strip() and not l.strip().startswith("#")
@@ -307,7 +306,7 @@ def detect_unreachable_code(code_lines: List[str]) -> List[Dict[str, Any]]:
                     )
                 break
 
-        if stripped.startswith("raise") and not "# unreachable after raise" in line:
+        if stripped.startswith("raise") and "# unreachable after raise" not in line:
             code_after = code_lines[i + 1 :] if i + 1 < len(code_lines) else []
             meaningful_lines = [
                 l for l in code_after if l.strip() and not l.strip().startswith("#")

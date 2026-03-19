@@ -1,8 +1,8 @@
 import json
-import sqlite3
 import os
+import sqlite3
 import uuid
-import datetime
+
 
 def main():
     registry_file = r"d:\Skill Flywheel\data\skill_registry.json"
@@ -15,11 +15,11 @@ def main():
         os.remove(db_file)
         
     conn = sqlite3.connect(db_file)
-    with open(sql_schema, 'r') as f:
+    with open(sql_schema) as f:
         conn.executescript(f.read())
         
     # Read registry
-    with open(registry_file, 'r', encoding='utf-8') as f:
+    with open(registry_file, encoding='utf-8') as f:
         skills_data = json.load(f)
         
     # Existing python modules

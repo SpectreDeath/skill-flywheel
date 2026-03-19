@@ -6,13 +6,13 @@ Description: Provides a standardized framework for hardware-aware model routing 
 """
 
 import asyncio
-import json
 import logging
 import subprocess
 import time
-from typing import Dict, Any, List, Optional, NamedTuple
 from dataclasses import dataclass
 from enum import Enum
+from typing import Any, Dict, List, Optional
+
 import psutil
 
 logger = logging.getLogger(__name__)
@@ -172,7 +172,7 @@ class HardwareModelSelector:
                  '--format=csv,noheader,nounits'],
                 capture_output=True,
                 text=True,
-                timeout=10
+                timeout=10, check=False
             )
             
             if result.returncode == 0:

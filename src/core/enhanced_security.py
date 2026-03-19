@@ -7,30 +7,21 @@ detection, and automated security hardening for the enhanced MCP server.
 It includes ML-based threat detection and real-time security monitoring.
 """
 
-import os
-import json
-import logging
 import asyncio
+import logging
 import re
-import hashlib
-import ast
-from pathlib import Path
-from typing import Dict, List, Any, Optional, Tuple, Callable
-from dataclasses import dataclass, asdict
+import warnings
+from dataclasses import dataclass
 from datetime import datetime, timedelta
 from enum import Enum
-import secrets
-import base64
-from cryptography.fernet import Fernet
-from cryptography.hazmat.primitives import hashes
-from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
-import warnings
+from pathlib import Path
+from typing import Any, Dict, List
 
 # ML imports for advanced threat detection
 try:
+    import numpy as np
     from sklearn.ensemble import IsolationForest
     from sklearn.feature_extraction.text import TfidfVectorizer
-    import numpy as np
     ML_AVAILABLE = True
 except ImportError:
     ML_AVAILABLE = False
@@ -266,7 +257,7 @@ class SecurityScanner:
         """Perform comprehensive security scan of a skill."""
         try:
             # Read skill content
-            with open(skill_path, 'r', encoding='utf-8') as f:
+            with open(skill_path, encoding='utf-8') as f:
                 content = f.read()
             
             skill_id = skill_path.stem
@@ -622,7 +613,7 @@ class SecurityHardener:
         """Apply security hardening to a skill."""
         try:
             # Read original content
-            with open(skill_path, 'r', encoding='utf-8') as f:
+            with open(skill_path, encoding='utf-8') as f:
                 original_content = f.read()
             
             # Apply hardening rules

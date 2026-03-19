@@ -1,8 +1,9 @@
 import asyncio
 import logging
+from typing import Any, Dict, Optional
+
 import docker
 from docker.errors import APIError, NotFound
-from typing import List, Dict, Any, Optional
 
 logger = logging.getLogger(__name__)
 

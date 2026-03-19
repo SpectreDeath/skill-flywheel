@@ -6,7 +6,7 @@ import importlib.util
 import logging
 import time
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Set, Type
+from typing import Any, Dict, List, Optional, Type
 
 from .evaluator import SkillExecutor
 

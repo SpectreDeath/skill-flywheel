@@ -7,9 +7,7 @@ Constructs and analyzes deductive and inductive reasoning chains:
 - Assesses conclusion strength
 """
 
-from typing import Dict, List, Any, Optional
-from dataclasses import dataclass
-
+from typing import Any, Dict, List
 
 REASONING_PATTERNS = {
     "modus_ponens": {

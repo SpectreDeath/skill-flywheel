@@ -8,9 +8,8 @@ Models auction strategies and optimal bidding:
 - Reserve price calculations
 """
 
-from typing import Dict, List, Any, Optional
 import random
-
+from typing import Any, Dict, List
 
 AUCTION_TYPES = {
     "english": {"type": "ascending", "dominant": True},

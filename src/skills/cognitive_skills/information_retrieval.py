@@ -4,10 +4,9 @@ Information Retrieval Module
 Efficiently locate, access, and apply stored information to solve problems.
 """
 
-from typing import Dict, List, Optional, Any, Tuple
 from dataclasses import dataclass
 from enum import Enum
-import re
+from typing import Dict, List
 
 
 class SourceType(Enum):

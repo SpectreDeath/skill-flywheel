@@ -5,14 +5,7 @@ This module contains handlers for retrieving performance metrics,
 statistics, and analytics about skill usage and performance.
 """
 
-import datetime
 import logging
-from typing import Dict, List, Any, Optional
-
-from src.server.dependencies import (
-    get_performance_monitor,
-    get_skill_registry,
-)
 
 logger = logging.getLogger(__name__)
 

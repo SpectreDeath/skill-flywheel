@@ -11,9 +11,9 @@ Configures fuzzing for APIs by:
 
 import ast
 import re
-from typing import Dict, List, Any, Optional
-from dataclasses import dataclass, field
 from collections import defaultdict
+from dataclasses import dataclass, field
+from typing import Any, Dict, List, Optional
 
 
 @dataclass

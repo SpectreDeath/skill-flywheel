@@ -10,7 +10,6 @@ from typing import (
     List,
     Optional,
     TypeVar,
-    Union,
     overload,
 )
 
@@ -20,7 +19,7 @@ from darwinian_evolver.problem import Mutator as BaseMutator
 from darwinian_evolver.problem import MutatorContext
 
 if TYPE_CHECKING:
-    from darwinian_evolver.population import Population as BasePopulation
+    pass
 
 from .genome import SkillFailureCase, SkillFitnessResult, SkillGenome
 

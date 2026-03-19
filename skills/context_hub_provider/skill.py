@@ -7,12 +7,11 @@ This skill provides autonomous skill synthesis capabilities through
 the context-hub CLI tool, focusing on strategy and analysis workflows.
 """
 
-import os
-import subprocess
 import json
 import logging
-from typing import Dict, List, Optional, Any
-from pathlib import Path
+import os
+import subprocess
+from typing import Any, Dict, List, Optional
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -55,7 +54,7 @@ class ContextHubProvider:
                     ["node", path, "--cli-version"], 
                     capture_output=True, 
                     text=True, 
-                    timeout=10
+                    timeout=10, check=False
                 )
                 if result.returncode == 0:
                     logger.info(f"Found chub CLI at: node {path}")
@@ -70,7 +69,7 @@ class ContextHubProvider:
                     [path, "--cli-version"], 
                     capture_output=True, 
                     text=True, 
-                    timeout=10
+                    timeout=10, check=False
                 )
                 if result.returncode == 0:
                     logger.info(f"Found chub CLI at: {path}")
@@ -92,7 +91,7 @@ class ContextHubProvider:
         elif self.chub_path and self.chub_path.endswith('chub'):
             # Check if it's a Node.js script by looking for shebang
             try:
-                with open(self.chub_path, 'r') as f:
+                with open(self.chub_path) as f:
                     first_line = f.readline().strip()
                     if first_line.startswith('#!') and 'node' in first_line:
                         return ["node", self.chub_path]
@@ -116,7 +115,7 @@ class ContextHubProvider:
                 chub_cmd + ["--cli-version"],
                 capture_output=True,
                 text=True,
-                timeout=30
+                timeout=30, check=False
             )
             
             if result.returncode == 0:
@@ -167,7 +166,7 @@ class ContextHubProvider:
                 chub_cmd + ["skills", "list", "--domain", target_domain],
                 capture_output=True,
                 text=True,
-                timeout=60
+                timeout=60, check=False
             )
             
             if result.returncode == 0:
@@ -221,7 +220,7 @@ class ContextHubProvider:
                 cmd,
                 capture_output=True,
                 text=True,
-                timeout=120
+                timeout=120, check=False
             )
             
             if result.returncode == 0:
@@ -265,7 +264,7 @@ class ContextHubProvider:
                 input=context_json,
                 capture_output=True,
                 text=True,
-                timeout=180
+                timeout=180, check=False
             )
             
             if result.returncode == 0:
@@ -310,7 +309,7 @@ class ContextHubProvider:
                 input=requirements_json,
                 capture_output=True,
                 text=True,
-                timeout=300  # 5 minutes for synthesis
+                timeout=300, check=False  # 5 minutes for synthesis
             )
             
             if result.returncode == 0:

@@ -1,6 +1,6 @@
 import logging
 from datetime import datetime
-from typing import Dict, List, Any, Optional
+from typing import Any, Dict, Optional
 
 logger = logging.getLogger(__name__)
 
@@ -56,10 +56,10 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
         else:
             return {
-                "result": {"error": "Unknown action: {}".format(action)},
+                "result": {"error": f"Unknown action: {action}"},
                 "metadata": {"action": action},
             }
 
     except Exception as e:
-        logger.error("Error in ralph_chaos_model_selector: {}".format(e))
+        logger.error(f"Error in ralph_chaos_model_selector: {e}")
         return {"result": {"error": str(e)}, "metadata": {"action": action}}

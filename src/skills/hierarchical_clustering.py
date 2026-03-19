@@ -7,8 +7,8 @@ Performs agglomerative hierarchical clustering:
 - Cut tree at different thresholds
 """
 
-from typing import Dict, List, Any, Optional
 import math
+from typing import Any, Dict, List, Optional
 
 
 def _euclidean_distance(p1: List[float], p2: List[float]) -> float:

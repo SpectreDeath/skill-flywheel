@@ -25,7 +25,7 @@ def setup_logging(verbose: bool = False) -> None:
 
 def load_config_from_file(config_path: str) -> EvolutionConfig:
     """Load evolution configuration from a JSON file."""
-    with open(config_path, "r") as f:
+    with open(config_path) as f:
         data = json.load(f)
     return EvolutionConfig.from_dict(data)
 
@@ -230,7 +230,7 @@ class EvolutionCLI:
     def _run_evolution(self) -> int:
         """Run the skill evolution."""
         print("=" * 60)
-        print(f"Starting Skill Evolution")
+        print("Starting Skill Evolution")
         print(f"Group: {self.args.group}")
         print(f"Iterations: {self.args.iterations}")
         print(f"Population Size: {self.args.population_size}")

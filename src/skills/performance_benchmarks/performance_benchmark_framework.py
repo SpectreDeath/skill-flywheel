@@ -14,19 +14,19 @@ Key Features:
 - Automated performance regression detection
 """
 
-import time
-import datetime
-import logging
-import json
-import statistics
 import asyncio
-from typing import Dict, List, Any, Optional, Union, Callable
-from dataclasses import dataclass, asdict
+import datetime
+import json
+import logging
+import statistics
+import sys
+import time
+from dataclasses import asdict, dataclass
 from enum import Enum
 from pathlib import Path
+from typing import Any, Callable, Dict, List, Optional
+
 import psutil
-import sys
-import os
 
 logger = logging.getLogger(__name__)
 

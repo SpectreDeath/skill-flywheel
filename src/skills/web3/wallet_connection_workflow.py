@@ -1,17 +1,15 @@
-import time
-import logging
 import hashlib
+import logging
+import time
 from datetime import datetime
-from typing import Dict, List, Any, Optional
+from typing import Any, Dict
 
 logger = logging.getLogger(__name__)
 
 
 def generate_connection_flow() -> Dict[str, Any]:
     flow = {
-        "flow_id": "wallet-connection-{}".format(
-            hashlib.md5(str(time.time()).encode()).hexdigest()[:8]
-        ),
+        "flow_id": f"wallet-connection-{hashlib.md5(str(time.time()).encode()).hexdigest()[:8]}",
         "steps": [],
     }
 
@@ -148,12 +146,12 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
         else:
             return {
-                "result": {"error": "Unknown action: {}".format(action)},
+                "result": {"error": f"Unknown action: {action}"},
                 "metadata": {"action": action, "timestamp": datetime.now().isoformat()},
             }
 
     except Exception as e:
-        logger.error("Error in wallet_connection_workflow: {}".format(e))
+        logger.error(f"Error in wallet_connection_workflow: {e}")
         return {
             "result": {"error": str(e)},
             "metadata": {"action": action, "timestamp": datetime.now().isoformat()},

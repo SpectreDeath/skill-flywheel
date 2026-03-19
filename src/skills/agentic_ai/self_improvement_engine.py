@@ -7,14 +7,13 @@ Description: Self-improvement engine for AI agents that learns from experience a
 
 import asyncio
 import logging
-import time
-import json
-from typing import Dict, Any, List, Optional, Union
-from dataclasses import dataclass, asdict
-from enum import Enum
-from datetime import datetime, timedelta
-import uuid
 import statistics
+import time
+import uuid
+from dataclasses import dataclass
+from datetime import datetime
+from enum import Enum
+from typing import Any, Dict, List, Optional
 
 logger = logging.getLogger(__name__)
 
@@ -307,9 +306,8 @@ class SelfImprovementEngine:
                 if "improve" in lesson or "better" in lesson:
                     if lesson not in kb_entry["best_practices"]:
                         kb_entry["best_practices"].append(lesson)
-                else:
-                    if lesson not in kb_entry["common_issues"]:
-                        kb_entry["common_issues"].append(lesson)
+                elif lesson not in kb_entry["common_issues"]:
+                    kb_entry["common_issues"].append(lesson)
     
     def get_improvement_suggestions(self, limit: int = 5) -> List[Dict[str, Any]]:
         """Get prioritized improvement suggestions"""

@@ -8,12 +8,11 @@ Generates changelogs from git log data:
 - Formats output in standard changelog format
 """
 
-import re
 import json
-from typing import Dict, List, Any, Optional
+import re
 from dataclasses import dataclass, field
 from datetime import datetime
-
+from typing import Any, Dict, List, Optional
 
 SEMVER_PATTERN = r"\bv?(\d+)\.(\d+)\.(\d+)(?:-([0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*))?(?:\+([0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*))?\b"
 

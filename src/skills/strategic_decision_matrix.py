@@ -8,8 +8,7 @@ Evaluates strategic options using multi-criteria decision analysis:
 - Recommendation generation
 """
 
-from typing import Dict, List, Any, Optional
-from dataclasses import dataclass
+from typing import Any, Dict, List
 
 
 def calculate_weighted_score(option: Dict, criteria: List[Dict]) -> float:

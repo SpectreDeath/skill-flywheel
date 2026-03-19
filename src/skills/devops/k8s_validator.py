@@ -6,10 +6,11 @@ Description: Validates Kubernetes manifests for best practices, security, and co
 """
 
 import re
-import yaml
-from typing import Dict, Any, List, Optional
 from dataclasses import dataclass, field
 from enum import Enum
+from typing import Any, Dict, List
+
+import yaml
 
 
 class IssueSeverity(Enum):

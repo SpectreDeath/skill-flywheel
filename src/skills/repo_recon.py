@@ -7,10 +7,9 @@ This module provides skills for analyzing and understanding codebases:
 
 import os
 import re
-import json
-from pathlib import Path
-from typing import Dict, List, Any, Optional
 from dataclasses import dataclass, field
+from pathlib import Path
+from typing import Any, Dict, List
 
 
 @dataclass
@@ -219,7 +218,7 @@ def scan_security_issues(
             file_path = os.path.join(root, file)
 
             try:
-                with open(file_path, "r", encoding="utf-8", errors="ignore") as f:
+                with open(file_path, encoding="utf-8", errors="ignore") as f:
                     content = f.read()
                     rel_path = os.path.relpath(file_path, repo_path)
 

@@ -6,12 +6,10 @@ different platforms including local, VPS, Docker, and cloud environments.
 """
 
 import asyncio
-import json
 import os
 import subprocess
 from pathlib import Path
 from typing import Any, Dict, List, Optional
-
 
 DOCKER_COMPOSE_TEMPLATE = """version: '3.8'
 
@@ -71,7 +69,7 @@ class OpenClawDeployer:
     def _check_command(self, cmd: str) -> bool:
         """Check if a command is available."""
         result = subprocess.run(
-            ["which", cmd] if os.name != "nt" else ["where", cmd], capture_output=True
+            ["which", cmd] if os.name != "nt" else ["where", cmd], capture_output=True, check=False
         )
         return result.returncode == 0
 
@@ -195,7 +193,7 @@ OPENAI_API_KEY=$OPENAI_API_KEY
 
     def _check_local_running(self) -> Dict[str, Any]:
         """Check if local OpenClaw is running."""
-        result = subprocess.run(["pgrep", "-f", "openclaw"], capture_output=True)
+        result = subprocess.run(["pgrep", "-f", "openclaw"], capture_output=True, check=False)
 
         return {
             "running": result.returncode == 0,
@@ -206,7 +204,7 @@ OPENAI_API_KEY=$OPENAI_API_KEY
         """Check if Docker containers are running."""
         result = subprocess.run(
             ["docker", "ps", "--filter", "name=openclaw", "--format", "{{.Names}}"],
-            capture_output=True,
+            capture_output=True, check=False,
         )
 
         containers = result.stdout.decode().strip().split("\n") if result.stdout else []

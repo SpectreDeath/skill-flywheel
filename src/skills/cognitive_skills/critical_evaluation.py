@@ -5,9 +5,9 @@ Apply standards and probabilities to assess the quality and validity of
 information, arguments, and solutions.
 """
 
-from typing import Dict, List, Optional, Any
 from dataclasses import dataclass
 from enum import Enum
+from typing import Dict, List, Optional
 
 
 class EvidenceQuality(Enum):

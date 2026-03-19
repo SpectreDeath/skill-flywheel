@@ -9,15 +9,10 @@ This skill handles blockchain architecture, smart contract development,
 decentralized finance (DeFi), non-fungible tokens (NFTs), and Web3 infrastructure.
 """
 
-import os
-import re
 import json
-import subprocess
-from typing import Dict, List, Optional, Any, Tuple
-from pathlib import Path
 import logging
-import hashlib
-import time
+from pathlib import Path
+from typing import Any, Dict, List, Optional
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -298,11 +293,7 @@ class Web3Skill:
         }
         
         # Look for blockchain-specific files
-        if (project_dir / "hardhat.config.js").exists():
-            project_info["blockchain"] = "ethereum"
-        elif (project_dir / "truffle-config.js").exists():
-            project_info["blockchain"] = "ethereum"
-        elif (project_dir / "foundry.toml").exists():
+        if (project_dir / "hardhat.config.js").exists() or (project_dir / "truffle-config.js").exists() or (project_dir / "foundry.toml").exists():
             project_info["blockchain"] = "ethereum"
         
         # Analyze project structure
@@ -320,11 +311,7 @@ class Web3Skill:
     
     def _detect_blockchain(self, project_dir: Path) -> str:
         """Detect the blockchain used in the project."""
-        if (project_dir / "hardhat.config.js").exists():
-            return "ethereum"
-        elif (project_dir / "truffle-config.js").exists():
-            return "ethereum"
-        elif (project_dir / "foundry.toml").exists():
+        if (project_dir / "hardhat.config.js").exists() or (project_dir / "truffle-config.js").exists() or (project_dir / "foundry.toml").exists():
             return "ethereum"
         elif (project_dir / "Anchor.toml").exists():
             return "solana"
@@ -342,7 +329,7 @@ class Web3Skill:
             tools.append("foundry")
         if (project_dir / "package.json").exists():
             try:
-                with open(project_dir / "package.json", 'r') as f:
+                with open(project_dir / "package.json") as f:
                     package_data = json.load(f)
                 deps = package_data.get("dependencies", {})
                 dev_deps = package_data.get("devDependencies", {})
@@ -372,7 +359,7 @@ class Web3Skill:
         
         for contract_file in project_dir.rglob("*.sol"):
             try:
-                with open(contract_file, 'r') as f:
+                with open(contract_file) as f:
                     content = f.read()
                 
                 # Detect contract type
@@ -412,7 +399,7 @@ class Web3Skill:
         # Check for proper error handling
         for contract_file in project_dir.rglob("*.sol"):
             try:
-                with open(contract_file, 'r') as f:
+                with open(contract_file) as f:
                     content = f.read()
                 
                 if "require(" not in content and "revert(" not in content:
@@ -1590,7 +1577,7 @@ contract {data_source.capitalize()}BandOracle {{
                 issues.append("Potential reentrancy vulnerability - consider using nonReentrant modifier")
         
         # Check for unchecked math operations
-        if "uint" in content and not "SafeMath" in content:
+        if "uint" in content and "SafeMath" not in content:
             issues.append("Consider using SafeMath for arithmetic operations")
         
         # Check for proper access control

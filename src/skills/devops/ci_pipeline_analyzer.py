@@ -8,9 +8,10 @@ Supports: GitHub Actions, GitLab CI, Jenkins
 """
 
 import re
-import yaml
-from typing import Dict, List, Any, Optional
 from dataclasses import dataclass, field
+from typing import Any, Dict, List, Optional
+
+import yaml
 
 
 @dataclass

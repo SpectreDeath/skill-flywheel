@@ -9,14 +9,12 @@ This module provides skills for analyzing Python code architecture:
 - Generate improvement recommendations
 """
 
+import ast
 import os
 import re
-import ast
-from pathlib import Path
-from typing import Dict, List, Any, Optional, Set, Tuple
-from dataclasses import dataclass, field
 from collections import defaultdict
-import json
+from dataclasses import dataclass, field
+from typing import Any, Dict, List, Optional
 
 
 @dataclass
@@ -137,7 +135,7 @@ PATTERNS = {
 def parse_python_file(file_path: str) -> Optional[ModuleInfo]:
     """Parse a Python file and extract module information"""
     try:
-        with open(file_path, "r", encoding="utf-8") as f:
+        with open(file_path, encoding="utf-8") as f:
             content = f.read()
 
         tree = ast.parse(content, filename=file_path)
@@ -166,7 +164,7 @@ def parse_python_file(file_path: str) -> Optional[ModuleInfo]:
 
         return module_info
 
-    except (SyntaxError, FileNotFoundError, UnicodeDecodeError) as e:
+    except (SyntaxError, FileNotFoundError, UnicodeDecodeError):
         return None
 
 
@@ -259,7 +257,7 @@ def detect_patterns(modules: List[Dict]) -> List[Dict[str, Any]]:
             continue
 
         try:
-            with open(module_path, "r", encoding="utf-8") as f:
+            with open(module_path, encoding="utf-8") as f:
                 content = f.read()
 
             for pattern_name, pattern_info in PATTERNS.items():
@@ -460,7 +458,7 @@ def detect_circular_dependencies(dependencies: Dict[str, List[str]]) -> List[Lis
         rec_stack.remove(node)
         return None
 
-    for node in dependencies.keys():
+    for node in dependencies:
         if node not in visited:
             cycle = has_cycle(node, [node])
             if cycle:

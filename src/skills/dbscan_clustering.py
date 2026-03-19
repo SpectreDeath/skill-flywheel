@@ -7,8 +7,8 @@ Density-based spatial clustering:
 - No need to specify number of clusters
 """
 
-from typing import Dict, List, Any, Optional, Set
 import math
+from typing import Any, Dict, List, Set
 
 
 def _euclidean_distance(p1: List[float], p2: List[float]) -> float:

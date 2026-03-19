@@ -1,5 +1,6 @@
-import pytest
 from uuid import uuid4
+
+import pytest
 
 from src.core.evolution.genome import (
     SkillFailureCase,

@@ -9,10 +9,10 @@ import asyncio
 import logging
 import time
 import uuid
-from typing import Dict, Any, List, Optional, Union, Callable
-from dataclasses import dataclass, asdict
-from enum import Enum
+from dataclasses import dataclass
 from datetime import datetime
+from enum import Enum
+from typing import Any, Callable, Dict, List, Optional
 
 logger = logging.getLogger(__name__)
 
@@ -79,7 +79,7 @@ class AgentFramework:
         Args:
             config: Framework configuration
         """
-        self.agents: Dict[str, 'Agent'] = {}
+        self.agents: Dict[str, Agent] = {}
         self.tasks: Dict[str, AgentTask] = {}
         self.message_queue: List[AgentMessage] = []
         self.capability_registry: Dict[AgentCapability, List[str]] = {}

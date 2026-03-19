@@ -9,7 +9,7 @@ Helps resolve coordination problems:
 - Focal points (Schelling points)
 """
 
-from typing import Dict, List, Any, Optional, Tuple
+from typing import Any, Dict, List, Optional
 
 
 def coordination_game_solver(

@@ -7,15 +7,13 @@ Description: Database schema design and optimization system for relational datab
 
 import asyncio
 import logging
+import re
 import time
 import uuid
-import json
-from typing import Dict, Any, List, Optional, Union, Tuple
-from dataclasses import dataclass, asdict
+from dataclasses import dataclass
+from datetime import datetime
 from enum import Enum
-from datetime import datetime, timedelta
-import re
-from collections import defaultdict
+from typing import Any, Dict, List, Optional
 
 logger = logging.getLogger(__name__)
 
@@ -1008,7 +1006,7 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
             return {
                 "result": {
                     "table_id": table_id,
-                    "message": f"Added table to schema"
+                    "message": "Added table to schema"
                 },
                 "metadata": {
                     "action": "add_table",
@@ -1031,7 +1029,7 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
             return {
                 "result": {
                     "relationship_id": relationship_id,
-                    "message": f"Added relationship to schema"
+                    "message": "Added relationship to schema"
                 },
                 "metadata": {
                     "action": "add_relationship",

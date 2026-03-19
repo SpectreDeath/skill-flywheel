@@ -6,13 +6,12 @@ This script automates the process of syncing local changes with GitHub repositor
 including proper commit messages, branch management, and deployment preparation.
 """
 
-import os
-import sys
-import subprocess
-import json
 import datetime
+import subprocess
+import sys
 from pathlib import Path
-from typing import List, Dict, Optional
+from typing import Dict, List, Optional
+
 
 class GitHubSync:
     """GitHub repository synchronization manager"""
@@ -140,7 +139,7 @@ class GitHubSync:
         success, output = self.run_command(["git", "commit", "-m", commit_msg])
         
         if success:
-            print(f"✅ Commit created successfully")
+            print("✅ Commit created successfully")
             print(f"   {output}")
             return True
         else:
@@ -232,7 +231,7 @@ Timestamp: {timestamp}
         ])
         
         if success:
-            print(f"✅ Successfully pushed to remote")
+            print("✅ Successfully pushed to remote")
             print(f"   {output}")
             return True
         else:
@@ -299,7 +298,7 @@ Ready for review and merge! 🎉"""
         ])
         
         if success:
-            print(f"✅ Pull request created successfully!")
+            print("✅ Pull request created successfully!")
             print(f"   {output}")
             return True
         else:
@@ -351,7 +350,7 @@ Ready for review and merge! 🎉"""
         
         # Check current status
         status = self.check_git_status()
-        print(f"📊 Current status:")
+        print("📊 Current status:")
         print(f"   Branch: {status['current_branch']}")
         print(f"   Last commit: {status['last_commit']}")
         print(f"   Has changes: {status['has_changes']}")
