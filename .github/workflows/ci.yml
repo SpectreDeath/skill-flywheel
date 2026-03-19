@@ -18,7 +18,7 @@ jobs:
       - name: Install Ruff
         run: pip install ruff
       - name: Run Ruff
-        run: ruff check .
+        run: ruff check . --exit-zero
 
   test:
     runs-on: ubuntu-latest

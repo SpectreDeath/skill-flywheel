@@ -327,17 +327,19 @@ class TestAutoScaler:
     @pytest.fixture
     def auto_scaler(self):
         """Create an auto-scaler for testing"""
-        with patch.dict(
-            "os.environ",
-            {
-                "SCALE_UP_THRESHOLD": "0.8",
-                "SCALE_DOWN_THRESHOLD": "0.3",
-                "SCALE_INTERVAL": "60",
-                "MIN_CONTAINERS": "1",
-                "MAX_CONTAINERS": "10",
-            },
-        ):
-            return enhanced_mcp_server_v3.AutoScaler()
+        with patch("docker.from_env"):
+            with patch.dict(
+                "os.environ",
+                {
+                    "SCALE_UP_THRESHOLD": "0.8",
+                    "SCALE_DOWN_THRESHOLD": "0.3",
+                    "SCALE_INTERVAL": "60",
+                    "MIN_CONTAINERS": "1",
+                    "MAX_CONTAINERS": "10",
+                },
+            ):
+                from src.monitoring.auto_scaler import AutoScaler
+                return AutoScaler()
 
     def test_scaling_config(self, auto_scaler):
         """Test scaling configuration"""
