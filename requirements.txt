@@ -15,7 +15,7 @@ crewai-tools==0.14.0
 
 # Infrastructure and Monitoring
 docker==7.1.0
-psutil==5.9.8
+psutil>=6.0.0
 GPUtil==1.4.0
 prometheus-client==0.20.0
 pybreaker==1.4.1
