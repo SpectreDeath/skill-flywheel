@@ -19,6 +19,8 @@ psutil==5.9.8
 GPUtil==1.4.0
 prometheus-client==0.20.0
 pybreaker==1.4.1
+redis>=5.0.0
+celery>=5.3.0
 
 # Machine Learning and Analytics
 numpy==2.4.2
