@@ -5,7 +5,7 @@ import json
 import logging
 import os
 import sys
-from typing import Any, Dict, Optional
+from typing import Any, Dict
 
 from .config import EvolutionConfig
 from .evolvable_skill_groups import list_evolvable_groups
@@ -143,7 +143,7 @@ def build_parser() -> argparse.ArgumentParser:
 class EvolutionCLI:
     """CLI interface for running skill evolution."""
 
-    def __init__(self, args: Optional[list] = None):
+    def __init__(self, args: list | None = None):
         """Initialize the CLI with arguments.
 
         Args:
@@ -151,7 +151,7 @@ class EvolutionCLI:
         """
         self.parser = build_parser()
         self.args = self.parser.parse_args(args)
-        self.config: Optional[EvolutionConfig] = None
+        self.config: EvolutionConfig | None = None
         self.output_dir: str = "evolution_output"
 
     def run(self) -> int:
@@ -274,7 +274,7 @@ class EvolutionCLI:
             return 1
 
 
-def main(args: Optional[list] = None) -> int:
+def main(args: list | None = None) -> int:
     """Main entry point for the CLI.
 
     Args:

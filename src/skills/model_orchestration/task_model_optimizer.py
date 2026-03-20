@@ -1,6 +1,6 @@
 import logging
 from datetime import datetime
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 logger = logging.getLogger(__name__)
 
@@ -17,7 +17,7 @@ class TaskModelOptimizer:
             "min_capability": min_capability,
         }
 
-    def optimize(self, task_type: str, available_models: List[Dict]) -> Optional[Dict]:
+    def optimize(self, task_type: str, available_models: List[Dict]) -> Dict | None:
         if task_type not in self.task_profiles:
             return available_models[0] if available_models else None
 

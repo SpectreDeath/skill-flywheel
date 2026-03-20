@@ -11,7 +11,7 @@ import subprocess
 import time
 from dataclasses import dataclass
 from enum import Enum
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 import psutil
 
@@ -39,10 +39,10 @@ class HardwareStats:
     vram_total_gb: float
     vram_used_gb: float
     vram_available_gb: float
-    compute_capability: Optional[str] = None
+    compute_capability: str | None = None
     cpu_cores: int = 0
     cpu_ram_gb: float = 0.0
-    gpu_name: Optional[str] = None
+    gpu_name: str | None = None
     hardware_type: HardwareType = HardwareType.UNKNOWN
 
 @dataclass
@@ -63,7 +63,7 @@ class SelectionResult:
     vram_usage_gb: float
     headroom_gb: float
     reasoning: str
-    fallback_model: Optional[str] = None
+    fallback_model: str | None = None
 
 class HardwareModelSelector:
     """Hardware-aware model selection framework"""
@@ -83,7 +83,7 @@ class HardwareModelSelector:
         self.model_profiles = self._initialize_model_profiles()
         
         # Hardware profile cache
-        self._hardware_cache: Optional[HardwareStats] = None
+        self._hardware_cache: HardwareStats | None = None
         self._cache_timestamp = 0
         self._cache_ttl = 300  # 5 minutes
     
@@ -218,7 +218,7 @@ class HardwareModelSelector:
     def _classify_hardware(self, gpu_stats: Dict[str, Any], cpu_stats: Dict[str, Any]) -> HardwareType:
         """Classify hardware type based on specs"""
         vram_gb = gpu_stats.get('total', 0.0)
-        cores = cpu_stats['cores']
+        cpu_stats['cores']
         
         if vram_gb == 0:
             return HardwareType.LAPTOP  # CPU-only, likely laptop

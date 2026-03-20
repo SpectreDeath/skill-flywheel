@@ -21,10 +21,10 @@ import json
 import logging
 import statistics
 import time
+from collections.abc import Callable
 from dataclasses import asdict, dataclass
 from pathlib import Path
-from typing import Any, Dict, List, Optional
-from collections.abc import Callable
+from typing import Any, Dict, List
 
 import psutil
 
@@ -59,14 +59,14 @@ class OptimizationSuggestion:
 class FastAPIPerformanceOptimizer:
     """Optimizer for FastAPI application performance"""
     
-    def __init__(self, app_process: Optional[psutil.Process] = None):
+    def __init__(self, app_process: psutil.Process | None = None):
         self.app_process = app_process
         self.metrics_history: List[FastAPIPerformanceMetrics] = []
         self.request_times: List[float] = []
         self.error_count: int = 0
         self.total_requests: int = 0
     
-    def _get_app_process(self) -> Optional[psutil.Process]:
+    def _get_app_process(self) -> psutil.Process | None:
         """Find FastAPI application process"""
         if self.app_process and self.app_process.is_running():
             return self.app_process
@@ -397,7 +397,7 @@ class FastAPIPerformanceOptimizer:
                 "high_priority_suggestions": len([s for s in suggestions if s.severity in ["high", "critical"]]),
                 "recommendations_by_category": {
                     category: len([s for s in suggestions if s.category == category])
-                    for category in set(s.category for s in suggestions)
+                    for category in {s.category for s in suggestions}
                 }
             }
         }
@@ -481,7 +481,7 @@ def invoke(config: Dict[str, Any]) -> Dict[str, Any]:
                         "total_suggestions": len(suggestions),
                         "by_category": {
                             category: len([s for s in suggestions if s.category == category])
-                            for category in set(s.category for s in suggestions)
+                            for category in {s.category for s in suggestions}
                         }
                     }
                 }

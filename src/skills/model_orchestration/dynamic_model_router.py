@@ -6,12 +6,13 @@ Description: An intelligent traffic controller that monitors QoS metrics and per
 """
 
 import asyncio
+import contextlib
 import logging
 import time
 from dataclasses import asdict, dataclass
 from datetime import datetime, timedelta
 from enum import Enum
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 logger = logging.getLogger(__name__)
 
@@ -26,11 +27,11 @@ class ModelEndpoint:
     """Represents a model endpoint configuration"""
     name: str
     url: str
-    api_key: Optional[str] = None
-    headers: Optional[Dict[str, str]] = None
+    api_key: str | None = None
+    headers: Dict[str, str] | None = None
     weight: float = 1.0
     status: ModelStatus = ModelStatus.HEALTHY
-    last_health_check: Optional[datetime] = None
+    last_health_check: datetime | None = None
     latency_history: List[float] = None
     error_count: int = 0
     total_requests: int = 0
@@ -48,7 +49,7 @@ class RoutingDecision:
     """Result of routing decision"""
     selected_model: str
     reason: str
-    metrics: Optional[QoSMetrics] = None
+    metrics: QoSMetrics | None = None
 
 class DynamicModelRouter:
     """Intelligent traffic controller for model endpoints"""
@@ -73,12 +74,12 @@ class DynamicModelRouter:
         self.swap_cooldown = swap_cooldown
         
         self.endpoints: Dict[str, ModelEndpoint] = {}
-        self.last_swap_time: Optional[datetime] = None
+        self.last_swap_time: datetime | None = None
         self.total_swaps = 0
         self.downtime_prevented = 0
         
         # Health check task
-        self._health_check_task: Optional[asyncio.Task] = None
+        self._health_check_task: asyncio.Task | None = None
         
     def add_endpoint(self, endpoint: ModelEndpoint):
         """Add a model endpoint to the router"""
@@ -256,10 +257,8 @@ class DynamicModelRouter:
         """Stop background health monitoring"""
         if self._health_check_task:
             self._health_check_task.cancel()
-            try:
+            with contextlib.suppress(asyncio.CancelledError):
                 await self._health_check_task
-            except asyncio.CancelledError:
-                pass
             self._health_check_task = None
         logger.info("Stopped health monitoring")
     
@@ -291,8 +290,8 @@ class DynamicModelRouter:
     def get_endpoint_status(self) -> List[Dict[str, Any]]:
         """Get status of all endpoints"""
         statuses = []
-        for name, endpoint in self.endpoints.items():
-            metrics = asyncio.run(self._calculate_qos_metrics(endpoint)) if endpoint.latency_history else None
+        for _name, endpoint in self.endpoints.items():
+            asyncio.run(self._calculate_qos_metrics(endpoint)) if endpoint.latency_history else None
             statuses.append({
                 "name": endpoint.name,
                 "status": endpoint.status.value,

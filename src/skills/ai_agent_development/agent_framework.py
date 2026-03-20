@@ -9,11 +9,11 @@ import asyncio
 import logging
 import time
 import uuid
+from collections.abc import Callable
 from dataclasses import dataclass
 from datetime import datetime
 from enum import Enum
-from typing import Any, Dict, List, Optional
-from collections.abc import Callable
+from typing import Any, Dict, List
 
 logger = logging.getLogger(__name__)
 
@@ -54,11 +54,11 @@ class AgentTask:
     input_data: Dict[str, Any]
     priority: int
     created_at: float
-    assigned_at: Optional[float]
-    completed_at: Optional[float]
+    assigned_at: float | None
+    completed_at: float | None
     status: str  # pending, assigned, completed, failed
-    result: Optional[Dict[str, Any]]
-    error: Optional[str]
+    result: Dict[str, Any] | None
+    error: str | None
 
 @dataclass
 class AgentMessage:
@@ -142,10 +142,10 @@ class AgentFramework:
         
         # Deliver to matching agents
         for agent in self.agents.values():
-            if agent.agent_id == message.receiver or message.receiver == "all":
+            if message.receiver in (agent.agent_id, "all"):
                 asyncio.create_task(agent.receive_message(message))
     
-    def get_agent_status(self, agent_id: str) -> Optional[Dict[str, Any]]:
+    def get_agent_status(self, agent_id: str) -> Dict[str, Any] | None:
         """Get agent status information"""
         if agent_id not in self.agents:
             return None

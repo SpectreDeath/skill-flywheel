@@ -12,7 +12,7 @@ from typing import Any, Dict, List, Set
 
 
 def _euclidean_distance(p1: List[float], p2: List[float]) -> float:
-    return math.sqrt(sum((a - b) ** 2 for a, b in zip(p1, p2)))
+    return math.sqrt(sum((a - b) ** 2 for a, b in zip(p1, p2, strict=False)))
 
 
 def _get_neighbors(data: List[List[float]], point_idx: int, eps: float) -> Set[int]:

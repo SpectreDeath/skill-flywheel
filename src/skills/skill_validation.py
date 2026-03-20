@@ -66,20 +66,17 @@ def validate_metadata_structure(metadata: Dict[str, Any]) -> ValidationResult:
             result.valid = False
 
     # Validate domain
-    if "domain" in metadata:
-        if metadata["domain"] not in VALID_DOMAINS:
-            result.warnings.append(f"Non-standard domain: {metadata['domain']}")
+    if "domain" in metadata and metadata["domain"] not in VALID_DOMAINS:
+        result.warnings.append(f"Non-standard domain: {metadata['domain']}")
 
     # Validate complexity
-    if "complexity" in metadata:
-        if metadata["complexity"] not in VALID_COMPLEXITY:
-            result.errors.append(f"Invalid complexity: {metadata['complexity']}")
-            result.valid = False
+    if "complexity" in metadata and metadata["complexity"] not in VALID_COMPLEXITY:
+        result.errors.append(f"Invalid complexity: {metadata['complexity']}")
+        result.valid = False
 
     # Validate type
-    if "type" in metadata:
-        if metadata["type"] not in VALID_TYPES:
-            result.warnings.append(f"Non-standard type: {metadata['type']}")
+    if "type" in metadata and metadata["type"] not in VALID_TYPES:
+        result.warnings.append(f"Non-standard type: {metadata['type']}")
 
     # Validate version format
     if "version" in metadata:

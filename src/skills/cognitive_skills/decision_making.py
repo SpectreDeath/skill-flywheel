@@ -7,7 +7,7 @@ based on defined criteria.
 
 from dataclasses import dataclass, field
 from enum import Enum
-from typing import Dict, List, Optional
+from typing import Dict, List
 
 
 class DecisionStatus(Enum):
@@ -44,7 +44,7 @@ class Decision:
     criteria: List[Criterion] = field(default_factory=list)
     options: List[Option] = field(default_factory=list)
     status: DecisionStatus = DecisionStatus.PENDING
-    selected: Optional[str] = None
+    selected: str | None = None
     rationale: str = ""
 
 
@@ -62,7 +62,7 @@ class DecisionMaker:
     """
 
     def __init__(self):
-        self.current_decision: Optional[Decision] = None
+        self.current_decision: Decision | None = None
 
     def create_decision(self, question: str) -> Decision:
         """Create a new decision."""

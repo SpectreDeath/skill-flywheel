@@ -5,7 +5,7 @@ import logging
 import random
 from collections.abc import Generator
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 from darwinian_evolver.evolver import Evolver
 from darwinian_evolver.learning_log_view import (
@@ -32,8 +32,8 @@ class SkillEvolver:
         initial_genome: SkillGenome,
         evaluator: SkillFitnessEvaluator,
         mutators: List[LLMMutator],
-        config: Optional[EvolutionConfig] = None,
-        output_dir: Optional[str] = None,
+        config: EvolutionConfig | None = None,
+        output_dir: str | None = None,
     ):
         self.config = config or EvolutionConfig()
         self.output_dir = Path(output_dir) if output_dir else Path("evolution_output")
@@ -48,8 +48,8 @@ class SkillEvolver:
 
         self._setup_learning_log_view()
 
-        self._evolver: Optional[Evolver] = None
-        self._population: Optional[SkillPopulation] = None
+        self._evolver: Evolver | None = None
+        self._population: SkillPopulation | None = None
         self._statistics = EvolutionStatistics()
         self._current_iteration = 0
 
@@ -134,7 +134,7 @@ class SkillEvolver:
         )
 
     def run(
-        self, num_iterations: Optional[int] = None
+        self, num_iterations: int | None = None
     ) -> Generator[Dict[str, Any], None, None]:
         """Run the evolution for specified number of iterations."""
         num_iterations = num_iterations or self.config.max_iterations
@@ -235,7 +235,7 @@ class SkillEvolver:
         logger.info(f"Saved results to {results_file}")
 
     @property
-    def population(self) -> Optional[SkillPopulation]:
+    def population(self) -> SkillPopulation | None:
         """Get current population."""
         return self._population
 
@@ -248,8 +248,8 @@ class SkillEvolver:
 def create_skill_evolver(
     initial_genome: SkillGenome,
     evaluator: SkillFitnessEvaluator,
-    config: Optional[EvolutionConfig] = None,
-    output_dir: Optional[str] = None,
+    config: EvolutionConfig | None = None,
+    output_dir: str | None = None,
 ) -> SkillEvolver:
     """Factory function to create a skill evolver."""
     config = config or EvolutionConfig()

@@ -1,8 +1,9 @@
+import contextlib
 import logging
 import pickle
 from collections import deque
 from datetime import datetime
-from typing import Any, Dict, Optional
+from typing import Any, Dict
 
 import redis
 
@@ -34,7 +35,7 @@ class AdvancedCache:
         self.max_size = self.config.get("cache", {}).get("max_size", 1000)
         self.ttl_seconds = self.config.get("cache", {}).get("ttl", 3600)
 
-    def get(self, key: str) -> Optional[Any]:
+    def get(self, key: str) -> Any | None:
         if self.cache_type == "redis":
             try:
                 data = self.redis_client.get(key)
@@ -81,7 +82,5 @@ class AdvancedCache:
         else:
             self.cache.pop(key, None)
             self.timestamps.pop(key, None)
-            try:
+            with contextlib.suppress(ValueError):
                 self.access_order.remove(key)
-            except ValueError:
-                pass

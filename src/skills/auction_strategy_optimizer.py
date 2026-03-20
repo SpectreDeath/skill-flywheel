@@ -9,16 +9,16 @@ Optimizes bidding strategies for various auction types:
 - All-pay auctions
 """
 
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 
 def auction_strategy_optimizer(
     auction_type: str,
     num_bidders: int,
     your_valuation: float,
-    common_value: Optional[float] = None,
-    private_values: Optional[List[float]] = None,
-    reserve_price: Optional[float] = None,
+    common_value: float | None = None,
+    private_values: List[float] | None = None,
+    reserve_price: float | None = None,
     **kwargs,
 ) -> Dict[str, Any]:
     """
@@ -72,9 +72,9 @@ def auction_strategy_optimizer(
 def _english_auction_strategy(
     num_bidders: int,
     your_valuation: float,
-    common_value: Optional[float],
-    private_values: Optional[List[float]],
-    reserve_price: Optional[float],
+    common_value: float | None,
+    private_values: List[float] | None,
+    reserve_price: float | None,
 ) -> Dict[str, Any]:
     """English (ascending) auction strategy"""
 
@@ -111,9 +111,9 @@ def _english_auction_strategy(
 def _dutch_auction_strategy(
     num_bidders: int,
     your_valuation: float,
-    common_value: Optional[float],
-    private_values: Optional[List[float]],
-    reserve_price: Optional[float],
+    common_value: float | None,
+    private_values: List[float] | None,
+    reserve_price: float | None,
 ) -> Dict[str, Any]:
     """Dutch (descending) auction strategy"""
 
@@ -139,9 +139,9 @@ def _dutch_auction_strategy(
 def _first_price_strategy(
     num_bidders: int,
     your_valuation: float,
-    common_value: Optional[float],
-    private_values: Optional[List[float]],
-    reserve_price: Optional[float],
+    common_value: float | None,
+    private_values: List[float] | None,
+    reserve_price: float | None,
 ) -> Dict[str, Any]:
     """First-price sealed-bid strategy"""
 
@@ -180,19 +180,17 @@ def _first_price_strategy(
 def _second_price_strategy(
     num_bidders: int,
     your_valuation: float,
-    common_value: Optional[float],
-    private_values: Optional[List[float]],
-    reserve_price: Optional[float],
+    common_value: float | None,
+    private_values: List[float] | None,
+    reserve_price: float | None,
 ) -> Dict[str, Any]:
     """Second-price sealed-bid (Vickrey) strategy"""
 
     # In second-price, truthful bidding is dominant strategy
     # Bid your valuation
 
-    reserve_impact = 0
-    if reserve_price:
-        if your_valuation > reserve_price:
-            reserve_impact = (reserve_price - your_valuation) / num_bidders
+    if reserve_price and your_valuation > reserve_price:
+        (reserve_price - your_valuation) / num_bidders
 
     return {
         "strategy": "Truthful bidding is dominant - bid your valuation",
@@ -216,9 +214,9 @@ def _second_price_strategy(
 def _all_pay_strategy(
     num_bidders: int,
     your_valuation: float,
-    common_value: Optional[float],
-    private_values: Optional[List[float]],
-    reserve_price: Optional[float],
+    common_value: float | None,
+    private_values: List[float] | None,
+    reserve_price: float | None,
 ) -> Dict[str, Any]:
     """All-pay auction strategy"""
 
@@ -245,14 +243,14 @@ def _all_pay_strategy(
     }
 
 
-def _estimate_win_prob(n: int, your_val: float, others: Optional[List[float]]) -> float:
+def _estimate_win_prob(n: int, your_val: float, others: List[float] | None) -> float:
     """Estimate probability of winning"""
 
     if others:
         # Simple estimate based on relative valuations
         all_vals = [your_val] + others
         sorted_vals = sorted(all_vals, reverse=True)
-        your_rank = sorted_vals.index(your_val) + 1
+        sorted_vals.index(your_val) + 1
         # P(winning) = number of bidders you beat / total comparisons
         wins = sum(1 for v in others if your_val > v)
         return wins / len(others) if others else 0
@@ -263,7 +261,7 @@ def _estimate_win_prob(n: int, your_val: float, others: Optional[List[float]]) -
 
 def invoke(payload: dict) -> dict:
     """MCP skill invocation"""
-    action = payload.get("action", "optimize")
+    payload.get("action", "optimize")
     auction_type = payload.get("auction_type", "first_price")
     num_bidders = payload.get("num_bidders", 2)
     your_valuation = payload.get("your_valuation", 100)

@@ -11,7 +11,7 @@ import ast
 import json
 import re
 from dataclasses import dataclass, field
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 
 @dataclass
@@ -20,14 +20,14 @@ class Endpoint:
     method: str
     function_name: str
     params: List[Dict[str, Any]] = field(default_factory=list)
-    return_type: Optional[str] = None
-    description: Optional[str] = None
+    return_type: str | None = None
+    description: str | None = None
     decorators: List[str] = field(default_factory=list)
 
 
 def parse_fastapi_endpoint(
     node: ast.FunctionDef, decorators: List[str]
-) -> Optional[Endpoint]:
+) -> Endpoint | None:
     """Parse a FastAPI endpoint from AST node"""
     path = ""
     method = "GET"
@@ -93,7 +93,7 @@ def parse_fastapi_endpoint(
 
 def parse_flask_endpoint(
     node: ast.FunctionDef, decorators: List[str]
-) -> Optional[Endpoint]:
+) -> Endpoint | None:
     """Parse a Flask endpoint from AST node"""
     path = ""
     method = "GET"
@@ -155,7 +155,7 @@ def parse_flask_endpoint(
 
 def parse_django_view(
     node: ast.FunctionDef, decorators: List[str]
-) -> Optional[Endpoint]:
+) -> Endpoint | None:
     """Parse a Django view from AST node"""
     path = ""
     method = "GET"

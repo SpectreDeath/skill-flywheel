@@ -7,7 +7,7 @@ Provides capabilities for creating, testing, and deploying OpenClaw skills.
 import json
 import os
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 SKILL_TEMPLATE = {
     "manifest": {
@@ -72,7 +72,7 @@ describe('{skill_name}', () => {{
 class OpenClawSkillDeveloper:
     """Develop and manage OpenClaw skills."""
 
-    def __init__(self, skills_path: Optional[str] = None):
+    def __init__(self, skills_path: str | None = None):
         self.skills_path = (
             Path(skills_path) if skills_path else Path.home() / ".openclaw" / "skills"
         )
@@ -82,7 +82,7 @@ class OpenClawSkillDeveloper:
         name: str,
         description: str = "",
         author: str = "",
-        capabilities: Optional[List[str]] = None,
+        capabilities: List[str] | None = None,
     ) -> Dict[str, Any]:
         """Create a new OpenClaw skill from template."""
         skill_path = self.skills_path / name

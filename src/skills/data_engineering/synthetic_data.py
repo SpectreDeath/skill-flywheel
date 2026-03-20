@@ -31,7 +31,7 @@ def detect_imbalance(dataset: List[Dict[str, Any]], label_col: str) -> Dict[str,
     counts = {}
     for label in labels:
         counts[label] = counts.get(label, 0) + 1
-    total = len(labels)
+    len(labels)
     imbalance_ratio = max(counts.values()) / max(1, min(counts.values()))
     return {
         "counts": counts,

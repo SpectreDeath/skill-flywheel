@@ -1,9 +1,9 @@
 import functools
 import logging
+from collections.abc import Callable
 from datetime import datetime, timezone
 from enum import Enum
-from typing import Any, Dict, Optional, TypeVar, Union
-from collections.abc import Callable
+from typing import Any, Dict, TypeVar, Union
 
 from pydantic import BaseModel, Field
 
@@ -31,7 +31,7 @@ class SkillFlywheelError(Exception):
         self,
         message: str,
         error_code: Union[ErrorCode, str] = ErrorCode.UNKNOWN_ERROR,
-        details: Optional[Dict[str, Any]] = None,
+        details: Dict[str, Any] | None = None,
     ):
         self.message = message
         self.error_code = (
@@ -64,8 +64,8 @@ class SkillNotFoundError(SkillFlywheelError):
     def __init__(
         self,
         message: str = "Skill not found",
-        skill_name: Optional[str] = None,
-        details: Optional[Dict[str, Any]] = None,
+        skill_name: str | None = None,
+        details: Dict[str, Any] | None = None,
     ):
         if skill_name:
             message = f"Skill '{skill_name}' not found"
@@ -85,9 +85,9 @@ class SkillLoadError(SkillFlywheelError):
     def __init__(
         self,
         message: str = "Failed to load skill",
-        skill_name: Optional[str] = None,
-        reason: Optional[str] = None,
-        details: Optional[Dict[str, Any]] = None,
+        skill_name: str | None = None,
+        reason: str | None = None,
+        details: Dict[str, Any] | None = None,
     ):
         error_details = details or {}
         if skill_name:
@@ -111,10 +111,10 @@ class SkillExecutionError(SkillFlywheelError):
     def __init__(
         self,
         message: str = "Skill execution failed",
-        skill_name: Optional[str] = None,
-        execution_context: Optional[Dict[str, Any]] = None,
-        cause: Optional[Exception] = None,
-        details: Optional[Dict[str, Any]] = None,
+        skill_name: str | None = None,
+        execution_context: Dict[str, Any] | None = None,
+        cause: Exception | None = None,
+        details: Dict[str, Any] | None = None,
     ):
         error_details = details or {}
         if skill_name:
@@ -141,10 +141,10 @@ class ValidationError(SkillFlywheelError):
     def __init__(
         self,
         message: str = "Validation failed",
-        field: Optional[str] = None,
-        value: Optional[Any] = None,
-        constraint: Optional[str] = None,
-        details: Optional[Dict[str, Any]] = None,
+        field: str | None = None,
+        value: Any | None = None,
+        constraint: str | None = None,
+        details: Dict[str, Any] | None = None,
     ):
         error_details = details or {}
         if field:
@@ -170,9 +170,9 @@ class ConfigurationError(SkillFlywheelError):
     def __init__(
         self,
         message: str = "Configuration error",
-        config_key: Optional[str] = None,
-        config_path: Optional[str] = None,
-        details: Optional[Dict[str, Any]] = None,
+        config_key: str | None = None,
+        config_path: str | None = None,
+        details: Dict[str, Any] | None = None,
     ):
         error_details = details or {}
         if config_key:
@@ -194,9 +194,9 @@ class RegistryError(SkillFlywheelError):
     def __init__(
         self,
         message: str = "Registry operation failed",
-        operation: Optional[str] = None,
-        registry_path: Optional[str] = None,
-        details: Optional[Dict[str, Any]] = None,
+        operation: str | None = None,
+        registry_path: str | None = None,
+        details: Dict[str, Any] | None = None,
     ):
         error_details = details or {}
         if operation:
@@ -218,10 +218,10 @@ class OrchestrationError(SkillFlywheelError):
     def __init__(
         self,
         message: str = "Agent orchestration failed",
-        agent_id: Optional[str] = None,
-        workflow_id: Optional[str] = None,
-        step: Optional[str] = None,
-        details: Optional[Dict[str, Any]] = None,
+        agent_id: str | None = None,
+        workflow_id: str | None = None,
+        step: str | None = None,
+        details: Dict[str, Any] | None = None,
     ):
         error_details = details or {}
         if agent_id:
@@ -249,9 +249,9 @@ class EvolutionError(SkillFlywheelError):
     def __init__(
         self,
         message: str = "Skill evolution failed",
-        skill_name: Optional[str] = None,
-        evolution_stage: Optional[str] = None,
-        details: Optional[Dict[str, Any]] = None,
+        skill_name: str | None = None,
+        evolution_stage: str | None = None,
+        details: Dict[str, Any] | None = None,
     ):
         error_details = details or {}
         if skill_name:
@@ -277,7 +277,7 @@ def error_handler(
     error_code: Union[ErrorCode, str] = ErrorCode.UNKNOWN_ERROR,
     reraise: bool = True,
     log_level: str = "error",
-) -> Callable[[Callable[..., T]], Callable[..., Optional[T]]]:
+) -> Callable[[Callable[..., T]], Callable[..., T | None]]:
     """
     Decorator for standardized error handling.
 
@@ -296,9 +296,9 @@ def error_handler(
             ...
     """
 
-    def decorator(func: Callable[..., T]) -> Callable[..., Optional[T]]:
+    def decorator(func: Callable[..., T]) -> Callable[..., T | None]:
         @functools.wraps(func)
-        def wrapper(*args: Any, **kwargs: Any) -> Optional[T]:
+        def wrapper(*args: Any, **kwargs: Any) -> T | None:
             log_func = getattr(logger, log_level.lower(), logger.error)
             try:
                 return func(*args, **kwargs)
@@ -338,7 +338,7 @@ class ErrorResponse(BaseModel):
         default_factory=dict, description="Additional error details"
     )
     timestamp: str = Field(..., description="ISO timestamp of when the error occurred")
-    exception_type: Optional[str] = Field(
+    exception_type: str | None = Field(
         None, description="Type of exception that was raised"
     )
 

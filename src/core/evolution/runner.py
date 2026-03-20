@@ -3,7 +3,7 @@ from __future__ import annotations
 import logging
 import time
 from collections.abc import Generator
-from typing import Any, Dict, List, Optional, Union
+from typing import Any, Dict, List, Union
 
 from .config import EvolutionConfig
 from .evaluator import SkillExecutor, SkillFitnessEvaluator
@@ -57,8 +57,8 @@ class SkillEvolutionRunner:
     def __init__(
         self,
         skill_group: Union[str, EvolableSkillGroup],
-        config: Optional[EvolutionConfig] = None,
-        output_dir: Optional[str] = None,
+        config: EvolutionConfig | None = None,
+        output_dir: str | None = None,
     ):
         """Initialize the runner with a skill group.
 
@@ -80,7 +80,7 @@ class SkillEvolutionRunner:
 
         self._config = config or EvolutionConfig()
         self._output_dir = output_dir
-        self._evolver: Optional[SkillEvolver] = None
+        self._evolver: SkillEvolver | None = None
         self._initialized = False
 
     @property
@@ -134,7 +134,7 @@ class SkillEvolutionRunner:
         logger.info(f"Evolution runner initialized for {self.group_name}")
 
     def run(
-        self, iterations: Optional[int] = None
+        self, iterations: int | None = None
     ) -> Generator[Dict[str, Any], None, None]:
         """Run evolution for the specified number of iterations.
 
@@ -152,7 +152,7 @@ class SkillEvolutionRunner:
 
         yield from self._evolver.run(num_iterations=iterations)
 
-    def run_all(self, iterations: Optional[int] = None) -> List[Dict[str, Any]]:
+    def run_all(self, iterations: int | None = None) -> List[Dict[str, Any]]:
         """Run evolution and collect all results.
 
         Args:
@@ -163,7 +163,7 @@ class SkillEvolutionRunner:
         """
         return list(self.run(iterations=iterations))
 
-    def get_best_genome(self) -> Optional[SkillGenome]:
+    def get_best_genome(self) -> SkillGenome | None:
         """Returns the best evolved genome.
 
         Returns:
@@ -175,7 +175,7 @@ class SkillEvolutionRunner:
         best = self._evolver.population.get_best()
         return best[0] if best else None
 
-    def get_best_fitness(self) -> Optional[SkillFitnessResult]:
+    def get_best_fitness(self) -> SkillFitnessResult | None:
         """Returns the fitness result for the best genome.
 
         Returns:
@@ -212,8 +212,8 @@ class SkillEvolutionRunner:
 
 def create_runner(
     group_name: str,
-    config: Optional[EvolutionConfig] = None,
-    output_dir: Optional[str] = None,
+    config: EvolutionConfig | None = None,
+    output_dir: str | None = None,
 ) -> SkillEvolutionRunner:
     """Factory function to create a runner from a group name.
 
@@ -237,9 +237,9 @@ def create_runner(
 
 def run_evolution(
     group_name: str,
-    iterations: Optional[int] = None,
-    config: Optional[EvolutionConfig] = None,
-    output_dir: Optional[str] = None,
+    iterations: int | None = None,
+    config: EvolutionConfig | None = None,
+    output_dir: str | None = None,
 ) -> Dict[str, Any]:
     """Convenience function to run evolution in one call.
 

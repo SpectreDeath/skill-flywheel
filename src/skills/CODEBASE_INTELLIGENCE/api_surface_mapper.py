@@ -10,8 +10,9 @@ This module provides skills for mapping API surfaces:
 """
 
 import ast
+import contextlib
 from dataclasses import dataclass
-from typing import List, Optional
+from typing import List
 
 
 @dataclass
@@ -19,9 +20,9 @@ class ParameterInfo:
     """Information about a function/method parameter"""
 
     name: str
-    type_annotation: Optional[str]
+    type_annotation: str | None
     has_default: bool
-    default_value: Optional[str]
+    default_value: str | None
     is_var_positional: bool
     is_var_keyword: bool
     is_positional_only: bool
@@ -38,9 +39,9 @@ class FunctionInfo:
     is_classmethod: bool
     is_staticmethod: bool
     is_async: bool
-    class_name: Optional[str]
+    class_name: str | None
     parameters: List[ParameterInfo]
-    return_type: Optional[str]
+    return_type: str | None
     decorators: List[str]
     is_public: bool
 
@@ -69,7 +70,7 @@ class APISurfaceVisitor(ast.NodeVisitor):
 
         self.functions: List[FunctionInfo] = []
         self.classes: List[ClassInfo] = []
-        self.current_class: Optional[str] = None
+        self.current_class: str | None = None
         self.current_class_lineno: int = 0
         self.current_class_bases: List[str] = []
 
@@ -88,7 +89,7 @@ class APISurfaceVisitor(ast.NodeVisitor):
             return self.include_internal
         return True
 
-    def _get_type_annotation(self, annotation: ast.AST) -> Optional[str]:
+    def _get_type_annotation(self, annotation: ast.AST) -> str | None:
         """Extract type annotation as string"""
         if annotation is None:
             return None
@@ -97,7 +98,7 @@ class APISurfaceVisitor(ast.NodeVisitor):
         except Exception:
             return None
 
-    def _get_default_value(self, default: ast.AST) -> Optional[str]:
+    def _get_default_value(self, default: ast.AST) -> str | None:
         """Extract default value as string"""
         if default is None:
             return None
@@ -199,10 +200,8 @@ class APISurfaceVisitor(ast.NodeVisitor):
         """Extract decorator names"""
         decorators = []
         for decorator in getattr(node, "decorator_list", []):
-            try:
+            with contextlib.suppress(Exception):
                 decorators.append(ast.unparse(decorator))
-            except Exception:
-                pass
         return decorators
 
     def _check_class_decorators(self, node: ast.ClassDef) -> tuple:
@@ -324,7 +323,7 @@ def api_surface_mapper(code: str, options: dict = None) -> dict:
     if options is None:
         options = {}
 
-    include_inherited = options.get("include_inherited", True)
+    options.get("include_inherited", True)
     max_parameters = options.get("max_parameters", 50)
 
     try:

@@ -7,7 +7,7 @@ logger = logging.getLogger(__name__)
 
 def analyze_config(config: Dict[str, Any]) -> Dict[str, Any]:
     issues = []
-    if config.get("debug") == True:
+    if config.get("debug"):
         issues.append({"type": "debug_enabled", "severity": "high"})
     if config.get("CORS", {}).get("allow_origins") == ["*"]:
         issues.append({"type": " permissive_cors", "severity": "medium"})

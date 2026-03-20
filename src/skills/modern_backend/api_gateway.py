@@ -14,7 +14,7 @@ from collections import defaultdict
 from dataclasses import dataclass
 from datetime import datetime
 from enum import Enum
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 logger = logging.getLogger(__name__)
 
@@ -61,7 +61,7 @@ class Route:
     target_service: str
     target_path: str
     middleware: List[str]
-    rate_limit: Optional[int]
+    rate_limit: int | None
     timeout: int
     retries: int
     created_at: float
@@ -83,7 +83,7 @@ class Service:
     service_id: str
     name: str
     url: str
-    health_check_url: Optional[str]
+    health_check_url: str | None
     load_balancing: str  # round_robin, least_connections, ip_hash
     circuit_breaker: bool
     timeout: int
@@ -100,9 +100,9 @@ class RequestLog:
     status_code: int
     response_time: float
     client_ip: str
-    user_agent: Optional[str]
-    service_id: Optional[str]
-    error_message: Optional[str]
+    user_agent: str | None
+    service_id: str | None
+    error_message: str | None
 
 @dataclass
 class RateLimit:
@@ -164,8 +164,8 @@ class APIGateway:
                  method: HTTPMethod,
                  target_service: str,
                  target_path: str,
-                 middleware: Optional[List[str]] = None,
-                 rate_limit: Optional[int] = None,
+                 middleware: List[str] | None = None,
+                 rate_limit: int | None = None,
                  timeout: int = 30,
                  retries: int = 3) -> str:
         """
@@ -251,7 +251,7 @@ class APIGateway:
     def add_service(self,
                    name: str,
                    url: str,
-                   health_check_url: Optional[str] = None,
+                   health_check_url: str | None = None,
                    load_balancing: str = "round_robin",
                    circuit_breaker: bool = True,
                    timeout: int = 30,
@@ -293,7 +293,7 @@ class APIGateway:
                      method: HTTPMethod,
                      path: str,
                      headers: Dict[str, str],
-                     body: Optional[str] = None,
+                     body: str | None = None,
                      client_ip: str = "127.0.0.1") -> Dict[str, Any]:
         """
         Route a request through the gateway
@@ -378,7 +378,7 @@ class APIGateway:
         self.gateway_status = status
         self.logger.info(f"Gateway status changed to: {status.value}")
     
-    def _find_route(self, method: HTTPMethod, path: str) -> Optional[Route]:
+    def _find_route(self, method: HTTPMethod, path: str) -> Route | None:
         """Find matching route for request"""
         # Sort routes by priority (static first, then dynamic, etc.)
         routes_by_type = defaultdict(list)
@@ -433,7 +433,7 @@ class APIGateway:
         match = re.match(pattern, request_path)
         return match is not None
     
-    def _execute_middleware(self, route: Route, headers: Dict[str, str], body: Optional[str]) -> Dict[str, Any]:
+    def _execute_middleware(self, route: Route, headers: Dict[str, str], body: str | None) -> Dict[str, Any]:
         """Execute middleware chain"""
         # Get middleware for this route
         route_middleware = [self.middleware[mid] for mid in route.middleware if mid in self.middleware]
@@ -504,13 +504,13 @@ class APIGateway:
         
         return {"success": True}
     
-    def _validation_middleware(self, middleware: Middleware, headers: Dict[str, str], body: Optional[str]) -> Dict[str, Any]:
+    def _validation_middleware(self, middleware: Middleware, headers: Dict[str, str], body: str | None) -> Dict[str, Any]:
         """Request validation middleware"""
         # In a real implementation, this would validate request body against schema
         # For now, simulate validation
         return {"success": True}
     
-    def _transformation_middleware(self, middleware: Middleware, headers: Dict[str, str], body: Optional[str]) -> Dict[str, Any]:
+    def _transformation_middleware(self, middleware: Middleware, headers: Dict[str, str], body: str | None) -> Dict[str, Any]:
         """Request/response transformation middleware"""
         # In a real implementation, this would transform requests/responses
         # For now, simulate transformation
@@ -547,9 +547,9 @@ class APIGateway:
         rate_limit.current_requests += 1
         return True
     
-    def _forward_to_service(self, route: Route, headers: Dict[str, str], body: Optional[str]) -> Dict[str, Any]:
+    def _forward_to_service(self, route: Route, headers: Dict[str, str], body: str | None) -> Dict[str, Any]:
         """Forward request to backend service"""
-        service = self.services[route.target_service]
+        self.services[route.target_service]
         
         # In a real implementation, this would make HTTP requests to the service
         # For now, simulate the request
@@ -588,8 +588,8 @@ class APIGateway:
                     status_code: int,
                     response_time: float,
                     client_ip: str,
-                    user_agent: Optional[str],
-                    service_id: Optional[str]):
+                    user_agent: str | None,
+                    service_id: str | None):
         """Log request details"""
         log = RequestLog(
             log_id=str(uuid.uuid4()),
@@ -633,7 +633,7 @@ class APIGateway:
     async def _monitor_gateway(self):
         """Monitor gateway health"""
         # Check service health
-        for service_id, service in self.services.items():
+        for _service_id, service in self.services.items():
             if service.health_check_url:
                 try:
                     # In a real implementation, this would make HTTP requests

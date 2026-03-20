@@ -11,11 +11,11 @@ import statistics
 import time
 import uuid
 from collections import deque
+from collections.abc import Callable
 from dataclasses import dataclass
 from datetime import datetime
 from enum import Enum
-from typing import Any, Dict, List, Optional
-from collections.abc import Callable
+from typing import Any, Dict, List
 
 logger = logging.getLogger(__name__)
 
@@ -46,8 +46,8 @@ class StreamSource:
     stream_type: StreamType
     connection_config: Dict[str, Any]
     topic: str
-    partition: Optional[int]
-    offset: Optional[int]
+    partition: int | None
+    offset: int | None
     created_at: float
 
 @dataclass
@@ -79,8 +79,8 @@ class StreamEvent:
     source_id: str
     timestamp: float
     data: Dict[str, Any]
-    partition: Optional[int]
-    offset: Optional[int]
+    partition: int | None
+    offset: int | None
 
 @dataclass
 class StreamWindow:
@@ -89,8 +89,8 @@ class StreamWindow:
     start_time: float
     end_time: float
     events: List[StreamEvent]
-    aggregated_result: Optional[Dict[str, Any]]
-    processed_at: Optional[float]
+    aggregated_result: Dict[str, Any] | None
+    processed_at: float | None
 
 class StreamProcessingEngine:
     """Real-time stream processing engine"""
@@ -140,8 +140,8 @@ class StreamProcessingEngine:
                            stream_type: StreamType,
                            connection_config: Dict[str, Any],
                            topic: str,
-                           partition: Optional[int] = None,
-                           offset: Optional[int] = None) -> str:
+                           partition: int | None = None,
+                           offset: int | None = None) -> str:
         """
         Create a stream data source
         
@@ -180,7 +180,7 @@ class StreamProcessingEngine:
                                window_type: WindowType,
                                window_size: int,
                                processing_function: Callable,
-                               slide_interval: Optional[int] = None) -> str:
+                               slide_interval: int | None = None) -> str:
         """
         Create a stream processor
         
@@ -249,7 +249,7 @@ class StreamProcessingEngine:
     async def start_stream_processing(self, 
                                     source_id: str,
                                     processor_id: str,
-                                    sink_id: Optional[str] = None) -> str:
+                                    sink_id: str | None = None) -> str:
         """
         Start stream processing for a source-processor pair
         
@@ -496,7 +496,7 @@ class StreamProcessingEngine:
     
     async def _send_to_sink(self, sink_id: str, data: Dict[str, Any]):
         """Send processed data to sink"""
-        sink = self.stream_sinks[sink_id]
+        self.stream_sinks[sink_id]
         
         # Simulate sending to sink
         await asyncio.sleep(0.1)
@@ -639,7 +639,8 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
             elif func_name == "detect_anomalies":
                 processing_func = detect_anomalies
             else:
-                processing_func = lambda x: {"processed": True, "data": x}
+                def processing_func(x):
+                    return {"processed": True, "data": x}
             
             processor_id = _stream_engine.create_stream_processor(
                 name=processor_data.get("name", "Stream Processor"),

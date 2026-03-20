@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 from .genome import SkillGenome, create_initial_genome
 
@@ -296,7 +296,7 @@ EVOLVABLE_SKILL_GROUPS: Dict[str, EvolableSkillGroup] = {
 }
 
 
-def get_evolvable_group(name: str) -> Optional[EvolableSkillGroup]:
+def get_evolvable_group(name: str) -> EvolableSkillGroup | None:
     """Returns a skill group by name, or None if not found."""
     return EVOLVABLE_SKILL_GROUPS.get(name)
 
@@ -308,9 +308,9 @@ def list_evolvable_groups() -> List[str]:
 
 def create_genome_for_group(
     group_name: str,
-    orchestration_strategy: Optional[str] = None,
-    custom_parameters: Optional[Dict[str, Dict[str, Any]]] = None,
-) -> Optional[SkillGenome]:
+    orchestration_strategy: str | None = None,
+    custom_parameters: Dict[str, Dict[str, Any]] | None = None,
+) -> SkillGenome | None:
     """
     Creates an initial SkillGenome for a given evolvable group.
 

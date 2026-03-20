@@ -13,7 +13,7 @@ import os
 from dataclasses import dataclass
 from enum import Enum
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 logger = logging.getLogger(__name__)
 
@@ -138,8 +138,8 @@ class PerformanceMonitor:
 # Singleton Instances
 # =============================================================================
 
-_performance_monitor: Optional[PerformanceMonitor] = None
-_skill_registry: Optional[List[Dict[str, Any]]] = None
+_performance_monitor: PerformanceMonitor | None = None
+_skill_registry: List[Dict[str, Any]] | None = None
 
 
 def get_performance_monitor() -> PerformanceMonitor:

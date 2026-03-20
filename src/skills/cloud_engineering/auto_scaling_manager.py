@@ -13,7 +13,7 @@ import uuid
 from dataclasses import dataclass
 from datetime import datetime
 from enum import Enum
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 logger = logging.getLogger(__name__)
 
@@ -47,7 +47,7 @@ class ScalingPolicy:
     resource_type: str
     min_capacity: int
     max_capacity: int
-    target_capacity: Optional[int]
+    target_capacity: int | None
     cooldown_period: int  # seconds
     enabled: bool
     created_at: float
@@ -93,7 +93,7 @@ class ScalingEvent:
     target_capacity: int
     current_capacity: int
     triggered_at: float
-    completed_at: Optional[float]
+    completed_at: float | None
     status: str  # pending, in_progress, completed, failed
     resources_affected: List[str]
 
@@ -141,8 +141,8 @@ class AutoScalingManager:
                              resource_type: str,
                              min_capacity: int,
                              max_capacity: int,
-                             target_capacity: Optional[int] = None,
-                             cooldown_period: Optional[int] = None) -> str:
+                             target_capacity: int | None = None,
+                             cooldown_period: int | None = None) -> str:
         """
         Create a scaling policy
         
@@ -248,7 +248,7 @@ class AutoScalingManager:
     def register_resource(self,
                          name: str,
                          resource_type: str,
-                         tags: Optional[Dict[str, str]] = None) -> str:
+                         tags: Dict[str, str] | None = None) -> str:
         """
         Register a resource for scaling
         
@@ -335,7 +335,7 @@ class AutoScalingManager:
         self.logger.info(f"Triggered scaling: {event_id} ({action.value})")
         return event_id
     
-    def get_scaling_status(self, event_id: str) -> Optional[Dict[str, Any]]:
+    def get_scaling_status(self, event_id: str) -> Dict[str, Any] | None:
         """Get scaling event status"""
         if event_id not in self.scaling_events:
             return None
@@ -442,7 +442,7 @@ class AutoScalingManager:
         """Scale out by creating new resources"""
         needed_capacity = event.target_capacity - event.current_capacity
         
-        for i in range(needed_capacity):
+        for _i in range(needed_capacity):
             resource_id = self._create_resource(event.resource_type)
             event.resources_affected.append(resource_id)
             
@@ -531,7 +531,7 @@ class AutoScalingManager:
             return
         
         threshold_policy = self.threshold_policies[policy.policy_id]
-        current_capacity = self._get_current_capacity(policy.resource_type)
+        self._get_current_capacity(policy.resource_type)
         
         # Get recent metrics for the resource type
         recent_metrics = self._get_recent_metrics(
@@ -634,7 +634,7 @@ class AutoScalingManager:
         except:
             return False
     
-    def _get_last_scaling_event(self, policy_id: str) -> Optional[ScalingEvent]:
+    def _get_last_scaling_event(self, policy_id: str) -> ScalingEvent | None:
         """Get the last scaling event for a policy"""
         policy_events = [
             event for event in self.scaling_events.values()

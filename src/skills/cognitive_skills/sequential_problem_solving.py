@@ -7,7 +7,7 @@ with verification at each stage.
 
 from dataclasses import dataclass, field
 from enum import Enum
-from typing import Dict, List, Optional
+from typing import Dict, List
 
 
 class ProblemStatus(Enum):
@@ -28,9 +28,9 @@ class ProblemStep:
     step_number: int
     description: str
     status: ProblemStatus = ProblemStatus.PLANNING
-    result: Optional[str] = None
+    result: str | None = None
     verified: bool = False
-    notes: Optional[str] = None
+    notes: str | None = None
 
 
 @dataclass
@@ -56,7 +56,7 @@ class SequentialProblemSolver:
     """
 
     def __init__(self):
-        self.current_problem: Optional[Problem] = None
+        self.current_problem: Problem | None = None
 
     def create_problem(self, statement: str, **kwargs) -> Problem:
         """Create a new problem definition."""
@@ -118,7 +118,7 @@ class SequentialProblemSolver:
         # Simple linear equation solver
         if "=" in equation and "x" in equation:
             parts = equation.split("=")
-            left, right = parts[0].strip(), parts[1].strip()
+            _left, _right = parts[0].strip(), parts[1].strip()
 
             # Step 1: Identify goal
             steps.append(

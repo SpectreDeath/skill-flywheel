@@ -319,7 +319,7 @@ def _suggest_optimizations(
 ) -> List[Dict[str, Any]]:
     optimizations = []
 
-    for i, hotspot in enumerate(hotspots):
+    for _i, hotspot in enumerate(hotspots):
         func_name = hotspot.get("function", "")
         tottime = hotspot.get("tottime", 0)
         tottime_pct = hotspot.get("tottime_percent", 0)

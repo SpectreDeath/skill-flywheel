@@ -7,7 +7,7 @@ Analyzes ethical dilemmas and applies moral frameworks:
 - Identifies stakeholders and impacts
 """
 
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 MORAL_FRAMEWORKS = {
     "utilitarianism": {
@@ -141,7 +141,7 @@ def analyze_from_framework(
 
 
 def ethical_dilemma_analyzer(
-    scenario: str, frameworks: Optional[List[str]] = None, **kwargs
+    scenario: str, frameworks: List[str] | None = None, **kwargs
 ) -> Dict[str, Any]:
     """
     Analyze ethical dilemmas using multiple moral frameworks.

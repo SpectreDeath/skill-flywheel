@@ -13,7 +13,7 @@ import ast
 import os
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Set, Tuple
+from typing import Any, Dict, List, Set, Tuple
 
 
 @dataclass
@@ -22,7 +22,7 @@ class Import:
 
     module: str
     name: str
-    alias: Optional[str] = None
+    alias: str | None = None
     line: int = 0
     is_from: bool = False
     is_relative: bool = False
@@ -324,7 +324,7 @@ def generate_recommendations(
     return recommendations
 
 
-def read_file_or_code(code: str) -> Tuple[Optional[Dict[str, str]], str]:
+def read_file_or_code(code: str) -> Tuple[Dict[str, str] | None, str]:
     """Read code from file path or use directly as code"""
     if isinstance(code, dict):
         return code, "multi_file"

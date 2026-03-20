@@ -12,7 +12,7 @@ import uuid
 from dataclasses import dataclass
 from datetime import datetime
 from enum import Enum
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 logger = logging.getLogger(__name__)
 
@@ -47,9 +47,9 @@ class DataSource:
     name: str
     source_type: DataSourceType
     connection_config: Dict[str, Any]
-    query: Optional[str]
-    file_path: Optional[str]
-    api_endpoint: Optional[str]
+    query: str | None
+    file_path: str | None
+    api_endpoint: str | None
     created_at: float
     last_accessed: float
 
@@ -70,9 +70,9 @@ class DataSink:
     name: str
     sink_type: str  # database, file, api
     connection_config: Dict[str, Any]
-    table_name: Optional[str]
-    file_path: Optional[str]
-    api_endpoint: Optional[str]
+    table_name: str | None
+    file_path: str | None
+    api_endpoint: str | None
     created_at: float
 
 @dataclass
@@ -81,9 +81,9 @@ class PipelineTask:
     task_id: str
     name: str
     task_type: str  # extract, transform, load
-    source_id: Optional[str]
-    transform_id: Optional[str]
-    sink_id: Optional[str]
+    source_id: str | None
+    transform_id: str | None
+    sink_id: str | None
     dependencies: List[str]
     retry_count: int
     max_retries: int
@@ -97,7 +97,7 @@ class DataPipeline:
     name: str
     description: str
     tasks: List[PipelineTask]
-    schedule: Optional[str]  # cron expression
+    schedule: str | None  # cron expression
     parallel_execution: bool
     created_at: float
     last_modified: float
@@ -109,7 +109,7 @@ class PipelineExecution:
     pipeline_id: str
     status: PipelineStatus
     started_at: float
-    completed_at: Optional[float]
+    completed_at: float | None
     tasks_executed: int
     tasks_completed: int
     tasks_failed: int
@@ -158,9 +158,9 @@ class DataPipelineManager:
                           name: str,
                           source_type: DataSourceType,
                           connection_config: Dict[str, Any],
-                          query: Optional[str] = None,
-                          file_path: Optional[str] = None,
-                          api_endpoint: Optional[str] = None) -> str:
+                          query: str | None = None,
+                          file_path: str | None = None,
+                          api_endpoint: str | None = None) -> str:
         """
         Create a data source
         
@@ -198,7 +198,7 @@ class DataPipelineManager:
                              name: str,
                              transform_type: str,
                              code: str,
-                             dependencies: Optional[List[str]] = None) -> str:
+                             dependencies: List[str] | None = None) -> str:
         """
         Create a data transformation
         
@@ -231,9 +231,9 @@ class DataPipelineManager:
                         name: str,
                         sink_type: str,
                         connection_config: Dict[str, Any],
-                        table_name: Optional[str] = None,
-                        file_path: Optional[str] = None,
-                        api_endpoint: Optional[str] = None) -> str:
+                        table_name: str | None = None,
+                        file_path: str | None = None,
+                        api_endpoint: str | None = None) -> str:
         """
         Create a data sink
         
@@ -270,7 +270,7 @@ class DataPipelineManager:
                        name: str,
                        description: str,
                        tasks: List[Dict[str, Any]],
-                       schedule: Optional[str] = None,
+                       schedule: str | None = None,
                        parallel_execution: bool = False) -> str:
         """
         Create a data pipeline
@@ -536,7 +536,7 @@ class DataPipelineManager:
             # Send to API
             pass
     
-    def get_pipeline_status(self, execution_id: str) -> Optional[Dict[str, Any]]:
+    def get_pipeline_status(self, execution_id: str) -> Dict[str, Any] | None:
         """Get pipeline execution status"""
         if execution_id not in self.executions:
             return None
@@ -616,7 +616,7 @@ class DataPipelineManager:
     def _group_tasks_by_dependency(self, tasks: List[PipelineTask]) -> List[List[PipelineTask]]:
         """Group tasks by dependency level for parallel execution"""
         task_groups = []
-        remaining_tasks = set(task.task_id for task in tasks)
+        remaining_tasks = {task.task_id for task in tasks}
         task_lookup = {t.task_id: t for t in tasks}
         
         while remaining_tasks:

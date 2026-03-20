@@ -12,7 +12,7 @@ Analyzes test failures to:
 import re
 from dataclasses import dataclass
 from enum import Enum
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any, Dict, List, Tuple
 
 
 class FailureType(Enum):
@@ -44,8 +44,8 @@ class FailureType(Enum):
 class ParsedError:
     error_type: str
     message: str
-    line_number: Optional[int]
-    file_path: Optional[str]
+    line_number: int | None
+    file_path: str | None
     traceback: List[str]
     extra_info: Dict[str, Any]
 
@@ -61,7 +61,7 @@ def parse_error_output(error_output: str) -> ParsedError:
     traceback = []
     extra_info = {}
 
-    for i, line in enumerate(lines):
+    for _i, line in enumerate(lines):
         traceback.append(line)
 
         if "Error:" in line or "Exception:" in line or "FAILED" in line:
@@ -179,7 +179,7 @@ def analyze_assertion_error(
     parsed: ParsedError, test_code: str
 ) -> Tuple[str, str, str]:
     """Analyze assertion errors and return root cause, explanation, and fix."""
-    message = parsed.message.lower()
+    parsed.message.lower()
     assertion_line = parsed.extra_info.get("assertion", "")
 
     if "assertEqual" in assertion_line or "assert_equal" in assertion_line:

@@ -1,3 +1,4 @@
+import contextlib
 import json
 import os
 from pathlib import Path
@@ -58,7 +59,7 @@ def main():
         return
 
     with open(registry_path, encoding='utf-8') as f:
-        registry = json.load(f)
+        json.load(f)
 
     # 1. Target specifically archived placeholders for systematic re-integration
     archived_skills = list(archive_dir.glob("**/SKILL*.md"))
@@ -74,10 +75,8 @@ def main():
         
         # Find matching entry in registry or infer domain
         domain = "General"
-        try:
+        with contextlib.suppress(Exception):
             domain = skill_file.relative_to(archive_dir).parts[0]
-        except Exception:
-            pass
 
         print(f"Enriching {skill_name} for domain {domain}...")
         new_content = enrich_skill_content(content, skill_name, domain)
@@ -93,10 +92,8 @@ def main():
             
             # Remove from archive
             skill_file.unlink()
-            try:
+            with contextlib.suppress(OSError):
                 skill_file.parent.rmdir() 
-            except OSError:
-                pass
                 
             enriched_count += 1
             print(f"Successfully enriched and re-integrated {skill_name} to {domain}")

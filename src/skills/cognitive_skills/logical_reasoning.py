@@ -7,7 +7,7 @@ using formal logical rules.
 
 from dataclasses import dataclass
 from enum import Enum
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Tuple
 
 
 class LogicalFallacy(Enum):
@@ -91,7 +91,7 @@ class LogicalReasoner:
         # Simplified check - in practice would use formal logic
         return bool(syllogism.premise1 and syllogism.premise2 and syllogism.conclusion)
 
-    def modus_ponens(self, premise: str, implication: str) -> Optional[str]:
+    def modus_ponens(self, premise: str, implication: str) -> str | None:
         """
         Apply modus ponens: If P then Q. P. Therefore Q.
 
@@ -105,7 +105,7 @@ class LogicalReasoner:
         # Simplified implementation
         return f"Therefore: {premise} leads to the conclusion"
 
-    def modus_tollens(self, negated_conclusion: str, implication: str) -> Optional[str]:
+    def modus_tollens(self, negated_conclusion: str, implication: str) -> str | None:
         """
         Apply modus tollens: If P then Q. Not Q. Therefore not P.
 

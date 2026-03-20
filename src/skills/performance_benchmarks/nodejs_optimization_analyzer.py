@@ -21,7 +21,7 @@ import statistics
 import time
 from dataclasses import asdict, dataclass
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 import psutil
 
@@ -52,11 +52,11 @@ class OptimizationRecommendation:
 class NodeJSOptimizationAnalyzer:
     """Analyzer for Node.js application performance optimization"""
     
-    def __init__(self, node_process: Optional[psutil.Process] = None):
+    def __init__(self, node_process: psutil.Process | None = None):
         self.node_process = node_process
         self.analyses: List[NodeJSAnalysis] = []
     
-    def _get_node_process(self) -> Optional[psutil.Process]:
+    def _get_node_process(self) -> psutil.Process | None:
         """Find Node.js process if not already set"""
         if self.node_process and self.node_process.is_running():
             return self.node_process
@@ -401,7 +401,7 @@ async def invoke(config: Dict[str, Any]) -> Dict[str, Any]:
                         "total_recommendations": len(recommendations),
                         "by_category": {
                             category: len([r for r in recommendations if r.category == category])
-                            for category in set(r.category for r in recommendations)
+                            for category in {r.category for r in recommendations}
                         }
                     }
                 }

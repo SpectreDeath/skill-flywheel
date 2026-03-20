@@ -8,7 +8,7 @@ Analyzes competitive landscape and identifies market positioning:
 - Competitive advantage assessment
 """
 
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 
 def parse_competitors(competitor_data: List[Dict]) -> List[Dict]:
@@ -101,7 +101,7 @@ def identify_opportunities(
 def competitive_landscape_analyzer(
     competitor_data: List[Dict],
     your_company: Dict,
-    market_gaps: Optional[List[str]] = None,
+    market_gaps: List[str] | None = None,
     **kwargs,
 ) -> Dict[str, Any]:
     """

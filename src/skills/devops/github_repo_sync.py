@@ -373,10 +373,10 @@ def create_pull_request(repo_path: str, options: dict) -> CreatePRResult:
         return result
 
     title = options.get("title", "")
-    body = options.get("body", "")
+    options.get("body", "")
     head_branch = options.get("head_branch", "")
     base_branch = options.get("base_branch", "main")
-    draft = options.get("draft", False)
+    options.get("draft", False)
 
     if not head_branch:
         current_branch = run_git_command(repo_path, ["branch", "--show-current"])

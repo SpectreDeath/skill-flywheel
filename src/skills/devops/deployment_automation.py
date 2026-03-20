@@ -15,7 +15,7 @@ import uuid
 from dataclasses import dataclass
 from datetime import datetime
 from enum import Enum
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 import requests
 import yaml
@@ -60,7 +60,7 @@ class DeploymentTarget:
     environment: EnvironmentType
     target_type: str  # kubernetes, docker, vm, etc.
     connection_config: Dict[str, Any]
-    health_check_url: Optional[str]
+    health_check_url: str | None
     created_at: float
 
 @dataclass
@@ -100,7 +100,7 @@ class DeploymentExecution:
     environment: EnvironmentType
     package_version: str
     started_at: float
-    completed_at: Optional[float]
+    completed_at: float | None
     targets_deployed: int
     targets_failed: int
     total_duration: float
@@ -114,7 +114,7 @@ class HealthCheck:
     target_id: str
     status: str  # healthy, unhealthy, degraded
     response_time: float
-    error_message: Optional[str]
+    error_message: str | None
     checked_at: float
 
 class DeploymentAutomation:
@@ -168,7 +168,7 @@ class DeploymentAutomation:
                                 environment: EnvironmentType,
                                 target_type: str,
                                 connection_config: Dict[str, Any],
-                                health_check_url: Optional[str] = None) -> str:
+                                health_check_url: str | None = None) -> str:
         """
         Create a deployment target
         
@@ -203,7 +203,7 @@ class DeploymentAutomation:
                                  version: str,
                                  package_type: str,
                                  artifact_path: str,
-                                 dependencies: Optional[List[str]] = None) -> str:
+                                 dependencies: List[str] | None = None) -> str:
         """
         Create a deployment package
         
@@ -297,7 +297,7 @@ class DeploymentAutomation:
     async def invoke_deployment(self,
                                 deployment_id: str,
                                 environment: EnvironmentType,
-                                package_version: Optional[str] = None) -> str:
+                                package_version: str | None = None) -> str:
         """
         Execute a deployment
         
@@ -404,7 +404,7 @@ class DeploymentAutomation:
             self.logger.error(f"Deployment rollback failed: {execution_id} - {e}")
             return False
     
-    def get_deployment_status(self, execution_id: str) -> Optional[Dict[str, Any]]:
+    def get_deployment_status(self, execution_id: str) -> Dict[str, Any] | None:
         """Get deployment execution status"""
         if execution_id not in self.executions:
             return None
@@ -773,7 +773,7 @@ class DeploymentAutomation:
     async def _monitor_deployments(self):
         """Monitor active deployments"""
         # Check for completed deployments and update stats
-        for execution_id, execution in list(self.executions.items()):
+        for _execution_id, execution in list(self.executions.items()):
             if execution.status in [DeploymentStatus.COMPLETED, DeploymentStatus.FAILED, DeploymentStatus.ROLLED_BACK]:
                 if execution.completed_at and execution.started_at:
                     duration = execution.completed_at - execution.started_at

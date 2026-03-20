@@ -22,7 +22,7 @@ import time
 from collections import defaultdict, deque
 from dataclasses import asdict, dataclass
 from enum import Enum
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any, Dict, List, Tuple
 
 import numpy as np
 
@@ -140,10 +140,10 @@ class SATHeuristics:
         for var in self.vsids_scores:
             self.vsids_scores[var] *= self.decay_factor
 
-    def select_branching_variable(self) -> Optional[int]:
+    def select_branching_variable(self) -> int | None:
         """Select variable for branching using VSIDS heuristic."""
         unassigned_vars = [
-            var for var in self.vsids_scores.keys() if var not in self.assignment
+            var for var in self.vsids_scores if var not in self.assignment
         ]
 
         if not unassigned_vars:
@@ -153,7 +153,7 @@ class SATHeuristics:
         best_var = max(unassigned_vars, key=lambda var: self.vsids_scores[var])
         return best_var
 
-    def mom_heuristic(self, clauses: List[List[int]]) -> Optional[Tuple[int, bool]]:
+    def mom_heuristic(self, clauses: List[List[int]]) -> Tuple[int, bool] | None:
         """MOMS (Maximum Occurrences in clauses of Minimum Size) heuristic."""
         if not clauses:
             return None, None
@@ -180,10 +180,10 @@ class SATHeuristics:
 
     def jeroslow_wang_heuristic(
         self, clauses: List[List[int]], weights: Dict[int, float] = None
-    ) -> Optional[Tuple[int, bool]]:
+    ) -> Tuple[int, bool] | None:
         """Jeroslow-Wang heuristic for weighted SAT problems."""
         if weights is None:
-            weights = {i: 1.0 for i in range(1, len(self.vsids_scores) + 1)}
+            weights = dict.fromkeys(range(1, len(self.vsids_scores) + 1), 1.0)
 
         best_score = -1
         best_var = None
@@ -356,7 +356,7 @@ class LoadBalancer:
             self.work_queues[thread_id].append(work_unit)
             self.thread_loads[thread_id] += 1
 
-    def get_work(self, thread_id: int) -> Optional[Any]:
+    def get_work(self, thread_id: int) -> Any | None:
         """Get work for a specific thread."""
         if self.work_queues[thread_id]:
             self.thread_loads[thread_id] -= 1
@@ -421,7 +421,7 @@ class SATSolver:
 
     def solve(
         self, problem: SATProblem
-    ) -> Tuple[SATStatus, Optional[Dict[int, bool]], PerformanceMetrics]:
+    ) -> Tuple[SATStatus, Dict[int, bool] | None, PerformanceMetrics]:
         """
         Solve SAT problem with optimization.
 
@@ -515,7 +515,7 @@ class SATSolver:
                 literal_counts[literal] += 1
 
         pure_literals = []
-        for literal, count in literal_counts.items():
+        for literal, _count in literal_counts.items():
             if -literal not in literal_counts:
                 pure_literals.append(literal)
 
@@ -550,14 +550,14 @@ class SATSolver:
 
         return result
 
-    def complete_solve(self) -> Tuple[SATStatus, Optional[Dict[int, bool]]]:
+    def complete_solve(self) -> Tuple[SATStatus, Dict[int, bool] | None]:
         """Complete SAT solving using DPLL algorithm."""
         # Implementation of DPLL with optimizations
         return self.dpll_solve(self.clause_database)
 
     def dpll_solve(
         self, clauses: List[List[int]]
-    ) -> Tuple[SATStatus, Optional[Dict[int, bool]]]:
+    ) -> Tuple[SATStatus, Dict[int, bool] | None]:
         """DPLL algorithm implementation."""
         # Base cases
         if not clauses:
@@ -607,7 +607,7 @@ class SATSolver:
 
         return SATStatus.UNSATISFIABLE, None
 
-    def incomplete_solve(self) -> Tuple[SATStatus, Optional[Dict[int, bool]]]:
+    def incomplete_solve(self) -> Tuple[SATStatus, Dict[int, bool] | None]:
         """Incomplete SAT solving using WalkSAT."""
         # Implementation of WalkSAT algorithm
         max_flips = 10000
@@ -638,7 +638,7 @@ class SATSolver:
 
         return SATStatus.TIMEOUT, current_assignment
 
-    def stochastic_solve(self) -> Tuple[SATStatus, Optional[Dict[int, bool]]]:
+    def stochastic_solve(self) -> Tuple[SATStatus, Dict[int, bool] | None]:
         """Stochastic SAT solving using simulated annealing."""
         # Implementation of simulated annealing
         current_assignment = {
@@ -734,7 +734,7 @@ class SATSolverOptimizer:
             SolverConfiguration: Optimized configuration
         """
         # Analyze problem characteristics
-        complexity_score = self.analyze_problem_complexity(problem)
+        self.analyze_problem_complexity(problem)
 
         # Select solver type
         if problem.constraint_density > 5.0 or problem.variables_count > 1000:

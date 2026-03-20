@@ -11,7 +11,7 @@ This module provides skills for analyzing code complexity:
 
 import ast
 from dataclasses import dataclass, field
-from typing import List, Optional, Tuple
+from typing import List, Tuple
 
 
 @dataclass
@@ -30,7 +30,7 @@ class FunctionMetrics:
     num_exceptions: int = 0
     num_returns: int = 0
     is_method: bool = False
-    class_name: Optional[str] = None
+    class_name: str | None = None
 
 
 @dataclass
@@ -55,8 +55,8 @@ class ComplexityVisitor(ast.NodeVisitor):
         self.source_lines = source_lines
         self.functions: List[FunctionMetrics] = []
         self.classes: List[ClassMetrics] = []
-        self.current_class: Optional[str] = None
-        self.current_function: Optional[str] = None
+        self.current_class: str | None = None
+        self.current_function: str | None = None
         self.current_nesting = 0
         self.max_nesting_global = 0
 

@@ -11,7 +11,7 @@ Identifies untested code paths in Python source code by:
 
 import ast
 from dataclasses import dataclass, field
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 
 @dataclass
@@ -19,7 +19,7 @@ class FunctionInfo:
     name: str
     args: List[str]
     line: int
-    returns: Optional[str]
+    returns: str | None
     is_async: bool
     has_self: bool
     branches: List[Dict[str, Any]] = field(default_factory=list)
@@ -150,14 +150,13 @@ def extract_exception_types(func_node: ast.AST) -> List[str]:
             elif node.exc and isinstance(node.exc, ast.Call):
                 if isinstance(node.exc.func, ast.Name):
                     exceptions.append(node.exc.func.id)
-        elif isinstance(node, ast.ExceptHandler):
-            if node.type:
-                if isinstance(node.type, ast.Name):
-                    exceptions.append(node.type.id)
-                elif isinstance(node.type, ast.Tuple):
-                    for ex in node.type.elts:
-                        if isinstance(ex, ast.Name):
-                            exceptions.append(ex.id)
+        elif isinstance(node, ast.ExceptHandler) and node.type:
+            if isinstance(node.type, ast.Name):
+                exceptions.append(node.type.id)
+            elif isinstance(node.type, ast.Tuple):
+                for ex in node.type.elts:
+                    if isinstance(ex, ast.Name):
+                        exceptions.append(ex.id)
 
     return list(set(exceptions))
 
@@ -266,7 +265,7 @@ def identify_gaps(
     gaps = []
 
     source_functions = source_info.get("functions", [])
-    source_branches = source_info.get("branches", [])
+    source_info.get("branches", [])
     tested_functions = set(test_info.get("tested_functions", []))
 
     for func in source_functions:
@@ -370,7 +369,7 @@ def calculate_branch_priority(branch: Dict[str, Any]) -> str:
     """Calculate priority for a branch."""
     branch_type = branch.get("type")
 
-    if branch_type == "if" or branch_type == "try_except":
+    if branch_type in {"if", "try_except"}:
         return "high"
     elif branch_type == "loop":
         return "medium"
@@ -441,7 +440,7 @@ def generate_test_suggestions(
 
 def find_function_by_name(
     source_info: Dict[str, Any], func_name: str
-) -> Optional[FunctionInfo]:
+) -> FunctionInfo | None:
     """Find function info by name."""
     for func in source_info.get("functions", []):
         if func.name == func_name:

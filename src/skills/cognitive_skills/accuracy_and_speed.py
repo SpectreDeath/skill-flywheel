@@ -4,9 +4,9 @@ Accuracy and Speed Module
 Achieve correct answers efficiently under time pressure.
 """
 
-from dataclasses import dataclass
-from typing import Any, Dict, List, Optional
 from collections.abc import Callable
+from dataclasses import dataclass
+from typing import Any, Dict, List
 
 
 class QuestionDifficulty(Enum):
@@ -38,7 +38,7 @@ class AccuracySpeedOptimizer:
     """
 
     def __init__(self):
-        self.time_budget: Optional[TimeBudget] = None
+        self.time_budget: TimeBudget | None = None
 
     def set_time_budget(self, total_seconds: float) -> TimeBudget:
         """Set time budget for tasks."""
@@ -79,7 +79,7 @@ class AccuracySpeedOptimizer:
             Time allocation per question
         """
         if not self.time_budget:
-            return {q: 60.0 for q in questions}
+            return dict.fromkeys(questions, 60.0)
 
         allocations = {}
         for q in questions:
@@ -133,7 +133,7 @@ class AccuracySpeedOptimizer:
         """
         return number * percent / 100
 
-    def estimate_before_calculating(self, options: List[str]) -> Optional[str]:
+    def estimate_before_calculating(self, options: List[str]) -> str | None:
         """
         Estimate answer before full calculation.
 

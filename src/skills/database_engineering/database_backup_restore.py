@@ -2,7 +2,7 @@ import hashlib
 import logging
 import time
 from datetime import datetime
-from typing import Any, Dict, Optional
+from typing import Any, Dict
 
 logger = logging.getLogger(__name__)
 
@@ -10,8 +10,8 @@ logger = logging.getLogger(__name__)
 def generate_backup_strategy(database: Dict[str, Any]) -> Dict[str, Any]:
     db_type = database.get("type", "postgresql")
     size_gb = database.get("size_gb", 10)
-    rto_hours = database.get("recovery_time_objective_hours", 4)
-    rpo_hours = database.get("recovery_point_objective_hours", 1)
+    database.get("recovery_time_objective_hours", 4)
+    database.get("recovery_point_objective_hours", 1)
 
     strategy = {
         "strategy_id": f"backup-{hashlib.md5(str(time.time()).encode()).hexdigest()[:8]}",
@@ -69,14 +69,14 @@ def generate_backup_strategy(database: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def create_restore_plan(
-    backup_info: Dict[str, Any], target_time: Optional[str] = None
+    backup_info: Dict[str, Any], target_time: str | None = None
 ) -> Dict[str, Any]:
     restore_plan = {
         "plan_id": f"restore-{hashlib.md5(str(time.time()).encode()).hexdigest()[:8]}",
         "target_time": target_time or datetime.now().isoformat(),
     }
 
-    backup_type = backup_info.get("backup_type", "full")
+    backup_info.get("backup_type", "full")
     available_backups = backup_info.get("available_backups", [])
 
     if not available_backups:

@@ -78,7 +78,7 @@ class AnalyticalThinker:
                 ratios = [
                     data[i + 1] / data[i] for i in range(len(data) - 1) if data[i] != 0
                 ]
-                if len(set(round(r, 2) for r in ratios)) == 1:
+                if len({round(r, 2) for r in ratios}) == 1:
                     return {
                         "pattern": "exponential",
                         "formula": f"y = {data[0]} * {round(ratios[0], 2)}^x",

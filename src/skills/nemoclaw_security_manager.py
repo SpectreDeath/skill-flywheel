@@ -8,7 +8,7 @@ security features including OpenShell guardrails and privacy controls.
 import json
 import subprocess
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 DEFAULT_POLICY = {
     "version": "1.0",
@@ -44,7 +44,7 @@ DEFAULT_POLICY = {
 class NemOClawSecurityManager:
     """Manage NemOClaw security and privacy settings."""
 
-    def __init__(self, config_path: Optional[str] = None):
+    def __init__(self, config_path: str | None = None):
         self.config_path = (
             Path(config_path) if config_path else Path.home() / ".nemoclaw" / "config"
         )
@@ -103,8 +103,8 @@ class NemOClawSecurityManager:
     def create_policy(
         self,
         name: str,
-        rules: Optional[List[Dict[str, Any]]] = None,
-        guardrails: Optional[Dict[str, Any]] = None,
+        rules: List[Dict[str, Any]] | None = None,
+        guardrails: Dict[str, Any] | None = None,
     ) -> Dict[str, Any]:
         """Create a security policy."""
         policy = {

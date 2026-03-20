@@ -12,7 +12,7 @@ import json
 import re
 from dataclasses import dataclass, field
 from datetime import datetime
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 SEMVER_PATTERN = r"\bv?(\d+)\.(\d+)\.(\d+)(?:-([0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*))?(?:\+([0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*))?\b"
 
@@ -49,12 +49,12 @@ PR_PATTERNS = [
 class Commit:
     hash: str
     message: str
-    author: Optional[str] = None
-    date: Optional[str] = None
-    pr_number: Optional[str] = None
+    author: str | None = None
+    date: str | None = None
+    pr_number: str | None = None
     category: str = "other"
     is_breaking: bool = False
-    scope: Optional[str] = None
+    scope: str | None = None
     raw: str = ""
 
 
@@ -64,12 +64,12 @@ class Version:
     major: int
     minor: int
     patch: int
-    prerelease: Optional[str] = None
-    date: Optional[str] = None
+    prerelease: str | None = None
+    date: str | None = None
     commits: List[Commit] = field(default_factory=list)
 
 
-def parse_git_log_line(line: str) -> Optional[Dict[str, str]]:
+def parse_git_log_line(line: str) -> Dict[str, str] | None:
     """Parse a single line from git log output."""
     patterns = [
         r"^([a-f0-9]{7,40})\s+(.+)$",
@@ -83,7 +83,7 @@ def parse_git_log_line(line: str) -> Optional[Dict[str, str]]:
     return None
 
 
-def detect_pr_number(message: str) -> Optional[str]:
+def detect_pr_number(message: str) -> str | None:
     """Extract PR number from commit message."""
     for pattern in PR_PATTERNS:
         match = re.search(pattern, message, re.IGNORECASE)
@@ -92,7 +92,7 @@ def detect_pr_number(message: str) -> Optional[str]:
     return None
 
 
-def detect_scope(message: str) -> Optional[str]:
+def detect_scope(message: str) -> str | None:
     """Extract scope from commit message (e.g., feat(api): message)."""
     match = re.match(r"^\w+(?:\(([^)]+)\))?:", message)
     if match:
@@ -165,7 +165,6 @@ def parse_commits(git_log: str) -> List[Commit]:
     """Parse commits from git log output."""
     commits = []
     current_commit = None
-    in_merge = False
 
     for line in git_log.split("\n"):
         line = line.strip()
@@ -174,7 +173,6 @@ def parse_commits(git_log: str) -> List[Commit]:
             continue
 
         if line.startswith("Merge:"):
-            in_merge = True
             continue
 
         if line.startswith("Author:") or line.startswith("Date:"):
@@ -203,7 +201,6 @@ def parse_commits(git_log: str) -> List[Commit]:
                 scope=detect_scope(message),
                 raw=line,
             )
-            in_merge = False
             continue
 
         if (
@@ -261,7 +258,7 @@ def format_changelog_markdown(
     changes: Dict[str, List[Dict[str, Any]]], versions: List[Version], options: dict
 ) -> str:
     """Format changelog as Markdown."""
-    include_sections = options.get(
+    options.get(
         "include_sections", ["breaking", "features", "fixes", "breaking"]
     )
     show_pr = options.get("show_pr", True)
@@ -408,7 +405,7 @@ def format_changelog_keep_a_changelog(
 ) -> str:
     """Format changelog using Keep a Changelog format."""
     show_pr = options.get("show_pr", True)
-    show_author = options.get("show_author", False)
+    options.get("show_author", False)
 
     output = []
     output.append("# Changelog")

@@ -1,7 +1,7 @@
 import datetime
 import logging
 from dataclasses import dataclass, field
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 from unittest.mock import Mock
 
 import GPUtil
@@ -24,7 +24,7 @@ class AdvancedPerformanceMetrics:
     cpu_usage: float
     memory_usage: float
     disk_usage: float
-    gpu_usage: Optional[float]
+    gpu_usage: float | None
     active_connections: int
     request_count: int
     error_count: int
@@ -49,8 +49,8 @@ class AdvancedSkillMetrics:
     avg_execution_time: float
     p95_execution_time: float
     p99_execution_time: float
-    last_load_time: Optional[datetime.datetime]
-    last_execution_time: Optional[datetime.datetime]
+    last_load_time: datetime.datetime | None
+    last_execution_time: datetime.datetime | None
     dependency_count: int
     memory_usage: float
     success_rate: float
@@ -75,7 +75,7 @@ class AdvancedTelemetryManager:
         if not hasattr(self.resource_optimizer, 'calculate_utilization_score'):
             self.resource_optimizer.calculate_utilization_score = lambda *args: 0.5
         
-    def collect_advanced_metrics(self) -> Optional[AdvancedPerformanceMetrics]:
+    def collect_advanced_metrics(self) -> AdvancedPerformanceMetrics | None:
         """Collect and record system-wide performance metrics."""
         try:
             cpu_usage = psutil.cpu_percent(interval=1)

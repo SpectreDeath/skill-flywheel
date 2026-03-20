@@ -18,7 +18,7 @@ from dataclasses import dataclass
 from datetime import datetime
 from enum import Enum
 from functools import wraps
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 import requests
 
@@ -39,10 +39,10 @@ class APIConfig:
 
     base_url: str
     auth_type: AuthType = AuthType.NONE
-    api_key: Optional[str] = None
-    username: Optional[str] = None
-    password: Optional[str] = None
-    bearer_token: Optional[str] = None
+    api_key: str | None = None
+    username: str | None = None
+    password: str | None = None
+    bearer_token: str | None = None
     timeout: int = 30
     max_retries: int = 3
     retry_delay: float = 1.0
@@ -56,8 +56,8 @@ class APIError(Exception):
     def __init__(
         self,
         message: str,
-        status_code: Optional[int] = None,
-        response_data: Optional[Dict] = None,
+        status_code: int | None = None,
+        response_data: Dict | None = None,
     ):
         self.message = message
         self.status_code = status_code
@@ -149,9 +149,9 @@ class APIIntegration:
         self,
         method: str,
         endpoint: str,
-        data: Optional[Dict] = None,
-        params: Optional[Dict] = None,
-        headers: Optional[Dict] = None,
+        data: Dict | None = None,
+        params: Dict | None = None,
+        headers: Dict | None = None,
     ) -> Dict[str, Any]:
         """
         Make an HTTP request with error handling and retries
@@ -215,8 +215,8 @@ class APIIntegration:
     async def get(
         self,
         endpoint: str,
-        params: Optional[Dict] = None,
-        headers: Optional[Dict] = None,
+        params: Dict | None = None,
+        headers: Dict | None = None,
     ) -> Dict[str, Any]:
         """Make a GET request"""
         return await self.make_request("GET", endpoint, params=params, headers=headers)
@@ -224,9 +224,9 @@ class APIIntegration:
     async def post(
         self,
         endpoint: str,
-        data: Optional[Dict] = None,
-        params: Optional[Dict] = None,
-        headers: Optional[Dict] = None,
+        data: Dict | None = None,
+        params: Dict | None = None,
+        headers: Dict | None = None,
     ) -> Dict[str, Any]:
         """Make a POST request"""
         return await self.make_request(
@@ -236,9 +236,9 @@ class APIIntegration:
     async def put(
         self,
         endpoint: str,
-        data: Optional[Dict] = None,
-        params: Optional[Dict] = None,
-        headers: Optional[Dict] = None,
+        data: Dict | None = None,
+        params: Dict | None = None,
+        headers: Dict | None = None,
     ) -> Dict[str, Any]:
         """Make a PUT request"""
         return await self.make_request(
@@ -248,8 +248,8 @@ class APIIntegration:
     async def delete(
         self,
         endpoint: str,
-        params: Optional[Dict] = None,
-        headers: Optional[Dict] = None,
+        params: Dict | None = None,
+        headers: Dict | None = None,
     ) -> Dict[str, Any]:
         """Make a DELETE request"""
         return await self.make_request(
@@ -259,9 +259,9 @@ class APIIntegration:
     async def patch(
         self,
         endpoint: str,
-        data: Optional[Dict] = None,
-        params: Optional[Dict] = None,
-        headers: Optional[Dict] = None,
+        data: Dict | None = None,
+        params: Dict | None = None,
+        headers: Dict | None = None,
     ) -> Dict[str, Any]:
         """Make a PATCH request"""
         return await self.make_request(
@@ -319,7 +319,7 @@ async def batch_api_calls(
 def transform_data(
     data: Dict[str, Any],
     mapping: Dict[str, str],
-    filters: Optional[List[Dict[str, Any]]] = None,
+    filters: List[Dict[str, Any]] | None = None,
 ) -> Dict[str, Any]:
     """
     Transform API response data according to mapping rules

@@ -21,11 +21,11 @@ import logging
 import statistics
 import sys
 import time
+from collections.abc import Callable
 from dataclasses import asdict, dataclass
 from enum import Enum
 from pathlib import Path
-from typing import Any, Dict, List, Optional
-from collections.abc import Callable
+from typing import Any, Dict, List
 
 import psutil
 
@@ -54,7 +54,7 @@ class BenchmarkResult:
     environment: Dict[str, Any]
     timestamp: datetime.datetime
     success: bool
-    error_message: Optional[str] = None
+    error_message: str | None = None
 
 @dataclass
 class PerformanceBaseline:
@@ -67,7 +67,7 @@ class PerformanceBaseline:
 class PerformanceBenchmarkFramework:
     """Framework for standardized performance benchmarking"""
     
-    def __init__(self, output_dir: Optional[str] = None):
+    def __init__(self, output_dir: str | None = None):
         self.output_dir = Path(output_dir) if output_dir else Path.cwd() / "benchmark_results"
         self.output_dir.mkdir(parents=True, exist_ok=True)
         self.baselines: Dict[str, PerformanceBaseline] = {}
@@ -176,7 +176,7 @@ class PerformanceBenchmarkFramework:
         memory_deltas = []
         errors = []
         
-        for i in range(iterations):
+        for _i in range(iterations):
             measurement = self._measure_execution_time(func)
             
             if measurement["success"]:
@@ -236,7 +236,7 @@ class PerformanceBenchmarkFramework:
         memory_deltas = []
         errors = []
         
-        for i in range(iterations):
+        for _i in range(iterations):
             measurement = await self._measure_async_execution_time(func)
             
             if measurement["success"]:
@@ -426,7 +426,7 @@ class PerformanceBenchmarkFramework:
         
         return comparison
     
-    def save_results(self, filename: Optional[str] = None) -> Path:
+    def save_results(self, filename: str | None = None) -> Path:
         """
         Save benchmark results to a JSON file
         
@@ -469,7 +469,7 @@ class PerformanceBenchmarkFramework:
         report = {
             "summary": {
                 "total_benchmarks": len(self.results),
-                "benchmark_types": list(set(r.benchmark_type.value for r in self.results)),
+                "benchmark_types": list({r.benchmark_type.value for r in self.results}),
                 "total_baselines": len(self.baselines),
                 "report_generated": datetime.datetime.now().isoformat()
             },

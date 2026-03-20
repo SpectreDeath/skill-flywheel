@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 from uuid import UUID, uuid4
 
 from pydantic import BaseModel, ConfigDict, Field, computed_field
@@ -26,7 +26,7 @@ class SkillFailureCase(BaseModel):
         default="error",
         description="Category of failure: performance, accuracy, timeout, error",
     )
-    execution_time_ms: Optional[float] = Field(
+    execution_time_ms: float | None = Field(
         default=None, description="Time taken to execute the skill"
     )
 
@@ -81,7 +81,7 @@ class SkillFitnessResult(BaseModel):
         return self.trainable_failure_cases + self.holdout_failure_cases
 
     def format_observed_outcome(
-        self, parent_result: Optional[SkillFitnessResult] = None, ndigits: int = 2
+        self, parent_result: SkillFitnessResult | None = None, ndigits: int = 2
     ) -> str:
         """Format observed outcome with detailed metrics."""
         if not self.is_viable:
@@ -108,11 +108,11 @@ class SkillGenome(BaseModel):
     model_config = ConfigDict(frozen=False)
 
     id: UUID = Field(default_factory=uuid4, description="Unique identifier")
-    parent: Optional[SkillGenome] = Field(default=None, description="Parent genome")
+    parent: SkillGenome | None = Field(default=None, description="Parent genome")
     additional_parents: List[SkillGenome] = Field(default_factory=list)
-    from_failure_cases: Optional[List[SkillFailureCase]] = Field(default=None)
-    from_learning_log_entries: Optional[List[Any]] = Field(default=None)
-    from_change_summary: Optional[str] = Field(default=None)
+    from_failure_cases: List[SkillFailureCase] | None = Field(default=None)
+    from_learning_log_entries: List[Any] | None = Field(default=None)
+    from_change_summary: str | None = Field(default=None)
 
     skill_selections: List[str] = Field(
         default_factory=list, description="Ordered list of skill names to use"
@@ -168,14 +168,12 @@ class SkillGenome(BaseModel):
             "hierarchical",
         ]:
             return False
-        if self.timeout_ms <= 0:
-            return False
-        return True
+        return not self.timeout_ms <= 0
 
 
 def create_initial_genome(
     skill_selections: List[str],
-    default_parameters: Optional[Dict[str, Dict[str, Any]]] = None,
+    default_parameters: Dict[str, Dict[str, Any]] | None = None,
     orchestration_strategy: str = "sequential",
 ) -> SkillGenome:
     """Create an initial skill genome with sensible defaults."""
@@ -185,6 +183,6 @@ def create_initial_genome(
         skill_selections=skill_selections,
         skill_parameters=default_params,
         prompt_templates={},
-        resource_allocation={skill: 1.0 for skill in skill_selections},
+        resource_allocation=dict.fromkeys(skill_selections, 1.0),
         orchestration_strategy=orchestration_strategy,
     )

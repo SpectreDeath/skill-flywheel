@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from typing import Any, Dict, Optional
+from typing import Any, Dict
 
 
 @dataclass
@@ -13,7 +13,7 @@ class EvolutionConfig:
     batch_size: int = 2
     sharpness: float = 10.0
     midpoint_score_percentile: float = 75.0
-    fixed_midpoint_score: Optional[float] = None
+    fixed_midpoint_score: float | None = None
     novelty_weight: float = 1.0
     should_verify_mutations: bool = True
     max_iterations: int = 50
@@ -21,7 +21,7 @@ class EvolutionConfig:
     evaluator_concurrency: int = 5
     learning_log_strategy: str = "neighborhood-1"
     use_process_pool_executors: bool = False
-    random_seed: Optional[int] = None
+    random_seed: int | None = None
     snapshot_interval: int = 5
     early_stopping_patience: int = 10
     early_stopping_threshold: float = 0.01

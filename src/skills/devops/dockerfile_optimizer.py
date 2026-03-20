@@ -8,7 +8,7 @@ Description: Analyzes and optimizes Dockerfiles for size, build speed, and best 
 import re
 from dataclasses import dataclass, field
 from enum import Enum
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 BASE_IMAGE_SIZES = {
     "ubuntu": 80,
@@ -67,7 +67,7 @@ class Optimization:
 class DockerfileParser:
     lines: List[str]
     instructions: List[Dict[str, Any]] = field(default_factory=list)
-    base_image: Optional[str] = None
+    base_image: str | None = None
     stages: List[Dict[str, Any]] = field(default_factory=list)
 
     def parse(self) -> None:
@@ -420,7 +420,7 @@ def generate_optimizations(
     dockerfile: str, parser: DockerfileParser, options: dict
 ) -> List[Dict[str, Any]]:
     optimizations: List[Dict[str, Any]] = []
-    target_size = options.get("target_size_mb", 100)
+    options.get("target_size_mb", 100)
     include_multistage = options.get("include_multistage", True)
 
     if parser.base_image and "alpine" not in parser.base_image.lower():
@@ -465,7 +465,7 @@ def generate_optimizations(
                         }
                     )
             else:
-                idx = len(new_lines)
+                len(new_lines)
                 new_lines.append(line)
                 new_lines.append("RUN apt-get clean && rm -rf /var/lib/apt/lists/*")
                 cleaned_apt = True
@@ -546,10 +546,8 @@ def create_optimized_dockerfile(dockerfile: str, options: dict) -> str:
     parser.parse()
 
     optimized_lines = []
-    base_image_changed = False
 
     for line in dockerfile.split("\n"):
-        original = line
 
         if line.strip().upper().startswith("FROM"):
             match = re.match(
@@ -563,7 +561,6 @@ def create_optimized_dockerfile(dockerfile: str, options: dict) -> str:
                     base_name = base.split(":")[0]
                     new_base = f"{base_name}:alpine"
                     line = line.replace(base, new_base)
-                    base_image_changed = True
 
         if "apt-get update" in line.lower():
             if "apt-get clean" not in line and "rm -rf /var/lib/apt/lists" not in line:

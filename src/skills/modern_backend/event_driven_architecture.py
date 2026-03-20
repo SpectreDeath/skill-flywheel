@@ -14,7 +14,7 @@ from collections import deque
 from dataclasses import dataclass
 from datetime import datetime
 from enum import Enum
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 logger = logging.getLogger(__name__)
 
@@ -54,8 +54,8 @@ class Event:
     payload: Dict[str, Any]
     source: str
     timestamp: float
-    correlation_id: Optional[str]
-    causation_id: Optional[str]
+    correlation_id: str | None
+    causation_id: str | None
     metadata: Dict[str, Any]
     retries: int
     max_retries: int
@@ -80,7 +80,7 @@ class Consumer:
     name: str
     queue_id: str
     subscription_type: SubscriptionType
-    callback_url: Optional[str]
+    callback_url: str | None
     batch_size: int
     concurrency: int
     retry_policy: Dict[str, Any]
@@ -194,10 +194,10 @@ class EventDrivenArchitecture:
                        name: str,
                        queue_id: str,
                        subscription_type: SubscriptionType = SubscriptionType.PULL,
-                       callback_url: Optional[str] = None,
+                       callback_url: str | None = None,
                        batch_size: int = 1,
                        concurrency: int = 1,
-                       retry_policy: Optional[Dict[str, Any]] = None) -> str:
+                       retry_policy: Dict[str, Any] | None = None) -> str:
         """
         Create a message consumer
         
@@ -272,7 +272,7 @@ class EventDrivenArchitecture:
     def create_subscription(self,
                            topic_id: str,
                            consumer_id: str,
-                           filter_rules: Optional[Dict[str, Any]] = None) -> str:
+                           filter_rules: Dict[str, Any] | None = None) -> str:
         """
         Create a topic subscription
         
@@ -338,9 +338,9 @@ class EventDrivenArchitecture:
                      payload: Dict[str, Any],
                      event_type: EventType = EventType.EVENT,
                      source: str = "system",
-                     correlation_id: Optional[str] = None,
-                     causation_id: Optional[str] = None,
-                     metadata: Optional[Dict[str, Any]] = None) -> str:
+                     correlation_id: str | None = None,
+                     causation_id: str | None = None,
+                     metadata: Dict[str, Any] | None = None) -> str:
         """
         Publish an event to the system
         
@@ -374,7 +374,7 @@ class EventDrivenArchitecture:
         )
         
         # Store in event store
-        for store_id, store in self.event_stores.items():
+        for _store_id, store in self.event_stores.items():
             store.events.append(event)
             if len(store.events) > store.max_events:
                 store.events.pop(0)
@@ -440,7 +440,7 @@ class EventDrivenArchitecture:
         self.logger.info(f"Enqueued message to {queue_id}")
         return True
     
-    def dequeue_message(self, queue_id: str) -> Optional[Dict[str, Any]]:
+    def dequeue_message(self, queue_id: str) -> Dict[str, Any] | None:
         """
         Dequeue a message from a queue
         
@@ -459,7 +459,7 @@ class EventDrivenArchitecture:
             return None
         
         # Get message based on queue type
-        if queue.queue_type == QueueType.FIFO or queue.queue_type == QueueType.PRIORITY:
+        if queue.queue_type in (QueueType.FIFO, QueueType.PRIORITY):
             message = queue.messages.popleft()
         else:
             message = queue.messages.popleft()
@@ -576,7 +576,7 @@ class EventDrivenArchitecture:
         consumers = []
         
         # Find topics that match the event
-        for topic_id, topic in self.topics.items():
+        for _topic_id, topic in self.topics.items():
             if event.event_name.startswith(topic.name):
                 # Find subscriptions for this topic
                 for subscription_id in topic.subscriptions:
@@ -591,7 +591,7 @@ class EventDrivenArchitecture:
         # For now, simulate the callback
         
         # Simulate network delay and potential failures
-        delay = random.uniform(0.1, 1.0)
+        random.uniform(0.1, 1.0)
         success = random.choices([True, False], weights=[90, 10])[0]
         
         if not success:
@@ -660,17 +660,17 @@ class EventDrivenArchitecture:
     async def _cleanup_expired_data(self):
         """Clean up expired messages and events"""
         current_time = time.time()
-        cutoff_time = current_time - (24 * 3600)  # 24 hours ago
+        current_time - (24 * 3600)  # 24 hours ago
         
         # Clean up expired messages from queues
-        for queue_id, queue in self.queues.items():
+        for _queue_id, queue in self.queues.items():
             queue.messages = deque([
                 msg for msg in queue.messages
                 if current_time - msg["timestamp"] <= msg["ttl"]
             ])
         
         # Clean up old events from stores
-        for store_id, store in self.event_stores.items():
+        for _store_id, store in self.event_stores.items():
             store.events = [
                 event for event in store.events
                 if current_time - event.timestamp <= (store.retention_days * 24 * 3600)

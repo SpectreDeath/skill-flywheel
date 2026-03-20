@@ -14,7 +14,7 @@ import os
 import time
 from dataclasses import dataclass
 from enum import Enum
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 import aiohttp
 
@@ -34,7 +34,7 @@ class AgentConfig:
     goal: str
     backstory: str
     framework: AgentFramework
-    domain: Optional[str] = None  # New: Target domain for the agent
+    domain: str | None = None  # New: Target domain for the agent
     model: str = "gpt-4"
     temperature: float = 0.1
     max_tokens: int = 4000
@@ -61,7 +61,7 @@ class OrchestrationResult:
     execution_time: float
     success: bool
     results: Dict[str, Any]
-    error: Optional[str] = None
+    error: str | None = None
 
 class AgentOrchestrator:
     """Main orchestrator for multi-agent workflows."""
@@ -78,7 +78,7 @@ class AgentOrchestrator:
             AgentFramework.CREWAI: CrewAIAdapter()
         }
     
-    async def resolve_agent_endpoint(self, agent_name: str) -> Optional[str]:
+    async def resolve_agent_endpoint(self, agent_name: str) -> str | None:
         """Resolve the endpoint for an agent based on its domain via discovery service."""
         agent_config = self.agents.get(agent_name)
         if not agent_config or not agent_config.domain:

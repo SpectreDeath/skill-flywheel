@@ -13,7 +13,7 @@ import ast
 import re
 from dataclasses import dataclass
 from enum import Enum
-from typing import Dict, List, Optional
+from typing import Dict, List
 
 
 class ORMType(Enum):
@@ -32,7 +32,7 @@ class NPlusOnePattern:
     loop_variable: str
     query_pattern: str
     model_name: str
-    relationship: Optional[str]
+    relationship: str | None
     line_number: int
     estimated_queries: int
     suggested_fix: str
@@ -56,7 +56,7 @@ class FixSuggestion:
     description: str
     code_example: str
     expected_improvement: str
-    related_pattern: Optional[str]
+    related_pattern: str | None
 
 
 def n_plus_one_detector(code: str, options: dict) -> dict:
@@ -235,7 +235,7 @@ def _detect_django_n_plus_one(
             loop_match = re.search(loop_pattern, line)
             if loop_match:
                 loop_var = loop_match.group(1)
-                iterable_var = (
+                (
                     loop_match.group(2) if loop_match.lastindex >= 2 else None
                 )
                 if loop_var:
@@ -565,7 +565,7 @@ def _estimate_savings(
         total_queries_before += pattern.estimated_queries + 1
         total_queries_after += 2
 
-    for issue in lazy_loading_issues:
+    for _issue in lazy_loading_issues:
         total_queries_before += 1
 
     queries_saved = total_queries_before - total_queries_after
@@ -601,12 +601,12 @@ def _infer_model_from_relationship(line: str) -> str:
     return "Model"
 
 
-def _find_relationship_access(context: str, loop_var: str) -> Optional[str]:
+def _find_relationship_access(context: str, loop_var: str) -> str | None:
     matches = re.findall(rf"{loop_var}\.(\w+)", context)
     return ",".join(matches[:3]) if matches else None
 
 
-def _find_django_relationship_access(context: str, loop_var: str) -> Optional[str]:
+def _find_django_relationship_access(context: str, loop_var: str) -> str | None:
     matches = re.findall(rf"{loop_var}\.(\w+)\.(all|filter|get)", context)
     return ",".join([m[0] for m in matches[:3]]) if matches else None
 

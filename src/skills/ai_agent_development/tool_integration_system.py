@@ -9,11 +9,11 @@ import asyncio
 import logging
 import time
 import uuid
+from collections.abc import Callable
 from dataclasses import dataclass
 from datetime import datetime
 from enum import Enum
-from typing import Any, Dict, List, Optional
-from collections.abc import Callable
+from typing import Any, Dict, List
 
 logger = logging.getLogger(__name__)
 
@@ -55,10 +55,10 @@ class ToolExecution:
     execution_id: str
     tool_name: str
     input_params: Dict[str, Any]
-    output_result: Optional[Dict[str, Any]]
+    output_result: Dict[str, Any] | None
     execution_time: float
     status: str  # success, failed, timeout
-    error_message: Optional[str]
+    error_message: str | None
     timestamp: float
 
 class ToolIntegrationSystem:
@@ -201,7 +201,7 @@ class ToolIntegrationSystem:
                 "execution_time": execution_time
             }
     
-    def get_tool_info(self, tool_name: str) -> Optional[Dict[str, Any]]:
+    def get_tool_info(self, tool_name: str) -> Dict[str, Any] | None:
         """Get information about a specific tool"""
         if tool_name not in self.tool_signatures:
             return None
@@ -221,7 +221,7 @@ class ToolIntegrationSystem:
             "status": "active" if tool_name in self.active_tools else "inactive"
         }
     
-    def list_tools(self, category: Optional[ToolCategory] = None) -> List[Dict[str, Any]]:
+    def list_tools(self, category: ToolCategory | None = None) -> List[Dict[str, Any]]:
         """List all registered tools, optionally filtered by category"""
         tools_info = []
         
@@ -310,10 +310,7 @@ class ToolIntegrationSystem:
     
     def _check_dependencies(self, dependencies: List[str]) -> bool:
         """Check if all dependencies are available"""
-        for dep in dependencies:
-            if dep not in self.tools:
-                return False
-        return True
+        return all(dep in self.tools for dep in dependencies)
     
     def _validate_params(self, params: Dict[str, Any], signature: ToolSignature) -> Dict[str, Any]:
         """Validate input parameters against schema"""

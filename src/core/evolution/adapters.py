@@ -1,17 +1,16 @@
 from __future__ import annotations
 
 import functools
+from collections.abc import Callable
 from typing import (
     TYPE_CHECKING,
     Any,
     Dict,
     Generic,
     List,
-    Optional,
     TypeVar,
     overload,
 )
-from collections.abc import Callable
 
 from darwinian_evolver.learning_log import LearningLogEntry
 from darwinian_evolver.problem import Evaluator as BaseEvaluator
@@ -65,7 +64,7 @@ class TypeSafeMutator(Generic[OrganismT, FailureT]):
 
     def __init__(self, mutator: BaseMutator):
         self._mutator = mutator
-        self._context: Optional[MutatorContext] = None
+        self._context: MutatorContext | None = None
 
     def mutate(
         self,
@@ -223,7 +222,7 @@ def suppress_lsp_errors(*error_codes: str) -> Callable[[_T], _T]:
     Returns:
         Decorator that marks function to suppress specified errors
     """
-    errors_str = ", ".join(error_codes) if error_codes else ""
+    ", ".join(error_codes) if error_codes else ""
 
     def decorator(func: _T) -> _T:
         if hasattr(func, "__annotations__"):

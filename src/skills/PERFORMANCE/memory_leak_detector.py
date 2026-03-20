@@ -158,8 +158,8 @@ def _parse_heapy_leaks(memory_dump: str, options: dict) -> List[dict]:
     if not match:
         return leaks
 
-    total_objects = int(match.group(1))
-    total_size = _convert_to_mb(float(match.group(2)), match.group(3))
+    int(match.group(1))
+    _convert_to_mb(float(match.group(2)), match.group(3))
 
     for line in re.finditer(size_pattern, memory_dump):
         size = _convert_to_mb(float(line.group(1)), line.group(2))
@@ -262,7 +262,6 @@ def _identify_growing_objects_tracemalloc(
 ) -> List[dict]:
     growing = []
 
-    stat_pattern = r"(Top \d+ memory allocations|tracemalloc snapshot)"
     if "Top 10 differences" in memory_dump or "Top differences" in memory_dump:
         diff_pattern = r"\+ (\d+\.?\d*) (KB|MB|GB)\s+(.+?)(?:\n|$)"
         for match in re.finditer(diff_pattern, memory_dump):

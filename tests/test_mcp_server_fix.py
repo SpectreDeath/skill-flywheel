@@ -17,7 +17,15 @@ from unittest.mock import Mock, patch
 import numpy as np
 import pytest
 
-from src.server import enhanced_mcp_server_v3
+from src.server.enhanced_mcp_server_v3 import (
+    ServerConfig,
+    AdvancedTelemetryManager,
+    EnhancedSkillManager,
+    MLModelManager,
+    ResourceOptimizer,
+    AdvancedCache,
+    ContainerManager,
+)
 
 
 class TestServerConfig:
@@ -25,7 +33,7 @@ class TestServerConfig:
 
     def test_default_config(self):
         """Test default configuration loading"""
-        config = enhanced_mcp_server_v3.ServerConfig()
+        config = ServerConfig()
         assert config.config["server"]["port"] == 8000
         assert config.config["monitoring"]["enabled"] == True
         assert config.config["skills"]["lazy_loading"]["enabled"] == True
@@ -45,7 +53,7 @@ monitoring:
             config_path = f.name
 
         try:
-            config = enhanced_mcp_server_v3.ServerConfig(config_path)
+            config = ServerConfig(config_path)
             assert config.config["server"]["port"] == 9000
             assert config.config["server"]["debug"] == True
             assert config.config["monitoring"]["metrics_interval"] == 120
@@ -69,7 +77,7 @@ class TestAdvancedTelemetryManager:
                 "lazy_loading": {"pre_load_threshold": 0.8, "unload_threshold": 0.2}
             },
         }
-        return enhanced_mcp_server_v3.AdvancedTelemetryManager(config)
+        return AdvancedTelemetryManager(config)
 
     def test_collect_advanced_metrics(self, telemetry_manager):
         """Test advanced metrics collection"""
@@ -153,7 +161,7 @@ def test_skill():
     return "Hello from test skill"
 """)
 
-            yield enhanced_mcp_server_v3.EnhancedSkillManager(str(skills_dir))
+            yield EnhancedSkillManager(str(skills_dir))
 
     @pytest.mark.asyncio
     async def test_discover_skills(self, skill_manager):
@@ -207,7 +215,7 @@ class TestMLModelManager:
                 },
             }
         }
-        return enhanced_mcp_server_v3.MLModelManager(config)
+        return MLModelManager(config)
 
     def test_model_initialization(self, ml_manager):
         """Test ML model initialization"""
@@ -237,7 +245,7 @@ class TestResourceOptimizer:
     def resource_optimizer(self):
         """Create a resource optimizer for testing"""
         config = {"containers": {"max_containers": 10}}
-        return enhanced_mcp_server_v3.ResourceOptimizer(config)
+        return ResourceOptimizer(config)
 
     def test_calculate_utilization_score(self, resource_optimizer):
         """Test resource utilization score calculation"""
@@ -264,7 +272,7 @@ class TestAdvancedCache:
         """Test memory-based caching"""
         config = {"cache": {"type": "memory", "max_size": 10, "ttl": 3600}}
 
-        cache = enhanced_mcp_server_v3.AdvancedCache(config)
+        cache = AdvancedCache(config)
 
         # Test put and get
         cache.put("key1", "value1")
@@ -293,7 +301,7 @@ class TestAdvancedCache:
             }
         }
 
-        cache = enhanced_mcp_server_v3.AdvancedCache(config)
+        cache = AdvancedCache(config)
 
         # Test put and get
         cache.put("key1", "value1")
@@ -315,7 +323,7 @@ class TestContainerManager:
 
         config = {"containers": {"enabled": True, "max_containers": 5}}
 
-        container_manager = enhanced_mcp_server_v3.ContainerManager(config)
+        container_manager = ContainerManager(config)
 
         # Test that container manager was initialized
         assert container_manager.container_enabled == True
@@ -339,6 +347,7 @@ class TestAutoScaler:
                 },
             ):
                 from src.monitoring.auto_scaler import AutoScaler
+
                 return AutoScaler()
 
     def test_scaling_config(self, auto_scaler):
@@ -384,7 +393,7 @@ def skill_{i}():
     return "Result from skill {i}"
 """)
 
-            skill_manager = enhanced_mcp_server_v3.EnhancedSkillManager(str(skills_dir))
+            skill_manager = EnhancedSkillManager(str(skills_dir))
             await skill_manager.discover_skills()
 
             # Measure concurrent loading time
@@ -414,7 +423,7 @@ def skill_{i}():
             }
         }
 
-        ml_manager = enhanced_mcp_server_v3.MLModelManager(config)
+        ml_manager = MLModelManager(config)
 
         # Generate test data
         X = np.random.rand(100, 10)
@@ -453,7 +462,7 @@ def test_skill_{i}():
 """)
 
             # Initialize components
-            skill_manager = enhanced_mcp_server_v3.EnhancedSkillManager(str(skills_dir))
+            skill_manager = EnhancedSkillManager(str(skills_dir))
             telemetry_manager = skill_manager.telemetry
 
             # Test discovery and execution

@@ -12,14 +12,14 @@ Generates property-based tests using Hypothesis by:
 import ast
 import re
 from dataclasses import dataclass
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 
 @dataclass
 class ParameterInfo:
     name: str
-    type_hint: Optional[str]
-    default: Optional[Any]
+    type_hint: str | None
+    default: Any | None
     has_default: bool
 
 
@@ -27,7 +27,7 @@ class ParameterInfo:
 class FunctionSignature:
     name: str
     params: List[ParameterInfo]
-    return_type: Optional[str]
+    return_type: str | None
     is_async: bool
     line: int
 
@@ -242,7 +242,7 @@ def generate_property_test(
     func: FunctionSignature, property_type: str, options: Dict[str, Any]
 ) -> str:
     """Generate a property test for a function."""
-    num_examples = options.get("num_examples", 100)
+    options.get("num_examples", 100)
 
     strategies = {}
     for param in func.params:
@@ -454,7 +454,7 @@ def property_test_generator(code: str, options: dict = None) -> dict:
             "num_examples": options.get("num_examples", 100),
             "settings": {
                 "max_examples": options.get("num_examples", 100),
-                "deadline": options.get("deadline", None),
+                "deadline": options.get("deadline"),
             },
         },
     }

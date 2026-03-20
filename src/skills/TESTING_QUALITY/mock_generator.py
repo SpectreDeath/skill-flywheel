@@ -11,7 +11,7 @@ Creates mock objects for testing by:
 
 import ast
 from dataclasses import dataclass
-from typing import Any, Dict, List, Optional, Set
+from typing import Any, Dict, List, Set
 
 
 @dataclass
@@ -19,7 +19,7 @@ class MethodSignature:
     name: str
     args: List[str]
     kwargs: List[str]
-    return_annotation: Optional[str]
+    return_annotation: str | None
     is_async: bool = False
 
 
@@ -32,7 +32,7 @@ class ClassInfo:
     decorators: List[str]
 
 
-def parse_class(code: str, target: str) -> Optional[ClassInfo]:
+def parse_class(code: str, target: str) -> ClassInfo | None:
     """Parse Python code to extract class information."""
     try:
         tree = ast.parse(code)
@@ -80,7 +80,7 @@ def parse_class(code: str, target: str) -> Optional[ClassInfo]:
     return None
 
 
-def parse_function(code: str, target: str) -> Optional[MethodSignature]:
+def parse_function(code: str, target: str) -> MethodSignature | None:
     """Parse Python code to extract function signature."""
     try:
         tree = ast.parse(code)
@@ -116,7 +116,6 @@ def extract_dependencies(code: str, target: str) -> Set[str]:
     except SyntaxError:
         return dependencies
 
-    target_found = False
     target_node = None
 
     for node in ast.walk(tree):
@@ -124,7 +123,6 @@ def extract_dependencies(code: str, target: str) -> Set[str]:
             isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef))
             and node.name == target
         ):
-            target_found = True
             target_node = node
             break
 
@@ -242,8 +240,8 @@ def generate_config_code(
 
 def generate_test_code(
     target: str,
-    class_info: Optional[ClassInfo],
-    func_sig: Optional[MethodSignature],
+    class_info: ClassInfo | None,
+    func_sig: MethodSignature | None,
     config: Dict[str, Any],
     framework: str,
 ) -> str:
@@ -299,7 +297,7 @@ def generate_test_code(
     return "\n".join(lines)
 
 
-def _get_default_return_value(return_annotation: Optional[str]) -> str:
+def _get_default_return_value(return_annotation: str | None) -> str:
     """Get a sensible default return value based on type annotation."""
     if not return_annotation:
         return "None"

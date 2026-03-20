@@ -5,7 +5,7 @@ Filter out irrelevant information to work within the relevant frame of reference
 """
 
 from dataclasses import dataclass, field
-from typing import Dict, List, Optional, Set
+from typing import Dict, List, Set
 
 
 @dataclass
@@ -39,7 +39,7 @@ class FocusedSelector:
     """
 
     def __init__(self):
-        self.current_frame: Optional[Frame] = None
+        self.current_frame: Frame | None = None
 
     def define_frame(
         self, goal: str, scope: str, constraints: List[str] = None
@@ -141,7 +141,7 @@ class FocusedSelector:
             "recommendation": "Proceed" if relevant_count >= 3 else "Expand criteria",
         }
 
-    def select_best(self, items: List[str], criteria: List[str]) -> Optional[str]:
+    def select_best(self, items: List[str], criteria: List[str]) -> str | None:
         """Select the best item from a list."""
         filtered = self.filter_items(items, criteria)
 

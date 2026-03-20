@@ -21,7 +21,7 @@ import json
 import logging
 from dataclasses import asdict, dataclass
 from enum import Enum
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 import psutil
 
@@ -84,12 +84,12 @@ class DatabaseOptimizationRecommendation:
 class DatabasePerformanceAuditor:
     """Auditor for database performance optimization"""
     
-    def __init__(self, db_connections: Optional[Dict[str, Any]] = None):
+    def __init__(self, db_connections: Dict[str, Any] | None = None):
         self.db_connections = db_connections or {}
         self.metrics_history: List[DatabaseMetrics] = []
         self.query_analyses: List[QueryAnalysis] = []
     
-    def _get_database_process(self, db_type: DatabaseType) -> Optional[psutil.Process]:
+    def _get_database_process(self, db_type: DatabaseType) -> psutil.Process | None:
         """Find database process"""
         process_names = {
             DatabaseType.POSTGRESQL: ["postgres"],
@@ -366,7 +366,7 @@ class DatabasePerformanceAuditor:
         
         return recommendations
     
-    def audit_database_configuration(self, db_type: DatabaseType, config_path: Optional[str] = None) -> Dict[str, Any]:
+    def audit_database_configuration(self, db_type: DatabaseType, config_path: str | None = None) -> Dict[str, Any]:
         """Audit database configuration for optimization opportunities"""
         audit_results = {
             "db_type": db_type.value,
@@ -506,11 +506,11 @@ class DatabasePerformanceAuditor:
         report["recommendations_summary"] = {
             "by_category": {
                 category: len([r for r in all_recommendations if r.category == category])
-                for category in set(r.category for r in all_recommendations)
+                for category in {r.category for r in all_recommendations}
             },
             "by_severity": {
                 severity: len([r for r in all_recommendations if r.severity == severity])
-                for severity in set(r.severity for r in all_recommendations)
+                for severity in {r.severity for r in all_recommendations}
             }
         }
         

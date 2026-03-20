@@ -10,7 +10,7 @@ import os
 import re
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 
 @dataclass
@@ -96,7 +96,7 @@ VULNERABILITY_PATTERNS = {
 
 
 def scan_for_vulnerabilities(
-    repo_path: str, focus_areas: Optional[List[str]] = None
+    repo_path: str, focus_areas: List[str] | None = None
 ) -> List[Dict[str, Any]]:
     """
     Scan for code vulnerabilities.
@@ -136,7 +136,7 @@ def scan_for_vulnerabilities(
             try:
                 with open(file_path, encoding="utf-8", errors="ignore") as f:
                     content = f.read()
-                    lines = content.split("\n")
+                    content.split("\n")
 
                     for vuln_type, info in VULNERABILITY_PATTERNS.items():
                         if vuln_type not in focus_areas:
@@ -277,9 +277,9 @@ def scan_dependencies(repo_path: str) -> Dict[str, Any]:
 
 def security_scan(
     repository_path: str,
-    standards: Optional[List[str]] = None,
+    standards: List[str] | None = None,
     severity_threshold: str = "low",
-    focus_areas: Optional[List[str]] = None,
+    focus_areas: List[str] | None = None,
     **kwargs,
 ) -> Dict[str, Any]:
     """

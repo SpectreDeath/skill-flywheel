@@ -12,7 +12,7 @@ import heapq
 import logging
 import math
 from collections import deque
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any, Dict, List, Tuple
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -21,7 +21,7 @@ logger = logging.getLogger(__name__)
 class SearchAlgorithmsSkill:
     """Search Algorithms skill implementation."""
     
-    def __init__(self, config: Optional[Dict] = None):
+    def __init__(self, config: Dict | None = None):
         """
         Initialize the Search Algorithms skill.
         
@@ -1034,13 +1034,12 @@ if __name__ == "__main__":
                     "Use contraction hierarchies for road networks"
                 ])
         
-        elif algorithm_name == "a_star":
-            if time_constraint == "strict":
-                strategies.extend([
-                    "Improve heuristic function quality",
-                    "Use bidirectional A*",
-                    "Implement beam search as approximation"
-                ])
+        elif algorithm_name == "a_star" and time_constraint == "strict":
+            strategies.extend([
+                "Improve heuristic function quality",
+                "Use bidirectional A*",
+                "Implement beam search as approximation"
+            ])
         
         return strategies
     
@@ -1379,15 +1378,14 @@ if __name__ == "__main__":
                     "optimality_guarantee": True  # For A*
                 })
         
-        elif problem_type == "puzzle":
-            if heuristic_type == "manhattan":
-                properties.update({
-                    "admissible": True,
-                    "consistent": True,
-                    "informedness": "high",
-                    "computational_complexity": "O(n^2)",
-                    "optimality_guarantee": True  # For A*
-                })
+        elif problem_type == "puzzle" and heuristic_type == "manhattan":
+            properties.update({
+                "admissible": True,
+                "consistent": True,
+                "informedness": "high",
+                "computational_complexity": "O(n^2)",
+                "optimality_guarantee": True  # For A*
+            })
         
         return properties
 

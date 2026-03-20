@@ -11,7 +11,7 @@ import subprocess
 import time
 from dataclasses import dataclass
 from enum import Enum
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 import requests
 
@@ -72,7 +72,7 @@ class ModelHealthMonitor:
         self._request_count: Dict[str, int] = {}
         self._error_count: Dict[str, int] = {}
     
-    async def check_model_health(self, model_id: str, endpoint_url: Optional[str] = None) -> HealthCheckResult:
+    async def check_model_health(self, model_id: str, endpoint_url: str | None = None) -> HealthCheckResult:
         """
         Perform comprehensive health check on a model endpoint
         
@@ -217,10 +217,7 @@ class ModelHealthMonitor:
         error_count = self._error_count.get(model_id, 0)
         
         # Calculate error rate
-        if total_requests > 0:
-            error_rate = (error_count / total_requests) * 100.0
-        else:
-            error_rate = 0.0
+        error_rate = error_count / total_requests * 100.0 if total_requests > 0 else 0.0
         
         return {
             'total_requests': total_requests,
@@ -229,7 +226,7 @@ class ModelHealthMonitor:
             'recent_errors': len([t for t in error_times if time.time() - t < 300])  # Last 5 minutes
         }
     
-    async def _get_throughput_metrics(self, model_id: str, endpoint_url: Optional[str]) -> Dict[str, float]:
+    async def _get_throughput_metrics(self, model_id: str, endpoint_url: str | None) -> Dict[str, float]:
         """Get throughput and uptime metrics"""
         try:
             if endpoint_url:

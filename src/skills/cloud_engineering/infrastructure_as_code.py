@@ -12,7 +12,7 @@ import uuid
 from dataclasses import dataclass
 from datetime import datetime
 from enum import Enum
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 logger = logging.getLogger(__name__)
 
@@ -76,7 +76,7 @@ class DeploymentExecution:
     plan_id: str
     status: DeploymentStatus
     started_at: float
-    completed_at: Optional[float]
+    completed_at: float | None
     resources_created: List[str]
     resources_failed: List[str]
     total_cost: float
@@ -457,7 +457,7 @@ class InfrastructureAsCode:
         if resource_id in self.resources:
             del self.resources[resource_id]
     
-    def get_deployment_status(self, execution_id: str) -> Optional[Dict[str, Any]]:
+    def get_deployment_status(self, execution_id: str) -> Dict[str, Any] | None:
         """Get deployment execution status"""
         if execution_id not in self.executions:
             return None
@@ -483,7 +483,7 @@ class InfrastructureAsCode:
         
         return self.executions[execution_id].logs
     
-    def get_resource_inventory(self, provider: Optional[CloudProvider] = None) -> List[Dict[str, Any]]:
+    def get_resource_inventory(self, provider: CloudProvider | None = None) -> List[Dict[str, Any]]:
         """Get inventory of all resources"""
         inventory = []
         

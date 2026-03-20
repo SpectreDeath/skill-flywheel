@@ -117,7 +117,7 @@ def reverse_engineer_dependencies(tasks: List[Dict[str, Any]]) -> List[Dict[str,
             "prerequisite",
             "following",
         ]
-        for j, prev_task in enumerate(tasks[:i]):
+        for _j, prev_task in enumerate(tasks[:i]):
             prev_text = prev_task.get("task_description", "").lower()
             for kw in keywords:
                 if kw in task_text and kw in prev_text:

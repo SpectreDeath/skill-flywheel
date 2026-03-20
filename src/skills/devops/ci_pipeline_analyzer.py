@@ -9,7 +9,7 @@ Supports: GitHub Actions, GitLab CI, Jenkins
 
 import re
 from dataclasses import dataclass, field
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 import yaml
 
@@ -39,7 +39,7 @@ class JobInfo:
 CI_PROVIDERS = ["github", "gitlab", "jenkins"]
 
 
-def detect_provider(config: str) -> Optional[str]:
+def detect_provider(config: str) -> str | None:
     """Detect CI provider from config content."""
     config_lower = config.lower()
 
@@ -68,7 +68,6 @@ def parse_github_actions(config: str) -> Dict[str, Any]:
         return {"error": "Invalid YAML format"}
 
     jobs = {}
-    stages = {}
 
     if not workflow or "jobs" not in workflow:
         return {"error": "No jobs found in GitHub Actions workflow"}
@@ -148,10 +147,9 @@ def parse_gitlab_ci(config: str) -> Dict[str, Any]:
 
         cache = "cache" in job_config
 
-        stage_idx = 0
         job_stage = job_config.get("stage", "test")
         if job_stage in stages:
-            stage_idx = stages.index(job_stage)
+            stages.index(job_stage)
 
         timeout = job_config.get("timeout", "1h")
         if isinstance(timeout, str):
@@ -271,7 +269,7 @@ def detect_bottlenecks(
     bottlenecks = []
 
     slow_jobs = sorted(
-        [(name, job) for name, job in jobs.items()],
+        jobs.items(),
         key=lambda x: x[1].timeout,
         reverse=True,
     )[:3]
@@ -329,7 +327,7 @@ def generate_optimizations(
     jobs: Dict[str, JobInfo],
     stages: List[PipelineStage],
     bottlenecks: List[Dict[str, Any]],
-    target_time: Optional[int] = None,
+    target_time: int | None = None,
 ) -> List[Dict[str, Any]]:
     """Generate optimization suggestions."""
     optimizations = []
@@ -431,11 +429,10 @@ def calculate_time_savings(
             savings += int(total_time * 0.4)
         elif opt["type"] == "caching":
             savings += int(total_time * 0.25)
-        elif opt["type"] == "optimize_slow_job":
-            if "potential_savings" in opt:
-                match = re.search(r"(\d+)", opt["potential_savings"])
-                if match:
-                    savings += int(match.group(1)) * 60
+        elif opt["type"] == "optimize_slow_job" and "potential_savings" in opt:
+            match = re.search(r"(\d+)", opt["potential_savings"])
+            if match:
+                savings += int(match.group(1)) * 60
 
     return {
         "current_estimated_time": total_time,

@@ -20,7 +20,6 @@ def extract_functions(code: str) -> List[Dict[str, Any]]:
         for node in ast.walk(tree):
             if isinstance(node, ast.FunctionDef):
                 args = [arg.arg for arg in node.args.args]
-                defaults = node.args.defaults
 
                 # Handle *args and **kwargs
                 if node.args.vararg:
@@ -106,7 +105,7 @@ def generate_tests(code: str, framework: str = "pytest") -> Dict[str, Any]:
         if args:
             # Generate sample arguments based on type hints
             sample_args = []
-            for arg in args:
+            for _arg in args:
                 if func["returns"] and "int" in func["returns"]:
                     sample_args.append("1")
                 elif func["returns"] and "str" in func["returns"]:

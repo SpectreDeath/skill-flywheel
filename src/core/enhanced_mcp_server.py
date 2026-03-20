@@ -210,7 +210,7 @@ async def discover_skills(ctx, query: str, domain: str = None, limit: int = 10, 
             "domain_filter": domain,
             "results": search_results,
             "total_found": len(search_results),
-            "domains_available": list(set(skill.get('domain') for skill in filtered_skills))
+            "domains_available": list({skill.get('domain') for skill in filtered_skills})
         }
         
     except Exception as e:
@@ -588,7 +588,7 @@ async def benchmark_skill(ctx, skill_id: str, iterations: int = 10, test_data: L
         execution_times = []
         quality_scores = []
         
-        for i in range(iterations):
+        for _i in range(iterations):
             start_time = time.time()
             
             # Execute skill (simplified for benchmarking)

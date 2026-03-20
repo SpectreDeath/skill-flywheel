@@ -14,7 +14,7 @@ import uuid
 from dataclasses import dataclass
 from datetime import datetime
 from enum import Enum
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 logger = logging.getLogger(__name__)
 
@@ -78,10 +78,10 @@ class QualityProfile:
     null_count: int
     unique_count: int
     duplicate_count: int
-    min_value: Optional[float]
-    max_value: Optional[float]
-    mean_value: Optional[float]
-    std_dev: Optional[float]
+    min_value: float | None
+    max_value: float | None
+    mean_value: float | None
+    std_dev: float | None
     null_percentage: float
     duplicate_percentage: float
     profiled_at: float
@@ -335,7 +335,7 @@ class DataQualityChecker:
         self.logger.info(f"Quality check completed: {check_id} ({status.value})")
         return check_id
     
-    def get_quality_report(self, check_id: str) -> Optional[Dict[str, Any]]:
+    def get_quality_report(self, check_id: str) -> Dict[str, Any] | None:
         """Get detailed quality report for a check"""
         if check_id not in self.quality_checks:
             return None
@@ -391,9 +391,7 @@ class DataQualityChecker:
                 
                 if min_val is not None and field_value < min_val:
                     return False
-                if max_val is not None and field_value > max_val:
-                    return False
-                return True
+                return not (max_val is not None and field_value > max_val)
             
             elif rule.rule_type == QualityRuleType.REGEX:
                 pattern = rule.parameters.get("pattern", "")
@@ -410,8 +408,8 @@ class DataQualityChecker:
             
             elif rule.rule_type == QualityRuleType.REFERENTIAL_INTEGRITY:
                 # Check if foreign key exists in referenced dataset
-                ref_dataset = rule.parameters.get("reference_dataset")
-                ref_field = rule.parameters.get("reference_field")
+                rule.parameters.get("reference_dataset")
+                rule.parameters.get("reference_field")
                 # Simplified - would need actual dataset lookup
                 return True
             

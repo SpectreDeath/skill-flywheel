@@ -14,7 +14,7 @@ Category: Stream Processing
 import json
 import logging
 from datetime import datetime
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any, Dict, List, Tuple
 
 import apache_beam as beam
 from apache_beam import window
@@ -48,8 +48,8 @@ class ApacheBeamPipelineBuilder:
         logger.info(f"Initializing Apache Beam pipeline: {pipeline_name}")
     
     def configure_options(self, runner: str = "DirectRunner", 
-                         project: Optional[str] = None,
-                         temp_location: Optional[str] = None,
+                         project: str | None = None,
+                         temp_location: str | None = None,
                          streaming: bool = False) -> PipelineOptions:
         """
         Configure pipeline options for different runners and environments.
@@ -106,8 +106,8 @@ class ApacheBeamPipelineBuilder:
     
     def create_windowing_strategy(self, window_type: str = "fixed",
                                  window_size: int = 60,
-                                 sliding_interval: Optional[int] = None,
-                                 session_gap: Optional[int] = None,
+                                 sliding_interval: int | None = None,
+                                 session_gap: int | None = None,
                                  allowed_lateness: int = 300,
                                  trigger_type: str = "after_watermark") -> window.WindowFn:
         """
@@ -505,7 +505,7 @@ def create_real_time_analytics_pipeline(project: str,
     """
     try:
         builder = StreamingPipelineBuilder("real_time_analytics")
-        pipeline = builder.create_streaming_pipeline(project, subscription, window_size)
+        builder.create_streaming_pipeline(project, subscription, window_size)
         
         result = builder.run_pipeline()
         
@@ -545,7 +545,7 @@ def create_batch_processing_pipeline(input_pattern: str,
     """
     try:
         builder = BatchPipelineBuilder("batch_processing")
-        pipeline = builder.create_batch_pipeline(input_pattern, output_path, file_format, window_size)
+        builder.create_batch_pipeline(input_pattern, output_path, file_format, window_size)
         
         result = builder.run_pipeline()
         
@@ -644,7 +644,7 @@ def main():
             ("event3", 1640995320.0),  # 2022-01-01 00:02:00 UTC
         ]
         
-        pipeline = builder.create_pipeline(
+        builder.create_pipeline(
             elements=test_elements,
             window_type="fixed",
             window_size=60,

@@ -1,6 +1,6 @@
 import logging
 from datetime import datetime
-from typing import Any, Dict, Optional
+from typing import Any, Dict
 
 logger = logging.getLogger(__name__)
 
@@ -18,7 +18,7 @@ class RalphChaosModelSelector:
     def register_model(self, model_id: str, resilience_score: float):
         self.models[model_id] = {"resilience_score": resilience_score, "failures": 0}
 
-    def select_for_chaos(self, scenario: str) -> Optional[str]:
+    def select_for_chaos(self, scenario: str) -> str | None:
         if scenario not in self.chaos_scenarios:
             return None
 

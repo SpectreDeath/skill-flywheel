@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import json
 import logging
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 from darwinian_evolver.learning_log import LearningLogEntry
 from darwinian_evolver.problem import Mutator as BaseMutator
@@ -57,7 +57,7 @@ Respond with a JSON object containing the improved configuration:
         super().__init__()
         self.llm_client = llm_client
         self.mutation_strategy = mutation_strategy
-        self._context: Optional[MutatorContext] = None
+        self._context: MutatorContext | None = None
 
     @property
     def supports_batch_mutation(self) -> bool:
@@ -149,7 +149,7 @@ Failure {i + 1}:
 
     def _parse_llm_response(
         self, parent: SkillGenome, response: Dict[str, Any]
-    ) -> Optional[SkillGenome]:
+    ) -> SkillGenome | None:
         """Parse LLM response into a new genome."""
         try:
             mutated = SkillGenome(

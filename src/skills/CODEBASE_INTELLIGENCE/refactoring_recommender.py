@@ -12,7 +12,7 @@ This module provides skills for analyzing Python code and suggesting refactoring
 import ast
 from collections import defaultdict
 from dataclasses import dataclass
-from typing import Any, Dict, List, Optional, Set, Tuple
+from typing import Any, Dict, List, Set
 
 
 @dataclass
@@ -49,7 +49,7 @@ class SOLIDViolation:
 
     principle: str
     class_name: str
-    method_name: Optional[str]
+    method_name: str | None
     line: int
     description: str
     severity: str
@@ -67,8 +67,8 @@ class Recommendation:
     location: str
     line_start: int
     line_end: int
-    smell_type: Optional[str] = None
-    principle_violated: Optional[str] = None
+    smell_type: str | None = None
+    principle_violated: str | None = None
 
 
 DEFAULT_OPTIONS = {
@@ -212,7 +212,7 @@ def detect_deep_nesting(tree: ast.AST, threshold: int) -> List[CodeSmell]:
 
 def detect_duplicate_code(tree: ast.AST, min_length: int) -> List[CodeSmell]:
     """Detect potential duplicate code patterns"""
-    code_blocks: Dict[Tuple, List[str]] = defaultdict(list)
+    defaultdict(list)
     smells = []
 
     for node in ast.walk(tree):

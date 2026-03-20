@@ -9,15 +9,15 @@ Helps resolve coordination problems:
 - Focal points (Schelling points)
 """
 
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 
 def coordination_game_solver(
     game_type: str,
     players: List[str],
-    options: Optional[List[str]] = None,
-    payoffs: Optional[Dict[str, Dict[str, float]]] = None,
-    preferences: Optional[Dict[str, List[str]]] = None,
+    options: List[str] | None = None,
+    payoffs: Dict[str, Dict[str, float]] | None = None,
+    preferences: Dict[str, List[str]] | None = None,
     communication: bool = False,
     **kwargs,
 ) -> Dict[str, Any]:
@@ -55,7 +55,7 @@ def coordination_game_solver(
 
 
 def _solve_pure_coordination(
-    players: List[str], options: Optional[List[str]], payoffs: Optional[Dict]
+    players: List[str], options: List[str] | None, payoffs: Dict | None
 ) -> Dict[str, Any]:
     """Pure coordination game - multiple equilibria with equal payoffs"""
 
@@ -87,7 +87,7 @@ def _solve_pure_coordination(
 
 
 def _solve_battle_sexes(
-    players: List[str], options: Optional[List[str]], preferences: Optional[Dict]
+    players: List[str], options: List[str] | None, preferences: Dict | None
 ) -> Dict[str, Any]:
     """Battle of the Sexes - misaligned preferences"""
 
@@ -127,7 +127,7 @@ def _solve_battle_sexes(
 
 
 def _solve_stag_hunt(
-    players: List[str], options: Optional[List[str]]
+    players: List[str], options: List[str] | None
 ) -> Dict[str, Any]:
     """Stag Hunt - safety vs. cooperation dilemma"""
 
@@ -135,10 +135,6 @@ def _solve_stag_hunt(
         options = ["stag", "hare"]
 
     # Stag Hunt payoffs (security dominant vs. cooperative)
-    payoffs = {
-        "stag": {"stag": (10, 10), "hare": (0, 8)},
-        "hare": {"stag": (8, 0), "hare": (8, 8)},
-    }
 
     equilibria = ["stag_stag", "hare_hare"]
 
@@ -160,7 +156,7 @@ def _solve_stag_hunt(
 
 
 def _solve_network_effects(
-    players: List[str], options: Optional[List[str]]
+    players: List[str], options: List[str] | None
 ) -> Dict[str, Any]:
     """Network effects coordination"""
 
@@ -197,7 +193,7 @@ def _solve_network_effects(
 
 
 def _solve_custom_coordination(
-    players: List[str], options: Optional[List[str]], payoffs: Dict, communication: bool
+    players: List[str], options: List[str] | None, payoffs: Dict, communication: bool
 ) -> Dict[str, Any]:
     """Solve custom coordination game"""
 
@@ -265,14 +261,13 @@ def _find_pure_equilibria(payoffs: Dict) -> List[str]:
                     if payoffs[alt][opt2][0] > p1_payoff:
                         is_equilibrium = False
                         break
-                elif isinstance(payoffs[alt][opt2], (int, float)):
-                    if (
-                        payoffs[alt][opt2] > p1_payoff
-                        if isinstance(p1_payoff, (int, float))
-                        else False
-                    ):
-                        is_equilibrium = False
-                        break
+                elif isinstance(payoffs[alt][opt2], (int, float)) and (
+                    payoffs[alt][opt2] > p1_payoff
+                    if isinstance(p1_payoff, (int, float))
+                    else False
+                ):
+                    is_equilibrium = False
+                    break
 
             # Check player 2 deviation
             if is_equilibrium:
@@ -323,7 +318,7 @@ def _calculate_battle_sexes_mixed(
 
 def invoke(payload: dict) -> dict:
     """MCP skill invocation"""
-    action = payload.get("action", "solve")
+    payload.get("action", "solve")
     game_type = payload.get("game_type", "pure")
     players = payload.get("players", ["player1", "player2"])
     options = payload.get("options")

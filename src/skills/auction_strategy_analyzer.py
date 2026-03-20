@@ -42,7 +42,6 @@ def calculate_expected_value(
     elif auction_type == "english":
         # Stay in until price exceeds your value
         optimal_bid = private_value
-        exit_price = private_value
         margin = 0
     else:  # dutch
         # Start low, bid just below value

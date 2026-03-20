@@ -11,14 +11,14 @@ Generates architecture diagrams from code using:
 import ast
 import re
 from dataclasses import dataclass, field
-from typing import Dict, List, Optional
+from typing import Dict, List
 
 
 @dataclass
 class Component:
     name: str
     type: str
-    description: Optional[str] = None
+    description: str | None = None
     protocols: List[str] = field(default_factory=list)
     styling: Dict[str, str] = field(default_factory=dict)
 
@@ -28,8 +28,8 @@ class Relationship:
     source: str
     target: str
     type: str
-    label: Optional[str] = None
-    protocol: Optional[str] = None
+    label: str | None = None
+    protocol: str | None = None
 
 
 COMPONENT_PATTERNS = {

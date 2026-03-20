@@ -19,7 +19,7 @@ import logging
 from abc import ABC, abstractmethod
 from collections import defaultdict
 from dataclasses import dataclass, field
-from typing import Any, Dict, List, Optional, Set, Tuple
+from typing import Any, Dict, List, Set, Tuple
 
 import networkx as nx
 import numpy as np
@@ -37,7 +37,7 @@ class Node:
     name: str
     states: List[str]
     parents: List[str] = field(default_factory=list)
-    cpt: Optional[np.ndarray] = None  # Conditional Probability Table
+    cpt: np.ndarray | None = None  # Conditional Probability Table
     
     def __post_init__(self):
         self.num_states = len(self.states)
@@ -354,7 +354,7 @@ class ScoreBasedLearner(StructureLearner):
         
         for node_name in network.node_names:
             node = network.nodes[node_name]
-            num_parents = len(node.parents)
+            len(node.parents)
             
             # For each parent configuration, we need (num_states - 1) parameters
             # (last probability is determined by normalization)
@@ -459,7 +459,7 @@ class ParameterEstimator:
                 for state, count in state_counts.items():
                     state_idx = node.states.index(state)
                     parent_indices = tuple(self.network.nodes[p].states.index(v) 
-                                         for p, v in zip(parents, parent_config))
+                                         for p, v in zip(parents, parent_config, strict=False))
                     cpt[parent_indices + (state_idx,)] = count / total
         
         node.cpt = cpt
@@ -580,7 +580,7 @@ class VariableElimination(InferenceEngine):
         other_factors = {}
         
         for node_name, factor in factors.items():
-            node = network.nodes[node_name]
+            network.nodes[node_name]
             parents = network.get_parents(node_name)
             
             if var == node_name or var in parents:
@@ -621,7 +621,7 @@ class VariableElimination(InferenceEngine):
             factor_vars = self._get_factor_variables(factor, network)
             
             # Find common variables
-            common_vars = set(result_vars) & set(factor_vars)
+            set(result_vars) & set(factor_vars)
             
             # Expand dimensions to match
             result = self._expand_factor(result, result_vars, factor_vars, network)
@@ -636,7 +636,7 @@ class VariableElimination(InferenceEngine):
     def _sum_out_variable(self, factor: np.ndarray, var: str, 
                          network: BayesianNetwork) -> np.ndarray:
         """Sum out a variable from a factor."""
-        node = network.nodes[var]
+        network.nodes[var]
         parents = network.get_parents(var)
         
         # Find axis corresponding to the variable
@@ -686,7 +686,7 @@ class VariableElimination(InferenceEngine):
             else:
                 # Uniform distribution if no information
                 node = network.nodes[var]
-                results[var] = {state: 1.0 / node.num_states for state in node.states}
+                results[var] = dict.fromkeys(node.states, 1.0 / node.num_states)
         
         return results
 
@@ -913,7 +913,7 @@ class BayesianNetworkAnalyzer:
         
         for node_name in self.network.node_names:
             node = self.network.nodes[node_name]
-            num_parents = len(node.parents)
+            len(node.parents)
             
             parent_configs = np.prod([len(self.network.nodes[p].states) for p in node.parents]) if node.parents else 1
             params = int(parent_configs * (node.num_states - 1))

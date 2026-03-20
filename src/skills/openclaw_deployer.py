@@ -9,7 +9,7 @@ import asyncio
 import os
 import subprocess
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 DOCKER_COMPOSE_TEMPLATE = """version: '3.8'
 
@@ -43,7 +43,7 @@ services:
 class OpenClawDeployer:
     """Deploy and manage OpenClaw installations."""
 
-    def __init__(self, deployment_path: Optional[str] = None):
+    def __init__(self, deployment_path: str | None = None):
         self.deployment_path = (
             Path(deployment_path) if deployment_path else Path.cwd() / "openclaw_deploy"
         )
@@ -144,7 +144,7 @@ OPENAI_API_KEY=$OPENAI_API_KEY
             return {"error": str(e)}
 
     async def deploy_vps(
-        self, host: str, user: str = "root", key_path: Optional[str] = None
+        self, host: str, user: str = "root", key_path: str | None = None
     ) -> Dict[str, Any]:
         """Deploy to a VPS."""
         try:
@@ -217,10 +217,10 @@ OPENAI_API_KEY=$OPENAI_API_KEY
     async def stop(self, mode: str = "all") -> Dict[str, Any]:
         """Stop OpenClaw."""
         if mode in ["local", "all"]:
-            result = await self._run_command(["pkill", "-f", "openclaw"])
+            await self._run_command(["pkill", "-f", "openclaw"])
 
         if mode in ["docker", "all"]:
-            result = await self._run_command(
+            await self._run_command(
                 ["docker-compose", "down"], cwd=str(self.deployment_path)
             )
 
@@ -229,12 +229,12 @@ OPENAI_API_KEY=$OPENAI_API_KEY
     async def restart(self, mode: str = "docker") -> Dict[str, Any]:
         """Restart OpenClaw."""
         if mode == "docker":
-            result = await self._run_command(
+            await self._run_command(
                 ["docker-compose", "restart"], cwd=str(self.deployment_path)
             )
         else:
             await self.stop(mode="local")
-            result = await self.deploy_local()
+            await self.deploy_local()
 
         return {"status": "success", "restarted": mode}
 
@@ -276,7 +276,7 @@ OPENAI_API_KEY=$OPENAI_API_KEY
         return {"status": "success", "config_path": str(config_path)}
 
     async def _run_command(
-        self, cmd: List[str], cwd: Optional[str] = None
+        self, cmd: List[str], cwd: str | None = None
     ) -> subprocess.CompletedProcess:
         """Run a command."""
         process = await asyncio.create_subprocess_exec(

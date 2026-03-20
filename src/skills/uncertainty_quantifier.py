@@ -8,7 +8,7 @@ Calculates confidence levels and uncertainty from evidence:
 """
 
 import math
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 
 def bayesian_update(prior: float, likelihood: float, evidence: float) -> float:
@@ -53,10 +53,7 @@ def calculate_confidence_from_evidence(
         weighted_sum += strength * weight
         total_weight += weight
 
-    if total_weight > 0:
-        base_confidence = weighted_sum / total_weight
-    else:
-        base_confidence = 0.5
+    base_confidence = weighted_sum / total_weight if total_weight > 0 else 0.5
 
     # Adjust for evidence count
     count_factor = min(1.0, len(evidence) / 10.0)  # Diminishing returns after 10
@@ -108,7 +105,7 @@ def calculate_confidence_interval(
 
 
 def uncertainty_quantifier(
-    evidence: Optional[List[Dict]] = None,
+    evidence: List[Dict] | None = None,
     n_successes: int = 0,
     n_trials: int = 0,
     method: str = "evidence",

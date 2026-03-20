@@ -8,13 +8,13 @@ import asyncio
 import json
 import subprocess
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 
 class OpenClawAgentManager:
     """Manages OpenClaw agents."""
 
-    def __init__(self, openclaw_path: Optional[str] = None):
+    def __init__(self, openclaw_path: str | None = None):
         self.openclaw_path = (
             Path(openclaw_path) if openclaw_path else Path.home() / ".openclaw"
         )
@@ -38,7 +38,7 @@ class OpenClawAgentManager:
         name: str,
         model: str = "gpt-4",
         description: str = "",
-        system_prompt: Optional[str] = None,
+        system_prompt: str | None = None,
     ) -> Dict[str, Any]:
         """Create a new OpenClaw agent."""
         cmd = ["openclaw", "agent", "create", name, "--model", model]
@@ -152,7 +152,7 @@ class OpenClawAgentManager:
             return {"error": "OpenClaw CLI not found"}
 
     async def _run_command(
-        self, cmd: List[str], input_text: Optional[str] = None
+        self, cmd: List[str], input_text: str | None = None
     ) -> subprocess.CompletedProcess:
         """Run a command asynchronously."""
         process = await asyncio.create_subprocess_exec(

@@ -8,13 +8,13 @@ Analyzes evolutionary stable strategies and dynamics:
 - Hawk-Dove / Chicken game analysis
 """
 
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 
 def evolutionary_game_solver(
     game_type: str,
-    population: Optional[Dict[str, float]] = None,
-    payoff_matrix: Optional[Dict[str, Dict[str, float]]] = None,
+    population: Dict[str, float] | None = None,
+    payoff_matrix: Dict[str, Dict[str, float]] | None = None,
     generations: int = 50,
     mutation_rate: float = 0.01,
     **kwargs,
@@ -100,7 +100,7 @@ def _replicator_dynamics(
     trajectory = [population.copy()]
     strategies = list(population.keys())
 
-    for gen in range(generations):
+    for _gen in range(generations):
         # Calculate fitness for each strategy
         fitness = {}
         for strategy in strategies:
@@ -123,7 +123,7 @@ def _replicator_dynamics(
 
         # Apply mutation after all strategies are initialized
         if mutation_rate > 0:
-            mutation_total = {s: 0.0 for s in strategies}
+            mutation_total = dict.fromkeys(strategies, 0.0)
             for strategy in strategies:
                 for other in strategies:
                     if other != strategy:
@@ -197,7 +197,7 @@ def _find_evolutionary_stable_strategies(
 
 def _find_mixed_equilibrium(
     payoff_matrix: Dict[str, Dict[str, float]],
-) -> Optional[Dict[str, float]]:
+) -> Dict[str, float] | None:
     """Find symmetric mixed equilibrium (simplified 2-strategy case)"""
 
     strategies = list(payoff_matrix.keys())
@@ -226,7 +226,7 @@ def _find_mixed_equilibrium(
 
 def invoke(payload: dict) -> dict:
     """MCP skill invocation"""
-    action = payload.get("action", "solve")
+    payload.get("action", "solve")
     game_type = payload.get("game_type", "hawk_dove")
     population = payload.get("population")
     payoff_matrix = payload.get("payoff_matrix")

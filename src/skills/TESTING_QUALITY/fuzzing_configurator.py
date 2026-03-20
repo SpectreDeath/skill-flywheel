@@ -13,7 +13,7 @@ import ast
 import re
 from collections import defaultdict
 from dataclasses import dataclass, field
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 
 @dataclass
@@ -24,16 +24,16 @@ class Endpoint:
     path_params: List[str] = field(default_factory=list)
     body_params: List[str] = field(default_factory=list)
     headers: List[str] = field(default_factory=list)
-    return_type: Optional[str] = None
+    return_type: str | None = None
 
 
 @dataclass
 class InputPoint:
     name: str
     location: str
-    type_hint: Optional[str] = None
+    type_hint: str | None = None
     required: bool = True
-    default: Optional[Any] = None
+    default: Any | None = None
 
 
 FASTAPI_TYPE_MAPPING = {
@@ -128,13 +128,13 @@ def detect_framework(code: str) -> str:
     return "unknown"
 
 
-def extract_endpoint_info(node: ast.FunctionDef, framework: str) -> Optional[Endpoint]:
+def extract_endpoint_info(node: ast.FunctionDef, framework: str) -> Endpoint | None:
     """Extract endpoint information from function definition."""
     methods = []
     path = f"/{node.name}"
 
     for decorator in node.decorator_list:
-        decorator_str = ast.unparse(decorator) if hasattr(ast, "unparse") else ""
+        ast.unparse(decorator) if hasattr(ast, "unparse") else ""
 
         if framework == "fastapi":
             if isinstance(decorator, ast.Call):
@@ -144,11 +144,10 @@ def extract_endpoint_info(node: ast.FunctionDef, framework: str) -> Optional[End
                         if decorator.args:
                             path = ast.unparse(decorator.args[0])
 
-        elif framework == "flask":
-            if isinstance(decorator, ast.Call):
-                if hasattr(decorator.func, "attr") and decorator.func.attr == "route":
-                    if decorator.args:
-                        path = ast.unparse(decorator.args[0])
+        elif framework == "flask" and isinstance(decorator, ast.Call):
+            if hasattr(decorator.func, "attr") and decorator.func.attr == "route":
+                if decorator.args:
+                    path = ast.unparse(decorator.args[0])
 
     if not methods:
         methods = ["GET"]
@@ -165,9 +164,8 @@ def extract_endpoint_info(node: ast.FunctionDef, framework: str) -> Optional[End
         if param_name in ["self", "request"]:
             continue
 
-        param_type = None
         if arg.annotation:
-            param_type = (
+            (
                 ast.unparse(arg.annotation) if hasattr(ast, "unparse") else None
             )
 
@@ -377,7 +375,7 @@ def suggest_corpora(endpoints: List[Dict]) -> Dict[str, List[Any]]:
     """Suggest initial corpus values for fuzzing."""
     corpora = defaultdict(list)
 
-    type_corpus = {
+    {
         "int": DEFAULT_CORPORA["int"],
         "float": DEFAULT_CORPORA["float"],
         "str": DEFAULT_CORPORA["str"],
@@ -492,7 +490,7 @@ def create_fuzzing_targets():
 '''
     )
 
-    for i, endpoint in enumerate(endpoints):
+    for _i, endpoint in enumerate(endpoints):
         methods = endpoint.get("methods", ["GET"])
         method = methods[0]
 
@@ -579,7 +577,6 @@ def generate_boofuzz_harness(endpoints: List[Dict], target_url: str) -> str:
         host_port, path = url_parsed.split("/", 1)
     else:
         host_port = url_parsed
-        path = ""
 
     if ":" in host_port:
         target_host, target_port_str = host_port.split(":")

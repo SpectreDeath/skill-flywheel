@@ -10,7 +10,7 @@ Applies Socratic questioning to explore concepts:
 - Meta-questioning
 """
 
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 QUESTION_TYPES = {
     "clarification": [
@@ -112,7 +112,7 @@ def generate_questions(concept: str, depth: int = 2) -> Dict[str, Any]:
 
 
 def socratic_questioner(
-    concept: str, depth: int = 2, focus: Optional[List[str]] = None, **kwargs
+    concept: str, depth: int = 2, focus: List[str] | None = None, **kwargs
 ) -> Dict[str, Any]:
     """
     Apply Socratic questioning to explore a concept.

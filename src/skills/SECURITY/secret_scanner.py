@@ -11,7 +11,7 @@ Scans code for hardcoded secrets, API keys, tokens, passwords, and provides:
 import re
 from dataclasses import dataclass
 from enum import Enum
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 
 class Severity(Enum):
@@ -364,7 +364,7 @@ def redact_code(code: str, secrets: List[SecretFinding]) -> str:
 
 
 def secret_scanner(
-    code: str, options: Optional[Dict[str, Any]] = None
+    code: str, options: Dict[str, Any] | None = None
 ) -> Dict[str, Any]:
     """
     Scan code for hardcoded secrets and credentials.
@@ -401,7 +401,7 @@ def secret_scanner(
 
     try:
         secrets_found = []
-        lines = code.split("\n")
+        code.split("\n")
 
         active_patterns = {**SECRET_PATTERNS}
         if intensity == "high":
@@ -411,7 +411,7 @@ def secret_scanner(
             pattern = config["pattern"]
             severity = config["severity"].value
             access_level = config["access"]
-            context_pattern = config.get("context_pattern", r".{0,30}.{0,30}")
+            config.get("context_pattern", r".{0,30}.{0,30}")
 
             for match in re.finditer(pattern, code, re.IGNORECASE):
                 value = match.group(1) if match.groups() else match.group(0)

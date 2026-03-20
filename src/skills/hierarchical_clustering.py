@@ -8,11 +8,11 @@ Performs agglomerative hierarchical clustering:
 """
 
 import math
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 
 def _euclidean_distance(p1: List[float], p2: List[float]) -> float:
-    return math.sqrt(sum((a - b) ** 2 for a, b in zip(p1, p2)))
+    return math.sqrt(sum((a - b) ** 2 for a, b in zip(p1, p2, strict=False)))
 
 
 def _linkage_matrix(data: List[List[float]], method: str) -> List[List[float]]:
@@ -33,7 +33,7 @@ def _linkage_matrix(data: List[List[float]], method: str) -> List[List[float]]:
     linkage = []
     cluster_id = n
 
-    for step in range(n - 1):
+    for _step in range(n - 1):
         # Find closest pair of active clusters
         min_dist = float("inf")
         merge = (None, None)
@@ -85,8 +85,8 @@ def _cluster_distance(
 
 def hierarchical_clustering(
     data: List[List[float]],
-    n_clusters: Optional[int] = None,
-    distance_threshold: Optional[float] = None,
+    n_clusters: int | None = None,
+    distance_threshold: float | None = None,
     linkage_method: str = "average",
     **kwargs,
 ) -> Dict[str, Any]:

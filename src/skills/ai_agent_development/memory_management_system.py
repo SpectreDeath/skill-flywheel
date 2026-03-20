@@ -14,7 +14,7 @@ import uuid
 from dataclasses import dataclass
 from datetime import datetime
 from enum import Enum
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 logger = logging.getLogger(__name__)
 
@@ -46,8 +46,8 @@ class MemoryItem:
     access_count: int
     tags: List[str]
     context: Dict[str, Any]
-    embedding: Optional[List[float]]  # For semantic search
-    ttl: Optional[float]  # Time to live in seconds
+    embedding: List[float] | None  # For semantic search
+    ttl: float | None  # Time to live in seconds
 
 @dataclass
 class MemoryQuery:
@@ -55,7 +55,7 @@ class MemoryQuery:
     query_text: str
     memory_types: List[MemoryType]
     tags: List[str]
-    time_range: Optional[tuple]  # (start_time, end_time)
+    time_range: tuple | None  # (start_time, end_time)
     limit: int
     similarity_threshold: float
 
@@ -101,9 +101,9 @@ class MemoryManagementSystem:
                           content: Dict[str, Any],
                           memory_type: MemoryType,
                           priority: MemoryPriority = MemoryPriority.MEDIUM,
-                          tags: Optional[List[str]] = None,
-                          context: Optional[Dict[str, Any]] = None,
-                          ttl: Optional[int] = None) -> str:
+                          tags: List[str] | None = None,
+                          context: Dict[str, Any] | None = None,
+                          ttl: int | None = None) -> str:
         """
         Store a memory item
         

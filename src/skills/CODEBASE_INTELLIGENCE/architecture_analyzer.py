@@ -14,7 +14,7 @@ import os
 import re
 from collections import defaultdict
 from dataclasses import dataclass, field
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 
 @dataclass
@@ -27,7 +27,7 @@ class ModuleInfo:
     functions: List[str] = field(default_factory=list)
     imports: List[str] = field(default_factory=list)
     imported_by: List[str] = field(default_factory=list)
-    docstring: Optional[str] = None
+    docstring: str | None = None
     line_count: int = 0
 
 
@@ -132,7 +132,7 @@ PATTERNS = {
 }
 
 
-def parse_python_file(file_path: str) -> Optional[ModuleInfo]:
+def parse_python_file(file_path: str) -> ModuleInfo | None:
     """Parse a Python file and extract module information"""
     try:
         with open(file_path, encoding="utf-8") as f:
@@ -442,7 +442,7 @@ def detect_circular_dependencies(dependencies: Dict[str, List[str]]) -> List[Lis
     visited = set()
     rec_stack = set()
 
-    def has_cycle(node: str, path: List[str]) -> Optional[List[str]]:
+    def has_cycle(node: str, path: List[str]) -> List[str] | None:
         visited.add(node)
         rec_stack.add(node)
 

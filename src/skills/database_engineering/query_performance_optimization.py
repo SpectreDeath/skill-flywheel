@@ -122,7 +122,7 @@ def analyze_explain_plan(explain_output: Dict[str, Any]) -> Dict[str, Any]:
 def suggest_indexes(queries: List[str]) -> List[Dict[str, Any]]:
     index_candidates = []
 
-    for i, query in enumerate(queries):
+    for _i, query in enumerate(queries):
         query_lower = query.lower()
 
         where_match = re.search(r"where\s+(\w+)", query_lower)

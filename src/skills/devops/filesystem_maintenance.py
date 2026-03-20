@@ -14,7 +14,7 @@ import os
 import shutil
 from dataclasses import dataclass, field
 from datetime import datetime
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 
 @dataclass
@@ -64,7 +64,7 @@ def format_size(size_bytes: int) -> str:
     return f"{size_bytes:.2f} PB"
 
 
-def get_file_hash(filepath: str) -> Optional[str]:
+def get_file_hash(filepath: str) -> str | None:
     """Calculate MD5 hash of a file."""
     try:
         hasher = hashlib.md5()
@@ -392,7 +392,7 @@ def filesystem_maintenance(path: str, action: str, options: dict = None) -> dict
                 "summary": f"Removed {result.files_removed} files and {result.directories_removed} directories, freed {format_size(result.space_freed)}",
             }
 
-        elif action == "analyze" or action == "organize":
+        elif action in {"analyze", "organize"}:
             result = analyze_directory_structure(path, options)
             return {
                 "status": "success",

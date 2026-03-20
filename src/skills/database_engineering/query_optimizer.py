@@ -14,7 +14,7 @@ import uuid
 from dataclasses import asdict, dataclass
 from datetime import datetime
 from enum import Enum
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 logger = logging.getLogger(__name__)
 
@@ -71,7 +71,7 @@ class QueryPlan:
     plan_id: str
     query: str
     estimated_cost: float
-    actual_cost: Optional[float]
+    actual_cost: float | None
     execution_steps: List[Dict[str, Any]]
     indexes_used: List[str]
     indexes_missing: List[str]
@@ -213,9 +213,9 @@ class QueryOptimizer:
         recommendations = []
         
         # Analyze query for index opportunities
-        query_type = self._detect_query_type(query)
+        self._detect_query_type(query)
         tables_used = self._extract_tables(query)
-        fields_used = self._extract_fields(query)
+        self._extract_fields(query)
         
         for table_name in tables_used:
             if table_name in database_schema.get("tables", {}):

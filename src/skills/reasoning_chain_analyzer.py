@@ -63,8 +63,8 @@ def validate_deductive_chain(steps: List[Dict[str, Any]]) -> Dict[str, Any]:
     conclusion = next((s["text"] for s in steps if s["type"] == "conclusion"), "")
 
     # Check for modus ponens pattern
-    has_if_then = any("if" in p and "then" in p for p in premises)
-    has_affirmation = any(
+    any("if" in p and "then" in p for p in premises)
+    any(
         p in " ".join(premises).lower()
         for p in ["it is true", "is the case", "happens"]
     )

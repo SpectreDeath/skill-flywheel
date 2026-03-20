@@ -160,7 +160,7 @@ class FactBasedAssessor:
 
     def draw_conclusion(self) -> Dict:
         """Draw evidence-based conclusion."""
-        analysis = self.analyze_facts()
+        self.analyze_facts()
 
         if self.facts:
             conclusion = f"Based on {len(self.facts)} factual statements"

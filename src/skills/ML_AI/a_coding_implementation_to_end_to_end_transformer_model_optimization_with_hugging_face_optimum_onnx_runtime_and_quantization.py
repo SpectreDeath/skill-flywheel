@@ -97,7 +97,7 @@ class TransformerModelOptimizer:
         self.optimization_config = OptimizationConfig(
             optimization_level=optimization_level,
             optimize_for_gpu=torch.cuda.is_available(),
-            fp16=True if torch.cuda.is_available() else False
+            fp16=bool(torch.cuda.is_available())
         )
         
         logger.info(f"Created optimization config: level={optimization_level}")
@@ -274,7 +274,7 @@ class TransformerModelOptimizer:
             
             start_time = time.perf_counter()
             with torch.no_grad():
-                outputs = self.original_model(**inputs)
+                self.original_model(**inputs)
             end_time = time.perf_counter()
             
             times.append((end_time - start_time) * 1000)  # Convert to ms
@@ -307,7 +307,7 @@ class TransformerModelOptimizer:
             inputs = self.tokenizer(text, return_tensors="np")
             
             start_time = time.perf_counter()
-            outputs = session.run(None, inputs.data)
+            session.run(None, inputs.data)
             end_time = time.perf_counter()
             
             times.append((end_time - start_time) * 1000)  # Convert to ms
@@ -340,7 +340,7 @@ class TransformerModelOptimizer:
             inputs = self.tokenizer(text, return_tensors="np")
             
             start_time = time.perf_counter()
-            outputs = session.run(None, inputs.data)
+            session.run(None, inputs.data)
             end_time = time.perf_counter()
             
             times.append((end_time - start_time) * 1000)  # Convert to ms

@@ -15,7 +15,7 @@ import uuid
 from dataclasses import dataclass
 from datetime import datetime
 from enum import Enum
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 import yaml
 
@@ -101,12 +101,12 @@ class PipelineExecution:
     build_type: BuildType
     triggered_by: str
     started_at: float
-    completed_at: Optional[float]
+    completed_at: float | None
     stages_executed: int
     stages_completed: int
     stages_failed: int
     total_duration: float
-    artifacts_path: Optional[str]
+    artifacts_path: str | None
     logs: List[Dict[str, Any]]
 
 @dataclass
@@ -167,8 +167,8 @@ class CICDPipelineManager:
                        description: str,
                        stages: List[Dict[str, Any]],
                        jobs: List[Dict[str, Any]],
-                       triggers: Optional[List[Dict[str, Any]]] = None,
-                       variables: Optional[Dict[str, str]] = None) -> str:
+                       triggers: List[Dict[str, Any]] | None = None,
+                       variables: Dict[str, str] | None = None) -> str:
         """
         Create a new CI/CD pipeline
         
@@ -306,7 +306,7 @@ class CICDPipelineManager:
                 self.active_executions -= 1
                 self.logger.info(f"Cancelled pipeline execution: {execution_id}")
     
-    def get_pipeline_status(self, execution_id: str) -> Optional[Dict[str, Any]]:
+    def get_pipeline_status(self, execution_id: str) -> Dict[str, Any] | None:
         """Get pipeline execution status"""
         if execution_id not in self.executions:
             return None
@@ -397,7 +397,7 @@ class CICDPipelineManager:
         self.logger.info(f"Created build artifact: {artifact_id}")
         return artifact_id
     
-    def get_artifact(self, artifact_id: str) -> Optional[Dict[str, Any]]:
+    def get_artifact(self, artifact_id: str) -> Dict[str, Any] | None:
         """Get artifact information"""
         if artifact_id not in self.build_artifacts:
             return None

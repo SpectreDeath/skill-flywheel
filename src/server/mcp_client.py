@@ -12,7 +12,7 @@ import logging
 import sys
 import time
 from datetime import datetime
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any, Dict, List, Tuple
 
 import aiohttp
 
@@ -68,19 +68,18 @@ class MCPClient:
                 }
             }
             
-            async with aiohttp.ClientSession() as session:
-                async with session.post(
-                    f"{self.discovery_url}/",
-                    json=init_payload,
-                    timeout=aiohttp.ClientTimeout(total=30)
-                ) as response:
-                    if response.status == 200:
-                        result = await response.json()
-                        logger.info("MCP initialize handshake successful")
-                        return True
-                    else:
-                        logger.error(f"Initialize failed with status {response.status}")
-                        return False
+            async with aiohttp.ClientSession() as session, session.post(
+                f"{self.discovery_url}/",
+                json=init_payload,
+                timeout=aiohttp.ClientTimeout(total=30)
+            ) as response:
+                if response.status == 200:
+                    await response.json()
+                    logger.info("MCP initialize handshake successful")
+                    return True
+                else:
+                    logger.error(f"Initialize failed with status {response.status}")
+                    return False
                         
         except Exception as e:
             logger.error(f"Initialize handshake failed: {e}")
@@ -99,24 +98,23 @@ class MCPClient:
                 "params": {}
             }
             
-            async with aiohttp.ClientSession() as session:
-                async with session.post(
-                    f"{self.discovery_url}/",
-                    json=list_payload,
-                    timeout=aiohttp.ClientTimeout(total=30)
-                ) as response:
-                    if response.status == 200:
-                        result = await response.json()
-                        if 'result' in result:
-                            self.skills = result['result']
-                            logger.info(f"Found {len(self.skills)} skills")
-                            return self.skills
-                        else:
-                            logger.error("No skills found in response")
-                            return []
+            async with aiohttp.ClientSession() as session, session.post(
+                f"{self.discovery_url}/",
+                json=list_payload,
+                timeout=aiohttp.ClientTimeout(total=30)
+            ) as response:
+                if response.status == 200:
+                    result = await response.json()
+                    if 'result' in result:
+                        self.skills = result['result']
+                        logger.info(f"Found {len(self.skills)} skills")
+                        return self.skills
                     else:
-                        logger.error(f"tools/list failed with status {response.status}")
+                        logger.error("No skills found in response")
                         return []
+                else:
+                    logger.error(f"tools/list failed with status {response.status}")
+                    return []
                         
         except Exception as e:
             logger.error(f"Failed to list skills: {e}")
@@ -132,7 +130,7 @@ class MCPClient:
             categorized[domain].append(skill)
         return categorized
     
-    async def health_check_skill(self, skill: Dict[str, Any]) -> Tuple[str, bool, float, Optional[str]]:
+    async def health_check_skill(self, skill: Dict[str, Any]) -> Tuple[str, bool, float, str | None]:
         """
         Perform health check on a skill.
         Returns: (skill_name, is_healthy, response_time, error_message)
@@ -149,17 +147,16 @@ class MCPClient:
         
         try:
             # Try to connect to the domain server
-            async with aiohttp.ClientSession() as session:
-                async with session.get(
-                    domain_server,
-                    timeout=aiohttp.ClientTimeout(total=10)
-                ) as response:
-                    response_time = time.time() - start_time
-                    
-                    if response.status in [200, 404]:  # 404 is OK for MCP servers
-                        return skill_name, True, response_time, None
-                    else:
-                        return skill_name, False, response_time, f"HTTP {response.status}"
+            async with aiohttp.ClientSession() as session, session.get(
+                domain_server,
+                timeout=aiohttp.ClientTimeout(total=10)
+            ) as response:
+                response_time = time.time() - start_time
+                
+                if response.status in [200, 404]:  # 404 is OK for MCP servers
+                    return skill_name, True, response_time, None
+                else:
+                    return skill_name, False, response_time, f"HTTP {response.status}"
                         
         except asyncio.TimeoutError:
             response_time = time.time() - start_time

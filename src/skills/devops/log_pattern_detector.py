@@ -11,7 +11,7 @@ import json
 import re
 from collections import Counter, defaultdict
 from dataclasses import dataclass, field
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 SEVERITY_LEVELS = {
     "trace": 0,
@@ -42,10 +42,10 @@ LOG_PATTERNS = {
 @dataclass
 class LogEntry:
     raw: str
-    timestamp: Optional[str] = None
-    level: Optional[str] = None
-    message: Optional[str] = None
-    source: Optional[str] = None
+    timestamp: str | None = None
+    level: str | None = None
+    message: str | None = None
+    source: str | None = None
     metadata: Dict[str, Any] = field(default_factory=dict)
 
 
@@ -66,9 +66,8 @@ def detect_log_format(logs: str) -> str:
                 pass
 
         for fmt, pattern in LOG_PATTERNS.items():
-            if re.search(pattern, line):
-                if fmt != "json":
-                    return fmt
+            if re.search(pattern, line) and fmt != "json":
+                return fmt
 
     return "generic"
 
@@ -183,7 +182,7 @@ def parse_unstructured_logs(logs: str) -> List[LogEntry]:
     return entries
 
 
-def parse_logs(logs: str, format_type: Optional[str] = None) -> List[LogEntry]:
+def parse_logs(logs: str, format_type: str | None = None) -> List[LogEntry]:
     """Parse log content into structured entries."""
     if not logs or not logs.strip():
         return []
@@ -550,7 +549,7 @@ def generate_summary(
     return {
         "total_entries": len(entries),
         "unique_patterns": len(
-            set(extract_message_template(e.message or "") for e in entries if e.message)
+            {extract_message_template(e.message or "") for e in entries if e.message}
         ),
         "severity_breakdown": dict(level_counts),
         "top_sources": dict(sources.most_common(5)),

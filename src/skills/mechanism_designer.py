@@ -9,15 +9,15 @@ Designs mechanisms for strategic interaction:
 - Strategy-proof mechanisms
 """
 
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 
 def mechanism_designer(
     mechanism_type: str,
     players: List[str],
-    items: Optional[List[str]] = None,
-    valuations: Optional[Dict[str, Dict[str, float]]] = None,
-    reserve_price: Optional[float] = None,
+    items: List[str] | None = None,
+    valuations: Dict[str, Dict[str, float]] | None = None,
+    reserve_price: float | None = None,
     **kwargs,
 ) -> Dict[str, Any]:
     """
@@ -56,9 +56,9 @@ def mechanism_designer(
 
 def _design_vickrey_mechanism(
     players: List[str],
-    items: Optional[List],
-    valuations: Optional[Dict],
-    reserve_price: Optional[float],
+    items: List | None,
+    valuations: Dict | None,
+    reserve_price: float | None,
 ) -> Dict[str, Any]:
     """Design Vickrey-Clarke-Groves (VCG) mechanism"""
 
@@ -68,7 +68,7 @@ def _design_vickrey_mechanism(
     allocation_rules = []
     payment_rules = []
 
-    for i, item in enumerate(items):
+    for _i, item in enumerate(items):
         allocation_rules.append(
             {
                 "rule": f"Highest bidder wins {item}",
@@ -109,9 +109,9 @@ def _design_vickrey_mechanism(
 
 def _design_myerson_mechanism(
     players: List[str],
-    items: Optional[List],
-    valuations: Optional[Dict],
-    reserve_price: Optional[float],
+    items: List | None,
+    valuations: Dict | None,
+    reserve_price: float | None,
 ) -> Dict[str, Any]:
     """Design Myerson's optimal auction"""
 
@@ -119,7 +119,6 @@ def _design_myerson_mechanism(
         items = ["single_item"]
 
     # Myerson optimal with reserve
-    reserve = reserve_price or 0
 
     return {
         "mechanism": "Myerson Optimal Auction",
@@ -154,9 +153,9 @@ def _design_myerson_mechanism(
 
 def _design_double_auction(
     players: List[str],
-    items: Optional[List],
-    valuations: Optional[Dict],
-    reserve_price: Optional[float],
+    items: List | None,
+    valuations: Dict | None,
+    reserve_price: float | None,
 ) -> Dict[str, Any]:
     """Design double auction mechanism"""
 
@@ -194,9 +193,9 @@ def _design_double_auction(
 
 def _design_bargaining_mechanism(
     players: List[str],
-    items: Optional[List],
-    valuations: Optional[Dict],
-    reserve_price: Optional[float],
+    items: List | None,
+    valuations: Dict | None,
+    reserve_price: float | None,
 ) -> Dict[str, Any]:
     """Design bargaining mechanism"""
 
@@ -234,9 +233,9 @@ def _design_bargaining_mechanism(
 
 def _design_allocation_mechanism(
     players: List[str],
-    items: Optional[List],
-    valuations: Optional[Dict],
-    reserve_price: Optional[float],
+    items: List | None,
+    valuations: Dict | None,
+    reserve_price: float | None,
 ) -> Dict[str, Any]:
     """Design efficient allocation mechanism"""
 
@@ -276,7 +275,7 @@ def _design_allocation_mechanism(
 
 def invoke(payload: dict) -> dict:
     """MCP skill invocation"""
-    action = payload.get("action", "design")
+    payload.get("action", "design")
     mechanism_type = payload.get("mechanism_type", "vickrey")
     players = payload.get("players", ["buyer1", "buyer2"])
     items = payload.get("items")

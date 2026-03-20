@@ -12,7 +12,7 @@ Maps attack surfaces in application code by:
 import re
 from dataclasses import dataclass, field
 from enum import Enum
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 
 class RiskLevel(Enum):
@@ -249,7 +249,7 @@ def detect_endpoints(code: str, include_internal: bool = False) -> List[Dict]:
     seen_endpoints = set()
 
     for line_num, line in enumerate(lines, 1):
-        for pattern, framework in patterns:
+        for pattern, _framework in patterns:
             matches = re.finditer(pattern, line)
             for match in matches:
                 groups = match.groups()
@@ -276,7 +276,7 @@ def detect_endpoints(code: str, include_internal: bool = False) -> List[Dict]:
 
                 auth_required = False
                 auth_type = "none"
-                for auth_pattern, auth_name in sum(
+                for _auth_pattern, _auth_name in sum(
                     [
                         list(p.items())
                         if isinstance(p, dict)
@@ -288,7 +288,7 @@ def detect_endpoints(code: str, include_internal: bool = False) -> List[Dict]:
                     [],
                 ):
                     if isinstance(AUTH_PATTERNS, dict):
-                        for ap, at in AUTH_PATTERNS.items():
+                        for _ap, at in AUTH_PATTERNS.items():
                             for p, n in at:
                                 if re.search(p, line):
                                     auth_required = True
@@ -352,14 +352,14 @@ def calculate_endpoint_risk(
     return min(score, 100)
 
 
-def identify_inputs(code: str, options: Optional[Dict] = None) -> List[Dict]:
+def identify_inputs(code: str, options: Dict | None = None) -> List[Dict]:
     """Identify input points in the code."""
     inputs = []
-    depth = options.get("depth", 1) if options else 1
+    options.get("depth", 1) if options else 1
 
     seen_inputs = set()
 
-    for category, patterns in INPUT_PATTERNS.items():
+    for _category, patterns in INPUT_PATTERNS.items():
         for pattern, input_type in patterns:
             matches = re.finditer(pattern, code, re.IGNORECASE)
             for match in matches:
@@ -407,7 +407,7 @@ def is_input_sanitized(code: str, input_name: str, line_num: int) -> bool:
     context_end = min(len(lines), line_num + 10)
     context = "\n".join(lines[context_start:context_end])
 
-    for category, patterns in SANITIZATION_PATTERNS.items():
+    for _category, patterns in SANITIZATION_PATTERNS.items():
         for pattern, _ in patterns:
             if re.search(pattern, context, re.IGNORECASE):
                 return True
@@ -468,14 +468,13 @@ def analyze_auth(code: str) -> List[Dict]:
     auth_gaps = []
 
     has_auth = False
-    auth_type = "none"
 
     for category, patterns in AUTH_PATTERNS.items():
-        for pattern, name in patterns:
+        for pattern, _name in patterns:
             if re.search(pattern, code, re.IGNORECASE):
                 has_auth = True
                 if category in ["jwt", "oauth", "api_key"]:
-                    auth_type = category
+                    pass
 
     endpoint_lines = []
     for line_num, line in enumerate(code.split("\n"), 1):
@@ -616,7 +615,7 @@ def map_data_flow(code: str, depth: int = 1) -> List[Dict]:
 
 def is_sanitized_in_flow(code: str, source: str, sink: str) -> bool:
     """Check if data is sanitized between source and sink."""
-    for category, patterns in SANITIZATION_PATTERNS.items():
+    for _category, patterns in SANITIZATION_PATTERNS.items():
         for pattern, _ in patterns:
             if re.search(pattern, code, re.IGNORECASE):
                 return True
@@ -639,7 +638,7 @@ def score_exposure(
     score += min(len([d for d in data_flows if not d.get("sanitized", True)]) * 3, 20)
 
     critical_gaps = [g for g in auth_gaps if g.get("severity") == "Critical"]
-    high_gaps = [g for g in auth_gaps if g.get("severity") == "High"]
+    [g for g in auth_gaps if g.get("severity") == "High"]
 
     score += len(critical_gaps) * 10
 
@@ -669,7 +668,7 @@ def score_exposure(
 
 
 def attack_surface_mapper(
-    code: str, options: Optional[Dict[str, Any]] = None
+    code: str, options: Dict[str, Any] | None = None
 ) -> Dict[str, Any]:
     """
     Map attack surface in application code.

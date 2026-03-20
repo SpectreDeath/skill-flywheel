@@ -41,10 +41,7 @@ def analyze_risk_reward(option: Dict) -> Dict[str, Any]:
     reward_score = min(10, len(rewards) * 2 + option.get("potential_impact", 5))
 
     # Determine ratio
-    if risk_score > 0:
-        ratio = reward_score / risk_score
-    else:
-        ratio = reward_score
+    ratio = reward_score / risk_score if risk_score > 0 else reward_score
 
     return {
         "risk_score": risk_score,

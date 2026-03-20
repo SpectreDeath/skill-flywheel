@@ -89,10 +89,7 @@ def evaluate_decision(decision: Dict[str, Any], criteria: List[str]) -> Dict[str
                 score = 3
 
         if "security" in criterion:
-            if "encrypt" in decision_text or "layer" in decision_text:
-                score = 9
-            else:
-                score = 4
+            score = 9 if "encrypt" in decision_text or "layer" in decision_text else 4
 
         if "maintainability" in criterion:
             if "modular" in decision_text or "simple" in decision_text:

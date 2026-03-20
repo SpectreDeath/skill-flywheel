@@ -25,7 +25,7 @@ try:
     ML_AVAILABLE = True
 except ImportError:
     ML_AVAILABLE = False
-    warnings.warn("ML libraries not available for advanced threat detection.")
+    warnings.warn("ML libraries not available for advanced threat detection.", stacklevel=2)
 
 logger = logging.getLogger(__name__)
 
@@ -486,7 +486,7 @@ class SecurityScanner:
         recommendations = []
         
         # Group vulnerabilities by type
-        vuln_types = set(v["type"] for v in vulnerabilities)
+        vuln_types = {v["type"] for v in vulnerabilities}
         
         if VulnerabilityType.HARDCODED_SECRET.value in vuln_types:
             recommendations.append("Remove hardcoded secrets and use environment variables or secure credential storage")
@@ -504,7 +504,7 @@ class SecurityScanner:
             recommendations.append("Use strong cryptographic algorithms (SHA-256, AES-256) instead of weak ones")
         
         # Compliance recommendations
-        framework_violations = set(issue.get("framework") for issue in compliance_issues)
+        framework_violations = {issue.get("framework") for issue in compliance_issues}
         
         if "SOC2" in framework_violations:
             recommendations.append("Implement SOC 2 compliant access controls and monitoring")

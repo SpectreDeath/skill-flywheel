@@ -10,7 +10,7 @@ This skill provides data analysis capabilities including:
 """
 
 import logging
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 import numpy as np
 import pandas as pd
@@ -201,7 +201,7 @@ def clean_data(data: List[Dict[str, Any]],
         return data
 
 def generate_insights(data: List[Dict[str, Any]], 
-                     target_column: Optional[str] = None) -> Dict[str, Any]:
+                     target_column: str | None = None) -> Dict[str, Any]:
     """
     Generate business insights from the dataset
     

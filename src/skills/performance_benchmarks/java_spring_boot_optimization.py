@@ -15,12 +15,13 @@ Key Features:
 - Enterprise application performance patterns
 """
 
+import contextlib
 import datetime
 import json
 import logging
 from dataclasses import asdict, dataclass
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 import psutil
 
@@ -54,11 +55,11 @@ class JavaOptimizationRecommendation:
 class JavaSpringBootOptimizer:
     """Optimizer for Java Spring Boot application performance"""
     
-    def __init__(self, java_process: Optional[psutil.Process] = None):
+    def __init__(self, java_process: psutil.Process | None = None):
         self.java_process = java_process
         self.metrics_history: List[JavaPerformanceMetrics] = []
     
-    def _get_java_process(self) -> Optional[psutil.Process]:
+    def _get_java_process(self) -> psutil.Process | None:
         """Find Java application process"""
         if self.java_process and self.java_process.is_running():
             return self.java_process
@@ -212,7 +213,7 @@ class JavaSpringBootOptimizer:
         jvm_metrics = self.get_jvm_metrics()
         
         # Analyze memory usage
-        memory_usage = self.analyze_memory_usage()
+        self.analyze_memory_usage()
         
         # Analyze startup performance
         startup_metrics = self.analyze_startup_performance()
@@ -220,10 +221,8 @@ class JavaSpringBootOptimizer:
         # Analyze CPU usage
         cpu_usage = 0
         if self._get_java_process():
-            try:
+            with contextlib.suppress(Exception):
                 cpu_usage = self.java_process.cpu_percent(interval=1.0)
-            except Exception:
-                pass
         
         metrics = JavaPerformanceMetrics(
             jvm_heap_used=jvm_metrics.get("heap_used", 0),
@@ -400,7 +399,7 @@ class JavaSpringBootOptimizer:
                 "high_priority_recommendations": len([r for r in recommendations if r.severity in ["high", "critical"]]),
                 "recommendations_by_category": {
                     category: len([r for r in recommendations if r.category == category])
-                    for category in set(r.category for r in recommendations)
+                    for category in {r.category for r in recommendations}
                 }
             }
         }
@@ -488,7 +487,7 @@ def invoke(config: Dict[str, Any]) -> Dict[str, Any]:
                         "total_recommendations": len(recommendations),
                         "by_category": {
                             category: len([r for r in recommendations if r.category == category])
-                            for category in set(r.category for r in recommendations)
+                            for category in {r.category for r in recommendations}
                         }
                     }
                 }

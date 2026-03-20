@@ -14,7 +14,7 @@ class MultiModelFusionEngine:
 
     def fuse(self, inputs: Dict[str, Any]) -> Dict:
         results = {}
-        for model_id, input_data in inputs.items():
+        for model_id, _input_data in inputs.items():
             if model_id in self.models:
                 results[model_id] = {
                     "output": f"Fused output from {model_id}",

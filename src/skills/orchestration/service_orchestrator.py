@@ -13,7 +13,7 @@ import uuid
 from dataclasses import dataclass
 from datetime import datetime
 from enum import Enum
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 logger = logging.getLogger(__name__)
 
@@ -88,7 +88,7 @@ class ServiceDeployment:
     replicas: int
     status: str  # pending, in_progress, completed, failed
     started_at: float
-    completed_at: Optional[float]
+    completed_at: float | None
     created_at: float
 
 @dataclass
@@ -106,7 +106,7 @@ class ServiceMetric:
     """Represents service metrics"""
     metric_id: str
     service_id: str
-    instance_id: Optional[str]
+    instance_id: str | None
     metric_type: str  # cpu, memory, network, response_time, error_rate
     value: float
     timestamp: float
@@ -165,11 +165,11 @@ class ServiceOrchestrator:
                         version: str,
                         image: str,
                         replicas: int = 1,
-                        ports: Optional[List[Dict[str, Any]]] = None,
-                        environment: Optional[Dict[str, str]] = None,
-                        resources: Optional[Dict[str, Any]] = None,
-                        health_check: Optional[Dict[str, Any]] = None,
-                        dependencies: Optional[List[str]] = None) -> str:
+                        ports: List[Dict[str, Any]] | None = None,
+                        environment: Dict[str, str] | None = None,
+                        resources: Dict[str, Any] | None = None,
+                        health_check: Dict[str, Any] | None = None,
+                        dependencies: List[str] | None = None) -> str:
         """
         Register a service
         
@@ -272,7 +272,7 @@ class ServiceOrchestrator:
                       service_id: str,
                       version: str,
                       strategy: DeploymentStrategy = DeploymentStrategy.ROLLING,
-                      replicas: Optional[int] = None) -> str:
+                      replicas: int | None = None) -> str:
         """
         Deploy a service
         
@@ -311,7 +311,7 @@ class ServiceOrchestrator:
         self.logger.info(f"Started deployment: {deployment_id} for service {service_id}")
         return deployment_id
     
-    def get_service_status(self, service_id: str) -> Optional[Dict[str, Any]]:
+    def get_service_status(self, service_id: str) -> Dict[str, Any] | None:
         """Get service status"""
         if service_id not in self.services:
             return None
@@ -615,7 +615,7 @@ class ServiceOrchestrator:
         """Process pending deployments"""
         current_time = time.time()
         
-        for deployment_id, deployment in list(self.service_deployments.items()):
+        for _deployment_id, deployment in list(self.service_deployments.items()):
             if deployment.status == "pending":
                 if current_time - deployment.started_at > self.deployment_timeout:
                     deployment.status = "failed"
@@ -969,7 +969,7 @@ async def example_usage():
     
     # Monitor deployment
     import time as t
-    for i in range(10):
+    for _i in range(10):
         status = await invoke({
             "action": "get_status",
             "service_id": api_service['result']['service_id']

@@ -12,7 +12,7 @@ import uuid
 from dataclasses import dataclass
 from datetime import datetime
 from enum import Enum
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 logger = logging.getLogger(__name__)
 
@@ -71,7 +71,7 @@ class ResourceAllocation:
     allocation_type: AllocationType
     amount: float
     start_time: float
-    end_time: Optional[float]
+    end_time: float | None
     priority: int
     status: str  # pending, active, expired, cancelled
     metadata: Dict[str, Any]
@@ -169,8 +169,8 @@ class ResourceOrchestrator:
                          name: str,
                          capacity: float,
                          location: str = "default",
-                         tags: Optional[Dict[str, str]] = None,
-                         metadata: Optional[Dict[str, Any]] = None) -> str:
+                         tags: Dict[str, str] | None = None,
+                         metadata: Dict[str, Any] | None = None) -> str:
         """
         Register a resource
         
@@ -212,7 +212,7 @@ class ResourceOrchestrator:
                             name: str,
                             pool_type: ResourcePoolType,
                             resource_ids: List[str],
-                            allocation_policy: Optional[Dict[str, Any]] = None) -> str:
+                            allocation_policy: Dict[str, Any] | None = None) -> str:
         """
         Create a resource pool
         
@@ -286,7 +286,7 @@ class ResourceOrchestrator:
                         duration: int = 3600,
                         priority: int = 1,
                         allocation_type: AllocationType = AllocationType.SHARED,
-                        constraints: Optional[Dict[str, Any]] = None) -> str:
+                        constraints: Dict[str, Any] | None = None) -> str:
         """
         Request resource allocation
         
@@ -324,7 +324,7 @@ class ResourceOrchestrator:
         self.logger.info(f"Resource request: {request_id} ({amount} {resource_type.value})")
         return request_id
     
-    async def allocate_resource(self, request_id: str) -> Optional[str]:
+    async def allocate_resource(self, request_id: str) -> str | None:
         """
         Allocate resources for a request
         
@@ -359,7 +359,7 @@ class ResourceOrchestrator:
         
         return allocation_id
     
-    def get_resource_status(self, resource_id: str) -> Optional[Dict[str, Any]]:
+    def get_resource_status(self, resource_id: str) -> Dict[str, Any] | None:
         """Get resource status"""
         if resource_id not in self.resources:
             return None
@@ -378,7 +378,7 @@ class ResourceOrchestrator:
             "utilization": (resource.allocated / resource.capacity) * 100 if resource.capacity > 0 else 0
         }
     
-    def get_allocation_status(self, allocation_id: str) -> Optional[Dict[str, Any]]:
+    def get_allocation_status(self, allocation_id: str) -> Dict[str, Any] | None:
         """Get allocation status"""
         if allocation_id not in self.allocations:
             return None
@@ -477,7 +477,7 @@ class ResourceOrchestrator:
     
     async def _create_allocation(self,
                                request: ResourceRequest,
-                               resource_ids: List[str]) -> Optional[str]:
+                               resource_ids: List[str]) -> str | None:
         """Create resource allocation"""
         if not resource_ids:
             return None
@@ -543,7 +543,7 @@ class ResourceOrchestrator:
     def _allocate_round_robin(self, resource_ids: List[str], request: ResourceRequest) -> List[str]:
         """Round robin allocation"""
         # Simple round robin based on resource ID
-        return sorted(resource_ids, key=lambda rid: hash(rid))
+        return sorted(resource_ids, key=hash)
     
     def _allocate_best_fit(self, resource_ids: List[str], request: ResourceRequest) -> List[str]:
         """Best fit allocation"""

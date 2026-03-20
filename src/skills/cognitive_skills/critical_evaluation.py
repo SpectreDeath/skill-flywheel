@@ -7,7 +7,7 @@ information, arguments, and solutions.
 
 from dataclasses import dataclass
 from enum import Enum
-from typing import Dict, List, Optional
+from typing import Dict, List
 
 
 class EvidenceQuality(Enum):
@@ -31,7 +31,7 @@ class EvaluationCriteria:
 
     name: str
     weight: float
-    score: Optional[float] = None
+    score: float | None = None
 
 
 @dataclass
@@ -40,8 +40,8 @@ class Source:
 
     name: str
     credibility: SourceCredibility
-    url: Optional[str] = None
-    date: Optional[str] = None
+    url: str | None = None
+    date: str | None = None
 
 
 class CriticalEvaluator:

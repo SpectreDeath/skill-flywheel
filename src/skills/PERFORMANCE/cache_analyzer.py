@@ -396,7 +396,7 @@ def _detect_hit_miss_patterns(code: str) -> List[dict]:
     has_get = False
     has_set = False
 
-    for pattern, name in hit_miss_patterns:
+    for pattern, _name in hit_miss_patterns:
         if re.search(pattern, code):
             has_get = True
             break
@@ -479,7 +479,7 @@ def _detect_invalidation_patterns(code: str) -> List[dict]:
     ]
 
     has_invalidation = False
-    for pattern, name in invalidation_patterns:
+    for pattern, _name in invalidation_patterns:
         if re.search(pattern, code):
             has_invalidation = True
             break

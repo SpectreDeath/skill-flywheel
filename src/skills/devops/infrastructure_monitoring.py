@@ -14,7 +14,7 @@ from collections import defaultdict, deque
 from dataclasses import dataclass
 from datetime import datetime
 from enum import Enum
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 import psutil
 import requests
@@ -72,21 +72,21 @@ class Alert:
     threshold: float
     current_value: float
     triggered_at: float
-    resolved_at: Optional[float]
-    acknowledged_at: Optional[float]
-    acknowledged_by: Optional[str]
+    resolved_at: float | None
+    acknowledged_at: float | None
+    acknowledged_by: str | None
 
 @dataclass
 class Service:
     """Represents a monitored service"""
     service_id: str
     name: str
-    url: Optional[str]
-    port: Optional[int]
-    process_name: Optional[str]
+    url: str | None
+    port: int | None
+    process_name: str | None
     status: ServiceStatus
     last_check: float
-    response_time: Optional[float]
+    response_time: float | None
     error_count: int
 
 @dataclass
@@ -141,7 +141,7 @@ class InfrastructureMonitor:
         self._alert_task = asyncio.create_task(self._alert_loop())
         self._cleanup_task = asyncio.create_task(self._cleanup_loop())
     
-    def add_metric(self, name: str, value: float, metric_type: MetricType, unit: str = "", tags: Optional[Dict[str, str]] = None) -> str:
+    def add_metric(self, name: str, value: float, metric_type: MetricType, unit: str = "", tags: Dict[str, str] | None = None) -> str:
         """
         Add a metric reading
         
@@ -211,9 +211,9 @@ class InfrastructureMonitor:
     
     def add_service(self,
                    name: str,
-                   url: Optional[str] = None,
-                   port: Optional[int] = None,
-                   process_name: Optional[str] = None) -> str:
+                   url: str | None = None,
+                   port: int | None = None,
+                   process_name: str | None = None) -> str:
         """
         Add a service to monitor
         
@@ -313,7 +313,7 @@ class InfrastructureMonitor:
             "timestamp": time.time()
         }
     
-    def get_service_status(self, service_id: str) -> Optional[Dict[str, Any]]:
+    def get_service_status(self, service_id: str) -> Dict[str, Any] | None:
         """Get service status"""
         if service_id not in self.services:
             return None
@@ -332,7 +332,7 @@ class InfrastructureMonitor:
             "process_name": service.process_name
         }
     
-    def get_alerts(self, status: Optional[AlertStatus] = None) -> List[Dict[str, Any]]:
+    def get_alerts(self, status: AlertStatus | None = None) -> List[Dict[str, Any]]:
         """Get alerts"""
         alerts = list(self.alerts.values())
         
@@ -440,7 +440,7 @@ class InfrastructureMonitor:
     
     async def _check_services(self):
         """Check service status"""
-        for service_id, service in self.services.items():
+        for _service_id, service in self.services.items():
             try:
                 if service.url:
                     await self._check_http_service(service)
@@ -531,12 +531,12 @@ class InfrastructureMonitor:
     
     async def _check_alert_rules(self):
         """Check alert rules against current metrics"""
-        current_time = time.time()
+        time.time()
         
         for rule_id, rule in self.alert_rules.items():
             metric_name = rule["metric_name"]
             threshold = rule["threshold"]
-            severity = rule["severity"]
+            rule["severity"]
             condition = rule["condition"]
             
             # Get latest metric value

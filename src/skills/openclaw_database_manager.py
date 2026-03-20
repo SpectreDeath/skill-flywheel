@@ -10,13 +10,13 @@ import shutil
 import sqlite3
 from datetime import datetime
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 
 class OpenClawDatabaseManager:
     """Manage OpenClaw SQLite database."""
 
-    def __init__(self, db_path: Optional[str] = None):
+    def __init__(self, db_path: str | None = None):
         if db_path:
             self.db_path = Path(db_path)
         else:
@@ -137,7 +137,7 @@ class OpenClawDatabaseManager:
         except sqlite3.Error as e:
             return {"error": str(e)}
 
-    def backup(self, backup_path: Optional[str] = None) -> Dict[str, Any]:
+    def backup(self, backup_path: str | None = None) -> Dict[str, Any]:
         """Create a database backup."""
         if not self.db_path.exists():
             return {"error": "Database not found"}
@@ -159,7 +159,7 @@ class OpenClawDatabaseManager:
         except Exception as e:
             return {"error": str(e)}
 
-    def compressed_backup(self, backup_path: Optional[str] = None) -> Dict[str, Any]:
+    def compressed_backup(self, backup_path: str | None = None) -> Dict[str, Any]:
         """Create a compressed database backup."""
         if not self.db_path.exists():
             return {"error": "Database not found"}
@@ -226,7 +226,7 @@ class OpenClawDatabaseManager:
             return {"error": str(e)}
 
     def get_conversation_history(
-        self, agent_id: Optional[str] = None, limit: int = 50
+        self, agent_id: str | None = None, limit: int = 50
     ) -> List[Dict[str, Any]]:
         """Get conversation history."""
         return self.query_table("conversations", limit=limit)

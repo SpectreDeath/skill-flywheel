@@ -3,7 +3,7 @@ from __future__ import annotations
 import logging
 import time
 from abc import ABC, abstractmethod
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 from darwinian_evolver.problem import Evaluator as BaseEvaluator
 
@@ -44,9 +44,9 @@ class SkillFitnessEvaluator(
         self,
         skill_executor: SkillExecutor,
         test_cases: List[Dict[str, Any]],
-        holdout_cases: Optional[List[Dict[str, Any]]] = None,
-        config: Optional[EvolutionConfig] = None,
-        output_dir: Optional[str] = None,
+        holdout_cases: List[Dict[str, Any]] | None = None,
+        config: EvolutionConfig | None = None,
+        output_dir: str | None = None,
     ):
         self.skill_executor = skill_executor
         self.test_cases = test_cases

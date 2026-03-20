@@ -155,7 +155,7 @@ class ErrorPatternLearner:
 
         for error in new_errors:
             error_hash = self._hash_error(error.get("message", error.get("raw", "")))
-            error_type = error.get("type", "UnknownError")
+            error.get("type", "UnknownError")
 
             prediction = {
                 "error": error,

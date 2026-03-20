@@ -16,7 +16,7 @@ import json
 import re
 from dataclasses import asdict, dataclass
 from enum import Enum
-from typing import Dict, List, Optional
+from typing import Dict, List
 
 from packaging import version as pkg_version
 
@@ -35,14 +35,14 @@ class Vulnerability:
     package_name: str
     current_version: str
     affected_versions: str
-    fixed_version: Optional[str]
+    fixed_version: str | None
     severity: str
     cvss_score: float
     description: str
     exploitability: float
     published_date: str
     references: List[str]
-    epss_score: Optional[float] = None
+    epss_score: float | None = None
 
 
 @dataclass
@@ -129,11 +129,11 @@ class LockFileParser:
         return "requirements.txt"
 
     @staticmethod
-    def parse(content: str, lock_type: Optional[str] = None) -> Dict[str, str]:
+    def parse(content: str, lock_type: str | None = None) -> Dict[str, str]:
         if lock_type is None:
             lock_type = LockFileParser.detect_lock_type(content)
 
-        if lock_type == "package-lock.json" or lock_type == "yarn.lock":
+        if lock_type in {"package-lock.json", "yarn.lock"}:
             if lock_type == "yarn.lock":
                 return LockFileParser.parse_yarn_lock(content)
             return LockFileParser.parse_package_lock(content)
@@ -740,7 +740,7 @@ def dependency_vuln_checker(lock_file: str, options: dict = None) -> dict:
     if options is None:
         options = {}
 
-    include_dev = options.get("include_dev_deps", True)
+    options.get("include_dev_deps", True)
     output_format = options.get("output_format", "json")
     severity_threshold = options.get("severity_threshold", "Low")
     check_exploitability = options.get("check_exploitability", True)

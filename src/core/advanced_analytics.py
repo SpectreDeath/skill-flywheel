@@ -16,7 +16,7 @@ from dataclasses import dataclass
 from datetime import datetime, timedelta
 from enum import Enum
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any, Dict, List, Tuple
 
 import numpy as np
 import pandas as pd
@@ -32,7 +32,7 @@ try:
     ML_AVAILABLE = True
 except ImportError:
     ML_AVAILABLE = False
-    warnings.warn("ML libraries not available. Some features will be disabled.")
+    warnings.warn("ML libraries not available. Some features will be disabled.", stacklevel=2)
 
 logger = logging.getLogger(__name__)
 
@@ -174,7 +174,7 @@ class PerformancePredictor:
             
             # Store feature importance
             self.feature_importance[skill_id] = dict(zip(
-                self._get_feature_names(), model.feature_importances_
+                self._get_feature_names(), model.feature_importances_, strict=False
             ))
             
             return True
@@ -185,7 +185,6 @@ class PerformancePredictor:
     
     def _extract_features(self, df: pd.DataFrame) -> np.ndarray:
         """Extract features for ML model."""
-        features = []
         
         # Time-based features
         df['hour'] = df['timestamp'].dt.hour
@@ -221,7 +220,7 @@ class PerformancePredictor:
             'lag_1', 'lag_2', 'lag_3'
         ]
     
-    def predict_performance(self, skill_id: str, horizon_hours: int = 24) -> Optional[PredictiveInsight]:
+    def predict_performance(self, skill_id: str, horizon_hours: int = 24) -> PredictiveInsight | None:
         """Predict future performance metrics."""
         if not ML_AVAILABLE:
             return None
@@ -303,7 +302,7 @@ class PerformancePredictor:
             recent_mean = recent_std = recent_min = recent_max = 0
         
         # Rolling statistics for different windows
-        for window in [5, 10, 20]:
+        for _window in [5, 10, 20]:
             features.extend([recent_mean, recent_std, recent_min, recent_max])
         
         # Lag features (use recent values)
@@ -484,7 +483,7 @@ class SkillRecommender:
         # Sort by score and create recommendations
         sorted_skills = sorted(skill_scores.items(), key=lambda x: x[1], reverse=True)
         
-        for i, (skill_id, score) in enumerate(sorted_skills[:5]):  # Top 5 recommendations
+        for _i, (skill_id, score) in enumerate(sorted_skills[:5]):  # Top 5 recommendations
             recommendation = SkillRecommendation(
                 recommendation_id=f"rec_{skill_id}_{datetime.now().isoformat()}",
                 recommendation_type=RecommendationType.SKILL_SELECTION,

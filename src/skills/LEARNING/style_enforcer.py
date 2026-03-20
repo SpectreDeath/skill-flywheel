@@ -1,4 +1,5 @@
 import ast
+import contextlib
 import json
 import re
 from collections import defaultdict
@@ -95,7 +96,7 @@ class StyleConfigParser:
             "max-len": ["max-len", False, ""],
         }
 
-        for rule_name, (display_name, is_fixable, template) in rule_mapping.items():
+        for rule_name, (_display_name, is_fixable, template) in rule_mapping.items():
             if rule_name in eslint_rules:
                 rule_config = eslint_rules[rule_name]
                 severity = self._map_eslint_severity(rule_config)
@@ -158,9 +159,9 @@ class StyleConfigParser:
 
     def _map_eslint_severity(self, rule_config: Any) -> str:
         if isinstance(rule_config, int):
-            if rule_config == 2 or rule_config == "error":
+            if rule_config in {2, "error"}:
                 return "error"
-            elif rule_config == 1 or rule_config == "warn":
+            elif rule_config in {1, "warn"}:
                 return "warning"
             return "info"
         if isinstance(rule_config, list):
@@ -189,10 +190,8 @@ class StyleViolationDetector:
         max_line_length = 120
         for rule in self.rules:
             if rule.rule_id == "max-line-length":
-                try:
+                with contextlib.suppress(ValueError):
                     max_line_length = int(rule.pattern) if rule.pattern else 120
-                except ValueError:
-                    pass
 
         lines = code.split("\n")
 

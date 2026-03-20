@@ -13,7 +13,7 @@ from typing import Any, Dict, List
 
 
 def _euclidean_distance(p1: List[float], p2: List[float]) -> float:
-    return math.sqrt(sum((a - b) ** 2 for a, b in zip(p1, p2)))
+    return math.sqrt(sum((a - b) ** 2 for a, b in zip(p1, p2, strict=False)))
 
 
 def _centroid(cluster_points: List[List[float]]) -> List[float]:
@@ -85,18 +85,14 @@ def cluster_validation_analyzer(
         # b(i): min mean distances to other clusters
         b_i = float("inf")
         for other_cid, other_points in clusters.items():
-            if other_cid != cid:
-                if other_points:
-                    mean_dist = sum(
-                        _euclidean_distance(point, p) for p in other_points
-                    ) / len(other_points)
-                    b_i = min(b_i, mean_dist)
+            if other_cid != cid and other_points:
+                mean_dist = sum(
+                    _euclidean_distance(point, p) for p in other_points
+                ) / len(other_points)
+                b_i = min(b_i, mean_dist)
 
         # Silhouette for this point
-        if max(a_i, b_i) > 0:
-            s_i = (b_i - a_i) / max(a_i, b_i)
-        else:
-            s_i = 0
+        s_i = (b_i - a_i) / max(a_i, b_i) if max(a_i, b_i) > 0 else 0
         silhouettes.append(s_i)
 
     # Overall metrics
@@ -116,10 +112,7 @@ def cluster_validation_analyzer(
         for p in points:
             within_var += _euclidean_distance(p, centroids[cid]) ** 2
 
-    if within_var > 0:
-        ch_index = (between_var / within_var) * (n - k) / (k - 1)
-    else:
-        ch_index = 0
+    ch_index = between_var / within_var * (n - k) / (k - 1) if within_var > 0 else 0
 
     # Davies-Bouldin Index (avg similarity between clusters)
     db_index = 0

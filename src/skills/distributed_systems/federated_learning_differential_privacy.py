@@ -209,8 +209,8 @@ class FederatedClient:
         train_acc = 0.0
         total_samples = 0
         
-        for epoch in range(self.config.local_epochs):
-            for batch_idx, (data, target) in enumerate(self.train_loader):
+        for _epoch in range(self.config.local_epochs):
+            for _batch_idx, (data, target) in enumerate(self.train_loader):
                 self.optimizer.zero_grad()
                 output = self.local_model(data)
                 loss = self.criterion(output, target)
@@ -370,10 +370,10 @@ class SecureAggregator:
         total_weight = sum(weights)
         
         # Aggregate weighted updates
-        for name in updates[0].keys():
+        for name in updates[0]:
             aggregated_update[name] = torch.zeros_like(updates[0][name])
             
-            for update, weight in zip(updates, weights):
+            for update, weight in zip(updates, weights, strict=False):
                 aggregated_update[name] += update[name] * (weight / total_weight)
         
         logger.info(f"Secure aggregation completed for {len(updates)} clients")
@@ -586,10 +586,7 @@ def create_federated_learning_system(
     """
     try:
         # Create model
-        if model_architecture == "simple_cnn":
-            model = SimpleCNN()
-        else:
-            model = SimpleMLP()
+        model = SimpleCNN() if model_architecture == "simple_cnn" else SimpleMLP()
         
         # Create server
         server_config = ServerConfig(
@@ -637,7 +634,7 @@ class SimpleCNN(nn.Module):
     """Simple CNN for demonstration purposes."""
     
     def __init__(self):
-        super(SimpleCNN, self).__init__()
+        super().__init__()
         self.conv1 = nn.Conv2d(1, 32, 3, 1)
         self.conv2 = nn.Conv2d(32, 64, 3, 1)
         self.dropout1 = nn.Dropout(0.25)
@@ -664,7 +661,7 @@ class SimpleMLP(nn.Module):
     """Simple MLP for demonstration purposes."""
     
     def __init__(self, input_size=784, hidden_size=128, num_classes=10):
-        super(SimpleMLP, self).__init__()
+        super().__init__()
         self.fc1 = nn.Linear(input_size, hidden_size)
         self.fc2 = nn.Linear(hidden_size, hidden_size)
         self.fc3 = nn.Linear(hidden_size, num_classes)

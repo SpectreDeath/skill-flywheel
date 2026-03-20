@@ -8,7 +8,7 @@ from dataclasses import dataclass, field
 from datetime import datetime
 from enum import Enum
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Set
+from typing import Any, Dict, List, Set
 from unittest.mock import Mock
 
 logger = logging.getLogger(__name__)
@@ -37,7 +37,7 @@ class SkillMetadata:
     author: str
     status: SkillStatus = SkillStatus.INACTIVE
     is_loaded: bool = False
-    last_accessed: Optional[datetime] = None
+    last_accessed: datetime | None = None
     dependencies: List[str] = field(default_factory=list)
     execution_count: int = 0
     total_execution_time: float = 0.0
@@ -76,15 +76,12 @@ class DependencyGraph:
             visited.add(node)
             return False
         
-        for node in list(self.nodes.keys()):
-            if visit(node):
-                return True
-        return False
+        return any(visit(node) for node in list(self.nodes.keys()))
 
 class EnhancedSkillManager:
     """Enhanced skill management with parallel loading and ML optimization"""
     
-    def __init__(self, skills_dir: str = "skills", config: Optional[Dict[str, Any]] = None, 
+    def __init__(self, skills_dir: str = "skills", config: Dict[str, Any] | None = None, 
                  cache: Any = None, telemetry: Any = None, container_manager: Any = None, 
                  skill_registry: str = "skill_registry.json"):
         self.config = config or {"skills": {"lazy_loading": {"enabled": True}}}

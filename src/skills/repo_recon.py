@@ -160,7 +160,7 @@ def detect_tech_stack(repo_path: str) -> List[Dict[str, str]]:
         "Express": [("index.js", "Express"), ("app.js", "Express")],
     }
 
-    for framework, patterns in framework_patterns.items():
+    for _framework, patterns in framework_patterns.items():
         for filename, display_name in patterns:
             file_path = os.path.join(repo_path, filename)
             if os.path.exists(file_path):

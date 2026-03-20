@@ -12,7 +12,7 @@ This module provides dependency bundle analysis capabilities:
 import json
 import re
 from dataclasses import dataclass
-from typing import Dict, List, Optional
+from typing import Dict, List
 
 PACKAGE_SIZES = {
     "moment": {"size": "67KB", "category": "date"},
@@ -370,8 +370,8 @@ HEAVY_PACKAGES = {
 class DependencyInfo:
     name: str
     version: str
-    size: Optional[str] = None
-    category: Optional[str] = None
+    size: str | None = None
+    category: str | None = None
     is_heavy: bool = False
 
 
@@ -611,7 +611,7 @@ def _find_duplicates(dependencies: List[Dict]) -> List[Dict]:
                 {
                     "name": name,
                     "count": count,
-                    "versions": list(set(d["version"] for d in matching_deps)),
+                    "versions": list({d["version"] for d in matching_deps}),
                     "locations": [d.get("location", "unknown") for d in matching_deps],
                 }
             )

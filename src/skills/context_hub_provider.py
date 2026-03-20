@@ -21,7 +21,7 @@ import logging
 import shutil
 from dataclasses import dataclass
 from enum import Enum
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 logger = logging.getLogger(__name__)
 
@@ -49,9 +49,9 @@ class SearchResult:
     name: str
     description: str
     type: str  # "doc" or "skill"
-    source: Optional[str] = None
-    tags: Optional[List[str]] = None
-    languages: Optional[List[str]] = None
+    source: str | None = None
+    tags: List[str] | None = None
+    languages: List[str] | None = None
 
 @dataclass
 class DocumentContent:
@@ -59,10 +59,10 @@ class DocumentContent:
     id: str
     content: str
     path: str
-    language: Optional[str] = None
-    version: Optional[str] = None
-    additional_files: Optional[List[str]] = None
-    annotation: Optional[str] = None
+    language: str | None = None
+    version: str | None = None
+    additional_files: List[str] | None = None
+    annotation: str | None = None
 
 @dataclass
 class AnnotationResult:
@@ -70,7 +70,7 @@ class AnnotationResult:
     id: str
     success: bool
     message: str
-    annotation: Optional[str] = None
+    annotation: str | None = None
 
 class ContextHubProvider:
     """Main class for the context_hub_provider skill"""
@@ -138,7 +138,7 @@ class ContextHubProvider:
         except Exception as e:
             raise ChubError(f"Failed to execute chub command: {e}")
     
-    async def search(self, query: str = "", tags: Optional[List[str]] = None, 
+    async def search(self, query: str = "", tags: List[str] | None = None, 
                     limit: int = 20) -> List[SearchResult]:
         """
         Search for documentation and skills in the Context Hub
@@ -192,8 +192,8 @@ class ContextHubProvider:
             logger.error(f"Search failed: {e}")
             raise
     
-    async def get_doc(self, doc_id: str, language: Optional[str] = None, 
-                     version: Optional[str] = None) -> DocumentContent:
+    async def get_doc(self, doc_id: str, language: str | None = None, 
+                     version: str | None = None) -> DocumentContent:
         """
         Retrieve documentation content by ID
         
@@ -342,7 +342,7 @@ class ContextHubProvider:
 # Global instance
 _context_hub_provider = ContextHubProvider()
 
-async def search(query: str = "", tags: Optional[List[str]] = None, 
+async def search(query: str = "", tags: List[str] | None = None, 
                 limit: int = 20) -> List[Dict[str, Any]]:
     """
     Search for documentation and skills in the Context Hub
@@ -369,8 +369,8 @@ async def search(query: str = "", tags: Optional[List[str]] = None,
         for r in results
     ]
 
-async def get_doc(doc_id: str, language: Optional[str] = None, 
-                 version: Optional[str] = None) -> Dict[str, Any]:
+async def get_doc(doc_id: str, language: str | None = None, 
+                 version: str | None = None) -> Dict[str, Any]:
     """
     Retrieve documentation content by ID
     

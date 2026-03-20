@@ -16,7 +16,7 @@ import ast
 import re
 from collections import defaultdict
 from dataclasses import dataclass
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Tuple
 
 
 @dataclass
@@ -39,7 +39,7 @@ class PatternDetector(ast.NodeVisitor):
         self.imports: List[str] = []
         self.class_methods: Dict[str, List[str]] = defaultdict(list)
         self.class_bases: Dict[str, List[str]] = defaultdict(list)
-        self.current_class: Optional[str] = None
+        self.current_class: str | None = None
 
     def visit_ClassDef(self, node: ast.ClassDef):
         self.classes[node.name] = node
@@ -366,7 +366,7 @@ PATTERN_DEFINITIONS = {
 }
 
 
-def detect_singleton(code: str, detector: PatternDetector) -> Optional[PatternMatch]:
+def detect_singleton(code: str, detector: PatternDetector) -> PatternMatch | None:
     """Detect Singleton pattern"""
     matches = []
     lines = code.split("\n")
@@ -391,7 +391,7 @@ def detect_singleton(code: str, detector: PatternDetector) -> Optional[PatternMa
     return None
 
 
-def detect_factory(code: str, detector: PatternDetector) -> Optional[PatternMatch]:
+def detect_factory(code: str, detector: PatternDetector) -> PatternMatch | None:
     """Detect Factory pattern"""
     matches = []
     lines = code.split("\n")
@@ -428,7 +428,7 @@ def detect_factory(code: str, detector: PatternDetector) -> Optional[PatternMatc
 
 def detect_abstract_factory(
     code: str, detector: PatternDetector
-) -> Optional[PatternMatch]:
+) -> PatternMatch | None:
     """Detect Abstract Factory pattern"""
     matches = []
     lines = code.split("\n")
@@ -458,7 +458,7 @@ def detect_abstract_factory(
     return None
 
 
-def detect_builder(code: str, detector: PatternDetector) -> Optional[PatternMatch]:
+def detect_builder(code: str, detector: PatternDetector) -> PatternMatch | None:
     """Detect Builder pattern"""
     matches = []
     lines = code.split("\n")
@@ -495,7 +495,7 @@ def detect_builder(code: str, detector: PatternDetector) -> Optional[PatternMatc
     return None
 
 
-def detect_prototype(code: str, detector: PatternDetector) -> Optional[PatternMatch]:
+def detect_prototype(code: str, detector: PatternDetector) -> PatternMatch | None:
     """Detect Prototype pattern"""
     matches = []
     lines = code.split("\n")
@@ -523,7 +523,7 @@ def detect_prototype(code: str, detector: PatternDetector) -> Optional[PatternMa
     return None
 
 
-def detect_adapter(code: str, detector: PatternDetector) -> Optional[PatternMatch]:
+def detect_adapter(code: str, detector: PatternDetector) -> PatternMatch | None:
     """Detect Adapter pattern"""
     matches = []
     lines = code.split("\n")
@@ -558,10 +558,10 @@ def detect_adapter(code: str, detector: PatternDetector) -> Optional[PatternMatc
     return None
 
 
-def detect_bridge(code: str, detector: PatternDetector) -> Optional[PatternMatch]:
+def detect_bridge(code: str, detector: PatternDetector) -> PatternMatch | None:
     """Detect Bridge pattern"""
     matches = []
-    lines = code.split("\n")
+    code.split("\n")
 
     has_abstraction = False
     has_implementor = False
@@ -584,7 +584,7 @@ def detect_bridge(code: str, detector: PatternDetector) -> Optional[PatternMatch
     return None
 
 
-def detect_composite(code: str, detector: PatternDetector) -> Optional[PatternMatch]:
+def detect_composite(code: str, detector: PatternDetector) -> PatternMatch | None:
     """Detect Composite pattern"""
     matches = []
     lines = code.split("\n")
@@ -621,7 +621,7 @@ def detect_composite(code: str, detector: PatternDetector) -> Optional[PatternMa
 
 def detect_decorator_pattern(
     code: str, detector: PatternDetector
-) -> Optional[PatternMatch]:
+) -> PatternMatch | None:
     """Detect Decorator pattern"""
     matches = []
     lines = code.split("\n")
@@ -656,7 +656,7 @@ def detect_decorator_pattern(
     return None
 
 
-def detect_facade(code: str, detector: PatternDetector) -> Optional[PatternMatch]:
+def detect_facade(code: str, detector: PatternDetector) -> PatternMatch | None:
     """Detect Facade pattern"""
     matches = []
     lines = code.split("\n")
@@ -682,7 +682,7 @@ def detect_facade(code: str, detector: PatternDetector) -> Optional[PatternMatch
     return None
 
 
-def detect_flyweight(code: str, detector: PatternDetector) -> Optional[PatternMatch]:
+def detect_flyweight(code: str, detector: PatternDetector) -> PatternMatch | None:
     """Detect Flyweight pattern"""
     matches = []
     lines = code.split("\n")
@@ -719,7 +719,7 @@ def detect_flyweight(code: str, detector: PatternDetector) -> Optional[PatternMa
     return None
 
 
-def detect_proxy(code: str, detector: PatternDetector) -> Optional[PatternMatch]:
+def detect_proxy(code: str, detector: PatternDetector) -> PatternMatch | None:
     """Detect Proxy pattern"""
     matches = []
     lines = code.split("\n")
@@ -758,7 +758,7 @@ def detect_proxy(code: str, detector: PatternDetector) -> Optional[PatternMatch]
 
 def detect_chain_of_responsibility(
     code: str, detector: PatternDetector
-) -> Optional[PatternMatch]:
+) -> PatternMatch | None:
     """Detect Chain of Responsibility pattern"""
     matches = []
     lines = code.split("\n")
@@ -797,7 +797,7 @@ def detect_chain_of_responsibility(
     return None
 
 
-def detect_command(code: str, detector: PatternDetector) -> Optional[PatternMatch]:
+def detect_command(code: str, detector: PatternDetector) -> PatternMatch | None:
     """Detect Command pattern"""
     matches = []
     lines = code.split("\n")
@@ -832,7 +832,7 @@ def detect_command(code: str, detector: PatternDetector) -> Optional[PatternMatc
     return None
 
 
-def detect_iterator(code: str, detector: PatternDetector) -> Optional[PatternMatch]:
+def detect_iterator(code: str, detector: PatternDetector) -> PatternMatch | None:
     """Detect Iterator pattern"""
     matches = []
     lines = code.split("\n")
@@ -860,7 +860,7 @@ def detect_iterator(code: str, detector: PatternDetector) -> Optional[PatternMat
     return None
 
 
-def detect_mediator(code: str, detector: PatternDetector) -> Optional[PatternMatch]:
+def detect_mediator(code: str, detector: PatternDetector) -> PatternMatch | None:
     """Detect Mediator pattern"""
     matches = []
     lines = code.split("\n")
@@ -895,7 +895,7 @@ def detect_mediator(code: str, detector: PatternDetector) -> Optional[PatternMat
     return None
 
 
-def detect_memento(code: str, detector: PatternDetector) -> Optional[PatternMatch]:
+def detect_memento(code: str, detector: PatternDetector) -> PatternMatch | None:
     """Detect Memento pattern"""
     matches = []
     lines = code.split("\n")
@@ -932,7 +932,7 @@ def detect_memento(code: str, detector: PatternDetector) -> Optional[PatternMatc
     return None
 
 
-def detect_observer(code: str, detector: PatternDetector) -> Optional[PatternMatch]:
+def detect_observer(code: str, detector: PatternDetector) -> PatternMatch | None:
     """Detect Observer pattern"""
     matches = []
     lines = code.split("\n")
@@ -973,7 +973,7 @@ def detect_observer(code: str, detector: PatternDetector) -> Optional[PatternMat
     return None
 
 
-def detect_state(code: str, detector: PatternDetector) -> Optional[PatternMatch]:
+def detect_state(code: str, detector: PatternDetector) -> PatternMatch | None:
     """Detect State pattern"""
     matches = []
     lines = code.split("\n")
@@ -1008,7 +1008,7 @@ def detect_state(code: str, detector: PatternDetector) -> Optional[PatternMatch]
     return None
 
 
-def detect_strategy(code: str, detector: PatternDetector) -> Optional[PatternMatch]:
+def detect_strategy(code: str, detector: PatternDetector) -> PatternMatch | None:
     """Detect Strategy pattern"""
     matches = []
     lines = code.split("\n")
@@ -1047,7 +1047,7 @@ def detect_strategy(code: str, detector: PatternDetector) -> Optional[PatternMat
 
 def detect_template_method(
     code: str, detector: PatternDetector
-) -> Optional[PatternMatch]:
+) -> PatternMatch | None:
     """Detect Template Method pattern"""
     matches = []
     lines = code.split("\n")
@@ -1084,7 +1084,7 @@ def detect_template_method(
     return None
 
 
-def detect_visitor(code: str, detector: PatternDetector) -> Optional[PatternMatch]:
+def detect_visitor(code: str, detector: PatternDetector) -> PatternMatch | None:
     """Detect Visitor pattern"""
     matches = []
     lines = code.split("\n")

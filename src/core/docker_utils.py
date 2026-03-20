@@ -1,6 +1,6 @@
 import asyncio
 import logging
-from typing import Any, Dict, Optional
+from typing import Any, Dict
 
 import docker
 from docker.errors import APIError, NotFound
@@ -10,7 +10,7 @@ logger = logging.getLogger(__name__)
 class DockerUtils:
     """Consolidated Docker infrastructure management utilities."""
     
-    def __init__(self, docker_client: Optional[docker.DockerClient] = None):
+    def __init__(self, docker_client: docker.DockerClient | None = None):
         try:
             self.client = docker_client or docker.from_env()
         except Exception as e:

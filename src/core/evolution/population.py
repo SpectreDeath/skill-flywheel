@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import pickle
-from typing import Any, Dict, Optional
+from typing import Any, Dict
 
 from darwinian_evolver.population import (
     WeightedSamplingPopulation as BaseWeightedPopulation,
@@ -18,7 +18,7 @@ class SkillPopulation(BaseWeightedPopulation):
         self,
         initial_genome: SkillGenome,
         initial_fitness: SkillFitnessResult,
-        config: Optional[EvolutionConfig] = None,
+        config: EvolutionConfig | None = None,
     ):
         self.config = config or EvolutionConfig()
 
@@ -33,7 +33,7 @@ class SkillPopulation(BaseWeightedPopulation):
 
     @classmethod
     def from_snapshot(
-        cls, snapshot: bytes, config: Optional[EvolutionConfig] = None
+        cls, snapshot: bytes, config: EvolutionConfig | None = None
     ) -> SkillPopulation:
         """Restore population from snapshot."""
         population = super().from_snapshot(snapshot)

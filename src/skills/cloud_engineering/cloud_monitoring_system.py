@@ -13,7 +13,7 @@ import uuid
 from dataclasses import dataclass
 from datetime import datetime
 from enum import Enum
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 logger = logging.getLogger(__name__)
 
@@ -74,7 +74,7 @@ class Alert:
     status: AlertStatus
     message: str
     triggered_at: float
-    resolved_at: Optional[float]
+    resolved_at: float | None
     tags: Dict[str, str]
     value: float
 
@@ -129,7 +129,7 @@ class CloudMonitoringSystem:
                      name: str,
                      value: float,
                      metric_type: MetricType = MetricType.GAUGE,
-                     tags: Optional[Dict[str, str]] = None,
+                     tags: Dict[str, str] | None = None,
                      unit: str = "",
                      source: str = "unknown") -> str:
         """
@@ -225,7 +225,7 @@ class CloudMonitoringSystem:
                         name: str,
                         description: str,
                         widgets: List[Dict[str, Any]],
-                        tags: Optional[List[str]] = None) -> str:
+                        tags: List[str] | None = None) -> str:
         """
         Create a dashboard
         
@@ -257,8 +257,8 @@ class CloudMonitoringSystem:
     
     def get_metric_data(self, 
                        metric_name: str,
-                       start_time: Optional[float] = None,
-                       end_time: Optional[float] = None,
+                       start_time: float | None = None,
+                       end_time: float | None = None,
                        limit: int = 1000) -> List[Dict[str, Any]]:
         """
         Get metric data
@@ -361,7 +361,7 @@ class CloudMonitoringSystem:
             for alert in self.active_alerts.values()
         ]
     
-    def get_dashboard_data(self, dashboard_id: str) -> Optional[Dict[str, Any]]:
+    def get_dashboard_data(self, dashboard_id: str) -> Dict[str, Any] | None:
         """Get dashboard data"""
         if dashboard_id not in self.dashboards:
             return None

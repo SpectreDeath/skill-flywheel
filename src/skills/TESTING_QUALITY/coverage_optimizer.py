@@ -11,7 +11,7 @@ Suggests tests to maximize code coverage by:
 
 import ast
 from dataclasses import dataclass
-from typing import Any, List, Optional, Set
+from typing import Any, List, Set
 
 
 @dataclass
@@ -33,8 +33,8 @@ class GapInfo:
     line: int
     code: str
     context: str
-    branch_condition: Optional[str] = None
-    uncovered_values: Optional[List[Any]] = None
+    branch_condition: str | None = None
+    uncovered_values: List[Any] | None = None
     priority: str = "medium"
     impact_score: float = 0.0
 
@@ -156,7 +156,7 @@ def _analyze_function_coverage(
     """Analyze coverage for a single function."""
     gaps = []
     func_name = node.name
-    func_lines = range(node.lineno, node.end_lineno + 1)
+    range(node.lineno, node.end_lineno + 1)
 
     for child in ast.walk(node):
         if isinstance(child, ast.If):
@@ -175,7 +175,7 @@ def _analyze_function_coverage(
                     )
                 )
 
-        elif isinstance(child, ast.For) or isinstance(child, ast.While):
+        elif isinstance(child, (ast.For, ast.While)):
             if child.lineno in uncovered_lines:
                 gaps.append(
                     GapInfo(
@@ -205,19 +205,18 @@ def _analyze_function_coverage(
                         )
                     )
 
-        elif isinstance(child, ast.BoolOp):
-            if child.lineno in uncovered_lines:
-                gaps.append(
-                    GapInfo(
-                        gap_type="boolean",
-                        line=child.lineno,
-                        code=_get_line_code(source_code, child.lineno),
-                        context=f"in function {func_name}",
-                        branch_condition=ast.unparse(child),
-                        priority="medium",
-                        impact_score=0.4,
-                    )
+        elif isinstance(child, ast.BoolOp) and child.lineno in uncovered_lines:
+            gaps.append(
+                GapInfo(
+                    gap_type="boolean",
+                    line=child.lineno,
+                    code=_get_line_code(source_code, child.lineno),
+                    context=f"in function {func_name}",
+                    branch_condition=ast.unparse(child),
+                    priority="medium",
+                    impact_score=0.4,
                 )
+            )
 
     return gaps
 
@@ -380,9 +379,8 @@ def prioritize_by_impact(
 
         suggestion["priority_score"] = priority_score * impact
 
-        if gap > 20:
-            if suggestion["type"] in ["branch", "exception"]:
-                suggestion["priority_score"] *= 1.5
+        if gap > 20 and suggestion["type"] in ["branch", "exception"]:
+            suggestion["priority_score"] *= 1.5
 
     return sorted(suggestions, key=lambda x: x.get("priority_score", 0), reverse=True)
 
@@ -409,8 +407,8 @@ def _generate_single_stub(
     suggestion: dict, functions: dict, test_framework: str
 ) -> dict:
     """Generate a single test stub."""
-    test_type = suggestion.get("type", "line")
-    line = suggestion.get("line", 0)
+    suggestion.get("type", "line")
+    suggestion.get("line", 0)
 
     if test_framework == "pytest":
         return _generate_pytest_stub(suggestion, functions)

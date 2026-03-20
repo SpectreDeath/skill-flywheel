@@ -78,7 +78,7 @@ class K8sValidator:
     def validate_resources(self):
         for resource in self.resources:
             kind = resource.get("kind", "")
-            name = resource.get("metadata", {}).get("name", "unnamed")
+            resource.get("metadata", {}).get("name", "unnamed")
 
             if kind == "Deployment":
                 self._validate_deployment(resource)
@@ -96,7 +96,7 @@ class K8sValidator:
                 self._validate_pvc(resource)
             elif kind == "ServiceAccount":
                 self._validate_serviceaccount(resource)
-            elif kind == "Role" or kind == "ClusterRole":
+            elif kind in {"Role", "ClusterRole"}:
                 self._validate_rbac(resource)
             elif kind == "NetworkPolicy":
                 self._validate_networkpolicy(resource)
@@ -285,7 +285,7 @@ class K8sValidator:
 
         if limits:
             memory = limits.get("memory", "")
-            cpu = limits.get("cpu", "")
+            limits.get("cpu", "")
 
             if memory and not self._is_valid_memory(memory):
                 self.issues.append(
@@ -386,7 +386,7 @@ class K8sValidator:
         strategy_type = strategy.get("type", "RollingUpdate")
         if strategy_type == "RollingUpdate":
             rolling = strategy.get("rollingUpdate", {})
-            max_surge = rolling.get("maxSurge", "25%")
+            rolling.get("maxSurge", "25%")
             max_unavailable = rolling.get("maxUnavailable", "25%")
 
             if max_unavailable == "25%" and self.strictness == StrictnessLevel.STRICT:
@@ -408,19 +408,18 @@ class K8sValidator:
 
         service_type = spec.get("type", "ClusterIP")
 
-        if service_type == "LoadBalancer":
-            if not spec.get("selector"):
-                self.issues.append(
-                    K8sIssue(
-                        severity=IssueSeverity.CRITICAL,
-                        category="configuration",
-                        resource_kind="Service",
-                        resource_name=name,
-                        description="LoadBalancer service has no selector",
-                        field_path="spec.selector",
-                        suggestion="Add a selector to target pods",
-                    )
+        if service_type == "LoadBalancer" and not spec.get("selector"):
+            self.issues.append(
+                K8sIssue(
+                    severity=IssueSeverity.CRITICAL,
+                    category="configuration",
+                    resource_kind="Service",
+                    resource_name=name,
+                    description="LoadBalancer service has no selector",
+                    field_path="spec.selector",
+                    suggestion="Add a selector to target pods",
                 )
+            )
 
         if not spec.get("selector") and service_type != "ExternalName":
             self.issues.append(
@@ -691,7 +690,7 @@ class K8sValidator:
 
         for resource in self.resources:
             kind = resource.get("kind", "")
-            name = resource.get("metadata", {}).get("name", "unnamed")
+            resource.get("metadata", {}).get("name", "unnamed")
 
             if kind == "Deployment":
                 spec = resource.get("spec", {})

@@ -15,7 +15,7 @@ from collections import defaultdict
 from dataclasses import dataclass
 from datetime import datetime
 from enum import Enum
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 logger = logging.getLogger(__name__)
 
@@ -58,7 +58,7 @@ class ServiceInstance:
     weight: int
     metadata: Dict[str, Any]
     last_health_check: float
-    health_check_url: Optional[str]
+    health_check_url: str | None
     connections: int
     response_time: float
     created_at: float
@@ -224,8 +224,8 @@ class MicroservicesOrchestrator:
                          host: str,
                          port: int,
                          weight: int = 1,
-                         metadata: Optional[Dict[str, Any]] = None,
-                         health_check_url: Optional[str] = None) -> str:
+                         metadata: Dict[str, Any] | None = None,
+                         health_check_url: str | None = None) -> str:
         """
         Register a service instance
         
@@ -272,7 +272,7 @@ class MicroservicesOrchestrator:
                       target_service: str,
                       dependency_type: str = "sync",
                       timeout: int = 30,
-                      retry_policy: Optional[Dict[str, Any]] = None) -> str:
+                      retry_policy: Dict[str, Any] | None = None) -> str:
         """
         Add a service dependency
         
@@ -305,7 +305,7 @@ class MicroservicesOrchestrator:
     def create_service_mesh(self,
                            name: str,
                            services: List[str],
-                           policies: Optional[Dict[str, Any]] = None) -> str:
+                           policies: Dict[str, Any] | None = None) -> str:
         """
         Create a service mesh
         
@@ -331,7 +331,7 @@ class MicroservicesOrchestrator:
         self.logger.info(f"Created service mesh: {mesh_id} ({name})")
         return mesh_id
     
-    def get_service_instance(self, service_id: str) -> Optional[ServiceInstance]:
+    def get_service_instance(self, service_id: str) -> ServiceInstance | None:
         """
         Get a service instance using load balancing
         
@@ -539,7 +539,7 @@ class MicroservicesOrchestrator:
         """Perform health checks on all instances"""
         current_time = time.time()
         
-        for instance_id, instance in self.service_instances.items():
+        for _instance_id, instance in self.service_instances.items():
             # Check if health check is due
             if current_time - instance.last_health_check >= instance.service.health_check_interval:
                 await self._health_check_instance(instance)

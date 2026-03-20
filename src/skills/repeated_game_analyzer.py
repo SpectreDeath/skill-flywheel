@@ -9,7 +9,7 @@ Analyzes repeated/iterated strategic interactions:
 - Collusion in oligopoly
 """
 
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 
 def repeated_game_analyzer(
@@ -17,7 +17,7 @@ def repeated_game_analyzer(
     players: List[str],
     horizon: int,
     discount_factor: float = 0.9,
-    strategies: Optional[Dict[str, str]] = None,
+    strategies: Dict[str, str] | None = None,
     **kwargs,
 ) -> Dict[str, Any]:
     """
@@ -37,22 +37,22 @@ def repeated_game_analyzer(
 
     base_game = base_game.lower().replace("-", "_").replace(" ", "_")
 
-    if base_game == "prisoner" or base_game == "prisoners_dilemma":
+    if base_game in {"prisoner", "prisoners_dilemma"}:
         return _analyze_repeated_prisoners(
             players, horizon, discount_factor, strategies
         )
-    elif base_game == "oligopoly" or base_game == "cournot":
+    elif base_game in {"oligopoly", "cournot"}:
         return _analyze_repeated_oligopoly(players, horizon, discount_factor)
     elif base_game == "coordination":
         return _analyze_repeated_coordination(players, horizon, discount_factor)
-    elif base_game == "chicken" or base_game == "hawk_dove":
+    elif base_game in {"chicken", "hawk_dove"}:
         return _analyze_repeated_chicken(players, horizon, discount_factor)
     else:
         return {"status": "error", "error": f"Unknown base game: {base_game}"}
 
 
 def _analyze_repeated_prisoners(
-    players: List[str], horizon: int, discount: float, strategies: Optional[Dict]
+    players: List[str], horizon: int, discount: float, strategies: Dict | None
 ) -> Dict[str, Any]:
     """Analyze repeated prisoner's dilemma"""
 
@@ -225,7 +225,7 @@ def _analyze_repeated_chicken(
 
 def invoke(payload: dict) -> dict:
     """MCP skill invocation"""
-    action = payload.get("action", "analyze")
+    payload.get("action", "analyze")
     base_game = payload.get("base_game", "prisoner")
     players = payload.get("players", ["player1", "player2"])
     horizon = payload.get("horizon", 10)

@@ -16,7 +16,7 @@ import json
 import re
 from dataclasses import dataclass
 from enum import Enum
-from typing import Dict, List, Optional
+from typing import Dict, List
 
 from packaging import version as pkg_version
 
@@ -34,7 +34,7 @@ class CVE:
     cve_id: str
     package_name: str
     affected_versions: str
-    fixed_version: Optional[str]
+    fixed_version: str | None
     severity: Severity
     cvss_score: float
     description: str
@@ -400,7 +400,7 @@ def cve_prioritizer(dependencies: str, options: dict = None) -> dict:
     if options is None:
         options = {}
 
-    include_dev = options.get("include_dev_deps", False)
+    options.get("include_dev_deps", False)
     severity_threshold = options.get("severity_threshold", "Low")
 
     severity_levels = {"None": 0, "Low": 1, "Medium": 2, "High": 3, "Critical": 4}

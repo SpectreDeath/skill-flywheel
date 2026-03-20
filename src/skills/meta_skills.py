@@ -9,7 +9,7 @@ This module provides meta-skills for creating and improving other skills:
 import os
 import re
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 SKILL_TEMPLATE = """---
 Domain: {domain}
@@ -298,7 +298,7 @@ def skill_drafting(
 
 
 def skill_critiquing(
-    skill_path: str, focus_areas: Optional[List[str]] = None, **kwargs
+    skill_path: str, focus_areas: List[str] | None = None, **kwargs
 ) -> Dict[str, Any]:
     """
     Review and refine existing skills.
@@ -431,7 +431,7 @@ def _generate_skill_name(intent: str) -> str:
     return name
 
 
-def _find_skill_file(skill_name: str) -> Optional[str]:
+def _find_skill_file(skill_name: str) -> str | None:
     base_dir = Path("domains")
     if not base_dir.exists():
         base_dir = Path(".")

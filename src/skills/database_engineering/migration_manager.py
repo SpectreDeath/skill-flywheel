@@ -15,7 +15,7 @@ import uuid
 from dataclasses import asdict, dataclass
 from datetime import datetime
 from enum import Enum
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 logger = logging.getLogger(__name__)
 
@@ -57,9 +57,9 @@ class Migration:
     checksum: str
     dependencies: List[str]
     created_at: float
-    executed_at: Optional[float]
+    executed_at: float | None
     status: MigrationStatus
-    error_message: Optional[str]
+    error_message: str | None
 
 @dataclass
 class MigrationPlan:
@@ -129,7 +129,7 @@ class MigrationManager:
                         migration_type: MigrationType,
                         up_sql: str,
                         down_sql: str,
-                        dependencies: Optional[List[str]] = None) -> str:
+                        dependencies: List[str] | None = None) -> str:
         """
         Create a new migration
         

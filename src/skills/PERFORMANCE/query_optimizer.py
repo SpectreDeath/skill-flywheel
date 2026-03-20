@@ -13,7 +13,7 @@ import json
 import re
 from dataclasses import dataclass
 from enum import Enum
-from typing import Dict, List, Optional
+from typing import Dict, List
 
 
 class DatabaseType(Enum):
@@ -32,7 +32,7 @@ class QueryComponents:
     order_by: List[str]
     group_by: List[str]
     having: List[str]
-    limit_value: Optional[int]
+    limit_value: int | None
     subqueries: List[str]
     indexes_used: List[str]
 
@@ -312,7 +312,7 @@ def _extract_having(query: str) -> List[str]:
     return having
 
 
-def _extract_limit(query: str) -> Optional[int]:
+def _extract_limit(query: str) -> int | None:
     limit_pattern = r"LIMIT\s+(\d+)"
     match = re.search(limit_pattern, query, re.IGNORECASE)
     if match:
@@ -529,7 +529,7 @@ def _detect_missing_indexes(components: QueryComponents, options: dict) -> List[
                 }
             )
 
-    for i, clause in enumerate(components.where_clauses):
+    for _i, clause in enumerate(components.where_clauses):
         col_match = re.match(r"^(\w+)", clause.strip())
         if col_match:
             col = col_match.group(1)
@@ -676,7 +676,7 @@ def _generate_suggestions(
 
     if "N+1 Query" in issue_categories:
         if len(components.tables) > 1 and not components.joins:
-            tables_str = ", ".join(components.tables)
+            ", ".join(components.tables)
             suggestions.append(
                 {
                     "priority": "high",

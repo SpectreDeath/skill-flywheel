@@ -13,7 +13,7 @@ import uuid
 from dataclasses import dataclass
 from datetime import datetime
 from enum import Enum
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 logger = logging.getLogger(__name__)
 
@@ -57,11 +57,11 @@ class DatabaseField:
     field_id: str
     name: str
     data_type: str
-    length: Optional[int]
-    precision: Optional[int]
-    scale: Optional[int]
+    length: int | None
+    precision: int | None
+    scale: int | None
     nullable: bool
-    default_value: Optional[str]
+    default_value: str | None
     auto_increment: bool
     description: str
     created_at: float
@@ -109,8 +109,8 @@ class QueryPlan:
     plan_id: str
     query: str
     estimated_cost: float
-    actual_cost: Optional[float]
-    execution_time: Optional[float]
+    actual_cost: float | None
+    execution_time: float | None
     indexes_used: List[str]
     bottlenecks: List[str]
     recommendations: List[str]
@@ -858,7 +858,7 @@ class DatabaseSchemaDesigner:
     
     def _calculate_improvement(self, plan: Dict[str, Any], optimizations: List[str]) -> str:
         """Calculate estimated improvement from optimizations"""
-        base_cost = plan.get("estimated_cost", 100)
+        plan.get("estimated_cost", 100)
         improvement_factor = len(optimizations) * 0.1  # 10% improvement per optimization
         
         estimated_improvement = min(improvement_factor, 0.8)  # Max 80% improvement
@@ -888,7 +888,7 @@ class DatabaseSchemaDesigner:
         
         return f"CREATE TABLE {table.name} (\n  " + ",\n  ".join(field_defs) + "\n);"
     
-    def _map_data_type(self, data_type: str, db_type: DatabaseType, length: Optional[int]) -> str:
+    def _map_data_type(self, data_type: str, db_type: DatabaseType, length: int | None) -> str:
         """Map generic data types to database-specific types"""
         if db_type == DatabaseType.POSTGRESQL:
             type_mapping = {

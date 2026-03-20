@@ -7,7 +7,7 @@ architecture patterns for modern frontend development.
 """
 
 import logging
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -16,7 +16,7 @@ logger = logging.getLogger(__name__)
 class FrontendDevelopmentSkill:
     """Frontend Development skill implementation."""
     
-    def __init__(self, config: Optional[Dict] = None):
+    def __init__(self, config: Dict | None = None):
         """
         Initialize the Frontend Development skill.
         

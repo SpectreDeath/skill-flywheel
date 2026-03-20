@@ -10,11 +10,11 @@ import logging
 import time
 import uuid
 from collections import defaultdict, deque
+from collections.abc import Callable
 from dataclasses import dataclass
 from datetime import datetime
 from enum import Enum
-from typing import Any, Dict, List, Optional
-from collections.abc import Callable
+from typing import Any, Dict, List
 
 logger = logging.getLogger(__name__)
 
@@ -73,10 +73,10 @@ class TaskExecution:
     task_id: str
     status: TaskStatus
     started_at: float
-    completed_at: Optional[float]
+    completed_at: float | None
     duration: float
-    result: Optional[Any]
-    error_message: Optional[str]
+    result: Any | None
+    error_message: str | None
     retry_attempt: int
     created_at: float
 
@@ -101,14 +101,14 @@ class WorkflowExecution:
     workflow_id: str
     status: WorkflowStatus
     started_at: float
-    completed_at: Optional[float]
+    completed_at: float | None
     duration: float
     tasks_executed: int
     tasks_completed: int
     tasks_failed: int
     tasks_cancelled: int
-    result: Optional[Any]
-    error_message: Optional[str]
+    result: Any | None
+    error_message: str | None
     created_at: float
 
 @dataclass
@@ -182,7 +182,7 @@ class WorkflowOrchestrator:
                        exit_points: List[str],
                        parallelism: int = 1,
                        timeout: int = 3600,
-                       retry_policy: Optional[Dict[str, Any]] = None) -> str:
+                       retry_policy: Dict[str, Any] | None = None) -> str:
         """
         Create a workflow definition
         
@@ -251,7 +251,7 @@ class WorkflowOrchestrator:
     
     async def execute_workflow(self,
                               workflow_id: str,
-                              context: Optional[Dict[str, Any]] = None) -> str:
+                              context: Dict[str, Any] | None = None) -> str:
         """
         Execute a workflow
         
@@ -298,7 +298,7 @@ class WorkflowOrchestrator:
         self.logger.info(f"Started workflow execution: {execution_id}")
         return execution_id
     
-    def get_workflow_status(self, execution_id: str) -> Optional[Dict[str, Any]]:
+    def get_workflow_status(self, execution_id: str) -> Dict[str, Any] | None:
         """Get workflow execution status"""
         if execution_id not in self.workflow_executions:
             return None
@@ -319,7 +319,7 @@ class WorkflowOrchestrator:
             "progress": execution.tasks_completed / len(self.workflows[execution.workflow_id].tasks) if execution.workflow_id in self.workflows else 0
         }
     
-    def get_task_status(self, execution_id: str, task_id: str) -> Optional[Dict[str, Any]]:
+    def get_task_status(self, execution_id: str, task_id: str) -> Dict[str, Any] | None:
         """Get task execution status"""
         # Find task execution for this workflow execution
         for exec_id, task_exec in self.task_executions.items():
@@ -353,7 +353,7 @@ class WorkflowOrchestrator:
             "registered_functions": len(self.task_registry)
         }
     
-    async def _execute_workflow_async(self, execution_id: str, workflow: Workflow, context: Optional[Dict[str, Any]]):
+    async def _execute_workflow_async(self, execution_id: str, workflow: Workflow, context: Dict[str, Any] | None):
         """Execute workflow asynchronously"""
         execution = self.workflow_executions[execution_id]
         execution.status = WorkflowStatus.RUNNING
@@ -405,7 +405,7 @@ class WorkflowOrchestrator:
     async def _execute_execution_graph(self,
                                      execution: WorkflowExecution,
                                      graph: Dict[str, List[str]],
-                                     context: Optional[Dict[str, Any]]):
+                                     context: Dict[str, Any] | None):
         """Execute workflow execution graph"""
         # Track task dependencies
         dependency_count = defaultdict(int)
@@ -432,7 +432,7 @@ class WorkflowOrchestrator:
             results = await asyncio.gather(*task_coroutines, return_exceptions=True)
             
             # Update dependency counts and add new ready tasks
-            for i, result in enumerate(results):
+            for _i, result in enumerate(results):
                 if isinstance(result, Exception):
                     # Task failed
                     execution.tasks_failed += 1
@@ -455,7 +455,7 @@ class WorkflowOrchestrator:
     async def _execute_task(self,
                            execution: WorkflowExecution,
                            task_id: str,
-                           context: Optional[Dict[str, Any]]) -> str:
+                           context: Dict[str, Any] | None) -> str:
         """Execute a single task"""
         task = self.tasks[task_id]
         
@@ -825,7 +825,7 @@ async def example_usage():
     
     # Monitor workflow execution
     import time as t
-    for i in range(10):
+    for _i in range(10):
         status = await invoke({
             "action": "get_status",
             "execution_id": execution_id['result']['execution_id']

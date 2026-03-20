@@ -6,7 +6,7 @@ import importlib.util
 import logging
 import time
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Type
+from typing import Any, Dict, List, Type
 
 from .evaluator import SkillExecutor
 
@@ -55,8 +55,8 @@ class ExecutionResult:
         output: Any,
         skill_name: str,
         execution_time_ms: float,
-        error: Optional[str] = None,
-        parameters_used: Optional[Dict[str, Any]] = None,
+        error: str | None = None,
+        parameters_used: Dict[str, Any] | None = None,
     ):
         self.success = success
         self.output = output
@@ -80,7 +80,7 @@ class ExecutionResult:
 class SkillLoader:
     """Loads skills from the skills directory with caching."""
 
-    def __init__(self, skills_dir: Optional[Path] = None):
+    def __init__(self, skills_dir: Path | None = None):
         if skills_dir is None:
             skills_dir = Path(__file__).parent.parent.parent / "skills"
         self.skills_dir = Path(skills_dir)
@@ -107,7 +107,7 @@ class SkillLoader:
 
         return skill_names
 
-    def _get_module_name_from_path(self, file_path: Path) -> Optional[str]:
+    def _get_module_name_from_path(self, file_path: Path) -> str | None:
         """Convert file path to skill module name."""
         try:
             rel_path = file_path.relative_to(self.skills_dir)
@@ -222,8 +222,8 @@ class RealSkillExecutor(SkillExecutor):
 
     def __init__(
         self,
-        skill_loader: Optional[SkillLoader] = None,
-        skills_dir: Optional[Path] = None,
+        skill_loader: SkillLoader | None = None,
+        skills_dir: Path | None = None,
         default_timeout_ms: float = 30000,
     ):
         self.skill_loader = skill_loader or SkillLoader(skills_dir)
@@ -354,7 +354,7 @@ class RealSkillExecutor(SkillExecutor):
         """List all available skill names."""
         return self.skill_loader.discover_skills()
 
-    def get_skill_info(self, skill_name: str) -> Optional[SkillMetadata]:
+    def get_skill_info(self, skill_name: str) -> SkillMetadata | None:
         """Get metadata for a skill."""
         try:
             return self.skill_loader.get_skill_metadata(skill_name)
@@ -363,7 +363,7 @@ class RealSkillExecutor(SkillExecutor):
 
 
 def create_real_executor(
-    skills_dir: Optional[Path] = None, default_timeout_ms: float = 30000
+    skills_dir: Path | None = None, default_timeout_ms: float = 30000
 ) -> RealSkillExecutor:
     """Factory function to create a RealSkillExecutor with default settings."""
     return RealSkillExecutor(

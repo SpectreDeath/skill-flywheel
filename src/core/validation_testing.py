@@ -799,7 +799,7 @@ class TestSkill(unittest.TestCase):
             errors = []
             
             if test_cases:
-                for test_case in test_cases:
+                for _test_case in test_cases:
                     try:
                         # This would execute the actual test case
                         # For now, simulate

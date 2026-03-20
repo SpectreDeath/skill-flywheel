@@ -132,7 +132,7 @@ def midnight_audit() -> Dict[str, Any]:
     current_hour = datetime.now().hour
 
     audit_types = ["full", "random", "targeted"]
-    audit_type = random.choice(audit_types)
+    random.choice(audit_types)
 
     if current_hour >= 2 and current_hour <= 4:
         audit_result = "midnight_audit"
@@ -156,7 +156,7 @@ def darwinian_evolution(code: str) -> Dict[str, Any]:
     survival_rate = 0.7
 
     violations = detect_violations(code, [])
-    non_compliant_count = len(
+    len(
         [v for v in violations if v["severity"] in ["critical", "high"]]
     )
 
@@ -224,7 +224,7 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
     try:
         if action == "enforce":
-            spec_data = payload.get("specification_context", {})
+            payload.get("specification_context", {})
             code = payload.get("code", "")
 
             violations = detect_violations(code, [])

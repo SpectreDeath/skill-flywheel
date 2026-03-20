@@ -20,7 +20,7 @@ import json
 import logging
 from dataclasses import asdict, dataclass
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 import psutil
 
@@ -53,11 +53,11 @@ class GoOptimizationRecommendation:
 class GoPerformanceTuner:
     """Tuner for Go application performance optimization"""
     
-    def __init__(self, go_process: Optional[psutil.Process] = None):
+    def __init__(self, go_process: psutil.Process | None = None):
         self.go_process = go_process
         self.metrics_history: List[GoPerformanceMetrics] = []
     
-    def _get_go_process(self) -> Optional[psutil.Process]:
+    def _get_go_process(self) -> psutil.Process | None:
         """Find Go application process"""
         if self.go_process and self.go_process.is_running():
             return self.go_process
@@ -346,7 +346,7 @@ class GoPerformanceTuner:
                 "high_priority_recommendations": len([r for r in recommendations if r.severity in ["high", "critical"]]),
                 "recommendations_by_category": {
                     category: len([r for r in recommendations if r.category == category])
-                    for category in set(r.category for r in recommendations)
+                    for category in {r.category for r in recommendations}
                 }
             }
         }
@@ -434,7 +434,7 @@ def invoke(config: Dict[str, Any]) -> Dict[str, Any]:
                         "total_recommendations": len(recommendations),
                         "by_category": {
                             category: len([r for r in recommendations if r.category == category])
-                            for category in set(r.category for r in recommendations)
+                            for category in {r.category for r in recommendations}
                         }
                     }
                 }

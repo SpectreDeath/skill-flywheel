@@ -229,9 +229,8 @@ class PRReviewSimulator:
                 if not any(
                     kw in content
                     for kw in ["def ", "class ", "if ", "for ", "while ", "return "]
-                ):
-                    if not re.match(r"^[a-z][a-zA-Z0-9_]*\s*\(\s*\)", content):
-                        pass
+                ) and not re.match(r"^[a-z][a-zA-Z0-9_]*\s*\(\s*\)", content):
+                    pass
 
         if style_issues:
             return {

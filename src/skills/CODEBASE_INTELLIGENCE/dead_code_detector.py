@@ -14,7 +14,7 @@ import hashlib
 import re
 from dataclasses import dataclass
 from difflib import SequenceMatcher
-from typing import Any, Dict, List, Optional, Set, Tuple
+from typing import Any, Dict, List, Set, Tuple
 
 
 @dataclass
@@ -25,7 +25,7 @@ class UnusedFunction:
     line_start: int
     line_end: int
     is_method: bool = False
-    class_name: Optional[str] = None
+    class_name: str | None = None
 
 
 @dataclass
@@ -34,7 +34,7 @@ class UnusedImport:
 
     name: str
     line: int
-    module: Optional[str] = None
+    module: str | None = None
     is_alias: bool = False
 
 
@@ -279,14 +279,14 @@ def detect_unreachable_code(code_lines: List[str]) -> List[Dict[str, Any]]:
             ]
 
             if meaningful_lines:
-                start_line = i + 2
-                end_line = (
+                i + 2
+                (
                     i + 1 + len(code_after) - len(code_after) + len(meaningful_lines)
                 )
 
                 for j, l in enumerate(code_after):
                     if l.strip() and not l.strip().startswith("#"):
-                        start_line = i + 2 + j
+                        i + 2 + j
                         break
 
                 last_meaningful = i
@@ -337,7 +337,7 @@ def detect_unreachable_code(code_lines: List[str]) -> List[Dict[str, Any]]:
         ):
             pass
 
-    code_lines_lower = [l.lower() for l in code_lines]
+    [l.lower() for l in code_lines]
 
     for i, line in enumerate(code_lines):
         stripped = line.strip()

@@ -8,12 +8,12 @@ Performs k-means clustering analysis:
 """
 
 import math
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 
 def _euclidean_distance(p1: List[float], p2: List[float]) -> float:
     """Calculate Euclidean distance"""
-    return math.sqrt(sum((a - b) ** 2 for a, b in zip(p1, p2)))
+    return math.sqrt(sum((a - b) ** 2 for a, b in zip(p1, p2, strict=False)))
 
 
 def _initialize_centroids(
@@ -53,7 +53,7 @@ def _initialize_centroids(
 
 def kmeans_clustering(
     data: List[List[float]],
-    k: Optional[int] = None,
+    k: int | None = None,
     max_iterations: int = 100,
     tolerance: float = 1e-4,
     initialization: str = "kmeans++",
@@ -82,7 +82,6 @@ def kmeans_clustering(
     # Determine optimal k using elbow method if not provided
     if k is None:
         k = _find_optimal_k(data, max(2, len(data) // 3))
-        elbow_result = {"method": "elbow", "recommended_k": k}
 
     # Initialize centroids
     centroids = _initialize_centroids(data, k, initialization)

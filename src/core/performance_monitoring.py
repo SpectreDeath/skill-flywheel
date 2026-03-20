@@ -14,12 +14,12 @@ import queue
 import statistics
 import threading
 import time
+from collections.abc import Callable
 from dataclasses import dataclass
 from datetime import datetime, timedelta
 from enum import Enum
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Tuple
-from collections.abc import Callable
+from typing import Any, Dict, List, Tuple
 
 import psutil
 
@@ -48,7 +48,7 @@ class PerformanceMetric:
     value: float
     timestamp: datetime
     context: Dict[str, Any]
-    agent_framework: Optional[str] = None
+    agent_framework: str | None = None
 
 @dataclass
 class Alert:
@@ -57,7 +57,7 @@ class Alert:
     level: AlertLevel
     message: str
     metric_type: MetricType
-    skill_id: Optional[str]
+    skill_id: str | None
     timestamp: datetime
     resolved: bool = False
 
@@ -204,9 +204,9 @@ class MetricsCollector:
         except Exception as e:
             logger.error(f"Error storing metric: {e}")
     
-    def get_metrics(self, skill_id: Optional[str] = None, 
-                   metric_type: Optional[MetricType] = None,
-                   time_range: Optional[Tuple[datetime, datetime]] = None) -> List[PerformanceMetric]:
+    def get_metrics(self, skill_id: str | None = None, 
+                   metric_type: MetricType | None = None,
+                   time_range: Tuple[datetime, datetime] | None = None) -> List[PerformanceMetric]:
         """Get metrics with optional filtering."""
         filtered_metrics = self.recent_metrics.copy()
         
@@ -602,7 +602,7 @@ class PerformanceMonitor:
     
     def record_metric(self, skill_id: str, metric_type: MetricType, 
                      value: float, context: Dict[str, Any] = None,
-                     agent_framework: Optional[str] = None):
+                     agent_framework: str | None = None):
         """Record a performance metric."""
         metric = PerformanceMetric(
             skill_id=skill_id,
@@ -646,7 +646,7 @@ global_performance_monitor = PerformanceMonitor(Path("telemetry"))
 
 def record_performance_metric(skill_id: str, metric_type: MetricType, 
                             value: float, context: Dict[str, Any] = None,
-                            agent_framework: Optional[str] = None):
+                            agent_framework: str | None = None):
     """Record a performance metric using the global monitor."""
     global_performance_monitor.record_metric(skill_id, metric_type, value, context, agent_framework)
 

@@ -12,7 +12,7 @@ Analyzes code changes to:
 import ast
 from collections import defaultdict
 from dataclasses import dataclass, field
-from typing import Any, Dict, List, Optional, Set, Tuple, Union
+from typing import Any, Dict, List, Set, Tuple, Union
 
 
 @dataclass
@@ -32,7 +32,7 @@ class CallGraphBuilder(ast.NodeVisitor):
         self.filename = filename
         self.tree = ast.parse(source)
         self.elements: Dict[str, CodeElement] = {}
-        self.current_class: Optional[str] = None
+        self.current_class: str | None = None
         self.call_graph: Dict[str, Set[str]] = defaultdict(set)
         self.imports: Set[str] = set()
         self.from_imports: Dict[str, Set[str]] = defaultdict(set)
@@ -250,7 +250,7 @@ def calculate_risk_score(
     elif indirect_count > 0:
         score += indirect_count
 
-    target_element_name = target.split(".")[-1] if "." in target else target
+    target.split(".")[-1] if "." in target else target
     for caller in direct_callers:
         if target not in breaking_changes:
             breaking_changes.append(f"Direct caller affected: {caller}")
@@ -299,7 +299,7 @@ def find_affected_modules(
             module = caller.rsplit(".", 1)[0]
             modules.add(module)
 
-    return sorted(list(modules))
+    return sorted(modules)
 
 
 def suggest_tests(
@@ -310,16 +310,11 @@ def suggest_tests(
 ) -> List[Dict[str, Any]]:
     recommended = []
 
-    test_patterns = {
-        "test_": "Unit test file",
-        "test_": "Integration test file",
-        "test_": "E2E test file",
-    }
 
     for caller in direct_callers[:5]:
         test_name = f"test_{caller}"
         if "." in caller:
-            method_name = caller.split(".")[-1]
+            caller.split(".")[-1]
             test_name = f"test_{caller.replace('.', '_')}"
 
         recommended.append(
@@ -361,7 +356,7 @@ def impact_analyzer(code: str, change_target: str, options: dict = None) -> dict
         return {"status": "error", "error": "No change target provided"}
 
     max_depth = options.get("max_depth", 5)
-    include_external = options.get("include_external", False)
+    options.get("include_external", False)
 
     elements = parse_code(code)
 
@@ -370,7 +365,7 @@ def impact_analyzer(code: str, change_target: str, options: dict = None) -> dict
 
     if change_target not in elements:
         similar = [
-            name for name in elements.keys() if change_target.lower() in name.lower()
+            name for name in elements if change_target.lower() in name.lower()
         ]
         return {
             "status": "error",
@@ -402,7 +397,7 @@ def impact_analyzer(code: str, change_target: str, options: dict = None) -> dict
             "decorators": elements[change_target].decorators,
         },
         "callers": direct_callers,
-        "indirect_callers": {k: v for k, v in indirect_callers.items()},
+        "indirect_callers": dict(indirect_callers.items()),
         "risk_score": risk_score,
         "risk_level": "high"
         if risk_score >= 70
@@ -442,7 +437,7 @@ def invoke(payload: dict) -> dict:
 
     elif action == "full_analysis":
         target = payload.get("change_target", "")
-        base_path = payload.get("base_path", ".")
+        payload.get("base_path", ".")
         options = payload.get("options", {})
 
         all_results = {"status": "success", "target": target, "file_analyses": []}

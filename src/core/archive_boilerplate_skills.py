@@ -1,3 +1,4 @@
+import contextlib
 import json
 import shutil
 from pathlib import Path
@@ -42,10 +43,8 @@ def archive_placeholders():
             shutil.move(str(skill_path), str(target_path))
             
             # If directory is now empty, remove it (optional cleanup)
-            try:
+            with contextlib.suppress(OSError):
                 skill_path.parent.rmdir()
-            except OSError:
-                pass
                 
             archived_count += 1
         else:

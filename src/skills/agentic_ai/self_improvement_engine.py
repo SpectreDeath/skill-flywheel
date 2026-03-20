@@ -13,7 +13,7 @@ import uuid
 from dataclasses import dataclass
 from datetime import datetime
 from enum import Enum
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 logger = logging.getLogger(__name__)
 
@@ -57,8 +57,8 @@ class ImprovementAction:
     implementation_cost: int  # Effort units required
     status: str  # pending, in_progress, completed, failed
     created_at: float
-    completed_at: Optional[float]
-    results: Optional[Dict[str, Any]]
+    completed_at: float | None
+    results: Dict[str, Any] | None
 
 class SelfImprovementEngine:
     """Self-improvement engine for AI agents"""
@@ -97,7 +97,7 @@ class SelfImprovementEngine:
                          output_result: Dict[str, Any],
                          performance_metrics: Dict[str, float],
                          success: bool,
-                         feedback: Optional[List[Dict[str, Any]]] = None) -> str:
+                         feedback: List[Dict[str, Any]] | None = None) -> str:
         """
         Record a learning experience
         
@@ -169,9 +169,8 @@ class SelfImprovementEngine:
             if metrics["execution_time"] > 5.0:  # Arbitrary threshold
                 lessons.append("Task took too long, need optimization")
         
-        if "accuracy" in metrics:
-            if metrics["accuracy"] < 0.8:  # 80% threshold
-                lessons.append("Accuracy below threshold, need better approach")
+        if "accuracy" in metrics and metrics["accuracy"] < 0.8:  # 80% threshold
+            lessons.append("Accuracy below threshold, need better approach")
         
         # Analyze feedback
         for feedback in experience.feedback:
@@ -415,7 +414,7 @@ class SelfImprovementEngine:
             }
         }
     
-    def get_knowledge_insights(self, topic: Optional[str] = None) -> Dict[str, Any]:
+    def get_knowledge_insights(self, topic: str | None = None) -> Dict[str, Any]:
         """Get knowledge base insights"""
         if topic:
             if topic.lower() in self.knowledge_base:

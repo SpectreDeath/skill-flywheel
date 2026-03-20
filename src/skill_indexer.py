@@ -11,7 +11,7 @@ import logging
 import re
 from dataclasses import asdict, dataclass
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -28,15 +28,15 @@ class SkillMetadata:
     description: str
     path: str
     last_modified: float
-    complexity: Optional[str] = None
-    skill_type: Optional[str] = None
-    category: Optional[str] = None
-    source: Optional[str] = None
+    complexity: str | None = None
+    skill_type: str | None = None
+    category: str | None = None
+    source: str | None = None
     tags: List[str] = None
     dependencies: List[str] = None
     prerequisites: List[str] = None
-    estimated_time: Optional[str] = None
-    difficulty_level: Optional[int] = None
+    estimated_time: str | None = None
+    difficulty_level: int | None = None
     
     def __post_init__(self):
         if self.tags is None:
@@ -113,7 +113,7 @@ class SkillIndexer:
         logger.info(f"Successfully indexed {len(self.skills)} skills")
         return self.skills
     
-    def _parse_skill_file(self, skill_file: Path) -> Optional[SkillMetadata]:
+    def _parse_skill_file(self, skill_file: Path) -> SkillMetadata | None:
         """
         Parse a SKILL.md file and extract metadata.
         Support both legacy Markdown formatting and new YAML frontmatter.
@@ -188,7 +188,7 @@ class SkillIndexer:
             logger.error(f"Failed to parse {skill_file}: {e}")
             return None
     
-    def _extract_field(self, content: str, pattern: str) -> Optional[str]:
+    def _extract_field(self, content: str, pattern: str) -> str | None:
         """
         Extract a field from content using regex pattern.
         
@@ -202,9 +202,9 @@ class SkillIndexer:
         match = re.search(pattern, content, re.MULTILINE)
         return match.group(1).strip() if match else None
     
-    def search_skills(self, query: str, domain: Optional[str] = None, 
-                     complexity: Optional[str] = None, skill_type: Optional[str] = None,
-                     tags: Optional[List[str]] = None) -> List[SkillMetadata]:
+    def search_skills(self, query: str, domain: str | None = None, 
+                     complexity: str | None = None, skill_type: str | None = None,
+                     tags: List[str] | None = None) -> List[SkillMetadata]:
         """
         Search for skills based on various criteria.
         

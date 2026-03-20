@@ -12,7 +12,7 @@ import uuid
 from dataclasses import asdict, dataclass
 from datetime import datetime
 from enum import Enum
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 logger = logging.getLogger(__name__)
 
@@ -50,7 +50,7 @@ class Goal:
     priority: GoalPriority
     status: GoalStatus
     created_at: float
-    target_completion: Optional[float]
+    target_completion: float | None
     progress: float  # 0.0 to 1.0
     dependencies: List[str]  # List of goal IDs this goal depends on
     estimated_effort: int   # Estimated effort units required
@@ -90,10 +90,10 @@ class GoalManagementSystem:
                    description: str,
                    goal_type: GoalType,
                    priority: GoalPriority,
-                   target_completion: Optional[datetime] = None,
+                   target_completion: datetime | None = None,
                    dependencies: List[str] = None,
                    estimated_effort: int = 1,
-                   metadata: Optional[Dict[str, Any]] = None) -> str:
+                   metadata: Dict[str, Any] | None = None) -> str:
         """
         Create a new goal
         
@@ -238,8 +238,8 @@ class GoalManagementSystem:
         
         return False
     
-    def get_goals(self, status: Optional[GoalStatus] = None, 
-                  priority: Optional[GoalPriority] = None) -> List[Dict[str, Any]]:
+    def get_goals(self, status: GoalStatus | None = None, 
+                  priority: GoalPriority | None = None) -> List[Dict[str, Any]]:
         """Get goals filtered by status and priority"""
         filtered_goals = []
         
@@ -620,7 +620,7 @@ async def example_usage():
         }
     })
     
-    goal2_id = await invoke({
+    await invoke({
         "action": "create",
         "goal_data": {
             "description": "Write unit tests for authentication",

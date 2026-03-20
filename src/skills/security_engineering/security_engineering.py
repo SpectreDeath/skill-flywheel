@@ -11,7 +11,7 @@ security compliance, and defensive security measures for software systems.
 import logging
 import re
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -20,7 +20,7 @@ logger = logging.getLogger(__name__)
 class SecurityEngineeringSkill:
     """Security Engineering skill implementation."""
     
-    def __init__(self, config: Optional[Dict] = None):
+    def __init__(self, config: Dict | None = None):
         """
         Initialize the Security Engineering skill.
         
@@ -365,7 +365,7 @@ class SecurityEngineeringSkill:
         mitigations = []
         
         if isinstance(threat_model, dict):
-            for category, threats in threat_model.items():
+            for category, _threats in threat_model.items():
                 if category == "spoofing":
                     mitigations.extend([
                         "Implement strong authentication",
@@ -398,7 +398,7 @@ class SecurityEngineeringSkill:
         
         # Count threats by severity
         if isinstance(threat_model, dict):
-            for category, threats in threat_model.items():
+            for _category, threats in threat_model.items():
                 if isinstance(threats, list):
                     for threat in threats:
                         if isinstance(threat, dict) and "risk_score" in threat:
@@ -566,7 +566,7 @@ class SecurityEngineeringSkill:
         if high_vulns:
             recommendations.append("Implement security controls for high-risk issues")
         
-        vuln_types = set(v.get("type") for v in vulnerabilities)
+        vuln_types = {v.get("type") for v in vulnerabilities}
         if "sql_injection" in vuln_types:
             recommendations.append("Implement parameterized queries and input validation")
         if "xss" in vuln_types:

@@ -15,7 +15,7 @@ import os
 import time
 from dataclasses import dataclass
 from datetime import datetime
-from typing import Dict, List, Optional
+from typing import Dict, List
 
 import docker
 import numpy as np
@@ -52,7 +52,7 @@ class MetricsCollector:
         self.prometheus_url = prometheus_url
         self.docker_client = docker.from_env()
     
-    async def collect_metrics(self) -> Optional[ScalingMetrics]:
+    async def collect_metrics(self) -> ScalingMetrics | None:
         """Collect current system metrics"""
         try:
             # Get Prometheus metrics

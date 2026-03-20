@@ -138,7 +138,7 @@ def calculate_test_coverage(
 
 
 def estimate_test_effort(plan: Dict[str, Any]) -> Dict[str, Any]:
-    scenarios = len(plan.get("test_scenarios", []))
+    len(plan.get("test_scenarios", []))
 
     test_cases = sum(
         len(s.get("test_cases", [])) for s in plan.get("test_scenarios", [])

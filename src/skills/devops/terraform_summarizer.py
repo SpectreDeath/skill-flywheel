@@ -10,7 +10,7 @@ Supports: JSON and text format Terraform plans
 import json
 import re
 from dataclasses import dataclass
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 DESTRUCTIVE_RESOURCE_TYPES = {
     "aws_instance": "EC2 instance deletion",
@@ -65,8 +65,8 @@ class ResourceChange:
     resource_type: str
     name: str
     provider: str
-    before: Optional[Dict] = None
-    after: Optional[Dict] = None
+    before: Dict | None = None
+    after: Dict | None = None
     requires_new: bool = False
 
 
@@ -95,7 +95,6 @@ def parse_text_plan(plan: str) -> List[ResourceChange]:
     """Parse Terraform plan in text format."""
     changes = []
     current_action = None
-    current_resource = None
 
     lines = plan.split("\n")
     for line in lines:
@@ -392,7 +391,7 @@ def explain_change(change: ResourceChange) -> str:
     """Explain what a specific change means."""
     explanations = []
 
-    if change.action == "create" or change.action == "add":
+    if change.action in {"create", "add"}:
         explanations.append(
             f"Creating new {change.resource_type} resource named '{change.name}'"
         )
@@ -409,7 +408,7 @@ def explain_change(change: ResourceChange) -> str:
                     f"  - Instance class: {change.after['instance_class']}"
                 )
 
-    elif change.action == "delete" or change.action == "destroy":
+    elif change.action in {"delete", "destroy"}:
         explanations.append(
             f"Deleting {change.resource_type} resource named '{change.name}'"
         )
@@ -419,7 +418,7 @@ def explain_change(change: ResourceChange) -> str:
                 f"  ⚠️  {DESTRUCTIVE_RESOURCE_TYPES[change.resource_type]}"
             )
 
-    elif change.action == "update" or change.action == "change":
+    elif change.action in {"update", "change"}:
         explanations.append(
             f"Updating {change.resource_type} resource named '{change.name}'"
         )
