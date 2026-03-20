@@ -152,8 +152,8 @@ class CVEDatabase:
         "numpy": [
             {
                 "cve_id": "CVE-2024-4502",
-                "affected_versions": "<1.26.4",
-                "fixed_version": "1.26.4",
+                "affected_versions": "<2.4.2",
+                "fixed_version": "2.4.2",
                 "severity": Severity.MEDIUM,
                 "cvss_score": 5.3,
                 "description": "Arbitrary code execution via crafted array",
@@ -345,7 +345,7 @@ class FixSuggester:
         "requests": "2.31.0",
         "django": "4.2.11",
         "flask": "2.3.2",
-        "numpy": "1.26.4",
+        "numpy": "2.4.2",
         "urllib3": "1.26.17",
         "pillow": "10.1.0",
         "react": "18.2.0",
@@ -634,7 +634,7 @@ if __name__ == "__main__":
     requests==2.30.0
     django==4.2.5
     flask==2.2.0
-    numpy==1.24.0
+    numpy==2.4.2
     pillow==9.5.0
     """
 

@@ -4,7 +4,6 @@ import functools
 from typing import (
     TYPE_CHECKING,
     Any,
-    Callable,
     Dict,
     Generic,
     List,
@@ -12,6 +11,7 @@ from typing import (
     TypeVar,
     overload,
 )
+from collections.abc import Callable
 
 from darwinian_evolver.learning_log import LearningLogEntry
 from darwinian_evolver.problem import Evaluator as BaseEvaluator

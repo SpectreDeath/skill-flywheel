@@ -5,7 +5,8 @@ Achieve correct answers efficiently under time pressure.
 """
 
 from dataclasses import dataclass
-from typing import Any, Callable, Dict, List, Optional
+from typing import Any, Dict, List, Optional
+from collections.abc import Callable
 
 
 class QuestionDifficulty(Enum):

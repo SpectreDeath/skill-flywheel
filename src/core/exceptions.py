@@ -2,7 +2,8 @@ import functools
 import logging
 from datetime import datetime, timezone
 from enum import Enum
-from typing import Any, Callable, Dict, Optional, TypeVar, Union
+from typing import Any, Dict, Optional, TypeVar, Union
+from collections.abc import Callable
 
 from pydantic import BaseModel, Field
 
@@ -341,8 +342,8 @@ class ErrorResponse(BaseModel):
         None, description="Type of exception that was raised"
     )
 
-    class Config:
-        json_schema_extra = {
+    model_config = {
+        "json_schema_extra": {
             "example": {
                 "error_code": "SKILL_NOT_FOUND",
                 "message": "Skill 'unknown_skill' not found",
@@ -351,6 +352,7 @@ class ErrorResponse(BaseModel):
                 "exception_type": "SkillNotFoundError",
             }
         }
+    }
 
     @classmethod
     def from_exception(cls, exc: SkillFlywheelError) -> "ErrorResponse":
