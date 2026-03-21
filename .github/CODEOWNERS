@@ -1,0 +1,22 @@
+# Code Owners
+
+# Default owner for everything
+* @SpectreDeath
+
+# Core modules
+/src/flywheel/core/ @SpectreDeath
+
+# Server components
+/src/flywheel/server/ @SpectreDeath
+
+# Skills
+/src/flywheel/skills/ @SpectreDeath
+
+# Monitoring
+/src/flywheel/monitoring/ @SpectreDeath
+
+# CI/CD
+/.github/workflows/ @SpectreDeath
+
+# Tests
+/tests/ @SpectreDeath
