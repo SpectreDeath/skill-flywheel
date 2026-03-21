@@ -12,7 +12,7 @@ import pytest
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from src.core.resilience import (
+from flywheel.core.resilience import (
     CircuitBreakerConfig,
     CircuitOpenError,
     ResilienceError,

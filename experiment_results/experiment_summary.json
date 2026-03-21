@@ -1,0 +1,105 @@
+{
+  "total_experiments": 14,
+  "successful": 0,
+  "failed": 14,
+  "results": [
+    {
+      "name": "exp1_baseline",
+      "best_fitness": 0.0,
+      "iterations_completed": 0,
+      "duration_seconds": 0.00024628639221191406,
+      "error": "name 'LLLMutator' is not defined"
+    },
+    {
+      "name": "exp2_pop_3",
+      "best_fitness": 0.0,
+      "iterations_completed": 0,
+      "duration_seconds": 0.0002579689025878906,
+      "error": "name 'LLLMutator' is not defined"
+    },
+    {
+      "name": "exp2_pop_5",
+      "best_fitness": 0.0,
+      "iterations_completed": 0,
+      "duration_seconds": 0.00019860267639160156,
+      "error": "name 'LLLMutator' is not defined"
+    },
+    {
+      "name": "exp2_pop_8",
+      "best_fitness": 0.0,
+      "iterations_completed": 0,
+      "duration_seconds": 0.00025391578674316406,
+      "error": "name 'LLLMutator' is not defined"
+    },
+    {
+      "name": "exp3_weights_balanced",
+      "best_fitness": 0.0,
+      "iterations_completed": 0,
+      "duration_seconds": 0.0003082752227783203,
+      "error": "name 'LLLMutator' is not defined"
+    },
+    {
+      "name": "exp3_weights_performance_focus",
+      "best_fitness": 0.0,
+      "iterations_completed": 0,
+      "duration_seconds": 0.00023293495178222656,
+      "error": "name 'LLLMutator' is not defined"
+    },
+    {
+      "name": "exp3_weights_accuracy_focus",
+      "best_fitness": 0.0,
+      "iterations_completed": 0,
+      "duration_seconds": 0.00017333030700683594,
+      "error": "name 'LLLMutator' is not defined"
+    },
+    {
+      "name": "exp4_learning_log_none",
+      "best_fitness": 0.0,
+      "iterations_completed": 0,
+      "duration_seconds": 0.000171661376953125,
+      "error": "name 'LLLMutator' is not defined"
+    },
+    {
+      "name": "exp4_learning_log_ancestors",
+      "best_fitness": 0.0,
+      "iterations_completed": 0,
+      "duration_seconds": 0.00017070770263671875,
+      "error": "name 'LLLMutator' is not defined"
+    },
+    {
+      "name": "exp4_learning_log_neighborhood-1",
+      "best_fitness": 0.0,
+      "iterations_completed": 0,
+      "duration_seconds": 0.0001666545867919922,
+      "error": "name 'LLLMutator' is not defined"
+    },
+    {
+      "name": "exp5_source_clustering",
+      "best_fitness": 0.0,
+      "iterations_completed": 0,
+      "duration_seconds": 0.00016689300537109375,
+      "error": "name 'LLLMutator' is not defined"
+    },
+    {
+      "name": "exp6_patience_2",
+      "best_fitness": 0.0,
+      "iterations_completed": 0,
+      "duration_seconds": 0.0001666545867919922,
+      "error": "name 'LLLMutator' is not defined"
+    },
+    {
+      "name": "exp6_patience_3",
+      "best_fitness": 0.0,
+      "iterations_completed": 0,
+      "duration_seconds": 0.00017690658569335938,
+      "error": "name 'LLLMutator' is not defined"
+    },
+    {
+      "name": "exp6_patience_5",
+      "best_fitness": 0.0,
+      "iterations_completed": 0,
+      "duration_seconds": 0.00016546249389648438,
+      "error": "name 'LLLMutator' is not defined"
+    }
+  ]
+}

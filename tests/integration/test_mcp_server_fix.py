@@ -17,7 +17,7 @@ from unittest.mock import Mock, patch
 import numpy as np
 import pytest
 
-from src.server.enhanced_mcp_server_v3 import (
+from flywheel.server.enhanced_mcp_server_v3 import (
     ServerConfig,
     AdvancedTelemetryManager,
     EnhancedSkillManager,
@@ -346,7 +346,7 @@ class TestAutoScaler:
                     "MAX_CONTAINERS": "10",
                 },
             ):
-                from src.monitoring.auto_scaler import AutoScaler
+                from flywheel.monitoring.auto_scaler import AutoScaler
 
                 return AutoScaler()
 

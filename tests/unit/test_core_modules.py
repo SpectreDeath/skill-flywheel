@@ -17,7 +17,7 @@ class TestDiscoveryServiceEndpoints:
 
     @pytest.fixture
     def client(self):
-        from src.server.discovery_service import app
+        from flywheel.server.discovery_service import app
 
         return TestClient(app)
 
@@ -48,7 +48,7 @@ class TestSkillValidation:
     """Test skill validation functions"""
 
     def test_insecure_secret_patterns(self):
-        from src.server.discovery_service import INSECURE_SECRET_PATTERNS
+        from flywheel.server.discovery_service import INSECURE_SECRET_PATTERNS
 
         insecure_values = [
             "your-openai-api-key-here",
@@ -61,7 +61,7 @@ class TestSkillValidation:
             assert matches
 
     def test_secure_secrets_not_flagged(self):
-        from src.server.discovery_service import INSECURE_SECRET_PATTERNS
+        from flywheel.server.discovery_service import INSECURE_SECRET_PATTERNS
 
         secure_values = [
             "sk-abc123def456ghi789jkl012mno345pqr",
@@ -77,28 +77,28 @@ class TestClusteringSkills:
     """Test clustering skills"""
 
     def test_kmeans_clustering(self):
-        from src.skills.kmeans_clustering import kmeans_clustering
+        from flywheel.skills.kmeans_clustering import kmeans_clustering
 
         data = [[1, 2], [1, 4], [1, 0], [10, 2], [10, 4], [10, 0]]
         result = kmeans_clustering(data, k=2)
         assert result["status"] == "success"
 
     def test_hierarchical_clustering(self):
-        from src.skills.hierarchical_clustering import hierarchical_clustering
+        from flywheel.skills.hierarchical_clustering import hierarchical_clustering
 
         data = [[1, 2], [1, 4], [1, 0], [10, 2], [10, 4], [10, 0]]
         result = hierarchical_clustering(data, n_clusters=2)
         assert result["status"] == "success"
 
     def test_dbscan_clustering(self):
-        from src.skills.dbscan_clustering import dbscan_clustering
+        from flywheel.skills.dbscan_clustering import dbscan_clustering
 
         data = [[1, 2], [1, 4], [1, 0], [10, 2], [10, 4], [10, 0]]
         result = dbscan_clustering(data, eps=3, min_samples=2)
         assert result["status"] == "success"
 
     def test_cluster_validation(self):
-        from src.skills.cluster_validation_analyzer import cluster_validation_analyzer
+        from flywheel.skills.cluster_validation_analyzer import cluster_validation_analyzer
 
         data = [[1, 2], [1, 4], [1, 0], [10, 2], [10, 4], [10, 0]]
         assignments = [0, 0, 0, 1, 1, 1]
@@ -110,43 +110,43 @@ class TestGameTheorySkills:
     """Test game theory skills"""
 
     def test_prisoners_dilemma_single_shot(self):
-        from src.skills.prisoners_dilemma_analyzer import prisoners_dilemma_analyzer
+        from flywheel.skills.prisoners_dilemma_analyzer import prisoners_dilemma_analyzer
 
         result = prisoners_dilemma_analyzer("Test", num_rounds=1)
         assert result["status"] == "success"
 
     def test_prisoners_dilemma_iterated(self):
-        from src.skills.prisoners_dilemma_analyzer import prisoners_dilemma_analyzer
+        from flywheel.skills.prisoners_dilemma_analyzer import prisoners_dilemma_analyzer
 
         result = prisoners_dilemma_analyzer("Test", num_rounds=10)
         assert result["status"] == "success"
 
     def test_auction_strategy(self):
-        from src.skills.auction_strategy_optimizer import auction_strategy_optimizer
+        from flywheel.skills.auction_strategy_optimizer import auction_strategy_optimizer
 
         result = auction_strategy_optimizer("first_price", 3, 100)
         assert result["status"] == "success"
 
     def test_evolutionary_game(self):
-        from src.skills.evolutionary_game_solver import evolutionary_game_solver
+        from flywheel.skills.evolutionary_game_solver import evolutionary_game_solver
 
         result = evolutionary_game_solver("hawk_dove")
         assert result["status"] == "success"
 
     def test_coordination_game(self):
-        from src.skills.coordination_game_solver import coordination_game_solver
+        from flywheel.skills.coordination_game_solver import coordination_game_solver
 
         result = coordination_game_solver("stag_hunt", ["p1", "p2"])
         assert result["status"] == "success"
 
     def test_signaling_game(self):
-        from src.skills.signaling_game_analyzer import signaling_game_analyzer
+        from flywheel.skills.signaling_game_analyzer import signaling_game_analyzer
 
         result = signaling_game_analyzer("costly")
         assert result["status"] == "success"
 
     def test_repeated_game(self):
-        from src.skills.repeated_game_analyzer import repeated_game_analyzer
+        from flywheel.skills.repeated_game_analyzer import repeated_game_analyzer
 
         result = repeated_game_analyzer("prisoner", ["p1", "p2"], horizon=10)
         assert result["status"] == "success"
@@ -156,7 +156,7 @@ class TestConstants:
     """Test constants and configuration"""
 
     def test_discovery_service_constants(self):
-        from src.server.discovery_service import (
+        from flywheel.server.discovery_service import (
             CACHE_THRESHOLD,
             DEFAULT_LIMIT,
             MIN_JWT_SECRET_LENGTH,

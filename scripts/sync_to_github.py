@@ -10,7 +10,7 @@ import datetime
 import subprocess
 import sys
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Dict, List
 
 
 class GitHubSync:
@@ -48,7 +48,7 @@ class GitHubSync:
         }
         return config
     
-    def run_command(self, command: List[str], cwd: Optional[str] = None) -> tuple:
+    def run_command(self, command: List[str], cwd: str | None = None) -> tuple:
         """Run a shell command and return output"""
         try:
             result = subprocess.run(
@@ -397,18 +397,17 @@ def main():
     print()
     
     # Check for command line arguments
-    if len(sys.argv) > 1:
-        if sys.argv[1] in ["--help", "-h"]:
-            print("Usage: python sync_to_github.py")
-            print()
-            print("This script will:")
-            print("1. Check git repository status")
-            print("2. Create enhancement branch")
-            print("3. Add relevant files")
-            print("4. Create detailed commit")
-            print("5. Push to remote")
-            print("6. Create pull request (if gh CLI available)")
-            return
+    if len(sys.argv) > 1 and sys.argv[1] in ["--help", "-h"]:
+        print("Usage: python sync_to_github.py")
+        print()
+        print("This script will:")
+        print("1. Check git repository status")
+        print("2. Create enhancement branch")
+        print("3. Add relevant files")
+        print("4. Create detailed commit")
+        print("5. Push to remote")
+        print("6. Create pull request (if gh CLI available)")
+        return
     
     # Run sync
     sync = GitHubSync()

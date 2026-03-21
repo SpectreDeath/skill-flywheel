@@ -13,7 +13,7 @@ class TestMcpServer:
 
     def test_server_constants(self):
         """Test server constants are defined."""
-        from src.server import mcp_server
+        from flywheel.server import mcp_server
 
         assert mcp_server.SERVER_NAME == "SkillFlywheel"
         assert mcp_server.TRANSPORT == "stdio"
@@ -21,7 +21,7 @@ class TestMcpServer:
 
     def test_create_server(self):
         """Test server creation."""
-        from src.server.mcp_server import create_server
+        from flywheel.server.mcp_server import create_server
 
         with patch("src.server.mcp_server.register_all_handlers"):
             server = create_server()
@@ -29,7 +29,7 @@ class TestMcpServer:
 
     def test_register_existing_skills_no_registry(self):
         """Test skill registration when registry doesn't exist."""
-        from src.server.mcp_server import register_existing_skills
+        from flywheel.server.mcp_server import register_existing_skills
 
         mock_mcp = Mock()
         with patch("src.server.mcp_server.REGISTRY_FILE", Path("/nonexistent/registry.json")):
@@ -37,7 +37,7 @@ class TestMcpServer:
 
     def test_register_existing_skills_with_registry(self):
         """Test skill registration with a mock registry."""
-        from src.server.mcp_server import register_existing_skills
+        from flywheel.server.mcp_server import register_existing_skills
 
         with tempfile.TemporaryDirectory() as tmpdir:
             registry_file = Path(tmpdir) / "registry.json"
@@ -64,19 +64,19 @@ class TestDependencies:
 
     def test_mcp_domains_default(self):
         """Test default MCP domains."""
-        from src.server.dependencies import MCP_DOMAINS
+        from flywheel.server.dependencies import MCP_DOMAINS
 
         assert isinstance(MCP_DOMAINS, (list, tuple)) or MCP_DOMAINS is None
 
     def test_registry_file_path(self):
         """Test registry file path."""
-        from src.server.dependencies import REGISTRY_FILE
+        from flywheel.server.dependencies import REGISTRY_FILE
 
         assert isinstance(REGISTRY_FILE, Path)
 
     def test_filter_skills_by_domain(self):
         """Test filtering skills by domain."""
-        from src.server.dependencies import filter_skills_by_domain
+        from flywheel.server.dependencies import filter_skills_by_domain
 
         skills = [
             {"name": "skill1", "domain": "AI"},
@@ -97,7 +97,7 @@ class TestHandlers:
 
     def test_register_all_handlers(self):
         """Test handler registration."""
-        from src.server.handlers import register_all_handlers
+        from flywheel.server.handlers import register_all_handlers
 
         mock_mcp = Mock()
         register_all_handlers(mock_mcp)
@@ -108,7 +108,7 @@ class TestSkillHandler:
 
     def test_register_skill_handlers(self):
         """Test skill handler registration."""
-        from src.server.handlers.skill_handler import register_skill_handlers
+        from flywheel.server.handlers.skill_handler import register_skill_handlers
 
         mock_mcp = Mock()
         register_skill_handlers(mock_mcp)
@@ -119,7 +119,7 @@ class TestRegistryHandler:
 
     def test_register_registry_handlers(self):
         """Test registry handler registration."""
-        from src.server.handlers.registry_handler import register_registry_handlers
+        from flywheel.server.handlers.registry_handler import register_registry_handlers
 
         mock_mcp = Mock()
         register_registry_handlers(mock_mcp)
@@ -130,7 +130,7 @@ class TestMetricsHandler:
 
     def test_register_metrics_handlers(self):
         """Test metrics handler registration."""
-        from src.server.handlers.metrics_handler import register_metrics_handlers
+        from flywheel.server.handlers.metrics_handler import register_metrics_handlers
 
         mock_mcp = Mock()
         register_metrics_handlers(mock_mcp)

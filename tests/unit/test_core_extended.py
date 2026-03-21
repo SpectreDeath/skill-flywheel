@@ -12,7 +12,7 @@ class TestTelemetry:
 
     def test_advanced_performance_metrics(self):
         """Test AdvancedPerformanceMetrics dataclass."""
-        from src.core.telemetry import AdvancedPerformanceMetrics
+        from flywheel.core.telemetry import AdvancedPerformanceMetrics
         import datetime
         
         metrics = AdvancedPerformanceMetrics(
@@ -40,7 +40,7 @@ class TestTelemetry:
 
     def test_advanced_skill_metrics(self):
         """Test AdvancedSkillMetrics dataclass."""
-        from src.core.telemetry import AdvancedSkillMetrics
+        from flywheel.core.telemetry import AdvancedSkillMetrics
         import datetime
         
         metrics = AdvancedSkillMetrics(
@@ -70,7 +70,7 @@ class TestTelemetry:
 
     def test_telemetry_manager_init(self):
         """Test AdvancedTelemetryManager initialization."""
-        from src.core.telemetry import AdvancedTelemetryManager
+        from flywheel.core.telemetry import AdvancedTelemetryManager
         
         config = {"test": "config"}
         manager = AdvancedTelemetryManager(config)
@@ -85,7 +85,7 @@ class TestSkills:
 
     def test_skill_manager_init(self):
         """Test EnhancedSkillManager initialization."""
-        from src.core.skills import EnhancedSkillManager
+        from flywheel.core.skills import EnhancedSkillManager
         
         with tempfile.TemporaryDirectory() as tmpdir:
             manager = EnhancedSkillManager(tmpdir)
@@ -97,7 +97,7 @@ class TestCache:
 
     def test_cache_init(self):
         """Test AdvancedCache initialization."""
-        from src.core.cache import AdvancedCache
+        from flywheel.core.cache import AdvancedCache
         
         config = {"cache": {"type": "memory", "max_size": 100, "ttl": 60}}
         cache = AdvancedCache(config)
@@ -106,7 +106,7 @@ class TestCache:
 
     def test_cache_put_get(self):
         """Test cache put and get."""
-        from src.core.cache import AdvancedCache
+        from flywheel.core.cache import AdvancedCache
         
         config = {"cache": {"type": "memory", "max_size": 100, "ttl": 60}}
         cache = AdvancedCache(config)
@@ -116,7 +116,7 @@ class TestCache:
 
     def test_cache_miss(self):
         """Test cache miss returns None."""
-        from src.core.cache import AdvancedCache
+        from flywheel.core.cache import AdvancedCache
         
         config = {"cache": {"type": "memory", "max_size": 100, "ttl": 60}}
         cache = AdvancedCache(config)
@@ -125,7 +125,7 @@ class TestCache:
 
     def test_cache_remove(self):
         """Test cache removal."""
-        from src.core.cache import AdvancedCache
+        from flywheel.core.cache import AdvancedCache
         
         config = {"cache": {"type": "memory", "max_size": 100, "ttl": 60}}
         cache = AdvancedCache(config)
@@ -140,7 +140,7 @@ class TestResourceOptimizer:
 
     def test_resource_optimizer_init(self):
         """Test ResourceOptimizer initialization."""
-        from src.core.resource_optimizer import ResourceOptimizer
+        from flywheel.core.resource_optimizer import ResourceOptimizer
         
         config = {"containers": {"max_containers": 10}}
         optimizer = ResourceOptimizer(config)
@@ -149,7 +149,7 @@ class TestResourceOptimizer:
 
     def test_calculate_utilization_score(self):
         """Test utilization score calculation."""
-        from src.core.resource_optimizer import ResourceOptimizer
+        from flywheel.core.resource_optimizer import ResourceOptimizer
         
         config = {"containers": {"max_containers": 10}}
         optimizer = ResourceOptimizer(config)
@@ -163,7 +163,7 @@ class TestContainers:
 
     def test_container_manager_init(self):
         """Test ContainerManager initialization."""
-        from src.core.containers import ContainerManager
+        from flywheel.core.containers import ContainerManager
         
         with patch("docker.from_env"):
             config = {"containers": {"enabled": True}}
@@ -176,7 +176,7 @@ class TestDockerUtils:
 
     def test_docker_utils_init(self):
         """Test DockerUtils initialization."""
-        from src.core.docker_utils import DockerUtils
+        from flywheel.core.docker_utils import DockerUtils
         
         utils = DockerUtils()
         assert utils is not None
@@ -187,14 +187,14 @@ class TestExceptions:
 
     def test_skill_flywheel_error(self):
         """Test SkillFlywheelError."""
-        from src.core.exceptions import SkillFlywheelError
+        from flywheel.core.exceptions import SkillFlywheelError
         
         error = SkillFlywheelError("Test error")
         assert "Test error" in str(error)
 
     def test_skill_not_found_error(self):
         """Test SkillNotFoundError."""
-        from src.core.exceptions import SkillNotFoundError
+        from flywheel.core.exceptions import SkillNotFoundError
         
         error = SkillNotFoundError("skill_name")
         assert "skill_name" in str(error)
@@ -205,7 +205,7 @@ class TestValidation:
 
     def test_validation_import(self):
         """Test validation module imports."""
-        from src.core import validation_testing
+        from flywheel.core import validation_testing
         assert validation_testing is not None
 
 
@@ -214,7 +214,7 @@ class TestRegistrySearch:
 
     def test_registry_search_import(self):
         """Test registry search module imports."""
-        from src.core import registry_search
+        from flywheel.core import registry_search
         assert registry_search is not None
 
 
@@ -223,5 +223,5 @@ class TestEnrichSkills:
 
     def test_enrich_skills_import(self):
         """Test enrich skills module imports."""
-        from src.core import enrich_skills
+        from flywheel.core import enrich_skills
         assert enrich_skills is not None

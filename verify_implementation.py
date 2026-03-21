@@ -11,7 +11,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 
 try:
     # Test import
-    from src.server.discovery_service import app
+    from flywheel.server.discovery_service import app
     print("✅ Import successful: FastAPI app loaded correctly")
     
     # Check if the skills endpoint exists and has pagination parameters

@@ -1,0 +1,182 @@
+{
+  "audit_date": "2026-03-20",
+  "report_version": "2.0",
+  "project_name": "Skill Flywheel",
+  "project_type": "Multi-Container MCP Architecture",
+  "total_issues": 22,
+  "critical": 3,
+  "high": 8,
+  "medium": 10,
+  "low": 1,
+  "codebase_stats": {
+    "total_python_files": 505,
+    "total_lines_of_code": 113284,
+    "test_files": 11,
+    "test_coverage_percent": 41,
+    "skill_md_files": 521,
+    "domain_directories": 38,
+    "ruff_issues": 1222,
+    "ruff_version_installed": "0.8.4",
+    "ruff_version_latest": "0.15.7",
+    "license": "MIT"
+  },
+  "top_5_issues": [
+    {
+      "id": 1,
+      "title": "Hardcoded Secrets in .env",
+      "severity": "Critical",
+      "impact": "Security vulnerability - test API keys and JWT secret committed to repository",
+      "affected_files": [".env"],
+      "line_references": "1-7",
+      "remediation": "Remove .env from git tracking, rotate all credentials, add .env.example",
+      "effort_estimate": "2 hours",
+      "owner": "Security Team",
+      "priority": "P0"
+    },
+    {
+      "id": 2,
+      "title": "Low Test Coverage (41%)",
+      "severity": "Critical",
+      "impact": "High regression risk - only 41% coverage vs 70% target",
+      "affected_files": ["tests/", "src/server/", "src/monitoring/"],
+      "line_references": "Multiple",
+      "remediation": "Add comprehensive unit tests, integration tests, and E2E tests",
+      "effort_estimate": "80 hours",
+      "owner": "QA Team",
+      "priority": "P0"
+    },
+    {
+      "id": 3,
+      "title": "CI/CD Not Enforcing Quality Gates",
+      "severity": "Critical",
+      "impact": "Lint errors don't fail builds, tests can be skipped",
+      "affected_files": [".github/workflows/ci.yml"],
+      "line_references": "21",
+      "remediation": "Remove --exit-zero flag from ruff, add pytest-cov, add safety scanning",
+      "effort_estimate": "16 hours",
+      "owner": "DevOps Team",
+      "priority": "P0"
+    },
+    {
+      "id": 4,
+      "title": "Monolithic Server File",
+      "severity": "High",
+      "impact": "Single 546-line file with multiple responsibilities violates SRP",
+      "affected_files": ["src/server/enhanced_mcp_server_v3.py"],
+      "line_references": "1-546",
+      "remediation": "Split into modules: config, telemetry, skill_manager, ml_models, resource_optimizer",
+      "effort_estimate": "24 hours",
+      "owner": "Architecture Team",
+      "priority": "P1"
+    },
+    {
+      "id": 5,
+      "title": "Outdated Dependencies",
+      "severity": "High",
+      "impact": "Ruff 7 major versions behind, missing security patches",
+      "affected_files": ["requirements.txt"],
+      "line_references": "All",
+      "remediation": "Pin versions, update ruff to 0.15.7, add requirements-lock.txt",
+      "effort_estimate": "8 hours",
+      "owner": "DevOps Team",
+      "priority": "P1"
+    }
+  ],
+  "metrics": {
+    "test_coverage_current": 41,
+    "test_coverage_target": 70,
+    "lint_issues": 1222,
+    "dependencies_count": 57,
+    "python_files": 505,
+    "lines_of_code": 113284,
+    "maintainability_index": 55,
+    "test_files": 11,
+    "tests_passed": 145,
+    "tests_skipped": 2,
+    "cyclomatic_complexity_avg": "Not calculated"
+  },
+  "license": "MIT",
+  "architecture": {
+    "type": "Multi-Container MCP",
+    "framework": "FastAPI",
+    "database": "SQLite",
+    "pattern": "Monorepo with skill modules",
+    "components": [
+      "FastAPI Discovery Service",
+      "MCP Server v3",
+      "Skill Registry",
+      "Telemetry Manager",
+      "ML Models (sklearn)",
+      "Cache (Redis)",
+      "Auto-scaler"
+    ]
+  },
+  "security_findings": {
+    "hardcoded_secrets": [
+      {"key": "OPENAI_API_KEY", "value": "sk-test-key-for-local-development", "severity": "Critical"},
+      {"key": "GEMINI_API_KEY", "value": "test-gemini-key-for-local-development", "severity": "Critical"},
+      {"key": "MCP_JWT_SECRET", "value": "test-jwt-secret-key-for-local-development", "severity": "Critical"}
+    ],
+    "no_secrets_rotation": true,
+    "no_dependency_scanning": true
+  },
+  "lint_breakdown": {
+    "UP035_deprecated_typing": 400,
+    "F401_unused_imports": 200,
+    "B028_missing_stacklevel": 50,
+    "N806_variable_naming": 30,
+    "SIM105_try_except_pass": 20,
+    "F841_unused_variables": 15,
+    "ARG003_unused_arguments": 10,
+    "E402_import_order": 5
+  },
+  "coverage_by_module": {
+    "src/core/skills.py": 70,
+    "src/core/telemetry.py": 77,
+    "src/core/resource_optimizer.py": 61,
+    "src/server/discovery_service.py": 43,
+    "src/server/enhanced_mcp_server_v3.py": 24,
+    "src/monitoring/auto_scaler.py": 28,
+    "src/server/dependencies.py": 0,
+    "src/server/mcp_client.py": 0
+  },
+  "roadmap_12_week": {
+    "quick_wins_weeks_1_4": [
+      {"action": "Remove hardcoded secrets from .env", "effort": "2h", "owner": "Security"},
+      {"action": "Fix CI/CD --exit-zero flag", "effort": "1h", "owner": "DevOps"},
+      {"action": "Fix test import path error", "effort": "1h", "owner": "QA"},
+      {"action": "Increase test coverage to 50%", "effort": "40h", "owner": "QA"},
+      {"action": "Add dependency security scanning", "effort": "4h", "owner": "DevOps"}
+    ],
+    "medium_term_weeks_5_8": [
+      {"action": "Pin all dependencies", "effort": "4h", "owner": "DevOps"},
+      {"action": "Update ruff to 0.15.7", "effort": "2h", "owner": "Backend"},
+      {"action": "Fix all lint issues", "effort": "16h", "owner": "All"},
+      {"action": "Add integration tests", "effort": "24h", "owner": "QA"},
+      {"action": "Split monolithic MCP server", "effort": "24h", "owner": "Architecture"}
+    ],
+    "long_term_weeks_9_12": [
+      {"action": "Achieve 70% test coverage", "effort": "40h", "owner": "QA"},
+      {"action": "Implement secrets manager", "effort": "16h", "owner": "Security"},
+      {"action": "Add architecture diagrams", "effort": "8h", "owner": "Architecture"},
+      {"action": "Add type hints (mypy clean)", "effort": "40h", "owner": "All"},
+      {"action": "Implement distributed tracing", "effort": "24h", "owner": "Platform"}
+    ]
+  },
+  "reproducibility": {
+    "python_version": "3.10-3.14",
+    "os_support": "Windows/macOS/Linux",
+    "setup_commands": [
+      "python -m venv venv",
+      "pip install -r requirements.txt",
+      "pytest tests/ --cov=src",
+      "ruff check src/",
+      "mypy src/ --ignore-missing-imports"
+    ],
+    "known_issues": [
+      "Duplicate module name: src/skills/application_security/server.py conflicts with src/server/__init__.py",
+      "Test import error in test_mcp_server_fix.py:20",
+      "Missing safety module - run pip install safety"
+    ]
+  }
+}

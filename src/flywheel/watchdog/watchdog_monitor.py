@@ -28,7 +28,7 @@ from typing import Any, Dict, List
 
 import requests
 
-from src.core.docker_utils import DockerUtils
+from flywheel.core.docker_utils import DockerUtils
 
 # Configure logging for the watchdog itself
 logging.basicConfig(

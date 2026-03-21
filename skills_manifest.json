@@ -1,0 +1,799 @@
+[
+  {
+    "id": "epist-001",
+    "name": "Knowledge Verification and Justification",
+    "domain": "EPISTEMOLOGY",
+    "sources": [
+      {
+        "title": "Epistemology Overview (SEP)",
+        "url": "https://plato.stanford.edu/entries/epistemology/"
+      },
+      {
+        "title": "Epistemology: The Theory of Knowledge (IEP)",
+        "url": "https://iep.utm.edu/epistemo/"
+      }
+    ],
+    "summary": "Skill for distinguishing true knowledge from justified true belief, addressing the Gettier problem and evaluating epistemic justification using foundationalist and coherentist approaches.",
+    "problem_description": "The challenge of distinguishing genuine knowledge from mere justified true belief, given that Gettier cases demonstrate JTB is insufficient for knowledge. The problem requires evaluating whether belief formation processes are sufficiently connected to truth to eliminate epistemic luck.",
+    "approach": "This skill implements the traditional JTB analysis (belief, truth, justification) while incorporating responses to Gettier problems. It draws on SEP's discussion of cognitive success types and IEP's analysis of internalist vs externalist justification. The approach uses foundationalist structure (basic beliefs grounded in perception, memory, introspection) combined with defeasibility conditions to block Gettier-style counterexamples.",
+    "inputs": {
+      "data": {
+        "type": "object",
+        "properties": {
+          "proposition": {"type": "string", "description": "The claim being evaluated for knowledge status"},
+          "belief_state": {"type": "object", "properties": {"held": {"type": "boolean"}, "confidence": {"type": "number", "minimum": 0, "maximum": 1}}},
+          "truth_value": {"type": "boolean", "description": "Whether the proposition is actually true"},
+          "justification_source": {"type": "string", "enum": ["perception", "memory", "introspection", "reason", "testimony"]},
+          "defeaters_present": {"type": "boolean"},
+          "process_reliability": {"type": "number", "minimum": 0, "maximum": 1}
+        },
+        "required": ["proposition", "belief_state", "truth_value", "justification_source"]
+      }
+    },
+    "outputs": {
+      "result": {
+        "type": "object",
+        "properties": {
+          "is_knowledge": {"type": "boolean"},
+          "justification_status": {"type": "string", "enum": ["justified", "unjustified", "defeated"]},
+          "gettier_safe": {"type": "boolean"},
+          "epistemic_luck_mitigated": {"type": "boolean"},
+          "justification_type": {"type": "string", "enum": ["foundationalist", "coherentist", "reliabilist"]}
+        }
+      }
+    },
+    "interfaces": {
+      "internal": ["BeliefRevision", "EvidenceAssessment", "ProcessEvaluation"],
+      "external": ["UserQuery", "KnowledgeBase"]
+    },
+    "algorithm": "1. Verify belief is held with sufficient confidence\n2. Confirm proposition truth value\n3. Identify justification source and evaluate reliability\n4. Check for defeaters\n5. Apply JTB conditions\n6. Test for Gettier-style luck\n7. Determine if process reliability is sufficient\n8. Output knowledge status with justification analysis",
+    "code_skeleton": {
+      "paths": ["skills/epistemology/knowledge_verification.py"],
+      "functions": {
+        "evaluate_knowledge_claim": {"params": ["proposition", "belief_state", "evidence"], "returns": "KnowledgeAssessment"},
+        "check_defeaters": {"params": ["belief", "context"], "returns": "DefeaterStatus"},
+        "assess_epistemic_luck": {"params": ["belief_formation_process"], "returns": "LuckMitigationStatus"}
+      }
+    },
+    "tests": {
+      "unit": [
+        "test_jtb_conditions_met",
+        "test_gettier_case_detection",
+        "test_defeater_identification"
+      ],
+      "integration": [
+        "test_full_knowledge_assessment_pipeline"
+      ],
+      "coverage": {"target": 0.85}
+    },
+    "evaluation": {
+      "success_criteria": [
+        "Correctly identifies JTB as necessary but insufficient for knowledge",
+        "Detects Gettier-style luck in test cases",
+        "Applies defeasibility conditions appropriately"
+      ],
+      "metrics": ["accuracy", "gettier_case_detection_rate", "justification_assignment_correctness"]
+    },
+    "safety": {
+      "risks": ["Overconfident knowledge claims", "Undermining legitimate epistemic progress"],
+      "mitigations": ["Conservative knowledge attribution", "Explicit uncertainty acknowledgment"]
+    },
+    "risks": {
+      "failure_modes": [
+        "Failing to detect novel Gettier cases",
+        "Misidentifying justification sources",
+        "Inadequate handling of defeaters"
+      ],
+      "edge_cases": ["Borderline cases", "Context-dependent justification", "Historical belief revision"]
+    },
+    "dependencies": [],
+    "version": "1.0.0",
+    "authors": ["Skill Flywheel Team"]
+  },
+  {
+    "id": "epist-002",
+    "name": "Bayesian Evidence Updating",
+    "domain": "EPISTEMOLOGY",
+    "sources": [
+      {
+        "title": "Bayesian Epistemology (SEP)",
+        "url": "https://plato.stanford.edu/entries/epistemology-bayesian/"
+      }
+    ],
+    "summary": "Skill for rationally updating degrees of belief (credences) in response to evidence using Bayesian conditionalization and coherence constraints (Probabilism).",
+    "problem_description": "The challenge of determining how rational agents should update their degrees of belief when receiving new evidence, while maintaining probabilistic coherence and addressing the problem of old evidence and prior selection.",
+    "approach": "This skill implements Bayesian epistemology principles: (1) Probabilism - credences must satisfy probability axioms (non-negativity, normalization, additivity), (2) Conditionalization - update credences by conditioning on new evidence, (3) Bayesian confirmation measures. It addresses the problem of old evidence where evidence E is known before hypothesis H is formulated. Uses accuracy-dominance arguments and Dutch Book theorems for normative foundations.",
+    "inputs": {
+      "data": {
+        "type": "object",
+        "properties": {
+          "prior_credences": {"type": "object", "description": "Map of propositions to probability values"},
+          "new_evidence": {"type": "string", "description": "Evidence proposition E"},
+          "hypotheses": {"type": "array", "items": {"type": "string"}, "description": "List of hypotheses H_i to evaluate"},
+          "likelihoods": {"type": "object", "description": "P(E|H) for each hypothesis"}
+        },
+        "required": ["prior_credences", "new_evidence", "hypotheses"]
+      }
+    },
+    "outputs": {
+      "result": {
+        "type": "object",
+        "properties": {
+          "posterior_credences": {"type": "object"},
+          "confirmation_strength": {"type": "object", "description": "P(H|E)/P(H) ratios for each hypothesis"},
+          "coherence_maintained": {"type": "boolean"}
+        }
+      }
+    },
+    "interfaces": {
+      "internal": ["CredenceAssignment", "ConfirmationMeasure"],
+      "external": ["EvidenceDatabase", "HypothesisSpace"]
+    },
+    "algorithm": "1. Validate prior credences satisfy Probabilism\n2. For each hypothesis, compute P(H) from prior\n3. Apply Bayes' theorem: P(H|E) = P(E|H)*P(H)/P(E)\n4. Compute posterior credences\n5. Calculate confirmation measures\n6. Verify posterior coherence\n7. Handle old evidence case if applicable",
+    "code_skeleton": {
+      "paths": ["skills/epistemology/bayesian_updating.py"],
+      "functions": {
+        "conditionalize": {"params": ["prior", "evidence"], "returns": "PosteriorDistribution"},
+        "compute_confirmation": {"params": ["hypothesis", "evidence", "prior"], "returns": "ConfirmationMeasure"},
+        "check_coherence": {"params": ["credence_function"], "returns": "CoherenceStatus"}
+      }
+    },
+    "tests": {
+      "unit": [
+        "test_probability_axioms",
+        "test_bayes_theorem",
+        "test_confirmation_calculation"
+      ],
+      "integration": [
+        "test_eddington_case",
+        "test_old_evidence_problem"
+      ],
+      "coverage": {"target": 0.90}
+    },
+    "evaluation": {
+      "success_criteria": [
+        "Correctly applies Bayes' theorem",
+        "Maintains probabilistic coherence",
+        "Handles surprising evidence appropriately"
+      ],
+      "metrics": ["calibration", "coherence_score", "confirmation_accuracy"]
+    },
+    "safety": {
+      "risks": ["Computational overflow", "Prior sensitivity", "Idealization mismatches"],
+      "mitigations": ["Numerical stability checks", "Sensitivity analysis", "Idealization acknowledgment"]
+    },
+    "risks": {
+      "failure_modes": [
+        "Prior dependence leading to arbitrary conclusions",
+        "Failure on infinite hypothesis spaces",
+        "Handling of zero-likelihood cases"
+      ],
+      "edge_cases": ["Logical omniscience assumption", "Precise credence requirements", "Old evidence problem"]
+    },
+    "dependencies": [],
+    "version": "1.0.0",
+    "authors": ["Skill Flywheel Team"]
+  },
+  {
+    "id": "epist-003",
+    "name": "Social Testimony and Epistemic Trust",
+    "domain": "EPISTEMOLOGY",
+    "sources": [
+      {
+        "title": "Social Epistemology (SEP)",
+        "url": "https://plato.stanford.edu/entries/epistemology-social/"
+      }
+    ],
+    "summary": "Skill for evaluating testimony-based beliefs, determining when to trust others' assertions, and handling peer disagreement in epistemic communities.",
+    "problem_description": "The challenge of evaluating testimony as a source of knowledge: Should testimony be treated as a basic source of justification (anti-reductionism) or must it be reduced to other sources (reductionism)? Also addresses how to respond rationally to peer disagreement and model group belief formation.",
+    "approach": "This skill implements the epistemology of testimony drawing on SEP's treatment of reductionism vs anti-reductionism, the assurance view, and trust-based approaches. It incorporates: (1) Testimonial justification evaluation considering speaker's epistemic condition and local environment reliability, (2) Peer disagreement responses (conciliationism vs steadfastness), (3) Group belief aggregation using majority voting and judgment pooling. Addresses misinformation and echo chambers through testimonial reliability assessment.",
+    "inputs": {
+      "data": {
+        "type": "object",
+        "properties": {
+          "testimony_content": {"type": "string"},
+          "speaker_info": {"type": "object", "properties": {"expertise": {"type": "number"}, "honesty": {"type": "number"}, "accuracy_history": {"type": "number"}}},
+          "listener_background": {"type": "object", "properties": {"background_knowledge": {"type": "array"}, "independent_evidence": {"type": "boolean"}}},
+          "peer_disagreement": {"type": "object", "properties": {"peer_credence": {"type": "number"}, "peer_evidence": {"type": "string"}, "is_peer": {"type": "boolean"}}},
+          "group_beliefs": {"type": "array", "items": {"type": "object"}}
+        },
+        "required": ["testimony_content"]
+      }
+    },
+    "outputs": {
+      "result": {
+        "type": "object",
+        "properties": {
+          "testimonial_justification": {"type": "string", "enum": ["justified", "unjustified", "defeated"]},
+          "disagreement_response": {"type": "string", "enum": ["concede", "steadfast", "suspend"]},
+          "group_aggregated_belief": {"type": "object"},
+          "trust_level": {"type": "number"}
+        }
+      }
+    },
+    "interfaces": {
+      "internal": ["SourceReliability", "GroupAggregation"],
+      "external": ["TestimonyDatabase", "SocialNetwork"]
+    },
+    "algorithm": "1. Assess speaker reliability and expertise\n2. Evaluate listener's independent evidence\n3. Apply testimonial justification criteria\n4. If peer disagreement present, determine appropriate response\n5. For group belief, apply aggregation function\n6. Check for misinformation indicators\n7. Output justified belief state",
+    "code_skeleton": {
+      "paths": ["skills/epistemology/testimony.py"],
+      "functions": {
+        "evaluate_testimony": {"params": ["testimony", "speaker", "listener"], "returns": "TestimonialJustification"},
+        "respond_to_disagreement": {"params": ["my_credence", "peer_credence", "evidence"], "returns": "DisagreementResponse"},
+        "aggregate_group_belief": {"params": ["individual_beliefs", "aggregation_rule"], "returns": "GroupBelief"}
+      }
+    },
+    "tests": {
+      "unit": [
+        "test_reductionist_testimonial_eval",
+        "test_peer_disagreement_response"
+      ],
+      "integration": [
+        "test_testimony_chain",
+        "test_group_belief_formation"
+      ],
+      "coverage": {"target": 0.80}
+    },
+    "evaluation": {
+      "success_criteria": [
+        "Correctly applies testimonial justification criteria",
+        "Handles reductionism debate appropriately",
+        "Models group belief aggregation correctly"
+      ],
+      "metrics": ["testimonial_accuracy", "disagreement_resolution_quality", "group_aggregation_validity"]
+    },
+    "safety": {
+      "risks": ["Spreading misinformation", "Undue skepticism of reliable testimony"],
+      "mitigations": ["Multi-source verification", "Expertise weighting", "Uncertainty communication"]
+    },
+    "risks": {
+      "failure_modes": [
+        "Failing to detect deceptive testimony",
+        "Mishandling deep disagreement",
+        "Aggregation paradoxes (doctrinal paradox)"
+      ],
+      "edge_cases": ["Anonymous testimony", "AI-generated content", "Cross-cultural testimony"]
+    },
+    "dependencies": ["epist-001", "epist-002"],
+    "version": "1.0.0",
+    "authors": ["Skill Flywheel Team"]
+  },
+  {
+    "id": "agency-001",
+    "name": "Intentional Action Recognition",
+    "domain": "AGENCY",
+    "sources": [
+      {
+        "title": "Agency (SEP)",
+        "url": "https://plato.stanford.edu/entries/agency/"
+      }
+    ],
+    "summary": "Skill for identifying intentional actions, distinguishing them from mere behaviors, and analyzing the mental states (desires, beliefs, intentions) that ground agency.",
+    "problem_description": "The challenge of distinguishing genuine intentional actions from mere behaviors or accidental outcomes, and understanding what makes an action attributable to an agent. Addresses the problem of deviant causal chains where mental states cause actions but not in the right way.",
+    "approach": "This skill implements the standard theory of agency (Anscombe-Davidson framework): (1) Action identification through intentionality - an event is an action if intentional under some description, (2) Reason explanation - actions are explained by the agent's mental states (desires, beliefs, intentions) that rationalize them, (3) Non-deviant causation requirement. It distinguishes between intentional and unintentional actions, addresses the problem of causal chain deviance, and considers alternative conceptions including minimal agency for simple organisms.",
+    "inputs": {
+      "data": {
+        "type": "object",
+        "properties": {
+          "event_description": {"type": "string"},
+          "agent_mental_states": {"type": "object", "properties": {
+            "desires": {"type": "array"},
+            "beliefs": {"type": "array"},
+            "intentions": {"type": "array"}
+          }},
+          "causal_history": {"type": "array", "description": "Sequence of causal events"},
+          "context": {"type": "object"}
+        },
+        "required": ["event_description", "agent_mental_states"]
+      }
+    },
+    "outputs": {
+      "result": {
+        "type": "object",
+        "properties": {
+          "is_action": {"type": "boolean"},
+          "is_intentional": {"type": "boolean"},
+          "reason_explanation_available": {"type": "boolean"},
+          "causal_deviance_risk": {"type": "boolean"},
+          "agency_type": {"type": "string", "enum": ["intentional", "unintentional", "minimal", "none"]}
+        }
+      }
+    },
+    "interfaces": {
+      "internal": ["MentalStateAnalysis", "CausalTracing"],
+      "external": ["ActionDatabase", "AgentModel"]
+    },
+    "algorithm": "1. Identify event and agent\n2. Check for intentional description\n3. Analyze mental states for rationalizing connection\n4. Evaluate causal chain for deviance\n5. Determine if action meets criteria for intentional action\n6. Classify agency type\n7. Output action status with explanation",
+    "code_skeleton": {
+      "paths": ["skills/agency/intentional_action.py"],
+      "functions": {
+        "identify_action": {"params": ["event", "agent"], "returns": "ActionStatus"},
+        "check_intentionality": {"params": ["action", "mental_states"], "returns": "IntentionalityStatus"},
+        "detect_causal_deviance": {"params": ["causal_chain"], "returns": "DevianceAssessment"}
+      }
+    },
+    "tests": {
+      "unit": [
+        "test_intentional_action_detection",
+        "test_deviant_causal_chain"
+      ],
+      "integration": [
+        "test_action_recognition_pipeline"
+      ],
+      "coverage": {"target": 0.85}
+    },
+    "evaluation": {
+      "success_criteria": [
+        "Correctly distinguishes actions from behaviors",
+        "Identifies deviant causal chains",
+        "Provides accurate reason explanations"
+      ],
+      "metrics": ["action_detection_accuracy", "deviance_detection_rate", "explanation_quality"]
+    },
+    "safety": {
+      "risks": ["Over-attributing agency", "Under-attributing agency to non-human agents"],
+      "mitigations": ["Clear agency type classification", "Explicit confidence levels"]
+    },
+    "risks": {
+      "failure_modes": [
+        "Failing to detect novel deviance patterns",
+        "Mishandling collective agency",
+        "Problems with minimal agency cases"
+      ],
+      "edge_cases": ["Group agency", "Artificial agents", "Habitual actions", "Akrasia cases"]
+    },
+    "dependencies": [],
+    "version": "1.0.0",
+    "authors": ["Skill Flywheel Team"]
+  },
+  {
+    "id": "agency-002",
+    "name": "Practical Reasoning and Goal-Directed Planning",
+    "domain": "AGENCY",
+    "sources": [
+      {
+        "title": "Practical Reason (SEP)",
+        "url": "https://plato.stanford.edu/entries/practical-reason/"
+      },
+      {
+        "title": "Agency (SEP)",
+        "url": "https://plato.stanford.edu/entries/agency/"
+      }
+    ],
+    "summary": "Skill for practical reasoning: converting mental goals into action plans, applying instrumental rationality, and managing means-end coherence.",
+    "problem_description": "The challenge of how agents move from having goals (ends) to selecting and executing appropriate means. Addresses instrumental rationality requirements, the problem of structural rationality (means-end coherence), and the relationship between theoretical and practical reason.",
+    "approach": "This skill implements practical reasoning following SEP's treatment: (1) The instrumental principle - take necessary means to your ends, (2) Wide-scope vs narrow-scope rationality requirements, (3) Planning agency using Bratman's theory of intentions and plans, (4) The Humean vs Kantian debate on whether reasons are motivation-based (internalism) or situation-based (externalism), (5) Decision-theoretic maximizing rationality. It handles akrasia (weakness of will) detection and addresses bootstrapping concerns.",
+    "inputs": {
+      "data": {
+        "type": "object",
+        "properties": {
+          "agent_ends": {"type": "array", "description": "Goals the agent wants to achieve"},
+          "available_means": {"type": "array", "description": "Potential actions available"},
+          "beliefs_about_world": {"type": "object", "description": "Agent's beliefs about circumstances"},
+          "preferences": {"type": "object", "description": "Utility function or preference ordering"},
+          "current_plans": {"type": "array"}
+        },
+        "required": ["agent_ends", "available_means", "beliefs_about_world"]
+      }
+    },
+    "outputs": {
+      "result": {
+        "type": "object",
+        "properties": {
+          "recommended_actions": {"type": "array"},
+          "plan_structure": {"type": "object"},
+          "instrumental_coherence": {"type": "boolean"},
+          "akrasia_risk": {"type": "boolean"},
+          "means_end_analysis": {"type": "object"}
+        }
+      }
+    },
+    "interfaces": {
+      "internal": ["GoalAnalysis", "PlanConstruction"],
+      "external": ["ActionSpace", "UtilityModel"]
+    },
+    "algorithm": "1. Identify agent's ends and their ordering\n2. Map available means to ends\n3. Apply instrumental rationality (necessary means)\n4. Check means-end coherence\n5. Construct hierarchical plan if needed\n6. Detect potential akrasia\n7. Output recommended actions with justification",
+    "code_skeleton": {
+      "paths": ["skills/agency/practical_reasoning.py"],
+      "functions": {
+        "deliberate": {"params": ["ends", "means", "beliefs"], "returns": "ActionRecommendation"},
+        "check_instrumental_coherence": {"params": ["plans", "ends"], "returns": "CoherenceStatus"},
+        "detect_akrasia": {"params": ["intention", "action", "judgment"], "returns": "AkrasiaRisk"}
+      }
+    },
+    "tests": {
+      "unit": [
+        "test_instrumental_principle",
+        "test_means_end_reasoning"
+      ],
+      "integration": [
+        "test_practical_reasoning_pipeline"
+      ],
+      "coverage": {"target": 0.80}
+    },
+    "evaluation": {
+      "success_criteria": [
+        "Correctly identifies necessary means",
+        "Maintains instrumental coherence",
+        "Appropriately handles competing ends"
+      ],
+      "metrics": ["instrumental_rationality_score", "plan_coherence", "akrasia_detection_accuracy"]
+    },
+    "safety": {
+      "risks": ["Promoting harmful ends", "Over-reliance on means-end rationality"],
+      "mitigations": ["Ethical constraints on ends", "Explicit limitation acknowledgment"]
+    },
+    "risks": {
+      "failure_modes": [
+        "Circular reasoning in means-end chains",
+        "Failing to handle indeterminate ends",
+        "Mishandling procedural vs substantive rationality"
+      ],
+      "edge_cases": ["Conflicting ends", "Unstable preferences", "Strategic reasoning vs genuine deliberation"]
+    },
+    "dependencies": ["agency-001"],
+    "version": "1.0.0",
+    "authors": ["Skill Flywheel Team"]
+  },
+  {
+    "id": "agency-003",
+    "name": "Knowledge-How Recognition",
+    "domain": "AGENCY",
+    "sources": [
+      {
+        "title": "Knowledge How (SEP)",
+        "url": "https://plato.stanford.edu/entries/knowledge-how/"
+      }
+    ],
+    "summary": "Skill for distinguishing knowledge-how (ability/competence) from knowledge-that (propositional knowledge), addressing the intellectualist vs anti-intellectualist debate.",
+    "problem_description": "The challenge of correctly identifying and evaluating knowledge-how (knowing how to do something) versus knowledge-that (knowing that something is the case). Addresses Ryle's regress argument against intellectualism, the sufficiency problem, and the gradability of knowledge-how ascriptions.",
+    "approach": "This skill implements the debate between intellectualism (knowledge-how = knowledge-that a way to do something) and anti-intellectualism (knowledge-how is distinct ability/disposition). It uses Stanley & Williamson's linguistic argument for intellectualism while acknowledging anti-intellectualist objections. It handles: (1) The regress argument - intelligent performance doesn't require infinite contemplation, (2) Sufficiency - knowing a way isn't sufficient for ability, (3) Gradability - knowledge-how comes in degrees unlike knowledge-that. It distinguishes general ability from circumstantial ability.",
+    "inputs": {
+      "data": {
+        "type": "object",
+        "properties": {
+          "subject": {"type": "string"},
+          "skill_claim": {"type": "string", "description": "The 'knowing how to Φ' claim"},
+          "demonstrated_ability": {"type": "boolean", "description": "Can subject perform the skill?"},
+          "propositional_knowledge": {"type": "object", "description": "Does subject know the relevant propositions?"},
+          "circumstances": {"type": "object", "description": "Current circumstantial constraints"},
+          "performance_context": {"type": "string"}
+        },
+        "required": ["subject", "skill_claim"]
+      }
+    },
+    "outputs": {
+      "result": {
+        "type": "object",
+        "properties": {
+          "has_knowledge_how": {"type": "boolean"},
+          "knowledge_type": {"type": "string", "enum": ["pure_ability", "propositional_based", "unknown"]},
+          "general_ability": {"type": "boolean"},
+          "circumstantial_ability": {"type": "boolean"},
+          "intellectualist_analysis": {"type": "object"},
+          "anti_intellectualist_analysis": {"type": "object"}
+        }
+      }
+    },
+    "interfaces": {
+      "internal": ["AbilityAssessment", "PropositionalKnowledgeEval"],
+      "external": ["PerformanceDatabase", "SkillTaxonomy"]
+    },
+    "algorithm": "1. Identify the skill claim 'knowing how to Φ'\n2. Assess if subject can perform Φ (general ability)\n3. Check for relevant propositional knowledge\n4. Evaluate circumstantial constraints\n5. Apply intellectualist analysis (knowing that way)\n6. Apply anti-intellectualist analysis (ability/disposition)\n7. Resolve conflicts between analyses\n8. Output knowledge-how status",
+    "code_skeleton": {
+      "paths": ["skills/agency/knowledge_how.py"],
+      "functions": {
+        "evaluate_knowledge_how": {"params": ["subject", "skill"], "returns": "KnowledgeHowStatus"},
+        "assess_ability": {"params": ["subject", "skill", "circumstances"], "returns": "AbilityAssessment"},
+        "apply_intellectualist_criteria": {"params": ["subject", "skill"], "returns": "IntellectualistAnalysis"}
+      }
+    },
+    "tests": {
+      "unit": [
+        "test_ability_vs_knowledge_distinction",
+        "test_gradability_detection"
+      ],
+      "integration": [
+        "test_knowledge_how_pipeline"
+      ],
+      "coverage": {"target": 0.80}
+    },
+    "evaluation": {
+      "success_criteria": [
+        "Correctly distinguishes knowledge-how from knowledge-that",
+        "Handles ability loss cases (amputee pianist)",
+        "Appropriately applies gradability"
+      ],
+      "metrics": ["knowledge_how_accuracy", "ability_detection_rate", "gradability_handling"]
+    },
+    "safety": {
+      "risks": ["Over-attributing knowledge-how", "Undervaluing practical wisdom"],
+      "mitigations": ["Multi-criteria assessment", "Explicit uncertainty"]
+    },
+    "risks": {
+      "failure_modes": [
+        "Failing to detect dispositional knowledge",
+        "Mishandling practical concepts",
+        "Problems with pre-linguistic knowledge"
+      ],
+      "edge_cases": ["Lost abilities", "Skill degradation", "Collective knowledge-how", "AI capabilities"]
+    },
+    "dependencies": ["epist-001"],
+    "version": "1.0.0",
+    "authors": ["Skill Flywheel Team"]
+  },
+  {
+    "id": "logic-001",
+    "name": "Reliabilist Justification Assessment",
+    "domain": "LOGIC",
+    "sources": [
+      {
+        "title": "Reliabilism (IEP)",
+        "url": "https://iep.utm.edu/reliabilism/"
+      },
+      {
+        "title": "Epistemology Overview (SEP)",
+        "url": "https://plato.stanford.edu/entries/epistemology/"
+      }
+    ],
+    "summary": "Skill for evaluating epistemic justification based on the reliability of belief-forming processes, implementing process reliabilism and addressing the generality problem.",
+    "problem_description": "The challenge of determining whether a belief is justified based on whether it was formed by a reliable (truth-conducive) process. Addresses the key problems: (1) Is reliably formed true belief sufficient for justification? (2) The generality problem - how to individuate processes? (3) Easy knowledge problem - bootstrapping from reliable processes, (4) The value problem - why is knowledge valuable if easily obtained?",
+    "approach": "This skill implements process reliabilism: a belief is justified iff formed by a reliable process (one that produces mostly true beliefs or high truth ratio). It draws on Goldman's work and addresses: (1) Process individuation using proper function theory, (2) The discrimination account for perceptual knowledge, (3) Normal worlds approach for counterexamples, (4) Basic vs non-basic belief distinction. It incorporates agent reliabilism and virtue approaches as alternatives.",
+    "inputs": {
+      "data": {
+        "type": "object",
+        "properties": {
+          "belief": {"type": "string"},
+          "formation_process": {"type": "object", "properties": {
+            "process_type": {"type": "string", "enum": ["perception", "memory", "testimony", "induction", "deduction", "introspection"]},
+            "process_description": {"type": "string"},
+            "reliability_estimate": {"type": "number"},
+            "input_beliefs": {"type": "array"}
+          }},
+          "truth_value": {"type": "boolean"},
+          "alternative_processes_available": {"type": "array"},
+          "normal_worlds_consistency": {"type": "boolean"}
+        },
+        "required": ["belief", "formation_process"]
+      }
+    },
+    "outputs": {
+      "result": {
+        "type": "object",
+        "properties": {
+          "is_justified": {"type": "boolean"},
+          "process_reliability": {"type": "number"},
+          "justification_type": {"type": "string", "enum": ["basic", "non_basic"]},
+          "generality_problem_applies": {"type": "boolean"},
+          "alternative_assessment": {"type": "object"}
+        }
+      }
+    },
+    "interfaces": {
+      "internal": ["ProcessReliability", "TruthTracking"],
+      "external": ["ReliabilityDatabase", "CognitiveScience"]
+    },
+    "algorithm": "1. Identify belief formation process\n2. Assess process reliability (truth-conduciveness)\n3. Determine if basic or non-basic belief\n4. Check for alternative reliable processes\n5. Evaluate normal worlds consistency\n6. Address generality problem if applicable\n7. Compute justification status\n8. Output assessment with reliability score",
+    "code_skeleton": {
+      "paths": ["skills/logic/reliabilist_justification.py"],
+      "functions": {
+        "evaluate_reliabilist_justification": {"params": ["belief", "process"], "returns": "JustificationStatus"},
+        "assess_process_reliability": {"params": ["process_type", "context"], "returns": "ReliabilityScore"},
+        "handle_generality_problem": {"params": ["process_description"], "returns": "ProcessIndividuation"}
+      }
+    },
+    "tests": {
+      "unit": [
+        "test_reliability_assessment",
+        "test_basic_vs_nonbasic"
+      ],
+      "integration": [
+        "test_barn_facade_case",
+        "test_truetemp_case"
+      ],
+      "coverage": {"target": 0.85}
+    },
+    "evaluation": {
+      "success_criteria": [
+        "Correctly applies process reliability criteria",
+        "Handles barn facade and Truetemp cases",
+        "Addresses the generality problem"
+      ],
+      "metrics": ["reliability_estimation_accuracy", "counterexample_detection", "justification_assignment"]
+    },
+    "safety": {
+      "risks": ["Over-reliance on reliability", "Undermining internalist justification"],
+      "mitigations": ["Multi-theory comparison", "Clear limitation acknowledgment"]
+    },
+    "risks": {
+      "failure_modes": [
+        "Process individuation leading to trivialization",
+        "Failing on novel process types",
+        "Value problem - overestimating easy knowledge"
+      ],
+      "edge_cases": ["New technology-based processes", "Edge cases with mixed reliability", "Historical processes"]
+    },
+    "dependencies": ["epist-001"],
+    "version": "1.0.0",
+    "authors": ["Skill Flywheel Team"]
+  },
+  {
+    "id": "logic-002",
+    "name": "Formal Logic Systems",
+    "domain": "LOGIC",
+    "sources": [
+      {
+        "title": "Open Logic Project",
+        "url": "https://openlogicproject.org/"
+      }
+    ],
+    "summary": "Skill for applying formal logical systems including propositional logic, predicate logic, and meta-logic principles for constructing and evaluating arguments.",
+    "problem_description": "The challenge of representing reasoning formally, proving validity/invalidity of arguments, and understanding the relationship between syntax and semantics in logical systems. Addresses proof construction, semantic reasoning, and meta-theoretic properties (soundness, completeness).",
+    "approach": "This skill implements core logical systems from the Open Logic Project: (1) Propositional logic - truth-functional connectives, truth tables, natural deduction, (2) First-order predicate logic - quantifiers, models, completeness, (3) Meta-logic - soundness and completeness theorems, (4) Logical consequence and validity. It provides both syntactic (proof-theoretic) and semantic approaches.",
+    "inputs": {
+      "data": {
+        "type": "object",
+        "properties": {
+          "argument": {"type": "object", "properties": {
+            "premises": {"type": "array"},
+            "conclusion": {"type": "string"}
+          }},
+          "logical_system": {"type": "string", "enum": ["propositional", "first_order"]},
+          "proof_method": {"type": "string", "enum": ["natural_deduction", "semantic", "truth_table", "resolution"]},
+          "formulas": {"type": "array", "description": "Formulas to analyze"}
+        },
+        "required": ["argument"]
+      }
+    },
+    "outputs": {
+      "result": {
+        "type": "object",
+        "properties": {
+          "valid": {"type": "boolean"},
+          "proof": {"type": "object"},
+          "counterexample": {"type": "object"},
+          "logical_analysis": {"type": "object"}
+        }
+      }
+    },
+    "interfaces": {
+      "internal": ["ProofConstruction", "SemanticAnalysis"],
+      "external": ["LogicLibrary", "ProofAssistant"]
+    },
+    "algorithm": "1. Parse argument into logical form\n2. Select appropriate system and proof method\n3. Apply syntactic or semantic analysis\n4. For validity: construct proof or find counterexample\n5. For invalidity: find counterexample model\n6. Verify using meta-logic properties\n7. Output analysis with justification",
+    "code_skeleton": {
+      "paths": ["skills/logic/formal_logic.py"],
+      "functions": {
+        "prove_validity": {"params": ["argument", "method"], "returns": "ProofResult"},
+        "find_counterexample": {"params": ["argument"], "returns": "Counterexample"},
+        "check_logical_consequence": {"params": ["premises", "conclusion"], "returns": "ConsequenceStatus"}
+      }
+    },
+    "tests": {
+      "unit": [
+        "test_propositional_validity",
+        "test_predicate_logic"
+      ],
+      "integration": [
+        "test_soundness_completeness"
+      ],
+      "coverage": {"target": 0.90}
+    },
+    "evaluation": {
+      "success_criteria": [
+        "Correctly identifies valid/invalid arguments",
+        "Provides sound proofs",
+        "Finds appropriate counterexamples"
+      ],
+      "metrics": ["proof_accuracy", "counterexample_quality", "completeness_handling"]
+    },
+    "safety": {
+      "risks": ["Infinite proof search", "Computational complexity"],
+      "mitigations": ["Proof search limits", "Timeout handling", "Appropriateness warnings"]
+    },
+    "risks": {
+      "failure_modes": [
+        "Incomplete proof search",
+        "Complexity blowup for certain formulas",
+        "Handling of non-standard semantics"
+      ],
+      "edge_cases": ["Higher-order logic", "Non-classical logics", "Indefinite descriptions"]
+    },
+    "dependencies": [],
+    "version": "1.0.0",
+    "authors": ["Skill Flywheel Team"]
+  },
+  {
+    "id": "epist-004",
+    "name": "Epistemic Evaluation Synthesis",
+    "domain": "EPISTEMOLOGY",
+    "sources": [
+      {
+        "title": "Epistemology Overview (SEP)",
+        "url": "https://plato.stanford.edu/entries/epistemology/"
+      },
+      {
+        "title": "Social Epistemology (SEP)",
+        "url": "https://plato.stanford.edu/entries/epistemology-social/"
+      },
+      {
+        "title": "Bayesian Epistemology (SEP)",
+        "url": "https://plato.stanford.edu/entries/epistemology-bayesian/"
+      },
+      {
+        "title": "Reliabilism (IEP)",
+        "url": "https://iep.utm.edu/reliabilism/"
+      }
+    ],
+    "summary": "Meta-skill for synthesizing multiple epistemological frameworks to evaluate complex epistemic situations, combining internalist, externalist, and social approaches.",
+    "problem_description": "The challenge of evaluating epistemic claims in complex real-world situations that may require multiple epistemological frameworks simultaneously - e.g., a testimony-based belief that also requires reliability assessment and Bayesian updating when new evidence arrives.",
+    "approach": "This meta-skill integrates multiple epistemological approaches: (1) Internalist justification (evidence, coherence), (2) Externalist/reliabilist justification (process reliability), (3) Bayesian credence updating, (4) Social epistemology (testimony, peer disagreement, group belief). It provides a unified evaluation framework that can weight different considerations appropriately for complex epistemic situations.",
+    "inputs": {
+      "data": {
+        "type": "object",
+        "properties": {
+          "epistemic_situation": {"type": "object", "description": "Complex epistemic situation to evaluate"},
+          "applicable_frameworks": {"type": "array", "items": {"type": "string"}},
+          "context": {"type": "object"}
+        },
+        "required": ["epistemic_situation"]
+      }
+    },
+    "outputs": {
+      "result": {
+        "type": "object",
+        "properties": {
+          "synthesis_assessment": {"type": "object"},
+          "framework_weightings": {"type": "object"},
+          "overall_justification": {"type": "string"},
+          "recommendations": {"type": "array"}
+        }
+      }
+    },
+    "interfaces": {
+      "internal": ["KnowledgeVerification", "BayesianUpdating", "TestimonyEvaluation", "ReliabilistJustification"],
+      "external": ["EpistemicDatabase", "UserQuery"]
+    },
+    "algorithm": "1. Parse complex epistemic situation\n2. Identify applicable epistemological frameworks\n3. Evaluate using each relevant framework\n4. Synthesize results with appropriate weightings\n5. Resolve conflicts between frameworks\n6. Generate overall assessment\n7. Provide recommendations for epistemic improvement",
+    "code_skeleton": {
+      "paths": ["skills/epistemology/synthesis.py"],
+      "functions": {
+        "synthesize_evaluation": {"params": ["situation", "frameworks"], "returns": "SynthesisResult"},
+        "resolve_framework_conflicts": {"params": ["framework_results"], "returns": "ResolvedAssessment"}
+      }
+    },
+    "tests": {
+      "unit": [
+        "test_framework_integration"
+      ],
+      "integration": [
+        "test_complex_situations"
+      ],
+      "coverage": {"target": 0.75}
+    },
+    "evaluation": {
+      "success_criteria": [
+        "Appropriately integrates multiple frameworks",
+        "Handles framework conflicts intelligently",
+        "Provides actionable recommendations"
+      ],
+      "metrics": ["synthesis_accuracy", "conflict_resolution_quality", "user_satisfaction"]
+    },
+    "safety": {
+      "risks": ["Over-complication", "Inconsistent framework weightings"],
+      "mitigations": ["Clear methodology", "Explicit weighting rationale"]
+    },
+    "risks": {
+      "failure_modes": [
+        "Conflicting framework conclusions",
+        "Missing relevant frameworks",
+        "Inappropriate weightings"
+      ],
+      "edge_cases": ["Novel epistemic situations", "Framework frontier cases"]
+    },
+    "dependencies": ["epist-001", "epist-002", "epist-003", "logic-001"],
+    "version": "1.0.0",
+    "authors": ["Skill Flywheel Team"]
+  }
+]
