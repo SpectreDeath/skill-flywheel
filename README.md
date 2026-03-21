@@ -1,6 +1,6 @@
 # Skill Flywheel
 
-A unified skill registry with 345+ specialized skills for AI agent development.
+A unified skill registry with 528+ specialized skills for AI agent development.
 
 ## 🚀 Quick Start
 
@@ -14,13 +14,14 @@ curl http://localhost:8000/health
 
 ## 📁 Repository Structure
 
-- `/src/core`: Shared logic and specialized core components.
-- `/src/discovery`: Routing and discovery service.
-- `/src/skills/`: Python skill modules organized by domain.
-- `/domains`: SKILL.md specifications organized by domain.
-- `/data`: SQLite skill registry and backlog.
+- `/src/flywheel/core`: Shared logic and specialized core components.
+- `/src/flywheel/server`: Discovery service and MCP server.
+- `/src/skills/`: Legacy Python skill modules (deprecated - use domains/).
+- `/domains`: **Canonical** SKILL.md specifications organized by domain.
+- `/data`: SQLite skill registry and JSON indexes.
 - `/docs`: Comprehensive documentation index.
 - `/tests`: Automated test suites.
+- `/skills`: Runtime Python skill modules.
 
 ## 📚 Skill Domains
 
@@ -47,9 +48,9 @@ curl http://localhost:8000/health
 ## 🔍 Key Features
 
 - **Single FastAPI Service**: Discovery service runs on port 8000
-- **SQLite Registry**: Skills stored in `data/skill_registry.db`
-- **Python Modules**: Skills implemented as modules in `src/skills/`
-- **SKILL.md Specs**: Domain-driven specifications in `domains/`
+- **JSON Registry**: Skills indexed in `skill_registry.json` (built from `domains/`)
+- **SKILL.md Specs**: Domain-driven specifications in `domains/` (canonical source)
+- **Python Modules**: Runtime skills in `skills/` directory
 
 ## 📜 License
 
