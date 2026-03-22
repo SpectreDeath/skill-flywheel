@@ -161,6 +161,12 @@ class EnhancedMCPServerV3:
             if not skill_name:
                 raise HTTPException(status_code=400, detail="skill_name is required")
 
+            if skill_name not in self.skill_manager.skills:
+                raise HTTPException(
+                    status_code=400,
+                    detail=f"skill_name '{skill_name}' is not registered. Available skills: {list(self.skill_manager.skills.keys())[:20]}",
+                )
+
             REQUEST_COUNT.labels(method="POST", endpoint="/skills/execute").inc()
 
             start_time = time.time()
