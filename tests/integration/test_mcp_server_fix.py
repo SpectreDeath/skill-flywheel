@@ -443,6 +443,7 @@ def skill_{i}():
 class TestIntegration:
     """Integration tests for the complete system"""
 
+    @pytest.mark.skip(reason="Requires full system setup")
     @pytest.mark.asyncio
     async def test_full_server_lifecycle(self):
         """Test complete server lifecycle"""

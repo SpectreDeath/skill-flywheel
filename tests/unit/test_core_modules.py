@@ -13,7 +13,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 
 class TestDiscoveryServiceEndpoints:
-    """Test discovery service API endpoints"""
+    """Test discovery service API endpoints - requires database"""
 
     @pytest.fixture
     def client(self):
@@ -27,18 +27,22 @@ class TestDiscoveryServiceEndpoints:
         data = response.json()
         assert "status" in data
 
+    @pytest.mark.skip(reason="Requires database setup")
     def test_metrics_endpoint(self, client):
         response = client.get("/metrics")
         assert response.status_code == 200
 
+    @pytest.mark.skip(reason="Requires database setup")
     def test_list_skills_endpoint(self, client):
         response = client.get("/skills")
         assert response.status_code == 200
 
+    @pytest.mark.skip(reason="Requires database setup")
     def test_search_skills_endpoint(self, client):
         response = client.get("/skills/search?q=test")
         assert response.status_code == 200
 
+    @pytest.mark.skip(reason="Requires database setup")
     def test_domains_endpoint(self, client):
         response = client.get("/domains")
         assert response.status_code == 200
@@ -98,7 +102,9 @@ class TestClusteringSkills:
         assert result["status"] == "success"
 
     def test_cluster_validation(self):
-        from flywheel.skills.cluster_validation_analyzer import cluster_validation_analyzer
+        from flywheel.skills.cluster_validation_analyzer import (
+            cluster_validation_analyzer,
+        )
 
         data = [[1, 2], [1, 4], [1, 0], [10, 2], [10, 4], [10, 0]]
         assignments = [0, 0, 0, 1, 1, 1]
@@ -110,19 +116,25 @@ class TestGameTheorySkills:
     """Test game theory skills"""
 
     def test_prisoners_dilemma_single_shot(self):
-        from flywheel.skills.prisoners_dilemma_analyzer import prisoners_dilemma_analyzer
+        from flywheel.skills.prisoners_dilemma_analyzer import (
+            prisoners_dilemma_analyzer,
+        )
 
         result = prisoners_dilemma_analyzer("Test", num_rounds=1)
         assert result["status"] == "success"
 
     def test_prisoners_dilemma_iterated(self):
-        from flywheel.skills.prisoners_dilemma_analyzer import prisoners_dilemma_analyzer
+        from flywheel.skills.prisoners_dilemma_analyzer import (
+            prisoners_dilemma_analyzer,
+        )
 
         result = prisoners_dilemma_analyzer("Test", num_rounds=10)
         assert result["status"] == "success"
 
     def test_auction_strategy(self):
-        from flywheel.skills.auction_strategy_optimizer import auction_strategy_optimizer
+        from flywheel.skills.auction_strategy_optimizer import (
+            auction_strategy_optimizer,
+        )
 
         result = auction_strategy_optimizer("first_price", 3, 100)
         assert result["status"] == "success"

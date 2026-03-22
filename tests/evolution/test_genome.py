@@ -2,7 +2,7 @@ from uuid import uuid4
 
 import pytest
 
-from flywheel.core.evolution.genome import (
+from flywheel.evolution.genome import (
     SkillFailureCase,
     SkillFitnessResult,
     SkillGenome,

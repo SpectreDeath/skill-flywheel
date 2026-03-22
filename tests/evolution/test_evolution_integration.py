@@ -2,7 +2,7 @@
 
 import asyncio
 
-from flywheel.core.evolution import (
+from flywheel.evolution import (
     EvolutionConfig,
     MockSkillExecutor,
     SkillFitnessEvaluator,
@@ -66,13 +66,13 @@ async def main():
     print(f"  Holdout failures: {len(result.holdout_failure_cases)}")
 
     # Test mutator (fallback since no LLM)
-    from flywheel.core.evolution.mutator import ParameterTuningMutator
+    from flywheel.evolution.mutator import ParameterTuningMutator
 
     mutator = ParameterTuningMutator(tuning_strategy="random")
 
     print("\nTesting parameter mutation...")
     # Create a failure case to pass to mutator
-    from flywheel.core.evolution.genome import SkillFailureCase
+    from flywheel.evolution.genome import SkillFailureCase
 
     failure_case = SkillFailureCase(
         data_point_id="test_1",
@@ -89,7 +89,7 @@ async def main():
         print(f"  New params: {mutated[0].skill_parameters}")
 
     # Test structure mutation
-    from flywheel.core.evolution.mutator import StructureMutationMutator
+    from flywheel.evolution.mutator import StructureMutationMutator
 
     struct_mutator = StructureMutationMutator()
     struct_mutated = struct_mutator.mutate(genome, [failure_case], [])
@@ -140,6 +140,6 @@ async def main():
 
 
 if __name__ == "__main__":
-    from flywheel.core.evolution.genome import SkillFitnessResult, SkillGenome
+    from flywheel.evolution.genome import SkillFitnessResult, SkillGenome
 
     asyncio.run(main())

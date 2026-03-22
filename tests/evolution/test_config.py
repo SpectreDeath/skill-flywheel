@@ -1,6 +1,6 @@
 import pytest
 
-from flywheel.core.evolution.config import EvolutionConfig
+from flywheel.evolution.config import EvolutionConfig
 
 
 class TestEvolutionConfig:
