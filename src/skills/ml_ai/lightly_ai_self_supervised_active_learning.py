@@ -19,7 +19,7 @@ This skill encapsulates the knowledge and implementation patterns from the \"lig
 ## Constraints
 No constraints specified
 
-Generated: 2026-03-20T19:17:28.848022
+Generated: 2026-03-22T13:47:52.999597
 """
 import logging
 import time
@@ -29,7 +29,7 @@ from typing import Any, Dict, List, Optional
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-SKILL_ID = "801a7a60-7ca1-47a3-b934-5639da53d243"
+SKILL_ID = "147bc59c-1230-405c-82b8-82f528c77d64"
 SKILL_NAME = "lightly-ai-self-supervised-active-learning"
 DOMAIN = "ML_AI"
 VERSION = "1.0.0"

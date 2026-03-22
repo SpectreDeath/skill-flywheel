@@ -15,7 +15,7 @@ No workflow defined
 ## Constraints
 No constraints specified
 
-Generated: 2026-03-21T07:13:48.278881
+Generated: 2026-03-22T13:47:48.689279
 """
 import logging
 import time
@@ -25,7 +25,7 @@ from typing import Any, Dict, List, Optional
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-SKILL_ID = "ce6dfe36-f67a-40f8-9214-f44c6101e53e"
+SKILL_ID = "8781ae78-674e-45bd-9055-4cbddb23ba23"
 SKILL_NAME = "web3-smart-contract-security"
 DOMAIN = "ARCHIVED"
 VERSION = "1.0.0"

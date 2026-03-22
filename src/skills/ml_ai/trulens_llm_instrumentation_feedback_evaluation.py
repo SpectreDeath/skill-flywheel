@@ -19,7 +19,7 @@ This skill encapsulates the knowledge and implementation patterns from the \"tru
 ## Constraints
 No constraints specified
 
-Generated: 2026-03-20T19:17:45.464328
+Generated: 2026-03-22T13:47:55.656703
 """
 import logging
 import time
@@ -29,7 +29,7 @@ from typing import Any, Dict, List, Optional
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-SKILL_ID = "d23b5e80-853a-4f0b-b7bd-030301d221f6"
+SKILL_ID = "3cf4e49d-551b-4a66-a7c4-5c184eaa1952"
 SKILL_NAME = "trulens-llm-instrumentation-feedback-evaluation"
 DOMAIN = "ML_AI"
 VERSION = "1.0.0"

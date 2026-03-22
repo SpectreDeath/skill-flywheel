@@ -19,7 +19,7 @@ This skill encapsulates the knowledge and implementation patterns from the \"Ver
 ## Constraints
 No constraints specified
 
-Generated: 2026-03-20T19:17:45.564477
+Generated: 2026-03-22T13:47:55.811377
 """
 import logging
 import time
@@ -29,7 +29,7 @@ from typing import Any, Dict, List, Optional
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-SKILL_ID = "7354c329-c0ca-49af-ab3c-bed95ebf74cd"
+SKILL_ID = "6e5e35f8-fd29-4ff2-a42b-55c041920251"
 SKILL_NAME = "verbalized-sampling"
 DOMAIN = "ML_AI"
 VERSION = "1.0.0"

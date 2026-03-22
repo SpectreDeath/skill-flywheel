@@ -20,7 +20,7 @@ This skill encapsulates the knowledge and implementation patterns from the \"emb
 ## Constraints
 No constraints specified
 
-Generated: 2026-03-20T19:17:28.272584
+Generated: 2026-03-22T13:47:51.881861
 """
 import logging
 import time
@@ -30,7 +30,7 @@ from typing import Any, Dict, List, Optional
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-SKILL_ID = "e9f2288b-666c-40db-b860-540e99d7ac1c"
+SKILL_ID = "c2d7a8d2-4be4-49b7-b292-b659c994b801"
 SKILL_NAME = "embodied-vla-latent-mpc-agent"
 DOMAIN = "ML_AI"
 VERSION = "1.0.0"

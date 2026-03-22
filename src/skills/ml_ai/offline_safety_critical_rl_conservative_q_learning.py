@@ -19,7 +19,7 @@ This skill encapsulates the knowledge and implementation patterns from the \"off
 ## Constraints
 No constraints specified
 
-Generated: 2026-03-20T19:17:44.643228
+Generated: 2026-03-22T13:47:53.716863
 """
 import logging
 import time
@@ -29,7 +29,7 @@ from typing import Any, Dict, List, Optional
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-SKILL_ID = "d8bd325e-ebac-49d8-8d61-8d3f8f7bb513"
+SKILL_ID = "0fe9ae02-9a73-4423-9851-9d5cd5e4dc70"
 SKILL_NAME = "offline-safety-critical-rl-conservative-q-learning-d3rlpy"
 DOMAIN = "ML_AI"
 VERSION = "1.0.0"

@@ -19,7 +19,7 @@ This skill encapsulates the knowledge and implementation patterns from the \"opi
 ## Constraints
 No constraints specified
 
-Generated: 2026-03-20T19:17:44.786122
+Generated: 2026-03-22T13:47:54.051131
 """
 import logging
 import time
@@ -29,7 +29,7 @@ from typing import Any, Dict, List, Optional
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-SKILL_ID = "c99d6c53-2563-41b4-9c9f-ccb3dcdd4acb"
+SKILL_ID = "6a35f29f-b77d-4582-bcc4-1a233a3f1c1b"
 SKILL_NAME = "opik-local-llm-tracing-and-evaluation"
 DOMAIN = "ML_AI"
 VERSION = "1.0.0"

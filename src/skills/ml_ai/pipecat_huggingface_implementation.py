@@ -19,7 +19,7 @@ This skill encapsulates the knowledge and implementation patterns from the \"pip
 ## Constraints
 No constraints specified
 
-Generated: 2026-03-20T19:17:44.849210
+Generated: 2026-03-22T13:47:54.203626
 """
 import logging
 import time
@@ -29,7 +29,7 @@ from typing import Any, Dict, List, Optional
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-SKILL_ID = "4c728da4-97ac-4afb-800f-61492bd67e8b"
+SKILL_ID = "dff4b7dd-8edd-4532-a6e0-9c1d55b81175"
 SKILL_NAME = "pipecat-huggingface-implementation"
 DOMAIN = "ML_AI"
 VERSION = "1.0.0"

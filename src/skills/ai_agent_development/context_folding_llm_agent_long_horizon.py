@@ -20,7 +20,7 @@ This skill encapsulates the knowledge and implementation patterns from the \"con
 ## Constraints
 No constraints specified
 
-Generated: 2026-03-21T07:04:00.807542
+Generated: 2026-03-22T13:47:45.138411
 """
 import logging
 import time
@@ -30,7 +30,7 @@ from typing import Any, Dict, List, Optional
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-SKILL_ID = "5b69a198-bb1f-4aa3-822d-c5000af54ddd"
+SKILL_ID = "f66b621e-3540-4a0e-b448-2a7b3def50d0"
 SKILL_NAME = "context-folding-llm-agent-long-horizon"
 DOMAIN = "AI_AGENT_DEVELOPMENT"
 VERSION = "1.0.0"

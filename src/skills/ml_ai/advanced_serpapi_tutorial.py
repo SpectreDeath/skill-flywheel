@@ -19,7 +19,7 @@ This skill encapsulates the knowledge and implementation patterns from the \"adv
 ## Constraints
 No constraints specified
 
-Generated: 2026-03-20T19:17:27.906866
+Generated: 2026-03-22T13:47:51.040609
 """
 import logging
 import time
@@ -29,7 +29,7 @@ from typing import Any, Dict, List, Optional
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-SKILL_ID = "c788c35a-3140-4314-ab52-9b032a036539"
+SKILL_ID = "ac5ff7b6-4322-4893-97b0-591e1b005c01"
 SKILL_NAME = "advanced-serpapi-tutorial"
 DOMAIN = "ML_AI"
 VERSION = "1.0.0"

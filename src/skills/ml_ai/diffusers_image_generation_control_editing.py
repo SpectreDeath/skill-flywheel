@@ -19,7 +19,7 @@ This skill encapsulates the knowledge and implementation patterns from the \"dif
 ## Constraints
 No constraints specified
 
-Generated: 2026-03-20T19:17:28.172410
+Generated: 2026-03-22T13:47:51.727914
 """
 import logging
 import time
@@ -29,7 +29,7 @@ from typing import Any, Dict, List, Optional
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-SKILL_ID = "b59949e1-cd61-4fbd-a725-ead203d5dfd4"
+SKILL_ID = "16e93159-fde5-4004-87fe-d6eaee38fc44"
 SKILL_NAME = "diffusers-image-generation-control-editing"
 DOMAIN = "ML_AI"
 VERSION = "1.0.0"

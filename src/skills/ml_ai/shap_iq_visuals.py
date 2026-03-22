@@ -19,7 +19,7 @@ This skill encapsulates the knowledge and implementation patterns from the \"SHA
 ## Constraints
 No constraints specified
 
-Generated: 2026-03-20T19:17:45.256225
+Generated: 2026-03-22T13:47:55.199808
 """
 import logging
 import time
@@ -29,7 +29,7 @@ from typing import Any, Dict, List, Optional
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-SKILL_ID = "f2772e61-b924-46fa-a1e0-212d085fcb3a"
+SKILL_ID = "421d7573-953e-40c7-ac99-2ed3f61cbd12"
 SKILL_NAME = "shap-iq-visuals"
 DOMAIN = "ML_AI"
 VERSION = "1.0.0"

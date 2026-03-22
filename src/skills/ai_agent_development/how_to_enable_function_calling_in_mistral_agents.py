@@ -20,7 +20,7 @@ This skill encapsulates the knowledge and implementation patterns from the \"how
 ## Constraints
 No constraints specified
 
-Generated: 2026-03-21T07:04:01.491628
+Generated: 2026-03-22T13:47:46.046016
 """
 import logging
 import time
@@ -30,7 +30,7 @@ from typing import Any, Dict, List, Optional
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-SKILL_ID = "be0b29b7-4eb6-459e-a676-ef36756e77b6"
+SKILL_ID = "86f73d5b-d6b5-449b-b09a-4c8ad0f8eb57"
 SKILL_NAME = "how-to-enable-function-calling-in-mistral-agents"
 DOMAIN = "AI_AGENT_DEVELOPMENT"
 VERSION = "1.0.0"

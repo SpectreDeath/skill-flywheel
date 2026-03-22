@@ -15,7 +15,7 @@ No workflow defined
 ## Constraints
 No constraints specified
 
-Generated: 2026-03-21T07:13:48.161871
+Generated: 2026-03-22T13:47:48.540938
 """
 import logging
 import time
@@ -25,7 +25,7 @@ from typing import Any, Dict, List, Optional
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-SKILL_ID = "19dcf8de-195a-4dd4-ae25-9f6e43a28301"
+SKILL_ID = "1e81f0f7-66ad-4b40-9c1d-ce3ed6a4f1ff"
 SKILL_NAME = "game-dev-unity"
 DOMAIN = "ARCHIVED"
 VERSION = "1.0.0"

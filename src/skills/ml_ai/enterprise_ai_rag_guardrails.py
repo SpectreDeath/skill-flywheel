@@ -19,7 +19,7 @@ This skill encapsulates the knowledge and implementation patterns from the \"ent
 ## Constraints
 No constraints specified
 
-Generated: 2026-03-20T19:17:28.340681
+Generated: 2026-03-22T13:47:51.983380
 """
 import logging
 import time
@@ -29,7 +29,7 @@ from typing import Any, Dict, List, Optional
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-SKILL_ID = "113cd2af-262c-4e84-969b-4a80f6b0eb5e"
+SKILL_ID = "1c70ea3b-cefb-47c6-ae8a-d46002a80d04"
 SKILL_NAME = "enterprise-ai-rag-guardrails"
 DOMAIN = "ML_AI"
 VERSION = "1.0.0"

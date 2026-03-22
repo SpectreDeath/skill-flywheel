@@ -19,7 +19,7 @@ This skill encapsulates the knowledge and implementation patterns from the \"par
 ## Constraints
 No constraints specified
 
-Generated: 2026-03-21T07:04:01.901066
+Generated: 2026-03-22T13:47:46.987914
 """
 import logging
 import time
@@ -29,7 +29,7 @@ from typing import Any, Dict, List, Optional
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-SKILL_ID = "5ba672cc-ead6-438a-b605-2b507d3275f9"
+SKILL_ID = "cf6486df-0e6a-4d65-88a2-7d5ae95f12d4"
 SKILL_NAME = "parlant"
 DOMAIN = "AI_AGENT_DEVELOPMENT"
 VERSION = "1.0.0"

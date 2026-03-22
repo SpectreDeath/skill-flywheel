@@ -19,7 +19,7 @@ This skill encapsulates the knowledge and implementation patterns from the \"Sem
 ## Constraints
 No constraints specified
 
-Generated: 2026-03-20T19:17:45.219376
+Generated: 2026-03-22T13:47:55.148851
 """
 import logging
 import time
@@ -29,7 +29,7 @@ from typing import Any, Dict, List, Optional
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-SKILL_ID = "92c8a6f7-2009-4a97-92b7-8b5cb0c11847"
+SKILL_ID = "88685199-16de-4b1e-8ead-de778808bb53"
 SKILL_NAME = "semantic-highlighting"
 DOMAIN = "ML_AI"
 VERSION = "1.0.0"

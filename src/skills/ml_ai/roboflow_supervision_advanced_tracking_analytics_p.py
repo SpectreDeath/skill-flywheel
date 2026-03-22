@@ -19,7 +19,7 @@ This skill encapsulates the knowledge and implementation patterns from the \"rob
 ## Constraints
 No constraints specified
 
-Generated: 2026-03-20T19:17:45.108156
+Generated: 2026-03-22T13:47:54.897444
 """
 import logging
 import time
@@ -29,7 +29,7 @@ from typing import Any, Dict, List, Optional
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-SKILL_ID = "30f9ce16-3577-4046-b417-56a9519b35e0"
+SKILL_ID = "1bf46594-12d5-4595-8a40-62857ef6e5af"
 SKILL_NAME = "roboflow-supervision-advanced-tracking-analytics-pipeline"
 DOMAIN = "ML_AI"
 VERSION = "1.0.0"

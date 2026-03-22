@@ -19,7 +19,7 @@ This skill encapsulates the knowledge and implementation patterns from the \"glu
 ## Constraints
 No constraints specified
 
-Generated: 2026-03-20T19:17:28.439706
+Generated: 2026-03-22T13:47:52.194139
 """
 import logging
 import time
@@ -29,7 +29,7 @@ from typing import Any, Dict, List, Optional
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-SKILL_ID = "d6b58259-bb5d-4e7c-be99-a45b597e7d43"
+SKILL_ID = "47cced4d-3b41-43fd-8d8d-d2e33e62018e"
 SKILL_NAME = "gluonts-advanced-multimodel-tutorial"
 DOMAIN = "ML_AI"
 VERSION = "1.0.0"

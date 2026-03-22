@@ -19,7 +19,7 @@ This skill encapsulates the knowledge and implementation patterns from the \"Adv
 ## Constraints
 No constraints specified
 
-Generated: 2026-03-20T19:17:27.863451
+Generated: 2026-03-22T13:47:50.942481
 """
 import logging
 import time
@@ -29,7 +29,7 @@ from typing import Any, Dict, List, Optional
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-SKILL_ID = "db9ada9c-bde7-423b-afb0-1664bff831d5"
+SKILL_ID = "805ad90a-be4d-4dde-8d97-3f3e1a3f4968"
 SKILL_NAME = "advanced-pyspark-end-to-end-tutorial"
 DOMAIN = "ML_AI"
 VERSION = "1.0.0"

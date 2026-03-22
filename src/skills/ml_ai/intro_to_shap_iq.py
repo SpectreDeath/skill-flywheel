@@ -19,7 +19,7 @@ This skill encapsulates the knowledge and implementation patterns from the \"Int
 ## Constraints
 No constraints specified
 
-Generated: 2026-03-20T19:17:28.716415
+Generated: 2026-03-22T13:47:52.696885
 """
 import logging
 import time
@@ -29,7 +29,7 @@ from typing import Any, Dict, List, Optional
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-SKILL_ID = "80bae384-6e92-420b-b797-497ea4bcf3d8"
+SKILL_ID = "e9dba223-7c98-4054-998a-c4bd9fb04ac8"
 SKILL_NAME = "intro-to-shap-iq"
 DOMAIN = "ML_AI"
 VERSION = "1.0.0"

@@ -19,7 +19,7 @@ This skill encapsulates the knowledge and implementation patterns from the \"zar
 ## Constraints
 No constraints specified
 
-Generated: 2026-03-20T19:17:45.631267
+Generated: 2026-03-22T13:47:55.913425
 """
 import logging
 import time
@@ -29,7 +29,7 @@ from typing import Any, Dict, List, Optional
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-SKILL_ID = "c0a78c90-f039-49fe-90f2-117738155e8b"
+SKILL_ID = "0feb3827-c6e6-4652-a86a-bf8493b96b6d"
 SKILL_NAME = "zarr-implementation-tutorial"
 DOMAIN = "ML_AI"
 VERSION = "1.0.0"

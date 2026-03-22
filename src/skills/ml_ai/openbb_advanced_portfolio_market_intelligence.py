@@ -19,7 +19,7 @@ This skill encapsulates the knowledge and implementation patterns from the \"ope
 ## Constraints
 No constraints specified
 
-Generated: 2026-03-20T19:17:44.752786
+Generated: 2026-03-22T13:47:53.998596
 """
 import logging
 import time
@@ -29,7 +29,7 @@ from typing import Any, Dict, List, Optional
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-SKILL_ID = "013bd7ad-ace1-4faf-a8e7-d51f151c2017"
+SKILL_ID = "8251d92b-293b-44dd-82b9-9a1db587e2a6"
 SKILL_NAME = "openbb-advanced-portfolio-market-intelligence"
 DOMAIN = "ML_AI"
 VERSION = "1.0.0"

@@ -19,7 +19,7 @@ This skill encapsulates the knowledge and implementation patterns from the \"rag
 ## Constraints
 No constraints specified
 
-Generated: 2026-03-20T19:17:45.030556
+Generated: 2026-03-22T13:47:54.629174
 """
 import logging
 import time
@@ -29,7 +29,7 @@ from typing import Any, Dict, List, Optional
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-SKILL_ID = "22055909-2ff3-4491-9150-8db4bd3c2dfb"
+SKILL_ID = "ae9278e8-ff0e-4776-a880-12e9a10c84e2"
 SKILL_NAME = "rag-deepeval-quality-benchmarking"
 DOMAIN = "ML_AI"
 VERSION = "1.0.0"

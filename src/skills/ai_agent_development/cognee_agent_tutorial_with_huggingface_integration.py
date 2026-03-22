@@ -20,7 +20,7 @@ This skill encapsulates the knowledge and implementation patterns from the \"Cog
 ## Constraints
 No constraints specified
 
-Generated: 2026-03-21T07:04:00.732753
+Generated: 2026-03-22T13:47:45.045520
 """
 import logging
 import time
@@ -30,7 +30,7 @@ from typing import Any, Dict, List, Optional
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-SKILL_ID = "e8acd84b-412d-4d8d-ad3b-07b86c176d5d"
+SKILL_ID = "81dedf3e-c1eb-4b17-b7de-50069cdbf7bf"
 SKILL_NAME = "cognee-agent-tutorial-with-huggingface-integration"
 DOMAIN = "AI_AGENT_DEVELOPMENT"
 VERSION = "1.0.0"

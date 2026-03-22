@@ -20,7 +20,7 @@ This skill encapsulates the knowledge and implementation patterns from the \"voi
 ## Constraints
 No constraints specified
 
-Generated: 2026-03-20T19:17:45.599248
+Generated: 2026-03-22T13:47:55.861532
 """
 import logging
 import time
@@ -30,7 +30,7 @@ from typing import Any, Dict, List, Optional
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-SKILL_ID = "a8be58ed-5f81-46e4-9452-507e7aea80db"
+SKILL_ID = "8519a51f-48aa-4579-b12a-57462aab453c"
 SKILL_NAME = "voice-ai-whisperx-advanced-tutorial"
 DOMAIN = "ML_AI"
 VERSION = "1.0.0"

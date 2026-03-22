@@ -19,7 +19,7 @@ This skill encapsulates the knowledge and implementation patterns from the \"ein
 ## Constraints
 No constraints specified
 
-Generated: 2026-03-20T19:17:28.237454
+Generated: 2026-03-22T13:47:51.832153
 """
 import logging
 import time
@@ -29,7 +29,7 @@ from typing import Any, Dict, List, Optional
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-SKILL_ID = "83de280a-0e9e-45a5-b553-221a65653967"
+SKILL_ID = "654e3d29-1357-4afa-9494-5e60e01014ef"
 SKILL_NAME = "einops-advanced-tensor-workflows"
 DOMAIN = "ML_AI"
 VERSION = "1.0.0"

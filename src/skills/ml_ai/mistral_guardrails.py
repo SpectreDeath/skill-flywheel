@@ -19,7 +19,7 @@ This skill encapsulates the knowledge and implementation patterns from the \"Mis
 ## Constraints
 No constraints specified
 
-Generated: 2026-03-20T19:17:29.101025
+Generated: 2026-03-22T13:47:53.460553
 """
 import logging
 import time
@@ -29,7 +29,7 @@ from typing import Any, Dict, List, Optional
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-SKILL_ID = "999ebb9b-86aa-4c47-a8cd-09e07a926eba"
+SKILL_ID = "90df27fe-0bc7-4332-a3e5-c39e9c2721d6"
 SKILL_NAME = "mistral-guardrails"
 DOMAIN = "ML_AI"
 VERSION = "1.0.0"

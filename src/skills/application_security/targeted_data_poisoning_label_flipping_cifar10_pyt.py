@@ -19,7 +19,7 @@ This skill encapsulates the knowledge and implementation patterns from the \"tar
 ## Constraints
 No constraints specified
 
-Generated: 2026-03-21T07:03:59.690556
+Generated: 2026-03-22T13:47:48.356183
 """
 import logging
 import time
@@ -29,7 +29,7 @@ from typing import Any, Dict, List, Optional
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-SKILL_ID = "f835945b-69b2-49d1-a03a-d3be345ca514"
+SKILL_ID = "58591b8a-1ae4-4664-8494-af6ee31c17b7"
 SKILL_NAME = "targeted-data-poisoning-label-flipping-cifar10-pytorch"
 DOMAIN = "APPLICATION_SECURITY"
 VERSION = "1.0.0"

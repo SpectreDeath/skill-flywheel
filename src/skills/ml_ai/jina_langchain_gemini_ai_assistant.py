@@ -19,7 +19,7 @@ This skill encapsulates the knowledge and implementation patterns from the \"Jin
 ## Constraints
 No constraints specified
 
-Generated: 2026-03-20T19:17:28.750793
+Generated: 2026-03-22T13:47:52.749091
 """
 import logging
 import time
@@ -29,7 +29,7 @@ from typing import Any, Dict, List, Optional
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-SKILL_ID = "5388f50f-188d-4eee-8305-66f1377376e6"
+SKILL_ID = "2ace6ac3-4d37-42cd-be6e-abf25de6056e"
 SKILL_NAME = "jina-langchain-gemini-ai-assistant"
 DOMAIN = "ML_AI"
 VERSION = "1.0.0"

@@ -20,7 +20,7 @@ This skill encapsulates the knowledge and implementation patterns from the \"hie
 ## Constraints
 No constraints specified
 
-Generated: 2026-03-21T07:04:01.414768
+Generated: 2026-03-22T13:47:45.950236
 """
 import logging
 import time
@@ -30,7 +30,7 @@ from typing import Any, Dict, List, Optional
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-SKILL_ID = "c029a502-5413-47a0-bb6c-51fc3b306ce0"
+SKILL_ID = "76eff723-33a5-4fcb-adab-d2735d482516"
 SKILL_NAME = "hierarchical-planner-ai-agent-open-source-llm"
 DOMAIN = "AI_AGENT_DEVELOPMENT"
 VERSION = "1.0.0"

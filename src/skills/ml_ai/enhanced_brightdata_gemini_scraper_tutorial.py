@@ -19,7 +19,7 @@ This skill encapsulates the knowledge and implementation patterns from the \"Enh
 ## Constraints
 No constraints specified
 
-Generated: 2026-03-20T19:17:28.306669
+Generated: 2026-03-22T13:47:51.933189
 """
 import logging
 import time
@@ -29,7 +29,7 @@ from typing import Any, Dict, List, Optional
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-SKILL_ID = "781fa28c-1e58-45ae-87f8-5819e5f80965"
+SKILL_ID = "fc416081-2c2a-4f00-b802-bcc260cb8117"
 SKILL_NAME = "enhanced-brightdata-gemini-scraper-tutorial"
 DOMAIN = "ML_AI"
 VERSION = "1.0.0"

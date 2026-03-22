@@ -20,7 +20,7 @@ This skill encapsulates the knowledge and implementation patterns from the \"how
 ## Constraints
 No constraints specified
 
-Generated: 2026-03-21T07:04:01.454201
+Generated: 2026-03-22T13:47:45.998219
 """
 import logging
 import time
@@ -30,7 +30,7 @@ from typing import Any, Dict, List, Optional
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-SKILL_ID = "ca0365b7-56f1-4947-a760-c60810c59f31"
+SKILL_ID = "57ef934b-392d-4472-81ed-be7b20e24f47"
 SKILL_NAME = "how-to-build-an-advanced-end-to-end-voice-ai-agent-using-hugging-face-pipelines"
 DOMAIN = "AI_AGENT_DEVELOPMENT"
 VERSION = "1.0.0"

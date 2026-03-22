@@ -19,7 +19,7 @@ This skill encapsulates the knowledge and implementation patterns from the \"Com
 ## Constraints
 No constraints specified
 
-Generated: 2026-03-20T19:17:28.075684
+Generated: 2026-03-22T13:47:51.471119
 """
 import logging
 import time
@@ -29,7 +29,7 @@ from typing import Any, Dict, List, Optional
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-SKILL_ID = "8df02567-f7e4-40d8-9111-073b02cce152"
+SKILL_ID = "939e45ec-9106-4126-b78d-7c5433c1fc75"
 SKILL_NAME = "competitive-analysis-with-scrapegraph-gemini"
 DOMAIN = "ML_AI"
 VERSION = "1.0.0"

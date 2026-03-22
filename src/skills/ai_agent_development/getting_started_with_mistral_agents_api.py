@@ -20,7 +20,7 @@ This skill encapsulates the knowledge and implementation patterns from the \"Get
 ## Constraints
 No constraints specified
 
-Generated: 2026-03-21T07:04:01.201726
+Generated: 2026-03-22T13:47:45.697347
 """
 import logging
 import time
@@ -30,7 +30,7 @@ from typing import Any, Dict, List, Optional
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-SKILL_ID = "19bbbb3f-61d5-4f1b-a299-8d4e3823cd2c"
+SKILL_ID = "787b23c1-38d1-4b48-9c09-303a6e568f34"
 SKILL_NAME = "getting-started-with-mistral-agents-api"
 DOMAIN = "AI_AGENT_DEVELOPMENT"
 VERSION = "1.0.0"

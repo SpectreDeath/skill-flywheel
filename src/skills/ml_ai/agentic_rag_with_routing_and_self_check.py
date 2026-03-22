@@ -19,7 +19,7 @@ This skill encapsulates the knowledge and implementation patterns from the \"age
 ## Constraints
 No constraints specified
 
-Generated: 2026-03-20T19:17:27.940123
+Generated: 2026-03-22T13:47:51.093253
 """
 import logging
 import time
@@ -29,7 +29,7 @@ from typing import Any, Dict, List, Optional
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-SKILL_ID = "390c308a-368a-440c-8b10-f7ad07f3e071"
+SKILL_ID = "1f4ffdda-d5ee-4198-a6d8-af187607debc"
 SKILL_NAME = "agentic-rag-with-routing-and-self-check"
 DOMAIN = "ML_AI"
 VERSION = "1.0.0"

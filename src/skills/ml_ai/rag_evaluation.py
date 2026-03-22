@@ -19,7 +19,7 @@ This skill encapsulates the knowledge and implementation patterns from the \"rag
 ## Constraints
 No constraints specified
 
-Generated: 2026-03-20T19:17:45.069349
+Generated: 2026-03-22T13:47:54.685105
 """
 import logging
 import time
@@ -29,7 +29,7 @@ from typing import Any, Dict, List, Optional
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-SKILL_ID = "8652e165-fe42-44b2-ae69-de44b6accb67"
+SKILL_ID = "031b9394-9caf-48e0-a639-0e5e87a5d8f5"
 SKILL_NAME = "rag-evaluation"
 DOMAIN = "ML_AI"
 VERSION = "1.0.0"
