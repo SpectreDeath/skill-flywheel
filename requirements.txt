@@ -10,7 +10,7 @@ langchain==0.3.17
 langchain-core==0.3.33
 langchain-openai==1.0.0
 langgraph==0.2.62
-crewai==0.74.0
+crewai==0.11.2
 crewai-tools==0.14.0
 
 # Infrastructure and Monitoring
