@@ -25,7 +25,11 @@ class MLModelManager:
         self._initialize_models()
     
     def _initialize_models(self):
-        """Initialize ML models with specific types."""
+        """Initialize ML models with real sklearn implementations."""
+        from sklearn.ensemble import RandomForestRegressor, IsolationForest
+        from sklearn.linear_model import LinearRegression
+        from sklearn.cluster import KMeans
+        
         ml_config = self.config.get("ml") if isinstance(self.config, dict) else None
         if not ml_config:
             ml_config = {}
@@ -34,25 +38,34 @@ class MLModelManager:
         if not algorithms:
             algorithms = {
                 "usage_prediction": "RandomForest",
-                "anomaly_detection": "IsolationForest"
+                "anomaly_detection": "IsolationForest",
+                "performance_optimization": "LinearRegression",
+                "resource_optimization": "KMeans"
             }
         
-        # Using Mocks for legacy test support where real models might not be needed or sklearn might clash
+        # Initialize real models
         if algorithms.get("usage_prediction") == "RandomForest":
-            model = Mock()
-            model.predict.return_value = np.array([0.5])
-            self.models["usage_prediction"] = model
+            self.models["usage_prediction"] = RandomForestRegressor(n_estimators=100, random_state=42)
         
         if algorithms.get("anomaly_detection") == "IsolationForest":
-            model = Mock()
-            model.decision_function.return_value = np.array([-0.1])
-            self.models["anomaly_detection"] = model
+            self.models["anomaly_detection"] = IsolationForest(contamination=0.1, random_state=42)
             
-        # Ensure we satisfy basic test assertions even if config is mocked
-        if "performance_optimization" not in self.models:
-            self.models["performance_optimization"] = Mock()
+        if algorithms.get("performance_optimization") == "LinearRegression":
+            self.models["performance_optimization"] = LinearRegression()
+            
+        if algorithms.get("resource_optimization") == "KMeans":
+            self.models["resource_optimization"] = KMeans(n_clusters=3, random_state=42)
         
-        # LinearRegression and KMeans could also be added here if needed
+        # Load existing models if they exist
+        for model_name in self.models:
+            model_file = self.model_path / f"{model_name}_model.pkl"
+            if model_file.exists():
+                try:
+                    with open(model_file, 'rb') as f:
+                        self.models[model_name] = pickle.load(f)
+                    logger.info(f"Loaded existing model for {model_name}")
+                except Exception as e:
+                    logger.warning(f"Failed to load existing model {model_name}: {e}")
     
     def train_usage_prediction_model(self, features: np.ndarray, targets: np.ndarray):
         """Train usage prediction model with error handling."""

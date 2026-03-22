@@ -137,15 +137,42 @@ class EnhancedSkillManager:
         """Auto-discover skills with ML-based prioritization"""
         discovered = []
         
-        # Load from skill registry
-        if self.skill_registry_path.exists():
+        # 1. Load from SQLite DB (New primary source)
+        db_path = Path("data/skill_registry.db")
+        if db_path.exists():
+            try:
+                import sqlite3
+                with sqlite3.connect(db_path) as conn:
+                    conn.row_factory = sqlite3.Row
+                    cursor = conn.cursor()
+                    cursor.execute("SELECT * FROM skills")
+                    rows = cursor.fetchall()
+                    for row in rows:
+                        skill_name = row["name"]
+                        if skill_name:
+                            metadata = SkillMetadata(
+                                name=skill_name,
+                                description=row.get("description", ""),
+                                version=row.get("version", "1.0.0"),
+                                author=row.get("author", "unknown"),
+                                dependencies=json.loads(row.get("dependencies", "[]"))
+                            )
+                            self.skills[skill_name] = metadata
+                            self.dependency_graph.add_skill(skill_name, metadata.dependencies)
+                            discovered.append(skill_name)
+                            logger.info(f"Discovered skill from DB: {skill_name}")
+            except Exception as e:
+                logger.error(f"Failed to load skills from DB: {str(e)}")
+
+        # 2. Fallback to skill registry JSON
+        if not discovered and self.skill_registry_path.exists():
             try:
                 with open(self.skill_registry_path) as f:
                     registry_data = json.load(f)
                 
                 for skill_data in registry_data:
                     skill_name = skill_data.get("name")
-                    if skill_name:
+                    if skill_name and skill_name not in self.skills:
                         metadata = self._create_metadata_from_registry(skill_data)
                         self.skills[skill_name] = metadata
                         self.dependency_graph.add_skill(skill_name, metadata.dependencies)
@@ -154,7 +181,7 @@ class EnhancedSkillManager:
             except Exception as e:
                 logger.error(f"Failed to load skills from registry: {str(e)}")
         
-        # Auto-discover from directory
+        # 3. Auto-discover from directory (for custom/new skills)
         for skill_file in self.skills_dir.glob("*.py"):
             skill_name = skill_file.stem
             if skill_name not in self.skills:

@@ -11,10 +11,17 @@
     "skill_type": "Tutorial",
     "category": "Quantum Computing",
     "source": null,
-    "tags": [],
+    "tags": [
+      "quantum",
+      "qrisp",
+      "grover",
+      "qpe",
+      "qaoa",
+      "algorithms"
+    ],
     "dependencies": [],
     "prerequisites": [],
-    "estimated_time": null,
+    "estimated_time": "30m",
     "difficulty_level": null
   },
   {
@@ -29,7 +36,13 @@
     "skill_type": "Strategy",
     "category": "Model Orchestration",
     "source": null,
-    "tags": [],
+    "tags": [
+      "orchestration",
+      "routing",
+      "qos",
+      "latency",
+      "failover"
+    ],
     "dependencies": [],
     "prerequisites": [],
     "estimated_time": "25ms",
@@ -47,7 +60,13 @@
     "skill_type": "Strategy",
     "category": "Model Orchestration",
     "source": null,
-    "tags": [],
+    "tags": [
+      "hardware",
+      "vram",
+      "cuda",
+      "resource-matching",
+      "optimization"
+    ],
     "dependencies": [],
     "prerequisites": [],
     "estimated_time": "20ms",
@@ -65,7 +84,13 @@
     "skill_type": "Strategy",
     "category": "Model Orchestration",
     "source": null,
-    "tags": [],
+    "tags": [
+      "ensemble",
+      "consensus",
+      "multi-model",
+      "voting",
+      "accuracy"
+    ],
     "dependencies": [],
     "prerequisites": [],
     "estimated_time": "1500ms",
@@ -83,7 +108,13 @@
     "skill_type": "Strategy",
     "category": "Model Orchestration",
     "source": null,
-    "tags": [],
+    "tags": [
+      "monitoring",
+      "diagnostics",
+      "gpu",
+      "stability",
+      "health-check"
+    ],
     "dependencies": [],
     "prerequisites": [],
     "estimated_time": "50ms",
@@ -101,7 +132,13 @@
     "skill_type": "Strategy",
     "category": "Model Orchestration",
     "source": null,
-    "tags": [],
+    "tags": [
+      "prediction",
+      "latency",
+      "ttft",
+      "performance",
+      "real-time"
+    ],
     "dependencies": [],
     "prerequisites": [],
     "estimated_time": "15ms",
@@ -119,7 +156,12 @@
     "skill_type": "Strategy",
     "category": "Model Orchestration",
     "source": null,
-    "tags": [],
+    "tags": [
+      "fusion",
+      "token-merging",
+      "synthesis",
+      "speculative-decoding"
+    ],
     "dependencies": [],
     "prerequisites": [],
     "estimated_time": "2500ms",
@@ -137,7 +179,12 @@
     "skill_type": "Strategy",
     "category": "Model Orchestration",
     "source": null,
-    "tags": [],
+    "tags": [
+      "entropy",
+      "noise-reduction",
+      "chaos-monkey",
+      "edge-cases"
+    ],
     "dependencies": [],
     "prerequisites": [],
     "estimated_time": "10ms",
@@ -155,7 +202,12 @@
     "skill_type": "Strategy",
     "category": "Model Orchestration",
     "source": null,
-    "tags": [],
+    "tags": [
+      "semantic-routing",
+      "task-matching",
+      "efficiency",
+      "specialization"
+    ],
     "dependencies": [],
     "prerequisites": [],
     "estimated_time": "35ms",
@@ -173,10 +225,16 @@
     "skill_type": "Tutorial",
     "category": "AI/ML Engineering",
     "source": null,
-    "tags": [],
+    "tags": [
+      "acp",
+      "coding-guide",
+      "ml-engineering",
+      "patterns",
+      "best-practices"
+    ],
     "dependencies": [],
     "prerequisites": [],
-    "estimated_time": null,
+    "estimated_time": "45m",
     "difficulty_level": null
   },
   {

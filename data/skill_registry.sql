@@ -7,6 +7,10 @@ CREATE TABLE skills (
     version TEXT DEFAULT '1.0.0',
     description TEXT,
     dependencies TEXT,        -- JSON array
+    tags TEXT,               -- JSON array
+    category TEXT,
+    complexity TEXT,
+    estimated_time TEXT,
     health_status TEXT DEFAULT 'unknown',
     last_invoked TIMESTAMP,
     invocation_count INTEGER DEFAULT 0,

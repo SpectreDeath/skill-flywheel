@@ -112,10 +112,20 @@ def main():
     for s, config, name in implemented_skills:
         skill_id = str(uuid.uuid4())
         
+        # Extract tags and estimated_time from JSON skill record
+        tags_json = json.dumps(s.get("tags", []))
+        est_time = s.get("estimated_time", "N/A")
+        category = s.get("category", "General")
+        complexity = s.get("complexity", "Medium")
+        
         # INSERT into skills
         conn.execute('''
-            INSERT INTO skills (skill_id, name, domain, module_path, entry_function, version, description, dependencies, health_status)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+            INSERT INTO skills (
+                skill_id, name, domain, module_path, entry_function, 
+                version, description, dependencies, tags, category, 
+                complexity, estimated_time, health_status
+            )
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         ''', (
             skill_id,
             s.get("name", name),
@@ -125,6 +135,10 @@ def main():
             s.get("version", "1.0.0"),
             s.get("description", ""),
             json.dumps(s.get("dependencies", [])),
+            tags_json,
+            category,
+            complexity,
+            est_time,
             "healthy"
         ))
         

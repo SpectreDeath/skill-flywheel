@@ -181,3 +181,26 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
             "result": {"error": str(e)},
             "metadata": {"action": action, "timestamp": datetime.now().isoformat()},
         }
+# Example usage function
+async def example_usage():
+    """Example of how to use the qrisp_quantum_algorithms skill"""
+    
+    # 1. Get info about Grover's algorithm
+    print("--- Grover Algorithm Info ---")
+    info = await invoke({"action": "info", "algorithm": "grover"})
+    print(f"Result: {info['result']}")
+    
+    # 2. Check environment
+    print("\n--- Environment Check ---")
+    env = await invoke({"action": "check_environment"})
+    print(f"Result: {env['result']}")
+    
+    # 3. Generate Grover circuits
+    print("\n--- Generating Grover Circuits ---")
+    gen = await invoke({"action": "generate_grover", "num_qubits": 4})
+    print(f"Oracle: {gen['result']['oracle']['type']}")
+    print(f"Diffuser: {gen['result']['diffuser']['type']}")
+
+if __name__ == "__main__":
+    import asyncio
+    asyncio.run(example_usage())
