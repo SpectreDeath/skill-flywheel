@@ -2,58 +2,77 @@ import json
 import os
 import sqlite3
 import uuid
+from pathlib import Path
+
+
+def discover_python_modules(skills_root: Path) -> dict:
+    """
+    Scans the skills directory recursively for Python modules.
+    Returns a dict mapping normalized name to module configuration.
+    """
+    modules = {}
+    if not skills_root.exists():
+        print(f"⚠️ Skills directory not found: {skills_root}")
+        return modules
+
+    for path in skills_root.rglob("*.py"):
+        if path.name == "__init__.py" or "__pycache__" in str(path):
+            continue
+
+        # Normalized name (lowercase,_ instead of -)
+        skill_name = path.stem.lower().replace("-", "_")
+        
+        # Calculate module path (relative to src/)
+        # Example: D:\Skill Flywheel\src\flywheel\skills\web3\smart_contract_audit.py
+        # relative to D:\Skill Flywheel\src -> flywheel.skills.web3.smart_contract_audit
+        try:
+            rel_path = path.relative_to(skills_root.parent.parent) # src level
+            module_parts = rel_path.with_suffix("").parts
+            module_path = ".".join(module_parts)
+            
+            modules[skill_name] = {
+                "module_path": module_path,
+                "entry_function": path.stem, # default to file stem
+                "endpoints": [
+                    {"route": f"/skills/{skill_name}/{path.stem}", "method": "POST", "desc": f"Execute {path.stem}"}
+                ]
+            }
+        except Exception as e:
+            print(f"⚠️ Error mapping module for {path}: {e}")
+
+    return modules
 
 
 def main():
-    registry_file = r"d:\Skill Flywheel\data\skill_registry.json"
-    db_file = r"d:\Skill Flywheel\data\skill_registry.db"
-    sql_schema = r"d:\Skill Flywheel\data\skill_registry.sql"
-    backlog_file = r"d:\Skill Flywheel\data\skills_backlog.json"
+    root_dir = Path(__file__).parent.parent
+    registry_file = root_dir / "data" / "skill_registry.json"
+    db_file = root_dir / "data" / "skill_registry.db"
+    sql_schema = root_dir / "data" / "skill_registry.sql"
+    backlog_file = root_dir / "data" / "skills_backlog.json"
+    skills_root = root_dir / "src" / "flywheel" / "skills"
+    
+    print(f"🚀 Starting registry migration from {root_dir}")
+    
+    # Discovery
+    existing_modules = discover_python_modules(skills_root)
+    print(f"🔍 Discovered {len(existing_modules)} Python skill modules.")
     
     # Initialize DB
-    if os.path.exists(db_file):
+    if db_file.exists():
         os.remove(db_file)
         
-    conn = sqlite3.connect(db_file)
+    conn = sqlite3.connect(str(db_file))
     with open(sql_schema) as f:
         conn.executescript(f.read())
         
     # Read registry
+    if not registry_file.exists():
+        print(f"❌ Registry file not found: {registry_file}")
+        return
+        
     with open(registry_file, encoding='utf-8') as f:
         skills_data = json.load(f)
         
-    # Existing python modules
-    existing_modules = {
-        "api_integration": {
-            "module_path": "src.skills.api_integration",
-            "entry_function": "batch_api_calls",
-            "endpoints": [
-                {"route": "/skills/api_integration/batch_api_calls", "method": "POST", "desc": "Batch API calls"},
-                {"route": "/skills/api_integration/transform_data", "method": "POST", "desc": "Transform data"},
-                {"route": "/skills/api_integration/health_check", "method": "POST", "desc": "Health check"}
-            ]
-        },
-        "context_hub_provider": {
-            "module_path": "src.skills.context_hub_provider",
-            "entry_function": "search",
-            "endpoints": [
-                {"route": "/skills/context_hub_provider/search", "method": "POST", "desc": "Search documentation"},
-                {"route": "/skills/context_hub_provider/get_doc", "method": "POST", "desc": "Get document"},
-                {"route": "/skills/context_hub_provider/annotate", "method": "POST", "desc": "Annotate document"},
-                {"route": "/skills/context_hub_provider/clear_annotation", "method": "POST", "desc": "Clear annotation"}
-            ]
-        },
-        "data_analyzer": {
-            "module_path": "src.skills.data_analyzer",
-            "entry_function": "analyze_dataset",
-            "endpoints": [
-                {"route": "/skills/data_analyzer/analyze_dataset", "method": "POST", "desc": "Analyze dataset"},
-                {"route": "/skills/data_analyzer/clean_data", "method": "POST", "desc": "Clean data"},
-                {"route": "/skills/data_analyzer/generate_insights", "method": "POST", "desc": "Generate insights"}
-            ]
-        }
-    }
-    
     implemented_skills = []
     backlog = []
     
@@ -61,7 +80,6 @@ def main():
     found_in_json = set()
     
     for s in skills_data:
-        # Convert snake_case or kebab-case
         name = s.get("name", "")
         # normalize
         normalized_name = name.replace("-", "_").lower()
@@ -79,18 +97,14 @@ def main():
                 "status": "NOT_IMPLEMENTED"
             })
             
-    # Print the missing modules in the console/log output per Phase 1 instructions
-    for back_skill in backlog:
-        print(f"⚠️ NO MODULE FOUND: {back_skill['name']} — needs to be written or mapped")
-        
-    # If the JSON didn't include some of the python files, let's add them manually
+    # Add mapped modules that might not be in the JSON
     for name, config in existing_modules.items():
         if name not in found_in_json:
             implemented_skills.append(({
                 "name": name,
-                "domain": "core",
+                "domain": "discovered",
                 "version": "1.0.0",
-                "description": f"Core skill: {name}",
+                "description": f"Auto-discovered skill: {name}",
                 "dependencies": []
             }, config, name))
             
@@ -105,7 +119,7 @@ def main():
         ''', (
             skill_id,
             s.get("name", name),
-            s.get("domain", "core"),
+            s.get("domain", "core") if name in found_in_json else "discovered",
             config["module_path"],
             config["entry_function"],
             s.get("version", "1.0.0"),
@@ -127,6 +141,15 @@ def main():
                 ep["desc"]
             ))
             
+        # Add to backlog as IMPLEMENTED
+        backlog.append({
+            "skill_id": skill_id,
+            "name": s.get("name", name),
+            "domain": s.get("domain", "core"),
+            "source_doc": s.get("path", ""),
+            "status": "IMPLEMENTED"
+        })
+            
     conn.commit()
     conn.close()
     
@@ -134,8 +157,15 @@ def main():
     with open(backlog_file, 'w') as f:
         json.dump(backlog, f, indent=2)
         
-    print(f"\nPopulated database with {len(implemented_skills)} implemented skills.")
-    print(f"Generated backlog with {len(backlog)} missing skills.")
+    print(f"\n✅ Migration Complete:")
+    print(f"   - Implemented skills: {len(implemented_skills)}")
+    print(f"   - Backlog skills (NOT_IMPLEMENTED): {len([b for b in backlog if b['status'] == 'NOT_IMPLEMENTED'])}")
+    print(f"   - Backlog skills (IMPLEMENTED): {len([b for b in backlog if b['status'] == 'IMPLEMENTED'])}")
+    print(f"   - Total registry entries: {len(backlog)}")
+
+
+if __name__ == '__main__':
+    main()
 
 if __name__ == '__main__':
     main()
