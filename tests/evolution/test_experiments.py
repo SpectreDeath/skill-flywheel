@@ -260,12 +260,14 @@ class TestEvolutionConfigValidation:
         assert config.population_size == 4
         assert config.num_parents_per_iteration == 2
 
-    def test_mutation_rate_bounds(self):
-        """Verify mutation rate is clamped to valid range."""
+    def test_config_has_valid_parameters(self):
+        """Verify config has required parameters."""
         from flywheel.evolution.config import EvolutionConfig
 
-        # Check that config has mutation-related attributes
         config = EvolutionConfig(population_size=5, num_parents_per_iteration=2)
 
-        # Config should have valid mutation parameters
-        assert hasattr(config, "mutation_rate") or hasattr(config, "mutate_probability")
+        assert config.population_size == 5
+        assert config.num_parents_per_iteration == 2
+        assert config.max_iterations > 0
+        assert config.early_stopping_threshold >= 0
+        assert isinstance(config.metrics_weights, dict)
