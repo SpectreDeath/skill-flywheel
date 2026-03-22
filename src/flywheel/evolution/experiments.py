@@ -14,11 +14,12 @@ from .evolvable_skill_groups import (
     create_genome_for_group,
     get_evolvable_group,
 )
-from .runner import SyncMockSkillExecutor, create_runner, run_evolution
-from .evaluator import SkillFitnessEvaluator
-from .evolver import create_skill_evolver
 
 LOCAL_LLM_CLIENT_MODULE = None
+LOCAL_LLM_AVAILABLE = False
+LocalLLMClient = None
+create_local_llm_client = None
+
 try:
     from . import local_llm_client
 
@@ -26,15 +27,32 @@ try:
 except ImportError:
     pass
 
+try:
+    from .local_llm_client import create_local_llm_client, LocalLLMClient
+
+    LOCAL_LLM_AVAILABLE = True
+except ImportError:
+    pass
+
 
 def get_llm_client() -> Any:
-    """Get an LLM client if available.
+    """Get an LLM client if available (local or API).
 
     Set USE_LOCAL_MODEL=false to disable local model auto-detection.
     Returns None if no LLM is available - experiments will use research mutator.
     """
     if os.environ.get("USE_LOCAL_MODEL", "true").lower() == "false":
         return None
+
+    if not LOCAL_LLM_AVAILABLE:
+        return None
+
+    if create_local_llm_client:
+        return create_local_llm_client(
+            provider=os.environ.get("LOCAL_MODEL_PROVIDER", "ollama"),
+            model=os.environ.get("LLM_MODEL", "llama2"),
+        )
+    return None
 
     api_key = os.environ.get("OPENAI_API_KEY") or os.environ.get("ANTHROPIC_API_KEY")
     if api_key:
@@ -56,35 +74,6 @@ def get_llm_client() -> Any:
 from .runner import SyncMockSkillExecutor, create_runner, run_evolution
 from .evaluator import SkillFitnessEvaluator
 from .evolver import create_skill_evolver
-
-try:
-    from .local_llm_client import create_local_llm_client, LocalLLMClient
-
-    LOCAL_LLM_AVAILABLE = True
-except ImportError:
-    LOCAL_LLM_AVAILABLE = False
-    LocalLLMClient = None
-
-
-def get_llm_client() -> Any:
-    """Get an LLM client if available (local or API)."""
-    if not LOCAL_LLM_AVAILABLE:
-        return None
-
-    if os.environ.get("USE_LOCAL_MODEL", "").lower() == "true":
-        return create_local_llm_client(
-            provider=os.environ.get("LOCAL_MODEL_PROVIDER", "ollama"),
-            model=os.environ.get("LLM_MODEL", "llama2"),
-        )
-
-    api_key = os.environ.get("OPENAI_API_KEY") or os.environ.get("ANTHROPIC_API_KEY")
-    if api_key:
-        return None
-
-    return create_local_llm_client(
-        provider="ollama",
-        model=os.environ.get("LLM_MODEL", "llama2"),
-    )
 
 
 logger = logging.getLogger(__name__)
