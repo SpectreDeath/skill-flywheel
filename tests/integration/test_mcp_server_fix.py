@@ -17,15 +17,13 @@ from unittest.mock import Mock, patch
 import numpy as np
 import pytest
 
-from flywheel.server.enhanced_mcp_server_v3 import (
-    ServerConfig,
-    AdvancedTelemetryManager,
-    EnhancedSkillManager,
-    MLModelManager,
-    ResourceOptimizer,
-    AdvancedCache,
-    ContainerManager,
-)
+from flywheel.server.config import ServerConfig
+from flywheel.core.telemetry import AdvancedTelemetryManager
+from flywheel.core.skills import EnhancedSkillManager
+from flywheel.core.ml_models import MLModelManager
+from flywheel.core.resource_optimizer import ResourceOptimizer
+from flywheel.core.cache import AdvancedCache
+from flywheel.core.containers import ContainerManager
 
 
 class TestServerConfig:

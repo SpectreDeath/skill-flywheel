@@ -9,7 +9,7 @@ import sys
 # Add src to path
 sys.path.append('src')
 
-async def test_skill(skill_path, action='get_stats'):
+async def _test_skill(skill_path, action='get_stats'):
     """Test a skill with the given action"""
     try:
         # Import the skill module

@@ -17,9 +17,10 @@ class TestDiscoveryServiceAPI:
 
     @pytest.fixture
     def client(self):
-        from flywheel.server.discovery_service import app
+        from flywheel.server.unified_server import UnifiedMCPServer
 
-        return TestClient(app)
+        server = UnifiedMCPServer()
+        return TestClient(server.app)
 
     def test_health(self, client):
         response = client.get("/health")
@@ -31,14 +32,14 @@ class TestSecretValidation:
     """Test secret validation functions"""
 
     def test_insecure_patterns(self):
-        from flywheel.server.discovery_service import INSECURE_SECRET_PATTERNS
+        from flywheel.server.constants import INSECURE_SECRET_PATTERNS
 
         insecure = ["your-openai-api-key-here", "test-key-for-local-development"]
         for val in insecure:
             assert any(p in val.lower() for p in INSECURE_SECRET_PATTERNS)
 
     def test_secure_values(self):
-        from flywheel.server.discovery_service import INSECURE_SECRET_PATTERNS
+        from flywheel.server.constants import INSECURE_SECRET_PATTERNS
 
         secure = ["sk-abc123def456ghi789jkl012mno345pqr"]
         for val in secure:
@@ -136,7 +137,7 @@ class TestAppConstants:
     """Test constants"""
 
     def test_constants(self):
-        from flywheel.server.discovery_service import (
+        from flywheel.server.constants import (
             CACHE_THRESHOLD,
             DEFAULT_LIMIT,
             MIN_JWT_SECRET_LENGTH,

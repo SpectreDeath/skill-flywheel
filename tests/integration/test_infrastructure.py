@@ -33,27 +33,28 @@ class TestMcpClient:
 
 
 class TestDiscoveryService:
-    """Tests for discovery_service.py."""
+    """Tests for unified_server.py."""
 
-    def test_discovery_service_import(self):
-        """Test discovery service can be imported."""
-        from flywheel.server import discovery_service
+    def test_unified_server_import(self):
+        """Test unified server can be imported."""
+        from flywheel.server import unified_server
 
-        assert discovery_service is not None
+        assert unified_server is not None
 
-    def test_app_creation(self):
+    def test_health_check_endpoint(self):
         """Test FastAPI app creation."""
-        from flywheel.server.discovery_service import app
-
-        assert app is not None
-        assert hasattr(app, "routes")
+        from flywheel.server.unified_server import UnifiedMCPServer
+        server = UnifiedMCPServer()
+        assert server.app is not None
+        assert hasattr(server.app, "routes")
 
     def test_health_endpoint(self):
         """Test health endpoint exists."""
         from fastapi.testclient import TestClient
-        from flywheel.server.discovery_service import app
+        from flywheel.server.unified_server import UnifiedMCPServer
 
-        client = TestClient(app)
+        server = UnifiedMCPServer()
+        client = TestClient(server.app)
         response = client.get("/health")
         assert response.status_code in [200, 404]
 

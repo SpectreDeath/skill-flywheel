@@ -69,36 +69,22 @@ class TestSkillIndexer:
         assert skill_indexer is not None
 
 
-class TestDiscoveryService:
-    """Tests for discovery service module."""
+class TestUnifiedServer:
+    """Tests for unified server module."""
 
-    def test_discovery_service_import(self):
-        """Test discovery service can be imported."""
-        from flywheel.server import discovery_service
+    def test_unified_server_import(self):
+        """Test unified server can be imported."""
+        from flywheel.server import unified_server
 
-        assert discovery_service is not None
+        assert unified_server is not None
 
-    def test_app_exists(self):
-        """Test FastAPI app exists."""
-        from flywheel.server.discovery_service import app
+    def test_server_class_exists(self):
+        """Test UnifiedMCPServer class exists."""
+        from flywheel.server.unified_server import UnifiedMCPServer
 
-        assert app is not None
-        assert hasattr(app, "routes")
+        server = UnifiedMCPServer()
+        assert server.app is not None
+        assert hasattr(server.app, "routes")
 
 
-class TestMcpServer:
-    """Tests for MCP server module."""
-
-    def test_mcp_server_import(self):
-        """Test MCP server can be imported."""
-        from flywheel.server import mcp_server
-
-        assert mcp_server is not None
-
-    def test_server_constants(self):
-        """Test server constants exist."""
-        from flywheel.server.mcp_server import SERVER_NAME, TRANSPORT, PORT
-
-        assert SERVER_NAME == "SkillFlywheel"
-        assert TRANSPORT == "stdio"
-        assert PORT == 8000
+# End of TestUnifiedServer

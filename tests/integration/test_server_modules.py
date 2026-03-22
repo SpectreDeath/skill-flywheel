@@ -8,34 +8,24 @@ from unittest.mock import Mock, patch
 import pytest
 
 
-class TestMcpServer:
-    """Tests for mcp_server.py."""
+class TestUnifiedServer:
+    """Tests for unified_server.py."""
 
     def test_server_constants(self):
         """Test server constants are defined."""
-        from flywheel.server import mcp_server
+        from flywheel.server import constants
 
-        assert mcp_server.SERVER_NAME == "SkillFlywheel"
-        assert mcp_server.TRANSPORT == "stdio"
-        assert mcp_server.PORT == 8000
+        assert constants.SERVER_NAME == "SkillFlywheel"
+        assert constants.TRANSPORT == "stdio"
+        assert constants.PORT == 8000
 
-    def test_create_server(self):
-        """Test server creation - simplified test."""
-        from flywheel.server import mcp_server
+    def test_unified_server_discovery(self):
+        """Test skill discovery logic exists in UnifiedMCPServer."""
+        from flywheel.server.unified_server import UnifiedMCPServer
 
-        assert hasattr(mcp_server, "create_server")
-
-    def test_register_existing_skills_no_registry(self):
-        """Test skill registration function exists."""
-        from flywheel.server.mcp_server import register_existing_skills
-
-        assert callable(register_existing_skills)
-
-    def test_register_existing_skills_with_registry(self):
-        """Test skill registration function exists."""
-        from flywheel.server.mcp_server import register_existing_skills
-
-        assert callable(register_existing_skills)
+        server = UnifiedMCPServer()
+        assert hasattr(server.skill_manager, "discover_skills")
+        assert callable(server.skill_manager.discover_skills)
 
 
 class TestDependencies:

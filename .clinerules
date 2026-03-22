@@ -3,18 +3,22 @@
 ## Project Structure
 
 ### Registry System
+
 - **Primary registry**: `data/skill_registry.db` (SQLite database) - DO NOT MODIFY SCHEMA
 - **Schema definition**: `data/skill_registry.sql` - reference only, never edit directly
 - **Legacy file**: `data/skill_registry.json` - RETIRED, never write to this file
-- **Discovery service**: `src/server/discovery_service.py` - handles skill registration and invocation
+- **Unified Server**: `src/flywheel/server/unified_server.py`
+  - handles skill discovery, tool execution, and ML optimization
 
 ### Skill Organization
+
 - **Main skills directory**: `src/skills/` - contains all core skill implementations
 - **Domain subdirectories**: `agentic_ai/`, `ai_agent_development/`, `cloud_engineering/`, `data_engineering/`, `database_engineering/`, `devops/`, `frontend/`, `game_development/`, `logic/`, `ML_AI/`, `mobile_development/`, `model_orchestration/`, `modern_backend/`, `orchestration/`, `performance_benchmarks/`, `probabilistic_models/`, `QUANTUM_COMPUTING/`, `search_algorithms/`, `security_engineering/`, `web3/`
 - **Context hub provider**: `src/skills/context_hub_provider.py` - Python wrapper for chub CLI tool
 
 ### Key Files and Purposes
-- `src/server/discovery_service.py`: FastAPI service for skill discovery, invocation, and health monitoring
+
+- `src/flywheel/server/unified_server.py`: FastAPI service for consolidated skill discovery and orchestration
 - `src/skills/*.py`: Individual skill implementations with async invoke functions
 - `data/skill_index.json`: Skill indexing metadata
 - `requirements.txt`: Project dependencies (FastAPI, LangChain, Docker, etc.)
@@ -22,10 +26,12 @@
 ## Code Standards
 
 ### Entry Point Requirements
+
 - **ALL skills MUST implement**: `async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]`
 - **Return format**: Dict with `result` key and optional `metadata` key
 - **Error handling**: Wrap in try/catch, log errors, return error in result dict
 - **Example pattern**:
+
   ```python
   async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
       try:
@@ -37,18 +43,21 @@
   ```
 
 ### Import Requirements
+
 - **Standard imports required**: `asyncio`, `json`, `logging`, `typing`
 - **Logger setup**: `logger = logging.getLogger(__name__)`
 - **Domain-specific imports**: Add as needed (pandas, requests, etc.)
 - **No f-string restrictions**: F-strings are allowed in this codebase
 
 ### Error Handling Requirements
+
 - **Comprehensive try/catch**: Wrap all skill logic in try/catch blocks
 - **Logging**: Use structured logging with logger.error() for exceptions
-- **HTTPException**: Use for API endpoints in discovery service
+- **HTTPException**: Use for API endpoints in unified server
 - **Graceful degradation**: Return meaningful error messages in result dict
 
 ### Registration Rules
+
 - **Verification required**: Skills must be tested and verified before database registration
 - **Module path validation**: Ensure absolute paths are correct before registration
 - **Entry function existence**: Verify invoke function exists and is callable
@@ -57,6 +66,7 @@
 ## Workflow Rules
 
 ### Development Workflow
+
 - **Start complex tasks in plan mode**: Use plan mode for architectural decisions and multi-step tasks
 - **One command at a time**: Execute single commands, do not chain with && or ; operators
 - **Single fix attempts**: Attempt only one fix per broken skill, then flag and move on
@@ -64,6 +74,7 @@
 - **No legacy file writes**: Never write to skill_registry.json (retired file)
 
 ### Skill Development Process
+
 1. Create skill in appropriate domain subdirectory under `src/skills/`
 2. Implement async invoke function with proper signature
 3. Add comprehensive error handling and logging
@@ -72,6 +83,7 @@
 6. Update skill_index.json if needed
 
 ### Testing and Validation
+
 - **Individual testing**: Test each skill independently before integration
 - **Error scenarios**: Test with invalid inputs and edge cases
 - **Async handling**: Ensure proper async/await patterns throughout
@@ -80,18 +92,21 @@
 ## Common Failure Patterns to Avoid
 
 ### File Management
+
 - **DO NOT generate markdown files**: Skills must be Python modules (.py files), not documentation
 - **DO NOT search wrong directory**: Always search in `src/skills/` for skills, not root or other locations
 - **DO NOT run same command twice**: Avoid redundant command execution
 - **DO NOT modify registry schema**: Never alter skill_registry.db structure directly
 
 ### Code Quality Issues
+
 - **Missing invoke function**: Every skill MUST have async invoke(payload) function
 - **Poor error handling**: Always wrap skill logic in try/catch blocks
 - **Missing imports**: Include all required standard imports (asyncio, json, logging)
 - **Incorrect return format**: Always return dict with result and metadata keys
 
 ### Registration Problems
+
 - **Unverified skills**: Never register skills without proper testing
 - **Invalid module paths**: Ensure absolute paths are correct before registration
 - **Missing entry functions**: Verify invoke function exists and is callable
@@ -100,18 +115,21 @@
 ## Domain-Specific Guidelines
 
 ### Context Hub Provider
+
 - **CLI wrapper pattern**: Follow existing pattern in `context_hub_provider.py`
 - **Error handling**: Wrap all chub CLI calls in try/catch blocks
 - **Async operations**: Use asyncio for all external command execution
 - **JSON parsing**: Always validate JSON output from external tools
 
 ### API Integration Skills
+
 - **Authentication handling**: Support multiple auth types (basic, bearer, API key)
 - **Rate limiting**: Implement proper rate limiting for external APIs
 - **Retry logic**: Include exponential backoff for failed requests
 - **Error responses**: Handle HTTP errors and timeouts gracefully
 
 ### Data Analysis Skills
+
 - **Pandas integration**: Use pandas for data manipulation when appropriate
 - **Statistical functions**: Implement proper statistical analysis methods
 - **Data validation**: Validate input data before processing
@@ -120,16 +138,19 @@
 ## Tool Usage Guidelines
 
 ### Database Operations
-- **Use discovery service API**: Always use the FastAPI endpoints for database operations
+
+- **Use unified server API**: Always use the FastAPI endpoints for database operations
 - **No direct SQL**: Avoid direct SQL queries to skill_registry.db
 - **Proper transactions**: Ensure database operations are atomic when needed
 
 ### File Operations
+
 - **Absolute paths**: Use absolute file paths in skill implementations
 - **Path validation**: Verify file paths exist before attempting operations
 - **Error handling**: Handle file not found and permission errors gracefully
 
 ### External Dependencies
+
 - **Version pinning**: Use specific versions in requirements.txt
 - **Compatibility testing**: Test skills with specified dependency versions
 - **Graceful degradation**: Handle missing optional dependencies
@@ -137,11 +158,13 @@
 ## Performance Considerations
 
 ### Module Caching
-- **Cache threshold**: Modules are cached after 10+ invocations (see discovery_service.py)
+
+- **Cache threshold**: Modules are cached after 10+ invocations (see constants.py)
 - **Memory management**: Be mindful of memory usage in long-running skills
 - **Async optimization**: Use async patterns for I/O operations
 
 ### Skill Invocation
+
 - **Response time**: Keep skill execution time reasonable
 - **Resource usage**: Monitor CPU and memory usage in skills
 - **Concurrency**: Design skills to handle concurrent invocations safely
@@ -149,11 +172,13 @@
 ## Security Guidelines
 
 ### Input Validation
+
 - **Payload validation**: Always validate input payload structure
 - **Type checking**: Use proper type hints and validate data types
 - **Injection prevention**: Sanitize all external inputs
 
 ### Authentication and Authorization
+
 - **Secure storage**: Never hardcode credentials in skill files
 - **Environment variables**: Use environment variables for sensitive configuration
 - **Access control**: Implement proper access controls for sensitive operations
@@ -161,11 +186,13 @@
 ## Debugging and Troubleshooting
 
 ### Logging Best Practices
+
 - **Structured logging**: Use logger with appropriate log levels
 - **Error context**: Include relevant context in error messages
 - **Performance logging**: Log execution times for performance monitoring
 
 ### Error Recovery
+
 - **Graceful degradation**: Continue operation when possible after errors
 - **Fallback mechanisms**: Implement fallback behavior for critical failures
 - **User feedback**: Provide clear error messages to users
@@ -173,16 +200,19 @@
 ## Compliance and Standards
 
 ### Code Style
+
 - **PEP 8 compliance**: Follow Python PEP 8 style guidelines
 - **Type hints**: Use comprehensive type hints for all functions
 - **Docstrings**: Include docstrings for all public functions and classes
 
 ### Testing Requirements
+
 - **Unit tests**: Write unit tests for all skill functions
-- **Integration tests**: Test skill integration with discovery service
+- **Integration tests**: Test skill integration with unified server
 - **Error scenario tests**: Test error handling and edge cases
 
 ### Documentation
+
 - **Inline comments**: Add comments for complex logic
 - **Function documentation**: Document all public functions
-- **Usage examples**: Include usage examples in skill files when appropriate
+- **Usage examples**: Include usage examples in skill files when appropriate

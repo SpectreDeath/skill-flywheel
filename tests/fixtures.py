@@ -73,19 +73,19 @@ def test_registry_data():
 
 
 @pytest.fixture
-def mock_discovery_service(temp_db, sample_skills_dir, monkeypatch):
-    """Provide a mocked discovery service for testing."""
-    from flywheel.server import discovery_service
+def mock_unified_server(temp_db, sample_skills_dir, monkeypatch):
+    """Provide a mocked unified server for testing."""
+    from flywheel.server.unified_server import UnifiedMCPServer
 
-    # Mock the DB_PATH
-    monkeypatch.setattr("flywheel.server.discovery_service.DB_PATH", temp_db)
+    # Mock the DB_PATH in the module
+    monkeypatch.setattr("flywheel.server.unified_server.DB_PATH", temp_db)
 
-    yield discovery_service
+    return UnifiedMCPServer()
 
 
 @pytest.fixture
-def client(mock_discovery_service):
+def client(mock_unified_server):
     """Provide a test client for the FastAPI app."""
     from fastapi.testclient import TestClient
 
-    return TestClient(mock_discovery_service.app)
+    return TestClient(mock_unified_server.app)
