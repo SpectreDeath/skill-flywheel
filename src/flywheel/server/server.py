@@ -41,8 +41,21 @@ class EnhancedMCPServerV3:
         self.config = ServerConfig()
         self.app = FastAPI(
             title="Enhanced MCP Server v3",
-            description="Advanced Multi-Agent Orchestration Server with ML-Driven Optimization",
+            description="""
+            Advanced Multi-Agent Orchestration Server with ML-Driven Optimization.
+            
+            ## Features
+            
+            - **ML-driven predictive loading**: Uses time-series analysis to predict skill usage
+            - **Resource-aware optimization**: Real-time adaptation to system resources
+            - **Multi-agent orchestration**: Intelligent task distribution across agents
+            - **Container optimization**: Docker/Kubernetes-based scaling
+            - **Prometheus metrics**: Built-in observability
+            """,
             version="3.0.0",
+            docs_url="/docs",
+            redoc_url="/redoc",
+            openapi_url="/openapi.json",
         )
 
         self.app.add_middleware(

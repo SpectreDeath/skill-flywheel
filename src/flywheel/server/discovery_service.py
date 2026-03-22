@@ -19,7 +19,28 @@ logger = logging.getLogger(__name__)
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../"))
 DB_PATH = os.path.join(BASE_DIR, "data", "skill_registry.db")
 
-app = FastAPI(title="Skill Flywheel Discovery Service")
+app = FastAPI(
+    title="Skill Flywheel Discovery Service",
+    description="""
+    Skill Flywheel is a unified skill registry system that provides:
+    
+    - **Skill Discovery**: Find and list available skills
+    - **Skill Execution**: Execute skills via MCP protocol
+    - **Domain Management**: Organize skills by domain
+    - **Metrics**: Monitor skill usage and performance
+    
+    ## Features
+    
+    - Multi-agent orchestration with LangChain and CrewAI
+    - ML-driven predictive skill loading
+    - Resource-aware optimization
+    - Container-based scaling
+    """,
+    version="1.0.0",
+    docs_url="/docs",
+    redoc_url="/redoc",
+    openapi_url="/openapi.json",
+)
 
 
 def get_db():
@@ -107,7 +128,7 @@ async def startup_event():
         app.state.registry_loaded = False
 
 
-@app.get("/health")
+@app.get("/health", tags=["Health"])
 async def health():
     try:
         with get_db() as db:
@@ -133,7 +154,7 @@ async def health():
         return {"status": "down", "error": str(e)}
 
 
-@app.get("/health/detailed")
+@app.get("/health/detailed", tags=["Health"])
 async def detailed_health():
     """Detailed health check endpoint that provides comprehensive system status"""
     try:
@@ -198,291 +219,14 @@ async def detailed_health():
         }
 
 
-@app.get("/skills")
-async def list_skills(page: int = 1, limit: int = 20):
-    """
-    List skills with pagination support.
-
-    Args:
-        page: Page number (1-based), defaults to 1
-        limit: Number of skills per page, defaults to 20
-
-    Returns:
-        dict with:
-            - "skills": list of skill dicts with keys: skill_id, name, domain, version, health_status
-            - "pagination": dict with page, limit, total, total_pages, has_next, has_prev
-    """
-    page = max(page, 1)
-    if limit < 1:
-        limit = 20
-    elif limit > DEFAULT_LIMIT:
-        limit = DEFAULT_LIMIT  # Maximum limit to prevent overwhelming responses
-
-    offset = (page - 1) * limit
-
-    with get_db() as db:
-        cursor = db.cursor()
-
-        # Get total count for pagination metadata
-        cursor.execute("SELECT COUNT(*) FROM skills")
-        total_count = cursor.fetchone()[0]
-
-        # Get paginated skills
-        cursor.execute(
-            "SELECT skill_id, name, domain, version, health_status FROM skills ORDER BY name LIMIT ? OFFSET ?",
-            (limit, offset),
-        )
-        rows = cursor.fetchall()
-
-        # Calculate pagination metadata
-        total_pages = (total_count + limit - 1) // limit  # Ceiling division
-        has_next = page < total_pages
-        has_prev = page > 1
-
-        return {
-            "skills": [dict(row) for row in rows],
-            "pagination": {
-                "page": page,
-                "limit": limit,
-                "total": total_count,
-                "total_pages": total_pages,
-                "has_next": has_next,
-                "has_prev": has_prev,
-            },
-        }
-
-
-@app.get("/skills/search")
-async def search_skills(q: str = "", domain: str = "", page: int = 1, limit: int = 20):
-    """Search skills by name or description"""
-    page = max(page, 1)
-    if limit < 1:
-        limit = 20
-    elif limit > DEFAULT_LIMIT:
-        limit = DEFAULT_LIMIT
-
-    offset = (page - 1) * limit
-
-    with get_db() as db:
-        cursor = db.cursor()
-
-        query = "SELECT skill_id, name, domain, version, health_status, description FROM skills WHERE 1=1"
-        params = []
-
-        if q:
-            query += " AND (name LIKE ? OR description LIKE ?)"
-            search_term = f"%{q}%"
-            params.extend([search_term, search_term])
-
-        if domain:
-            query += " AND domain = ?"
-            params.append(domain)
-
-        count_query = query.replace(
-            "SELECT skill_id, name, domain, version, health_status, description",
-            "SELECT COUNT(*)",
-        )
-        cursor.execute(count_query, params)
-        total_count = cursor.fetchone()[0]
-
-        query += " ORDER BY name LIMIT ? OFFSET ?"
-        params.extend([limit, offset])
-
-        cursor.execute(query, params)
-        rows = cursor.fetchall()
-
-        total_pages = (total_count + limit - 1) // limit
-
-        return {
-            "skills": [dict(row) for row in rows],
-            "pagination": {
-                "page": page,
-                "limit": limit,
-                "total": total_count,
-                "total_pages": total_pages,
-                "has_next": page < total_pages,
-                "has_prev": page > 1,
-            },
-        }
-
-
-@app.get("/skills/domain/{domain}")
-async def get_skills_by_domain(domain: str, page: int = 1, limit: int = 20):
-    """Get skills by domain"""
-    page = max(page, 1)
-    if limit < 1:
-        limit = 20
-    elif limit > DEFAULT_LIMIT:
-        limit = DEFAULT_LIMIT
-
-    offset = (page - 1) * limit
-
-    with get_db() as db:
-        cursor = db.cursor()
-
-        cursor.execute("SELECT COUNT(*) FROM skills WHERE domain = ?", (domain,))
-        total_count = cursor.fetchone()[0]
-
-        cursor.execute(
-            "SELECT skill_id, name, domain, version, health_status FROM skills WHERE domain = ? ORDER BY name LIMIT ? OFFSET ?",
-            (domain, limit, offset),
-        )
-        rows = cursor.fetchall()
-
-        total_pages = (total_count + limit - 1) // limit
-
-        return {
-            "domain": domain,
-            "skills": [dict(row) for row in rows],
-            "pagination": {
-                "page": page,
-                "limit": limit,
-                "total": total_count,
-                "total_pages": total_pages,
-                "has_next": page < total_pages,
-                "has_prev": page > 1,
-            },
-        }
-
-
-@app.get("/skills/{skill_id}")
-async def get_skill(skill_id: str):
-    with get_db() as db:
-        cursor = db.cursor()
-        cursor.execute("SELECT * FROM skills WHERE skill_id = ?", (skill_id,))
-        row = cursor.fetchone()
-        if not row:
-            raise HTTPException(status_code=404, detail="Skill not found")
-
-        skill = dict(row)
-        skill["dependencies"] = (
-            json.loads(skill["dependencies"]) if skill["dependencies"] else []
-        )
-
-        cursor.execute("SELECT * FROM skill_endpoints WHERE skill_id = ?", (skill_id,))
-        endpoints = cursor.fetchall()
-        skill["endpoints"] = [dict(ep) for ep in endpoints]
-
-        return skill
-
-
-@app.post("/skills/{skill_id}/invoke")
-async def invoke_skill(skill_id: str, payload: InvokePayload):
-    logger.info(f"Invoking skill: {skill_id}")
-    start_time = time.time()
-
-    with get_db() as db:
-        cursor = db.cursor()
-        cursor.execute("SELECT * FROM skills WHERE skill_id = ?", (skill_id,))
-        row = cursor.fetchone()
-
-        if not row:
-            raise HTTPException(status_code=404, detail="Skill not found")
-
-        module_path = row["module_path"]
-        entry_function = row["entry_function"]
-        invocation_count = row["invocation_count"]
-
-        # Determine the absolute python file path
-        # Normalize the module_path to find the file
-        if module_path.endswith(".py"):
-            rel_path = module_path
-        else:
-            rel_path = module_path.replace(".", os.sep) + ".py"
-
-        abs_path = os.path.join(BASE_DIR, rel_path)
-
-        if not os.path.exists(abs_path):
-            raise HTTPException(
-                status_code=500, detail=f"Module file not found at {abs_path}"
-            )
-
-        module_name = f"skill_{skill_id}"
-
-        try:
-            # Check cache
-            if module_name in module_cache:
-                module = module_cache[module_name]
-            else:
-                spec = importlib.util.spec_from_file_location(module_name, abs_path)
-                module = importlib.util.module_from_spec(spec)
-                spec.loader.exec_module(module)
-
-            # Execute entry function
-            func = getattr(module, entry_function)
-
-            # Certain functions may be async
-            import asyncio
-
-            if asyncio.iscoroutinefunction(func):
-                result = await func(*payload.args, **payload.kwargs)
-            else:
-                result = func(*payload.args, **payload.kwargs)
-
-            # Update DB details incrementally
-            new_count = invocation_count + 1
-            now = datetime.utcnow().isoformat()
-            cursor.execute(
-                """
-                UPDATE skills 
-                SET invocation_count = ?, last_invoked = ? 
-                WHERE skill_id = ?
-            """,
-                (new_count, now, skill_id),
-            )
-            db.commit()
-
-            # Cache module if invocation_count hits rule threshold
-            if new_count > CACHE_THRESHOLD and module_name not in module_cache:
-                module_cache[module_name] = module
-
-            duration = time.time() - start_time
-            logger.info(f"Skill {skill_id} invoked successfully in {duration:.3f}s")
-            return {"status": "success", "result": result}
-
-        except AttributeError as e:
-            logger.error(f"Skill {skill_id} attribute error: {e}")
-            raise HTTPException(
-                status_code=500,
-                detail=f"Entry function '{entry_function}' not found in {module_path}",
-            )
-        except Exception as e:
-            logger.error(f"Skill {skill_id} execution failed: {e}")
-            raise HTTPException(status_code=500, detail=f"Execution failed: {str(e)}")
-
-
-@app.get("/metrics")
-async def get_metrics():
-    with get_db() as db:
-        cursor = db.cursor()
-        cursor.execute(
-            "SELECT skill_id, name, invocation_count, health_status, last_invoked FROM skills ORDER BY invocation_count DESC"
-        )
-        rows = cursor.fetchall()
-        return {"skills_metrics": [dict(row) for row in rows]}
-
-
-@app.get("/domains")
-async def list_domains():
-    """List all available domains with skill counts"""
-    with get_db() as db:
-        cursor = db.cursor()
-        cursor.execute("""
-            SELECT domain, COUNT(*) as skill_count 
-            FROM skills 
-            GROUP BY domain 
-            ORDER BY skill_count DESC
-        """)
-        rows = cursor.fetchall()
-        return {
-            "domains": [
-                {"name": row["domain"], "skill_count": row["skill_count"]}
-                for row in rows
-            ]
-        }
-
-
-@app.put("/skills/{skill_id}/health")
+@app.get("/skills", tags=["Skills"])
+@app.get("/skills/search", tags=["Skills"])
+@app.get("/skills/domain/{domain}", tags=["Skills"])
+@app.get("/skills/{skill_id}", tags=["Skills"])
+@app.post("/skills/{skill_id}/invoke", tags=["Skills"])
+@app.get("/metrics", tags=["Metrics"])
+@app.get("/domains", tags=["Domains"])
+@app.put("/skills/{skill_id}/health", tags=["Health"])
 async def update_health_status(skill_id: str, health_status: str):
     """Update health status for a skill"""
     valid_statuses = ["healthy", "unhealthy", "unknown"]
