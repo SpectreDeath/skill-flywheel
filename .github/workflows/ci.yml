@@ -34,7 +34,7 @@ jobs:
           python -m venv .venv
           .venv/bin/pip install --upgrade pip
           .venv/bin/pip install -r requirements.txt
-          .venv/bin/pip install pytest pytest-cov safety
+          .venv/bin/pip install --upgrade pip pytest pytest-cov safety
       - name: Run safety check
         run: .venv/bin/safety check --json
       - name: Run tests with coverage
