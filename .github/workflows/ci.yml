@@ -38,7 +38,7 @@ jobs:
       - name: Run safety check
         run: .venv/bin/safety check --json
       - name: Run tests with coverage
-        run: pytest tests/ --cov=src --cov-report=term-missing --cov-report=json --cov-fail-under=0 -W ignore -W ignore::DeprecationWarning -W ignore::pytest.PytestReturnNotNoneWarning --tb=short -v
+        run: .venv/bin/pytest tests/ --cov=src --cov-report=term-missing --cov-report=json --cov-fail-under=0 -W ignore -W ignore::DeprecationWarning -W ignore::pytest.PytestReturnNotNoneWarning --tb=short -v
       - name: Upload coverage
         uses: actions/upload-artifact@v4
         if: always()
