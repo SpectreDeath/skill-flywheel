@@ -27,3 +27,21 @@ Thumbs.db
 # Database and Logs
 *.db
 *.log
+
+# Build artifacts
+*.egg-info/
+build/
+dist/
+wheelhouse/
+
+# RL4 local evidence system (auto-generated)
+.rl4/
+
+# CI/CD environment cache
+ci_env/
+
+# Temporary files and external submodules
+tmp/
+
+# Diagnostic output
+diagnostic_results*.json
