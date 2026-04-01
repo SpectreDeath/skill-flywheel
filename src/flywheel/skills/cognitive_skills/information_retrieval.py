@@ -194,3 +194,29 @@ def search_information(query: str) -> Dict:
     """Quick information retrieval."""
     retriever = InformationRetriever()
     return retriever.retrieve_and_verify(query)
+
+
+# --- invoke() wrapper added by batch fix ---
+import asyncio as _asyncio
+import inspect as _inspect
+
+async def invoke(payload: dict) -> dict:
+    """Entry point for skill invocation."""
+    import datetime as _dt
+    action = payload.get("action", "search_information")
+    timestamp = _dt.datetime.now().isoformat()
+    kwargs = {k: v for k, v in payload.items() if k != "action"}
+
+    instance = InformationRetriever()
+
+    if action == "get_info":
+        return {"result": {"name": "information_retrieval", "actions": ['build_search_query', 'define_need', 'extract_relevant_info', 'retrieve_and_verify', 'search', 'search_information', 'verify_source'] }, "metadata": {"action": action, "timestamp": timestamp}}
+
+    method = getattr(instance, action, None)
+    if method is None:
+        return {"result": {"error": f"Unknown action: {action}"}, "metadata": {"action": action, "timestamp": timestamp}}
+
+    result = method(**kwargs)
+    if _inspect.isawaitable(result):
+        result = await result
+    return {"result": result, "metadata": {"action": action, "timestamp": timestamp}}

@@ -10,6 +10,7 @@ Models auction strategies and optimal bidding:
 
 import random
 from typing import Any, Dict, List
+from datetime import datetime
 
 AUCTION_TYPES = {
     "english": {"type": "ascending", "dominant": True},
@@ -148,7 +149,7 @@ def auction_strategy_analyzer(
     }
 
 
-def invoke(payload: dict) -> dict:
+async def invoke(payload: dict) -> dict:
     """MCP skill invocation"""
     action = payload.get("action", "analyze")
     auction_type = payload.get("auction_type", "sealed_bid")
@@ -160,9 +161,13 @@ def invoke(payload: dict) -> dict:
     else:
         result = {"status": "error", "message": f"Unknown action: {action}"}
 
-    return {"result": result}
-
-
+    return{
+        "result": result,
+        "metadata": {
+            "action": action,
+            "timestamp": datetime.now().isoformat(),
+        },
+    }
 def register_skill():
     return {
         "name": "auction-strategy-analyzer",

@@ -215,4 +215,18 @@
 
 - **Inline comments**: Add comments for complex logic
 - **Function documentation**: Document all public functions
-- **Usage examples**: Include usage examples in skill files when appropriate
+- **Usage examples**: Include usage examples in skill files when appropriate
+
+## Known Platform-Specific Issues
+
+### Windows Junction Failures
+
+- Windows file junctions/symlinks may cause read/write permission errors on some skill files
+- This is a **Windows-only issue** and does not affect Linux CI/CD environments
+- If encountering "Permission denied" or "Operation not permitted" errors when reading skill files on Windows:
+  - The files will resolve correctly on Linux CI
+  - Do not attempt to fix junction-related failures as Windows-specific
+  - Document any junction issues in diagnostics but skip fixing them
+  - Run full diagnostic suite on Linux to get accurate results
+- **Affected modules**: OpenClaw/NemoClaw modules use platform-specific path patterns
+- **Status**: Known limitation, will resolve in Linux CI environment

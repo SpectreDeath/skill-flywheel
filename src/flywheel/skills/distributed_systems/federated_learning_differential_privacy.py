@@ -801,3 +801,37 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+# --- invoke() wrapper added by batch fix ---
+async def invoke(payload: dict) -> dict:
+    """Entry point for skill invocation."""
+    import datetime as _dt
+    action = payload.get("action", "local_train")
+    timestamp = _dt.datetime.now().isoformat()
+
+    actions_available = [
+        "local_train", "clip_gradients", "add_gaussian_noise",
+        "select_clients", "calculate_noise_multiplier", "get_info"
+    ]
+
+    if action == "get_info":
+        return {"result": {"name": "federated-learning-differential-privacy", "actions": actions_available}, "metadata": {"action": action, "timestamp": timestamp}}
+
+    kwargs = {k: v for k, v in payload.items() if k != "action"}
+
+    # SimpleMLP requires input_dim and hidden_dim
+    try:
+        instance = SimpleMLP(input_dim=kwargs.pop("input_dim", 10), hidden_dim=kwargs.pop("hidden_dim", 5))
+    except Exception as e:
+        return {"result": {"error": f"Failed to instantiate SimpleMLP: {e}"}, "metadata": {"action": action, "timestamp": timestamp}}
+
+    method = getattr(instance, action, None)
+    if method is None:
+        return {"result": {"error": f"Unknown action: {action}"}, "metadata": {"action": action, "timestamp": timestamp}}
+
+    try:
+        result = method(**kwargs)
+        return {"result": result, "metadata": {"action": action, "timestamp": timestamp}}
+    except Exception as e:
+        return {"result": {"error": str(e)}, "metadata": {"action": action, "timestamp": timestamp}}

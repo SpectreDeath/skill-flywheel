@@ -8,6 +8,7 @@ Performs k-means clustering analysis:
 """
 
 import math
+from datetime import datetime
 from typing import Any, Dict, List
 
 
@@ -204,7 +205,7 @@ def _find_optimal_k(data: List[List[float]], max_k: int) -> int:
     return max(2, elbow_idx)
 
 
-def invoke(payload: dict) -> dict:
+async def invoke(payload: dict) -> dict:
     """MCP skill invocation"""
     action = payload.get("action", "cluster")
     data = payload.get("data", [])
@@ -219,7 +220,13 @@ def invoke(payload: dict) -> dict:
     else:
         result = {"status": "error", "message": f"Unknown action: {action}"}
 
-    return {"result": result}
+    return {
+        "result": result,
+        "metadata": {
+            "action": action,
+            "timestamp": datetime.now().isoformat(),
+        },
+    }
 
 
 def register_skill():

@@ -11,6 +11,7 @@ import re
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Dict, List
+from datetime import datetime
 
 
 @dataclass
@@ -378,7 +379,7 @@ def security_scan(
         }
 
 
-def invoke(payload: dict) -> dict:
+async def invoke(payload: dict) -> dict:
     """Main entry point for MCP skill invocation"""
     action = payload.get("action", "scan")
 
@@ -391,9 +392,13 @@ def invoke(payload: dict) -> dict:
     else:
         result = {"status": "error", "message": f"Unknown action: {action}"}
 
-    return {"result": result}
-
-
+    return{
+        "result": result,
+        "metadata": {
+            "action": action,
+            "timestamp": datetime.now().isoformat(),
+        },
+    }
 def register_skill():
     """Return skill metadata for MCP registration"""
     return {

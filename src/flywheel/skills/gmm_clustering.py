@@ -10,6 +10,7 @@ Probabilistic clustering using GMM:
 import math
 import random
 from typing import Any, Dict, List
+from datetime import datetime
 
 
 def _multivariate_normal_pdf(
@@ -191,7 +192,7 @@ def gmm_clustering(
     }
 
 
-def invoke(payload: dict) -> dict:
+async def invoke(payload: dict) -> dict:
     """MCP skill invocation"""
     action = payload.get("action", "cluster")
     data = payload.get("data", [])
@@ -203,9 +204,13 @@ def invoke(payload: dict) -> dict:
     else:
         result = {"status": "error", "message": f"Unknown action: {action}"}
 
-    return {"result": result}
-
-
+    return{
+        "result": result,
+        "metadata": {
+            "action": action,
+            "timestamp": datetime.now().isoformat(),
+        },
+    }
 def register_skill():
     """Return skill metadata"""
     return {

@@ -17,6 +17,7 @@ import re
 from collections import defaultdict
 from dataclasses import dataclass
 from typing import Dict, List, Tuple
+from datetime import datetime
 
 
 @dataclass
@@ -1247,18 +1248,27 @@ def pattern_detector(code: str, options: dict) -> dict:
         }
 
 
-def invoke(payload: dict) -> dict:
+async def invoke(payload: dict) -> dict:
     """Main entry point for MCP skill invocation"""
     code = payload.get("code", "")
     options = payload.get("options", {})
 
     if not code:
-        return {"result": {"status": "error", "message": "No code provided"}}
-
+        return{
+        "result": {"status": "error", "message": "No code provided"},
+        "metadata": {
+            "action": action,
+            "timestamp": datetime.now().isoformat(),
+        },
+    }
     result = pattern_detector(code, options)
-    return {"result": result}
-
-
+    return{
+        "result": result,
+        "metadata": {
+            "action": action,
+            "timestamp": datetime.now().isoformat(),
+        },
+    }
 def register_skill():
     """Return skill metadata for MCP registration"""
     return {

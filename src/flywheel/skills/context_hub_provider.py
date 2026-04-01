@@ -459,3 +459,39 @@ async def example_usage():
 
 if __name__ == "__main__":
     asyncio.run(example_usage())
+
+
+# --- invoke() wrapper added by batch fix ---
+async def invoke(payload: dict) -> dict:
+    """Entry point for skill invocation."""
+    import datetime as _dt
+    action = payload.get("action", "search")
+    timestamp = _dt.datetime.now().isoformat()
+
+    actions_available = ["search", "get_doc", "annotate", "clear_annotation", "get_info"]
+
+    if action == "get_info":
+        return {"result": {"name": "context-hub-provider", "actions": actions_available}, "metadata": {"action": action, "timestamp": timestamp}}
+
+    try:
+        if action == "search":
+            result = await search(query=payload.get("query", ""), tags=payload.get("tags"), limit=payload.get("limit", 20))
+            return {"result": result, "metadata": {"action": action, "timestamp": timestamp}}
+
+        elif action == "get_doc":
+            result = await get_doc(doc_id=payload.get("doc_id", ""), language=payload.get("language"))
+            return {"result": result, "metadata": {"action": action, "timestamp": timestamp}}
+
+        elif action == "annotate":
+            result = await annotate(doc_id=payload.get("doc_id", ""), note=payload.get("note", ""))
+            return {"result": result, "metadata": {"action": action, "timestamp": timestamp}}
+
+        elif action == "clear_annotation":
+            result = await clear_annotation(doc_id=payload.get("doc_id", ""))
+            return {"result": result, "metadata": {"action": action, "timestamp": timestamp}}
+
+        else:
+            return {"result": {"error": f"Unknown action: {action}"}, "metadata": {"action": action, "timestamp": timestamp}}
+
+    except Exception as e:
+        return {"result": {"error": str(e)}, "metadata": {"action": action, "timestamp": timestamp}}

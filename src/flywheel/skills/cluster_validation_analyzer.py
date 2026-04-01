@@ -10,6 +10,7 @@ Evaluates cluster quality using multiple metrics:
 
 import math
 from typing import Any, Dict, List
+from datetime import datetime
 
 
 def _euclidean_distance(p1: List[float], p2: List[float]) -> float:
@@ -226,7 +227,7 @@ def _interpret_metrics(
     }
 
 
-def invoke(payload: dict) -> dict:
+async def invoke(payload: dict) -> dict:
     """MCP skill invocation"""
     action = payload.get("action", "validate")
     data = payload.get("data", [])
@@ -237,9 +238,13 @@ def invoke(payload: dict) -> dict:
     else:
         result = {"status": "error", "message": f"Unknown action: {action}"}
 
-    return {"result": result}
-
-
+    return{
+        "result": result,
+        "metadata": {
+            "action": action,
+            "timestamp": datetime.now().isoformat(),
+        },
+    }
 def register_skill():
     """Return skill metadata"""
     return {

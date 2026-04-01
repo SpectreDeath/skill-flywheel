@@ -282,7 +282,7 @@ def _persist_data() -> None:
     return data
 
 
-def invoke(payload: dict) -> dict:
+async def invoke(payload: dict) -> dict:
     errors = payload.get("errors", "")
     options = payload.get("options", {})
 

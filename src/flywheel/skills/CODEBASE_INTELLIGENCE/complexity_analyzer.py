@@ -631,7 +631,7 @@ def _identify_hotspots(
     return hotspots[:limit]
 
 
-def invoke(payload: dict) -> dict:
+async def invoke(payload: dict) -> dict:
     """
     Main entry point for MCP skill invocation
 
@@ -647,12 +647,21 @@ def invoke(payload: dict) -> dict:
     options = payload.get("options", {})
 
     if not code:
-        return {"result": {"status": "error", "message": "No code provided"}}
-
+        return{
+        "result": {"status": "error", "message": "No code provided"},
+        "metadata": {
+            "action": action,
+            "timestamp": datetime.now().isoformat(),
+        },
+    }
     result = complexity_analyzer(code, options)
-    return {"result": result}
-
-
+    return{
+        "result": result,
+        "metadata": {
+            "action": action,
+            "timestamp": datetime.now().isoformat(),
+        },
+    }
 def register_skill():
     """Return skill metadata for MCP registration"""
     return {
@@ -772,5 +781,6 @@ class MyClass:
 
     result = complexity_analyzer(test_code, options)
     import json
+from datetime import datetime
 
     print(json.dumps(result, indent=2))

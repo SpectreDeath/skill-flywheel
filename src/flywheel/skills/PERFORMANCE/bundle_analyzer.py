@@ -13,6 +13,7 @@ import json
 import re
 from dataclasses import dataclass
 from typing import Dict, List
+from datetime import datetime
 
 PACKAGE_SIZES = {
     "moment": {"size": "67KB", "category": "date"},
@@ -755,7 +756,7 @@ def _generate_summary(
     }
 
 
-def invoke(payload: dict) -> dict:
+async def invoke(payload: dict) -> dict:
     """
     Main entry point for MCP skill invocation.
 
@@ -780,9 +781,13 @@ def invoke(payload: dict) -> dict:
     if payload.get("generate_report", False):
         result["report"] = generate_report(result)
 
-    return {"result": result}
-
-
+    return{
+        "result": result,
+        "metadata": {
+            "action": action,
+            "timestamp": datetime.now().isoformat(),
+        },
+    }
 def generate_report(analysis: dict) -> str:
     """Generate human-readable bundle analysis report."""
     if analysis.get("status") != "success":

@@ -14,6 +14,7 @@ import re
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Dict, List
+from datetime import datetime
 
 SUPPORTED_LANGUAGES = {
     "python": {
@@ -804,7 +805,7 @@ def readme_generator(project_path: str, options: dict = None) -> dict:
     }
 
 
-def invoke(payload: dict) -> dict:
+async def invoke(payload: dict) -> dict:
     """
     MCP skill invocation function.
 
@@ -852,9 +853,13 @@ def invoke(payload: dict) -> dict:
             "error": f"Unknown action: {action}",
         }
 
-    return {"result": result}
-
-
+    return{
+        "result": result,
+        "metadata": {
+            "action": action,
+            "timestamp": datetime.now().isoformat(),
+        },
+    }
 def register_skill() -> dict:
     """
     Return skill metadata for registration.

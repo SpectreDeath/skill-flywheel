@@ -8,6 +8,7 @@ Conducts SWOT (Strengths, Weaknesses, Opportunities, Threats) analysis:
 """
 
 from typing import Any, Dict, List
+from datetime import datetime
 
 
 def categorize_factors(factors: List[str], category: str) -> List[Dict]:
@@ -130,7 +131,7 @@ def swot_analyzer(organization_data: Dict, **kwargs) -> Dict[str, Any]:
     }
 
 
-def invoke(payload: dict) -> dict:
+async def invoke(payload: dict) -> dict:
     """MCP skill invocation"""
     action = payload.get("action", "analyze")
     organization_data = payload.get("organization_data", {})
@@ -140,9 +141,13 @@ def invoke(payload: dict) -> dict:
     else:
         result = {"status": "error", "message": f"Unknown action: {action}"}
 
-    return {"result": result}
-
-
+    return{
+        "result": result,
+        "metadata": {
+            "action": action,
+            "timestamp": datetime.now().isoformat(),
+        },
+    }
 def register_skill():
     """Return skill metadata"""
     return {

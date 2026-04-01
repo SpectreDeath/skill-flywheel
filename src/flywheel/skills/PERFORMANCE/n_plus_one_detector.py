@@ -14,6 +14,7 @@ import re
 from dataclasses import dataclass
 from enum import Enum
 from typing import Dict, List
+from datetime import datetime
 
 
 class ORMType(Enum):
@@ -674,7 +675,7 @@ const users = await prisma.user.findMany({
 })"""
 
 
-def invoke(payload: dict) -> dict:
+async def invoke(payload: dict) -> dict:
     """
     Main entry point for MCP skill invocation.
 
@@ -697,9 +698,13 @@ def invoke(payload: dict) -> dict:
     options = payload.get("options", {})
     result = n_plus_one_detector(code, options)
 
-    return {"result": result}
-
-
+    return{
+        "result": result,
+        "metadata": {
+            "action": action,
+            "timestamp": datetime.now().isoformat(),
+        },
+    }
 def generate_report(analysis: dict) -> str:
     """Generate human-readable N+1 detection report."""
     lines = []

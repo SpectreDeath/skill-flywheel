@@ -12,6 +12,7 @@ Identifies untested code paths in Python source code by:
 import ast
 from dataclasses import dataclass, field
 from typing import Any, Dict, List
+from datetime import datetime
 
 
 @dataclass
@@ -609,7 +610,7 @@ def test_gap_finder(source_code: str, test_code: str, options: dict = None) -> d
     }
 
 
-def invoke(payload: dict) -> dict:
+async def invoke(payload: dict) -> dict:
     """MCP skill invocation."""
     action = payload.get("action", "analyze")
     source_code = payload.get("source_code", "")
@@ -625,9 +626,13 @@ def invoke(payload: dict) -> dict:
     else:
         result = {"status": "error", "message": f"Unknown action: {action}"}
 
-    return {"result": result}
-
-
+    return{
+        "result": result,
+        "metadata": {
+            "action": action,
+            "timestamp": datetime.now().isoformat(),
+        },
+    }
 def register_skill():
     """Return skill metadata."""
     return {

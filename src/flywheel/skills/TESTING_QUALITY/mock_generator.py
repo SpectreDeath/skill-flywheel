@@ -12,6 +12,7 @@ Creates mock objects for testing by:
 import ast
 from dataclasses import dataclass
 from typing import Any, Dict, List, Set
+from datetime import datetime
 
 
 @dataclass
@@ -393,7 +394,7 @@ def mock_generator(code: str, target: str, options: dict) -> dict:
     }
 
 
-def invoke(payload: dict) -> dict:
+async def invoke(payload: dict) -> dict:
     """
     Main entry point for the skill.
 
@@ -414,9 +415,13 @@ def invoke(payload: dict) -> dict:
         return {"status": "error", "message": "No target class/function specified"}
 
     result = mock_generator(code, target, options)
-    return {"result": result}
-
-
+    return{
+        "result": result,
+        "metadata": {
+            "action": action,
+            "timestamp": datetime.now().isoformat(),
+        },
+    }
 def register_skill():
     """Return skill metadata."""
     return {

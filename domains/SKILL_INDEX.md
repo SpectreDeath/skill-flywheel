@@ -11,6 +11,32 @@
 | specification_traceability | Specification Engineering | Requirement traceability from concept to implementation | Advanced | Change management |
 | specification_validation_framework | Specification Engineering | Automated specification testing and validation | Advanced | Quality assurance |
 
+## SME Integration
+
+Skills for integrating with the Semantic Memory Engine (SME) - a production-grade MCP Gateway for forensic AI capabilities.
+
+| Skill | Domain | Description | Complexity | Primary Use |
+|-------|--------|-------------|------------|-------------|
+| **SME Integration** | | | | |
+| sme-gateway-connection | SME Integration | Connect to SME MCP Gateway | Intermediate | Integration |
+| harvester-web-ingestion | SME Integration | Ingest web content as semantic facts | Intermediate | Data Ingestion |
+| trust-score-analysis | SME Integration | Calculate epistemic trust scores (NTS) | Advanced | Forensic Analysis |
+| adversarial-pattern-detection | SME Integration | Detect AI-generated/smoothed text | Advanced | AI Detection |
+| stylometric-analysis | SME Integration | Analyze writing style for authorship | Advanced | Forensic Analysis |
+| social-intelligence-crawling | SME Integration | Monitor social media platforms | Advanced | OSINT |
+| forensic-data-vault | SME Integration | Secure evidentiary storage | Intermediate | Data Storage |
+| logic-consistency-verification | SME Integration | Verify logical consistency | Advanced | Analysis |
+| semantic-auditor | SME Integration | Deep semantic analysis of corpus consistency | Advanced | Analysis |
+| synthetic-source-detection | SME Integration | Detect machine-generated text patterns | Advanced | AI Detection |
+| archival-diff-analysis | SME Integration | Compare historical vs current data states | Intermediate | Analysis |
+| ghost-trap-detection | SME Integration | Identify stealthy/obfuscated processes | Advanced | Security |
+| system-health-scan | SME Integration | Comprehensive system health diagnostics | Intermediate | Diagnostics |
+| knowledge-domain-mapping | SME Integration | Map knowledge domains and relationships | Intermediate | Knowledge Management |
+| dark-data-discovery | SME Integration | Discover unaddressed questions and gaps | Advanced | Knowledge Management |
+| adversarial-simulation | SME Integration | Simulate adversarial attacks for testing | Advanced | Testing |
+| agent-behavior-audit | SME Integration | Audit agent behavior against policies | Advanced | Governance |
+| cognitive-mirror-test | SME Integration | Self-reflective agent cognition diagnostics | Advanced | Diagnostics |
+
 ## Modern Backend Development
 
 Modern backend development skills for polyglot systems using Node.js, Python, and Go.
@@ -50,6 +76,7 @@ Specialized skill ecosystems for specific technology domains:
 | DOMAIN/ML_AI/ | Machine learning and AI | MLOps, frameworks, computer vision |
 | DOMAIN/FRONTEND/ | Frontend development | React, UI/UX, state management |
 | DOMAIN/SPECIFICATION_ENGINEERING/ | Specification creation | PRD, technical specs, API design, ADRs, test plans |
+| DOMAIN/SME_INTEGRATION/ | Forensic AI capabilities | MCP gateway, trust scoring, adversarial detection |
 
 ### Experimental Output (EXPERIMENTAL/)
 Chaos output and experimental skills from Ralph Wiggum process:

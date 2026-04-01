@@ -159,3 +159,29 @@ def evaluate(claim: str, evidence: List[str]) -> Dict:
     """Quick claim evaluation."""
     thinker = ConvergentThinker()
     return thinker.evaluate_claim(claim, evidence)
+
+
+# --- invoke() wrapper added by batch fix ---
+import asyncio as _asyncio
+import inspect as _inspect
+
+async def invoke(payload: dict) -> dict:
+    """Entry point for skill invocation."""
+    import datetime as _dt
+    action = payload.get("action", "solve")
+    timestamp = _dt.datetime.now().isoformat()
+    kwargs = {k: v for k, v in payload.items() if k != "action"}
+
+    instance = ConvergentThinker()
+
+    if action == "get_info":
+        return {"result": {"name": "convergent_thinking", "actions": ['analyze_problem', 'assess_facts', 'conclude', 'evaluate_claim', 'find_answer', 'make_decision', 'solve', 'synthesize_knowledge'] }, "metadata": {"action": action, "timestamp": timestamp}}
+
+    method = getattr(instance, action, None)
+    if method is None:
+        return {"result": {"error": f"Unknown action: {action}"}, "metadata": {"action": action, "timestamp": timestamp}}
+
+    result = method(**kwargs)
+    if _inspect.isawaitable(result):
+        result = await result
+    return {"result": result, "metadata": {"action": action, "timestamp": timestamp}}

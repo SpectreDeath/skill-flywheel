@@ -785,7 +785,7 @@ def _calculate_metrics(
     return metrics
 
 
-def invoke(payload: dict) -> dict:
+async def invoke(payload: dict) -> dict:
     """
     Main entry point for MCP skill invocation.
 
@@ -826,9 +826,13 @@ def invoke(payload: dict) -> dict:
     if payload.get("generate_report", False):
         result["report"] = generate_report(result)
 
-    return {"result": result}
-
-
+    return{
+        "result": result,
+        "metadata": {
+            "action": action,
+            "timestamp": datetime.now().isoformat(),
+        },
+    }
 def generate_report(analysis: dict) -> str:
     """Generate human-readable cache analysis report."""
     lines = []
@@ -936,5 +940,6 @@ class MyCache:
 
     result = cache_analyzer(test_code, {"detection_level": "standard"})
     import json
+from datetime import datetime
 
     print(json.dumps(result, indent=2))

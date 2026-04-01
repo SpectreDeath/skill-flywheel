@@ -433,7 +433,7 @@ def _check_command_injection(code: str) -> dict:
     return {"issues": issues, "secure_patterns": secure_patterns_found, "fixes": fixes}
 
 
-def invoke(payload: dict) -> dict:
+async def invoke(payload: dict) -> dict:
     code = payload.get("code", "")
     options = payload.get("options", {})
 
@@ -494,6 +494,7 @@ def register_skill() -> dict:
 if __name__ == "__main__":
     test_code = """
     import sqlite3
+from datetime import datetime
     user_input = request.args.get('username')
     cursor.execute("SELECT * FROM users WHERE name = " + user_input)
     password = "secret123"

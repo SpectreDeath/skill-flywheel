@@ -531,7 +531,7 @@ def _detect_await_patterns(code: str, line_number: int) -> List[str]:
     return patterns
 
 
-def invoke(payload: dict) -> dict:
+async def invoke(payload: dict) -> dict:
     """
     Main entry point for MCP skill invocation
 
@@ -547,12 +547,21 @@ def invoke(payload: dict) -> dict:
     options = payload.get("options", {})
 
     if not code:
-        return {"result": {"status": "error", "message": "No code provided"}}
-
+        return{
+        "result": {"status": "error", "message": "No code provided"},
+        "metadata": {
+            "action": action,
+            "timestamp": datetime.now().isoformat(),
+        },
+    }
     result = api_surface_mapper(code, options)
-    return {"result": result}
-
-
+    return{
+        "result": result,
+        "metadata": {
+            "action": action,
+            "timestamp": datetime.now().isoformat(),
+        },
+    }
 def register_skill():
     """Return skill metadata for MCP registration"""
     return {
@@ -646,5 +655,6 @@ class Service:
 
     result = api_surface_mapper(test_code, options)
     import json
+from datetime import datetime
 
     print(json.dumps(result, indent=2))

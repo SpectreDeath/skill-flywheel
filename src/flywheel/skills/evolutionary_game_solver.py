@@ -9,6 +9,7 @@ Analyzes evolutionary stable strategies and dynamics:
 """
 
 from typing import Any, Dict, List
+from datetime import datetime
 
 
 def evolutionary_game_solver(
@@ -224,7 +225,7 @@ def _find_mixed_equilibrium(
     return None
 
 
-def invoke(payload: dict) -> dict:
+async def invoke(payload: dict) -> dict:
     """MCP skill invocation"""
     payload.get("action", "solve")
     game_type = payload.get("game_type", "hawk_dove")
@@ -241,9 +242,13 @@ def invoke(payload: dict) -> dict:
         mutation_rate=mutation_rate,
     )
 
-    return {"result": result}
-
-
+    return{
+        "result": result,
+        "metadata": {
+            "action": action,
+            "timestamp": datetime.now().isoformat(),
+        },
+    }
 def register_skill():
     """Return skill metadata"""
     return {

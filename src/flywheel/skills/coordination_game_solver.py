@@ -10,6 +10,7 @@ Helps resolve coordination problems:
 """
 
 from typing import Any, Dict, List
+from datetime import datetime
 
 
 def coordination_game_solver(
@@ -316,7 +317,7 @@ def _calculate_battle_sexes_mixed(
     return {}
 
 
-def invoke(payload: dict) -> dict:
+async def invoke(payload: dict) -> dict:
     """MCP skill invocation"""
     payload.get("action", "solve")
     game_type = payload.get("game_type", "pure")
@@ -335,9 +336,13 @@ def invoke(payload: dict) -> dict:
         communication=communication,
     )
 
-    return {"result": result}
-
-
+    return{
+        "result": result,
+        "metadata": {
+            "action": action,
+            "timestamp": datetime.now().isoformat(),
+        },
+    }
 def register_skill():
     """Return skill metadata"""
     return {

@@ -9,6 +9,7 @@ Generates unit tests from Python code snippets using:
 
 import ast
 from typing import Any, Dict, List
+from datetime import datetime
 
 
 def extract_functions(code: str) -> List[Dict[str, Any]]:
@@ -174,7 +175,7 @@ def unit_test_generator(
     return generate_tests(code, framework)
 
 
-def invoke(payload: dict) -> dict:
+async def invoke(payload: dict) -> dict:
     """MCP skill invocation"""
     action = payload.get("action", "generate")
     code = payload.get("code", "")
@@ -185,9 +186,13 @@ def invoke(payload: dict) -> dict:
     else:
         result = {"status": "error", "message": f"Unknown action: {action}"}
 
-    return {"result": result}
-
-
+    return{
+        "result": result,
+        "metadata": {
+            "action": action,
+            "timestamp": datetime.now().isoformat(),
+        },
+    }
 def register_skill():
     """Return skill metadata"""
     return {

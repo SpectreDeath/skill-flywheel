@@ -12,6 +12,7 @@ import os
 import re
 from dataclasses import dataclass, field
 from typing import Any, Dict, List
+from datetime import datetime
 
 
 @dataclass
@@ -297,29 +298,38 @@ def generate_validation_report(results: Dict[str, ValidationResult]) -> str:
     return "\n".join(lines)
 
 
-def invoke(payload: dict) -> dict:
+async def invoke(payload: dict) -> dict:
     """Main entry point for MCP skill invocation"""
     action = payload.get("action", "validate")
 
     if action == "validate":
         skill_path = payload.get("skill_path", "")
         result = validate_skill_implementation(skill_path)
-        return {
-            "result": {
+        return{
+        "result": {
                 "valid": result.valid,
                 "errors": result.errors,
                 "warnings": result.warnings,
                 "info": result.info,
-            }
+        "metadata": {
+            "action": action,
+            "timestamp": datetime.now().isoformat(),
+        },
+    }
         }
     elif action == "validate_catalog":
         catalog_path = payload.get("catalog_path", "")
         results = validate_skill_catalog(catalog_path)
         report = generate_validation_report(results)
-        return {
-            "result": {
+        return{
+        "result": {
                 "results": {
-                    k: {"valid": v.valid, "errors": v.errors}
+                    k: {"valid": v.valid, "errors": v.errors,
+        "metadata": {
+            "action": action,
+            "timestamp": datetime.now().isoformat(),
+        },
+    }
                     for k, v in results.items()
                 },
                 "report": report,
@@ -328,17 +338,25 @@ def invoke(payload: dict) -> dict:
     elif action == "validate_definition":
         definition = payload.get("skill_definition", {})
         result = validate_skill_definition(definition)
-        return {
-            "result": {
+        return{
+        "result": {
                 "valid": result.valid,
                 "errors": result.errors,
                 "warnings": result.warnings,
-            }
+        "metadata": {
+            "action": action,
+            "timestamp": datetime.now().isoformat(),
+        },
+    }
         }
     else:
-        return {"result": {"status": "error", "message": f"Unknown action: {action}"}}
-
-
+        return{
+        "result": {"status": "error", "message": f"Unknown action: {action}"},
+        "metadata": {
+            "action": action,
+            "timestamp": datetime.now().isoformat(),
+        },
+    }
 def register_skill():
     """Return skill metadata for MCP registration"""
     return {

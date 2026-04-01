@@ -10,6 +10,7 @@ Optimizes bidding strategies for various auction types:
 """
 
 from typing import Any, Dict, List
+from datetime import datetime
 
 
 def auction_strategy_optimizer(
@@ -259,7 +260,7 @@ def _estimate_win_prob(n: int, your_val: float, others: List[float] | None) -> f
     return 1.0 / n
 
 
-def invoke(payload: dict) -> dict:
+async def invoke(payload: dict) -> dict:
     """MCP skill invocation"""
     payload.get("action", "optimize")
     auction_type = payload.get("auction_type", "first_price")
@@ -278,9 +279,13 @@ def invoke(payload: dict) -> dict:
         reserve_price=reserve_price,
     )
 
-    return {"result": result}
-
-
+    return{
+        "result": result,
+        "metadata": {
+            "action": action,
+            "timestamp": datetime.now().isoformat(),
+        },
+    }
 def register_skill():
     """Return skill metadata"""
     return {

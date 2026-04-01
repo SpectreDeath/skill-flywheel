@@ -10,6 +10,7 @@ Analyzes repeated/iterated strategic interactions:
 """
 
 from typing import Any, Dict, List
+from datetime import datetime
 
 
 def repeated_game_analyzer(
@@ -223,7 +224,7 @@ def _analyze_repeated_chicken(
     }
 
 
-def invoke(payload: dict) -> dict:
+async def invoke(payload: dict) -> dict:
     """MCP skill invocation"""
     payload.get("action", "analyze")
     base_game = payload.get("base_game", "prisoner")
@@ -240,9 +241,13 @@ def invoke(payload: dict) -> dict:
         strategies=strategies,
     )
 
-    return {"result": result}
-
-
+    return{
+        "result": result,
+        "metadata": {
+            "action": action,
+            "timestamp": datetime.now().isoformat(),
+        },
+    }
 def register_skill():
     """Return skill metadata"""
     return {

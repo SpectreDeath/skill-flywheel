@@ -542,7 +542,7 @@ def style_enforcer(code: str, config: str, options: dict = None) -> dict:
     return _enforcer_instance.enforce(code, config, options)
 
 
-def invoke(payload: dict) -> dict:
+async def invoke(payload: dict) -> dict:
     code = payload.get("code", "")
     config = payload.get("config", "")
     options = payload.get("options", {})

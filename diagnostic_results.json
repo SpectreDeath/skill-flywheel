@@ -1,0 +1,391 @@
+{
+  "no_invoke": [
+    {
+      "file": "src\\flywheel\\skills\\nemoclaw_security_manager.py",
+      "has_class_with_methods": true,
+      "classes": [
+        [
+          "NemOClawSecurityManager",
+          [
+            "__init__",
+            "get_status",
+            "_check_openclaw",
+            "_check_nemoclaw",
+            "_check_openshell",
+            "install",
+            "create_policy",
+            "list_policies",
+            "get_policy",
+            "update_policy",
+            "apply_policy",
+            "configure_guardrails",
+            "get_guardrails",
+            "set_allowed_domains",
+            "set_blocked_domains",
+            "enable_privacy_router",
+            "get_security_audit"
+          ]
+        ]
+      ]
+    },
+    {
+      "file": "src\\flywheel\\skills\\openclaw_agent_manager.py",
+      "has_class_with_methods": true,
+      "classes": [
+        [
+          "OpenClawAgentManager",
+          [
+            "__init__",
+            "list_agents",
+            "create_agent",
+            "configure_agent",
+            "start_agent",
+            "stop_agent",
+            "get_agent_status",
+            "delete_agent",
+            "_run_command"
+          ]
+        ]
+      ]
+    },
+    {
+      "file": "src\\flywheel\\skills\\openclaw_database_manager.py",
+      "has_class_with_methods": true,
+      "classes": [
+        [
+          "OpenClawDatabaseManager",
+          [
+            "__init__",
+            "get_database_info",
+            "list_tables",
+            "query_table",
+            "execute_query",
+            "backup",
+            "compressed_backup",
+            "restore",
+            "vacuum",
+            "get_conversation_history",
+            "get_agent_stats"
+          ]
+        ]
+      ]
+    },
+    {
+      "file": "src\\flywheel\\skills\\openclaw_deployer.py",
+      "has_class_with_methods": true,
+      "classes": [
+        [
+          "OpenClawDeployer",
+          [
+            "__init__",
+            "check_requirements",
+            "_check_command",
+            "deploy_local",
+            "deploy_docker",
+            "deploy_vps",
+            "get_status",
+            "_check_local_running",
+            "_check_docker_running",
+            "stop",
+            "restart",
+            "update",
+            "generate_nginx_config",
+            "_run_command"
+          ]
+        ]
+      ]
+    },
+    {
+      "file": "src\\flywheel\\skills\\openclaw_skill_developer.py",
+      "has_class_with_methods": true,
+      "classes": [
+        [
+          "OpenClawSkillDeveloper",
+          [
+            "__init__",
+            "create_skill",
+            "list_skills",
+            "get_skill_manifest",
+            "update_skill",
+            "validate_skill",
+            "build_skill",
+            "register_skill"
+          ]
+        ]
+      ]
+    }
+  ],
+  "wrong_format": [
+    {
+      "file": "src\\flywheel\\skills\\argument_analyzer.py",
+      "has_result": true,
+      "has_metadata": false
+    },
+    {
+      "file": "src\\flywheel\\skills\\auction_strategy_analyzer.py",
+      "has_result": true,
+      "has_metadata": false
+    },
+    {
+      "file": "src\\flywheel\\skills\\auction_strategy_optimizer.py",
+      "has_result": true,
+      "has_metadata": false
+    },
+    {
+      "file": "src\\flywheel\\skills\\cluster_validation_analyzer.py",
+      "has_result": true,
+      "has_metadata": false
+    },
+    {
+      "file": "src\\flywheel\\skills\\competitive_landscape_analyzer.py",
+      "has_result": true,
+      "has_metadata": false
+    },
+    {
+      "file": "src\\flywheel\\skills\\coordination_game_solver.py",
+      "has_result": true,
+      "has_metadata": false
+    },
+    {
+      "file": "src\\flywheel\\skills\\dbscan_clustering.py",
+      "has_result": true,
+      "has_metadata": false
+    },
+    {
+      "file": "src\\flywheel\\skills\\dependency_outdated_scanner.py",
+      "has_result": true,
+      "has_metadata": false
+    },
+    {
+      "file": "src\\flywheel\\skills\\ethical_dilemma_analyzer.py",
+      "has_result": true,
+      "has_metadata": false
+    },
+    {
+      "file": "src\\flywheel\\skills\\evolutionary_game_solver.py",
+      "has_result": true,
+      "has_metadata": false
+    },
+    {
+      "file": "src\\flywheel\\skills\\game_theory_negotiator.py",
+      "has_result": true,
+      "has_metadata": false
+    },
+    {
+      "file": "src\\flywheel\\skills\\gmm_clustering.py",
+      "has_result": true,
+      "has_metadata": false
+    },
+    {
+      "file": "src\\flywheel\\skills\\hierarchical_clustering.py",
+      "has_result": true,
+      "has_metadata": false
+    },
+    {
+      "file": "src\\flywheel\\skills\\kmeans_clustering.py",
+      "has_result": true,
+      "has_metadata": false
+    },
+    {
+      "file": "src\\flywheel\\skills\\mechanism_designer.py",
+      "has_result": true,
+      "has_metadata": false
+    },
+    {
+      "file": "src\\flywheel\\skills\\meta_skills.py",
+      "has_result": true,
+      "has_metadata": false
+    },
+    {
+      "file": "src\\flywheel\\skills\\perf_bottleneck_detector.py",
+      "has_result": true,
+      "has_metadata": false
+    },
+    {
+      "file": "src\\flywheel\\skills\\prisoners_dilemma_analyzer.py",
+      "has_result": true,
+      "has_metadata": false
+    },
+    {
+      "file": "src\\flywheel\\skills\\reasoning_chain_analyzer.py",
+      "has_result": true,
+      "has_metadata": false
+    },
+    {
+      "file": "src\\flywheel\\skills\\repeated_game_analyzer.py",
+      "has_result": true,
+      "has_metadata": false
+    },
+    {
+      "file": "src\\flywheel\\skills\\repo_recon.py",
+      "has_result": true,
+      "has_metadata": false
+    },
+    {
+      "file": "src\\flywheel\\skills\\security_scan.py",
+      "has_result": true,
+      "has_metadata": false
+    },
+    {
+      "file": "src\\flywheel\\skills\\signaling_game_analyzer.py",
+      "has_result": true,
+      "has_metadata": false
+    },
+    {
+      "file": "src\\flywheel\\skills\\skill_validation.py",
+      "has_result": true,
+      "has_metadata": false
+    },
+    {
+      "file": "src\\flywheel\\skills\\socratic_questioner.py",
+      "has_result": true,
+      "has_metadata": false
+    },
+    {
+      "file": "src\\flywheel\\skills\\strategic_decision_matrix.py",
+      "has_result": true,
+      "has_metadata": false
+    },
+    {
+      "file": "src\\flywheel\\skills\\swot_analyzer.py",
+      "has_result": true,
+      "has_metadata": false
+    },
+    {
+      "file": "src\\flywheel\\skills\\uncertainty_quantifier.py",
+      "has_result": true,
+      "has_metadata": false
+    },
+    {
+      "file": "src\\flywheel\\skills\\unit_test_generator.py",
+      "has_result": true,
+      "has_metadata": false
+    },
+    {
+      "file": "src\\flywheel\\skills\\CODEBASE_INTELLIGENCE\\api_surface_mapper.py",
+      "has_result": true,
+      "has_metadata": false
+    },
+    {
+      "file": "src\\flywheel\\skills\\CODEBASE_INTELLIGENCE\\architecture_analyzer.py",
+      "has_result": true,
+      "has_metadata": false
+    },
+    {
+      "file": "src\\flywheel\\skills\\CODEBASE_INTELLIGENCE\\complexity_analyzer.py",
+      "has_result": true,
+      "has_metadata": false
+    },
+    {
+      "file": "src\\flywheel\\skills\\CODEBASE_INTELLIGENCE\\dead_code_detector.py",
+      "has_result": true,
+      "has_metadata": false
+    },
+    {
+      "file": "src\\flywheel\\skills\\CODEBASE_INTELLIGENCE\\dependency_analyzer.py",
+      "has_result": true,
+      "has_metadata": false
+    },
+    {
+      "file": "src\\flywheel\\skills\\CODEBASE_INTELLIGENCE\\impact_analyzer.py",
+      "has_result": true,
+      "has_metadata": false
+    },
+    {
+      "file": "src\\flywheel\\skills\\CODEBASE_INTELLIGENCE\\pattern_detector.py",
+      "has_result": true,
+      "has_metadata": false
+    },
+    {
+      "file": "src\\flywheel\\skills\\CODEBASE_INTELLIGENCE\\refactoring_recommender.py",
+      "has_result": true,
+      "has_metadata": false
+    },
+    {
+      "file": "src\\flywheel\\skills\\DOCUMENTATION\\api_doc_generator.py",
+      "has_result": true,
+      "has_metadata": false
+    },
+    {
+      "file": "src\\flywheel\\skills\\DOCUMENTATION\\diagram_generator.py",
+      "has_result": true,
+      "has_metadata": false
+    },
+    {
+      "file": "src\\flywheel\\skills\\DOCUMENTATION\\readme_generator.py",
+      "has_result": true,
+      "has_metadata": false
+    },
+    {
+      "file": "src\\flywheel\\skills\\PERFORMANCE\\bundle_analyzer.py",
+      "has_result": true,
+      "has_metadata": false
+    },
+    {
+      "file": "src\\flywheel\\skills\\PERFORMANCE\\cache_analyzer.py",
+      "has_result": true,
+      "has_metadata": false
+    },
+    {
+      "file": "src\\flywheel\\skills\\PERFORMANCE\\memory_leak_detector.py",
+      "has_result": true,
+      "has_metadata": false
+    },
+    {
+      "file": "src\\flywheel\\skills\\PERFORMANCE\\n_plus_one_detector.py",
+      "has_result": true,
+      "has_metadata": false
+    },
+    {
+      "file": "src\\flywheel\\skills\\PERFORMANCE\\profiler_analyzer.py",
+      "has_result": true,
+      "has_metadata": false
+    },
+    {
+      "file": "src\\flywheel\\skills\\PERFORMANCE\\query_optimizer.py",
+      "has_result": true,
+      "has_metadata": false
+    },
+    {
+      "file": "src\\flywheel\\skills\\SECURITY\\attack_surface_mapper.py",
+      "has_result": true,
+      "has_metadata": false
+    },
+    {
+      "file": "src\\flywheel\\skills\\SECURITY\\secret_scanner.py",
+      "has_result": true,
+      "has_metadata": false
+    },
+    {
+      "file": "src\\flywheel\\skills\\TESTING_QUALITY\\coverage_optimizer.py",
+      "has_result": true,
+      "has_metadata": false
+    },
+    {
+      "file": "src\\flywheel\\skills\\TESTING_QUALITY\\fuzzing_configurator.py",
+      "has_result": true,
+      "has_metadata": false
+    },
+    {
+      "file": "src\\flywheel\\skills\\TESTING_QUALITY\\mock_generator.py",
+      "has_result": true,
+      "has_metadata": false
+    },
+    {
+      "file": "src\\flywheel\\skills\\TESTING_QUALITY\\property_test_generator.py",
+      "has_result": true,
+      "has_metadata": false
+    },
+    {
+      "file": "src\\flywheel\\skills\\TESTING_QUALITY\\test_debug_helper.py",
+      "has_result": true,
+      "has_metadata": false
+    },
+    {
+      "file": "src\\flywheel\\skills\\TESTING_QUALITY\\test_gap_finder.py",
+      "has_result": true,
+      "has_metadata": false
+    }
+  ],
+  "junction_failures": []
+}

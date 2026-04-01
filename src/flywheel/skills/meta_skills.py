@@ -10,6 +10,7 @@ import os
 import re
 from pathlib import Path
 from typing import Any, Dict, List
+from datetime import datetime
 
 SKILL_TEMPLATE = """---
 Domain: {domain}
@@ -521,7 +522,7 @@ def validate_skill_definition(skill_definition: Dict[str, Any]) -> Dict[str, Any
     return {"valid": len(errors) == 0, "errors": errors, "warnings": warnings}
 
 
-def invoke(payload: dict) -> dict:
+async def invoke(payload: dict) -> dict:
     """Main entry point for MCP skill invocation"""
     action = payload.get("action", "draft")
 
@@ -540,9 +541,13 @@ def invoke(payload: dict) -> dict:
     else:
         result = {"status": "error", "message": f"Unknown action: {action}"}
 
-    return {"result": result}
-
-
+    return{
+        "result": result,
+        "metadata": {
+            "action": action,
+            "timestamp": datetime.now().isoformat(),
+        },
+    }
 def register_skill():
     """Return skill metadata for MCP registration"""
     return {

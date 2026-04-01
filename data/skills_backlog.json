@@ -4,2814 +4,2730 @@
     "name": "qrisp-quantum-algorithms-grover-qpe-qaoa",
     "domain": "QUANTUM_COMPUTING",
     "source_doc": "domains\\QUANTUM_COMPUTING\\SKILL.qrisp-quantum-algorithms-grover-qpe-qaoa\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "51668971-dbab-43b7-baa2-5cf2a7b20012",
     "name": "advanced-ai-evaluator-enterprise-grade-framework",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.advanced-ai-evaluator-enterprise-grade-framework\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "05750cfe-5e0e-493a-a307-380b4a27a10f",
     "name": "advanced-async-python-sdk-tutorial",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.advanced-async-python-sdk-tutorial\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "e469e368-9903-40f1-a26c-77200ed00be4",
     "name": "advanced-dspy-qa",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.advanced-dspy-qa\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "3fe60f2e-3ad1-4779-9c07-21a506308cc7",
     "name": "advanced-ivy-framework-agnostic-ml-tutorial",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.advanced-ivy-framework-agnostic-ml-tutorial\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "d26dbd14-57e4-407f-8a68-2f3755f80042",
     "name": "advanced-jax-flax-optax-training-pipeline",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.advanced-jax-flax-optax-training-pipeline\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "35b4cd63-71bc-4ff0-8ddc-3287a2cbc3af",
     "name": "advanced-litserve-multi-endpoint-api-tutorial",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.advanced-litserve-multi-endpoint-api-tutorial\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "feb3e36c-a2c2-4846-8f32-e661f7eaec5b",
     "name": "advanced-pubmed-research-assistant-tutorial",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.advanced-pubmed-research-assistant-tutorial\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "e90daff6-1671-4c38-9331-2cc101457799",
     "name": "advanced-pykeen-knowledge-graph-embeddings",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.advanced-pykeen-knowledge-graph-embeddings\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "50b302fe-0205-4acf-8b56-4facf1684f6e",
     "name": "advanced-pyspark-end-to-end-tutorial",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.advanced-pyspark-end-to-end-tutorial\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "298b65f7-428a-4240-8ffa-9ebe36a25cb6",
     "name": "advanced-reflex-reactive-webapp",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.advanced-reflex-reactive-webapp\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "ec6f339d-8b20-4d7d-8287-c5d60cb0d6f8",
     "name": "advanced-serpapi-tutorial",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.advanced-serpapi-tutorial\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "4c77e4ac-fbb4-4101-8ab9-a236db2e6517",
     "name": "agentic-rag-with-routing-and-self-check",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.agentic-rag-with-routing-and-self-check\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "121216c7-e9ef-4335-ba14-a0c7bbabc49d",
     "name": "agentic-voice-ai-autonomous-assistant",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.agentic-voice-ai-autonomous-assistant\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "b181ad53-b759-429d-980d-01e576a4bc9b",
     "name": "async-config-tutorial",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.async-config-tutorial\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "b9d4c6e3-2521-4768-b712-616872457dd2",
     "name": "autogluon-end-to-end-tabular-modeling-and-deployment",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.autogluon-end-to-end-tabular-modeling-and-deployment\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "705739dd-246e-48a6-ae34-4ee7c22d132c",
     "name": "building-an-advanced-convolutional-neural-network-with-attention-for-dna-sequence-classification-and-interpretability",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.building-an-advanced-convolutional-neural-network-with-attention-for-dna-sequence-classification-and-interpretability\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "ac989d2c-b922-46b7-a306-5f3abc6978cd",
     "name": "chain-of-thought",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.chain-of-thought\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "145de864-f6e4-4109-9b8f-ddaebabd8607",
     "name": "colpali-visual-retrieval",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.colpali-visual-retrieval\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "6791b044-c660-4287-987e-8c8e38f2726b",
     "name": "competitive-analysis-with-scrapegraph-gemini",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.competitive-analysis-with-scrapegraph-gemini\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "71c1e163-4444-42b8-8e26-89f8b0794c5f",
     "name": "crewai-gemini-workflow",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.crewai-gemini-workflow\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "ea555aba-1531-44f4-a67b-0efd704dce68",
     "name": "custom-gpt-local-colab-chat",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.custom-gpt-local-colab-chat\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "c79892b1-d32f-4e6d-bfcb-392c18406ab7",
     "name": "dagster-advanced-pipeline",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.dagster-advanced-pipeline\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "45f7301c-604a-4947-a6eb-cc8b640baa5b",
     "name": "daytona-secure-ai-code-execution-tutorial",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.daytona-secure-ai-code-execution-tutorial\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "58191030-f3e0-4f2f-bd92-6326a975332f",
     "name": "diffusers-image-generation-control-editing",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.diffusers-image-generation-control-editing\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "1efa6066-973b-4a95-a804-22ef29509d78",
     "name": "dpo-alignment-qlora-ultrafeedback",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.dpo-alignment-qlora-ultrafeedback\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "12086e91-8e75-479b-bae4-93193341898e",
     "name": "einops-advanced-tensor-workflows",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.einops-advanced-tensor-workflows\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "3950cab6-8912-494a-b1f1-1000009902a0",
     "name": "embodied-vla-latent-mpc-agent",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.embodied-vla-latent-mpc-agent\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "b55845cd-90f0-4e94-9ce7-62185841872c",
     "name": "enhanced-brightdata-gemini-scraper-tutorial",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.enhanced-brightdata-gemini-scraper-tutorial\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "db87087b-e3eb-4e8f-a88a-b0112c84fc41",
     "name": "enterprise-ai-rag-guardrails",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.enterprise-ai-rag-guardrails\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "3bc1fc8c-f68b-4452-8e43-7ce4837c4f9f",
     "name": "federated-lora-llm-finetuning-flower",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.federated-lora-llm-finetuning-flower\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "5b4b12b9-ec4a-4c83-a7d5-5a1fe0221f9c",
     "name": "gemini-prompt-optimization",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.gemini-prompt-optimization\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "5a75df69-6b18-4707-bd9b-7bcb6a7a7adf",
     "name": "getting-started-with-asyncio",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.getting-started-with-asyncio\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "3f30d64b-9c3b-42b3-b50e-bc7d963dfe4e",
     "name": "gluonts-advanced-multimodel-tutorial",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.gluonts-advanced-multimodel-tutorial\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "8d50090c-9188-4830-912e-6bf46c1fe8ce",
     "name": "gpt-5",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.gpt-5\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "83e10747-10d3-49ea-9d2e-8134cc8123b2",
     "name": "griffe-ai-code-analyzer",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.griffe-ai-code-analyzer\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "c6849189-eaa8-4a19-86ae-c2274bdf8f8b",
     "name": "guardrails",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.guardrails\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "4717fc57-282d-400a-944b-3c5450f21258",
     "name": "guide-to-building-an-end-to-end-speech-enhancement-and-recognition-pipeline-with-speechbrain",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.guide-to-building-an-end-to-end-speech-enhancement-and-recognition-pipeline-with-speechbrain\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "2d065658-309a-473a-9993-c8c8fe46234c",
     "name": "how-to-master-advanced-torchvision-v2-transforms-mixup-cutmix-and-modern-cnn-training-for-state-of-the-art-computer-vision",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.how-to-master-advanced-torchvision-v2-transforms-mixup-cutmix-and-modern-cnn-training-for-state-of-the-art-computer-vision\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "68cf22e4-7f8f-4d74-8fa4-162ea1c4fac6",
     "name": "huggingface-trackio-advanced-tutorial",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.huggingface-trackio-advanced-tutorial\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "298ddf97-5aa4-4ccf-b3fe-77af38cb92df",
     "name": "hyperopt-conditional-tpe-pipeline",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.hyperopt-conditional-tpe-pipeline\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "2848acd4-7a86-47bc-ac8d-c81c560e6fab",
     "name": "hypothesis-property-based-testing",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.hypothesis-property-based-testing\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "ff514109-5ffd-42ca-afac-375b68cc7059",
     "name": "intro-to-shap-iq",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.intro-to-shap-iq\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "df62d0a4-caf6-4a8a-8c6a-64e3eafda82c",
     "name": "jina-langchain-gemini-ai-assistant",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.jina-langchain-gemini-ai-assistant\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "0f426bba-f37f-4339-9259-58dfb7e30bb3",
     "name": "json-prompting",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.json-prompting\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "49dc8aab-b565-4f5c-96ee-aad4566840c3",
     "name": "knowledge-graph",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.knowledge-graph\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "8cfe3cda-3aac-493a-a603-0a600ff997f9",
     "name": "kornia-differentiable-vision-loftr-ransac",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.kornia-differentiable-vision-loftr-ransac\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "0860a531-3a45-4f5c-abdf-e0ab9d2b8a46",
     "name": "lerobot-pusht-bc-tutorial",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.lerobot-pusht-bc-tutorial\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "bfb40303-0ed1-4a56-9e81-9f3f4ba75268",
     "name": "lightly-ai-self-supervised-active-learning",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.lightly-ai-self-supervised-active-learning\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "62b96bbc-e441-4c43-9d2f-7eb54d9369bc",
     "name": "llm-arena-as-a-judge",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.llm-arena-as-a-judge\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "6d672c51-0a04-42b3-b81c-11c15319f7e2",
     "name": "llm-caching",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.llm-caching\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "6c9e5844-12b4-4557-8655-92fe91a13449",
     "name": "llm-parameters",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.llm-parameters\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "abfd0909-c470-4e7a-b1db-0a6a6aa950e5",
     "name": "lyzr-chatbot-framework-implementation",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.lyzr-chatbot-framework-implementation\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "7faa9c5d-366d-40a4-b93a-2c07cbea1af1",
     "name": "matryoshka-representation-learning-sentencetransformers-msmarco",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.matryoshka-representation-learning-sentencetransformers-msmarco\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "b4ddba6f-c0a6-4e3f-b5e8-6ccbc3373009",
     "name": "meta-hydra-advanced-implementation",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.meta-hydra-advanced-implementation\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "0348d902-4d96-4647-957b-a9f3fd3ed44a",
     "name": "minimax",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.minimax\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "2b9b4afa-23b9-4612-af4d-b5ddbe290a7c",
     "name": "mistral-devstral-compact-loading",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.mistral-devstral-compact-loading\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "464913d6-9611-41c5-b603-50ea1e5fb278",
     "name": "mistral-guardrails",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.mistral-guardrails\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "c46f00b7-da3e-4258-9899-b4a4b6b179ec",
     "name": "mlflow-experiment-tracking-and-model-serving",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.mlflow-experiment-tracking-and-model-serving\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "1c9482ee-61d8-4e7b-9ce9-e7336fedcd48",
     "name": "mlflow-intro",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.mlflow-intro\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "df2a1eaf-9875-43ef-a5a6-a8a8be7aa9dd",
     "name": "multi-agent-demo",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.multi-agent-demo\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "d6a676b8-8e04-4987-a8bb-81522299b55b",
     "name": "network",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.network\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "b0379493-f553-4e52-b480-60ce6b24f771",
     "name": "offline-safety-critical-rl-conservative-q-learning-d3rlpy",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.offline-safety-critical-rl-conservative-q-learning-d3rlpy\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "581ff961-2451-434b-a35a-8cd2f162cbf5",
     "name": "ollama-langchain-tutorial",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.ollama-langchain-tutorial\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "2ab6e627-195d-408c-a3bb-0afe4b005416",
     "name": "openai-federated-fraud-detection-from-scratch",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.openai-federated-fraud-detection-from-scratch\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "9ce5b4f0-620b-4fe0-aa7c-8754dfe52cdf",
     "name": "openbb-advanced-portfolio-market-intelligence",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.openbb-advanced-portfolio-market-intelligence\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "0938169d-9b31-40a2-b720-192e36d82c10",
     "name": "opik-local-llm-tracing-and-evaluation",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.opik-local-llm-tracing-and-evaluation\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "6cf576b3-bfd0-459e-97c9-46fd7cb42d3e",
     "name": "oprl-preference-shaped-rl",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.oprl-preference-shaped-rl\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "1360861e-9f87-408a-b0f7-fbffa73bba51",
     "name": "optuna-advanced-hpo",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.optuna-advanced-hpo\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "f91adac5-f2a3-45e3-9d46-7c758a5e37af",
     "name": "pipecat-huggingface-implementation",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.pipecat-huggingface-implementation\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "d5088d22-e5d3-4552-b7e7-a37062aa9281",
     "name": "polars-sql-analytics-pipeline",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.polars-sql-analytics-pipeline\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "1dc07f15-48c9-4ce8-8639-6c2ff69c48de",
     "name": "presidio",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.presidio\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "c81ec334-e71c-42df-acdf-c001425a6ddc",
     "name": "prompt-versioning-and-regression-testing-for-llms-with-mlflow",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.prompt-versioning-and-regression-testing-for-llms-with-mlflow\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "3453e4f4-3aae-44ff-8446-9f380bfd6dff",
     "name": "pybel-biokg-interactive-tutorial",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.pybel-biokg-interactive-tutorial\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "0560236a-c0a6-4a50-a670-2a40577c9316",
     "name": "pyversity",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.pyversity\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "a9015ce3-be6d-4780-b86b-f9f130cfe20f",
     "name": "quantum-state-evolution-and-entanglement-qutip-tutorial",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.quantum-state-evolution-and-entanglement-qutip-tutorial\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "fa290a35-9cf5-4137-a629-b642a2680d56",
     "name": "rag-context-stuffing",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.rag-context-stuffing\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "3e214a1c-93bd-4a3e-b653-45712ffcdcf0",
     "name": "rag-deepeval-quality-benchmarking",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.rag-deepeval-quality-benchmarking\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "71ab250e-b20e-4ef0-9d4a-61359af7e823",
     "name": "rag-evaluation",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.rag-evaluation\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "4c1d3718-c69c-4ce0-b775-ba5da5f49c42",
     "name": "regression-language-model-transformer-rlm-tutorial",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.regression-language-model-transformer-rlm-tutorial\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "4d7c968e-c835-4b0d-8e5a-ead3b1b1e9fd",
     "name": "removing-semantic-duplicates",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.removing-semantic-duplicates\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "8ba40d29-237f-4d37-960c-41899bd5c1b0",
     "name": "retrieval-grounded-faithfulness-hallucination-evaluation-ig",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.retrieval-grounded-faithfulness-hallucination-evaluation-ig\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "163c3522-560a-460b-83ec-65df7e76b9a8",
     "name": "roboflow-supervision-advanced-tracking-analytics-pipeline",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.roboflow-supervision-advanced-tracking-analytics-pipeline\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "78caa2c1-5ee5-4117-8563-2e1c28fc14ed",
     "name": "routellm",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.routellm\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "1191e026-e340-4fda-9519-54b9e9053d2d",
     "name": "self-hosted-llm-ollama",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.self-hosted-llm-ollama\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "26a2798f-4859-48cd-9116-b2824e850281",
     "name": "self-refine",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.self-refine\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "038e6df6-db64-4aeb-bb5d-506235e9c3ae",
     "name": "semantic-caching",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.semantic-caching\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "50e9bd74-363f-4a48-a281-706b2c9e99c2",
     "name": "semantic-highlighting",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.semantic-highlighting\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "2fb60db6-dfd5-463e-b7b1-05f3fe601412",
     "name": "shap-iq-visuals",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.shap-iq-visuals\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "895ed596-eece-4225-b0e3-a29f23023ec1",
     "name": "shapiq-explainable-ai-feature-and-interaction-analysis",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.shapiq-explainable-ai-feature-and-interaction-analysis\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "70038ff8-10c8-4a2d-a7a8-4d0856717d59",
     "name": "smart-python-to-r-converter-with-gemini-validation",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.smart-python-to-r-converter-with-gemini-validation\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "0c461898-5a56-4835-860a-2e1583e169be",
     "name": "streaming-voice-agent-latency-budgets-end-to-end",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.streaming-voice-agent-latency-budgets-end-to-end\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "ef046c43-99ca-4fe2-8af3-79b90d0e612d",
     "name": "tinydev-gemini-implementation",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.tinydev-gemini-implementation\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "01188591-aacb-41c3-ac1c-170b87d8064a",
     "name": "tinygrad-transformer-minigpt",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.tinygrad-transformer-minigpt\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "79011695-4065-4e53-bf7a-3eb458a6f64a",
     "name": "tpot-advanced-pipeline-optimization",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.tpot-advanced-pipeline-optimization\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "8b9ac4c5-b79f-4649-b4d2-380680dde8db",
     "name": "transformer-nqs-netket-j1j2-vmc",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.transformer-nqs-netket-j1j2-vmc\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "ffa212d4-7ad8-4c08-a702-aaa939438c4d",
     "name": "tree-kg-hierarchical-knowledge-graph-multi-hop-reasoning",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.tree-kg-hierarchical-knowledge-graph-multi-hop-reasoning\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "af4f488d-90d3-4f40-9a24-77aedd7119be",
     "name": "trulens-llm-instrumentation-feedback-evaluation",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.trulens-llm-instrumentation-feedback-evaluation\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "f93292e5-d23b-46e4-869c-70a1ced65ec3",
     "name": "unsloth-qlora-stable-sft",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.unsloth-qlora-stable-sft\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "1d038e8f-d9e5-4a7a-ac43-ecaa3e1ba0b4",
     "name": "upstage-groundedness-check-tutorial",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.upstage-groundedness-check-tutorial\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "bcb44150-29cc-4543-9031-a8130380ebef",
     "name": "verbalized-sampling",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.verbalized-sampling\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "266d8e67-8e1c-4566-976a-f634ce88aa6d",
     "name": "voice-ai-whisperx-advanced-tutorial",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.voice-ai-whisperx-advanced-tutorial\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "8876dd79-d4ca-4c4c-bd9c-313781f4f6ce",
     "name": "zarr-implementation-tutorial",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.zarr-implementation-tutorial\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "6c91204d-bc9d-4e0f-9770-46eb572c3033",
     "name": "zero-padding-cnn",
     "domain": "ML_AI",
     "source_doc": "domains\\ML_AI\\SKILL.zero-padding-cnn\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "e3b20a2c-90cc-4bb5-b086-83c29e93b7da",
     "name": "context-aware-assistant-mcp-gemini-langchain-langgraph",
     "domain": "mcp_tools",
     "source_doc": "domains\\mcp_tools\\SKILL.context-aware-assistant-mcp-gemini-langchain-langgraph\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "f1d45dd8-3a38-4221-84b8-af328287be64",
     "name": "custom-mcp-tools-integration-with-fastmcp",
     "domain": "mcp_tools",
     "source_doc": "domains\\mcp_tools\\SKILL.custom-mcp-tools-integration-with-fastmcp\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "c607c4c5-a72a-4c00-bfc7-8b5165fef7c6",
     "name": "langgraph-acp-structured-message-bus-multi-agent-system",
     "domain": "mcp_tools",
     "source_doc": "domains\\mcp_tools\\SKILL.langgraph-acp-structured-message-bus-multi-agent-system\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "647f0a60-404f-43e6-b9c3-f118c0e7f118",
     "name": "model-context-protocol-integration",
     "domain": "mcp_tools",
     "source_doc": "domains\\mcp_tools\\SKILL.model-context-protocol-integration\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "945fe290-033f-4657-ab66-e138dad66c04",
     "name": "stateless-async-mcp-protocol-demo",
     "domain": "mcp_tools",
     "source_doc": "domains\\mcp_tools\\SKILL.stateless-async-mcp-protocol-demo\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "52d81228-3849-4d51-8a57-a4f654a65caa",
     "name": "advanced-bokeh-interactive-dashboard",
     "domain": "DATA_ENGINEERING",
     "source_doc": "domains\\DATA_ENGINEERING\\SKILL.advanced-bokeh-interactive-dashboard\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "5264f2d6-a240-4ed7-a41d-86659c3d1484",
     "name": "advanced-panel-interactive-dashboard",
     "domain": "DATA_ENGINEERING",
     "source_doc": "domains\\DATA_ENGINEERING\\SKILL.advanced-panel-interactive-dashboard\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "5cfce222-646d-4e05-8fd6-d3104339e5ec",
     "name": "advanced-pygwalker-interactive-eda",
     "domain": "DATA_ENGINEERING",
     "source_doc": "domains\\DATA_ENGINEERING\\SKILL.advanced-pygwalker-interactive-eda\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "54abc5a2-c0a0-422d-bc93-d037f06ca27b",
     "name": "advanced-pygwalker-visual-analysis",
     "domain": "DATA_ENGINEERING",
     "source_doc": "domains\\DATA_ENGINEERING\\SKILL.advanced-pygwalker-visual-analysis\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "d56ab6b8-a4f3-4412-8788-a72313de52bf",
     "name": "advanced-pytest-custom-plugins-fixtures-tutorial",
     "domain": "DATA_ENGINEERING",
     "source_doc": "domains\\DATA_ENGINEERING\\SKILL.advanced-pytest-custom-plugins-fixtures-tutorial\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "5b13fd10-c7ae-4394-9849-fe40954d1b4c",
     "name": "advanced-textual-data-dashboard",
     "domain": "DATA_ENGINEERING",
     "source_doc": "domains\\DATA_ENGINEERING\\SKILL.advanced-textual-data-dashboard\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "9a1afdb6-8e41-47d9-b6cc-fb679a8febc3",
     "name": "building-an-end-to-end-data-science-workflow-with-machine-learning-interpretability-and-gemini-ai-assistance",
     "domain": "DATA_ENGINEERING",
     "source_doc": "domains\\DATA_ENGINEERING\\SKILL.building-an-end-to-end-data-science-workflow-with-machine-learning-interpretability-and-gemini-ai-assistance\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "97407963-c8ed-4f3c-ab6c-00f45a8f01d6",
     "name": "cognitive-complexity-auditing-with-complexipy",
     "domain": "DATA_ENGINEERING",
     "source_doc": "domains\\DATA_ENGINEERING\\SKILL.cognitive-complexity-auditing-with-complexipy\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "f9e6a6fe-ee79-40b4-9701-f14b5d5155a5",
     "name": "ctgan-sdv-synthetic-data-pipeline",
     "domain": "DATA_ENGINEERING",
     "source_doc": "domains\\DATA_ENGINEERING\\SKILL.ctgan-sdv-synthetic-data-pipeline\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "e3461b1e-b07d-453b-9b89-cd5971b180b6",
     "name": "daft-end-to-end-ml-pipeline",
     "domain": "DATA_ENGINEERING",
     "source_doc": "domains\\DATA_ENGINEERING\\SKILL.daft-end-to-end-ml-pipeline\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "47ac9acc-de7c-4202-ad04-e15e5ae87d83",
     "name": "dash-plotly-local-online-dashboard",
     "domain": "DATA_ENGINEERING",
     "source_doc": "domains\\DATA_ENGINEERING\\SKILL.dash-plotly-local-online-dashboard\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "f27ad612-96ec-4cf6-b105-1111e91ea818",
     "name": "diagonal-decision-boundary",
     "domain": "DATA_ENGINEERING",
     "source_doc": "domains\\DATA_ENGINEERING\\SKILL.diagonal-decision-boundary\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "21540936-d961-4c01-a790-ecacf8746eec",
     "name": "folium-interactive-geospatial-visualization",
     "domain": "DATA_ENGINEERING",
     "source_doc": "domains\\DATA_ENGINEERING\\SKILL.folium-interactive-geospatial-visualization\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "3057126e-7985-4752-a32f-79da1acb3761",
     "name": "ibis-portable-in-database-feature-engineering",
     "domain": "DATA_ENGINEERING",
     "source_doc": "domains\\DATA_ENGINEERING\\SKILL.ibis-portable-in-database-feature-engineering\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "2447c738-4727-4714-8a56-d67b7eeca04d",
     "name": "imbalanced-datasets",
     "domain": "DATA_ENGINEERING",
     "source_doc": "domains\\DATA_ENGINEERING\\SKILL.imbalanced-datasets\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "7ca9352f-9878-4735-9d99-56351081a7e3",
     "name": "kernel-pca",
     "domain": "DATA_ENGINEERING",
     "source_doc": "domains\\DATA_ENGINEERING\\SKILL.kernel-pca\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "bd487785-f338-4b8d-8114-3e4e2cf764a0",
     "name": "lilac-functional-data-pipeline",
     "domain": "DATA_ENGINEERING",
     "source_doc": "domains\\DATA_ENGINEERING\\SKILL.lilac-functional-data-pipeline\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "f95f0569-7b52-4e5c-aa22-d33233a97dfa",
     "name": "matlab-python-oct2py-colab-tutorial",
     "domain": "DATA_ENGINEERING",
     "source_doc": "domains\\DATA_ENGINEERING\\SKILL.matlab-python-oct2py-colab-tutorial\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "f8f95937-3444-479e-a11c-df05a2e0ef0f",
     "name": "modin-powered-dataframes",
     "domain": "DATA_ENGINEERING",
     "source_doc": "domains\\DATA_ENGINEERING\\SKILL.modin-powered-dataframes\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "8acc9e17-7ab9-465a-b900-205ea0463e98",
     "name": "networkit-largegraph-analytics-pipeline",
     "domain": "DATA_ENGINEERING",
     "source_doc": "domains\\DATA_ENGINEERING\\SKILL.networkit-largegraph-analytics-pipeline\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "3ada23d0-2bc5-4de4-a50f-4c340633c6f6",
     "name": "numpyro-hierarchical-regression-advanced",
     "domain": "DATA_ENGINEERING",
     "source_doc": "domains\\DATA_ENGINEERING\\SKILL.numpyro-hierarchical-regression-advanced\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "d67964a2-5f76-4290-9ce6-1665fb494c09",
     "name": "pandera-production-grade-dataframe-validation",
     "domain": "DATA_ENGINEERING",
     "source_doc": "domains\\DATA_ENGINEERING\\SKILL.pandera-production-grade-dataframe-validation\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "93453248-f6e2-4b7e-918a-87801f95cb2a",
     "name": "polyfactory-production-grade-mock-data-generation",
     "domain": "DATA_ENGINEERING",
     "source_doc": "domains\\DATA_ENGINEERING\\SKILL.polyfactory-production-grade-mock-data-generation\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "28bab835-3389-43f2-84e5-3fb7db71b886",
     "name": "softmax",
     "domain": "DATA_ENGINEERING",
     "source_doc": "domains\\DATA_ENGINEERING\\SKILL.softmax\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "7a056e82-926c-4ed7-9085-609066d337a0",
     "name": "synthetic-data-creation",
     "domain": "DATA_ENGINEERING",
     "source_doc": "domains\\DATA_ENGINEERING\\SKILL.synthetic-data-creation\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "104683fc-7dcb-4c09-8291-08aa5b4c14b3",
     "name": "tqdm-production-progress-monitoring",
     "domain": "DATA_ENGINEERING",
     "source_doc": "domains\\DATA_ENGINEERING\\SKILL.tqdm-production-progress-monitoring\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "6d7e82f4-db0a-45c0-93f7-87be38b686a5",
     "name": "unified-tool-orchestration-framework",
     "domain": "DATA_ENGINEERING",
     "source_doc": "domains\\DATA_ENGINEERING\\SKILL.unified-tool-orchestration-framework\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "33bd204c-edda-474d-bda2-7f92e17b842b",
     "name": "vaex-large-scale-analytics-and-ml-pipeline",
     "domain": "DATA_ENGINEERING",
     "source_doc": "domains\\DATA_ENGINEERING\\SKILL.vaex-large-scale-analytics-and-ml-pipeline\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "0440f8e2-aaec-42d2-8466-d8c69dc42e5e",
     "name": "apache-beam-batch-and-stream-windowing",
     "domain": "CLOUD_ENGINEERING",
     "source_doc": "domains\\CLOUD_ENGINEERING\\SKILL.apache-beam-batch-and-stream-windowing\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "222ac198-ec0c-49bd-bcc7-4afb1f87002a",
     "name": "decentralized-gossip-federated-learning-with-differential-privacy",
     "domain": "CLOUD_ENGINEERING",
     "source_doc": "domains\\CLOUD_ENGINEERING\\SKILL.decentralized-gossip-federated-learning-with-differential-privacy\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "f4dfcd64-9417-4d95-aad7-9b7989723cbc",
     "name": "distributed-vector-db-sharding-replication-quorum",
     "domain": "CLOUD_ENGINEERING",
     "source_doc": "domains\\CLOUD_ENGINEERING\\SKILL.distributed-vector-db-sharding-replication-quorum\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "fc287dc1-4931-4289-ae2f-b84908db8325",
     "name": "elastic-vector-db-consistent-hashing-rag",
     "domain": "CLOUD_ENGINEERING",
     "source_doc": "domains\\CLOUD_ENGINEERING\\SKILL.elastic-vector-db-consistent-hashing-rag\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "8216bd83-37ba-4fc7-b5e2-06c07bcab8a7",
     "name": "pbft-asyncio-byzantine-latency-simulator",
     "domain": "CLOUD_ENGINEERING",
     "source_doc": "domains\\CLOUD_ENGINEERING\\SKILL.pbft-asyncio-byzantine-latency-simulator\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "ad90a3c4-b580-4920-8c8a-10a409d53e54",
     "name": "rpc-vs-event-driven-failure-dynamics-distributed-systems",
     "domain": "CLOUD_ENGINEERING",
     "source_doc": "domains\\CLOUD_ENGINEERING\\SKILL.rpc-vs-event-driven-failure-dynamics-distributed-systems\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "4e78686a-1530-4bbe-b672-0b7b5a271398",
     "name": "game-dev-multiplayer",
     "domain": "ARCHIVED",
     "source_doc": "domains\\ARCHIVED\\game-dev-multiplayer\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "2d1bc3b3-6e5a-4981-950f-97cf20759006",
     "name": "game-dev-performance",
     "domain": "ARCHIVED",
     "source_doc": "domains\\ARCHIVED\\game-dev-performance\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "03b04cc5-fce4-4fb7-b85e-39a39d1e6f0a",
     "name": "game-dev-unity",
     "domain": "ARCHIVED",
     "source_doc": "domains\\ARCHIVED\\game-dev-unity\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "2da0a588-f2ca-420a-9148-29074c46bc37",
     "name": "web3-blockchain-development",
     "domain": "ARCHIVED",
     "source_doc": "domains\\ARCHIVED\\web3-blockchain-development\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "62365164-10b4-4e7a-9371-3e0468f0c24a",
     "name": "web3-defi-development",
     "domain": "ARCHIVED",
     "source_doc": "domains\\ARCHIVED\\web3-defi-development\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "8009d0b3-9203-40d0-b055-77803971a714",
     "name": "web3-smart-contract-security",
     "domain": "ARCHIVED",
     "source_doc": "domains\\ARCHIVED\\web3-smart-contract-security\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "33d80ab6-73ef-455a-91ef-6e1309b22619",
     "name": "de-fi-protocol-integration",
     "domain": "WEB3",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\WEB3\\de-fi-protocol-integration\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "9f7869f6-1201-4aa6-a386-1cf6a625b59d",
     "name": "layer-2-scaling-0",
     "domain": "WEB3",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\WEB3\\layer-2-scaling-0\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "710731e7-a459-4978-bea9-02bcec4f4929",
     "name": "layer-2-scaling-1",
     "domain": "WEB3",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\WEB3\\layer-2-scaling-1\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "07a54412-e27e-47b4-b972-a05fd8c877ef",
     "name": "layer-2-scaling-2",
     "domain": "WEB3",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\WEB3\\layer-2-scaling-2\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "fb0b55dd-4d85-40c9-841f-0890be166bf9",
     "name": "layer-2-scaling-3",
     "domain": "WEB3",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\WEB3\\layer-2-scaling-3\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "82992b65-1a73-4ed6-bb22-54b624c9f542",
     "name": "layer-2-scaling-4",
     "domain": "WEB3",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\WEB3\\layer-2-scaling-4\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "242fab53-b4fa-4745-9206-8fd94549b9c1",
     "name": "ralph_chaos_wildcard",
     "domain": "orchestration",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\orchestration\\SKILL.ralph_chaos_wildcard\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "e9927325-9cfb-4f0f-b1e5-12c9f6e27890",
     "name": "specification-lifecycle-management",
     "domain": "APPLICATION_SECURITY",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\APPLICATION_SECURITY\\specification-lifecycle-management\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "b2730b01-f370-45b4-b187-f66902abe579",
     "name": "specification-synchronization",
     "domain": "APPLICATION_SECURITY",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\APPLICATION_SECURITY\\specification-synchronization\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "1a929b20-e615-4477-a8aa-b64fe5460dcf",
     "name": "specification-traceability",
     "domain": "APPLICATION_SECURITY",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\APPLICATION_SECURITY\\specification-traceability\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "c6070d30-f9f9-4d34-a905-2f5c9c57a5ca",
     "name": "specification-validation-framework",
     "domain": "APPLICATION_SECURITY",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\APPLICATION_SECURITY\\specification-validation-framework\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "d66c172b-1ef2-44a9-a1e2-0451c32a3207",
     "name": "specification-version-control",
     "domain": "APPLICATION_SECURITY",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\APPLICATION_SECURITY\\specification-version-control\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "31b088f7-8262-4c05-9f3e-acd2de9a2195",
     "name": "format-compliance-tester",
     "domain": "skill_validation",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\skill_validation\\format-compliance-tester\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "c60f2478-ece7-451e-9a99-f2e515e84f3d",
     "name": "frontmatter-validator",
     "domain": "skill_validation",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\skill_validation\\frontmatter-validator\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "d4a2a5ee-a980-48dc-8f50-1d7ac008bd76",
     "name": "naming-convention-checker",
     "domain": "skill_validation",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\skill_validation\\naming-convention-checker\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "e83cb1b1-4212-4931-8706-31fa36ac4f4e",
     "name": "skill-spec-validator",
     "domain": "skill_validation",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\skill_validation\\skill-spec-validator\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "1b086354-4a02-494b-b987-ad879e1c19dc",
     "name": "autonomous-evolution-controller",
     "domain": "skill_registry",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\skill_registry\\autonomous-evolution-controller\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "c52bb1e6-b7d7-4f36-a410-dc5781f6774e",
     "name": "capability-index",
     "domain": "skill_registry",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\skill_registry\\capability-index\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "48f656de-104a-4e0b-8e5f-94c6909db9b5",
     "name": "library-health",
     "domain": "skill_registry",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\skill_registry\\library-health\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "60d4f070-82b0-421c-a2fd-04917bf1a6bd",
     "name": "multi-skill-chaining",
     "domain": "skill_registry",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\skill_registry\\multi-skill-chaining\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "f2188364-e91a-4d19-b40f-9dfd2314f47e",
     "name": "skill-recommendation",
     "domain": "skill_registry",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\skill_registry\\skill-recommendation\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "0c37173a-0db7-48dc-a0cd-0c2a1375ec20",
     "name": "task-skill-router",
     "domain": "skill_registry",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\skill_registry\\task-skill-router\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "1c850f3c-9bfc-4eca-a1a4-83d7d961cd4f",
     "name": "compliance-framework-generation",
     "domain": "security_engineering",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\security_engineering\\compliance-framework-generation\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "2445d32f-e746-4e13-9a60-8ee2325937ca",
     "name": "pentesting-workflow-automation",
     "domain": "security_engineering",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\security_engineering\\pentesting-workflow-automation\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "ff01c074-63f1-4c4b-80ce-bbb57063d74b",
     "name": "secrets-management-detection",
     "domain": "security_engineering",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\security_engineering\\secrets-management-detection\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "8ddc0c9d-4311-4e41-9af7-d24cceaf3ad0",
     "name": "secure-architecture-review",
     "domain": "security_engineering",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\security_engineering\\secure-architecture-review\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "3ac54602-166c-484b-8037-5adc6944b0d5",
     "name": "vulnerability-scanning-prioritization",
     "domain": "security_engineering",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\security_engineering\\vulnerability-scanning-prioritization\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "6b1fd647-6ef7-42a4-9c73-e92775ae68a3",
     "name": "a-star-pathfinding",
     "domain": "search_algorithms",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\search_algorithms\\a-star-pathfinding\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "8a16a6e8-46c3-4b5e-b0aa-1759ae608122",
     "name": "ant-colony-optimization",
     "domain": "search_algorithms",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\search_algorithms\\ant-colony-optimization\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "961842de-ab66-4f00-9d83-0ba921406c70",
     "name": "genetic-algorithm-optimization",
     "domain": "search_algorithms",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\search_algorithms\\genetic-algorithm-optimization\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "4a9674cb-da53-46e8-8268-f07c81f1db67",
     "name": "simulated-annealing",
     "domain": "search_algorithms",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\search_algorithms\\simulated-annealing\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "5ef3321c-c655-44f4-840a-418a9cffba9d",
     "name": "tabu-search",
     "domain": "search_algorithms",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\search_algorithms\\tabu-search\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "238a9b72-20fa-4e5d-b4d8-330cd8ec292d",
     "name": "gaussian-processes",
     "domain": "probabilistic_models",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\probabilistic_models\\gaussian-processes\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "a7bb74cb-99b8-4e2a-a4c7-a6418199df95",
     "name": "markov-models",
     "domain": "probabilistic_models",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\probabilistic_models\\markov-models\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "52af5c81-b32c-4894-9276-7fe829f3a7a3",
     "name": "probabilistic-graphical-models",
     "domain": "probabilistic_models",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\probabilistic_models\\probabilistic-graphical-models\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "d87c8c32-3163-4de2-937a-91e37bd17343",
     "name": "probabilistic-programming",
     "domain": "probabilistic_models",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\probabilistic_models\\probabilistic-programming\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "08224c87-40d0-40e2-9edf-be29c37428ec",
     "name": "dynamic-skill-selection-routing",
     "domain": "orchestration",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\orchestration\\dynamic-skill-selection-routing\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "9ac0ef3b-f50e-4e43-826f-bedbc0d1babc",
     "name": "multi-skill-workflow-coordination",
     "domain": "orchestration",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\orchestration\\multi-skill-workflow-coordination\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "20b82f4d-31b5-49c4-ba4a-d0adfa94f71d",
     "name": "parallel-skill-execution",
     "domain": "orchestration",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\orchestration\\parallel-skill-execution\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "9618978d-84a9-4729-bee7-69b074611cd4",
     "name": "skill-dependency-resolution",
     "domain": "orchestration",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\orchestration\\skill-dependency-resolution\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "1345c0c7-c04b-47d8-be3a-cdcd48ed00a8",
     "name": "skill-failure-recovery-retry",
     "domain": "orchestration",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\orchestration\\skill-failure-recovery-retry\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "c4953b7a-0c8e-4e39-8f5c-15a81a0086a4",
     "name": "autonomous_mission_planner",
     "domain": "orchestration",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\orchestration\\SKILL.autonomous_mission_planner\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "b2f282a2-e18c-4caa-8596-5e8194385fb4",
     "name": "context_health_analyzer",
     "domain": "orchestration",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\orchestration\\SKILL.context_health_analyzer\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "fa0cef8e-22a1-4a33-bc33-f6985cc7ca6e",
     "name": "context_pruning_engine",
     "domain": "orchestration",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\orchestration\\SKILL.context_pruning_engine\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "cbabcec8-ea1e-44d0-aebd-9616f7e0c214",
     "name": "context_rot_detector",
     "domain": "orchestration",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\orchestration\\SKILL.context_rot_detector\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "209a0202-3286-4f42-af3d-d9f24f43e221",
     "name": "conversation_reset_optimizer",
     "domain": "orchestration",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\orchestration\\SKILL.conversation_reset_optimizer\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "0e296133-5db9-4bae-9c89-719dce64a12e",
     "name": "cross_domain_workflow_orchestrator",
     "domain": "orchestration",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\orchestration\\SKILL.cross_domain_workflow_orchestrator\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "b31c1243-4f67-46c8-b79a-664dae99c6a2",
     "name": "domain_portfolio_manager",
     "domain": "orchestration",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\orchestration\\SKILL.domain_portfolio_manager\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "7f1c7ffe-e698-49ba-9c46-394a709e8a1b",
     "name": "empire_health_monitor",
     "domain": "orchestration",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\orchestration\\SKILL.empire_health_monitor\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "84567f1f-a43e-4df8-bd26-25e6ff2f2c88",
     "name": "mcp_load_balancer",
     "domain": "orchestration",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\orchestration\\SKILL.mcp_load_balancer\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "6f6d2c5b-f43a-4962-a151-894e0552783f",
     "name": "multi_skill_chaining_engine",
     "domain": "orchestration",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\orchestration\\SKILL.multi_skill_chaining_engine\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "170bce38-5bf1-4772-9f25-f2551db1a804",
     "name": "skill_team_assembler",
     "domain": "orchestration",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\orchestration\\SKILL.skill_team_assembler\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
-  },
-  {
-    "skill_id": "f34ac647-c47d-4c93-a5ef-8ff92036615a",
-    "name": "ch-003",
-    "domain": "generated_skills",
-    "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\generated_skills\\ch-003\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
-  },
-  {
-    "skill_id": "1e3a639f-289d-4fec-9aa5-1924f1bc6ea3",
-    "name": "ch-006",
-    "domain": "generated_skills",
-    "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\generated_skills\\ch-006\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
-  },
-  {
-    "skill_id": "7302586a-a721-4d80-9dda-da9b459d68ef",
-    "name": "ch-009",
-    "domain": "generated_skills",
-    "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\generated_skills\\ch-009\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "d89324ac-c954-4cc3-8097-e560e2c7c83a",
     "name": "app-store-compliance-deployment",
     "domain": "mobile_development",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\mobile_development\\app-store-compliance-deployment\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "1ef032b6-630d-42b1-93de-b0bf0c316bcb",
     "name": "cross-platform-architecture",
     "domain": "mobile_development",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\mobile_development\\cross-platform-architecture\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "58084e13-7f65-4136-810c-3a37eb8511bf",
     "name": "mobile-performance-optimization",
     "domain": "mobile_development",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\mobile_development\\mobile-performance-optimization\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "4a0b4bb7-51d4-4192-9ce9-121ca6e819bd",
     "name": "mobile-security-hardening",
     "domain": "mobile_development",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\mobile_development\\mobile-security-hardening\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "e72346f0-0d10-4c44-9aa1-6caa7fc658c6",
     "name": "native-module-integration",
     "domain": "mobile_development",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\mobile_development\\native-module-integration\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "c64bf99a-2306-4cd2-afe1-ea80f1447070",
     "name": "ml-ai-research-experimentation",
     "domain": "ML_AI",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\ML_AI\\ml-ai-research-experimentation\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "676e7764-5254-4e59-8fd7-ad7ed475c97f",
     "name": "ml-computer-vision-image-processing",
     "domain": "ML_AI",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\ML_AI\\ml-computer-vision-image-processing\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "9b679c0f-d904-4fd4-8dae-e43d8d844e71",
     "name": "ml-data-science-analytics",
     "domain": "ML_AI",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\ML_AI\\ml-data-science-analytics\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "63471c21-5c71-407b-99e5-4b96903f9c72",
     "name": "ml-deep-learning-frameworks",
     "domain": "ML_AI",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\ML_AI\\ml-deep-learning-frameworks\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "54eddb45-924d-434c-9028-a81c30fc81f7",
     "name": "ml-engineering-mlops",
     "domain": "ML_AI",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\ML_AI\\ml-engineering-mlops\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "11321548-a07d-49f9-85bc-043a296756fa",
     "name": "vector-embedding-opt-0",
     "domain": "ML_AI",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\ML_AI\\vector-embedding-opt-0\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "42fa540f-4e00-4ded-a3a8-0d1c7c4bcfa2",
     "name": "vector-embedding-opt-1",
     "domain": "ML_AI",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\ML_AI\\vector-embedding-opt-1\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "ea51d353-b081-4732-ab3c-bd9c74df28d7",
     "name": "vector-embedding-opt-2",
     "domain": "ML_AI",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\ML_AI\\vector-embedding-opt-2\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "ff7d0c58-e941-4769-a325-b6a44910f104",
     "name": "vector-embedding-opt-3",
     "domain": "ML_AI",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\ML_AI\\vector-embedding-opt-3\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "47be0dac-548c-4ffc-9353-6db3f9d9f04b",
     "name": "vector-embedding-opt-4",
     "domain": "ML_AI",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\ML_AI\\vector-embedding-opt-4\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "368cccf9-c03f-4f00-a784-a548d7645e59",
     "name": "capability-gap-analysis",
     "domain": "META_SKILL_DISCOVERY",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\META_SKILL_DISCOVERY\\capability-gap-analysis\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "58d23863-bbfb-431e-a242-036476580453",
     "name": "skill-proximity-search",
     "domain": "META_SKILL_DISCOVERY",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\META_SKILL_DISCOVERY\\skill-proximity-search\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "090a8487-32b8-4963-bebd-687b46a63b9f",
     "name": "agentic-workflow-optimization",
     "domain": "meta_agent_enhancement",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\meta_agent_enhancement\\agentic-workflow-optimization\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "476d6868-23d6-476d-acc0-87941156f32a",
     "name": "cognitive-bias-guardrail",
     "domain": "meta_agent_enhancement",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\meta_agent_enhancement\\cognitive-bias-guardrail\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "f9188183-d251-4423-aec5-b942a7baccc4",
     "name": "high-fidelity-scenario-simulation",
     "domain": "meta_agent_enhancement",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\meta_agent_enhancement\\high-fidelity-scenario-simulation\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "ae92b600-4a1e-4ac5-afb9-bc52988b3d93",
     "name": "orthogonal-concept-synthesis",
     "domain": "meta_agent_enhancement",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\meta_agent_enhancement\\orthogonal-concept-synthesis\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "ad02d546-bc0d-4128-8c3c-5f1a76f32659",
     "name": "recursive-logic-audit",
     "domain": "meta_agent_enhancement",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\meta_agent_enhancement\\recursive-logic-audit\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "418e3eea-5452-4269-8a02-7fdedff73038",
     "name": "constraint-satisfaction-sat-solvers",
     "domain": "logic_programming",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\logic_programming\\constraint-satisfaction-sat-solvers\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "d33ae8ff-9f99-4149-a457-20a123045502",
     "name": "formal-verification-techniques",
     "domain": "logic_programming",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\logic_programming\\formal-verification-techniques\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "99021e9f-f84d-42eb-b046-3677c7438b9a",
     "name": "logic-based-optimization",
     "domain": "logic_programming",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\logic_programming\\logic-based-optimization\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "48193ada-936e-411a-acac-16c377686eca",
     "name": "logic-programming-frameworks",
     "domain": "logic_programming",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\logic_programming\\logic-programming-frameworks\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "8f0f524b-1056-4bea-a863-6ff1b2b0d1a0",
     "name": "temporal-logic-applications",
     "domain": "logic_programming",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\logic_programming\\temporal-logic-applications\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "e01667f9-de24-4843-85c6-c6d8eaeb4553",
     "name": "constraint-programming",
     "domain": "logic",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\logic\\constraint-programming\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "c49135d4-d78a-44c3-a65c-131f056e60a7",
     "name": "datalog-reasoning",
     "domain": "logic",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\logic\\datalog-reasoning\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "3f732c37-8f2e-43ad-b0cd-137271478c7b",
     "name": "prolog-knowledge-rep",
     "domain": "logic",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\logic\\prolog-knowledge-rep\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "6233360c-6fce-4cdb-8445-9a22dc222384",
     "name": "temporal-logic",
     "domain": "logic",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\logic\\temporal-logic\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "472b8b8c-85d0-4309-87b7-d1b8aba1b598",
     "name": "game-state-persistence",
     "domain": "GAME_DEV",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\GAME_DEV\\game-state-persistence\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "2d7bc805-1601-4a7b-a5e2-06da4c09fbc1",
     "name": "gameplay-loop-design",
     "domain": "GAME_DEV",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\GAME_DEV\\gameplay-loop-design\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "0caa6599-43c3-4552-85e6-fc9bf7f58c03",
     "name": "npc-behavior-ai",
     "domain": "GAME_DEV",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\GAME_DEV\\npc-behavior-ai\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "bcc40c10-26db-49ed-bb94-e656da35f1b9",
     "name": "npc-behavior-tree-0",
     "domain": "GAME_DEV",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\GAME_DEV\\npc-behavior-tree-0\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "6c6c6fc4-990e-4212-a438-f467519665de",
     "name": "npc-behavior-tree-1",
     "domain": "GAME_DEV",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\GAME_DEV\\npc-behavior-tree-1\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "b2d35b4f-e68e-487c-9b56-ed6be6073687",
     "name": "npc-behavior-tree-2",
     "domain": "GAME_DEV",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\GAME_DEV\\npc-behavior-tree-2\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "fc9b4fa3-6bfb-4a7c-9100-0208e40ca346",
     "name": "npc-behavior-tree-3",
     "domain": "GAME_DEV",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\GAME_DEV\\npc-behavior-tree-3\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "5e1a2825-8412-442e-9800-2b29e7cab6da",
     "name": "npc-behavior-tree-4",
     "domain": "GAME_DEV",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\GAME_DEV\\npc-behavior-tree-4\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "7b4c8b88-21d9-4596-9f05-701257ea13e6",
     "name": "physics-system-simulation",
     "domain": "GAME_DEV",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\GAME_DEV\\physics-system-simulation\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "6ede22cb-071e-43d6-84f2-fd2c52030d6c",
     "name": "procedural-world-generation",
     "domain": "GAME_DEV",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\GAME_DEV\\procedural-world-generation\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "94760fbe-5eca-4669-9b4b-9174500557dd",
     "name": "shader-effect-development",
     "domain": "GAME_DEV",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\GAME_DEV\\shader-effect-development\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "c1a811d2-2728-4b0e-b84c-ca27ed99757d",
     "name": "frontend-performance-build-tooling",
     "domain": "FRONTEND",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\FRONTEND\\frontend-performance-build-tooling\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "2b281bb2-b0fe-4fb7-bc69-b44b1f68e7dd",
     "name": "frontend-react-nextjs-typescript",
     "domain": "FRONTEND",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\FRONTEND\\frontend-react-nextjs-typescript\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "f7aef8c7-8cb9-4794-ab7c-6631742f26d2",
     "name": "frontend-state-management-data-flow",
     "domain": "FRONTEND",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\FRONTEND\\frontend-state-management-data-flow\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "7dd68bec-44b2-435c-90eb-f80fc7a3aecd",
     "name": "frontend-testing-quality-assurance",
     "domain": "FRONTEND",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\FRONTEND\\frontend-testing-quality-assurance\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "6f50eb87-bb90-40b2-9149-ac9559b08cf8",
     "name": "frontend-ui-ux-design-system",
     "domain": "FRONTEND",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\FRONTEND\\frontend-ui-ux-design-system\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "49648a05-6c8d-424e-8a02-4e3d029882db",
     "name": "coq-proof-engine",
     "domain": "formal_methods",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\formal_methods\\coq-proof-engine\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "9aa1eb48-a90f-4f22-bbb3-29144fccf43d",
     "name": "formal-verification-methods",
     "domain": "formal_methods",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\formal_methods\\formal-verification-methods\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "981f86ba-5326-42a8-a954-66742dc9a594",
     "name": "isabelle-hol-theorem-proving",
     "domain": "formal_methods",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\formal_methods\\isabelle-hol-theorem-proving\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "3b8836a1-176c-4e95-a636-19c5389f9312",
     "name": "model-checking-frameworks",
     "domain": "formal_methods",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\formal_methods\\model-checking-frameworks\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "706477e5-aaf8-449b-990a-b99b96832d4a",
     "name": "tla-plus-specification",
     "domain": "formal_methods",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\formal_methods\\tla-plus-specification\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "adbb5609-f779-48b1-ab81-bdba3a1ff2dc",
     "name": "belief-revision",
     "domain": "epistemology",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\epistemology\\belief-revision\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "cd7fd18d-e4c9-46fd-ad2a-792a95e5095b",
     "name": "epistemic-guardrails",
     "domain": "epistemology",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\epistemology\\epistemic-guardrails\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "3297e427-c742-470e-9db7-06cb208c6dca",
     "name": "evidence-weighting",
     "domain": "epistemology",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\epistemology\\evidence-weighting\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "4de89782-8c1b-4320-8533-4e5e9ed6c1f7",
     "name": "hypothesis-competition",
     "domain": "epistemology",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\epistemology\\hypothesis-competition\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "a4d3f2df-9a67-4078-ae3f-af4e53748675",
     "name": "source-reliability",
     "domain": "epistemology",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\epistemology\\source-reliability\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "ba472d88-78d5-40a0-9973-f6c8190e8da2",
     "name": "devops-cicd-automation",
     "domain": "DEVOPS",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\DEVOPS\\devops-cicd-automation\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "e0147937-5faf-444a-8c74-9a483269c0b6",
     "name": "devops-container-orchestration",
     "domain": "DEVOPS",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\DEVOPS\\devops-container-orchestration\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "ab027743-5b8d-4e51-87e2-4737bb7563a6",
     "name": "devops-infrastructure-as-code",
     "domain": "DEVOPS",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\DEVOPS\\devops-infrastructure-as-code\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "3b9c87ef-c58a-4bdb-b02f-733d36fb3bd7",
     "name": "devops-monitoring-observability",
     "domain": "DEVOPS",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\DEVOPS\\devops-monitoring-observability\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "677c9567-896d-43fe-89ab-53dd7f34ae2c",
     "name": "db-sharding-strategy-0",
     "domain": "DATABASE_ENGINEERING",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\DATABASE_ENGINEERING\\db-sharding-strategy-0\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "4a3aa066-4d47-46e0-9c30-02f3f2e900f7",
     "name": "db-sharding-strategy-1",
     "domain": "DATABASE_ENGINEERING",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\DATABASE_ENGINEERING\\db-sharding-strategy-1\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "e9021561-565b-4cd4-9559-15c092503170",
     "name": "db-sharding-strategy-2",
     "domain": "DATABASE_ENGINEERING",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\DATABASE_ENGINEERING\\db-sharding-strategy-2\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "ed31b304-a760-47b5-ba15-db8e2538f2f1",
     "name": "db-sharding-strategy-3",
     "domain": "DATABASE_ENGINEERING",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\DATABASE_ENGINEERING\\db-sharding-strategy-3\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "0b8714d2-e5eb-4e97-a514-58f7d3668589",
     "name": "db-sharding-strategy-4",
     "domain": "DATABASE_ENGINEERING",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\DATABASE_ENGINEERING\\db-sharding-strategy-4\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
-  },
-  {
-    "skill_id": "7e6cce95-6b4d-4895-a257-51a08fd22649",
-    "name": "database-security-ninja",
-    "domain": "generated_skills",
-    "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\DATABASE_ENGINEERING\\generated_skills\\database-security-ninja\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
-  },
-  {
-    "skill_id": "189f896e-65ef-48ec-aa3a-7874bbdb6c56",
-    "name": "database-whisperer-ai",
-    "domain": "generated_skills",
-    "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\DATABASE_ENGINEERING\\generated_skills\\database-whisperer-ai\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
-  },
-  {
-    "skill_id": "94792e52-a8cd-496c-a306-a739a202319a",
-    "name": "query-time-machine",
-    "domain": "generated_skills",
-    "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\DATABASE_ENGINEERING\\generated_skills\\query-time-machine\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "6ab57491-12e3-44ff-9568-72dda1de2ab8",
     "name": "ai-proactive-threat-modeling",
     "domain": "APPLICATION_SECURITY",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\APPLICATION_SECURITY\\ai-proactive-threat-modeling\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "20d169c8-afc1-4a85-b7ed-011b482577da",
     "name": "api-design",
     "domain": "APPLICATION_SECURITY",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\APPLICATION_SECURITY\\api-design\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "f6a767c7-dd2d-4e54-ac18-c38ea7b845be",
     "name": "automated-security-testing",
     "domain": "APPLICATION_SECURITY",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\APPLICATION_SECURITY\\automated-security-testing\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "8f83dba3-fcc7-47dd-a9f9-365e670908b5",
     "name": "compliance-audit",
     "domain": "APPLICATION_SECURITY",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\APPLICATION_SECURITY\\compliance-audit\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "4fac4c19-f52e-4687-90ec-7d5a607e7d59",
     "name": "deps-audit",
     "domain": "APPLICATION_SECURITY",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\APPLICATION_SECURITY\\deps-audit\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "4b67778d-1692-47c6-bbaf-9aaba07edda9",
     "name": "developer-centric-security-training",
     "domain": "APPLICATION_SECURITY",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\APPLICATION_SECURITY\\developer-centric-security-training\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "756a5598-c18d-4753-b79b-8d92b6332324",
     "name": "intelligent-security-analysis-platform",
     "domain": "APPLICATION_SECURITY",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\APPLICATION_SECURITY\\intelligent-security-analysis-platform\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "2dc4b441-6797-41a5-87aa-a2aa0292ec6d",
     "name": "metrics-dashboard",
     "domain": "APPLICATION_SECURITY",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\APPLICATION_SECURITY\\metrics-dashboard\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "a271897d-10da-4995-96bf-304b77c29f3d",
     "name": "perf-audit",
     "domain": "APPLICATION_SECURITY",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\APPLICATION_SECURITY\\perf-audit\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "4a2aed1f-a88f-4f8d-8f90-83ae44a74745",
     "name": "predictive-observability-engine",
     "domain": "APPLICATION_SECURITY",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\APPLICATION_SECURITY\\predictive-observability-engine\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "9070e7c3-6d0b-4338-8526-84edcb858ad3",
     "name": "ralph-wiggum",
     "domain": "APPLICATION_SECURITY",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\APPLICATION_SECURITY\\ralph-wiggum\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "9fd14924-2bad-4c67-89af-08ef7af4d10e",
     "name": "refactor-plan",
     "domain": "APPLICATION_SECURITY",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\APPLICATION_SECURITY\\refactor-plan\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "8b5f17e7-0c15-4f7d-bf5c-0fb5571d3fdc",
     "name": "secure-sdlc-integration",
     "domain": "APPLICATION_SECURITY",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\APPLICATION_SECURITY\\secure-sdlc-integration\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "9d50047a-01f4-4cc4-a84b-3d92bab973ce",
     "name": "self-optimizing-deployment-pipeline",
     "domain": "APPLICATION_SECURITY",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\APPLICATION_SECURITY\\self-optimizing-deployment-pipeline\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "35a19307-4af6-49bb-be9d-94a4c53cb12e",
     "name": "test-survey",
     "domain": "APPLICATION_SECURITY",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\APPLICATION_SECURITY\\test-survey\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "f8797210-32a4-4624-b153-34baf26b874b",
     "name": "zero-day-patch-flow-0",
     "domain": "APPLICATION_SECURITY",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\APPLICATION_SECURITY\\zero-day-patch-flow-0\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "3d9ac15a-e1ab-482b-8dc8-cfd2c7053793",
     "name": "zero-day-patch-flow-1",
     "domain": "APPLICATION_SECURITY",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\APPLICATION_SECURITY\\zero-day-patch-flow-1\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "2c180f17-8cf1-42da-bd85-2e6247e36109",
     "name": "zero-day-patch-flow-2",
     "domain": "APPLICATION_SECURITY",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\APPLICATION_SECURITY\\zero-day-patch-flow-2\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "b9f4903a-3654-4d1a-a367-5c5d68e27015",
     "name": "zero-day-patch-flow-3",
     "domain": "APPLICATION_SECURITY",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\APPLICATION_SECURITY\\zero-day-patch-flow-3\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "c6dc7a8c-4ce2-40b7-93e1-0f76f026d281",
     "name": "zero-day-patch-flow-4",
     "domain": "APPLICATION_SECURITY",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\APPLICATION_SECURITY\\zero-day-patch-flow-4\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "76e22a65-f0fd-4fb3-83c7-8748d04d2898",
     "name": "zero-trust-architecture-implementation",
     "domain": "APPLICATION_SECURITY",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\APPLICATION_SECURITY\\zero-trust-architecture-implementation\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "92678f55-8b74-4c5d-90e1-9f5af040f92b",
     "name": "autonomous-tool-learning",
     "domain": "agent_evolution",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\agent_evolution\\autonomous-tool-learning\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "d54f1404-b68a-4368-97d7-17bab107c572",
     "name": "dynamic-context-adaptation",
     "domain": "agent_evolution",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\agent_evolution\\dynamic-context-adaptation\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "7cafe590-fc2e-4d41-a5ff-8f2b857a36dd",
     "name": "multi-agent-synergy",
     "domain": "agent_evolution",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\agent_evolution\\multi-agent-synergy\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "9c920a2d-0f33-48fd-863d-6c8ff4f6b2b2",
     "name": "recursive-reasoning-refinement",
     "domain": "agent_evolution",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\agent_evolution\\recursive-reasoning-refinement\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "c0ba3ec2-9408-4214-8688-57fefffa3d44",
     "name": "self-improvement-loop",
     "domain": "agent_evolution",
     "source_doc": "domains\\ARCHIVED\\PLACEHOLDERS\\agent_evolution\\self-improvement-loop\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "6b047549-5a78-4f74-940e-aaf99cf08892",
     "name": "ai-assisted-vulnerability-prioritization-ml-nlp",
     "domain": "APPLICATION_SECURITY",
     "source_doc": "domains\\APPLICATION_SECURITY\\SKILL.ai-assisted-vulnerability-prioritization-ml-nlp\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "999d0408-29f4-4102-9c27-81ab9e163a13",
     "name": "autoattack-adversarial-robustness-benchmarking",
     "domain": "APPLICATION_SECURITY",
     "source_doc": "domains\\APPLICATION_SECURITY\\SKILL.autoattack-adversarial-robustness-benchmarking\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "93a6f389-0df0-422a-a828-91b146f576ad",
     "name": "building-a-hybrid-rule-based-and-machine-learning-framework-to-detect-and-defend-against-jailbreak-prompts-in-llm-systems",
     "domain": "APPLICATION_SECURITY",
     "source_doc": "domains\\APPLICATION_SECURITY\\SKILL.building-a-hybrid-rule-based-and-machine-learning-framework-to-detect-and-defend-against-jailbreak-prompts-in-llm-systems\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "3628b53a-317d-4dc3-a8cb-95044bff989d",
     "name": "multiturn-crescendo-llm-safety-evaluation-with-garak",
     "domain": "APPLICATION_SECURITY",
     "source_doc": "domains\\APPLICATION_SECURITY\\SKILL.multiturn-crescendo-llm-safety-evaluation-with-garak\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "516a3ce1-3a54-482b-a9c0-ec98103e2f42",
     "name": "robust-llm-safety-filters-adaptive-attack-defense",
     "domain": "APPLICATION_SECURITY",
     "source_doc": "domains\\APPLICATION_SECURITY\\SKILL.robust-llm-safety-filters-adaptive-attack-defense\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "fd2eafaa-9295-40a1-99e7-c6ef6f8c32f9",
     "name": "targeted-data-poisoning-label-flipping-cifar10-pytorch",
     "domain": "APPLICATION_SECURITY",
     "source_doc": "domains\\APPLICATION_SECURITY\\SKILL.targeted-data-poisoning-label-flipping-cifar10-pytorch\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
-  },
-  {
-    "skill_id": "59e9758f-28a6-4fd2-bc3d-fe731a466f6a",
-    "name": "performance-benchmarks-database-performance-audit",
-    "domain": "performance_benchmarks",
-    "source_doc": "domains\\performance_benchmarks\\SKILL.performance-benchmarks-database-performance-audit\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
-  },
-  {
-    "skill_id": "1a22e6e8-9917-4a4c-bf56-4c489a24cd4c",
-    "name": "performance-benchmarks-memory-leak-detection",
-    "domain": "performance_benchmarks",
-    "source_doc": "domains\\performance_benchmarks\\SKILL.performance-benchmarks-memory-leak-detection\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
-  },
-  {
-    "skill_id": "29064554-880e-4940-b221-66ea866e3b92",
-    "name": "performance-benchmarks-network-latency-analysis",
-    "domain": "performance_benchmarks",
-    "source_doc": "domains\\performance_benchmarks\\SKILL.performance-benchmarks-network-latency-analysis\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
-  },
-  {
-    "skill_id": "29e6deb4-db04-4ce4-bf46-7aa073d1eb21",
-    "name": "performance-benchmarks-query-optimization",
-    "domain": "performance_benchmarks",
-    "source_doc": "domains\\performance_benchmarks\\SKILL.performance-benchmarks-query-optimization\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
-  },
-  {
-    "skill_id": "4fea05eb-1627-4f13-ac24-245fcac8706d",
-    "name": "performance-benchmarks-response-time-monitoring",
-    "domain": "performance_benchmarks",
-    "source_doc": "domains\\performance_benchmarks\\SKILL.performance-benchmarks-response-time-monitoring\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
-  },
-  {
-    "skill_id": "ab9891e7-ca82-4800-8ec2-b5242ff1a420",
-    "name": "performance-benchmarks-system-resource-monitoring",
-    "domain": "performance_benchmarks",
-    "source_doc": "domains\\performance_benchmarks\\SKILL.performance-benchmarks-system-resource-monitoring\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "bb7de98a-d52a-4794-947d-f7c941bd3152",
     "name": "agent-orchestration-with-mistral-agents-api",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.agent-orchestration-with-mistral-agents-api\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "52253787-9835-4af3-85e7-7e3aae8a13bb",
     "name": "agent2agent-collaboration",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.agent2agent-collaboration\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "821b6b7a-c194-4e87-a685-ffc21aa8a38d",
     "name": "agentic-ai-langchain-autogen-huggingface",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.agentic-ai-langchain-autogen-huggingface\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "f1652b28-0597-4400-bd95-e92d78a2eb6b",
     "name": "agentic-ai-time-series-forecasting-darts-hf",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.agentic-ai-time-series-forecasting-darts-hf\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "0250b7a4-92c3-4d80-b1db-54791d54f8d0",
     "name": "agentic-benchmarking-empirical-study",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.agentic-benchmarking-empirical-study\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "8ff7aa02-dca1-4a09-a007-83c7a7f2f274",
     "name": "agentic-data-infrastructure-strategy-qwen",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.agentic-data-infrastructure-strategy-qwen\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "56f6a6cb-348b-4f15-817c-504fc2cb47c2",
     "name": "agentic-deep-rl-curriculum-ucb-meta-control",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.agentic-deep-rl-curriculum-ucb-meta-control\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "562830f8-edbe-47e6-a5aa-8ac58dde9df8",
     "name": "agentic-multi-agent-rl-gridworld",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.agentic-multi-agent-rl-gridworld\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "a600233e-fb4a-4701-b56d-b506e9274245",
     "name": "agentic-rag-tutorial",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.agentic-rag-tutorial\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "16950168-7762-48ef-85a6-cfce82c6a991",
     "name": "agentscope-multi-agent-incident-response",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.agentscope-multi-agent-incident-response\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "be248c15-fb61-43a4-b5f2-0fc636fb7f45",
     "name": "ai-crypto-agent-secure-comms",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.ai-crypto-agent-secure-comms\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "1de97423-8daa-4499-be8f-d0abdf6c06f6",
     "name": "ai-desktop-automation-agent-tutorial",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.ai-desktop-automation-agent-tutorial\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "4230de7e-b60a-4858-8093-866807e7a403",
     "name": "autogen-semantickernel-gemini-flash-multiagent-tutorial",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.autogen-semantickernel-gemini-flash-multiagent-tutorial\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "5c96fe3a-7f8f-4ad5-8ac8-118e225cfc51",
     "name": "autogen-teamtool-roundrobin",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.autogen-teamtool-roundrobin\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "83f05989-00aa-4453-8088-0f2552517936",
     "name": "autonomous-prior-auth-agent-healthcare-rcm",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.autonomous-prior-auth-agent-healthcare-rcm\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "3848ad22-aa54-428f-9886-237dae71b925",
     "name": "beeai-multi-agent-workflow",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.beeai-multi-agent-workflow\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "7bfed1ac-48de-48a6-968a-7fac18be0652",
     "name": "biocypher-agent-tutorial",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.biocypher-agent-tutorial\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "50f74be7-d106-4952-aedd-ad03d44c900d",
     "name": "building-advanced-mcp-agents-with-multi-agent-coordination",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.building-advanced-mcp-agents-with-multi-agent-coordination\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "72ce30f2-2d29-44e2-a0c8-2323a5d97c54",
     "name": "camel-multi-agent-research-pipeline",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.camel-multi-agent-research-pipeline\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "cb167736-cff8-4dc5-94b6-4b29c9591ad9",
     "name": "cipher-memory-agent",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.cipher-memory-agent\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "aafc0426-3913-4f37-91f7-758f645c16c5",
     "name": "client",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.client\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "ff9b89ea-3161-44ee-9d0f-5fe6009df479",
     "name": "cognee-agent-tutorial-with-huggingface-integration",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.cognee-agent-tutorial-with-huggingface-integration\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "c7882447-0554-4d6b-a124-4067fb255087",
     "name": "computer-use-agent-local-ai",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.computer-use-agent-local-ai\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "4a064d29-3cdb-4c6a-a22f-747d724cb412",
     "name": "context-folding-llm-agent-long-horizon",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.context-folding-llm-agent-long-horizon\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "2fb253bc-5215-4569-b816-474f74335a19",
     "name": "cost-aware-planning-agent-budget-constrained",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.cost-aware-planning-agent-budget-constrained\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "a94c026d-2305-4d0d-886c-ec0ff87400f4",
     "name": "crewai-multiagent-gemini",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.crewai-multiagent-gemini\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "b2a9bb6b-e38a-449c-87ce-4e3b7f9852ae",
     "name": "custom-tool-for-ai-agent",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.custom-tool-for-ai-agent\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "9c4a1dd5-44fc-4953-af96-f87cc060dfa3",
     "name": "customizable-multitool-ai-agent-with-claude",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.customizable-multitool-ai-agent-with-claude\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "5e49f425-cc32-4e0c-8229-8ace8485c6e4",
     "name": "emi-agent",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.emi-agent\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "269976c0-5d07-439a-b1ee-819a466bd246",
     "name": "enterprise-agentic-benchmarking-framework",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.enterprise-agentic-benchmarking-framework\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "ee874863-f136-4eed-a569-18c45ca00a53",
     "name": "exploration-agents-problem-solving",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.exploration-agents-problem-solving\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "cb29418f-847b-457e-835b-83f54ef13fd7",
     "name": "gemini-agent-network",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.gemini-agent-network\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "b9429bff-abd6-40a7-b226-8b2ac712237e",
     "name": "gemini-autogen-multiagent-framework",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.gemini-autogen-multiagent-framework\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "6680dea9-7485-48fa-9886-141c47b66879",
     "name": "gemini-pandas-agent",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.gemini-pandas-agent\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "e31e458d-21f0-41e6-bd9a-a64bb375321d",
     "name": "gemini-semantic-agent-orchestrator",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.gemini-semantic-agent-orchestrator\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "46dc5fdb-b7cb-4960-abc0-7f48b0ae14a5",
     "name": "getting-started-with-mistral-agents-api",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.getting-started-with-mistral-agents-api\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "5a4dc9bb-85c4-4d9e-856d-64fc27404a96",
     "name": "graph-agent-framework-with-gemini",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.graph-agent-framework-with-gemini\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "8a56c2b1-effa-474b-8ce7-dd3a3429e43d",
     "name": "graphagent-gemini-advanced-tutorial",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.graphagent-gemini-advanced-tutorial\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "558800ad-bf35-49f1-939d-19c37897283d",
     "name": "graphaiagent-langgraph-gemini-workflow",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.graphaiagent-langgraph-gemini-workflow\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "60d9bb91-5563-4222-af0a-b7430ad165d5",
     "name": "handoff",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.handoff\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "1336810c-f184-4b77-a08a-6a8aa56b2b14",
     "name": "hierarchical-planner-ai-agent-open-source-llm",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.hierarchical-planner-ai-agent-open-source-llm\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "23219963-8a11-49a7-8bed-7594acf4e44f",
     "name": "how-to-build-an-advanced-end-to-end-voice-ai-agent-using-hugging-face-pipelines",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.how-to-build-an-advanced-end-to-end-voice-ai-agent-using-hugging-face-pipelines\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "9781810a-fede-43ea-a20b-40f6472b0e08",
     "name": "how-to-enable-function-calling-in-mistral-agents",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.how-to-enable-function-calling-in-mistral-agents\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "003e5030-4a2c-4a79-a7a0-19de484f19d3",
     "name": "hrm-braininspired-ai-agent-huggingface",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.hrm-braininspired-ai-agent-huggingface\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "3b0275b4-e41d-4906-8d5f-f15e0be94f2a",
     "name": "human-in-the-loop-plan-execute-agent-langgraph-streamlit",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.human-in-the-loop-plan-execute-agent-langgraph-streamlit\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "50901b5e-9b0b-4085-b647-83799ee9e711",
     "name": "inflation-agent",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.inflation-agent\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "332f4c38-af92-4a1f-b34b-3b1814e87537",
     "name": "langchain-deepagents",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.langchain-deepagents\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "a2c5bbd5-888b-4c63-a641-364cbf3e1d9a",
     "name": "langchain-xgboost-agentic-pipeline-tutorial",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.langchain-xgboost-agentic-pipeline-tutorial\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "605b6c32-3eaa-4c3c-919e-e980f0f00409",
     "name": "langgraph-gemini-multiagent-research-team",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.langgraph-gemini-multiagent-research-team\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "07196337-bb35-4455-972c-b3c4fd6065ff",
     "name": "langgraph-time-travel-research-agent",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.langgraph-time-travel-research-agent\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "adb24ca6-e82d-429c-ae8a-ae63f295aebd",
     "name": "live-python-execution-and-validation-agent",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.live-python-execution-and-validation-agent\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "46f2cd64-3845-41d0-9f23-1f260d523d66",
     "name": "main",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.main\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "e845e6f5-e8c3-4fbe-a4d0-f17612cb0a7b",
     "name": "mcp-gemini-agent-tutorial",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.mcp-gemini-agent-tutorial\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "30b15920-418e-45bb-85b5-838b42a20d39",
     "name": "meta-cognitive-reasoning-controller",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.meta-cognitive-reasoning-controller\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "e8a20685-96ad-467d-afbb-4133864a81e4",
     "name": "mle-agent-ollama-local-pipeline",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.mle-agent-ollama-local-pipeline\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "ea564f8b-4153-4e9b-9e45-f057502e6875",
     "name": "multi-agent-omics-integration-pipeline",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.multi-agent-omics-integration-pipeline\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "02544ad8-f7cb-43b0-b9e9-91f785c42825",
     "name": "nebius-llama3-multitool-agent",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.nebius-llama3-multitool-agent\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "02cd255b-7074-4ee1-a443-d4e3c0f0f28d",
     "name": "neuro-symbolic-hybrid-agent",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.neuro-symbolic-hybrid-agent\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "19ec48ec-d7ec-494a-ba57-5d556bd4c1b0",
     "name": "nomic-gemini-multi-agent-ai",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.nomic-gemini-multi-agent-ai\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "e4d482ad-3269-4a5d-94bc-4fa4cbbfea74",
     "name": "openai-agents-multiagent-research",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.openai-agents-multiagent-research\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "b90837d7-a4c6-4bd9-89cf-b7759703e183",
     "name": "openai-swarm-multi-agent-incident-response",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.openai-swarm-multi-agent-incident-response\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "1d6d05cf-be84-417e-a479-f5827e72ef46",
     "name": "paperqa2-gemini-research-agent",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.paperqa2-gemini-research-agent\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "ee611bde-94c7-4b10-9764-e06b32861e71",
     "name": "parlant",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.parlant\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "1307ab81-ad48-442d-8bfd-b807857406a4",
     "name": "parsl-ai-agent-pipeline",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.parsl-ai-agent-pipeline\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "dd0c72e6-cf8d-4ec8-ada9-516cfd5ce28f",
     "name": "primisai-nexus-multi-agent-workflow",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.primisai-nexus-multi-agent-workflow\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "6f31be9f-6d96-41a5-98c8-e81ccf1f960c",
     "name": "production-ready-custom-ai-agents-workflows",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.production-ready-custom-ai-agents-workflows\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "4766070c-2609-42b1-ad7b-4d8ffb839eef",
     "name": "prolog-gemini-langgraph-react-agent",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.prolog-gemini-langgraph-react-agent\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "9f19aa81-b331-4578-85d7-96354775fcc4",
     "name": "sage-ai-agent-gemini-implementation",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.sage-ai-agent-gemini-implementation\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "51611ebd-db81-430c-b407-c6b98ff5404c",
     "name": "secure-ai-agent-with-guardrails",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.secure-ai-agent-with-guardrails\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "906ec99f-a2fd-46c4-96d2-b673651ad869",
     "name": "self-improving-ai-agent-with-gemini",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.self-improving-ai-agent-with-gemini\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "79ed9897-1429-4376-8449-8ee96e89638a",
     "name": "self-verifying-dataops-agent-local-hf",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.self-verifying-dataops-agent-local-hf\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "444eae90-781d-47ff-871a-775ac62f4a8e",
     "name": "semantic-kernel-gemini-agent",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.semantic-kernel-gemini-agent\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "437aa8aa-3028-4dba-9fcc-865667895953",
     "name": "smartwebagent-tavily-gemini-webintelligence2",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.smartwebagent-tavily-gemini-webintelligence2\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "a824682f-1645-42d9-b84d-b572c2597908",
     "name": "smolagents-advanced-multi-agent-orchestration",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.smolagents-advanced-multi-agent-orchestration\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "104e7519-fbd8-411b-b561-52d54e320925",
     "name": "smolagents-fleet-maintenance-autonomous-agent",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.smolagents-fleet-maintenance-autonomous-agent\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "cbd8c0a5-33b5-4705-bf37-a3fb3658cd84",
     "name": "streamlit-ai-agent-multitool-interface",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.streamlit-ai-agent-multitool-interface\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "623e3756-2da5-47b2-ab66-53ba722000d7",
     "name": "supervisor-framework-crewai-gemini",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.supervisor-framework-crewai-gemini\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "239473a3-a47b-4fe5-8ac1-46351b1cd462",
     "name": "swiss-army-knife-research-agent-tool-using-ai",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.swiss-army-knife-research-agent-tool-using-ai\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "e95a6ee1-bcac-40b0-b9b1-76e7d9c2046c",
     "name": "uagents-gemini-event-driven-tutorial",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.uagents-gemini-event-driven-tutorial\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "e5071557-9701-4568-9343-68db9ee8866c",
     "name": "uagents-multi-agent-marketplace",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.uagents-multi-agent-marketplace\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "cf6bc85b-1ae9-474e-aa6d-8e8b73960807",
     "name": "value-alignment-and-ethics-in-agentic-systems",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.value-alignment-and-ethics-in-agentic-systems\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "fdfdeb02-3d20-412d-ade1-9eb2415b1f68",
     "name": "wetlab-protocol-planner-codegen",
     "domain": "AI_AGENT_DEVELOPMENT",
     "source_doc": "domains\\AI_AGENT_DEVELOPMENT\\SKILL.wetlab-protocol-planner-codegen\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "28b0877c-15c4-4acf-a6ef-9ca0dad6d0bd",
     "name": "agentic-zettelkasten-memory-martechpost",
     "domain": "agentic_ai",
     "source_doc": "domains\\agentic_ai\\SKILL.agentic-zettelkasten-memory-martechpost\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "3cd2cd0d-920a-48a0-b9ff-e46aafe84b06",
     "name": "anemoi-semi-centralized-peer-critic-loop-langgraph",
     "domain": "agentic_ai",
     "source_doc": "domains\\agentic_ai\\SKILL.anemoi-semi-centralized-peer-critic-loop-langgraph\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "0bbc2021-f4fa-45c3-ba9f-a488bb86b441",
     "name": "evermem-persistent-agent-os-faiss-sqlite",
     "domain": "agentic_ai",
     "source_doc": "domains\\agentic_ai\\SKILL.evermem-persistent-agent-os-faiss-sqlite\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "0c7a014c-559e-48b8-80cc-4b3a2691e519",
     "name": "glass-box-governance-auditable-human-in-loop-agentic-workflows",
     "domain": "agentic_ai",
     "source_doc": "domains\\agentic_ai\\SKILL.glass-box-governance-auditable-human-in-loop-agentic-workflows\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "7b2c8344-cce6-4e1f-a65c-09e71fd4dd77",
     "name": "graphbit-production-agentic-workflows-offline-to-llm",
     "domain": "agentic_ai",
     "source_doc": "domains\\agentic_ai\\SKILL.graphbit-production-agentic-workflows-offline-to-llm\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "256de236-a96b-4939-8198-d9188bdfcc42",
     "name": "memory-engineering-short-term-long-term-episodic-agents",
     "domain": "agentic_ai",
     "source_doc": "domains\\agentic_ai\\SKILL.memory-engineering-short-term-long-term-episodic-agents\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "57dcf938-7212-4719-84de-0634dac91231",
     "name": "pydantic-ai-contract-first-agentic-decision-system",
     "domain": "agentic_ai",
     "source_doc": "domains\\agentic_ai\\SKILL.pydantic-ai-contract-first-agentic-decision-system\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "00946762-c482-460d-8d2a-65542bdec0ea",
     "name": "strands-agentic-red-teaming-tool-injection-harness",
     "domain": "agentic_ai",
     "source_doc": "domains\\agentic_ai\\SKILL.strands-agentic-red-teaming-tool-injection-harness\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "6f383b9a-3d99-40dd-a19b-6af7d472d559",
     "name": "ultra-agentic-ai-hybrid-retrieval-guardrails-episodic-memory",
     "domain": "agentic_ai",
     "source_doc": "domains\\agentic_ai\\SKILL.ultra-agentic-ai-hybrid-retrieval-guardrails-episodic-memory\\SKILL.md",
-    "status": "NOT_IMPLEMENTED"
+    "status": "IMPLEMENTED"
   },
   {
     "skill_id": "e61f4e72-aa34-491f-abd0-1b4280677f14",
@@ -5954,6 +5870,90 @@
     "name": "web3",
     "domain": "discovered",
     "source_doc": "",
+    "status": "IMPLEMENTED"
+  },
+  {
+    "skill_id": "da127fb6-a2bc-43a7-80a6-fe579c2364a1",
+    "name": "multi-platform-cross-compilation",
+    "domain": "generated_skills",
+    "source_doc": "domains\\generated_skills\\multi-platform-cross-compilation\\SKILL.md",
+    "status": "IMPLEMENTED"
+  },
+  {
+    "skill_id": "056d8fd5-b018-4f88-a37c-baeea273c248",
+    "name": "operational-deliverables",
+    "domain": "generated_skills",
+    "source_doc": "domains\\generated_skills\\operational-deliverables\\SKILL.md",
+    "status": "IMPLEMENTED"
+  },
+  {
+    "skill_id": "2f7ae575-be7c-41c6-89b9-e64c7d419e27",
+    "name": "shapiq-explainability-pipeline",
+    "domain": "generated_skills",
+    "source_doc": "domains\\generated_skills\\shapiq-explainability-pipeline\\SKILL.md",
+    "status": "IMPLEMENTED"
+  },
+  {
+    "skill_id": "cac5885d-4e0d-434f-a150-340afa9f3814",
+    "name": "shapiq-interaction-extraction",
+    "domain": "generated_skills",
+    "source_doc": "domains\\generated_skills\\shapiq-interaction-extraction\\SKILL.md",
+    "status": "IMPLEMENTED"
+  },
+  {
+    "skill_id": "ca5fb9f5-3095-4f78-9016-0dc6c4b6c260",
+    "name": "xai-plotly-visualization",
+    "domain": "generated_skills",
+    "source_doc": "domains\\generated_skills\\xai-plotly-visualization\\SKILL.md",
+    "status": "IMPLEMENTED"
+  },
+  {
+    "skill_id": "6ec9c837-c888-4d07-a6d8-af969fcefc8d",
+    "name": "global-feature-importance",
+    "domain": "generated_skills",
+    "source_doc": "domains\\generated_skills\\global-feature-importance\\SKILL.md",
+    "status": "IMPLEMENTED"
+  },
+  {
+    "skill_id": "e76f7f28-3ca0-43a5-ba62-b6932f6989ce",
+    "name": "terminal-xai-reporting",
+    "domain": "generated_skills",
+    "source_doc": "domains\\generated_skills\\terminal-xai-reporting\\SKILL.md",
+    "status": "IMPLEMENTED"
+  },
+  {
+    "skill_id": "4eefa4e9-21b9-49bc-803f-e73ccad916cc",
+    "name": "self-evolving-skill-engine",
+    "domain": "generated_skills",
+    "source_doc": "domains\\generated_skills\\self-evolving-skill-engine\\SKILL.md",
+    "status": "IMPLEMENTED"
+  },
+  {
+    "skill_id": "4bd222f2-b528-42e8-995f-e636e8d2441d",
+    "name": "cold-warm-transition",
+    "domain": "generated_skills",
+    "source_doc": "domains\\generated_skills\\cold-warm-transition\\SKILL.md",
+    "status": "IMPLEMENTED"
+  },
+  {
+    "skill_id": "f4365e80-58de-4c91-957e-b37d543bacd9",
+    "name": "skill-evolution-metadata",
+    "domain": "generated_skills",
+    "source_doc": "domains\\generated_skills\\skill-evolution-metadata\\SKILL.md",
+    "status": "IMPLEMENTED"
+  },
+  {
+    "skill_id": "5ac1af70-2489-43ba-a7e4-05d37eacbc76",
+    "name": "token-savings-measurement",
+    "domain": "generated_skills",
+    "source_doc": "domains\\generated_skills\\token-savings-measurement\\SKILL.md",
+    "status": "IMPLEMENTED"
+  },
+  {
+    "skill_id": "b6607978-dbef-4d7a-8c66-5a1bb7c42b24",
+    "name": "pipeline-skill-accumulation",
+    "domain": "generated_skills",
+    "source_doc": "domains\\generated_skills\\pipeline-skill-accumulation\\SKILL.md",
     "status": "IMPLEMENTED"
   }
 ]

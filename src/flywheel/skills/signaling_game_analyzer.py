@@ -9,6 +9,7 @@ Analyzes sender-receiver signaling games:
 """
 
 from typing import Any, Dict, List
+from datetime import datetime
 
 
 def signaling_game_analyzer(
@@ -248,7 +249,7 @@ def _find_pooling_equilibrium(
     }
 
 
-def invoke(payload: dict) -> dict:
+async def invoke(payload: dict) -> dict:
     """MCP skill invocation"""
     payload.get("action", "analyze")
     game_type = payload.get("game_type", "costly")
@@ -269,9 +270,13 @@ def invoke(payload: dict) -> dict:
         signaling_cost=signaling_cost,
     )
 
-    return {"result": result}
-
-
+    return{
+        "result": result,
+        "metadata": {
+            "action": action,
+            "timestamp": datetime.now().isoformat(),
+        },
+    }
 def register_skill():
     """Return skill metadata"""
     return {

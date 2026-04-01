@@ -1,5 +1,6 @@
 import re
 from collections import defaultdict
+from datetime import datetime
 
 
 class PRReviewSimulator:
@@ -457,7 +458,7 @@ def pr_review_simulator(diff: str, options: dict = None) -> dict:
         }
 
 
-def invoke(payload: dict) -> dict:
+async def invoke(payload: dict) -> dict:
     diff = payload.get("diff", "")
     options = payload.get("options", {})
 

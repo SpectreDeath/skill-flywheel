@@ -544,7 +544,7 @@ def changelog_generator(git_log: str, options: dict) -> dict:
         return {"status": "error", "message": str(e)}
 
 
-def invoke(payload: dict) -> dict:
+async def invoke(payload: dict) -> dict:
     """MCP skill invocation."""
     git_log = payload.get("git_log", "")
     options = payload.get("options", {})

@@ -12,6 +12,7 @@ import ast
 import re
 from dataclasses import dataclass
 from typing import Any, Dict, List
+from datetime import datetime
 
 
 @dataclass
@@ -170,7 +171,7 @@ def perf_bottleneck_detector(code: str, **kwargs) -> Dict[str, Any]:
     return analyze_python_code(code)
 
 
-def invoke(payload: dict) -> dict:
+async def invoke(payload: dict) -> dict:
     """MCP skill invocation"""
     action = payload.get("action", "analyze")
     code = payload.get("code", "")
@@ -180,9 +181,13 @@ def invoke(payload: dict) -> dict:
     else:
         result = {"status": "error", "message": f"Unknown action: {action}"}
 
-    return {"result": result}
-
-
+    return{
+        "result": result,
+        "metadata": {
+            "action": action,
+            "timestamp": datetime.now().isoformat(),
+        },
+    }
 def register_skill():
     """Return skill metadata"""
     return {

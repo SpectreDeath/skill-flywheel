@@ -667,3 +667,29 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+# --- invoke() wrapper added by batch fix ---
+async def invoke(payload: dict) -> dict:
+    """Entry point for skill invocation."""
+    import datetime as _dt
+    action = payload.get("action", "create_pipeline")
+    timestamp = _dt.datetime.now().isoformat()
+
+    actions_available = [
+        "create_pipeline", "configure_options", "create_windowing_strategy",
+        "create_aggregation_transform", "run_pipeline", "get_info"
+    ]
+
+    if action == "get_info":
+        return {"result": {"name": "apache-beam-streaming-batch-processing", "actions": actions_available}, "metadata": {"action": action, "timestamp": timestamp}}
+
+    instance = BatchPipelineBuilder()
+
+    method = getattr(instance, action, None)
+    if method is None:
+        return {"result": {"error": f"Unknown action: {action}"}, "metadata": {"action": action, "timestamp": timestamp}}
+
+    kwargs = {k: v for k, v in payload.items() if k != "action"}
+    result = method(**kwargs)
+    return {"result": result, "metadata": {"action": action, "timestamp": timestamp}}

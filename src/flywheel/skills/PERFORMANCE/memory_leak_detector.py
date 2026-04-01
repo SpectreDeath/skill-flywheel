@@ -13,6 +13,7 @@ import json
 import re
 from collections import defaultdict
 from typing import List
+from datetime import datetime
 
 
 def memory_leak_detector(memory_dump: str, options: dict) -> dict:
@@ -594,7 +595,7 @@ def _calculate_severity(size_mb: float, threshold_mb: float) -> str:
         return "low"
 
 
-def invoke(payload: dict) -> dict:
+async def invoke(payload: dict) -> dict:
     """
     Main entry point for MCP skill invocation.
 
@@ -634,9 +635,13 @@ def invoke(payload: dict) -> dict:
     if payload.get("generate_report", False):
         result["report"] = generate_report(result)
 
-    return {"result": result}
-
-
+    return{
+        "result": result,
+        "metadata": {
+            "action": action,
+            "timestamp": datetime.now().isoformat(),
+        },
+    }
 def generate_report(analysis: dict) -> str:
     """Generate human-readable memory leak report."""
     lines = []

@@ -282,3 +282,36 @@ def example_usage():
 
 if __name__ == "__main__":
     example_usage()
+
+
+# --- invoke() wrapper added by batch fix ---
+async def invoke(payload: dict) -> dict:
+    """Entry point for skill invocation."""
+    import datetime as _dt
+    action = payload.get("action", "analyze")
+    timestamp = _dt.datetime.now().isoformat()
+
+    actions_available = ["analyze", "clean", "insights", "get_info"]
+
+    if action == "get_info":
+        return {"result": {"name": "data-analyzer", "actions": actions_available}, "metadata": {"action": action, "timestamp": timestamp}}
+
+    if action == "analyze":
+        dataset = payload.get("dataset", [])
+        if not dataset:
+            return {"result": {"error": "No dataset provided"}, "metadata": {"action": action, "timestamp": timestamp}}
+        result = analyze_dataset(dataset)
+        return {"result": result, "metadata": {"action": action, "timestamp": timestamp}}
+
+    elif action == "clean":
+        dataset = payload.get("dataset", [])
+        result = clean_data(dataset)
+        return {"result": result, "metadata": {"action": action, "timestamp": timestamp}}
+
+    elif action == "insights":
+        dataset = payload.get("dataset", [])
+        result = generate_insights(dataset)
+        return {"result": result, "metadata": {"action": action, "timestamp": timestamp}}
+
+    else:
+        return {"result": {"error": f"Unknown action: {action}"}, "metadata": {"action": action, "timestamp": timestamp}}

@@ -14,6 +14,7 @@ import re
 from dataclasses import dataclass
 from enum import Enum
 from typing import Dict, List
+from datetime import datetime
 
 
 class DatabaseType(Enum):
@@ -994,7 +995,7 @@ def _singularize(word: str) -> str:
     return word
 
 
-def invoke(payload: dict) -> dict:
+async def invoke(payload: dict) -> dict:
     """
     Main entry point for MCP skill invocation.
 
@@ -1021,9 +1022,13 @@ def invoke(payload: dict) -> dict:
     if payload.get("generate_report", False):
         result["report"] = generate_report(result)
 
-    return {"result": result}
-
-
+    return{
+        "result": result,
+        "metadata": {
+            "action": action,
+            "timestamp": datetime.now().isoformat(),
+        },
+    }
 def generate_report(analysis: dict) -> str:
     """Generate human-readable query optimization report."""
     lines = []

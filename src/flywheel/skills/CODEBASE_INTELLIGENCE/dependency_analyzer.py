@@ -472,7 +472,7 @@ def dependency_analyzer(code: str, options: dict = None) -> dict:
     return result
 
 
-def invoke(payload: dict) -> dict:
+async def invoke(payload: dict) -> dict:
     """
     Invoke the dependency analyzer skill
 
@@ -488,12 +488,21 @@ def invoke(payload: dict) -> dict:
     options = payload.get("options", {})
 
     if not code:
-        return {"result": {"status": "error", "message": "No code provided"}}
-
+        return{
+        "result": {"status": "error", "message": "No code provided"},
+        "metadata": {
+            "action": action,
+            "timestamp": datetime.now().isoformat(),
+        },
+    }
     result = dependency_analyzer(code, options)
-    return {"result": result}
-
-
+    return{
+        "result": result,
+        "metadata": {
+            "action": action,
+            "timestamp": datetime.now().isoformat(),
+        },
+    }
 def register_skill():
     """Return skill metadata for MCP registration"""
     return {
@@ -510,6 +519,7 @@ import os
 import sys
 from collections import defaultdict
 from typing import Dict, List
+from datetime import datetime
 
 class ModuleA:
     def process(self):

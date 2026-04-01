@@ -13,6 +13,7 @@ import re
 from dataclasses import dataclass
 from enum import Enum
 from typing import Any, Dict, List, Tuple
+from datetime import datetime
 
 
 class FailureType(Enum):
@@ -624,7 +625,7 @@ def test_debug_helper(error_output: str, test_code: str, options: dict) -> dict:
         return {"status": "error", "message": f"Failed to analyze error: {str(e)}"}
 
 
-def invoke(payload: dict) -> dict:
+async def invoke(payload: dict) -> dict:
     """
     Main entry point for the skill.
 
@@ -642,9 +643,13 @@ def invoke(payload: dict) -> dict:
         return {"status": "error", "message": "No error_output provided"}
 
     result = test_debug_helper(error_output, test_code, options)
-    return {"result": result}
-
-
+    return{
+        "result": result,
+        "metadata": {
+            "action": action,
+            "timestamp": datetime.now().isoformat(),
+        },
+    }
 def register_skill():
     """Return skill metadata."""
     return {

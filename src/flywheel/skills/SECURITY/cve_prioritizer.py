@@ -19,6 +19,7 @@ from enum import Enum
 from typing import Dict, List
 
 from packaging import version as pkg_version
+from datetime import datetime
 
 
 class Severity(Enum):
@@ -549,7 +550,7 @@ def cve_prioritizer(dependencies: str, options: dict = None) -> dict:
         }
 
 
-def invoke(payload: dict) -> dict:
+async def invoke(payload: dict) -> dict:
     """
     Skill invocation function for integration with skill management system.
 

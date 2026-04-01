@@ -221,3 +221,29 @@ def evaluate_claim(claim: str, sources: List[Dict], evidence: List[str]) -> Dict
         for s in sources
     ]
     return evaluator.evaluate_claim(claim, source_objects, evidence)
+
+
+# --- invoke() wrapper added by batch fix ---
+import asyncio as _asyncio
+import inspect as _inspect
+
+async def invoke(payload: dict) -> dict:
+    """Entry point for skill invocation."""
+    import datetime as _dt
+    action = payload.get("action", "evaluate_claim")
+    timestamp = _dt.datetime.now().isoformat()
+    kwargs = {k: v for k, v in payload.items() if k != "action"}
+
+    instance = CriticalEvaluator()
+
+    if action == "get_info":
+        return {"result": {"name": "critical_evaluation", "actions": ['create_weighted_evaluation', 'evaluate_claim', 'evaluate_source'] }, "metadata": {"action": action, "timestamp": timestamp}}
+
+    method = getattr(instance, action, None)
+    if method is None:
+        return {"result": {"error": f"Unknown action: {action}"}, "metadata": {"action": action, "timestamp": timestamp}}
+
+    result = method(**kwargs)
+    if _inspect.isawaitable(result):
+        result = await result
+    return {"result": result, "metadata": {"action": action, "timestamp": timestamp}}

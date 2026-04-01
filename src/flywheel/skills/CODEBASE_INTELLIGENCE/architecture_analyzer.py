@@ -15,6 +15,7 @@ import re
 from collections import defaultdict
 from dataclasses import dataclass, field
 from typing import Any, Dict, List
+from datetime import datetime
 
 
 @dataclass
@@ -527,18 +528,27 @@ def architecture_analyzer(code: str, options: dict = None) -> dict:
         }
 
 
-def invoke(payload: dict) -> dict:
+async def invoke(payload: dict) -> dict:
     """Main entry point for MCP skill invocation"""
     code = payload.get("code", "")
     options = payload.get("options", {})
 
     if not code:
-        return {"result": {"status": "error", "message": "No code or path provided"}}
-
+        return{
+        "result": {"status": "error", "message": "No code or path provided"},
+        "metadata": {
+            "action": action,
+            "timestamp": datetime.now().isoformat(),
+        },
+    }
     result = architecture_analyzer(code, options)
-    return {"result": result}
-
-
+    return{
+        "result": result,
+        "metadata": {
+            "action": action,
+            "timestamp": datetime.now().isoformat(),
+        },
+    }
 def register_skill():
     """Return skill metadata for MCP registration"""
     return {

@@ -12,6 +12,7 @@ import re
 from dataclasses import dataclass
 from enum import Enum
 from typing import Any, Dict, List
+from datetime import datetime
 
 
 class Severity(Enum):
@@ -485,7 +486,7 @@ def secret_scanner(
         }
 
 
-def invoke(payload: dict) -> dict:
+async def invoke(payload: dict) -> dict:
     """
     Main entry point for MCP skill invocation.
 
@@ -511,9 +512,13 @@ def invoke(payload: dict) -> dict:
     else:
         result = {"status": "error", "message": f"Unknown action: {action}"}
 
-    return {"result": result}
-
-
+    return{
+        "result": result,
+        "metadata": {
+            "action": action,
+            "timestamp": datetime.now().isoformat(),
+        },
+    }
 def register_skill() -> dict:
     """
     Return skill metadata for MCP registration.

@@ -167,3 +167,29 @@ def apply_technique(technique: str, data: Any) -> Dict:
     """Quick technique application."""
     applicator = TechniqueApplicator()
     return applicator.apply_technique(technique, data)
+
+
+# --- invoke() wrapper added by batch fix ---
+import asyncio as _asyncio
+import inspect as _inspect
+
+async def invoke(payload: dict) -> dict:
+    """Entry point for skill invocation."""
+    import datetime as _dt
+    action = payload.get("action", "apply_technique")
+    timestamp = _dt.datetime.now().isoformat()
+    kwargs = {k: v for k, v in payload.items() if k != "action"}
+
+    instance = TechniqueApplicator()
+
+    if action == "get_info":
+        return {"result": {"name": "technique_application", "actions": ['apply_technique', 'execute_procedure', 'identify_problem_type', 'select_technique', 'verify_result'] }, "metadata": {"action": action, "timestamp": timestamp}}
+
+    method = getattr(instance, action, None)
+    if method is None:
+        return {"result": {"error": f"Unknown action: {action}"}, "metadata": {"action": action, "timestamp": timestamp}}
+
+    result = method(**kwargs)
+    if _inspect.isawaitable(result):
+        result = await result
+    return {"result": result, "metadata": {"action": action, "timestamp": timestamp}}

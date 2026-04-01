@@ -12,6 +12,7 @@ import json
 import re
 from dataclasses import dataclass, field
 from typing import Any, Dict, List
+from datetime import datetime
 
 
 @dataclass
@@ -487,7 +488,7 @@ def api_doc_generator(code: str, options: dict = None) -> dict:
     }
 
 
-def invoke(payload: dict) -> dict:
+async def invoke(payload: dict) -> dict:
     """MCP skill invocation"""
     action = payload.get("action", "generate")
     code = payload.get("code", "")
@@ -500,9 +501,13 @@ def invoke(payload: dict) -> dict:
     else:
         result = {"status": "error", "message": f"Unknown action: {action}"}
 
-    return {"result": result}
-
-
+    return{
+        "result": result,
+        "metadata": {
+            "action": action,
+            "timestamp": datetime.now().isoformat(),
+        },
+    }
 def register_skill():
     """Return skill metadata"""
     return {

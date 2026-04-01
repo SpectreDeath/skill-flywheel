@@ -180,3 +180,29 @@ def conclude(question: str, evidence: List[Dict]) -> Dict:
             e.get("statement", ""), e.get("strength", 0.5), e.get("source", "unknown")
         )
     return thinker.determine_conclusion(question)
+
+
+# --- invoke() wrapper added by batch fix ---
+import asyncio as _asyncio
+import inspect as _inspect
+
+async def invoke(payload: dict) -> dict:
+    """Entry point for skill invocation."""
+    import datetime as _dt
+    action = payload.get("action", "evaluate_evidence")
+    timestamp = _dt.datetime.now().isoformat()
+    kwargs = {k: v for k, v in payload.items() if k != "action"}
+
+    instance = ConclusiveThinker()
+
+    if action == "get_info":
+        return {"result": {"name": "conclusive_thinking", "actions": ['add_evidence', 'assess_sufficiency', 'determine_conclusion', 'evaluate_evidence', 'state_conclusion'] }, "metadata": {"action": action, "timestamp": timestamp}}
+
+    method = getattr(instance, action, None)
+    if method is None:
+        return {"result": {"error": f"Unknown action: {action}"}, "metadata": {"action": action, "timestamp": timestamp}}
+
+    result = method(**kwargs)
+    if _inspect.isawaitable(result):
+        result = await result
+    return {"result": result, "metadata": {"action": action, "timestamp": timestamp}}

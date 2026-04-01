@@ -412,7 +412,7 @@ def impact_analyzer(code: str, change_target: str, options: dict = None) -> dict
     }
 
 
-def invoke(payload: dict) -> dict:
+async def invoke(payload: dict) -> dict:
     action = payload.get("action", "analyze")
 
     if action == "analyze":
@@ -421,8 +421,13 @@ def invoke(payload: dict) -> dict:
         options = payload.get("options", {})
 
         result = impact_analyzer(code, change_target, options)
-        return {"result": result}
-
+        return{
+        "result": result,
+        "metadata": {
+            "action": action,
+            "timestamp": datetime.now().isoformat(),
+        },
+    }
     elif action == "batch":
         results = []
         analyses = payload.get("analyses", [])
@@ -433,8 +438,13 @@ def invoke(payload: dict) -> dict:
             options = analysis.get("options", {})
             results.append(impact_analyzer(code, change_target, options))
 
-        return {"result": results}
-
+        return{
+        "result": results,
+        "metadata": {
+            "action": action,
+            "timestamp": datetime.now().isoformat(),
+        },
+    }
     elif action == "full_analysis":
         target = payload.get("change_target", "")
         payload.get("base_path", ".")
@@ -510,5 +520,6 @@ class Validator:
 
     result = impact_analyzer(sample_code, "DataProcessor.transform")
     import json
+from datetime import datetime
 
     print(json.dumps(result, indent=2))
