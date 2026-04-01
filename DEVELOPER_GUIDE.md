@@ -1,187 +1,202 @@
-# Developer Guide
+# Skill Flywheel Developer Guide
 
-Welcome to the Skill Flywheel development team! This guide will help you get started with the project.
+Welcome to the Skill Flywheel development team! This guide covers contributing to a **unified MCP server** with 531+ skills.
+
+## Architecture Overview
+
+The Skill Flywheel uses a **unified server** — a single FastAPI application (`src/flywheel/server/unified_server.py`) that consolidates:
+- **Skill Discovery** (SQLite-backed search and listing)
+- **Skill Execution** (dynamic Python module loading)
+- **ML Optimization** (predictive loading, resource adaptive scaling)
+
+### Core Components
+
+| Component | Location | Description |
+|-----------|----------|-------------|
+| EnhancedSkillManager | `src/flywheel/core/skills.py` | Dynamic lazy loading, module caching |
+| AdvancedCache | `src/flywheel/core/cache.py` | LRU cache, per-module config |
+| TelemetryManager | `src/flywheel/core/telemetry.py` | Prometheus metrics |
+| MLModelManager | `src/flywheel/core/ml_models.py` | ML predictions for skill loading |
+| ResourceOptimizer | `src/flywheel/core/resource_optimizer.py` | Resource adaptive scaling |
+| ContainerManager | `src/flywheel/core/containers.py` | Docker orchestration |
 
 ## Prerequisites
 
-- Python 3.11 or higher
-- Docker and Docker Compose
-- Git
-- (Optional) OpenAI API key for advanced features
+- Python 3.11+
+- pip or uv
+- SQLite (built-in to Python)
 
 ## Quick Start
 
-### 1. Clone the Repository
+### 1. Clone and Install
 
 ```bash
 git clone <repository-url>
 cd skill-flywheel
-```
-
-### 2. Create Environment Configuration
-
-```bash
-cp .env.example .env
-# Edit .env with your actual API keys
-```
-
-### 3. Install Dependencies
-
-```bash
 pip install -r requirements.txt
 ```
 
-### 4. Run the Server
+### 2. Start the Server
 
 ```bash
-# Using Docker (recommended)
-docker-compose up -d
-
-# Or directly with Python
-python -m uvicorn src.server.discovery_service:app --reload
+python -m src.flywheel.server.unified_server
 ```
 
-### 5. Verify Installation
+### 3. Verify Installation
 
-Visit: http://localhost:8000/health
-
-## Project Structure
-
+```bash
+curl http://localhost:8000/health
 ```
-skill-flywheel/
-├── src/
-│   ├── core/              # Shared core components
-│   │   ├── skills.py      # Skill management
-│   │   ├── telemetry.py   # Monitoring & metrics
-│   │   └── ...
-│   ├── server/            # API servers
-│   │   ├── discovery_service.py  # Main API
-│   │   └── enhanced_mcp_server_v3.py
-│   ├── skills/            # Skill implementations
-│   │   ├── *.py          # Individual skills
-│   │   └── domain_folders/
-│   └── ...
-├── domains/               # Skill definitions (SKILL.md)
-├── data/                  # Database and models
-├── tests/                 # Test suite
-└── docs/                 # Documentation
+
+## Skill Module Requirements
+
+Every skill must follow this format:
+
+```python
+#!/usr/bin/env python3
+"""Skill description"""
+
+import logging
+from datetime import datetime
+from typing import Any, Dict
+
+logger = logging.getLogger(__name__)
+
+async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
+    """MCP skill invocation."""
+    action = payload.get("action", "default")
+    try:
+        # Business logic here
+        result = {"status": "success", "data": "..."}
+        return {
+            "result": result,
+            "metadata": {
+                "action": action,
+                "timestamp": datetime.now().isoformat(),
+            },
+        }
+    except Exception as e:
+        logger.error(f"Error in skill_name: {e}")
+        return {
+            "result": {"error": str(e)},
+            "metadata": {"action": action, "timestamp": datetime.now().isoformat()},
+        }
+
+def register_skill() -> Dict[str, str]:
+    """Return skill metadata."""
+    return {
+        "name": "skill-name",
+        "description": "What this skill does",
+        "version": "1.0.0",
+        "domain": "DOMAIN_NAME",
+    }
+```
+
+### Key Requirements Checklist
+
+- [x] `async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]`
+- [x] `from datetime import datetime` import
+- [x] Return format: `{"result": ..., "metadata": {"action": ..., "timestamp": ...}}`
+- [x] `try/except` error handling with `logger.error()`
+- [x] `register_skill()` function returning metadata
+
+## Creating New Skills
+
+### From Command Line
+
+```bash
+python scripts/scaffold_skill.py my_skill DOMAIN --description "What it does" --actions "process:Process data" "analyze:Analyze data"
+```
+
+### From SKILL.md Spec
+
+```bash
+python scripts/scaffold_skill.py --from-spec domains/ML_AI/SKILL.tutorial-name/SKILL.md
+```
+
+### Validate Skills
+
+```bash
+python scripts/validate_skill.py src/flywheel/skills --recursive
 ```
 
 ## Running Tests
 
 ```bash
-# Run all tests
-pytest tests/ -v
+# All tests
+python -m pytest tests/ -v
 
-# Run specific test file
-pytest tests/test_mcp_server_fix.py -v
+# Specific test file
+python -m pytest tests/test_claw_code_skills.py -v
 
-# Run with coverage
-pytest tests/ --cov=src --cov-report=html
+# With coverage
+python -m pytest tests/ --cov=src -v
 ```
 
-## Linting & Type Checking
+## Linting
 
 ```bash
-# Run Ruff linter
 ruff check .
-
-# Run MyPy type checker
-mypy src/ --ignore-missing-imports
+python -m mypy src/ --ignore-missing-imports
 ```
 
-## Common Development Tasks
+## API Endpoints
 
-### Adding a New Skill
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/` | GET | Server health |
+| `/health` | GET | Detailed health with telemetry |
+| `/skills` | GET | List skills (filter by domain, paginate) |
+| `/skills/search` | GET | Search by name/description/keywords |
+| `/domains` | GET | List domains and counts |
+| `/skills/execute` | POST | Execute a skill by name |
+| `/metrics` | GET | Performance metrics |
+| `/skills/optimize` | POST | Run optimization |
 
-1. Create a new Python file in `src/skills/`
-2. Implement the skill function with proper docstrings
-3. Add `invoke()` and `register_skill()` functions
-4. Register the skill in the database (if using SQLite registry)
-
-Example:
-```python
-def my_skill(param: str) -> dict:
-    """Skill description"""
-    return {"status": "success", "result": param}
-
-def invoke(payload: dict) -> dict:
-    return {"result": my_skill(**payload)}
-
-def register_skill():
-    return {
-        "name": "my-skill",
-        "description": "My new skill",
-        "version": "1.0.0",
-        "domain": "GENERAL"
-    }
-```
-
-### Adding a New Domain
-
-1. Create directory: `domains/YOUR_DOMAIN/`
-2. Add SKILL.md files for each skill
-3. Skills will be auto-discovered
-
-### Database Operations
+## Database
 
 ```bash
-# Open SQLite database
 sqlite3 data/skill_registry.db
 
-# List tables
-.schema
+# List skills
+SELECT name, domain, status FROM skills ORDER BY domain LIMIT 10;
 
-# Query skills
-SELECT name, domain, health_status FROM skills LIMIT 10;
+# Search skills
+SELECT name, domain FROM skills WHERE name LIKE '%search%';
 ```
 
-## Troubleshooting
+## Pipeline: Spec → Code → Test
 
-### Server Won't Start
+1. **Spec** (`domains/`) — SKILL.md defines requirements
+2. **Scaffold** (`scripts/scaffold_skill.py`) — Generates Python module
+3. **Validate** (`scripts/validate_skill.py`) — Checks format compliance
+4. **Implement** — Developer fills in business logic
+5. **Test** — pytest tests verify behavior
+6. **Register** — Skill added to `data/skill_registry.db`
 
-1. Check if port 8000 is available
-2. Verify database exists: `ls data/skill_registry.db`
-3. Check logs: `docker-compose logs`
-
-### Import Errors
-
-```bash
-# Ensure PYTHONPATH is set
-export PYTHONPATH=.
-```
-
-### Test Failures
-
-```bash
-# Run tests with verbose output
-pytest tests/ -v --tb=long
-
-# Run specific test
-pytest tests/test_mcp_server_fix.py::TestServerConfig::test_default_config -v
-```
-
-## Security Notes
+## Security
 
 - Never commit secrets to version control
 - Use `.env` for local development (already in `.gitignore`)
-- Run the security scanner before deploying:
+- Run safety checks before deploying:
   ```bash
-  bandit -r src/
+  pip install safety bandit
   safety check
+  bandit -r src/
   ```
+
+## Known Issues
+
+- **Windows junction failures**: Some skills may fail to load on Windows due to symlink/junction issues. This is Windows-specific and resolves on Linux CI.
+- **OpenClaw/NemoClaw**: 5 platform-specific modules without `invoke()` — by design, excluded from fix runs.
+- **Format compliance**: 94% of skills pass validation (501/531). The remaining 30 have minor issues.
 
 ## Contributing
 
 1. Create a feature branch: `git checkout -b feature/my-feature`
 2. Make changes and add tests
 3. Run linting: `ruff check .`
-4. Run tests: `pytest tests/`
-5. Commit with conventional commits
-6. Push and create PR
-
-## Additional Resources
-
-- [API Documentation](http://localhost:8000/docs)
-- [Architecture Overview](README.md)
-- [Skill Index](domains/SKILL_INDEX.md)
+4. Run tests: `python -m pytest tests/ -v`
+5. Validate skills: `python scripts/validate_skill.py src/flywheel/skills --recursive`
+6. Commit with conventional commits
+7. Push and create PR

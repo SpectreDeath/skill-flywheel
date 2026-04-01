@@ -1,12 +1,15 @@
 # Skill Flywheel
 
-A unified skill registry with 528+ specialized skills for AI agent development.
+A unified MCP server with 531+ specialized skills for AI agent development, all running on a single FastAPI service.
 
 ## 🚀 Quick Start
 
 ```bash
-# Start the discovery service
-uvicorn src.server.discovery_service:app --reload
+# Install dependencies
+pip install -r requirements.txt
+
+# Start the unified server
+python -m src.flywheel.server.unified_server
 
 # Verify status
 curl http://localhost:8000/health
@@ -14,43 +17,86 @@ curl http://localhost:8000/health
 
 ## 📁 Repository Structure
 
-- `/src/flywheel/core`: Shared logic and specialized core components.
-- `/src/flywheel/server`: Discovery service and MCP server.
-- `/src/skills/`: Legacy Python skill modules (deprecated - use domains/).
-- `/domains`: **Canonical** SKILL.md specifications organized by domain.
-- `/data`: SQLite skill registry and JSON indexes.
-- `/docs`: Comprehensive documentation index.
-- `/tests`: Automated test suites.
-- `/skills`: Runtime Python skill modules.
+- `/src/flywheel/server/unified_server.py`: **Main entry point** — FastAPI server with discovery, execution, and optimization
+- `/src/flywheel/core/`: Components (SkillManager, Cache, Telemetry, ML, ResourceOptimizer)
+- `/src/flywheel/skills/`: 531+ Python skill modules across 27 domains
+- `/domains/`: SKILL.md specifications organized by domain — source material for skill generation
+- `/data/`: SQLite registry (`skill_registry.db`), backlog tracking, and skill index
+- `/scripts/`: `scaffold_skill.py` (generate skills), `validate_skill.py` (format checking)
+- `/docs/`: Architecture and developer documentation
+- `/tests/`: Automated test suites (30 tests, all passing)
 
-## 📚 Skill Domains
+## 📚 Skill Domains (27)
 
 | Domain | Description |
 |--------|-------------|
 | AI_AGENT_DEVELOPMENT | AI agent frameworks and implementations |
 | ALGO_PATTERNS | Algorithm design patterns |
 | APPLICATION_SECURITY | Security vulnerability assessment |
-| CLOUD_ENGINEERING | Distributed systems |
+| CLOUD_ENGINEERING | Distributed systems, Buildroot cross-compilation |
 | COGNITIVE_SKILLS | Thinking and reasoning skills |
-| DATABASE_ENGINEERING | Database design and optimization |
-| DATA_ENGINEERING | Data pipelines and processing |
+| DATABASE_ENGINEERING | Data pipelines and processing |
 | DEVOPS | CI/CD and infrastructure |
 | FRONTEND | Frontend development |
 | GAME_DEV | Game development |
 | ML_AI | Machine learning and AI |
-| MCP_TOOLS | Model Context Protocol tools |
 | MODEL_ORCHESTRATION | Model routing and selection |
 | ORCHESTRATION | Workflow orchestration |
 | QUANTUM_COMPUTING | Quantum algorithms |
 | SECURITY_ENGINEERING | Security engineering |
-| And more... | 24 total domains |
+| TESTING_QUALITY | Code quality, diagnostics, scaffolding tools |
+| PERFORMANCE | Performance analysis and optimization |
+| MODERN_BACKEND | CLI parsing, tool execution, session management |
+| WEB3 | Decentralized finance and layer 2 scaling |
+| MOBILE_DEVELOPMENT | Cross-platform architecture |
+| SECURITY | Attack surface mapping and CVE analysis |
+| SEARCH_ALGORITHMS | A*, genetic algorithms, simulated annealing |
+| PROBABILISTIC_MODELS | Bayesian models and probabilistic programming |
+| SKILL_MANAGEMENT | Library health, skill recommendations |
+| SKILL_REGISTRY | Auto-evolution control, task routing |
+| SKILL_VALIDATION | Format compliance and naming conventions |
+| SPECIFICATION_ENGINEERING | PRD generation, API design |
+| And more... | |
 
 ## 🔍 Key Features
 
-- **Single FastAPI Service**: Discovery service runs on port 8000
-- **JSON Registry**: Skills indexed in `skill_registry.json` (built from `domains/`)
-- **SKILL.md Specs**: Domain-driven specifications in `domains/` (canonical source)
-- **Python Modules**: Runtime skills in `skills/` directory
+- **Unified FastAPI Server**: Single port 8000 for discovery, execution, and metrics
+- **SQLite Registry**: Skills registered in `data/skill_registry.db`
+- **Lazy Loading**: Modules loaded on-demand, cached after 10+ hits
+- **ML Optimization**: Predictive loading and resource adaptive scaling
+- **Prometheus Telemetry**: Request counters, duration metrics
+- **Skill Scaffold**: `scripts/scaffold_skill.py` generates properly formatted skills from CLI args or SKILL.md specs
+- **Format Validation**: `scripts/validate_skill.py` checks skills match the required format
+
+## 📖 API Endpoints
+
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/` | GET | Server health |
+| `/health` | GET | Detailed health with telemetry status |
+| `/skills` | GET | List all skills (filter, paginate) |
+| `/skills/search` | GET | Search by name/description |
+| `/domains` | GET | List domains and counts |
+| `/skills/execute` | POST | Execute a skill |
+| `/metrics` | GET | Performance metrics |
+
+## 🛠️ Development
+
+### Creating New Skills
+
+```bash
+# From CLI
+python scripts/scaffold_skill.py my_skill DOMAIN --description "Description"
+
+# From SKILL.md spec
+python scripts/scaffold_skill.py --from-spec domains/ML_AI/SKILL.name/SKILL.md
+
+# Validate
+python scripts/validate_skill.py src/flywheel/skills --recursive
+
+# Test
+python -m pytest tests/ -v
+```
 
 ## 📜 License
 
