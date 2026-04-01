@@ -10,6 +10,7 @@ This module provides cache analysis capabilities:
 """
 
 import re
+from datetime import datetime
 from typing import Any, Dict, List
 
 
@@ -826,10 +827,10 @@ async def invoke(payload: dict) -> dict:
     if payload.get("generate_report", False):
         result["report"] = generate_report(result)
 
-    return{
+    return {
         "result": result,
         "metadata": {
-            "action": action,
+            "action": payload.get("action", "analyze"),
             "timestamp": datetime.now().isoformat(),
         },
     }
@@ -939,7 +940,4 @@ class MyCache:
 """
 
     result = cache_analyzer(test_code, {"detection_level": "standard"})
-    import json
-from datetime import datetime
-
     print(json.dumps(result, indent=2))
