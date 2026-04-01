@@ -1,3 +1,0 @@
-flywheel
-scripts
-skills
