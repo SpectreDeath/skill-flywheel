@@ -6,6 +6,7 @@ problems by finding the single best answer.
 """
 
 from typing import Any, Dict, List
+from datetime import datetime
 
 from .accuracy_and_speed import AccuracySpeedOptimizer
 from .analytical_thinking import AnalyticalThinker
