@@ -17,7 +17,7 @@ from datetime import datetime, timedelta
 from pathlib import Path
 from typing import Any, Dict, List
 
-import GPUtil
+from contextlib import asynccontextmanager
 import psutil
 import uvicorn
 import yaml
@@ -34,6 +34,20 @@ logging.basicConfig(
     handlers=[logging.FileHandler("monitoring_dashboard.log"), logging.StreamHandler()],
 )
 logger = logging.getLogger(__name__)
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    dashboard = app.state.dashboard
+    dashboard.background_tasks = []
+    dashboard.background_tasks.append(
+        asyncio.create_task(dashboard._data_collection_loop())
+    )
+    logger.info("Monitoring Dashboard started successfully")
+    yield
+    for task in dashboard.background_tasks:
+        task.cancel()
+    logger.info("Monitoring Dashboard shutting down")
 
 
 # Dashboard Configuration
@@ -262,7 +276,10 @@ class MonitoringDashboard:
             title="MCP Server Monitoring Dashboard",
             description="Real-time monitoring and analytics for MCP Server",
             version="1.0.0",
+            lifespan=lifespan,
         )
+
+        self.app.state.dashboard = self
 
         # Setup CORS
         self.app.add_middleware(
@@ -360,24 +377,6 @@ class MonitoringDashboard:
             }
 
             return summary
-
-        @self.app.on_event("startup")
-        async def startup_event():
-            """Startup tasks"""
-            # Start background data collection
-            self.background_tasks.append(
-                asyncio.create_task(self._data_collection_loop())
-            )
-
-            logger.info("Monitoring Dashboard started successfully")
-
-        @self.app.on_event("shutdown")
-        async def shutdown_event():
-            """Shutdown tasks"""
-            for task in self.background_tasks:
-                task.cancel()
-
-            logger.info("Monitoring Dashboard shutting down")
 
     def _generate_dashboard_html(self) -> str:
         """Generate basic HTML dashboard if templates not available"""

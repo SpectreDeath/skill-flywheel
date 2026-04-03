@@ -19,12 +19,13 @@ curl http://localhost:8000/health
 
 - `/src/flywheel/server/unified_server.py`: **Main entry point** — FastAPI server with discovery, execution, and optimization
 - `/src/flywheel/core/`: Components (SkillManager, Cache, Telemetry, ML, ResourceOptimizer)
+- `/src/flywheel/evolution/`: Darwinian evolution system for skill genome optimization
 - `/src/flywheel/skills/`: 531+ Python skill modules across 27 domains
 - `/domains/`: SKILL.md specifications organized by domain — source material for skill generation
 - `/data/`: SQLite registry (`skill_registry.db`), backlog tracking, and skill index
-- `/scripts/`: `scaffold_skill.py` (generate skills), `validate_skill.py` (format checking)
+- `/scripts/`: `scaffold_skill.py` (generate skills), `validate_skill.py` (format checking), `evolution_cli.py` (skill evolution)
 - `/docs/`: Architecture and developer documentation
-- `/tests/`: Automated test suites (30 tests, all passing)
+- `/tests/`: Automated test suites (315 tests, all passing)
 
 ## 📚 Skill Domains (27)
 
@@ -70,15 +71,45 @@ curl http://localhost:8000/health
 
 ## 📖 API Endpoints
 
+### Discovery
 | Endpoint | Method | Description |
 |----------|--------|-------------|
 | `/` | GET | Server health |
 | `/health` | GET | Detailed health with telemetry status |
-| `/skills` | GET | List all skills (filter, paginate) |
-| `/skills/search` | GET | Search by name/description |
-| `/domains` | GET | List domains and counts |
-| `/skills/execute` | POST | Execute a skill |
-| `/metrics` | GET | Performance metrics |
+| `/skills` | GET | List all skills (filter by domain, paginate) |
+| `/skills/search` | GET | Search skills by name/description |
+| `/domains` | GET | List domains and skill counts |
+
+### Execution
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/skills/execute` | POST | Execute a skill by name |
+
+### Optimization
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/metrics` | GET | System performance metrics |
+| `/skills/optimize` | POST | Trigger ML optimization and predictive preloading |
+| `/skills/predict` | GET | Predict usage probability for a skill |
+| `/skills/preload` | GET | Get skills recommended for preloading |
+
+### Evolution
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/skills/evolve` | POST | Trigger skill evolution for a group |
+| `/skills/evolve/groups` | GET | List available evolvable skill groups |
+
+### Orchestration
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/skills/orchestrate` | POST | Orchestrate multi-agent workflows (AutoGen, LangChain, LangGraph, CrewAI) |
+
+### Security
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/skills/scan` | POST | Scan a skill for security vulnerabilities |
+| `/skills/scan/all` | GET | Scan all skills for security vulnerabilities |
+| `/security/summary` | GET | Get security monitoring summary |
 
 ## 🛠️ Development
 

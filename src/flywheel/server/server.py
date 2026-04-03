@@ -34,6 +34,28 @@ from flywheel.server.config import ServerConfig
 logger = logging.getLogger(__name__)
 
 
+from contextlib import asynccontextmanager
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    server = app.state.server
+    server.background_tasks = []
+    server.background_tasks.append(
+        asyncio.create_task(server._advanced_monitoring_loop())
+    )
+    server.background_tasks.append(asyncio.create_task(server._ml_optimization_loop()))
+    server.background_tasks.append(
+        asyncio.create_task(server._container_scaling_loop())
+    )
+    await server.skill_manager.discover_skills()
+    logger.info("Enhanced MCP Server v3 started successfully")
+    yield
+    for task in server.background_tasks:
+        task.cancel()
+    logger.info("Enhanced MCP Server v3 shutting down")
+
+
 class EnhancedMCPServerV3:
     """Enhanced MCP Server v3 with advanced ML-driven optimization"""
 
@@ -56,7 +78,10 @@ class EnhancedMCPServerV3:
             docs_url="/docs",
             redoc_url="/redoc",
             openapi_url="/openapi.json",
+            lifespan=lifespan,
         )
+
+        self.app.state.server = self
 
         self.app.add_middleware(
             CORSMiddleware,
@@ -243,29 +268,6 @@ class EnhancedMCPServerV3:
                     for name, skill in self.skill_manager.skills.items()
                 },
             }
-
-        @self.app.on_event("startup")
-        async def startup_event():
-            self.background_tasks.append(
-                asyncio.create_task(self._advanced_monitoring_loop())
-            )
-            self.background_tasks.append(
-                asyncio.create_task(self._ml_optimization_loop())
-            )
-            self.background_tasks.append(
-                asyncio.create_task(self._container_scaling_loop())
-            )
-
-            await self.skill_manager.discover_skills()
-
-            logger.info("Enhanced MCP Server v3 started successfully")
-
-        @self.app.on_event("shutdown")
-        async def shutdown_event():
-            for task in self.background_tasks:
-                task.cancel()
-
-            logger.info("Enhanced MCP Server v3 shutting down")
 
     async def _advanced_monitoring_loop(self):
         """Advanced monitoring loop with ML analytics"""

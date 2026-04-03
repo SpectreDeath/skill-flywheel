@@ -3,6 +3,7 @@ from __future__ import annotations
 import asyncio
 import importlib
 import importlib.util
+import inspect
 import logging
 import time
 from pathlib import Path
@@ -251,7 +252,7 @@ class RealSkillExecutor(SkillExecutor):
                 **parameters,
             }
 
-            if asyncio.iscoroutinefunction(invoke_func):
+            if inspect.iscoroutinefunction(invoke_func):
                 result = await invoke_func(payload)
             else:
                 result = invoke_func(payload)

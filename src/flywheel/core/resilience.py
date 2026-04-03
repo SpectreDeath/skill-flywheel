@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import asyncio
 import functools
+import inspect
 import threading
 import time
 from collections.abc import Callable
@@ -121,7 +122,7 @@ def circuit_breaker(
     def decorator(func: Callable[..., T]) -> Callable[..., T]:
         breaker = get_circuit_breaker(name, config)
 
-        if asyncio.iscoroutinefunction(func):
+        if inspect.iscoroutinefunction(func):
 
             @functools.wraps(func)
             async def async_wrapper(*args: Any, **kwargs: Any) -> T:
@@ -174,7 +175,7 @@ def retry_with_backoff(
     """
 
     def decorator(func: Callable[..., T]) -> Callable[..., T]:
-        if asyncio.iscoroutinefunction(func):
+        if inspect.iscoroutinefunction(func):
 
             @functools.wraps(func)
             async def async_wrapper(*args: Any, **kwargs: Any) -> T:
@@ -243,7 +244,7 @@ def timeout(seconds: float) -> Callable[[Callable[..., T]], Callable[..., T]]:
     """
 
     def decorator(func: Callable[..., T]) -> Callable[..., T]:
-        if asyncio.iscoroutinefunction(func):
+        if inspect.iscoroutinefunction(func):
 
             @functools.wraps(func)
             async def async_wrapper(*args: Any, **kwargs: Any) -> T:

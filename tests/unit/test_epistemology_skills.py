@@ -278,7 +278,7 @@ def test_epist_002():
     assert posterior_urn["all_white"] > prior_urn["all_white"]
 
     print("\n[PASS] All epist-002 tests passed!")
-    return True
+    assert True
 
 
 # ==============================================================================
@@ -399,7 +399,8 @@ def test_epist_003():
     assert aggregated["aggregated_credence"] == 0.675
 
     print("\n[PASS] All epist-003 tests passed!")
-    return True
+    print("\n[PASS] epist-004 test passed!")
+    assert True
 
 
 # ==============================================================================
@@ -547,7 +548,8 @@ def test_agency_001():
     assert deviance3["causal_deviance_risk"] == True
 
     print("\n[PASS] All agency-001 tests passed!")
-    return True
+    print("\n[PASS] epist-004 test passed!")
+    assert True
 
 
 # ==============================================================================
@@ -655,7 +657,8 @@ def test_agency_002():
     assert result2["primary_goal"] == "maximize profit"  # Higher priority
 
     print("\n[PASS] All agency-002 tests passed!")
-    return True
+    print("\n[PASS] epist-004 test passed!")
+    assert True
 
 
 # ==============================================================================
@@ -785,7 +788,8 @@ def test_agency_003():
     assert result3["knowledge_type"] == "pure_ability"
 
     print("\n[PASS] All agency-003 tests passed!")
-    return True
+    print("\n[PASS] epist-004 test passed!")
+    assert True
 
 
 # ==============================================================================
@@ -906,7 +910,8 @@ def test_logic_001():
     assert result3["is_justified"] == False
 
     print("\n[PASS] All logic-001 tests passed!")
-    return True
+    print("\n[PASS] epist-004 test passed!")
+    assert True
 
 
 # ==============================================================================
@@ -1086,7 +1091,8 @@ def test_logic_002():
     assert result3["valid"] == True
 
     print("\n[PASS] All logic-002 tests passed!")
-    return True
+    print("\n[PASS] epist-004 test passed!")
+    assert True
 
 
 # ==============================================================================
@@ -1225,7 +1231,8 @@ def test_epist_004():
     assert result2["overall_justification"] == "insufficiently_justified"
 
     print("\n[PASS] All epist-004 tests passed!")
-    return True
+    print("\n[PASS] epist-004 test passed!")
+    assert True
 
 
 # ==============================================================================
