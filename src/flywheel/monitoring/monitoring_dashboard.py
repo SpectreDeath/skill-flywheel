@@ -17,6 +17,11 @@ from datetime import datetime, timedelta
 from pathlib import Path
 from typing import Any, Dict, List
 
+try:
+    import GPUtil
+except ImportError:
+    GPUtil = None
+
 from contextlib import asynccontextmanager
 import psutil
 import uvicorn
@@ -107,12 +112,13 @@ class DashboardDataCollector:
 
             # GPU (if available)
             gpu_usage = None
-            try:
-                gpus = GPUtil.getGPUs()
-                if gpus:
-                    gpu_usage = gpus[0].load * 100
-            except:
-                pass
+            if GPUtil is not None:
+                try:
+                    gpus = GPUtil.getGPUs()
+                    if gpus:
+                        gpu_usage = gpus[0].load * 100
+                except:
+                    pass
 
             # Network and Process stats
             connections = len(psutil.net_connections())

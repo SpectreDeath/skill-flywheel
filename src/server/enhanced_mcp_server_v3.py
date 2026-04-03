@@ -1,30 +1,14 @@
 #!/usr/bin/env python3
 """
-Enhanced MCP Server v3 - Legacy Module
+Legacy compatibility shim for src.server.enhanced_mcp_server_v3
 
-This module is kept for backward compatibility.
-All functionality has been split into:
-- flywheel.server.config: ServerConfig class
-- flywheel.server.server: EnhancedMCPServerV3 class
-
-This file now imports and re-exports from the new modules.
+This module exists to maintain backward compatibility with existing tests and
+code that import from src.server. All functionality is delegated to the new
+flywheel.server module structure.
 """
-
-import logging
-import sys
-
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
-    handlers=[
-        logging.FileHandler("enhanced_mcp_server_v3.log"),
-        logging.StreamHandler(sys.stdout),
-    ],
-)
 
 from flywheel.server.config import ServerConfig
 from flywheel.server.server import EnhancedMCPServerV3
-
 from flywheel.core.cache import AdvancedCache
 from flywheel.core.containers import ContainerManager
 from flywheel.core.ml_models import MLModelManager
