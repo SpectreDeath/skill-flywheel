@@ -45,3 +45,6 @@ tmp/
 
 # Diagnostic output
 diagnostic_results*.json
+
+# Root level log files
+*.log
