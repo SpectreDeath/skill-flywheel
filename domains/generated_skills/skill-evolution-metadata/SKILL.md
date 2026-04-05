@@ -1,6 +1,6 @@
 ---
 name: skill-evolution-metadata
-description: Use when defining SKILL.md files with evolution metadata including origin tracking, version history, trigger keywords, and quality metrics for self-evolving agent systems.
+description: "Use when: defining SKILL.md files with evolution metadata including origin tracking, version history, trigger keywords, and quality metrics. Triggers: 'skill metadata', 'evolution tracking', 'version history', 'origin tracking', 'skill quality'. NOT for: static skill documentation (use standard docs), or when metadata isn't needed."
 ---
 
 # SKILL.md Convention with Evolution Metadata

@@ -1,6 +1,6 @@
 ---
 name: cross-platform-persistence
-description: Use when implementing daemon persistence across Linux, Solaris, and embedded (MikroTik) platforms with platform-specific daemonization, init scripts, core dump prevention, and timer-file-based lifecycle management.
+description: "Use when: implementing daemon persistence across Linux, Solaris, and MikroTik platforms with platform-specific daemonization. Triggers: 'daemon persistence', 'service init', 'autostart', 'systemd', 'init script', 'core dump prevention'. NOT for: single-platform only (use platform-specific skills), or when daemon isn't required."
 ---
 
 # Cross-Platform Daemon Persistence

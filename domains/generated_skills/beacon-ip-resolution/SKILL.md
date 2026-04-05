@@ -1,6 +1,6 @@
 ---
 name: beacon-ip-resolution
-description: Use when post-processing beacon XML (RSI) files to resolve internal VPN tunnel IPs to external VPS IPs, parse platform-specific ifconfig output across Linux/Solaris/MikroTik, and classify beacons as good or bad based on parsing success.
+description: "Use when: post-processing beacon XML (RSI) files to resolve internal VPN tunnel IPs to external VPS IPs. Triggers: 'IP resolution', 'RSI parsing', 'VPN mapping', 'ifconfig parsing', 'beacon classification'. NOT for: real-time processing (use beacon-management-gateway), or when IPs are already resolved."
 ---
 
 # Beacon Post-Processing IP Resolution

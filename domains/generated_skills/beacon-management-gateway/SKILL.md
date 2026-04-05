@@ -1,6 +1,6 @@
 ---
 name: beacon-management-gateway
-description: Use when building a Python beacon management gateway that receives encrypted implant check-ins, parses custom binary protocols (BTHP), decrypts XTEA-encrypted data, and generates XML report files (RSI) for downstream processing.
+description: "Use when: building a Python beacon management gateway for encrypted implant check-ins, binary protocol parsing, and XML report generation. Triggers: 'beacon gateway', 'implant handler', 'BTHP protocol', 'XTEA decryption', 'RSI report'. Requires: Python. NOT for: real-time C2 (use C2 frameworks), or when encryption isn't needed."
 ---
 
 # Beacon Management Gateway (Honeycomb BTHP)

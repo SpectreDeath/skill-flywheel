@@ -1,6 +1,6 @@
 ---
 name: global-feature-importance
-description: Use when computing global feature importance and interaction patterns by aggregating SHAP-IQ local explanations across multiple samples to identify overall model behavior beyond individual predictions.
+description: "Use when: computing global feature importance and interaction patterns by aggregating SHAP-IQ local explanations across samples. Triggers: 'global importance', 'aggregated SHAP', 'model behavior', 'feature ranking', 'overall importance'. NOT for: single prediction explanation (use local SHAP), or when SHAP-IQ isn't available."
 ---
 
 # Global Feature Importance Aggregation

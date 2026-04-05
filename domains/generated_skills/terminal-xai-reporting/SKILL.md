@@ -1,6 +1,6 @@
 ---
 name: terminal-xai-reporting
-description: Use when generating terminal-friendly ASCII reports for explainable AI analysis without requiring graphical output, including bar visualizations and structured tables for feature importance and interaction effects.
+description: "Use when: generating terminal-friendly ASCII reports for explainable AI analysis without graphical output, including bar visualizations and structured tables. Triggers: 'terminal XAI', 'ASCII report', 'CLI visualization', 'feature importance table', 'text-based charts'. NOT for: interactive visualizations (use xai-plotly-visualization), or when rich output is required."
 ---
 
 # Terminal-Based XAI Reporting

@@ -1,6 +1,6 @@
 ---
 name: cold-warm-transition
-description: Use when implementing cold-start vs warm-start execution comparison in AI agent systems, measuring how skill reuse reduces token costs and execution time on subsequent similar tasks.
+description: "Use when: implementing cold-start vs warm-start execution comparison in AI agent systems to measure skill reuse benefits. Triggers: 'cold start', 'warm start', 'skill reuse', 'execution comparison', 'token savings', 'cache efficiency'. NOT for: single execution analysis (use standard profiling), or when skill reuse isn't applicable."
 ---
 
 # Cold-Start to Warm-Start Transition

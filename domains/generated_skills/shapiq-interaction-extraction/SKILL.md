@@ -1,6 +1,6 @@
 ---
 name: shapiq-interaction-extraction
-description: Use when extracting main effects and pairwise interaction matrices from SHAP-IQ InteractionValues objects, converting raw explanation output into structured Pandas DataFrames for analysis and visualization.
+description: "Use when: extracting main effects and pairwise interaction matrices from SHAP-IQ InteractionValues objects for analysis. Triggers: 'SHAP-IQ extraction', 'interaction matrix', 'main effects', 'pairwise interactions', 'DataFrame conversion'. NOT for: raw SHAP values (use standard SHAP), or when visualization is needed (use xai-plotly-visualization)."
 ---
 
 # SHAP-IQ Interaction Effect Extraction

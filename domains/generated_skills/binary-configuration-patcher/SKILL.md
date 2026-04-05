@@ -1,6 +1,6 @@
 ---
 name: binary-configuration-patcher
-description: Use when embedding runtime configuration into precompiled binaries by searching for a signature marker and overwriting a configuration structure at that offset, supporting multiple target architectures with endianness handling.
+description: "Use when: embedding runtime configuration into precompiled binaries by searching for signature markers. Triggers: 'binary patch', 'config injection', 'signature search', 'offset patch', 'runtime config'. Requires: binary analysis tools. NOT for: source-based configuration, or when rebuilding is possible."
 ---
 
 # Binary Configuration Patcher

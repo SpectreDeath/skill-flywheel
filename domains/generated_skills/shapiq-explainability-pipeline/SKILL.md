@@ -1,6 +1,6 @@
 ---
 name: shapiq-explainability-pipeline
-description: Use when building explainable AI pipelines with SHAP-IQ to compute theoretically grounded Shapley interaction indices for model predictions, going beyond basic SHAP values to capture pairwise feature interactions and decision breakdowns.
+description: "Use when: building explainable AI pipelines with SHAP-IQ to compute theoretically grounded Shapley interaction indices for model predictions. Triggers: 'SHAP-IQ', 'Shapley interactions', 'feature interactions', 'pairwise effects', 'explainability pipeline', 'XAI'. NOT for: basic SHAP values only (use standard SHAP), or when model doesn't support SHAP."
 ---
 
 # SHAP-IQ Explainability Pipeline Setup

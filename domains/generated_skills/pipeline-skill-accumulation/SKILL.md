@@ -1,6 +1,6 @@
 ---
 name: pipeline-skill-accumulation
-description: Use when running sequential task pipelines where each execution builds on previously evolved skills, tracking skill growth, reuse rate increase, and cumulative intelligence accumulation over time.
+description: "Use when: running sequential task pipelines where each execution builds on previously evolved skills. Triggers: 'pipeline evolution', 'skill accumulation', 'sequential pipeline', 'cumulative intelligence', 'reuse tracking'. NOT for: isolated tasks, or when skills don't evolve between executions."
 ---
 
 # Multi-Task Pipeline Skill Accumulation

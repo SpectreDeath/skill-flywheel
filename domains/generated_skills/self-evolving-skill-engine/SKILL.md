@@ -1,6 +1,6 @@
 ---
 name: self-evolving-skill-engine
-description: Use when building self-evolving AI agent systems that automatically capture, repair, and improve reusable skill patterns from task executions, with SQLite persistence and three evolution modes (FIX, DERIVED, CAPTURED).
+description: "Use when: building self-evolving AI agent systems that automatically capture, repair, and improve reusable skill patterns from task executions. Triggers: 'self-evolving', 'skill evolution', 'auto-improve', 'skill repair', 'pattern capture', 'evolution modes'. Requires: SQLite. NOT for: static skill libraries, or when evolution overhead outweighs benefits."
 ---
 
 # Self-Evolving Skill Engine Architecture

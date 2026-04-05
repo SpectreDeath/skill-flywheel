@@ -1,6 +1,6 @@
 ---
 name: cutthroat-ilm-plugin
-description: Use when building C++ shared library plugins (.so) that integrate with the CutThroat ILM framework by hijacking primitive handler tables, using constructor/destructor attributes for auto-initialization, and exposing custom commands through a profile-based configuration system.
+description: "Use when: building C++ shared library plugins for CutThroat ILM framework by hijacking primitive handler tables. Triggers: 'CutThroat ILM', 'plugin development', 'primitive handler', 'C++ plugin', 'framework integration'. NOT for: non-CutThroat frameworks, or when ILM isn't involved."
 ---
 
 # CutThroat ILM SDK Plugin Architecture

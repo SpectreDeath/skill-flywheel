@@ -1,6 +1,6 @@
 ---
 name: token-savings-measurement
-description: Use when measuring and reporting token savings from skill reuse in AI agent systems, comparing cold-start vs warm-start execution costs with structured metrics collection.
+description: "Use when: measuring and reporting token savings from skill reuse in AI agent systems, comparing cold-start vs warm-start execution costs. Triggers: 'token savings', 'cost measurement', 'skill reuse metrics', 'execution cost', 'warm start', 'cold start'. NOT for: latency measurement (use performance skills), or when token counting is unavailable."
 ---
 
 # Token Savings Measurement Framework

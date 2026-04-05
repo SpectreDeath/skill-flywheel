@@ -1,6 +1,6 @@
 ---
 name: covert-network-triggers
-description: Use when implementing covert wake-up mechanisms for dormant processes using protocol-specific packet encoding across ICMP, DNS, TFTP, and raw TCP/UDP, with payload obfuscation and CRC validation.
+description: "Use when: implementing covert wake-up mechanisms for dormant processes using protocol-specific packet encoding across ICMP, DNS, TFTP, TCP/UDP. Triggers: 'covert trigger', 'beacon wake-up', 'DNS tunnel', 'ICMP ping', 'protocol steganography'. NOT for: standard network communication, or when overt channels are acceptable."
 ---
 
 # Covert Network Trigger System

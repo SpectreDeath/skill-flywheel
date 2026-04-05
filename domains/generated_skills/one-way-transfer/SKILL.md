@@ -1,6 +1,6 @@
 ---
 name: one-way-transfer
-description: Use when implementing automated one-way data exfiltration that detects file changes in monitored directories, packages them into compressed archives, and uploads them via SWIFT protocol with mtime-based change tracking.
+description: "Use when: implementing automated one-way data exfiltration with file change detection and SWIFT upload. Triggers: 'data exfiltration', 'file monitoring', 'change detection', 'SWIFT upload', 'mtime tracking'. NOT for: bidirectional sync (use standard sync tools), or when local processing only."
 ---
 
 # One-Way Transfer (OWT) Data Exfiltration

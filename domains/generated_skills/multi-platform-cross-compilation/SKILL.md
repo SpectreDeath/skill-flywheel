@@ -1,6 +1,6 @@
 ---
 name: multi-platform-cross-compilation
-description: Use when building C/C++ projects that must compile for multiple architectures (x86, ARM, MIPS, PPC) using cross-compilation toolchains, especially with Buildroot or similar embedded Linux toolchains.
+description: "Use when: building C/C++ projects for multiple architectures (x86, ARM, MIPS, PPC) using cross-compilation toolchains. Triggers: 'cross-compile', 'multi-arch', 'Buildroot', 'ARM toolchain', 'embedded build'. NOT for: single-platform only (use native compilation), or when interpreted languages suffice."
 ---
 
 # Multi-Platform Cross-Compilation Pipeline

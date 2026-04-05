@@ -1,6 +1,6 @@
 ---
 name: beacon-data-pipeline
-description: Use when implementing periodic system survey collection with compression, encryption, and transmission over TLS, including jitter-based timing and modular data type collection.
+description: "Use when: implementing periodic system survey collection with compression, encryption, and TLS transmission. Triggers: 'data collection', 'periodic survey', 'TLS transmission', 'encrypted payload', 'jitter timing'. NOT for: real-time streaming (use streaming skills), or when encryption isn't required."
 ---
 
 # Beacon Data Collection Pipeline

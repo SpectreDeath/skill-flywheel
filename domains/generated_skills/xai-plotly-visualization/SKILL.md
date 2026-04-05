@@ -1,6 +1,6 @@
 ---
 name: xai-plotly-visualization
-description: Use when creating interactive Plotly visualizations for explainable AI outputs including feature importance bar charts, interaction heatmaps, and decision breakdown waterfall plots from SHAP-IQ explanations.
+description: "Use when: creating interactive Plotly visualizations for explainable AI outputs including feature importance bar charts, interaction heatmaps, and decision breakdown waterfall plots. Triggers: 'SHAP plot', 'feature importance', 'interaction heatmap', 'waterfall plot', 'explainability', 'XAI visualization'. NOT for: static reports (use terminal-xai-reporting), or when Plotly is unavailable."
 ---
 
 # XAI Visualization Pipeline (Plotly)

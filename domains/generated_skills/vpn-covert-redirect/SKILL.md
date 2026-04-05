@@ -1,6 +1,6 @@
 ---
 name: vpn-covert-redirect
-description: Use when deploying a covert C2 relay infrastructure using VPN tunnels with iptables NAT forwarding, where a VPS acts as a transparent proxy between implants and a hidden listening post.
+description: "Use when: deploying a covert C2 relay infrastructure using VPN tunnels with iptables NAT forwarding, where a VPS acts as a transparent proxy between implants and a hidden listening post. Triggers: 'C2 relay', 'VPN redirect', 'covert channel', 'NAT forwarding', 'implant proxy'. Requires: VPN server, iptables. NOT for: legitimate VPN setup (use standard VPN docs), or non-covert communications."
 ---
 
 # VPN Covert Redirect Infrastructure

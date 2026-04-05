@@ -1,6 +1,6 @@
 ---
 name: operational-deliverables
-description: Use when packaging operational software into a structured deliverables directory with separated BIN/DOC/SRC/OTHER categories, MD5 integrity verification files, and compressed source archives for field deployment.
+description: "Use when: packaging operational software into structured deliverables with BIN/DOC/SRC/OTHER categories. Triggers: 'package deliverables', 'deployment package', 'MD5 verification', 'archive compression', 'field deployment'. NOT for: development builds, or when deliverable structure isn't required."
 ---
 
 # Operational Deliverables Packaging

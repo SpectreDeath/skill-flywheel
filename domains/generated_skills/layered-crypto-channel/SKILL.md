@@ -1,6 +1,6 @@
 ---
 name: layered-crypto-channel
-description: Use when implementing encrypted network communications that require defense-in-depth with multiple cryptographic layers, TLS with additional key exchange and symmetric encryption on top.
+description: "Use when: implementing encrypted network communications with defense-in-depth using multiple cryptographic layers. Triggers: 'layered encryption', 'crypto channel', 'defense in depth', 'key exchange', 'symmetric encryption'. NOT for: single-layer encryption (use standard TLS), or when performance is critical."
 ---
 
 # Layered Cryptographic Channel
