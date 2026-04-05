@@ -1,16 +1,3 @@
-------- SEARCH
-| **Specification Engineering** | | | | |
-| specification_prd_generation | Specification Engineering | Product Requirement Document generation from user requirements | Advanced | Product management |
-| specification_technical_authoring | Specification Engineering | Technical specification authoring from architecture patterns | Advanced | Technical documentation |
-| specification_api_design | Specification Engineering | API specification design with usage pattern analysis | Advanced | API development |
-| specification_architecture_decisions | Specification Engineering | Architecture Decision Records from code commits and discussions | Advanced | Architecture documentation |
-| specification_test_planning | Specification Engineering | Test plan specification with AI-powered test case generation | Advanced | Quality assurance |
-| specification_lifecycle_management | Specification Engineering | Specification lifecycle management with automated review cycles | Advanced | Project governance |
-| specification_synchronization | Specification Engineering | Real-time specification synchronization across artifacts | Advanced | Cross-team coordination |
-| specification_version_control | Specification Engineering | Complete specification version history and rollback capabilities | Intermediate | Compliance & audit |
-| specification_traceability | Specification Engineering | Requirement traceability from concept to implementation | Advanced | Change management |
-| specification_validation_framework | Specification Engineering | Automated specification testing and validation | Advanced | Quality assurance |
-
 ## SME Integration
 
 Skills for integrating with the Semantic Memory Engine (SME) - a production-grade MCP Gateway for forensic AI capabilities.
@@ -46,21 +33,9 @@ Modern backend development skills for polyglot systems using Node.js, Python, an
 | **Modern Backend Development** | | | | |
 | predictive_observability_engine | Modern Backend Development | AI-powered predictive monitoring for polyglot backend systems | Advanced | DevOps & SRE |
 | self_optimizing_deployment_pipeline | Modern Backend Development | Self-optimizing CI/CD pipelines for multi-language projects | Advanced | DevOps & CI/CD |
-| intelligent_security_analysis_platform | Modern Backend Development | Comprehensive security scanning across polyglot codebases | Advanced | Security & Compliance |
-=======
-| **Specification Engineering** | | | | |
-| specification_prd_generation | Specification Engineering | Product Requirement Document generation from user requirements | Advanced | Product management |
-| specification_technical_authoring | Specification Engineering | Technical specification authoring from architecture patterns | Advanced | Technical documentation |
-| specification_api_design | Specification Engineering | API specification design with usage pattern analysis | Advanced | API development |
-| specification_architecture_decisions | Specification Engineering | Architecture Decision Records from code commits and discussions | Advanced | Architecture documentation |
-| specification_test_planning | Specification Engineering | Test plan specification with AI-powered test case generation | Advanced | Quality assurance |
-| specification_lifecycle_management | Specification Engineering | Specification lifecycle management with automated review cycles | Advanced | Project governance |
-| specification_synchronization | Specification Engineering | Real-time specification synchronization across artifacts | Advanced | Cross-team coordination |
-| specification_version_control | Specification Engineering | Complete specification version history and rollback capabilities | Intermediate | Compliance & audit |
-| specification_traceability | Specification Engineering | Requirement traceability from concept to implementation | Advanced | Change management |
-| specification_validation_framework | Specification Engineering | Automated specification testing and validation | Advanced | Quality assurance |
+ | intelligent_security_analysis_platform | Modern Backend Development | Comprehensive security scanning across polyglot codebases | Advanced | Security & Compliance |
 
-## Folder Organization Structure
+ ## Folder Organization Structure
 
 ### Production Core (SKILL/ - Max 29 skills)
 Core skills that provide fundamental capabilities for all development scenarios.
