@@ -7,6 +7,19 @@ Complexity: Medium
 Estimated Execution Time: 30s - 1m
 name: skill-proximity-search
 ---
+origin: manual
+triggers:
+  - agent
+  - ai
+  - development
+quality:
+  applied_count: 0
+  success_count: 0
+  completion_rate: 0.0
+  token_savings_avg: 0.0
+created_at: "2026-03-24T10:00:00Z"
+updated_at: "2026-03-24T10:00:00Z"
+
 
 # SKILL: skill-proximity-search
 

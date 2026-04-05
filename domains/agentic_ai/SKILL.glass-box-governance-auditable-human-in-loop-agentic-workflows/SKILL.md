@@ -8,6 +8,19 @@ name: glass-box-governance-auditable-human-in-loop-agentic-workflows
 Source: AI-Tutorial-Codes-Included
 Source_File: glass_box_governance_auditable_human_in_loop_agentic_workflows_Marktechpost.ipynb
 ---
+origin: manual
+triggers:
+  - agent
+  - ai
+  - development
+quality:
+  applied_count: 0
+  success_count: 0
+  completion_rate: 0.0
+  token_savings_avg: 0.0
+created_at: "2026-03-24T10:00:00Z"
+updated_at: "2026-03-24T10:00:00Z"
+
 
 ## Purpose
 

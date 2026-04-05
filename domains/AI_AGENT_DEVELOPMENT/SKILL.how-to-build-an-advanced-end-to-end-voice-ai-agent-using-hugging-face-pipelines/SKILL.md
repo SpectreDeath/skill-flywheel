@@ -8,6 +8,19 @@ name: how-to-build-an-advanced-end-to-end-voice-ai-agent-using-hugging-face-pipe
 Source: AI-Tutorial-Codes-Included
 Source_File: how_to_build_an_advanced_end_to_end_voice_ai_agent_using_hugging_face_pipelines.py
 ---
+origin: manual
+triggers:
+  - agent
+  - ai
+  - development
+quality:
+  applied_count: 0
+  success_count: 0
+  completion_rate: 0.0
+  token_savings_avg: 0.0
+created_at: "2026-03-24T10:00:00Z"
+updated_at: "2026-03-24T10:00:00Z"
+
 
 ## Purpose
 
