@@ -138,6 +138,11 @@ class ServerConfig:
                 "jwt_secret": "${MCP_JWT_SECRET}",
                 "encryption_enabled": True,
             },
+            "database": {
+                "type": "sqlite",
+                "connection_string": "postgresql+asyncpg://localhost:5432/flywheel",
+                "path": "data/skill_registry.db",
+            },
         }
 
         if os.path.exists(self.config_path):

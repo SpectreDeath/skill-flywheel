@@ -36,6 +36,7 @@ from flywheel.core.telemetry import (
     AdvancedTelemetryManager,
 )
 from flywheel.server.config import ServerConfig
+from flywheel.server.routes import adk_router, skills_router, telemetry_router
 
 logger = logging.getLogger(__name__)
 
@@ -130,6 +131,19 @@ class UnifiedMCPServer:
 
     def _setup_routes(self):
         """Setup unified API routes"""
+
+        # Include modular routers
+        self.app.include_router(adk_router)
+        self.app.include_router(skills_router)
+        self.app.include_router(telemetry_router)
+
+        # Try to include evolution router if available
+        try:
+            from flywheel.server.routes.evolution import router as evolution_router
+
+            self.app.include_router(evolution_router)
+        except ImportError:
+            pass
 
         @self.app.get("/", tags=["General"])
         async def root():
