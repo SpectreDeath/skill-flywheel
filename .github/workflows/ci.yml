@@ -43,7 +43,6 @@ jobs:
       - name: Run tests with coverage
         run: |
           .venv/bin/pytest tests/ --cov=src --cov-report=term-missing --cov-report=json --cov-report-xml=coverage.xml --cov-fail-under=0 -W ignore -W ignore::DeprecationWarning -W ignore::pytest.PytestReturnNotNoneWarning --tb=short -v
-          echo "coverage_file=.coverage.xml" >> $GITHUB_ENV
       - name: Upload coverage
         uses: actions/upload-artifact@v4
         if: always()
