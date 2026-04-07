@@ -38,7 +38,7 @@ export OPENAI_API_KEY="your-openai-api-key"
 ### 4. Start the Server
 
 ```bash
-python enhanced_mcp_server.py
+python -m src.flywheel.server.unified_server
 ```
 
 The server will start on `http://localhost:8000`
@@ -57,20 +57,14 @@ You should see a JSON response with system health status.
 # Health check
 curl http://localhost:8000/health
 
-# Discover skills
-curl -X POST http://localhost:8000/skills/discover
+# List skills (paginated)
+curl "http://localhost:8000/skills?limit=10&offset=0"
 
-# Execute a skill
-curl -X POST http://localhost:8000/skills/execute \
-  -H "Content-Type: application/json" \
-  -d '{
-    "skill_name": "data_analyzer",
-    "args": [],
-    "kwargs": {
-      "data": [{"value": 1}, {"value": 2}, {"value": 3}],
-      "analysis_type": "basic"
-    }
-  }'
+# Search skills
+curl "http://localhost:8000/skills/search?q=data"
+
+# List domains
+curl http://localhost:8000/domains
 ```
 
 ### Test with Python
@@ -83,27 +77,19 @@ import json
 response = requests.get("http://localhost:8000/health")
 print("Health:", response.json())
 
-# Test skill discovery
-response = requests.post("http://localhost:8000/skills/discover")
+# List skills
+response = requests.get("http://localhost:8000/skills?limit=10")
 print("Skills:", response.json())
 
-# Test skill execution
-payload = {
-    "skill_name": "data_analyzer",
-    "args": [],
-    "kwargs": {
-        "data": [{"age": 25, "score": 85}, {"age": 30, "score": 90}],
-        "analysis_type": "comprehensive"
-    }
-}
-response = requests.post("http://localhost:8000/skills/execute", json=payload)
-print("Skill result:", response.json())
+# Search skills
+response = requests.get("http://localhost:8000/skills/search?q=data")
+print("Search results:", response.json())
 ```
 
 ### Run the Test Suite
 
 ```bash
-python test_enhanced_server.py
+python -m pytest tests/ -v
 ```
 
 This will run comprehensive tests and show you all the features in action.

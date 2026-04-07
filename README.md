@@ -1,6 +1,6 @@
 # Skill Flywheel
 
-A unified MCP server with 531+ specialized skills for AI agent development, all running on a single FastAPI service.
+A unified MCP server with 839+ specialized skills for AI agent development, all running on a single FastAPI service.
 
 ## 🚀 Quick Start
 
@@ -20,44 +20,49 @@ curl http://localhost:8000/health
 - `/src/flywheel/server/unified_server.py`: **Main entry point** — FastAPI server with discovery, execution, and optimization
 - `/src/flywheel/core/`: Components (SkillManager, Cache, Telemetry, ML, ResourceOptimizer)
 - `/src/flywheel/evolution/`: Darwinian evolution system for skill genome optimization
-- `/src/flywheel/skills/`: 531+ Python skill modules across 27 domains
+- `/src/flywheel/skills/`: 839+ Python skill modules across 32 domains
 - `/domains/`: SKILL.md specifications organized by domain — source material for skill generation
 - `/data/`: SQLite registry (`skill_registry.db`), backlog tracking, and skill index
 - `/scripts/`: `scaffold_skill.py` (generate skills), `validate_skill.py` (format checking), `evolution_cli.py` (skill evolution)
 - `/docs/`: Architecture and developer documentation
-- `/tests/`: Automated test suites (315 tests, all passing)
+- `/tests/`: Automated test suites (320 tests, all passing)
 
-## 📚 Skill Domains (27)
+## 📁 Skill Domains (32)
 
 | Domain | Description |
 |--------|-------------|
-| AI_AGENT_DEVELOPMENT | AI agent frameworks and implementations |
-| ALGO_PATTERNS | Algorithm design patterns |
-| APPLICATION_SECURITY | Security vulnerability assessment |
-| CLOUD_ENGINEERING | Distributed systems, Buildroot cross-compilation |
-| COGNITIVE_SKILLS | Thinking and reasoning skills |
-| DATABASE_ENGINEERING | Data pipelines and processing |
-| DEVOPS | CI/CD and infrastructure |
-| FRONTEND | Frontend development |
-| GAME_DEV | Game development |
+| discovered | Auto-discovered skills |
 | ML_AI | Machine learning and AI |
-| MODEL_ORCHESTRATION | Model routing and selection |
-| ORCHESTRATION | Workflow orchestration |
-| QUANTUM_COMPUTING | Quantum algorithms |
-| SECURITY_ENGINEERING | Security engineering |
-| TESTING_QUALITY | Code quality, diagnostics, scaffolding tools |
-| PERFORMANCE | Performance analysis and optimization |
-| MODERN_BACKEND | CLI parsing, tool execution, session management |
+| AI_AGENT_DEVELOPMENT | AI agent frameworks and implementations |
+| agentic_ai | Agentic AI patterns |
+| APPLICATION_SECURITY | Security vulnerability assessment |
+| DATA_ENGINEERING | Data pipelines and processing |
+| orchestration | Workflow orchestration |
+| mcp_tools | MCP tool integrations |
 | WEB3 | Decentralized finance and layer 2 scaling |
-| MOBILE_DEVELOPMENT | Cross-platform architecture |
-| SECURITY | Attack surface mapping and CVE analysis |
-| SEARCH_ALGORITHMS | A*, genetic algorithms, simulated annealing |
-| PROBABILISTIC_MODELS | Bayesian models and probabilistic programming |
-| SKILL_MANAGEMENT | Library health, skill recommendations |
-| SKILL_REGISTRY | Auto-evolution control, task routing |
-| SKILL_VALIDATION | Format compliance and naming conventions |
 | SPECIFICATION_ENGINEERING | PRD generation, API design |
-| And more... | |
+| GAME_DEV | Game development |
+| DATABASE_ENGINEERING | Database architecture and SQL |
+| model_orchestration | Model routing and selection |
+| CLOUD_ENGINEERING | Distributed systems, Buildroot cross-compilation |
+| skill_registry | Skill registry and auto-evolution |
+| ARCHIVED | Archived skills |
+| skill_validation | Format compliance and naming conventions |
+| security_engineering | Security engineering |
+| search_algorithms | A*, genetic algorithms, simulated annealing |
+| probabilistic_models | Bayesian models and probabilistic programming |
+| mobile_development | Cross-platform architecture |
+| meta_agent_enhancement | Agent enhancement patterns |
+| logic_programming | Logic programming |
+| logic | Logic and reasoning |
+| formal_methods | Formal verification methods |
+| epistemology | Knowledge representation |
+| agent_evolution | Agent evolution |
+| FRONTEND | Frontend development |
+| ALGO_PATTERNS | Algorithm design patterns |
+| DEVOPS | CI/CD and infrastructure |
+| META_SKILL_DISCOVERY | Skill discovery and indexing |
+| QUANTUM_COMPUTING | Quantum algorithms |
 
 ## 🔍 Key Features
 
