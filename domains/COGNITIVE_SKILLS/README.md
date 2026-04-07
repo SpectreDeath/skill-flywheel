@@ -26,3 +26,9 @@ This domain contains skills for analytical thinking, problem-solving, and cognit
 Derived from:
 - Vertical thinking (Edward de Bono, 1970)
 - Convergent thinking (Joy Paul Guilford)
+
+## Core Additions
+
+| Skill | Description |
+|-------|-------------|
+| [belief-revision](belief-revision/) | Update beliefs based on evidence |
