@@ -48,3 +48,6 @@ diagnostic_results*.json
 
 # Root level log files
 *.log
+
+# Memtext Context
+.context/
