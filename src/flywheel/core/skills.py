@@ -178,14 +178,14 @@ class EnhancedSkillManager:
                     cursor.execute("SELECT * FROM skills")
                     rows = cursor.fetchall()
                     for row in rows:
-                        skill_name = row["name"]
+                        skill_name = row[1]  # name is column 1
                         if skill_name:
                             metadata = SkillMetadata(
                                 name=skill_name,
-                                description=row.get("description", ""),
-                                version=row.get("version", "1.0.0"),
-                                author=row.get("author", "unknown"),
-                                dependencies=json.loads(row.get("dependencies", "[]")),
+                                description=row[6] or "",  # description is column 6
+                                version=row[5] or "1.0.0",  # version is column 5
+                                author="unknown",
+                                dependencies=json.loads(row[7]) if row[7] else [],
                             )
                             self.skills[skill_name] = metadata
                             self.dependency_graph.add_skill(
@@ -334,6 +334,24 @@ class EnhancedSkillManager:
             raise ImportError(f"Cannot load module spec for {skill_name}")
         module = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(module)
+
+        # Call register_skill() if it exists to get/update metadata
+        if hasattr(module, "register_skill"):
+            try:
+                reg = module.register_skill()
+                if isinstance(reg, dict) and "name" in reg:
+                    # Update metadata from register_skill()
+                    metadata = self.skills.get(skill_name)
+                    if metadata:
+                        metadata.version = reg.get("version", metadata.version)
+                        desc = reg.get("description")
+                        if desc:
+                            metadata.description = desc
+                        logger.info(
+                            f"Registered skill metadata: {skill_name} v{metadata.version}"
+                        )
+            except Exception as e:
+                logger.warning(f"register_skill() failed for {skill_name}: {e}")
 
         self.skill_cache.put(skill_name, module)
         self.loaded_skills.add(skill_name)
