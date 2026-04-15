@@ -135,10 +135,13 @@ def _compile_to_prolog(spec_content: str, tools: List[str]) -> str:
         prolog += "    true.\n\n"
 
     # Generate main predicate
-    prolog += f"{title.replace(' ', '_').lower()}_main :-\n"
-    for step in steps[:-1]:
-        prolog += f'    format("~w~n", ["{step}"]),\n'
-    prolog += f'    format("~w~n", ["{steps[-1]}"]).'
+    if steps:
+        prolog += f"{title.replace(' ', '_').lower()}_main :-\n"
+        for step in steps[:-1]:
+            prolog += f'    format("~w~n", ["{step}"]),\n'
+        prolog += f'    format("~w~n", ["{steps[-1]}"]).'
+    else:
+        prolog += f"{title.replace(' ', '_').lower()}_main :- true."
 
     return prolog
 
