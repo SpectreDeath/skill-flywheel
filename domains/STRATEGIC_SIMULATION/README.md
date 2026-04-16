@@ -9,7 +9,8 @@ Domain for game theory, strategic decision-making, agent behavioral logic, and P
 | [game-theory-simulation](game-theory-simulation/) | Game-theoretic decision making for agent simulations |
 | [behavioral-trait-logic](behavioral-trait-logic/) | Prolog-based behavioral traits (reciprocity, tit_for_tat, etc.) |
 | [prolog-agent-reasoning](prolog-agent-reasoning/) | Python-Prolog bridge for agent behavioral logic |
-| [axelrod-strategies](axelrod-strategies/) | All 19 Axelrod tournament strategies for iterated Prisoner's Dilemma |
+| [axelrod-strategies](axelrod-strategies/) | All 19 Axelrod tournament strategies |
+| [geopolitical-simulation](geopolitical-simulation/) | Geopolitical agent simulation with timeline branching |
 
 ## Usage
 

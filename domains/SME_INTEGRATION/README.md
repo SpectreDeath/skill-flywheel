@@ -21,6 +21,7 @@ The SME (Lawnmower Man) provides a comprehensive suite of forensic tools accessi
 | [async-ai-bridge](SKILL.async-ai-bridge/) | Async AI bridge communication | Advanced |
 | [federation-gate-control](SKILL.federation-gate-control/) | Inter-system federation | Advanced |
 | [aifdb-connector](SKILL.aifdb-connector/) | AI database connector | Intermediate |
+| [prolog-forensic-audit](SKILL.prolog-forensic-audit/) | Prolog-based forensic audit | Advanced |
 
 ### Data Ingestion (10)
 | Skill | Description | Complexity |
