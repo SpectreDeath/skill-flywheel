@@ -12,68 +12,72 @@ def run_test_file(test_file):
     """Run a specific test file"""
     print(f"Running {test_file}...")
     try:
-        result = subprocess.run([
-            sys.executable, "-m", "pytest", test_file, "-v", "--tb=short"
-        ], capture_output=True, text=True, cwd=os.getcwd(), check=False)
-        
+        result = subprocess.run(
+            [sys.executable, "-m", "pytest", test_file, "-v", "--tb=short"],
+            capture_output=True,
+            text=True,
+            cwd=os.getcwd(),
+            check=False,
+        )
+
         print("STDOUT:")
         print(result.stdout)
         if result.stderr:
             print("STDERR:")
             print(result.stderr)
-        
+
         return result.returncode == 0
     except Exception as e:
         print(f"Error running {test_file}: {e}")
         return False
 
+
 def main():
     """Run all test files"""
     test_dir = "tests"
-    test_files = [
-        "test_mcp_server_fix.py"
-    ]
-    
+    test_files = ["test_mcp_server_fix.py"]
+
     results = {}
-    
+
     for test_file_name in test_files:
         test_file = os.path.join(test_dir, test_file_name)
         if os.path.exists(test_file):
-            print(f"\n{'='*60}")
+            print(f"\n{'=' * 60}")
             print(f"Testing: {test_file}")
-            print(f"{'='*60}")
-            
+            print(f"{'=' * 60}")
+
             success = run_test_file(test_file)
             results[test_file] = success
-            
+
             if success:
-                print(f"✅ {test_file} PASSED")
+                print(f"[PASS] {test_file}")
             else:
-                print(f"❌ {test_file} FAILED")
+                print(f"[FAIL] {test_file}")
         else:
-            print(f"⚠️  {test_file} not found, skipping")
+            print(f"[SKIP] {test_file} not found")
             results[test_file] = None
-    
+
     # Summary
-    print(f"\n{'='*60}")
+    print(f"\n{'=' * 60}")
     print("TEST SUMMARY")
-    print(f"{'='*60}")
-    
+    print(f"{'=' * 60}")
+
     passed = sum(1 for result in results.values() if result is True)
     failed = sum(1 for result in results.values() if result is False)
     skipped = sum(1 for result in results.values() if result is None)
-    
+
     print(f"Total files: {len(results)}")
     print(f"Passed: {passed}")
     print(f"Failed: {failed}")
     print(f"Skipped: {skipped}")
-    
+
     if failed > 0:
-        print("\n❌ Some tests failed!")
+        print("\nSome tests failed!")
         sys.exit(1)
     else:
-        print("\n✅ All tests passed!")
+        print("\nAll tests passed!")
         sys.exit(0)
+
 
 if __name__ == "__main__":
     main()

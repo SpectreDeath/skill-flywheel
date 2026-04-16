@@ -1,20 +1,40 @@
 #!/usr/bin/env python3
 """Test the two new skills."""
+
 import sys
 import os
 import asyncio
 from pathlib import Path
 
-sys.path.insert(0, os.getcwd() + '/src')
+sys.path.insert(0, os.getcwd() + "/src")
 
 # Ensure __init__.py files exist
-Path('src/flywheel/skills/CLOUD_ENGINEERING/__init__.py').parent.mkdir(parents=True, exist_ok=True)
-Path('src/flywheel/skills/DATA_ENGINEERING/__init__.py').touch(exist_ok=True)
-Path('src/flywheel/skills/CLOUD_ENGINEERING/__init__.py').touch(exist_ok=True)
+Path("src/flywheel/skills/cloud_engineering/__init__.py").parent.mkdir(
+    parents=True, exist_ok=True
+)
+Path("src/flywheel/skills/data_engineering/__init__.py").touch(exist_ok=True)
+Path("src/flywheel/skills/cloud_engineering/__init__.py").touch(exist_ok=True)
+
 
 async def main():
-    from flywheel.skills.CLOUD_ENGINEERING.multi_platform_cross_compilation import invoke as xcompile
-    from flywheel.skills.DATA_ENGINEERING.operational_deliverables import invoke as deliverables
+    # Try lowercase paths (correct module naming)
+    try:
+        from flywheel.skills.cloud_engineering.multi_platform_cross_compilation import (
+            invoke as xcompile,
+        )
+    except ImportError:
+        from flywheel.skills.CLOUD_ENGINEERING.multi_platform_cross_compilation import (
+            invoke as xcompile,
+        )
+
+    try:
+        from flywheel.skills.data_engineering.operational_deliverables import (
+            invoke as deliverables,
+        )
+    except ImportError:
+        from flywheel.skills.DATA_ENGINEERING.operational_deliverables import (
+            invoke as deliverables,
+        )
 
     r1 = await xcompile({"action": "list_platforms"})
     print("Multi-platform Cross-compilation:", r1["result"]["count"], "platforms")
@@ -27,6 +47,7 @@ async def main():
 
     print()
     print("Both new skills tested successfully!")
+
 
 if __name__ == "__main__":
     asyncio.run(main())
