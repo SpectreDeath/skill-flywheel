@@ -1,0 +1,290 @@
+{
+  "dashboard": {
+    "id": null,
+    "title": "Enhanced MCP Server v3 Dashboard",
+    "tags": ["mcp", "server", "monitoring"],
+    "timezone": "browser",
+    "panels": [
+      {
+        "id": 1,
+        "title": "System Overview",
+        "type": "stat",
+        "targets": [
+          {
+            "expr": "up{job=\"mcp-server-v3\"}",
+            "legendFormat": "Server Status"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "thresholds": {
+              "steps": [
+                {
+                  "color": "red",
+                  "value": 0
+                },
+                {
+                  "color": "green",
+                  "value": 1
+                }
+              ]
+            }
+          }
+        },
+        "gridPos": {
+          "h": 4,
+          "w": 6,
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "id": 2,
+        "title": "CPU Usage",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "mcp_system_cpu_usage",
+            "legendFormat": "CPU Usage %"
+          }
+        ],
+        "yAxes": [
+          {
+            "min": 0,
+            "max": 100,
+            "unit": "percent"
+          }
+        ],
+        "gridPos": {
+          "h": 8,
+          "w": 9,
+          "x": 6,
+          "y": 0
+        }
+      },
+      {
+        "id": 3,
+        "title": "Memory Usage",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "mcp_system_memory_usage",
+            "legendFormat": "Memory Usage %"
+          }
+        ],
+        "yAxes": [
+          {
+            "min": 0,
+            "max": 100,
+            "unit": "percent"
+          }
+        ],
+        "gridPos": {
+          "h": 8,
+          "w": 9,
+          "x": 15,
+          "y": 0
+        }
+      },
+      {
+        "id": 4,
+        "title": "Request Rate",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "rate(mcp_requests_total[5m])",
+            "legendFormat": "Requests/sec"
+          }
+        ],
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 8
+        }
+      },
+      {
+        "id": 5,
+        "title": "Response Time",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "mcp_request_duration_seconds",
+            "legendFormat": "Response Time (s)"
+          }
+        ],
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 12,
+          "y": 8
+        }
+      },
+      {
+        "id": 6,
+        "title": "Active Skills",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "mcp_active_skills",
+            "legendFormat": "Active Skills"
+          }
+        ],
+        "gridPos": {
+          "h": 8,
+          "w": 8,
+          "x": 0,
+          "y": 16
+        }
+      },
+      {
+        "id": 7,
+        "title": "Cache Hit Rate",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "mcp_cache_hit_rate",
+            "legendFormat": "Cache Hit Rate"
+          }
+        ],
+        "yAxes": [
+          {
+            "min": 0,
+            "max": 1,
+            "unit": "percentunit"
+          }
+        ],
+        "gridPos": {
+          "h": 8,
+          "w": 8,
+          "x": 8,
+          "y": 16
+        }
+      },
+      {
+        "id": 8,
+        "title": "Container Count",
+        "type": "stat",
+        "targets": [
+          {
+            "expr": "count(up{job=\"mcp-server-v3\"})",
+            "legendFormat": "Active Containers"
+          }
+        ],
+        "gridPos": {
+          "h": 4,
+          "w": 6,
+          "x": 16,
+          "y": 16
+        }
+      },
+      {
+        "id": 9,
+        "title": "ML Prediction Accuracy",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "mcp_ml_prediction_accuracy",
+            "legendFormat": "Prediction Accuracy"
+          }
+        ],
+        "yAxes": [
+          {
+            "min": 0,
+            "max": 1,
+            "unit": "percentunit"
+          }
+        ],
+        "gridPos": {
+          "h": 8,
+          "w": 8,
+          "x": 0,
+          "y": 24
+        }
+      },
+      {
+        "id": 10,
+        "title": "Anomaly Score",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "mcp_anomaly_score",
+            "legendFormat": "Anomaly Score"
+          }
+        ],
+        "gridPos": {
+          "h": 8,
+          "w": 8,
+          "x": 8,
+          "y": 24
+        }
+      },
+      {
+        "id": 11,
+        "title": "Resource Utilization Score",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "mcp_resource_utilization_score",
+            "legendFormat": "Utilization Score"
+          }
+        ],
+        "yAxes": [
+          {
+            "min": 0,
+            "max": 1,
+            "unit": "percentunit"
+          }
+        ],
+        "gridPos": {
+          "h": 8,
+          "w": 8,
+          "x": 16,
+          "y": 24
+        }
+      },
+      {
+        "id": 12,
+        "title": "Skill Execution Times",
+        "type": "heatmap",
+        "targets": [
+          {
+            "expr": "mcp_skill_execution_time_seconds",
+            "legendFormat": "Execution Time"
+          }
+        ],
+        "gridPos": {
+          "h": 10,
+          "w": 12,
+          "x": 0,
+          "y": 32
+        }
+      },
+      {
+        "id": 13,
+        "title": "Error Rate",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "rate(mcp_requests_total{status=~\"5.*\"}[5m])",
+            "legendFormat": "Error Rate"
+          }
+        ],
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 12,
+          "y": 32
+        }
+      }
+    ],
+    "time": {
+      "from": "now-1h",
+      "to": "now"
+    },
+    "refresh": "30s"
+  }
+}
