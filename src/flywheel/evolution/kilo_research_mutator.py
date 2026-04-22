@@ -3,13 +3,24 @@ from __future__ import annotations
 import json
 import logging
 import random
-from typing import Any, Dict, List, Optional
+from typing import TYPE_CHECKING, Any, Dict, List, Optional
 
-from darwinian_evolver.learning_log import LearningLogEntry
-from darwinian_evolver.problem import Mutator as BaseMutator
-from darwinian_evolver.problem import MutatorContext
+try:
+    from darwinian_evolver.learning_log import LearningLogEntry
+    from darwinian_evolver.problem import Mutator as BaseMutator
+    from darwinian_evolver.problem import MutatorContext
+
+    DARWINIAN_AVAILABLE = True
+except ImportError:
+    DARWINIAN_AVAILABLE = False
+    BaseMutator = object
+    MutatorContext = object
+    LearningLogEntry = None.__class__
 
 from .genome import SkillFailureCase, SkillGenome
+
+if TYPE_CHECKING:
+    pass
 
 logger = logging.getLogger(__name__)
 

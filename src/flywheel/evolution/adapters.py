@@ -12,10 +12,19 @@ from typing import (
     overload,
 )
 
-from darwinian_evolver.learning_log import LearningLogEntry
-from darwinian_evolver.problem import Evaluator as BaseEvaluator
-from darwinian_evolver.problem import Mutator as BaseMutator
-from darwinian_evolver.problem import MutatorContext
+try:
+    from darwinian_evolver.learning_log import LearningLogEntry
+    from darwinian_evolver.problem import Evaluator as BaseEvaluator
+    from darwinian_evolver.problem import Mutator as BaseMutator
+    from darwinian_evolver.problem import MutatorContext
+
+    DARWINIAN_AVAILABLE = True
+except ImportError:
+    DARWINIAN_AVAILABLE = False
+    BaseEvaluator = Any
+    BaseMutator = Any
+    MutatorContext = Any
+    LearningLogEntry = Any
 
 if TYPE_CHECKING:
     pass

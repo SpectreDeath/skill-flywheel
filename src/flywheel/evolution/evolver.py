@@ -5,21 +5,34 @@ import logging
 import random
 from collections.abc import Generator
 from pathlib import Path
-from typing import Any, Dict, List
+from typing import TYPE_CHECKING, Any, Dict, List
 
-from darwinian_evolver.evolver import Evolver
-from darwinian_evolver.learning_log_view import (
-    AncestorLearningLogView,
-    EmptyLearningLogView,
-    NeighborhoodLearningLogView,
-)
-from darwinian_evolver.problem import MutatorContext
+try:
+    from darwinian_evolver.evolver import Evolver
+    from darwinian_evolver.learning_log_view import (
+        AncestorLearningLogView,
+        EmptyLearningLogView,
+        NeighborhoodLearningLogView,
+    )
+    from darwinian_evolver.problem import MutatorContext
+
+    DARWINIAN_AVAILABLE = True
+except ImportError:
+    DARWINIAN_AVAILABLE = False
+    Evolver = object
+    MutatorContext = object
+    AncestorLearningLogView = object
+    EmptyLearningLogView = object
+    NeighborhoodLearningLogView = object
 
 from .config import EvolutionConfig
 from .evaluator import SkillFitnessEvaluator
 from .genome import SkillGenome
 from .mutator import LLMMutator, ParameterTuningMutator, StructureMutationMutator
 from .population import EvolutionStatistics, SkillPopulation
+
+if TYPE_CHECKING:
+    pass
 
 logger = logging.getLogger(__name__)
 

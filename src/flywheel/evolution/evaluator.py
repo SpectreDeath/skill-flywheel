@@ -3,12 +3,21 @@ from __future__ import annotations
 import logging
 import time
 from abc import ABC, abstractmethod
-from typing import Any, Dict, List
+from typing import TYPE_CHECKING, Any, Dict, List
 
-from darwinian_evolver.problem import Evaluator as BaseEvaluator
+try:
+    from darwinian_evolver.problem import Evaluator as BaseEvaluator
+
+    DARWINIAN_AVAILABLE = True
+except ImportError:
+    DARWINIAN_AVAILABLE = False
+    BaseEvaluator = ABC
 
 from .config import EvolutionConfig
 from .genome import SkillFailureCase, SkillFitnessResult, SkillGenome
+
+if TYPE_CHECKING:
+    pass
 
 logger = logging.getLogger(__name__)
 

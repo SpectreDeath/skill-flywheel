@@ -1,14 +1,23 @@
 from __future__ import annotations
 
 import pickle
-from typing import Any, Dict
+from typing import TYPE_CHECKING, Any, Dict
 
-from darwinian_evolver.population import (
-    WeightedSamplingPopulation as BaseWeightedPopulation,
-)
+try:
+    from darwinian_evolver.population import (
+        WeightedSamplingPopulation as BaseWeightedPopulation,
+    )
+
+    DARWINIAN_AVAILABLE = True
+except ImportError:
+    DARWINIAN_AVAILABLE = False
+    BaseWeightedPopulation = object
 
 from .config import EvolutionConfig
 from .genome import SkillFitnessResult, SkillGenome
+
+if TYPE_CHECKING:
+    pass
 
 
 class SkillPopulation(BaseWeightedPopulation):
