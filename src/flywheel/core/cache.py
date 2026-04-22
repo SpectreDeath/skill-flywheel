@@ -9,20 +9,23 @@ import redis
 
 logger = logging.getLogger(__name__)
 
+
 class AdvancedCache:
     """Advanced cache with Redis and Memory fallback."""
-    
+
     def __init__(self, config: Dict[str, Any]):
         self.config = config
         self.cache_type = config.get("cache", {}).get("type", "memory")
-        
+
         if self.cache_type == "redis":
             try:
                 self.redis_client = redis.from_url(config["cache"]["redis_url"])
                 self.ttl = config["cache"]["ttl"]
                 self.compression = config["cache"]["compression"]
             except Exception as e:
-                logger.error(f"Failed to initialize Redis: {e}. Falling back to memory.")
+                logger.error(
+                    f"Failed to initialize Redis: {e}. Falling back to memory."
+                )
                 self.cache_type = "memory"
                 self._init_memory_cache()
         else:
@@ -42,6 +45,7 @@ class AdvancedCache:
                 if data:
                     if self.compression:
                         import gzip
+
                         data = gzip.decompress(data)
                     return pickle.loads(data)
             except Exception as e:
@@ -50,11 +54,13 @@ class AdvancedCache:
         else:
             if key not in self.cache:
                 return None
-            
-            if (datetime.now() - self.timestamps[key]).total_seconds() > self.ttl_seconds:
+
+            if (
+                datetime.now() - self.timestamps[key]
+            ).total_seconds() > self.ttl_seconds:
                 self.remove(key)
                 return None
-            
+
             return self.cache[key]
 
     def put(self, key: str, value: Any):
@@ -63,6 +69,7 @@ class AdvancedCache:
                 data = pickle.dumps(value)
                 if self.compression:
                     import gzip
+
                     data = gzip.compress(data)
                 self.redis_client.setex(key, self.ttl, data)
             except Exception as e:
@@ -71,7 +78,7 @@ class AdvancedCache:
             if len(self.cache) >= self.max_size:
                 lru_key = self.access_order.popleft()
                 self.remove(lru_key)
-            
+
             self.cache[key] = value
             self.timestamps[key] = datetime.now()
             self.access_order.append(key)

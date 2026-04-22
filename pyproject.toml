@@ -62,7 +62,7 @@ dev = [
     "bandit>=1.8.3",
 ]
 memory = [
-    "memtext>=0.6.0",
+    # "memtext>=0.6.0",  # Not available on PyPI - memtext is a CLI tool, not a Python package
 ]
 
 [tool.setuptools.packages.find]

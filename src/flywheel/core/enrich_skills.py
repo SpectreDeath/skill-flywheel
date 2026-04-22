@@ -32,7 +32,7 @@ REQUIREMENTS:
 
 Return the FULL updated Markdown content.
 """
-    
+
     api_key = os.environ.get("GEMINI_API_KEY")
     if not api_key:
         # Accessibility: Graceful disable if key missing
@@ -41,24 +41,24 @@ Return the FULL updated Markdown content.
     try:
         client = genai.Client(api_key=api_key)
         response = client.models.generate_content(
-            model='gemini-2.0-flash',
-            contents=prompt
+            model="gemini-2.0-flash", contents=prompt
         )
         return response.text
     except Exception as e:
         print(f"Error enriching {skill_name}: {e}")
         return content
 
+
 def main():
     workspace_root = Path(__file__).parent.parent.parent
     registry_path = workspace_root / "skill_registry.json"
     archive_dir = workspace_root / "domains" / "ARCHIVED" / "PLACEHOLDERS"
-    
+
     if not registry_path.exists():
         print("Registry not found.")
         return
 
-    with open(registry_path, encoding='utf-8') as f:
+    with open(registry_path, encoding="utf-8") as f:
         json.load(f)
 
     # 1. Target specifically archived placeholders for systematic re-integration
@@ -67,12 +67,12 @@ def main():
 
     enriched_count = 0
     for skill_file in archived_skills:
-        with open(skill_file, encoding='utf-8') as f:
+        with open(skill_file, encoding="utf-8") as f:
             content = f.read()
 
         # Simple domain extraction from filename or path
-        skill_name = skill_file.parent.name.replace('SKILL.', '')
-        
+        skill_name = skill_file.parent.name.replace("SKILL.", "")
+
         # Find matching entry in registry or infer domain
         domain = "General"
         with contextlib.suppress(Exception):
@@ -80,21 +80,21 @@ def main():
 
         print(f"Enriching {skill_name} for domain {domain}...")
         new_content = enrich_skill_content(content, skill_name, domain)
-        
+
         if new_content and new_content != content and "## " in new_content:
             # Re-integration: Move back to production domains/
             target_dir = workspace_root / "domains" / domain / f"SKILL.{skill_name}"
             target_dir.mkdir(parents=True, exist_ok=True)
             target_file = target_dir / "SKILL.md"
-            
-            with open(target_file, 'w', encoding='utf-8') as f:
+
+            with open(target_file, "w", encoding="utf-8") as f:
                 f.write(new_content)
-            
+
             # Remove from archive
             skill_file.unlink()
             with contextlib.suppress(OSError):
-                skill_file.parent.rmdir() 
-                
+                skill_file.parent.rmdir()
+
             enriched_count += 1
             print(f"Successfully enriched and re-integrated {skill_name} to {domain}")
 
@@ -103,11 +103,16 @@ def main():
         print("Enrichment complete. Triggering re-index...")
         # Add src to sys.path to ensure reindex_skills can be imported
         import sys
+
         sys.path.append(str(workspace_root / "src"))
         from core.reindex_skills import reindex
+
         reindex()
 
-    print(f"Enrichment session complete. Updated and re-integrated {enriched_count} skills.")
+    print(
+        f"Enrichment session complete. Updated and re-integrated {enriched_count} skills."
+    )
+
 
 if __name__ == "__main__":
     main()

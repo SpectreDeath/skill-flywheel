@@ -12,6 +12,7 @@ logger = logging.getLogger(__name__)
 
 class ContainerState(Enum):
     """Container lifecycle states."""
+
     IDLE = "idle"
     RUNNING = "running"
     STOPPING = "stopping"
@@ -22,6 +23,7 @@ class ContainerState(Enum):
 @dataclass
 class ContainerSlot:
     """Represents a managed container slot."""
+
     container_id: str
     skill_name: str
     state: ContainerState = ContainerState.IDLE
@@ -48,7 +50,9 @@ class ContainerPool:
         self.slots: Dict[str, ContainerSlot] = {}
         self._lock = asyncio.Lock()
 
-    async def acquire(self, skill_name: str, resource_limits: Dict[str, Any] | None = None) -> str:
+    async def acquire(
+        self, skill_name: str, resource_limits: Dict[str, Any] | None = None
+    ) -> str:
         """Acquire a container for skill execution."""
         async with self._lock:
             # Try to find an idle container for this skill
@@ -81,7 +85,9 @@ class ContainerPool:
                 slot.last_used = time.time()
                 logger.info(f"Released container {slot_id}")
 
-    async def _create_container(self, skill_name: str, resource_limits: Dict[str, Any]) -> str:
+    async def _create_container(
+        self, skill_name: str, resource_limits: Dict[str, Any]
+    ) -> str:
         """Create a new container with resource limits."""
         mem_limit = resource_limits.get("memory", "512m")
         cpu_quota = resource_limits.get("cpu_quota", 50000)  # 50% CPU by default
@@ -132,7 +138,8 @@ class ContainerPool:
     def _find_oldest_idle(self) -> Optional[str]:
         """Find the oldest idle container."""
         idle_slots = [
-            (sid, slot) for sid, slot in self.slots.items()
+            (sid, slot)
+            for sid, slot in self.slots.items()
             if slot.state == ContainerState.IDLE
         ]
         if not idle_slots:
@@ -158,7 +165,9 @@ class ContainerPool:
         """Get pool statistics."""
         total = len(self.slots)
         idle = sum(1 for s in self.slots.values() if s.state == ContainerState.IDLE)
-        running = sum(1 for s in self.slots.values() if s.state == ContainerState.RUNNING)
+        running = sum(
+            1 for s in self.slots.values() if s.state == ContainerState.RUNNING
+        )
         return {
             "total": total,
             "idle": idle,
@@ -262,7 +271,9 @@ class ContainerManager:
                 target_count = max(current_count - 1, min_containers)
 
             if target_count != current_count:
-                logger.info(f"Scaling containers from {current_count} to {target_count}")
+                logger.info(
+                    f"Scaling containers from {current_count} to {target_count}"
+                )
                 return {
                     "status": "not_implemented",
                     "current_count": current_count,

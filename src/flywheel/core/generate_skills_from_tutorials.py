@@ -17,60 +17,61 @@ DOMAINS_DIR = WORKSPACE_ROOT / "domains"
 
 # ── Category → Domain mapping ─────────────────────────────────────────────
 CATEGORY_DOMAIN_MAP = {
-    "AI Agents Codes":          "AI_AGENT_DEVELOPMENT",
-    "Agentic AI Codes":         "agentic_ai",
-    "Agentic Workflows":        "agentic_ai",
-    "Agentic AI Memory":        "agentic_ai",
+    "AI Agents Codes": "AI_AGENT_DEVELOPMENT",
+    "Agentic AI Codes": "agentic_ai",
+    "Agentic Workflows": "agentic_ai",
+    "Agentic AI Memory": "agentic_ai",
     "Agent Communication Protocol": "mcp_tools",
-    "MCP Codes":                "mcp_tools",
-    "MCP_Tutorial_Server":      "mcp_tools",
-    "RAG":                      "ML_AI",
-    "Computer Vision":          "ML_AI",
-    "Deep Learning":            "ML_AI",
-    "LLM Projects":             "ML_AI",
-    "LLM Evaluation":          "ML_AI",
-    "MLFlow for LLM Evaluation":"ML_AI",
-    "Reinforcement learning":   "ML_AI",
-    "Federated Learning":       "ML_AI",
-    "Voice AI":                 "ML_AI",
-    "Prompt Optimization":      "ML_AI",
-    "Robotics":                 "ML_AI",
-    "Data Science":             "DATA_ENGINEERING",
-    "Distributed Systems":      "CLOUD_ENGINEERING",
-    "Security":                 "APPLICATION_SECURITY",
-    "Adversarial Attacks":      "APPLICATION_SECURITY",
-    "Quantum Computing":        "QUANTUM_COMPUTING",
-    "GPT-5":                    "ML_AI",
-    "SHAP-IQ":                  "ML_AI",
-    "Mirascope":                "ML_AI",
-    "MiniMax":                  "ML_AI",
-    "OAuth 2.1 for MCP Servers":"APPLICATION_SECURITY",
-    "A2A_Simple_Agent":         "AI_AGENT_DEVELOPMENT",
+    "MCP Codes": "mcp_tools",
+    "MCP_Tutorial_Server": "mcp_tools",
+    "RAG": "ML_AI",
+    "Computer Vision": "ML_AI",
+    "Deep Learning": "ML_AI",
+    "LLM Projects": "ML_AI",
+    "LLM Evaluation": "ML_AI",
+    "MLFlow for LLM Evaluation": "ML_AI",
+    "Reinforcement learning": "ML_AI",
+    "Federated Learning": "ML_AI",
+    "Voice AI": "ML_AI",
+    "Prompt Optimization": "ML_AI",
+    "Robotics": "ML_AI",
+    "Data Science": "DATA_ENGINEERING",
+    "Distributed Systems": "CLOUD_ENGINEERING",
+    "Security": "APPLICATION_SECURITY",
+    "Adversarial Attacks": "APPLICATION_SECURITY",
+    "Quantum Computing": "QUANTUM_COMPUTING",
+    "GPT-5": "ML_AI",
+    "SHAP-IQ": "ML_AI",
+    "Mirascope": "ML_AI",
+    "MiniMax": "ML_AI",
+    "OAuth 2.1 for MCP Servers": "APPLICATION_SECURITY",
+    "A2A_Simple_Agent": "AI_AGENT_DEVELOPMENT",
 }
 
 # Domain for standalone files in the root of the tutorial repo
 STANDALONE_DOMAIN_KEYWORDS = {
-    "agent":    "AI_AGENT_DEVELOPMENT",
-    "agentic":  "agentic_ai",
-    "mcp":      "mcp_tools",
-    "rag":      "ML_AI",
-    "llm":      "ML_AI",
-    "gemini":   "ML_AI",
+    "agent": "AI_AGENT_DEVELOPMENT",
+    "agentic": "agentic_ai",
+    "mcp": "mcp_tools",
+    "rag": "ML_AI",
+    "llm": "ML_AI",
+    "gemini": "ML_AI",
     "security": "APPLICATION_SECURITY",
-    "scrape":   "DATA_ENGINEERING",
-    "data":     "DATA_ENGINEERING",
-    "quantum":  "QUANTUM_COMPUTING",
-    "voice":    "ML_AI",
-    "speech":   "ML_AI",
-    "crew":     "agentic_ai",
-    "langgraph":"agentic_ai",
-    "langchain":"ML_AI",
-    "autogen":  "AI_AGENT_DEVELOPMENT",
-    "mistral":  "ML_AI",
-    "graph":    "ML_AI",
+    "scrape": "DATA_ENGINEERING",
+    "data": "DATA_ENGINEERING",
+    "quantum": "QUANTUM_COMPUTING",
+    "voice": "ML_AI",
+    "speech": "ML_AI",
+    "crew": "agentic_ai",
+    "langgraph": "agentic_ai",
+    "langchain": "ML_AI",
+    "autogen": "AI_AGENT_DEVELOPMENT",
+    "mistral": "ML_AI",
+    "graph": "ML_AI",
     "research": "ML_AI",
     "workflow": "agentic_ai",
 }
+
 
 # ── Complexity heuristics ──────────────────────────────────────────────────
 def estimate_complexity(file_size_bytes: int) -> str:
@@ -80,6 +81,7 @@ def estimate_complexity(file_size_bytes: int) -> str:
         return "High"
     return "Very High"
 
+
 # ── Name helpers ───────────────────────────────────────────────────────────
 def filename_to_skill_name(filename: str) -> str:
     """Convert a filename like 'Advanced_PEER_MultiAgent_Tutorial_Marktechpost.ipynb' to 'advanced-peer-multiagent-tutorial'."""
@@ -88,10 +90,11 @@ def filename_to_skill_name(filename: str) -> str:
     for suffix in ["_Marktechpost", "_marktechpost", "_Marktechpost2", " (1)", " (2)"]:
         name = name.replace(suffix, "")
     # Convert to kebab-case
-    name = re.sub(r'[^a-zA-Z0-9]+', '-', name).strip('-').lower()
+    name = re.sub(r"[^a-zA-Z0-9]+", "-", name).strip("-").lower()
     # Collapse repeated hyphens
-    name = re.sub(r'-+', '-', name)
+    name = re.sub(r"-+", "-", name)
     return name
+
 
 def filename_to_title(filename: str) -> str:
     """Convert a filename to a human-readable title."""
@@ -103,6 +106,7 @@ def filename_to_title(filename: str) -> str:
     # Title-case
     return name.strip()
 
+
 def infer_domain_for_standalone(filename: str) -> str:
     """Infer domain for standalone files based on keyword matching."""
     lower = filename.lower()
@@ -110,6 +114,7 @@ def infer_domain_for_standalone(filename: str) -> str:
         if keyword in lower:
             return domain
     return "ML_AI"  # Default
+
 
 def extract_category_from_title(title: str) -> str:
     """Extract a short category label from the title."""
@@ -148,10 +153,17 @@ def extract_category_from_title(title: str) -> str:
         return "Deep Learning"
     return "AI/ML Engineering"
 
+
 # ── Skill content generation ──────────────────────────────────────────────
-def generate_skill_content(skill_name: str, title: str, domain: str,
-                           category: str, complexity: str,
-                           source_file: str, source_category: str) -> str:
+def generate_skill_content(
+    skill_name: str,
+    title: str,
+    domain: str,
+    category: str,
+    complexity: str,
+    source_file: str,
+    source_category: str,
+) -> str:
     """Generate a complete SKILL.md from tutorial metadata."""
 
     # Build implementation notes based on file type
@@ -249,22 +261,29 @@ def collect_tutorials() -> list:
                 domain = infer_domain_for_standalone(category_name)
 
             for sub_item in sorted(item.rglob("*")):
-                if sub_item.suffix in (".ipynb", ".py") and not sub_item.name.startswith("."):
-                    tutorials.append({
-                        "file": sub_item,
-                        "category": category_name,
-                        "domain": domain,
-                        "size": sub_item.stat().st_size,
-                    })
+                if sub_item.suffix in (
+                    ".ipynb",
+                    ".py",
+                ) and not sub_item.name.startswith("."):
+                    tutorials.append(
+                        {
+                            "file": sub_item,
+                            "category": category_name,
+                            "domain": domain,
+                            "size": sub_item.stat().st_size,
+                        }
+                    )
 
         elif item.suffix in (".ipynb", ".py"):
             domain = infer_domain_for_standalone(item.name)
-            tutorials.append({
-                "file": item,
-                "category": "Standalone",
-                "domain": domain,
-                "size": item.stat().st_size,
-            })
+            tutorials.append(
+                {
+                    "file": item,
+                    "category": "Standalone",
+                    "domain": domain,
+                    "size": item.stat().st_size,
+                }
+            )
 
     return tutorials
 
@@ -305,8 +324,13 @@ def generate_all_skills():
             continue
 
         content = generate_skill_content(
-            skill_name, title, domain, category,
-            complexity, source_file, source_category
+            skill_name,
+            title,
+            domain,
+            category,
+            complexity,
+            source_file,
+            source_category,
         )
 
         with open(skill_path, "w", encoding="utf-8") as f:
@@ -315,7 +339,9 @@ def generate_all_skills():
         generated += 1
         print(f"  [{generated:3d}] {domain}/{skill_name}")
 
-    print(f"\nGeneration complete: {generated} skills created, {skipped} skipped (duplicates or existing).")
+    print(
+        f"\nGeneration complete: {generated} skills created, {skipped} skipped (duplicates or existing)."
+    )
     return generated
 
 

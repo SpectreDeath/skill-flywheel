@@ -7,9 +7,10 @@ from docker.errors import APIError, NotFound
 
 logger = logging.getLogger(__name__)
 
+
 class DockerUtils:
     """Consolidated Docker infrastructure management utilities."""
-    
+
     def __init__(self, docker_client: docker.DockerClient | None = None):
         try:
             self.client = docker_client or docker.from_env()
@@ -21,12 +22,14 @@ class DockerUtils:
         """Scale a Docker service to the specified number of replicas."""
         if not self.client:
             return {"success": False, "error": "Docker client not initialized"}
-            
+
         service_key = f"mcp-{service_name}"
         try:
             service = await asyncio.to_thread(self.client.services.get, service_key)
             await asyncio.to_thread(service.scale, replicas)
-            logger.info(f"Successfully scaled service {service_key} to {replicas} replicas")
+            logger.info(
+                f"Successfully scaled service {service_key} to {replicas} replicas"
+            )
             return {"success": True, "service": service_name, "replicas": replicas}
         except NotFound:
             logger.error(f"Service {service_key} not found")
@@ -42,7 +45,7 @@ class DockerUtils:
         """Get the current status of all containers in the infrastructure."""
         if not self.client:
             return {"status": "error", "message": "Docker client not initialized"}
-            
+
         try:
             containers = await asyncio.to_thread(self.client.containers.list)
             running_services = [c.name for c in containers]
@@ -50,8 +53,8 @@ class DockerUtils:
                 "status": "success",
                 "verification": {
                     "services_running": len(running_services),
-                    "running_containers": running_services
-                }
+                    "running_containers": running_services,
+                },
             }
         except Exception as e:
             logger.error(f"Failed to get infrastructure status: {e}")
