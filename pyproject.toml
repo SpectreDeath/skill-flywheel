@@ -49,6 +49,7 @@ dependencies = [
     "pyjwt>=2.8.0",
     "sqlalchemy>=2.0.0",
     "asyncpg>=0.29.0",
+    "darwinian-evolver @ git+https://github.com/imbue-ai/darwinian_evolver.git",
 ]
 
 [project.optional-dependencies]
