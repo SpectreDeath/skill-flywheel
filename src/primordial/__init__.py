@@ -176,7 +176,7 @@ def main():
     archive_dir = Path(__file__).parent / args.archive
     output_dir = Path(__file__).parent / args.output
 
-    print(f"Primordial - Skill Code Generator")
+    print("Primordial - Skill Code Generator")
     print(f"Archive: {archive_dir}")
     print(f"Output: {output_dir}")
 
