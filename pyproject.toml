@@ -60,7 +60,6 @@ dev = [
     "mypy>=1.14.1",
     "safety>=3.2.8",
     "bandit>=1.8.3",
-    "memtext>=0.6.0",
 ]
 memory = [
     "memtext>=0.6.0",
