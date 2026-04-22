@@ -57,6 +57,10 @@ jobs:
         run: |
           pip install --no-cache-dir -e ".[dev]"
 
+      - name: Install darwinian-evolver (optional git dependency)
+        run: |
+          pip install --no-cache-dir git+https://github.com/imbue-ai/darwinian_evolver.git || true
+
       - name: Run Ruff linter
         run: |
           ruff check . --output-format=github
@@ -92,6 +96,10 @@ jobs:
         run: |
           pip install --no-cache-dir -e ".[dev]"
           pip install pytest pytest-cov pytest-asyncio
+
+      - name: Install darwinian-evolver (optional git dependency)
+        run: |
+          pip install --no-cache-dir git+https://github.com/imbue-ai/darwinian_evolver.git || true
 
       - name: Run tests with coverage
         run: |
