@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import pickle
-from typing import TYPE_CHECKING, Any, Dict
+from typing import TYPE_CHECKING, Any, Dict, TypeVar
 
 try:
     from darwinian_evolver.population import (
@@ -11,7 +11,15 @@ try:
     DARWINIAN_AVAILABLE = True
 except ImportError:
     DARWINIAN_AVAILABLE = False
-    BaseWeightedPopulation = object
+    from typing import Protocol
+
+    _O = TypeVar("_O")
+
+    class BaseWeightedPopulation(Protocol[_O]):
+        """Dummy population for when darwinian-evolver is not installed."""
+
+        pass
+
 
 from .config import EvolutionConfig
 from .genome import SkillFitnessResult, SkillGenome

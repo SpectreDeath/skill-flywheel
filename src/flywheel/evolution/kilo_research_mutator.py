@@ -3,7 +3,7 @@ from __future__ import annotations
 import json
 import logging
 import random
-from typing import TYPE_CHECKING, Any, Dict, List, Optional
+from typing import TYPE_CHECKING, Any, Dict, List, Optional, TypeVar
 
 try:
     from darwinian_evolver.learning_log import LearningLogEntry
@@ -13,9 +13,26 @@ try:
     DARWINIAN_AVAILABLE = True
 except ImportError:
     DARWINIAN_AVAILABLE = False
-    BaseMutator = object
-    MutatorContext = object
-    LearningLogEntry = None.__class__
+    from typing import Protocol
+
+    _G = TypeVar("_G")
+    _F = TypeVar("_F")
+
+    class BaseMutator(Protocol[_G, _F]):
+        """Dummy mutator protocol for when darwinian-evolver is not installed."""
+
+        pass
+
+    class MutatorContext(Protocol):
+        """Dummy mutator context for when darwinian-evolver is not installed."""
+
+        pass
+
+    class LearningLogEntry:
+        """Dummy learning log entry for when darwinian-evolver is not installed."""
+
+        pass
+
 
 from .genome import SkillFailureCase, SkillGenome
 

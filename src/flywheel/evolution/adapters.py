@@ -21,10 +21,33 @@ try:
     DARWINIAN_AVAILABLE = True
 except ImportError:
     DARWINIAN_AVAILABLE = False
-    BaseEvaluator = Any
-    BaseMutator = Any
-    MutatorContext = Any
-    LearningLogEntry = Any
+    from typing import Protocol
+
+    _G = TypeVar("_G")
+    _R = TypeVar("_R")
+    _E = TypeVar("_E")
+    _F = TypeVar("_F")
+
+    class BaseEvaluator(Protocol[_G, _R, _E]):
+        """Dummy evaluator protocol for when darwinian-evolver is not installed."""
+
+        pass
+
+    class BaseMutator(Protocol[_G, _F]):
+        """Dummy mutator protocol for when darwinian-evolver is not installed."""
+
+        pass
+
+    class MutatorContext(Protocol):
+        """Dummy mutator context for when darwinian-evolver is not installed."""
+
+        pass
+
+    class LearningLogEntry:
+        """Dummy learning log entry for when darwinian-evolver is not installed."""
+
+        pass
+
 
 if TYPE_CHECKING:
     pass

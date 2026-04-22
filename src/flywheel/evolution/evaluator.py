@@ -3,7 +3,7 @@ from __future__ import annotations
 import logging
 import time
 from abc import ABC, abstractmethod
-from typing import TYPE_CHECKING, Any, Dict, List
+from typing import TYPE_CHECKING, Any, Dict, List, Generic, TypeVar
 
 try:
     from darwinian_evolver.problem import Evaluator as BaseEvaluator
@@ -11,7 +11,26 @@ try:
     DARWINIAN_AVAILABLE = True
 except ImportError:
     DARWINIAN_AVAILABLE = False
-    BaseEvaluator = ABC
+    from typing import Protocol
+
+    # Define type variables for the dummy class
+    _T = TypeVar("_T")
+    _R = TypeVar("_R")
+    _E = TypeVar("_E")
+
+    class BaseEvaluator(Protocol[_T, _R, _E]):
+        """Dummy evaluator protocol for when darwinian-evolver is not installed."""
+
+        pass
+
+
+from .config import EvolutionConfig
+from .genome import SkillFailureCase, SkillFitnessResult, SkillGenome
+
+if TYPE_CHECKING:
+    pass
+
+    BaseEvaluator = _DummyEvaluator
 
 from .config import EvolutionConfig
 from .genome import SkillFailureCase, SkillFitnessResult, SkillGenome

@@ -5,7 +5,7 @@ import logging
 import random
 from collections.abc import Generator
 from pathlib import Path
-from typing import TYPE_CHECKING, Any, Dict, List
+from typing import TYPE_CHECKING, Any, Dict, List, TypeVar
 
 try:
     from darwinian_evolver.evolver import Evolver
@@ -19,11 +19,33 @@ try:
     DARWINIAN_AVAILABLE = True
 except ImportError:
     DARWINIAN_AVAILABLE = False
-    Evolver = object
-    MutatorContext = object
-    AncestorLearningLogView = object
-    EmptyLearningLogView = object
-    NeighborhoodLearningLogView = object
+    from typing import Protocol
+
+    class Evolver(Protocol):
+        """Dummy evolver for when darwinian-evolver is not installed."""
+
+        pass
+
+    class MutatorContext(Protocol):
+        """Dummy mutator context for when darwinian-evolver is not installed."""
+
+        pass
+
+    class AncestorLearningLogView(Protocol):
+        """Dummy learning log view for when darwinian-evolver is not installed."""
+
+        pass
+
+    class EmptyLearningLogView(Protocol):
+        """Dummy learning log view for when darwinian-evolver is not installed."""
+
+        pass
+
+    class NeighborhoodLearningLogView(Protocol):
+        """Dummy learning log view for when darwinian-evolver is not installed."""
+
+        pass
+
 
 from .config import EvolutionConfig
 from .evaluator import SkillFitnessEvaluator
