@@ -1,9 +1,14 @@
 from __future__ import annotations
 
+import asyncio
 import logging
 import time
 from abc import ABC, abstractmethod
 from typing import TYPE_CHECKING, Any, Dict, List, Generic, TypeVar
+
+# Import genome types first - needed for BaseEvaluator generic params
+from .config import EvolutionConfig
+from .genome import SkillFailureCase, SkillFitnessResult, SkillGenome
 
 try:
     from darwinian_evolver.problem import Evaluator as BaseEvaluator
@@ -23,20 +28,6 @@ except ImportError:
 
         pass
 
-
-from .config import EvolutionConfig
-from .genome import SkillFailureCase, SkillFitnessResult, SkillGenome
-
-if TYPE_CHECKING:
-    pass
-
-    BaseEvaluator = _DummyEvaluator
-
-from .config import EvolutionConfig
-from .genome import SkillFailureCase, SkillFitnessResult, SkillGenome
-
-if TYPE_CHECKING:
-    pass
 
 logger = logging.getLogger(__name__)
 
@@ -285,6 +276,3 @@ class SkillFitnessEvaluator(
                 return False
 
         return True
-
-
-import asyncio
