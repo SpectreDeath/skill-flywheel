@@ -101,9 +101,9 @@ jobs:
         run: |
           pip install --no-cache-dir git+https://github.com/imbue-ai/darwinian_evolver.git || true
 
-      - name: Run tests with coverage
+      - name: Run tests
         run: |
-          pytest tests/ -v --tb=short --cov=src --cov-report=xml
+          pytest tests/ -v --tb=short
 
       - name: Upload coverage to Codecov
         if: matrix.python-version == '3.12'
