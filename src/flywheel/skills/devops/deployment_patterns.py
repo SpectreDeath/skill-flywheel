@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"
+"""
 deployment-patterns
 
-"Use when: setting up deployment infrastructure, planning releases, configuring CI/CD pipelines, implementing Docker containerization, setting up health checks, or planning rollback strategies. Triggers: 'deploy', 'deployment', 'CI/CD', 'pipeline', 'Docker', 'containerize', 'release', 'rollback', 'health check', 'production ready'. NOT for: local development only, or when deployment is handled by external services without customization."
-"
+Use when: setting up deployment infrastructure, planning releases, configuring CI/CD pipelines, implementing Docker containerization, setting up health checks, or planning rollback strategies. Triggers: 'deploy', 'deployment', 'CI/CD', 'pipeline', 'Docker', 'containerize', 'release', 'rollback', 'health check', 'production ready'. NOT for: local development only, or when deployment is handled by external services without customization.
+"""
 
 import logging
 from datetime import datetime
@@ -13,7 +13,7 @@ logger = logging.getLogger(__name__)
 
 
 def deployment_patterns(payload: Dict[str, Any]) -> Dict[str, Any]:
-    "
+    """
     Core implementation for deployment-patterns.
 
     Args:
@@ -21,7 +21,7 @@ def deployment_patterns(payload: Dict[str, Any]) -> Dict[str, Any]:
 
     Returns:
         Result dictionary with status and data
-    "
+    """
     # Implement Deployment Patterns logic
     # This skill handles: Devops
     result = {"data": payload}
@@ -70,7 +70,7 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def register_skill() -> Dict[str, str]:
-    "Return skill metadata."
+    """Return skill metadata."""
     return {
         "name": "deployment-patterns",
         "description": "Use when: setting up deployment infrastructure, planning releases, configuring CI/CD pipelines, implementing Docker containerization, setting up health checks, or planning rollback strategies. Triggers: 'deploy', 'deployment', 'CI/CD', 'pipeline', 'Docker', 'containerize', 'release', 'rollback', 'health check', 'production ready'. NOT for: local development only, or when deployment is handled by external services without customization.",

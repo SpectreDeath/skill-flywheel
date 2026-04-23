@@ -1,11 +1,11 @@
-"
+"""
 Dependency Outdated Scanner
 
 Scans project dependencies for outdated packages and suggests updates:
 - Supports package.json, requirements.txt, go.mod, Gemfile
 - Checks against latest versions
 - Provides migration guides
-"
+"""
 
 import json
 import os
@@ -18,9 +18,9 @@ from datetime import datetime
 class Dependency:
     name: str
     current_version: str
-    latest_version: str = "
+    latest_version: str = ""
     is_outdated: bool = False
-    update_type: str = "  # major, minor, patch
+    update_type: str = ""  # major, minor, patch
 
 
 # Mock version data (in production, use actual package APIs)
@@ -43,7 +43,7 @@ VERSION_DATABASE = {
 
 
 def parse_package_json(path: str) -> List[Dependency]:
-    "Parse package.json for dependencies"
+    """Parse package.json for dependencies"""
     deps = []
     try:
         with open(path) as f:
@@ -68,7 +68,7 @@ def parse_package_json(path: str) -> List[Dependency]:
 
 
 def parse_requirements_txt(path: str) -> List[Dependency]:
-    "Parse requirements.txt for dependencies"
+    """Parse requirements.txt for dependencies"""
     deps = []
     try:
         with open(path) as f:
@@ -97,7 +97,7 @@ def parse_requirements_txt(path: str) -> List[Dependency]:
 
 
 def parse_go_mod(path: str) -> List[Dependency]:
-    "Parse go.mod for dependencies"
+    """Parse go.mod for dependencies"""
     deps = []
     try:
         with open(path) as f:
@@ -127,7 +127,7 @@ def parse_go_mod(path: str) -> List[Dependency]:
 
 
 def determine_update_type(current: str, latest: str) -> str:
-    "Determine the type of update needed"
+    """Determine the type of update needed"""
     try:
         curr_parts = current.split(".")
         lat_parts = latest.split(".")
@@ -143,7 +143,7 @@ def determine_update_type(current: str, latest: str) -> str:
 
 
 def scan_dependencies(repo_path: str) -> Dict[str, Any]:
-    "
+    """
     Scan dependencies for outdated packages.
 
     Args:
@@ -151,7 +151,7 @@ def scan_dependencies(repo_path: str) -> Dict[str, Any]:
 
     Returns:
         Dependency audit results
-    "
+    """
     all_deps = []
     files_scanned = []
 
@@ -206,7 +206,7 @@ def scan_dependencies(repo_path: str) -> Dict[str, Any]:
 
 
 def dependency_outdated_scanner(repo_path: str, **kwargs) -> Dict[str, Any]:
-    "
+    """
     Main entry point for dependency scanning.
 
     Args:
@@ -215,7 +215,7 @@ def dependency_outdated_scanner(repo_path: str, **kwargs) -> Dict[str, Any]:
 
     Returns:
         Scan results
-    "
+    """
     if not repo_path:
         return {"status": "error", "error": "No repository path provided"}
 
@@ -243,7 +243,7 @@ async def invoke(payload: dict) -> dict:
         },
     }
 def register_skill():
-    "Return skill metadata"
+    """Return skill metadata"""
     return {
         "name": "dependency-outdated-scanner",
         "description": "Scan for outdated dependencies and suggest updates",

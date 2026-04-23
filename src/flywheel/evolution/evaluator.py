@@ -4,9 +4,8 @@ import asyncio
 import logging
 import time
 from abc import ABC, abstractmethod
-from typing import TYPE_CHECKING, Any, Dict, List, Generic, TypeVar
+from typing import Any, Dict, List, TypeVar
 
-# Import genome types first - needed for BaseEvaluator generic params
 from .config import EvolutionConfig
 from .genome import SkillFailureCase, SkillFitnessResult, SkillGenome
 
@@ -18,7 +17,7 @@ except ImportError:
     DARWINIAN_AVAILABLE = False
     from typing import Protocol
 
-    # Define type variables for the dummy class
+    # Define type variables and protocol for type checking
     _T = TypeVar("_T")
     _R = TypeVar("_R")
     _E = TypeVar("_E")

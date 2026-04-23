@@ -518,8 +518,10 @@ class Validator:
         return processor.transform(data)
 """
 
+
+if __name__ == "__main__":
     result = impact_analyzer(sample_code, "DataProcessor.transform")
     import json
-from datetime import datetime
+    from datetime import datetime
 
     print(json.dumps(result, indent=2))

@@ -1,4 +1,4 @@
-"
+"""
 Performance Bottleneck Detector
 
 Detects performance bottlenecks in Python code by analyzing:
@@ -6,7 +6,7 @@ Detects performance bottlenecks in Python code by analyzing:
 - N+1 query patterns
 - Unnecessary object creation
 - Missing caching opportunities
-"
+"""
 
 import ast
 import re
@@ -86,7 +86,7 @@ class PerformanceAnalyzer(ast.NodeVisitor):
 
 
 def analyze_python_code(code: str) -> Dict[str, Any]:
-    "
+    """
     Analyze Python code for performance bottlenecks.
 
     Args:
@@ -94,7 +94,7 @@ def analyze_python_code(code: str) -> Dict[str, Any]:
 
     Returns:
         Analysis results with bottlenecks and suggestions
-    "
+    """
     bottlenecks = []
 
     try:
@@ -155,7 +155,7 @@ def analyze_python_code(code: str) -> Dict[str, Any]:
 
 
 def perf_bottleneck_detector(code: str, **kwargs) -> Dict[str, Any]:
-    "
+    """
     Main entry point for performance bottleneck detection.
 
     Args:
@@ -164,7 +164,7 @@ def perf_bottleneck_detector(code: str, **kwargs) -> Dict[str, Any]:
 
     Returns:
         Analysis results
-    "
+    """
     if not code:
         return {"status": "error", "error": "No code provided"}
 
@@ -172,9 +172,9 @@ def perf_bottleneck_detector(code: str, **kwargs) -> Dict[str, Any]:
 
 
 async def invoke(payload: dict) -> dict:
-    "MCP skill invocation"
+    """MCP skill invocation"""
     action = payload.get("action", "analyze")
-    code = payload.get("code", ")
+    code = payload.get("code", "")
 
     if action == "analyze":
         result = perf_bottleneck_detector(code)
@@ -189,7 +189,7 @@ async def invoke(payload: dict) -> dict:
         },
     }
 def register_skill():
-    "Return skill metadata"
+    """Return skill metadata"""
     return {
         "name": "perf-bottleneck-detector",
         "description": "Detect performance bottlenecks in Python code",

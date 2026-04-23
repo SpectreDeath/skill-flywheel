@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"
+"""
 sql-optimization-patterns
 
-"Use when: optimizing SQL queries, debugging slow database operations, designing database schemas, improving database performance, or analyzing query execution plans. Triggers: 'SQL', 'query optimization', 'slow query', 'EXPLAIN', 'index', 'performance', 'database', 'optimize', 'execution plan'. NOT for: simple queries that already perform well, or when ORM handles optimization automatically."
-"
+Use when: optimizing SQL queries, debugging slow database operations, designing database schemas, improving database performance, or analyzing query execution plans. Triggers: 'SQL', 'query optimization', 'slow query', 'EXPLAIN', 'index', 'performance', 'database', 'optimize', 'execution plan'. NOT for: simple queries that already perform well, or when ORM handles optimization automatically.
+"""
 
 import logging
 from datetime import datetime
@@ -13,7 +13,7 @@ logger = logging.getLogger(__name__)
 
 
 def sql_optimization_patterns(payload: Dict[str, Any]) -> Dict[str, Any]:
-    "
+    """
     Core implementation for sql-optimization-patterns.
 
     Args:
@@ -21,7 +21,7 @@ def sql_optimization_patterns(payload: Dict[str, Any]) -> Dict[str, Any]:
 
     Returns:
         Result dictionary with status and data
-    "
+    """
     # Implement Sql Optimization Patterns logic
     # This skill handles: Database Engineering
     result = {"data": payload}
@@ -70,7 +70,7 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def register_skill() -> Dict[str, str]:
-    "Return skill metadata."
+    """Return skill metadata."""
     return {
         "name": "sql-optimization-patterns",
         "description": "Use when: optimizing SQL queries, debugging slow database operations, designing database schemas, improving database performance, or analyzing query execution plans. Triggers: 'SQL', 'query optimization', 'slow query', 'EXPLAIN', 'index', 'performance', 'database', 'optimize', 'execution plan'. NOT for: simple queries that already perform well, or when ORM handles optimization automatically.",

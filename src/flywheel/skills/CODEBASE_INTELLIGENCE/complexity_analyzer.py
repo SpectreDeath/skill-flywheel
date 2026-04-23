@@ -771,6 +771,8 @@ class MyClass:
         return results
 """
 
+
+if __name__ == "__main__":
     options = {
         "max_cyclomatic": 10,
         "max_cognitive": 15,
@@ -781,6 +783,6 @@ class MyClass:
 
     result = complexity_analyzer(test_code, options)
     import json
-from datetime import datetime
+    from datetime import datetime
 
     print(json.dumps(result, indent=2))

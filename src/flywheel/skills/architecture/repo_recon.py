@@ -1,9 +1,9 @@
-"
+"""
 Onboarding Skills: Repository Reconnaissance
 
 This module provides skills for analyzing and understanding codebases:
 - repo_recon: Map structure, tech stack, and risks
-"
+"""
 
 import os
 import re
@@ -60,7 +60,7 @@ SECURITY_PATTERNS = {
 def analyze_repository_structure(
     repo_path: str, depth: int = 3, include_hidden: bool = False
 ) -> Dict[str, Any]:
-    "
+    """
     Analyze repository structure.
 
     Args:
@@ -70,7 +70,7 @@ def analyze_repository_structure(
 
     Returns:
         Dictionary with structure analysis
-    "
+    """
     result = {
         "root": os.path.basename(repo_path),
         "total_files": 0,
@@ -130,7 +130,7 @@ def analyze_repository_structure(
 
 
 def detect_tech_stack(repo_path: str) -> List[Dict[str, str]]:
-    "
+    """
     Detect technology stack from repository files.
 
     Args:
@@ -138,7 +138,7 @@ def detect_tech_stack(repo_path: str) -> List[Dict[str, str]]:
 
     Returns:
         List of detected technologies
-    "
+    """
     tech_stack = []
 
     for tech, patterns in TECH_STACK_PATTERNS.items():
@@ -176,7 +176,7 @@ def detect_tech_stack(repo_path: str) -> List[Dict[str, str]]:
 def scan_security_issues(
     repo_path: str, severity_threshold: str = "medium"
 ) -> Dict[str, Any]:
-    "
+    """
     Scan repository for security issues.
 
     Args:
@@ -185,7 +185,7 @@ def scan_security_issues(
 
     Returns:
         Dictionary with security findings
-    "
+    """
     severity_order = {"low": 0, "medium": 1, "high": 2, "critical": 3}
     min_severity = severity_order.get(severity_threshold.lower(), 1)
 
@@ -267,7 +267,7 @@ def scan_security_issues(
 def repo_recon(
     repository_path: str, depth: int = 3, include_hidden: bool = False, **kwargs
 ) -> Dict[str, Any]:
-    "
+    """
     Main entry point for repository reconnaissance.
 
     Args:
@@ -278,7 +278,7 @@ def repo_recon(
 
     Returns:
         Comprehensive repository analysis
-    "
+    """
     try:
         # Analyze structure
         structure = analyze_repository_structure(repository_path, depth, include_hidden)
@@ -321,11 +321,11 @@ def repo_recon(
 
 
 async def invoke(payload: dict) -> dict:
-    "Main entry point for MCP skill invocation"
+    """Main entry point for MCP skill invocation"""
     action = payload.get("action", "recon")
 
     if action == "recon":
-        repo_path = payload.get("repository_path", ")
+        repo_path = payload.get("repository_path", "")
         depth = payload.get("depth", 3)
         include_hidden = payload.get("include_hidden", False)
         result = repo_recon(repo_path, depth, include_hidden)
@@ -340,7 +340,7 @@ async def invoke(payload: dict) -> dict:
         },
     }
 def register_skill():
-    "Return skill metadata for MCP registration"
+    """Return skill metadata for MCP registration"""
     return {
         "name": "repo-recon",
         "description": "Map structure, tech stack, and risks of a repository",

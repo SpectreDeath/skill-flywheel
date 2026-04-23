@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"
+"""
 database-architect
 
-"Use when: designing database schemas, writing SQL queries, optimizing database performance, implementing connection pooling, managing migrations, or working with PostgreSQL/MongoDB/cloud databases. Triggers: 'database', 'SQL', 'schema', 'PostgreSQL', 'MongoDB', 'query', 'migration', 'index', 'connection pool', 'repository pattern', 'ORM', 'EF Core', 'postgres'. NOT for: infrastructure (use devops skills), or analytics (use data analysis skills)."
-"
+Use when: designing database schemas, writing SQL queries, optimizing database performance, implementing connection pooling, managing migrations, or working with PostgreSQL/MongoDB/cloud databases. Triggers: 'database', 'SQL', 'schema', 'PostgreSQL', 'MongoDB', 'query', 'migration', 'index', 'connection pool', 'repository pattern', 'ORM', 'EF Core', 'postgres'. NOT for: infrastructure (use devops skills), or analytics (use data analysis skills).
+"""
 
 import logging
 from datetime import datetime
@@ -13,7 +13,7 @@ logger = logging.getLogger(__name__)
 
 
 def database_architect(payload: Dict[str, Any]) -> Dict[str, Any]:
-    "
+    """
     Core implementation for database-architect.
 
     Args:
@@ -21,7 +21,7 @@ def database_architect(payload: Dict[str, Any]) -> Dict[str, Any]:
 
     Returns:
         Result dictionary with status and data
-    "
+    """
     # Implement Database Architect logic
     # This skill handles: Database Engineering
     result = {"data": payload}
@@ -70,7 +70,7 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def register_skill() -> Dict[str, str]:
-    "Return skill metadata."
+    """Return skill metadata."""
     return {
         "name": "database-architect",
         "description": "Use when: designing database schemas, writing SQL queries, optimizing database performance, implementing connection pooling, managing migrations, or working with PostgreSQL/MongoDB/cloud databases. Triggers: 'database', 'SQL', 'schema', 'PostgreSQL', 'MongoDB', 'query', 'migration', 'index', 'connection pool', 'repository pattern', 'ORM', 'EF Core', 'postgres'. NOT for: infrastructure (use devops skills), or analytics (use data analysis skills).",

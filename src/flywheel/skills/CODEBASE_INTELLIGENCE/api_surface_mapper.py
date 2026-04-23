@@ -647,6 +647,8 @@ class Service:
         pass
 """
 
+
+if __name__ == "__main__":
     options = {
         "include_private": False,
         "include_internal": False,
@@ -655,6 +657,6 @@ class Service:
 
     result = api_surface_mapper(test_code, options)
     import json
-from datetime import datetime
+    from datetime import datetime
 
     print(json.dumps(result, indent=2))

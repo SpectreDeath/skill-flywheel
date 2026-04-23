@@ -600,6 +600,8 @@ result = used_function()
 print(result)
 """
 
+
+if __name__ == "__main__":
     options = {
         "check_unreachable": True,
         "check_duplicates": True,
@@ -611,6 +613,6 @@ print(result)
 
     result = dead_code_detector(test_code, options)
     import json
-from datetime import datetime
+    from datetime import datetime
 
     print(json.dumps(result, indent=2))

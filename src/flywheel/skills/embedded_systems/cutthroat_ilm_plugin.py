@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"
+"""
 cutthroat-ilm-plugin
 
-"Use when: building C++ shared library plugins for CutThroat ILM framework by hijacking primitive handler tables. Triggers: 'CutThroat ILM', 'plugin development', 'primitive handler', 'C++ plugin', 'framework integration'. NOT for: non-CutThroat frameworks, or when ILM isn't involved."
-"
+Use when: building C++ shared library plugins for CutThroat ILM framework by hijacking primitive handler tables. Triggers: 'CutThroat ILM', 'plugin development', 'primitive handler', 'C++ plugin', 'framework integration'. NOT for: non-CutThroat frameworks, or when ILM isn't involved.
+"""
 
 import logging
 from datetime import datetime
@@ -13,7 +13,7 @@ logger = logging.getLogger(__name__)
 
 
 def cutthroat_ilm_plugin(payload: Dict[str, Any]) -> Dict[str, Any]:
-    "
+    """
     Core implementation for cutthroat-ilm-plugin.
 
     Args:
@@ -21,7 +21,7 @@ def cutthroat_ilm_plugin(payload: Dict[str, Any]) -> Dict[str, Any]:
 
     Returns:
         Result dictionary with status and data
-    "
+    """
     # Implement Cutthroat Ilm Plugin logic
     # This skill handles: Embedded Systems
     result = {"data": payload}
@@ -70,7 +70,7 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def register_skill() -> Dict[str, str]:
-    "Return skill metadata."
+    """Return skill metadata."""
     return {
         "name": "cutthroat-ilm-plugin",
         "description": "Use when: building C++ shared library plugins for CutThroat ILM framework by hijacking primitive handler tables. Triggers: 'CutThroat ILM', 'plugin development', 'primitive handler', 'C++ plugin', 'framework integration'. NOT for: non-CutThroat frameworks, or when ILM isn't involved.",
