@@ -22,7 +22,7 @@ jobs:
       - name: Install dependencies
         run: |
           pip install --no-cache-dir -e ".[dev]"
-          pip install pytest pytest-asyncio
+          pip install pytest
       
       - name: Run tests
         run: |
