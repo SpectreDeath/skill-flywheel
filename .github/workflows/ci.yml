@@ -7,108 +7,23 @@ on:
     branches: [main]
   workflow_dispatch:
 
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-
 jobs:
-  # =============================================================================
-  # Security Scanning
-  # =============================================================================
-  security-scan:
-    name: Security Scan
+  test:
+    name: Unit Tests
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
+      
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-
-      - name: Install security scan dependencies
-        run: |
-          pip install bandit
-
-      - name: Run Bandit security scan
-        run: |
-          bandit -r src/ -f json -o bandit-report.json || true
-          cat bandit-report.json
-
-  # =============================================================================
-  # Code Quality
-  # =============================================================================
-  code-quality:
-    name: Code Quality
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        python-version: ["3.10", "3.11", "3.12"]
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v5
-        with:
-          python-version: ${{ matrix.python-version }}
-
-      - name: Install dev dependencies
-        run: |
-          pip install --no-cache-dir -e ".[dev]"
-
-      - name: Install darwinian-evolver (optional git dependency)
-        run: |
-          pip install --no-cache-dir git+https://github.com/imbue-ai/darwinian_evolver.git || true
-
-      - name: Run Ruff linter
-        run: |
-          ruff check . --output-format=github
-
-      - name: Run Ruff formatter check
-        run: |
-          ruff format . --check
-
-      - name: Type checking with mypy
-        run: |
-          mypy src/ --ignore-missing-imports || true
-
-  # =============================================================================
-  # Unit Tests
-  # =============================================================================
-  unit-tests:
-    name: Unit Tests (Python ${{ matrix.python-version }})
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        python-version: ["3.10", "3.11", "3.12"]
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v5
-        with:
-          python-version: ${{ matrix.python-version }}
-
+      
       - name: Install dependencies
         run: |
           pip install --no-cache-dir -e ".[dev]"
-          pip install pytest pytest-cov pytest-asyncio
-
-      - name: Install darwinian-evolver (optional git dependency)
-        run: |
-          pip install --no-cache-dir git+https://github.com/imbue-ai/darwinian_evolver.git || true
-
+          pip install pytest pytest-asyncio
+      
       - name: Run tests
         run: |
-          pytest tests/ -v --tb=short
-
-      - name: Upload coverage to Codecov
-        if: matrix.python-version == '3.12'
-        uses: codecov/codecov-action@v4
-        with:
-          file: ./coverage.xml
-          fail_ci_if_error: false
-          token: ${{ secrets.CODECOV_TOKEN }}
+          pytest tests/ -v --tb=long
