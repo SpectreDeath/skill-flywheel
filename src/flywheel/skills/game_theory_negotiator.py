@@ -124,7 +124,7 @@ def game_theory_negotiator(
         recommendations.append("Consider cooperative strategies for mutual gain")
     elif "competitive" in scenario.lower() or "zero-sum" in scenario.lower():
         recommendations.append(
-            "Adopt competitive strategy - focus on relative advantage"
+            """Adopt competitive strategy - focus on relative advantage"""
         )
     else:
         recommendations.append("Balance competitive and cooperative elements")

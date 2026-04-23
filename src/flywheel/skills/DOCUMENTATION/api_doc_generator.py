@@ -302,7 +302,7 @@ def generate_openapi(endpoints: List[Endpoint], title: str = "API") -> Dict[str,
 
         if ep.return_type:
             path_item[ep.method.lower()]["responses"]["200"]["content"][
-                "application/json"
+                """application/json"""
             ]["schema"] = {"type": ep.return_type}
 
         openapi_doc["paths"][ep.path] = path_item

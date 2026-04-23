@@ -1,4 +1,4 @@
-"
+"""
 Evolutionary Game Solver
 
 Analyzes evolutionary stable strategies and dynamics:
@@ -6,7 +6,7 @@ Analyzes evolutionary stable strategies and dynamics:
 - Evolutionary stability
 - Population games
 - Hawk-Dove / Chicken game analysis
-"
+"""
 
 from typing import Any, Dict, List
 from datetime import datetime
@@ -20,7 +20,7 @@ def evolutionary_game_solver(
     mutation_rate: float = 0.01,
     **kwargs,
 ) -> Dict[str, Any]:
-    "
+    """
     Solve evolutionary game theory scenarios.
 
     Args:
@@ -33,7 +33,7 @@ def evolutionary_game_solver(
 
     Returns:
         Evolutionary stable strategies and dynamics
-    "
+    """
 
     # Set up game
     if game_type.lower() == "hawk_dove":
@@ -95,7 +95,7 @@ def _replicator_dynamics(
     generations: int,
     mutation_rate: float,
 ) -> List[Dict[str, float]]:
-    "Run replicator dynamics simulation"
+    """Run replicator dynamics simulation"""
 
     population = initial_pop.copy()
     trajectory = [population.copy()]
@@ -156,7 +156,7 @@ def _replicator_dynamics(
 def _find_evolutionary_stable_strategies(
     payoff_matrix: Dict[str, Dict[str, float]],
 ) -> Dict[str, Any]:
-    "Find evolutionary stable strategies"
+    """Find evolutionary stable strategies"""
 
     strategies = list(payoff_matrix.keys())
 
@@ -199,7 +199,7 @@ def _find_evolutionary_stable_strategies(
 def _find_mixed_equilibrium(
     payoff_matrix: Dict[str, Dict[str, float]],
 ) -> Dict[str, float] | None:
-    "Find symmetric mixed equilibrium (simplified 2-strategy case)"
+    """Find symmetric mixed equilibrium (simplified 2-strategy case)"""
 
     strategies = list(payoff_matrix.keys())
     if len(strategies) != 2:
@@ -226,7 +226,7 @@ def _find_mixed_equilibrium(
 
 
 async def invoke(payload: dict) -> dict:
-    "MCP skill invocation"
+    """MCP skill invocation"""
     payload.get("action", "solve")
     game_type = payload.get("game_type", "hawk_dove")
     population = payload.get("population")
@@ -250,7 +250,7 @@ async def invoke(payload: dict) -> dict:
         },
     }
 def register_skill():
-    "Return skill metadata"
+    """Return skill metadata"""
     return {
         "name": "evolutionary-game-solver",
         "description": "Analyze evolutionary stable strategies and replicator dynamics",

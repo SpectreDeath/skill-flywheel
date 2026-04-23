@@ -292,7 +292,7 @@ def detect_unreachable_code(code_lines: List[str]) -> List[Dict[str, Any]]:
                 last_meaningful = i
                 for j in range(i + 1, len(code_lines)):
                     if code_lines[j].strip() and not code_lines[j].strip().startswith(
-                        "#"
+                        """#"""
                     ):
                         last_meaningful = j
 
@@ -316,7 +316,7 @@ def detect_unreachable_code(code_lines: List[str]) -> List[Dict[str, Any]]:
                 last_meaningful = i
                 for j in range(i + 1, len(code_lines)):
                     if code_lines[j].strip() and not code_lines[j].strip().startswith(
-                        "#"
+                        """#"""
                     ):
                         last_meaningful = j
 
@@ -347,7 +347,7 @@ def detect_unreachable_code(code_lines: List[str]) -> List[Dict[str, Any]]:
                 j = i + 1
                 while j < len(code_lines):
                     if code_lines[j].strip() and not code_lines[j].strip().startswith(
-                        "#"
+                        """#"""
                     ):
                         unreachable.append(
                             {
@@ -364,7 +364,7 @@ def detect_unreachable_code(code_lines: List[str]) -> List[Dict[str, Any]]:
                 j = i + 1
                 while j < len(code_lines):
                     if code_lines[j].strip() and not code_lines[j].strip().startswith(
-                        "#"
+                        """#"""
                     ):
                         unreachable.append(
                             {"line_start": j + 1, "line_end": j + 1, "trigger": "raise"}

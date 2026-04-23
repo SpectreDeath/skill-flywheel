@@ -50,7 +50,7 @@ def verify():
         return True
     else:
         print(
-            "❌ FAILURE: The following domains are in the registry but MISSING from Discovery Service:"
+            """❌ FAILURE: The following domains are in the registry but MISSING from Discovery Service:"""
         )
         for d in sorted(missing):
             print(f"  - {d}")

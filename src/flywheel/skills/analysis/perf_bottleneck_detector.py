@@ -25,7 +25,7 @@ class Bottleneck:
 
 
 class PerformanceAnalyzer(ast.NodeVisitor):
-    "AST-based performance analyzer for Python code"
+    """AST-based performance analyzer for Python code"""
 
     def __init__(self):
         self.bottlenecks: List[Bottleneck] = []

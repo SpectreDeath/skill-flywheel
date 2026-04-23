@@ -1,18 +1,18 @@
-"
+"""
 SWOT Analysis Tool
 
 Conducts SWOT (Strengths, Weaknesses, Opportunities, Threats) analysis:
 - Factor identification and categorization
 - Strategic implications
 - Action item generation
-"
+"""
 
 from typing import Any, Dict, List
 from datetime import datetime
 
 
 def categorize_factors(factors: List[str], category: str) -> List[Dict]:
-    "Categorize factors with descriptions"
+    """Categorize factors with descriptions"""
     categorized = []
     for factor in factors:
         categorized.append(
@@ -26,7 +26,7 @@ def categorize_factors(factors: List[str], category: str) -> List[Dict]:
 
 
 def generate_strategic_implications(swot: Dict) -> List[str]:
-    "Generate strategic implications from SWOT analysis"
+    """Generate strategic implications from SWOT analysis"""
     implications = []
 
     strengths = swot.get("strengths", [])
@@ -58,7 +58,7 @@ def generate_strategic_implications(swot: Dict) -> List[str]:
 
 
 def swot_analyzer(organization_data: Dict, **kwargs) -> Dict[str, Any]:
-    "
+    """
     Conduct SWOT analysis from business data.
 
     Args:
@@ -67,7 +67,7 @@ def swot_analyzer(organization_data: Dict, **kwargs) -> Dict[str, Any]:
 
     Returns:
         SWOT analysis with strategic implications
-    "
+    """
     strengths = organization_data.get("strengths", [])
     weaknesses = organization_data.get("weaknesses", [])
     opportunities = organization_data.get("opportunities", [])
@@ -132,7 +132,7 @@ def swot_analyzer(organization_data: Dict, **kwargs) -> Dict[str, Any]:
 
 
 async def invoke(payload: dict) -> dict:
-    "MCP skill invocation"
+    """MCP skill invocation"""
     action = payload.get("action", "analyze")
     organization_data = payload.get("organization_data", {})
 
@@ -149,7 +149,7 @@ async def invoke(payload: dict) -> dict:
         },
     }
 def register_skill():
-    "Return skill metadata"
+    """Return skill metadata"""
     return {
         "name": "swot-analyzer",
         "description": "Conduct SWOT analysis from business data",

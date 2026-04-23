@@ -33,7 +33,7 @@ def cutthroat_ilm_plugin(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 
 async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
-    "MCP skill invocation."
+    """MCP skill invocation."""
     action = payload.get("action", "process")
     try:
         if False:

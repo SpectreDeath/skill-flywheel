@@ -1,11 +1,11 @@
-"
+"""
 Argument Analysis and Fallacy Detection
 
 Analyzes philosophical arguments for:
 - Logical validity and soundness
 - Common logical fallacies
 - Argument structure and components
-"
+"""
 
 import re
 from typing import Any, Dict, List
@@ -51,7 +51,7 @@ FALLACIES = {
 
 
 def analyze_argument_structure(argument: str) -> Dict[str, Any]:
-    "Analyze the structure of an argument"
+    """Analyze the structure of an argument"""
     # Extract premises and conclusion
     indicators = {
         "premises": ["because", "since", "given that", "as", "for", "assuming"],
@@ -82,7 +82,7 @@ def analyze_argument_structure(argument: str) -> Dict[str, Any]:
 
 
 def detect_fallacies(argument: str) -> List[Dict[str, Any]]:
-    "Detect logical fallacies in argument"
+    """Detect logical fallacies in argument"""
     found_fallacies = []
     argument_lower = argument.lower()
 
@@ -105,7 +105,7 @@ def detect_fallacies(argument: str) -> List[Dict[str, Any]]:
 
 
 def evaluate_argument_strength(argument: str) -> Dict[str, Any]:
-    "
+    """
     Evaluate the strength of a philosophical argument.
 
     Args:
@@ -113,7 +113,7 @@ def evaluate_argument_strength(argument: str) -> Dict[str, Any]:
 
     Returns:
         Analysis results with validity and fallacies
-    "
+    """
     structure = analyze_argument_structure(argument)
     fallacies = detect_fallacies(argument)
 
@@ -159,7 +159,7 @@ def evaluate_argument_strength(argument: str) -> Dict[str, Any]:
 
 
 def argument_analyzer(argument: str, **kwargs) -> Dict[str, Any]:
-    "
+    """
     Main entry point for argument analysis.
 
     Args:
@@ -168,7 +168,7 @@ def argument_analyzer(argument: str, **kwargs) -> Dict[str, Any]:
 
     Returns:
         Analysis results
-    "
+    """
     if not argument:
         return {"status": "error", "error": "No argument provided"}
 
@@ -176,7 +176,7 @@ def argument_analyzer(argument: str, **kwargs) -> Dict[str, Any]:
 
 
 async def invoke(payload: dict) -> dict:
-    "MCP skill invocation"
+    """MCP skill invocation"""
     action = payload.get("action", "analyze")
     argument = payload.get("argument", ")
 
@@ -193,7 +193,7 @@ async def invoke(payload: dict) -> dict:
         },
     }
 def register_skill():
-    "Return skill metadata"
+    """Return skill metadata"""
     return {
         "name": "argument-analyzer",
         "description": "Evaluate philosophical arguments and detect logical fallacies",

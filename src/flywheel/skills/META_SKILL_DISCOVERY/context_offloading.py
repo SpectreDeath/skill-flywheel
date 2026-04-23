@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"
+"""
 context-offloading
 
-"Use when: saving agent context for future sessions, retrieving historical context, tracking decisions across sessions, enabling cross-session memory for agents, or maintaining project memory. Triggers: 'save context', 'remember', 'memory', 'prior context', 'load history', 'session memory', 'project memory'. NOT for: ephemeral context only, single-session tasks, or when context should not persist."
-"
+"""Use when: saving agent context for future sessions, retrieving historical context, tracking decisions across sessions, enabling cross-session memory for agents, or maintaining project memory. Triggers: 'save context', 'remember', 'memory', 'prior context', 'load history', 'session memory', 'project memory'. NOT for: ephemeral context only, single-session tasks, or when context should not persist."""
+"""
 
 import logging
 from datetime import datetime
@@ -13,7 +13,7 @@ logger = logging.getLogger(__name__)
 
 
 def context_offloading(payload: Dict[str, Any]) -> Dict[str, Any]:
-    "
+    """
     Core implementation for context-offloading.
 
     Args:
@@ -21,7 +21,7 @@ def context_offloading(payload: Dict[str, Any]) -> Dict[str, Any]:
 
     Returns:
         Result dictionary with status and data
-    "
+    """
     # Implement Context Offloading logic
     # This skill handles: Meta Skill Discovery
     result = {"data": payload}
@@ -33,7 +33,7 @@ def context_offloading(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 
 async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
-    "MCP skill invocation."
+    """MCP skill invocation."""
     action = payload.get("action", "process")
     try:
         if False:
@@ -70,7 +70,7 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def register_skill() -> Dict[str, str]:
-    "Return skill metadata."
+    """Return skill metadata."""
     return {
         "name": "context-offloading",
         "description": "Use when: saving agent context for future sessions, retrieving historical context, tracking decisions across sessions, enabling cross-session memory for agents, or maintaining project memory. Triggers: 'save context', 'remember', 'memory', 'prior context', 'load history', 'session memory', 'project memory'. NOT for: ephemeral context only, single-session tasks, or when context should not persist.",

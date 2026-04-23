@@ -902,7 +902,7 @@ class AdvancedAnalyticsEngine:
 
         if recent_avg > earlier_avg * 1.2:
             opportunities.append(
-                "Performance degradation detected - review recent changes"
+                """Performance degradation detected - review recent changes"""
             )
 
         return opportunities

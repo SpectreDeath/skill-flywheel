@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"
+"""
 Skill: ml-computer-vision-image-processing
 Domain: ML_AI
 Description: ## Purpose Comprehensive computer vision and image processing using machine learning techniques for image analysis, object detection, and visual understanding applications.
-"
+"""
 
 import logging
 from datetime import datetime
@@ -17,7 +17,7 @@ DESCRIPTION = "## Purpose Comprehensive computer vision and image processing usi
 
 
 def get_capabilities():
-    "Return skill capabilities."
+    """Return skill capabilities."""
     return {
         "name": SKILL_NAME,
         "domain": DOMAIN,
@@ -27,7 +27,7 @@ def get_capabilities():
 
 
 async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
-    "Entry point for skill invocation."
+    """Entry point for skill invocation."""
     action = payload.get("action", "get_info")
     timestamp = datetime.now().isoformat()
 
@@ -78,7 +78,7 @@ if __name__ == "__main__":
 
 
 def register_skill() -> dict:
-    "Return skill metadata."
+    """Return skill metadata."""
     return {
         "name": "ml_computer_vision_image_processing",
         "domain": "ml_ai",

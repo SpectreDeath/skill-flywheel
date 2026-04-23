@@ -46,7 +46,7 @@ def calculate_evolution_score(
         recommendations.append("Add more incremental versions")
     if evolution_score < 40:
         recommendations.append(
-            "Focus on stability and bug fixes before adding features"
+            """Focus on stability and bug fixes before adding features"""
         )
 
     return {

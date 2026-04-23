@@ -1,9 +1,9 @@
-"
+"""
 Onboarding Skills: Security Scan
 
 This module provides skills for security analysis:
 - security_scan: Detect security vulnerabilities and misconfigurations
-"
+"""
 
 import json
 import os
@@ -16,7 +16,7 @@ from datetime import datetime
 
 @dataclass
 class SecurityFinding:
-    "Represents a security finding"
+    """Represents a security finding"""
 
     id: str
     severity: str
@@ -99,7 +99,7 @@ VULNERABILITY_PATTERNS = {
 def scan_for_vulnerabilities(
     repo_path: str, focus_areas: List[str] | None = None
 ) -> List[Dict[str, Any]]:
-    "
+    """
     Scan for code vulnerabilities.
 
     Args:
@@ -108,7 +108,7 @@ def scan_for_vulnerabilities(
 
     Returns:
         List of vulnerabilities found
-    "
+    """
     vulnerabilities = []
     focus_areas = focus_areas or list(VULNERABILITY_PATTERNS.keys())
 
@@ -164,7 +164,7 @@ def scan_for_vulnerabilities(
 
 
 def scan_secrets(repo_path: str) -> List[Dict[str, Any]]:
-    "
+    """
     Scan for hardcoded secrets.
 
     Args:
@@ -172,7 +172,7 @@ def scan_secrets(repo_path: str) -> List[Dict[str, Any]]:
 
     Returns:
         List of secrets found
-    "
+    """
     secrets = []
 
     secret_patterns = [
@@ -229,7 +229,7 @@ def scan_secrets(repo_path: str) -> List[Dict[str, Any]]:
 
 
 def scan_dependencies(repo_path: str) -> Dict[str, Any]:
-    "
+    """
     Scan dependencies for known vulnerabilities.
 
     Args:
@@ -237,7 +237,7 @@ def scan_dependencies(repo_path: str) -> Dict[str, Any]:
 
     Returns:
         Dependency vulnerability report
-    "
+    """
     dependencies = {"outdated": [], "vulnerable": []}
 
     # Check package.json
@@ -283,7 +283,7 @@ def security_scan(
     focus_areas: List[str] | None = None,
     **kwargs,
 ) -> Dict[str, Any]:
-    "
+    """
     Main entry point for security scanning.
 
     Args:
@@ -295,7 +295,7 @@ def security_scan(
 
     Returns:
         Comprehensive security scan report
-    "
+    """
     try:
         severity_order = {"low": 0, "medium": 1, "high": 2, "critical": 3}
         min_severity = severity_order.get(severity_threshold.lower(), 0)
@@ -380,7 +380,7 @@ def security_scan(
 
 
 async def invoke(payload: dict) -> dict:
-    "Main entry point for MCP skill invocation"
+    """Main entry point for MCP skill invocation"""
     action = payload.get("action", "scan")
 
     if action == "scan":
@@ -400,7 +400,7 @@ async def invoke(payload: dict) -> dict:
         },
     }
 def register_skill():
-    "Return skill metadata for MCP registration"
+    """Return skill metadata for MCP registration"""
     return {
         "name": "security-scan",
         "description": "Detect security vulnerabilities and misconfigurations",

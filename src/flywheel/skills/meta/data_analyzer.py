@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"
+"""
 Data Analysis Skill
 
 This skill provides data analysis capabilities including:
@@ -7,7 +7,7 @@ This skill provides data analysis capabilities including:
 - Data visualization
 - Trend analysis
 - Data cleaning and preprocessing
-"
+"""
 
 import logging
 from datetime import datetime
@@ -21,7 +21,7 @@ logger = logging.getLogger(__name__)
 def analyze_dataset(data: List[Dict[str, Any]], 
                    analysis_type: str = "comprehensive",
                    output_format: str = "json") -> Dict[str, Any]:
-    "
+    """
     Analyze a dataset and provide insights
     
     Args:
@@ -31,7 +31,7 @@ def analyze_dataset(data: List[Dict[str, Any]],
     
     Returns:
         Analysis results
-    "
+    """
     try:
         # Convert to DataFrame
         df = pd.DataFrame(data)
@@ -110,7 +110,7 @@ def analyze_dataset(data: List[Dict[str, Any]],
         return {"error": str(e)}
 
 def _format_text_output(results: Dict[str, Any]) -> Dict[str, Any]:
-    "Format results as text summary"
+    """Format results as text summary"""
     summary = []
     
     # Dataset info
@@ -135,7 +135,7 @@ def _format_text_output(results: Dict[str, Any]) -> Dict[str, Any]:
     return {"summary": "\n".join(summary)}
 
 def _format_detailed_output(results: Dict[str, Any], df: pd.DataFrame) -> Dict[str, Any]:
-    "Format results with additional detailed analysis"
+    """Format results with additional detailed analysis"""
     detailed = results.copy()
     
     # Add trend analysis for numeric columns
@@ -161,7 +161,7 @@ def _format_detailed_output(results: Dict[str, Any], df: pd.DataFrame) -> Dict[s
 def clean_data(data: List[Dict[str, Any]], 
               strategy: str = "drop", 
               fill_value: Any = None) -> List[Dict[str, Any]]:
-    "
+    """
     Clean dataset by handling missing values and duplicates
     
     Args:
@@ -171,7 +171,7 @@ def clean_data(data: List[Dict[str, Any]],
     
     Returns:
         Cleaned dataset
-    "
+    """
     try:
         df = pd.DataFrame(data)
         
@@ -203,7 +203,7 @@ def clean_data(data: List[Dict[str, Any]],
 
 def generate_insights(data: List[Dict[str, Any]], 
                      target_column: str | None = None) -> Dict[str, Any]:
-    "
+    """
     Generate business insights from the dataset
     
     Args:
@@ -212,7 +212,7 @@ def generate_insights(data: List[Dict[str, Any]],
     
     Returns:
         Business insights
-    "
+    """
     try:
         df = pd.DataFrame(data)
         
@@ -264,7 +264,7 @@ def generate_insights(data: List[Dict[str, Any]],
 
 # Example usage function
 def example_usage():
-    "Example of how to use the data analyzer skill"
+    """Example of how to use the data analyzer skill"""
     sample_data = [
         {"age": 25, "income": 50000, "score": 85},
         {"age": 30, "income": 60000, "score": 90},
@@ -287,7 +287,7 @@ if __name__ == "__main__":
 
 # --- invoke() wrapper added by batch fix ---
 async def invoke(payload: dict) -> dict:
-    "Entry point for skill invocation."
+    """Entry point for skill invocation."""
     import datetime as _dt
     action = payload.get("action", "analyze")
     timestamp = _dt.datetime.now().isoformat()
@@ -319,7 +319,7 @@ async def invoke(payload: dict) -> dict:
 
 
 def register_skill() -> dict:
-    "Return skill metadata."
+    """Return skill metadata."""
     return {
         "name": "data_analyzer",
         "domain": "meta",

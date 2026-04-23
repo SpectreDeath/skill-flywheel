@@ -23,7 +23,7 @@ AUCTION_TYPES = {
 def calculate_expected_value(
     private_value: float, num_bidders: int, signal: float, auction_type: str
 ) -> Dict[str, Any]:
-    "Calculate expected value and optimal bid"
+    """Calculate expected value and optimal bid"""
 
     # Estimate others' values using signal
     others_avg = (
@@ -61,7 +61,7 @@ def calculate_expected_value(
 def analyze_auction_type(
     auction_type: str, private_value: float, num_bidders: int = 5
 ) -> Dict[str, Any]:
-    "Analyze specific auction type"
+    """Analyze specific auction type"""
 
     if auction_type not in AUCTION_TYPES:
         return {"error": f"Unknown auction type: {auction_type}"}
@@ -92,13 +92,13 @@ def analyze_auction_type(
 
 
 def get_auction_tips(auction_type: str, value: float, bidders: int) -> List[str]:
-    "Get auction-specific tips"
+    """Get auction-specific tips"""
     tips = []
 
     if auction_type == "sealed_bid":
         tips.append("Never bid more than your true value")
         tips.append(
-            "Consider the number of bidders - more competition = higher optimal bid"
+            """Consider the number of bidders - more competition = higher optimal bid"""
         )
     elif auction_type == "vickrey":
         tips.append("Truth-telling is dominant strategy - bid your true value")
@@ -117,7 +117,7 @@ def get_auction_tips(auction_type: str, value: float, bidders: int) -> List[str]
 def auction_strategy_analyzer(
     auction_type: str, private_value: float, num_bidders: int = 5, **kwargs
 ) -> Dict[str, Any]:
-    "
+    """
     Analyze auction strategies.
 
     Args:
@@ -128,7 +128,7 @@ def auction_strategy_analyzer(
 
     Returns:
         Auction strategy analysis
-    "
+    """
     valid_types = list(AUCTION_TYPES.keys())
     if auction_type not in valid_types:
         return {"status": "error", "error": f"Invalid auction type. Use: {valid_types}"}
@@ -150,7 +150,7 @@ def auction_strategy_analyzer(
 
 
 async def invoke(payload: dict) -> dict:
-    "MCP skill invocation"
+    """MCP skill invocation"""
     action = payload.get("action", "analyze")
     auction_type = payload.get("auction_type", "sealed_bid")
     private_value = payload.get("private_value", 0)

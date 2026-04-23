@@ -453,7 +453,7 @@ class WatchdogMonitor:
 
             if not activity_result or "service_status" not in activity_result:
                 logger.warning(
-                    "Could not get service activity status from discovery service"
+                    """Could not get service activity status from discovery service"""
                 )
                 return
 

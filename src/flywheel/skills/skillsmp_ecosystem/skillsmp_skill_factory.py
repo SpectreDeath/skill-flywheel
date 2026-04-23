@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"
+"""
 skillsmp-skill-factory
 
-"Use when: needing to both learn from SkillsMP skills AND orchestrate skill assembly in one workflow. Combines skill-learner and skill-orchestrator capabilities. Triggers: 'learn and create', 'generate from examples', 'build from skills', 'factory'. Requires API key from skillsmp.com."
-"
+"""Use when: needing to both learn from SkillsMP skills AND orchestrate skill assembly in one workflow. Combines skill-learner and skill-orchestrator capabilities. Triggers: 'learn and create', 'generate from examples', 'build from skills', 'factory'. Requires API key from skillsmp.com."""
+"""
 
 import logging
 from datetime import datetime
@@ -13,7 +13,7 @@ logger = logging.getLogger(__name__)
 
 
 def skillsmp_skill_factory(payload: Dict[str, Any]) -> Dict[str, Any]:
-    "
+    """
     Core implementation for skillsmp-skill-factory.
 
     Args:
@@ -21,7 +21,7 @@ def skillsmp_skill_factory(payload: Dict[str, Any]) -> Dict[str, Any]:
 
     Returns:
         Result dictionary with status and data
-    "
+    """
     # Implement Skillsmp Skill Factory logic
     # This skill handles: Skillsmp Ecosystem
     result = {"data": payload}
@@ -33,7 +33,7 @@ def skillsmp_skill_factory(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 
 async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
-    "MCP skill invocation."
+    """MCP skill invocation."""
     action = payload.get("action", "process")
     try:
         if False:
@@ -70,7 +70,7 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def register_skill() -> Dict[str, str]:
-    "Return skill metadata."
+    """Return skill metadata."""
     return {
         "name": "skillsmp-skill-factory",
         "description": "Use when: needing to both learn from SkillsMP skills AND orchestrate skill assembly in one workflow. Combines skill-learner and skill-orchestrator capabilities. Triggers: 'learn and create', 'generate from examples', 'build from skills', 'factory'. Requires API key from skillsmp.com.",

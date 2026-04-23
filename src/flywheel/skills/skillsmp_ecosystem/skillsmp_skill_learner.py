@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"
+"""
 skillsmp-skill-learner
 
-"Use when: analyzing existing skills from SkillsMP to learn patterns, extract reusable components, generate improved derivative skills, or synthesize multiple skills. Works with skillsmp-api-client. Triggers: 'learn from skills', 'analyze skill patterns', 'generate skill', 'improve skill', 'synthesize skills', 'extract patterns'. NOT for: directly executing tasks (use appropriate execution skills)."
-"
+"""Use when: analyzing existing skills from SkillsMP to learn patterns, extract reusable components, generate improved derivative skills, or synthesize multiple skills. Works with skillsmp-api-client. Triggers: 'learn from skills', 'analyze skill patterns', 'generate skill', 'improve skill', 'synthesize skills', 'extract patterns'. NOT for: directly executing tasks (use appropriate execution skills)."""
+"""
 
 import logging
 from datetime import datetime
@@ -13,7 +13,7 @@ logger = logging.getLogger(__name__)
 
 
 def skillsmp_skill_learner(payload: Dict[str, Any]) -> Dict[str, Any]:
-    "
+    """
     Core implementation for skillsmp-skill-learner.
 
     Args:
@@ -21,7 +21,7 @@ def skillsmp_skill_learner(payload: Dict[str, Any]) -> Dict[str, Any]:
 
     Returns:
         Result dictionary with status and data
-    "
+    """
     # Implement Skillsmp Skill Learner logic
     # This skill handles: Skillsmp Ecosystem
     result = {"data": payload}
@@ -33,7 +33,7 @@ def skillsmp_skill_learner(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 
 async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
-    "MCP skill invocation."
+    """MCP skill invocation."""
     action = payload.get("action", "process")
     try:
         if False:
@@ -70,7 +70,7 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def register_skill() -> Dict[str, str]:
-    "Return skill metadata."
+    """Return skill metadata."""
     return {
         "name": "skillsmp-skill-learner",
         "description": "Use when: analyzing existing skills from SkillsMP to learn patterns, extract reusable components, generate improved derivative skills, or synthesize multiple skills. Works with skillsmp-api-client. Triggers: 'learn from skills', 'analyze skill patterns', 'generate skill', 'improve skill', 'synthesize skills', 'extract patterns'. NOT for: directly executing tasks (use appropriate execution skills).",

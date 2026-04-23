@@ -1,10 +1,10 @@
-"
+"""
 Skill Validation Framework
 
 This module provides validation for skill definitions and implementations:
 - validate_skill_metadata: Validate skill metadata structure
 - validate_skill_implementation: Validate skill can be loaded and executed
-"
+"""
 
 import importlib.util
 import json
@@ -17,7 +17,7 @@ from datetime import datetime
 
 @dataclass
 class ValidationResult:
-    "Result of skill validation"
+    """Result of skill validation"""
 
     valid: bool
     errors: List[str] = field(default_factory=list)
@@ -49,7 +49,7 @@ VALID_TYPES = ["Process", "Tool", "Strategy", "Meta-Process", "Tutorial"]
 
 
 def validate_metadata_structure(metadata: Dict[str, Any]) -> ValidationResult:
-    "
+    """
     Validate skill metadata structure.
 
     Args:
@@ -57,7 +57,7 @@ def validate_metadata_structure(metadata: Dict[str, Any]) -> ValidationResult:
 
     Returns:
         ValidationResult with errors, warnings, and info
-    "
+    """
     result = ValidationResult(valid=True)
 
     # Check required fields
@@ -89,7 +89,7 @@ def validate_metadata_structure(metadata: Dict[str, Any]) -> ValidationResult:
 
 
 def validate_skill_file(skill_path: str) -> ValidationResult:
-    "
+    """
     Validate skill file exists and has required functions.
 
     Args:
@@ -97,7 +97,7 @@ def validate_skill_file(skill_path: str) -> ValidationResult:
 
     Returns:
         ValidationResult
-    "
+    """
     result = ValidationResult(valid=True)
 
     # Check file exists
@@ -126,7 +126,7 @@ def validate_skill_file(skill_path: str) -> ValidationResult:
 
 
 def validate_skill_implementation(skill_path: str) -> ValidationResult:
-    "
+    """
     Validate skill can be loaded and executed.
 
     Args:
@@ -134,7 +134,7 @@ def validate_skill_implementation(skill_path: str) -> ValidationResult:
 
     Returns:
         ValidationResult
-    "
+    """
     result = ValidationResult(valid=True)
 
     # First validate file structure
@@ -170,7 +170,7 @@ def validate_skill_implementation(skill_path: str) -> ValidationResult:
                     metadata = module.register_skill()
                     if not isinstance(metadata, dict):
                         result.errors.append(
-                            "register_skill() must return a dictionary"
+                            """register_skill() must return a dictionary"""
                         )
                         result.valid = False
                     else:
@@ -186,7 +186,7 @@ def validate_skill_implementation(skill_path: str) -> ValidationResult:
 
 
 def validate_skill_definition(skill_definition: Dict[str, Any]) -> ValidationResult:
-    "
+    """
     Validate complete skill definition.
 
     Args:
@@ -194,7 +194,7 @@ def validate_skill_definition(skill_definition: Dict[str, Any]) -> ValidationRes
 
     Returns:
         ValidationResult
-    "
+    """
     result = ValidationResult(valid=True)
 
     # Validate metadata
@@ -222,7 +222,7 @@ def validate_skill_definition(skill_definition: Dict[str, Any]) -> ValidationRes
 
 
 def validate_skill_catalog(catalog_path: str) -> Dict[str, ValidationResult]:
-    "
+    """
     Validate all skills in a catalog.
 
     Args:
@@ -230,7 +230,7 @@ def validate_skill_catalog(catalog_path: str) -> Dict[str, ValidationResult]:
 
     Returns:
         Dictionary mapping skill names to ValidationResults
-    "
+    """
     results = {}
 
     if not os.path.exists(catalog_path):
@@ -263,7 +263,7 @@ def validate_skill_catalog(catalog_path: str) -> Dict[str, ValidationResult]:
 
 
 def generate_validation_report(results: Dict[str, ValidationResult]) -> str:
-    "
+    """
     Generate a human-readable validation report.
 
     Args:
@@ -271,7 +271,7 @@ def generate_validation_report(results: Dict[str, ValidationResult]) -> str:
 
     Returns:
         Formatted report string
-    "
+    """
     lines = ["Skill Validation Report", "=" * 50, "]
 
     total = len(results)
@@ -299,7 +299,7 @@ def generate_validation_report(results: Dict[str, ValidationResult]) -> str:
 
 
 async def invoke(payload: dict) -> dict:
-    "Main entry point for MCP skill invocation"
+    """Main entry point for MCP skill invocation"""
     action = payload.get("action", "validate")
 
     if action == "validate":
@@ -358,7 +358,7 @@ async def invoke(payload: dict) -> dict:
         },
     }
 def register_skill():
-    "Return skill metadata for MCP registration"
+    """Return skill metadata for MCP registration"""
     return {
         "name": "skill-validation",
         "description": "Framework for validating skill definitions and implementations",

@@ -1,4 +1,4 @@
-"
+"""
 Cluster Validation Analyzer
 
 Evaluates cluster quality using multiple metrics:
@@ -6,7 +6,7 @@ Evaluates cluster quality using multiple metrics:
 - Calinski-Harabasz index
 - Davies-Bouldin index
 - Dunn index
-"
+"""
 
 import math
 from typing import Any, Dict, List
@@ -18,7 +18,7 @@ def _euclidean_distance(p1: List[float], p2: List[float]) -> float:
 
 
 def _centroid(cluster_points: List[List[float]]) -> List[float]:
-    "Calculate centroid of a cluster"
+    """Calculate centroid of a cluster"""
     if not cluster_points:
         return []
     n_features = len(cluster_points[0])
@@ -33,7 +33,7 @@ def cluster_validation_analyzer(
     assignments: List[int],
     **kwargs,
 ) -> Dict[str, Any]:
-    "
+    """
     Evaluate cluster quality using multiple validation metrics.
 
     Args:
@@ -43,7 +43,7 @@ def cluster_validation_analyzer(
 
     Returns:
         Validation metrics and quality assessment
-    "
+    """
 
     if len(data) != len(assignments):
         return {"status": "error", "error": "Data and assignments length mismatch"}
@@ -185,7 +185,7 @@ def cluster_validation_analyzer(
 def _interpret_metrics(
     sil: float, ch: float, db: float, dunn: float, k: int
 ) -> Dict[str, Any]:
-    "Interpret validation metrics"
+    """Interpret validation metrics"""
 
     # Silhouette: -1 to 1, higher is better
     if sil >= 0.5:
@@ -228,7 +228,7 @@ def _interpret_metrics(
 
 
 async def invoke(payload: dict) -> dict:
-    "MCP skill invocation"
+    """MCP skill invocation"""
     action = payload.get("action", "validate")
     data = payload.get("data", [])
     assignments = payload.get("assignments", [])
@@ -246,7 +246,7 @@ async def invoke(payload: dict) -> dict:
         },
     }
 def register_skill():
-    "Return skill metadata"
+    """Return skill metadata"""
     return {
         "name": "cluster-validation-analyzer",
         "description": "Evaluate cluster quality using silhouette, Calinski-Harabasz, Davies-Bouldin, and Dunn indices",

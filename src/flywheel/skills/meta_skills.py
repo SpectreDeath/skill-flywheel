@@ -30,11 +30,11 @@ name: {skill_name}
 
 ### Basic Usage
 
-"{basic_usage}"
+"""{basic_usage}"""
 
 ### Advanced Usage
 
-"{advanced_usage}"
+"""{advanced_usage}"""
 
 ## Purpose
 

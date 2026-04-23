@@ -138,12 +138,12 @@ if __name__ == "__main__":
     effects = {"age": 0.35, "income": -0.22, "credit_score": 0.18, "debt": -0.12}
     print(
         asyncio.run(invoke({"action": "section_header", "title": "TEST"}))["result"][
-            "header"
+            """header"""
         ]
     )
     print(
         asyncio.run(invoke({"action": "ascii_bar", "items": effects}))["result"][
-            "chart"
+            """chart"""
         ]
     )
     interactions = [

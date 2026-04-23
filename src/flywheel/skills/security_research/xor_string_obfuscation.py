@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"
+"""
 xor-string-obfuscation
 
-"Use when: hiding sensitive strings (debug messages, error text, IP addresses, file paths) from binary analysis by XOR-encoding at build time and decoding at runtime. Triggers: 'obfuscate strings', 'hide strings', 'XOR encode', 'string encryption', 'anti-reverse engineering'. NOT for: protecting data at runtime in memory (use encryption), or when performance overhead is unacceptable."
-"
+"""Use when: hiding sensitive strings (debug messages, error text, IP addresses, file paths) from binary analysis by XOR-encoding at build time and decoding at runtime. Triggers: 'obfuscate strings', 'hide strings', 'XOR encode', 'string encryption', 'anti-reverse engineering'. NOT for: protecting data at runtime in memory (use encryption), or when performance overhead is unacceptable."""
+"""
 
 import logging
 from datetime import datetime
@@ -13,7 +13,7 @@ logger = logging.getLogger(__name__)
 
 
 def xor_string_obfuscation(payload: Dict[str, Any]) -> Dict[str, Any]:
-    "
+    """
     Core implementation for xor-string-obfuscation.
 
     Args:
@@ -21,7 +21,7 @@ def xor_string_obfuscation(payload: Dict[str, Any]) -> Dict[str, Any]:
 
     Returns:
         Result dictionary with status and data
-    "
+    """
     # Implement Xor String Obfuscation logic
     # This skill handles: Security Research
     result = {"data": payload}
@@ -33,7 +33,7 @@ def xor_string_obfuscation(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 
 async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
-    "MCP skill invocation."
+    """MCP skill invocation."""
     action = payload.get("action", "process")
     try:
         if False:
@@ -70,7 +70,7 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def register_skill() -> Dict[str, str]:
-    "Return skill metadata."
+    """Return skill metadata."""
     return {
         "name": "xor-string-obfuscation",
         "description": "Use when: hiding sensitive strings (debug messages, error text, IP addresses, file paths) from binary analysis by XOR-encoding at build time and decoding at runtime. Triggers: 'obfuscate strings', 'hide strings', 'XOR encode', 'string encryption', 'anti-reverse engineering'. NOT for: protecting data at runtime in memory (use encryption), or when performance overhead is unacceptable.",

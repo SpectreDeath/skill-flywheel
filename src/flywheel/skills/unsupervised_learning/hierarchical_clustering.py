@@ -1,11 +1,11 @@
-"
+"""
 Hierarchical Clustering
 
 Performs agglomerative hierarchical clustering:
 - Multiple linkage methods (single, complete, average, ward)
 - Dendrogram generation
 - Cut tree at different thresholds
-"
+"""
 
 import math
 from typing import Any, Dict, List
@@ -17,7 +17,7 @@ def _euclidean_distance(p1: List[float], p2: List[float]) -> float:
 
 
 def _linkage_matrix(data: List[List[float]], method: str) -> List[List[float]]:
-    "Compute hierarchical clustering linkage matrix"
+    """Compute hierarchical clustering linkage matrix"""
     n = len(data)
 
     # Initialize distances
@@ -71,7 +71,7 @@ def _linkage_matrix(data: List[List[float]], method: str) -> List[List[float]]:
 def _cluster_distance(
     c1: List[int], c2: List[int], distances: List[List[float]], method: str
 ) -> float:
-    "Calculate distance between two clusters"
+    """Calculate distance between two clusters"""
     if method == "single":
         return min(distances[i][j] for i in c1 for j in c2)
     elif method == "complete":
@@ -91,7 +91,7 @@ def hierarchical_clustering(
     linkage_method: str = "average",
     **kwargs,
 ) -> Dict[str, Any]:
-    "
+    """
     Perform hierarchical/agglomerative clustering.
 
     Args:
@@ -103,7 +103,7 @@ def hierarchical_clustering(
 
     Returns:
         Hierarchical clustering results with dendrogram structure
-    "
+    """
 
     if len(data) < 2:
         return {"status": "error", "error": "Need at least 2 data points"}
@@ -148,7 +148,7 @@ def hierarchical_clustering(
 
 
 def _cut_by_clusters(linkage: List, n: int, n_clusters: int) -> List[int]:
-    "Cut tree to get exactly n clusters"
+    """Cut tree to get exactly n clusters"""
     if n_clusters >= n:
         return list(range(n))
 
@@ -187,7 +187,7 @@ def _cut_by_clusters(linkage: List, n: int, n_clusters: int) -> List[int]:
 
 
 def _cut_by_distance(linkage: List, n: int, threshold: float) -> List[int]:
-    "Cut tree at distance threshold"
+    """Cut tree at distance threshold"""
     clusters = list(range(n))
 
     for merge in linkage:
@@ -199,7 +199,7 @@ def _cut_by_distance(linkage: List, n: int, threshold: float) -> List[int]:
 
 
 async def invoke(payload: dict) -> dict:
-    "MCP skill invocation"
+    """MCP skill invocation"""
     action = payload.get("action", "cluster")
     data = payload.get("data", [])
     n_clusters = payload.get("n_clusters")
@@ -221,7 +221,7 @@ async def invoke(payload: dict) -> dict:
         },
     }
 def register_skill():
-    "Return skill metadata"
+    """Return skill metadata"""
     return {
         "name": "hierarchical-clustering",
         "description": "Perform agglomerative hierarchical clustering with multiple linkage methods",

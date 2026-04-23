@@ -1,9 +1,9 @@
-"
+"""
 OpenClaw Deployment Skill
 
 Provides capabilities for deploying and managing OpenClaw across
 different platforms including local, VPS, Docker, and cloud environments.
-"
+"""
 
 import asyncio
 import os
@@ -37,11 +37,11 @@ services:
   #     - "443:443"
   #   volumes:
   #     - ./nginx.conf:/etc/nginx/nginx.conf:ro
-"
+"""
 
 
 class OpenClawDeployer:
-    "Deploy and manage OpenClaw installations."
+    """Deploy and manage OpenClaw installations."""
 
     def __init__(self, deployment_path: str | None = None):
         self.deployment_path = (
@@ -49,7 +49,7 @@ class OpenClawDeployer:
         )
 
     def check_requirements(self) -> Dict[str, Any]:
-        "Check deployment requirements."
+        """Check deployment requirements."""
         requirements = {
             "docker": self._check_command("docker"),
             "docker_compose": self._check_command("docker-compose")
@@ -67,14 +67,14 @@ class OpenClawDeployer:
         }
 
     def _check_command(self, cmd: str) -> bool:
-        "Check if a command is available."
+        """Check if a command is available."""
         result = subprocess.run(
             ["which", cmd] if os.name != "nt" else ["where", cmd], capture_output=True, check=False
         )
         return result.returncode == 0
 
     async def deploy_local(self, model: str = "gpt-4") -> Dict[str, Any]:
-        "Deploy OpenClaw locally."
+        """Deploy OpenClaw locally."""
         try:
             result = await self._run_command(["npm", "install", "-g", "@openclaw/cli"])
 
@@ -96,7 +96,7 @@ class OpenClawDeployer:
             env_content = f"MODEL_PROVIDER=openai
 MODEL_NAME={model}
 OPENAI_API_KEY=$OPENAI_API_KEY
-"
+"""
             env_file.write_text(env_content)
 
             return {
@@ -113,7 +113,7 @@ OPENAI_API_KEY=$OPENAI_API_KEY
     async def deploy_docker(
         self, model_provider: str = "openai", model_name: str = "gpt-4"
     ) -> Dict[str, Any]:
-        "Deploy using Docker."
+        """Deploy using Docker."""
         try:
             self.deployment_path.mkdir(parents=True, exist_ok=True)
 
@@ -146,7 +146,7 @@ OPENAI_API_KEY=$OPENAI_API_KEY
     async def deploy_vps(
         self, host: str, user: str = "root", key_path: str | None = None
     ) -> Dict[str, Any]:
-        "Deploy to a VPS."
+        """Deploy to a VPS."""
         try:
             ssh_cmd = ["ssh"]
             if key_path:
@@ -180,7 +180,7 @@ OPENAI_API_KEY=$OPENAI_API_KEY
             return {"error": str(e)}
 
     async def get_status(self) -> Dict[str, Any]:
-        "Get deployment status."
+        """Get deployment status."""
         status = {
             "local": self._check_local_running(),
             "docker": self._check_docker_running(),
@@ -192,7 +192,7 @@ OPENAI_API_KEY=$OPENAI_API_KEY
         return status
 
     def _check_local_running(self) -> Dict[str, Any]:
-        "Check if local OpenClaw is running."
+        """Check if local OpenClaw is running."""
         result = subprocess.run(["pgrep", "-f", "openclaw"], capture_output=True, check=False)
 
         return {
@@ -201,7 +201,7 @@ OPENAI_API_KEY=$OPENAI_API_KEY
         }
 
     def _check_docker_running(self) -> Dict[str, Any]:
-        "Check if Docker containers are running."
+        """Check if Docker containers are running."""
         result = subprocess.run(
             ["docker", "ps", "--filter", "name=openclaw", "--format", "{{.Names}}"],
             capture_output=True, check=False,
@@ -215,7 +215,7 @@ OPENAI_API_KEY=$OPENAI_API_KEY
         }
 
     async def stop(self, mode: str = "all") -> Dict[str, Any]:
-        "Stop OpenClaw."
+        """Stop OpenClaw."""
         if mode in ["local", "all"]:
             await self._run_command(["pkill", "-f", "openclaw"])
 
@@ -227,7 +227,7 @@ OPENAI_API_KEY=$OPENAI_API_KEY
         return {"status": "success", "stopped": mode}
 
     async def restart(self, mode: str = "docker") -> Dict[str, Any]:
-        "Restart OpenClaw."
+        """Restart OpenClaw."""
         if mode == "docker":
             await self._run_command(
                 ["docker-compose", "restart"], cwd=str(self.deployment_path)
@@ -239,7 +239,7 @@ OPENAI_API_KEY=$OPENAI_API_KEY
         return {"status": "success", "restarted": mode}
 
     async def update(self) -> Dict[str, Any]:
-        "Update OpenClaw to latest version."
+        """Update OpenClaw to latest version."""
         result = await self._run_command(["npm", "update", "-g", "@openclaw/cli"])
 
         if result.returncode == 0:
@@ -248,7 +248,7 @@ OPENAI_API_KEY=$OPENAI_API_KEY
             return {"error": "Update failed", "details": result.stderr}
 
     def generate_nginx_config(self, domain: str, ssl: bool = True) -> Dict[str, Any]:
-        "Generate Nginx configuration."
+        """Generate Nginx configuration."""
         config = f"server {{
     listen 80;
     {"listen 443 ssl http2;" if ssl else "}
@@ -262,12 +262,12 @@ OPENAI_API_KEY=$OPENAI_API_KEY
         proxy_set_header Host $host;
         proxy_cache_bypass $http_upgrade;
     }}
-"
+"""
         if ssl:
             config += f"
     ssl_certificate /etc/letsencrypt/live/{domain}/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/{domain}/privkey.pem;
-"
+"""
 
         config_path = self.deployment_path / "nginx.conf"
         config_path.parent.mkdir(parents=True, exist_ok=True)
@@ -278,7 +278,7 @@ OPENAI_API_KEY=$OPENAI_API_KEY
     async def _run_command(
         self, cmd: List[str], cwd: str | None = None
     ) -> subprocess.CompletedProcess:
-        "Run a command."
+        """Run a command."""
         process = await asyncio.create_subprocess_exec(
             *cmd,
             stdout=asyncio.subprocess.PIPE,
@@ -317,7 +317,7 @@ MANIFEST = {
 
 
 async def handle_request(action: str, params: Dict[str, Any]) -> Dict[str, Any]:
-    "Handle incoming requests."
+    """Handle incoming requests."""
     deployer = OpenClawDeployer(params.get("deployment_path"))
 
     handlers = {
@@ -346,7 +346,7 @@ async def handle_request(action: str, params: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def register_skill() -> dict:
-    "Return skill metadata."
+    """Return skill metadata."""
     return {
         "name": "openclaw_deployer",
         "domain": "infrastructure",

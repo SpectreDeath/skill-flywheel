@@ -31,7 +31,7 @@ def generate_architecture_decisions(context: Dict[str, Any]) -> List[Dict[str, A
 
         if "scalability" in req.get("title", "").lower():
             decision["decision"] = (
-                "Implement horizontal scaling with stateless services"
+                """Implement horizontal scaling with stateless services"""
             )
             decision["consequences"] = ["Requires load balancer", "Better scalability"]
 

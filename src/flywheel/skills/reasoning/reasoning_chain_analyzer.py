@@ -1,11 +1,11 @@
-"
+"""
 Reasoning Chain Analyzer
 
 Constructs and analyzes deductive and inductive reasoning chains:
 - Validates logical connections
 - Identifies missing premises
 - Assesses conclusion strength
-"
+"""
 
 from typing import Any, Dict, List
 from datetime import datetime
@@ -35,7 +35,7 @@ REASONING_PATTERNS = {
 
 
 def parse_reasoning_steps(text: str) -> List[Dict[str, Any]]:
-    "Parse reasoning steps from text"
+    """Parse reasoning steps from text"""
     steps = []
 
     lines = text.split("\n")
@@ -58,7 +58,7 @@ def parse_reasoning_steps(text: str) -> List[Dict[str, Any]]:
 
 
 def validate_deductive_chain(steps: List[Dict[str, Any]]) -> Dict[str, Any]:
-    "Validate a deductive reasoning chain"
+    """Validate a deductive reasoning chain"""
     # Check for logical patterns
     premises = [s["text"].lower() for s in steps if s["type"] == "premise"]
     conclusion = next((s["text"] for s in steps if s["type"] == "conclusion"), ")
@@ -99,7 +99,7 @@ def validate_deductive_chain(steps: List[Dict[str, Any]]) -> Dict[str, Any]:
 def analyze_inductive_strength(
     steps: List[Dict[str, Any]], evidence_count: int
 ) -> Dict[str, Any]:
-    "Analyze strength of inductive reasoning"
+    """Analyze strength of inductive reasoning"""
 
     # Assess based on evidence count
     strength_scores = {
@@ -132,7 +132,7 @@ def analyze_inductive_strength(
 def reasoning_chain_analyzer(
     reasoning_text: str, evidence_count: int = 10, **kwargs
 ) -> Dict[str, Any]:
-    "
+    """
     Analyze reasoning chains (deductive and inductive).
 
     Args:
@@ -142,7 +142,7 @@ def reasoning_chain_analyzer(
 
     Returns:
         Analysis results
-    "
+    """
     if not reasoning_text:
         return {"status": "error", "error": "No reasoning text provided"}
 
@@ -174,7 +174,7 @@ def reasoning_chain_analyzer(
 
 
 async def invoke(payload: dict) -> dict:
-    "MCP skill invocation"
+    """MCP skill invocation"""
     action = payload.get("action", "analyze")
     reasoning_text = payload.get("reasoning_text", ")
     evidence_count = payload.get("evidence_count", 10)
@@ -192,7 +192,7 @@ async def invoke(payload: dict) -> dict:
         },
     }
 def register_skill():
-    "Return skill metadata"
+    """Return skill metadata"""
     return {
         "name": "reasoning-chain-analyzer",
         "description": "Construct and analyze deductive and inductive reasoning chains",

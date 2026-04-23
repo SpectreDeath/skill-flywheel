@@ -1,11 +1,11 @@
-"
+"""
 K-Means Clustering
 
 Performs k-means clustering analysis:
 - Optimal k selection via elbow method
 - Multiple initialization methods
 - Cluster assignment and centroids
-"
+"""
 
 import math
 from datetime import datetime
@@ -13,14 +13,14 @@ from typing import Any, Dict, List
 
 
 def _euclidean_distance(p1: List[float], p2: List[float]) -> float:
-    "Calculate Euclidean distance"
+    """Calculate Euclidean distance"""
     return math.sqrt(sum((a - b) ** 2 for a, b in zip(p1, p2, strict=False)))
 
 
 def _initialize_centroids(
     data: List[List[float]], k: int, method: str
 ) -> List[List[float]]:
-    "Initialize cluster centroids"
+    """Initialize cluster centroids"""
     if method == "random":
         import random
 
@@ -60,7 +60,7 @@ def kmeans_clustering(
     initialization: str = "kmeans++",
     **kwargs,
 ) -> Dict[str, Any]:
-    "
+    """
     Perform k-means clustering.
 
     Args:
@@ -73,7 +73,7 @@ def kmeans_clustering(
 
     Returns:
         Clustering results with assignments and centroids
-    "
+    """
 
     if len(data) < 2:
         return {"status": "error", "error": "Need at least 2 data points"}
@@ -162,7 +162,7 @@ def kmeans_clustering(
 
 
 def _find_optimal_k(data: List[List[float]], max_k: int) -> int:
-    "Find optimal k using elbow method"
+    """Find optimal k using elbow method"""
     if max_k < 2:
         return 2
 
@@ -206,7 +206,7 @@ def _find_optimal_k(data: List[List[float]], max_k: int) -> int:
 
 
 async def invoke(payload: dict) -> dict:
-    "MCP skill invocation"
+    """MCP skill invocation"""
     action = payload.get("action", "cluster")
     data = payload.get("data", [])
     k = payload.get("k")
@@ -230,7 +230,7 @@ async def invoke(payload: dict) -> dict:
 
 
 def register_skill():
-    "Return skill metadata"
+    """Return skill metadata"""
     return {
         "name": "kmeans-clustering",
         "description": "Perform k-means clustering with elbow method for optimal k selection",

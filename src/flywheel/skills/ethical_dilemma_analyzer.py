@@ -104,7 +104,7 @@ def analyze_from_framework(
             f"From a utilitarian perspective, evaluate the net consequences for all {len(stakeholders)} stakeholder groups."
         )
         analysis["recommendation"] = (
-            "Choose the action that maximizes overall wellbeing"
+            """Choose the action that maximizes overall wellbeing"""
         )
         analysis["strengths"] = [
             "Considers all affected parties",
@@ -117,10 +117,10 @@ def analyze_from_framework(
 
     elif framework == "deontology":
         analysis["analysis"] = (
-            "From a deontological perspective, determine if the action respects moral duties and rights."
+            """From a deontological perspective, determine if the action respects moral duties and rights."""
         )
         analysis["recommendation"] = (
-            "Choose the action that respects universal moral principles"
+            """Choose the action that respects universal moral principles"""
         )
         analysis["strengths"] = ["Respects individual rights", "Provides clear rules"]
         analysis["weaknesses"] = [
@@ -130,10 +130,10 @@ def analyze_from_framework(
 
     elif framework == "virtue_ethics":
         analysis["analysis"] = (
-            "From a virtue ethics perspective, consider what a virtuous person would do."
+            """From a virtue ethics perspective, consider what a virtuous person would do."""
         )
         analysis["recommendation"] = (
-            "Cultivate and demonstrate virtues like honesty, courage, compassion"
+            """Cultivate and demonstrate virtues like honesty, courage, compassion"""
         )
         analysis["strengths"] = ["Emphasizes character", "Flexible to context"]
         analysis["weaknesses"] = ["Subjective", "No clear decision procedure"]

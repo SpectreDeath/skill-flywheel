@@ -411,14 +411,14 @@ def format_changelog_keep_a_changelog(
     output.append("# Changelog")
     output.append("")
     output.append(
-        "All notable changes to this project will be documented in this file."
+        """All notable changes to this project will be documented in this file."""
     )
     output.append("")
     output.append(
-        "The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),"
+        """The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),"""
     )
     output.append(
-        "and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)."
+        """and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)."""
     )
     output.append("")
 

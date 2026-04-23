@@ -1,9 +1,9 @@
-"
+"""
 OpenClaw Database Management Skill
 
 Provides capabilities for managing OpenClaw's SQLite database,
 including backup, restore, query, and maintenance operations.
-"
+"""
 
 import gzip
 import shutil
@@ -14,7 +14,7 @@ from typing import Any, Dict, List
 
 
 class OpenClawDatabaseManager:
-    "Manage OpenClaw SQLite database."
+    """Manage OpenClaw SQLite database."""
 
     def __init__(self, db_path: str | None = None):
         if db_path:
@@ -23,7 +23,7 @@ class OpenClawDatabaseManager:
             self.db_path = Path.home() / ".openclaw" / "openclaw.db"
 
     def get_database_info(self) -> Dict[str, Any]:
-        "Get database information."
+        """Get database information."""
         if not self.db_path.exists():
             return {"error": "Database not found"}
 
@@ -37,7 +37,7 @@ class OpenClawDatabaseManager:
         }
 
     def list_tables(self) -> List[Dict[str, Any]]:
-        "List all tables in the database."
+        """List all tables in the database."""
         if not self.db_path.exists():
             return [{"error": "Database not found"}]
 
@@ -69,7 +69,7 @@ class OpenClawDatabaseManager:
     def query_table(
         self, table_name: str, limit: int = 100, offset: int = 0
     ) -> Dict[str, Any]:
-        "Query data from a table."
+        """Query data from a table."""
         if not self.db_path.exists():
             return {"error": "Database not found"}
 
@@ -105,7 +105,7 @@ class OpenClawDatabaseManager:
             return {"error": str(e)}
 
     def execute_query(self, query: str) -> Dict[str, Any]:
-        "Execute a raw SQL query."
+        """Execute a raw SQL query."""
         if not self.db_path.exists():
             return {"error": "Database not found"}
 
@@ -138,7 +138,7 @@ class OpenClawDatabaseManager:
             return {"error": str(e)}
 
     def backup(self, backup_path: str | None = None) -> Dict[str, Any]:
-        "Create a database backup."
+        """Create a database backup."""
         if not self.db_path.exists():
             return {"error": "Database not found"}
 
@@ -160,7 +160,7 @@ class OpenClawDatabaseManager:
             return {"error": str(e)}
 
     def compressed_backup(self, backup_path: str | None = None) -> Dict[str, Any]:
-        "Create a compressed database backup."
+        """Create a compressed database backup."""
         if not self.db_path.exists():
             return {"error": "Database not found"}
 
@@ -184,7 +184,7 @@ class OpenClawDatabaseManager:
             return {"error": str(e)}
 
     def restore(self, backup_path: str) -> Dict[str, Any]:
-        "Restore database from backup."
+        """Restore database from backup."""
         source = Path(backup_path)
 
         if not source.exists():
@@ -201,7 +201,7 @@ class OpenClawDatabaseManager:
             return {"error": str(e)}
 
     def vacuum(self) -> Dict[str, Any]:
-        "Run VACUUM to optimize database."
+        """Run VACUUM to optimize database."""
         if not self.db_path.exists():
             return {"error": "Database not found"}
 
@@ -228,11 +228,11 @@ class OpenClawDatabaseManager:
     def get_conversation_history(
         self, agent_id: str | None = None, limit: int = 50
     ) -> List[Dict[str, Any]]:
-        "Get conversation history."
+        """Get conversation history."""
         return self.query_table("conversations", limit=limit)
 
     def get_agent_stats(self) -> Dict[str, Any]:
-        "Get agent usage statistics."
+        """Get agent usage statistics."""
         if not self.db_path.exists():
             return {"error": "Database not found"}
 
@@ -280,7 +280,7 @@ MANIFEST = {
 
 
 def handle_request(action: str, params: Dict[str, Any]) -> Dict[str, Any]:
-    "Handle incoming requests."
+    """Handle incoming requests."""
     manager = OpenClawDatabaseManager(params.get("db_path"))
 
     handlers = {
@@ -310,7 +310,7 @@ def handle_request(action: str, params: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def register_skill() -> dict:
-    "Return skill metadata."
+    """Return skill metadata."""
     return {
         "name": "openclaw_database_manager",
         "domain": "infrastructure",

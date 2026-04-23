@@ -204,7 +204,7 @@ def _solve_custom_coordination(
     recommendations = []
     if communication:
         recommendations.append(
-            "Communication allows equilibrium selection through agreement"
+            """Communication allows equilibrium selection through agreement"""
         )
     if focal_points:
         recommendations.append(f"Focal points help: {focal_points}")

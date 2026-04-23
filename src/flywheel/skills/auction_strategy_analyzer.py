@@ -98,7 +98,7 @@ def get_auction_tips(auction_type: str, value: float, bidders: int) -> List[str]
     if auction_type == "sealed_bid":
         tips.append("Never bid more than your true value")
         tips.append(
-            "Consider the number of bidders - more competition = higher optimal bid"
+            """Consider the number of bidders - more competition = higher optimal bid"""
         )
     elif auction_type == "vickrey":
         tips.append("Truth-telling is dominant strategy - bid your true value")

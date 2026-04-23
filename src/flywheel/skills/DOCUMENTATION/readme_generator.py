@@ -429,7 +429,7 @@ def generate_installation_section(info: ProjectInfo) -> str:
     elif info.language == "java":
         sections.append("Add to your Maven pom.xml:\n")
         sections.append(
-            "```xml\n<dependency>\n  <groupId>"
+            """```xml\n<dependency>\n  <groupId>"""
             + info.name
             + "</groupId>\n  <artifactId>"
             + info.name
@@ -468,7 +468,7 @@ def generate_usage_section(info: ProjectInfo) -> str:
     elif info.language in ["javascript", "typescript"]:
         if "index.js" in info.entry_points or "index.ts" in info.entry_points:
             sections.append(
-                "```javascript\nconst "
+                """```javascript\nconst """
                 + info.name
                 + " = require('"
                 + info.name
@@ -509,7 +509,7 @@ def generate_configuration_section(info: ProjectInfo) -> str:
         )
     elif info.language == "python":
         sections.append(
-            "```python\n# config.py\n"
+            """```python\n# config.py\n"""
             + info.name.upper().replace("-", "_")
             + '_OPTION = "value"\n```\n'
         )
@@ -549,7 +549,7 @@ def generate_development_section(info: ProjectInfo) -> str:
 
     if info.language == "python":
         sections.append(
-            "```bash\ngit clone https://github.com/"
+            """```bash\ngit clone https://github.com/"""
             + info.repository.split("/")[-2]
             + "/"
             + info.name
@@ -562,7 +562,7 @@ def generate_development_section(info: ProjectInfo) -> str:
 
     elif info.language in ["javascript", "typescript"]:
         sections.append(
-            "```bash\ngit clone https://github.com/"
+            """```bash\ngit clone https://github.com/"""
             + info.repository.split("/")[-2]
             + "/"
             + info.name
@@ -573,7 +573,7 @@ def generate_development_section(info: ProjectInfo) -> str:
 
     elif info.language == "go":
         sections.append(
-            "```bash\ngit clone https://github.com/"
+            """```bash\ngit clone https://github.com/"""
             + info.repository.split("/")[-2]
             + "/"
             + info.name
@@ -584,7 +584,7 @@ def generate_development_section(info: ProjectInfo) -> str:
 
     elif info.language == "rust":
         sections.append(
-            "```bash\ngit clone https://github.com/"
+            """```bash\ngit clone https://github.com/"""
             + info.repository.split("/")[-2]
             + "/"
             + info.name
@@ -627,19 +627,19 @@ def generate_contributing_section(info: ProjectInfo) -> str:
     sections.append("Contributions are welcome! Please follow these steps:\n\n")
     sections.append("1. Fork the repository\n")
     sections.append(
-        "2. Create your feature branch (`git checkout -b feature/amazing-feature`)\n"
+        """2. Create your feature branch (`git checkout -b feature/amazing-feature`)\n"""
     )
     sections.append(
-        "3. Commit your changes (`git commit -m 'Add some amazing feature'`)\n"
+        """3. Commit your changes (`git commit -m 'Add some amazing feature'`)\n"""
     )
     sections.append(
-        "4. Push to the branch (`git push origin feature/amazing-feature`)\n"
+        """4. Push to the branch (`git push origin feature/amazing-feature`)\n"""
     )
     sections.append("5. Open a Pull Request\n")
 
     if info.has_contributing:
         sections.append(
-            "\nPlease read the [CONTRIBUTING](CONTRIBUTING.md) file for details.\n"
+            """\nPlease read the [CONTRIBUTING](CONTRIBUTING.md) file for details.\n"""
         )
 
     return "".join(sections)

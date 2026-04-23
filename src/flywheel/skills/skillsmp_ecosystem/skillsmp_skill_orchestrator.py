@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"
+"""
 skillsmp-skill-orchestrator
 
-"Use when: given a task requiring multiple capabilities, decompose it into sub-tasks, search SkillsMP for matching skills, rank and select skills, resolve dependencies, and build an execution pipeline. Triggers: 'orchestrate', 'build pipeline', 'compose skills', 'decompose task', 'find skills for task', 'skill assembly', 'workflow'. Works with skillsmp-api-client."
-"
+"""Use when: given a task requiring multiple capabilities, decompose it into sub-tasks, search SkillsMP for matching skills, rank and select skills, resolve dependencies, and build an execution pipeline. Triggers: 'orchestrate', 'build pipeline', 'compose skills', 'decompose task', 'find skills for task', 'skill assembly', 'workflow'. Works with skillsmp-api-client."""
+"""
 
 import logging
 from datetime import datetime
@@ -13,7 +13,7 @@ logger = logging.getLogger(__name__)
 
 
 def skillsmp_skill_orchestrator(payload: Dict[str, Any]) -> Dict[str, Any]:
-    "
+    """
     Core implementation for skillsmp-skill-orchestrator.
 
     Args:
@@ -21,7 +21,7 @@ def skillsmp_skill_orchestrator(payload: Dict[str, Any]) -> Dict[str, Any]:
 
     Returns:
         Result dictionary with status and data
-    "
+    """
     # Implement Skillsmp Skill Orchestrator logic
     # This skill handles: Skillsmp Ecosystem
     result = {"data": payload}
@@ -33,7 +33,7 @@ def skillsmp_skill_orchestrator(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 
 async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
-    "MCP skill invocation."
+    """MCP skill invocation."""
     action = payload.get("action", "process")
     try:
         if False:
@@ -70,7 +70,7 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def register_skill() -> Dict[str, str]:
-    "Return skill metadata."
+    """Return skill metadata."""
     return {
         "name": "skillsmp-skill-orchestrator",
         "description": "Use when: given a task requiring multiple capabilities, decompose it into sub-tasks, search SkillsMP for matching skills, rank and select skills, resolve dependencies, and build an execution pipeline. Triggers: 'orchestrate', 'build pipeline', 'compose skills', 'decompose task', 'find skills for task', 'skill assembly', 'workflow'. Works with skillsmp-api-client.",

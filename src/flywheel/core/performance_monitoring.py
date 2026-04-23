@@ -640,12 +640,12 @@ class AnalyticsEngine:
         # System-level recommendations
         if summary.get("system_success_rate", 0) < 0.8:
             recommendations.append(
-                "System success rate is below 80%. Consider reviewing error handling and resource allocation."
+                """System success rate is below 80%. Consider reviewing error handling and resource allocation."""
             )
 
         if summary.get("system_avg_execution_time", 0) > 5.0:  # 5 seconds
             recommendations.append(
-                "Average execution time is high. Consider optimizing skill implementations or increasing resources."
+                """Average execution time is high. Consider optimizing skill implementations or increasing resources."""
             )
 
         # Skill-specific recommendations
@@ -670,12 +670,12 @@ class AnalyticsEngine:
 
                 if recent_avg > earlier_avg * 1.2:  # 20% increase
                     recommendations.append(
-                        "Execution times are increasing. Monitor for performance degradation."
+                        """Execution times are increasing. Monitor for performance degradation."""
                     )
 
         if not recommendations:
             recommendations.append(
-                "Performance looks good! Continue monitoring for any changes."
+                """Performance looks good! Continue monitoring for any changes."""
             )
 
         return recommendations

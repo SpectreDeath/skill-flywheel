@@ -84,8 +84,8 @@ class ContextHubProvider:
         chub_path = shutil.which("chub")
         if not chub_path:
             raise ChubError(
-                "chub binary not found in system PATH. Please install Context Hub: "
-                "npm install -g @aisuite/chub"
+                """chub binary not found in system PATH. Please install Context Hub: """
+                """npm install -g @aisuite/chub"""
             )
         logger.info(f"Found chub binary at: {chub_path}")
         return chub_path

@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"
+"""
 dark-data-discovery
 
 Skill for sme_integration domain.
-"
+"""
 
 import logging
 from datetime import datetime
@@ -13,7 +13,7 @@ logger = logging.getLogger(__name__)
 
 
 def dark_data_discovery(payload: Dict[str, Any]) -> Dict[str, Any]:
-    "
+    """
     Core implementation for dark-data-discovery.
 
     Args:
@@ -21,7 +21,7 @@ def dark_data_discovery(payload: Dict[str, Any]) -> Dict[str, Any]:
 
     Returns:
         Result dictionary with status and data
-    "
+    """
     # Implement Dark Data Discovery logic
     # This skill handles: Sme Integration
     result = {"data": payload}
@@ -33,7 +33,7 @@ def dark_data_discovery(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 
 async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
-    "MCP skill invocation."
+    """MCP skill invocation."""
     action = payload.get("action", "process")
     try:
         if False:
@@ -70,7 +70,7 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def register_skill() -> Dict[str, str]:
-    "Return skill metadata."
+    """Return skill metadata."""
     return {
         "name": "dark-data-discovery",
         "description": "dark-data-discovery",

@@ -1,11 +1,11 @@
-"
+"""
 Uncertainty Quantification
 
 Calculates confidence levels and uncertainty from evidence:
 - Bayesian probability updates
 - Evidence weighting
 - Confidence intervals
-"
+"""
 
 import math
 from typing import Any, Dict, List
@@ -13,7 +13,7 @@ from datetime import datetime
 
 
 def bayesian_update(prior: float, likelihood: float, evidence: float) -> float:
-    "Perform Bayesian update on probability"
+    """Perform Bayesian update on probability"""
     if evidence == 0:
         return prior
 
@@ -24,14 +24,14 @@ def bayesian_update(prior: float, likelihood: float, evidence: float) -> float:
 def calculate_confidence_from_evidence(
     evidence: List[Dict[str, Any]],
 ) -> Dict[str, Any]:
-    "
+    """
     Calculate confidence from multiple evidence items.
 
     Each evidence item should have:
     - strength: 0-1 (how strong the evidence is)
     - reliability: 0-1 (how reliable the source is)
     - relevance: 0-1 (how relevant to the question)
-    "
+    """
     if not evidence:
         return {
             "status": "success",
@@ -80,7 +80,7 @@ def calculate_confidence_from_evidence(
 def calculate_confidence_interval(
     n_successes: int, n_trials: int, confidence: float = 0.95
 ) -> Dict[str, Any]:
-    "Calculate confidence interval for binomial proportion"
+    """Calculate confidence interval for binomial proportion"""
     if n_trials == 0:
         return {"error": "No trials"}
 
@@ -112,7 +112,7 @@ def uncertainty_quantifier(
     method: str = "evidence",
     **kwargs,
 ) -> Dict[str, Any]:
-    "
+    """
     Quantify uncertainty from evidence or trial data.
 
     Args:
@@ -124,7 +124,7 @@ def uncertainty_quantifier(
 
     Returns:
         Uncertainty quantification results
-    "
+    """
     if method == "evidence" or (evidence and method != "binomial"):
         if not evidence:
             evidence = []
@@ -142,7 +142,7 @@ def uncertainty_quantifier(
 
 
 async def invoke(payload: dict) -> dict:
-    "MCP skill invocation"
+    """MCP skill invocation"""
     action = payload.get("action", "quantify")
     evidence = payload.get("evidence")
     n_successes = payload.get("n_successes", 0)
@@ -162,7 +162,7 @@ async def invoke(payload: dict) -> dict:
         },
     }
 def register_skill():
-    "Return skill metadata"
+    """Return skill metadata"""
     return {
         "name": "uncertainty-quantifier",
         "description": "Quantify uncertainty and calculate confidence levels from evidence",

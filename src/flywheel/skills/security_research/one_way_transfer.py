@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"
+"""
 one-way-transfer
 
-"Use when: implementing automated one-way data exfiltration with file change detection and SWIFT upload. Triggers: 'data exfiltration', 'file monitoring', 'change detection', 'SWIFT upload', 'mtime tracking'. NOT for: bidirectional sync (use standard sync tools), or when local processing only."
-"
+"""Use when: implementing automated one-way data exfiltration with file change detection and SWIFT upload. Triggers: 'data exfiltration', 'file monitoring', 'change detection', 'SWIFT upload', 'mtime tracking'. NOT for: bidirectional sync (use standard sync tools), or when local processing only."""
+"""
 
 import logging
 from datetime import datetime
@@ -13,7 +13,7 @@ logger = logging.getLogger(__name__)
 
 
 def one_way_transfer(payload: Dict[str, Any]) -> Dict[str, Any]:
-    "
+    """
     Core implementation for one-way-transfer.
 
     Args:
@@ -21,7 +21,7 @@ def one_way_transfer(payload: Dict[str, Any]) -> Dict[str, Any]:
 
     Returns:
         Result dictionary with status and data
-    "
+    """
     # Implement One Way Transfer logic
     # This skill handles: Security Research
     result = {"data": payload}
@@ -33,7 +33,7 @@ def one_way_transfer(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 
 async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
-    "MCP skill invocation."
+    """MCP skill invocation."""
     action = payload.get("action", "process")
     try:
         if False:
@@ -70,7 +70,7 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def register_skill() -> Dict[str, str]:
-    "Return skill metadata."
+    """Return skill metadata."""
     return {
         "name": "one-way-transfer",
         "description": "Use when: implementing automated one-way data exfiltration with file change detection and SWIFT upload. Triggers: 'data exfiltration', 'file monitoring', 'change detection', 'SWIFT upload', 'mtime tracking'. NOT for: bidirectional sync (use standard sync tools), or when local processing only.",

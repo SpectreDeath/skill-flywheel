@@ -138,7 +138,7 @@ def _get_iterated_recommendations(num_rounds: int, p1: str, p2: str) -> List[str
         recs.append("Start with cooperation, then mirror opponent's last move")
     elif num_rounds <= 3:
         recs.append(
-            "Short horizon: defection is rational (last round is single-shot PD)"
+            """Short horizon: defection is rational (last round is single-shot PD)"""
         )
         recs.append("Consider making credible commitment to cooperate")
     else:

@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"
+"""
 covert-network-triggers
 
-"Use when: implementing covert wake-up mechanisms for dormant processes using protocol-specific packet encoding across ICMP, DNS, TFTP, TCP/UDP. Triggers: 'covert trigger', 'beacon wake-up', 'DNS tunnel', 'ICMP ping', 'protocol steganography'. NOT for: standard network communication, or when overt channels are acceptable."
-"
+"""Use when: implementing covert wake-up mechanisms for dormant processes using protocol-specific packet encoding across ICMP, DNS, TFTP, TCP/UDP. Triggers: 'covert trigger', 'beacon wake-up', 'DNS tunnel', 'ICMP ping', 'protocol steganography'. NOT for: standard network communication, or when overt channels are acceptable."""
+"""
 
 import logging
 from datetime import datetime
@@ -13,7 +13,7 @@ logger = logging.getLogger(__name__)
 
 
 def covert_network_triggers(payload: Dict[str, Any]) -> Dict[str, Any]:
-    "
+    """
     Core implementation for covert-network-triggers.
 
     Args:
@@ -21,7 +21,7 @@ def covert_network_triggers(payload: Dict[str, Any]) -> Dict[str, Any]:
 
     Returns:
         Result dictionary with status and data
-    "
+    """
     # Implement Covert Network Triggers logic
     # This skill handles: Security Research
     result = {"data": payload}
@@ -33,7 +33,7 @@ def covert_network_triggers(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 
 async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
-    "MCP skill invocation."
+    """MCP skill invocation."""
     action = payload.get("action", "process")
     try:
         if False:
@@ -70,7 +70,7 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def register_skill() -> Dict[str, str]:
-    "Return skill metadata."
+    """Return skill metadata."""
     return {
         "name": "covert-network-triggers",
         "description": "Use when: implementing covert wake-up mechanisms for dormant processes using protocol-specific packet encoding across ICMP, DNS, TFTP, TCP/UDP. Triggers: 'covert trigger', 'beacon wake-up', 'DNS tunnel', 'ICMP ping', 'protocol steganography'. NOT for: standard network communication, or when overt channels are acceptable.",

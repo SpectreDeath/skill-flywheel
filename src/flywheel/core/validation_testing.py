@@ -486,27 +486,27 @@ class SkillValidator:
 
         if scores["readability"] < 0.5:
             recommendations.append(
-                "Improve readability by breaking long lines and adding more whitespace"
+                """Improve readability by breaking long lines and adding more whitespace"""
             )
 
         if scores["complexity"] < 0.5:
             recommendations.append(
-                "Reduce complexity by breaking down complex functions and reducing nesting"
+                """Reduce complexity by breaking down complex functions and reducing nesting"""
             )
 
         if scores["documentation"] < 0.5:
             recommendations.append(
-                "Add more documentation, examples, and inline comments"
+                """Add more documentation, examples, and inline comments"""
             )
 
         if scores["code_quality"] < 0.5:
             recommendations.append(
-                "Improve code quality by adding error handling and removing debug code"
+                """Improve code quality by adding error handling and removing debug code"""
             )
 
         if scores["security"] < 0.5:
             recommendations.append(
-                "Address security vulnerabilities and remove hardcoded secrets"
+                """Address security vulnerabilities and remove hardcoded secrets"""
             )
 
         return recommendations

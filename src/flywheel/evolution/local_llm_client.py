@@ -40,7 +40,7 @@ class LocalLLMClient:
             return result.get("response", "")
         except ImportError:
             raise RuntimeError(
-                "requests library required for LocalLLMClient. Install with: pip install requests"
+                """requests library required for LocalLLMClient. Install with: pip install requests"""
             )
         except Exception as e:
             raise RuntimeError(f"Failed to connect to local LLM: {e}")

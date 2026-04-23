@@ -68,12 +68,12 @@ def _generate_agent_state(task: str) -> str:
 (defrecord Agent [id strategy resources history beliefs tom-level])
 
 (defn create-agent
-  "Create new agent with strategy"
+  """Create new agent with strategy"""
   [id strategy-type resources]
   (->Agent id strategy-type resources [] []))
 
 (defn update-belief
-  "Update agent's belief system"
+  """Update agent's belief system"""
   [agent belief]
   (update agent :belief conj belief))
 
@@ -132,7 +132,7 @@ def _generate_async_pipeline(task: str) -> str:
 (defrecord EventStream [channel subscribers buffer-size])
 
 (defn create-stream
-  "Create new event stream"
+  """Create new event stream"""
   [buffer-size]
   (->EventStream (async/chan buffer-size) #{} buffer-size))
 
@@ -204,7 +204,7 @@ def _generate_strategy(task: str) -> str:
 (require '[clojure.core :as c])
 
 (def ^:dynamic *strategies*
-  "Registry of strategy functions"
+  """Registry of strategy functions"""
   {:hawk (fn [state player]
            (let [opp (opponent player)]
              (if (dominates? state player opp)
@@ -234,7 +234,7 @@ def _generate_strategy(task: str) -> str:
                  (if (> score 25) :attack :display)))})
 
 (defn get-strategy [strategy-name]
-  "Get strategy function by name"
+  """Get strategy function by name"""
   (or (strategy-name *strategies*)
       (throw (ex-info (str "Unknown strategy: " strategy-name)
                      {:available (keys *strategies*)}))))

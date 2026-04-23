@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"
+"""
 beacon-data-pipeline
 
-"Use when: implementing periodic system survey collection with compression, encryption, and TLS transmission. Triggers: 'data collection', 'periodic survey', 'TLS transmission', 'encrypted payload', 'jitter timing'. NOT for: real-time streaming (use streaming skills), or when encryption isn't required."
-"
+"""Use when: implementing periodic system survey collection with compression, encryption, and TLS transmission. Triggers: 'data collection', 'periodic survey', 'TLS transmission', 'encrypted payload', 'jitter timing'. NOT for: real-time streaming (use streaming skills), or when encryption isn't required."""
+"""
 
 import logging
 from datetime import datetime
@@ -13,7 +13,7 @@ logger = logging.getLogger(__name__)
 
 
 def beacon_data_pipeline(payload: Dict[str, Any]) -> Dict[str, Any]:
-    "
+    """
     Core implementation for beacon-data-pipeline.
 
     Args:
@@ -21,7 +21,7 @@ def beacon_data_pipeline(payload: Dict[str, Any]) -> Dict[str, Any]:
 
     Returns:
         Result dictionary with status and data
-    "
+    """
     # Implement Beacon Data Pipeline logic
     # This skill handles: Security Research
     result = {"data": payload}
@@ -33,7 +33,7 @@ def beacon_data_pipeline(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 
 async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
-    "MCP skill invocation."
+    """MCP skill invocation."""
     action = payload.get("action", "process")
     try:
         if False:
@@ -70,7 +70,7 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def register_skill() -> Dict[str, str]:
-    "Return skill metadata."
+    """Return skill metadata."""
     return {
         "name": "beacon-data-pipeline",
         "description": "Use when: implementing periodic system survey collection with compression, encryption, and TLS transmission. Triggers: 'data collection', 'periodic survey', 'TLS transmission', 'encrypted payload', 'jitter timing'. NOT for: real-time streaming (use streaming skills), or when encryption isn't required.",

@@ -170,7 +170,7 @@ def validate_skill_implementation(skill_path: str) -> ValidationResult:
                     metadata = module.register_skill()
                     if not isinstance(metadata, dict):
                         result.errors.append(
-                            "register_skill() must return a dictionary"
+                            """register_skill() must return a dictionary"""
                         )
                         result.valid = False
                     else:

@@ -167,7 +167,7 @@ def generate_mock_class(class_info: ClassInfo, framework: str = "unittest.mock")
 
         lines.append(f"        mock_method = getattr(self, '{method.name}', None)")
         lines.append(
-            "        if mock_method and hasattr(mock_method, 'return_value'):"
+            """        if mock_method and hasattr(mock_method, 'return_value'):"""
         )
         lines.append("            return mock_method.return_value")
         lines.append("        return None")
@@ -218,7 +218,7 @@ def generate_config_code(
     lines.append("    for method_name, return_value in configs.items():")
     lines.append("        if hasattr(mock_obj, method_name):")
     lines.append(
-        "            getattr(mock_obj, method_name).return_value = return_value"
+        """            getattr(mock_obj, method_name).return_value = return_value"""
     )
     lines.append("        elif hasattr(mock_obj, '_' + method_name):")
     lines.append("            setattr(mock_obj, '_' + method_name, return_value)")
@@ -291,7 +291,7 @@ def generate_test_code(
                 f"        result = self.mock_{class_info.name.lower()}.{method.name}()"
             )
             lines.append(
-                "        assert result is not None  # Configure expected return value"
+                """        assert result is not None  # Configure expected return value"""
             )
             lines.append("")
 

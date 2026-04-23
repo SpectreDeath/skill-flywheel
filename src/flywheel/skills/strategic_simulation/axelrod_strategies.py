@@ -60,7 +60,7 @@ def _get_strategy_fn(name: str):
         "defect": lambda h, oh: "defect",
         "tit_for_tat": lambda h, oh: oh[-1] if oh else "cooperate",
         "tit_for_two_tats": lambda h, oh: (
-            "cooperate"
+            """cooperate"""
             if len(oh) < 2
             else ("cooperate" if oh[-2:] != ["defect", "defect"] else "defect")
         ),
@@ -85,7 +85,7 @@ def _get_strategy_fn(name: str):
             "defect" if not h else ("cooperate" if h[0] == "defect" else "defect")
         ),
         "backstabber": lambda h, oh: (
-            "defect"
+            """defect"""
             if len(h) >= 3 and h[-1] == h[-2] == h[-3] == "defect"
             else (oh[-1] if oh else "cooperate")
         ),

@@ -1,11 +1,11 @@
-"
+"""
 Ethical Dilemma Analyzer
 
 Analyzes ethical dilemmas and applies moral frameworks:
 - Utilitarianism, Deontology, Virtue Ethics
 - Provides multi-perspective analysis
 - Identifies stakeholders and impacts
-"
+"""
 
 from typing import Any, Dict, List
 from datetime import datetime
@@ -45,7 +45,7 @@ MORAL_FRAMEWORKS = {
 
 
 def identify_stakeholders(scenario: str) -> List[Dict[str, Any]]:
-    "Identify stakeholders in the ethical dilemma"
+    """Identify stakeholders in the ethical dilemma"""
     stakeholders = []
 
     # Common stakeholder patterns
@@ -79,7 +79,7 @@ def identify_stakeholders(scenario: str) -> List[Dict[str, Any]]:
 def analyze_from_framework(
     framework: str, scenario: str, stakeholders: List[Dict]
 ) -> Dict[str, Any]:
-    "Analyze dilemma from a specific moral framework"
+    """Analyze dilemma from a specific moral framework"""
 
     if framework not in MORAL_FRAMEWORKS:
         return {"error": f"Unknown framework: {framework}"}
@@ -104,7 +104,7 @@ def analyze_from_framework(
             f"From a utilitarian perspective, evaluate the net consequences for all {len(stakeholders)} stakeholder groups."
         )
         analysis["recommendation"] = (
-            "Choose the action that maximizes overall wellbeing"
+            """Choose the action that maximizes overall wellbeing"""
         )
         analysis["strengths"] = [
             "Considers all affected parties",
@@ -117,10 +117,10 @@ def analyze_from_framework(
 
     elif framework == "deontology":
         analysis["analysis"] = (
-            "From a deontological perspective, determine if the action respects moral duties and rights."
+            """From a deontological perspective, determine if the action respects moral duties and rights."""
         )
         analysis["recommendation"] = (
-            "Choose the action that respects universal moral principles"
+            """Choose the action that respects universal moral principles"""
         )
         analysis["strengths"] = ["Respects individual rights", "Provides clear rules"]
         analysis["weaknesses"] = [
@@ -130,10 +130,10 @@ def analyze_from_framework(
 
     elif framework == "virtue_ethics":
         analysis["analysis"] = (
-            "From a virtue ethics perspective, consider what a virtuous person would do."
+            """From a virtue ethics perspective, consider what a virtuous person would do."""
         )
         analysis["recommendation"] = (
-            "Cultivate and demonstrate virtues like honesty, courage, compassion"
+            """Cultivate and demonstrate virtues like honesty, courage, compassion"""
         )
         analysis["strengths"] = ["Emphasizes character", "Flexible to context"]
         analysis["weaknesses"] = ["Subjective", "No clear decision procedure"]
@@ -144,7 +144,7 @@ def analyze_from_framework(
 def ethical_dilemma_analyzer(
     scenario: str, frameworks: List[str] | None = None, **kwargs
 ) -> Dict[str, Any]:
-    "
+    """
     Analyze ethical dilemmas using multiple moral frameworks.
 
     Args:
@@ -154,7 +154,7 @@ def ethical_dilemma_analyzer(
 
     Returns:
         Multi-perspective ethical analysis
-    "
+    """
     if not scenario:
         return {"status": "error", "error": "No scenario provided"}
 
@@ -186,7 +186,7 @@ def ethical_dilemma_analyzer(
 
 
 async def invoke(payload: dict) -> dict:
-    "MCP skill invocation"
+    """MCP skill invocation"""
     action = payload.get("action", "analyze")
     scenario = payload.get("scenario", ")
     frameworks = payload.get("frameworks")
@@ -204,7 +204,7 @@ async def invoke(payload: dict) -> dict:
         },
     }
 def register_skill():
-    "Return skill metadata"
+    """Return skill metadata"""
     return {
         "name": "ethical-dilemma-analyzer",
         "description": "Analyze ethical dilemmas using moral frameworks",

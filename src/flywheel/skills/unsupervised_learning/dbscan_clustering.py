@@ -1,11 +1,11 @@
-"
+"""
 DBSCAN Clustering
 
 Density-based spatial clustering:
 - Automatic cluster detection
 - Noise/outlier identification
 - No need to specify number of clusters
-"
+"""
 
 import math
 from typing import Any, Dict, List, Set
@@ -17,7 +17,7 @@ def _euclidean_distance(p1: List[float], p2: List[float]) -> float:
 
 
 def _get_neighbors(data: List[List[float]], point_idx: int, eps: float) -> Set[int]:
-    "Get all points within eps distance of point_idx"
+    """Get all points within eps distance of point_idx"""
     neighbors = set()
     for i in range(len(data)):
         if i != point_idx and _euclidean_distance(data[point_idx], data[i]) <= eps:
@@ -31,7 +31,7 @@ def dbscan_clustering(
     min_samples: int = 5,
     **kwargs,
 ) -> Dict[str, Any]:
-    "
+    """
     Perform DBSCAN density-based clustering.
 
     Args:
@@ -42,7 +42,7 @@ def dbscan_clustering(
 
     Returns:
         DBSCAN results with core points, clusters, and noise
-    "
+    """
 
     if len(data) < 2:
         return {"status": "error", "error": "Need at least 2 data points"}
@@ -115,7 +115,7 @@ def _expand_cluster(
     eps: float,
     min_samples: int,
 ):
-    "Expand cluster from seed point"
+    """Expand cluster from seed point"""
     assignments[point_idx] = cluster_id
     seeds = set(neighbors)
     seeds.discard(point_idx)
@@ -137,7 +137,7 @@ def _expand_cluster(
 
 
 async def invoke(payload: dict) -> dict:
-    "MCP skill invocation"
+    """MCP skill invocation"""
     action = payload.get("action", "cluster")
     data = payload.get("data", [])
     eps = payload.get("eps", 0.5)
@@ -156,7 +156,7 @@ async def invoke(payload: dict) -> dict:
         },
     }
 def register_skill():
-    "Return skill metadata"
+    """Return skill metadata"""
     return {
         "name": "dbscan-clustering",
         "description": "Perform DBSCAN density-based clustering with automatic cluster detection",

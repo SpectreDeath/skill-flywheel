@@ -72,7 +72,7 @@ async def list_domains():
         with get_db() as db:
             cursor = db.cursor()
             cursor.execute(
-                "SELECT domain, COUNT(*) as count FROM skills GROUP BY domain"
+                """SELECT domain, COUNT(*) as count FROM skills GROUP BY domain"""
             )
             domains = [dict(row) for row in cursor.fetchall()]
             return {"domains": domains}

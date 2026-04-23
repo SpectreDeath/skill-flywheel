@@ -1,4 +1,4 @@
-"
+"""
 Signaling Game Analyzer
 
 Analyzes sender-receiver signaling games:
@@ -6,7 +6,7 @@ Analyzes sender-receiver signaling games:
 - Separating equilibria
 - Pooling equilibria
 - Cheap talk games
-"
+"""
 
 from typing import Any, Dict, List
 from datetime import datetime
@@ -22,7 +22,7 @@ def signaling_game_analyzer(
     signaling_cost: Dict | None = None,
     **kwargs,
 ) -> Dict[str, Any]:
-    "
+    """
     Analyze signaling game scenarios.
 
     Args:
@@ -37,7 +37,7 @@ def signaling_game_analyzer(
 
     Returns:
         Signaling game analysis with equilibria
-    "
+    """
 
     if game_type.lower() == "costly":
         return _analyze_costly_signaling(
@@ -64,7 +64,7 @@ def _analyze_costly_signaling(
     receiver_actions: List[str],
     signaling_cost: Dict | None,
 ) -> Dict[str, Any]:
-    "Analyze costly signaling game ( Spence signaling)"
+    """Analyze costly signaling game ( Spence signaling)"""
 
     if not sender_types:
         sender_types = ["high_ability", "low_ability"]
@@ -112,7 +112,7 @@ def _analyze_costly_signaling(
 def _analyze_cheap_talk(
     sender_types: List[str] | None, messages: List[str], receiver_actions: List[str]
 ) -> Dict[str, Any]:
-    "Analyze cheap talk (no-cost signaling) game"
+    """Analyze cheap talk (no-cost signaling) game"""
 
     if not sender_types:
         sender_types = ["truthful", "dishonest"]
@@ -158,7 +158,7 @@ def _analyze_cheap_talk(
 def _analyze_education_signaling(
     sender_types: List[str] | None, messages: List[str], receiver_actions: List[str]
 ) -> Dict[str, Any]:
-    "Analyze education as signaling game"
+    """Analyze education as signaling game"""
 
     if not sender_types:
         sender_types = ["high_ability", "low_ability"]
@@ -199,7 +199,7 @@ def _analyze_custom_signaling(
     sender_payoffs: Dict,
     receiver_payoffs: Dict,
 ) -> Dict[str, Any]:
-    "Analyze custom signaling game"
+    """Analyze custom signaling game"""
 
     # Check for separating equilibrium
     separating = _find_separating_equilibrium(
@@ -223,7 +223,7 @@ def _find_separating_equilibrium(
     sender_payoffs: Dict,
     receiver_payoffs: Dict,
 ) -> Dict | None:
-    "Find separating equilibrium"
+    """Find separating equilibrium"""
 
     if len(sender_types) != len(messages):
         return None
@@ -237,7 +237,7 @@ def _find_separating_equilibrium(
 def _find_pooling_equilibrium(
     sender_types: List[str], messages: List[str], receiver_payoffs: Dict
 ) -> Dict | None:
-    "Find pooling equilibrium"
+    """Find pooling equilibrium"""
 
     if not messages:
         return None
@@ -250,7 +250,7 @@ def _find_pooling_equilibrium(
 
 
 async def invoke(payload: dict) -> dict:
-    "MCP skill invocation"
+    """MCP skill invocation"""
     payload.get("action", "analyze")
     game_type = payload.get("game_type", "costly")
     sender_types = payload.get("sender_types")
@@ -278,7 +278,7 @@ async def invoke(payload: dict) -> dict:
         },
     }
 def register_skill():
-    "Return skill metadata"
+    """Return skill metadata"""
     return {
         "name": "signaling-game-analyzer",
         "description": "Analyze sender-receiver signaling games with costly and cheap talk variants",

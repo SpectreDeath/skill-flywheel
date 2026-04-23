@@ -1,4 +1,4 @@
-"
+"""
 Auction Strategy Optimizer
 
 Optimizes bidding strategies for various auction types:
@@ -7,7 +7,7 @@ Optimizes bidding strategies for various auction types:
 - First-price sealed-bid
 - Second-price sealed-bid (Vickrey)
 - All-pay auctions
-"
+"""
 
 from typing import Any, Dict, List
 from datetime import datetime
@@ -22,7 +22,7 @@ def auction_strategy_optimizer(
     reserve_price: float | None = None,
     **kwargs,
 ) -> Dict[str, Any]:
-    "
+    """
     Optimize bidding strategy for different auction types.
 
     Args:
@@ -36,7 +36,7 @@ def auction_strategy_optimizer(
 
     Returns:
         Optimal bidding strategy and expected outcomes
-    "
+    """
 
     auction_type = auction_type.lower().replace("-", "_").replace(" ", "_")
 
@@ -77,7 +77,7 @@ def _english_auction_strategy(
     private_values: List[float] | None,
     reserve_price: float | None,
 ) -> Dict[str, Any]:
-    "English (ascending) auction strategy"
+    """English (ascending) auction strategy"""
 
     # In English auction, bid up to your valuation
     # With private values, bid your valuation
@@ -116,7 +116,7 @@ def _dutch_auction_strategy(
     private_values: List[float] | None,
     reserve_price: float | None,
 ) -> Dict[str, Any]:
-    "Dutch (descending) auction strategy"
+    """Dutch (descending) auction strategy"""
 
     # In Dutch auction, be ready to bid quickly at your threshold
     # Time pressure favors decisive action
@@ -144,7 +144,7 @@ def _first_price_strategy(
     private_values: List[float] | None,
     reserve_price: float | None,
 ) -> Dict[str, Any]:
-    "First-price sealed-bid strategy"
+    """First-price sealed-bid strategy"""
 
     # In first-price, shade your bid below valuation
     # With symmetric bidders, optimal bid = valuation * (n-1)/n
@@ -185,7 +185,7 @@ def _second_price_strategy(
     private_values: List[float] | None,
     reserve_price: float | None,
 ) -> Dict[str, Any]:
-    "Second-price sealed-bid (Vickrey) strategy"
+    """Second-price sealed-bid (Vickrey) strategy"""
 
     # In second-price, truthful bidding is dominant strategy
     # Bid your valuation
@@ -219,7 +219,7 @@ def _all_pay_strategy(
     private_values: List[float] | None,
     reserve_price: float | None,
 ) -> Dict[str, Any]:
-    "All-pay auction strategy"
+    """All-pay auction strategy"""
 
     # In all-pay, everyone pays their bid regardless of winning
     # Very different incentives - consider expected value carefully
@@ -245,7 +245,7 @@ def _all_pay_strategy(
 
 
 def _estimate_win_prob(n: int, your_val: float, others: List[float] | None) -> float:
-    "Estimate probability of winning"
+    """Estimate probability of winning"""
 
     if others:
         # Simple estimate based on relative valuations
@@ -261,7 +261,7 @@ def _estimate_win_prob(n: int, your_val: float, others: List[float] | None) -> f
 
 
 async def invoke(payload: dict) -> dict:
-    "MCP skill invocation"
+    """MCP skill invocation"""
     payload.get("action", "optimize")
     auction_type = payload.get("auction_type", "first_price")
     num_bidders = payload.get("num_bidders", 2)
@@ -287,7 +287,7 @@ async def invoke(payload: dict) -> dict:
         },
     }
 def register_skill():
-    "Return skill metadata"
+    """Return skill metadata"""
     return {
         "name": "auction-strategy-optimizer",
         "description": "Optimize bidding strategies for English, Dutch, sealed-bid, and all-pay auctions",

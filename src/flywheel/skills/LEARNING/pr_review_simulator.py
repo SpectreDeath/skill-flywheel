@@ -306,7 +306,7 @@ class PRReviewSimulator:
 
         if issue_type == "security":
             tone = (
-                "Security issue - please address immediately"
+                """Security issue - please address immediately"""
                 if severity == "must_fix"
                 else "Security consideration"
             )

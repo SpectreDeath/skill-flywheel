@@ -1,8 +1,8 @@
-"
+"""
 OpenClaw Skill Development Skill
 
 Provides capabilities for creating, testing, and deploying OpenClaw skills.
-"
+"""
 
 import json
 import os
@@ -70,7 +70,7 @@ describe('{skill_name}', () => {{
 
 
 class OpenClawSkillDeveloper:
-    "Develop and manage OpenClaw skills."
+    """Develop and manage OpenClaw skills."""
 
     def __init__(self, skills_path: str | None = None):
         self.skills_path = (
@@ -84,7 +84,7 @@ class OpenClawSkillDeveloper:
         author: str = ",
         capabilities: List[str] | None = None,
     ) -> Dict[str, Any]:
-        "Create a new OpenClaw skill from template."
+        """Create a new OpenClaw skill from template."""
         skill_path = self.skills_path / name
 
         if skill_path.exists():
@@ -125,7 +125,7 @@ class OpenClawSkillDeveloper:
             return {"error": str(e)}
 
     async def list_skills(self) -> List[Dict[str, Any]]:
-        "List all installed skills."
+        """List all installed skills."""
         if not self.skills_path.exists():
             return []
 
@@ -148,7 +148,7 @@ class OpenClawSkillDeveloper:
         return skills
 
     async def get_skill_manifest(self, name: str) -> Dict[str, Any]:
-        "Get skill manifest."
+        """Get skill manifest."""
         manifest_path = self.skills_path / name / "manifest.json"
 
         if not manifest_path.exists():
@@ -160,7 +160,7 @@ class OpenClawSkillDeveloper:
             return {"error": f"Invalid manifest: {e}"}
 
     async def update_skill(self, name: str, updates: Dict[str, Any]) -> Dict[str, Any]:
-        "Update skill manifest."
+        """Update skill manifest."""
         manifest_path = self.skills_path / name / "manifest.json"
 
         if not manifest_path.exists():
@@ -176,7 +176,7 @@ class OpenClawSkillDeveloper:
             return {"error": str(e)}
 
     async def validate_skill(self, name: str) -> Dict[str, Any]:
-        "Validate a skill structure."
+        """Validate a skill structure."""
         skill_path = self.skills_path / name
 
         if not skill_path.exists():
@@ -206,7 +206,7 @@ class OpenClawSkillDeveloper:
             return {"valid": False, "error": str(e)}
 
     async def build_skill(self, name: str) -> Dict[str, Any]:
-        "Build a skill (compile TypeScript if needed)."
+        """Build a skill (compile TypeScript if needed)."""
         skill_path = self.skills_path / name
 
         if not skill_path.exists():
@@ -220,7 +220,7 @@ class OpenClawSkillDeveloper:
         return {"status": "success", "skill": name}
 
     async def register_skill(self, name: str) -> Dict[str, Any]:
-        "Register skill with OpenClaw."
+        """Register skill with OpenClaw."""
         skill_path = self.skills_path / name
 
         if not skill_path.exists():
@@ -256,7 +256,7 @@ MANIFEST = {
 
 
 async def handle_request(action: str, params: Dict[str, Any]) -> Dict[str, Any]:
-    "Handle incoming requests."
+    """Handle incoming requests."""
     developer = OpenClawSkillDeveloper(params.get("skills_path"))
 
     handlers = {

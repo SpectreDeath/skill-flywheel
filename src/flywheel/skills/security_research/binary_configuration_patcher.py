@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"
+"""
 binary-configuration-patcher
 
-"Use when: embedding runtime configuration into precompiled binaries by searching for signature markers. Triggers: 'binary patch', 'config injection', 'signature search', 'offset patch', 'runtime config'. Requires: binary analysis tools. NOT for: source-based configuration, or when rebuilding is possible."
-"
+"""Use when: embedding runtime configuration into precompiled binaries by searching for signature markers. Triggers: 'binary patch', 'config injection', 'signature search', 'offset patch', 'runtime config'. Requires: binary analysis tools. NOT for: source-based configuration, or when rebuilding is possible."""
+"""
 
 import logging
 from datetime import datetime
@@ -13,7 +13,7 @@ logger = logging.getLogger(__name__)
 
 
 def binary_configuration_patcher(payload: Dict[str, Any]) -> Dict[str, Any]:
-    "
+    """
     Core implementation for binary-configuration-patcher.
 
     Args:
@@ -21,7 +21,7 @@ def binary_configuration_patcher(payload: Dict[str, Any]) -> Dict[str, Any]:
 
     Returns:
         Result dictionary with status and data
-    "
+    """
     # Implement Binary Configuration Patcher logic
     # This skill handles: Security Research
     result = {"data": payload}
@@ -33,7 +33,7 @@ def binary_configuration_patcher(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 
 async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
-    "MCP skill invocation."
+    """MCP skill invocation."""
     action = payload.get("action", "process")
     try:
         if False:
@@ -70,7 +70,7 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def register_skill() -> Dict[str, str]:
-    "Return skill metadata."
+    """Return skill metadata."""
     return {
         "name": "binary-configuration-patcher",
         "description": "Use when: embedding runtime configuration into precompiled binaries by searching for signature markers. Triggers: 'binary patch', 'config injection', 'signature search', 'offset patch', 'runtime config'. Requires: binary analysis tools. NOT for: source-based configuration, or when rebuilding is possible.",

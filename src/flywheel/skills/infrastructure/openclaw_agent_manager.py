@@ -1,8 +1,8 @@
-"
+"""
 OpenClaw Agent Management Skill
 
 Provides capabilities for creating, configuring, and managing OpenClaw agents.
-"
+"""
 
 import asyncio
 import json
@@ -12,7 +12,7 @@ from typing import Any, Dict, List
 
 
 class OpenClawAgentManager:
-    "Manages OpenClaw agents."
+    """Manages OpenClaw agents."""
 
     def __init__(self, openclaw_path: str | None = None):
         self.openclaw_path = (
@@ -20,7 +20,7 @@ class OpenClawAgentManager:
         )
 
     async def list_agents(self) -> List[Dict[str, Any]]:
-        "List all configured agents."
+        """List all configured agents."""
         try:
             result = await self._run_command(["openclaw", "agent", "list", "--json"])
             if result.returncode == 0:
@@ -40,7 +40,7 @@ class OpenClawAgentManager:
         description: str = ",
         system_prompt: str | None = None,
     ) -> Dict[str, Any]:
-        "Create a new OpenClaw agent."
+        """Create a new OpenClaw agent."""
         cmd = ["openclaw", "agent", "create", name, "--model", model]
 
         if description:
@@ -64,7 +64,7 @@ class OpenClawAgentManager:
     async def configure_agent(
         self, agent_name: str, settings: Dict[str, Any]
     ) -> Dict[str, Any]:
-        "Configure an existing agent."
+        """Configure an existing agent."""
         config_path = self.openclaw_path / "agents" / agent_name / "config.json"
 
         if not config_path.exists():
@@ -83,7 +83,7 @@ class OpenClawAgentManager:
     async def start_agent(
         self, agent_name: str, platform: str = "cli", port: int = 18789
     ) -> Dict[str, Any]:
-        "Start an OpenClaw agent."
+        """Start an OpenClaw agent."""
         cmd = ["openclaw", "agent", "start", agent_name, "--platform", platform]
 
         try:
@@ -102,7 +102,7 @@ class OpenClawAgentManager:
             return {"error": "OpenClaw CLI not found"}
 
     async def stop_agent(self, agent_name: str) -> Dict[str, Any]:
-        "Stop a running agent."
+        """Stop a running agent."""
         cmd = ["openclaw", "agent", "stop", agent_name]
 
         try:
@@ -116,7 +116,7 @@ class OpenClawAgentManager:
             return {"error": "OpenClaw CLI not found"}
 
     async def get_agent_status(self, agent_name: str) -> Dict[str, Any]:
-        "Get status of an agent."
+        """Get status of an agent."""
         cmd = ["openclaw", "agent", "status", agent_name]
 
         try:
@@ -136,7 +136,7 @@ class OpenClawAgentManager:
     async def delete_agent(
         self, agent_name: str, force: bool = False
     ) -> Dict[str, Any]:
-        "Delete an agent."
+        """Delete an agent."""
         cmd = ["openclaw", "agent", "delete", agent_name]
         if force:
             cmd.append("--force")
@@ -154,7 +154,7 @@ class OpenClawAgentManager:
     async def _run_command(
         self, cmd: List[str], input_text: str | None = None
     ) -> subprocess.CompletedProcess:
-        "Run a command asynchronously."
+        """Run a command asynchronously."""
         process = await asyncio.create_subprocess_exec(
             *cmd,
             stdin=asyncio.subprocess.PIPE if input_text else None,
@@ -193,7 +193,7 @@ MANIFEST = {
 
 
 async def handle_request(action: str, params: Dict[str, Any]) -> Dict[str, Any]:
-    "Handle incoming requests."
+    """Handle incoming requests."""
     manager = OpenClawAgentManager(params.get("openclaw_path"))
 
     handlers = {
@@ -238,7 +238,7 @@ if __name__ == "__main__":
 
 
 def register_skill() -> dict:
-    "Return skill metadata."
+    """Return skill metadata."""
     return {
         "name": "openclaw_agent_manager",
         "domain": "infrastructure",

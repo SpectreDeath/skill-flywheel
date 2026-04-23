@@ -226,7 +226,7 @@ def dependency_outdated_scanner(repo_path: str, **kwargs) -> Dict[str, Any]:
 
 
 async def invoke(payload: dict) -> dict:
-    "MCP skill invocation"
+    """MCP skill invocation"""
     action = payload.get("action", "scan")
     repo_path = payload.get("repo_path", ".")
 

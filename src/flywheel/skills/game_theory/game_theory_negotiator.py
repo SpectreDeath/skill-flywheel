@@ -1,4 +1,4 @@
-"
+"""
 Game Theory Negotiator
 
 Models game theory scenarios for negotiation strategy:
@@ -6,14 +6,14 @@ Models game theory scenarios for negotiation strategy:
 - Payoff matrix evaluation
 - Strategy recommendations
 - Negotiation tactics
-"
+"""
 
 from typing import Any, Dict, List
 from datetime import datetime
 
 
 def analyze_payoff_matrix(payoffs: Dict) -> Dict[str, Any]:
-    "Analyze payoff matrix for game theory insights"
+    """Analyze payoff matrix for game theory insights"""
 
     players = list(payoffs.keys())
     if len(players) < 2:
@@ -45,7 +45,7 @@ def analyze_payoff_matrix(payoffs: Dict) -> Dict[str, Any]:
 
 
 def calculate_nash_equilibrium(payoffs: Dict) -> List[Dict]:
-    "Find Nash equilibrium points"
+    """Find Nash equilibrium points"""
     equilibria = []
 
     players = list(payoffs.keys())
@@ -77,7 +77,7 @@ def game_theory_negotiator(
     payoffs: Dict[str, Dict[str, float]],
     **kwargs,
 ) -> Dict[str, Any]:
-    "
+    """
     Model game theory scenarios for negotiation.
 
     Args:
@@ -89,7 +89,7 @@ def game_theory_negotiator(
 
     Returns:
         Game theory analysis with strategy recommendations
-    "
+    """
     if not players or not payoffs:
         return {"status": "error", "error": "Incomplete game data"}
 
@@ -124,7 +124,7 @@ def game_theory_negotiator(
         recommendations.append("Consider cooperative strategies for mutual gain")
     elif "competitive" in scenario.lower() or "zero-sum" in scenario.lower():
         recommendations.append(
-            "Adopt competitive strategy - focus on relative advantage"
+            """Adopt competitive strategy - focus on relative advantage"""
         )
     else:
         recommendations.append("Balance competitive and cooperative elements")
@@ -141,7 +141,7 @@ def game_theory_negotiator(
 
 
 async def invoke(payload: dict) -> dict:
-    "MCP skill invocation"
+    """MCP skill invocation"""
     action = payload.get("action", "analyze")
     scenario = payload.get("scenario", ")
     players = payload.get("players", [])
@@ -161,7 +161,7 @@ async def invoke(payload: dict) -> dict:
         },
     }
 def register_skill():
-    "Return skill metadata"
+    """Return skill metadata"""
     return {
         "name": "game-theory-negotiator",
         "description": "Model game theory scenarios for negotiation strategy",

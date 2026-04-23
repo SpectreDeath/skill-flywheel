@@ -40,7 +40,7 @@ class EvolutionConfig:
             raise ValueError("population_size must be at least 2")
         if self.num_parents_per_iteration >= self.population_size:
             raise ValueError(
-                "num_parents_per_iteration must be less than population_size"
+                """num_parents_per_iteration must be less than population_size"""
             )
         if self.batch_size < 1:
             raise ValueError("batch_size must be at least 1")
@@ -59,7 +59,7 @@ class EvolutionConfig:
             "ancestors",
         ] and not self.learning_log_strategy.startswith("neighborhood-"):
             raise ValueError(
-                "learning_log_strategy must be 'none', 'ancestors', or 'neighborhood-N'"
+                """learning_log_strategy must be 'none', 'ancestors', or 'neighborhood-N'"""
             )
 
     def to_dict(self) -> Dict[str, Any]:

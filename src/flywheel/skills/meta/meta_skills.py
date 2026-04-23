@@ -1,10 +1,10 @@
-"
+"""
 Meta-Skills: Skill Drafting and Critiquing
 
 This module provides meta-skills for creating and improving other skills:
 - skill_drafting: Turn messy intent into structured skills
 - skill_critiquing: Review and refine existing skills
-"
+"""
 
 import os
 import re
@@ -30,11 +30,11 @@ name: {skill_name}
 
 ### Basic Usage
 
-"{basic_usage}"
+"""{basic_usage}"""
 
 ### Advanced Usage
 
-"{advanced_usage}"
+"""{advanced_usage}"""
 
 ## Purpose
 
@@ -133,7 +133,7 @@ Run `{skill_name}` as part of your workflow.
 ## License
 
 MIT License - Part of the Open AgentSkills Library.
-"
+"""
 
 REQUIRED_SECTIONS = [
     "Domain",
@@ -176,7 +176,7 @@ def skill_drafting(
     complexity: str = "Intermediate",
     **kwargs,
 ) -> Dict[str, Any]:
-    "
+    """
     Turn messy intent into structured skill definitions.
 
     Args:
@@ -187,7 +187,7 @@ def skill_drafting(
 
     Returns:
         Dictionary with skill definition and template
-    "
+    """
     try:
         intent_lower = intent.lower()
 
@@ -301,7 +301,7 @@ def skill_drafting(
 def skill_critiquing(
     skill_path: str, focus_areas: List[str] | None = None, **kwargs
 ) -> Dict[str, Any]:
-    "
+    """
     Review and refine existing skills.
 
     Args:
@@ -311,7 +311,7 @@ def skill_critiquing(
 
     Returns:
         Dictionary with critique and recommendations
-    "
+    """
     try:
         if os.path.isfile(skill_path) or skill_path.endswith(".md"):
             if os.path.exists(skill_path):
@@ -492,7 +492,7 @@ def _perform_critique(content: str, focus_areas: List[str]) -> Dict[str, Any]:
 
 
 def validate_skill_definition(skill_definition: Dict[str, Any]) -> Dict[str, Any]:
-    "
+    """
     Validate a skill definition.
 
     Args:
@@ -500,7 +500,7 @@ def validate_skill_definition(skill_definition: Dict[str, Any]) -> Dict[str, Any
 
     Returns:
         Validation result
-    "
+    """
     errors = []
     warnings = []
 
@@ -523,7 +523,7 @@ def validate_skill_definition(skill_definition: Dict[str, Any]) -> Dict[str, Any
 
 
 async def invoke(payload: dict) -> dict:
-    "Main entry point for MCP skill invocation"
+    """Main entry point for MCP skill invocation"""
     action = payload.get("action", "draft")
 
     if action == "draft":
@@ -549,7 +549,7 @@ async def invoke(payload: dict) -> dict:
         },
     }
 def register_skill():
-    "Return skill metadata for MCP registration"
+    """Return skill metadata for MCP registration"""
     return {
         "name": "meta-skills",
         "description": "Meta-skills for creating and improving other skills",

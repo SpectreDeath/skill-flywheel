@@ -612,27 +612,27 @@ class SecurityScanner:
 
         if VulnerabilityType.HARDCODED_SECRET.value in vuln_types:
             recommendations.append(
-                "Remove hardcoded secrets and use environment variables or secure credential storage"
+                """Remove hardcoded secrets and use environment variables or secure credential storage"""
             )
 
         if VulnerabilityType.SQL_INJECTION.value in vuln_types:
             recommendations.append(
-                "Use parameterized queries and input validation to prevent SQL injection"
+                """Use parameterized queries and input validation to prevent SQL injection"""
             )
 
         if VulnerabilityType.XSS.value in vuln_types:
             recommendations.append(
-                "Implement proper output encoding and input validation to prevent XSS"
+                """Implement proper output encoding and input validation to prevent XSS"""
             )
 
         if VulnerabilityType.COMMAND_INJECTION.value in vuln_types:
             recommendations.append(
-                "Avoid using shell commands with user input, use safe APIs instead"
+                """Avoid using shell commands with user input, use safe APIs instead"""
             )
 
         if VulnerabilityType.INSECURE_CRYPTO.value in vuln_types:
             recommendations.append(
-                "Use strong cryptographic algorithms (SHA-256, AES-256) instead of weak ones"
+                """Use strong cryptographic algorithms (SHA-256, AES-256) instead of weak ones"""
             )
 
         # Compliance recommendations
@@ -640,12 +640,12 @@ class SecurityScanner:
 
         if "SOC2" in framework_violations:
             recommendations.append(
-                "Implement SOC 2 compliant access controls and monitoring"
+                """Implement SOC 2 compliant access controls and monitoring"""
             )
 
         if "ISO27001" in framework_violations:
             recommendations.append(
-                "Follow ISO 27001 guidelines for information security management"
+                """Follow ISO 27001 guidelines for information security management"""
             )
 
         if "NIST" in framework_violations:
@@ -979,7 +979,7 @@ if __name__ == "__main__":
 
         # Test security scanning
         test_skill_path = Path(
-            "domains/agent_evolution/SKILL.self-improvement-loop/SKILL.md"
+            """domains/agent_evolution/SKILL.self-improvement-loop/SKILL.md"""
         )
         if test_skill_path.exists():
             scan_result = await scan_skill_security(test_skill_path)

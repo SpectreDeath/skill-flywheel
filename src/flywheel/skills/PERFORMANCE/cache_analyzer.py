@@ -776,11 +776,11 @@ def _calculate_metrics(
         metrics["recommendations"].append("Cache implementation is well-optimized")
     elif efficiency_score >= 50:
         metrics["recommendations"].append(
-            "Cache implementation needs some improvements"
+            """Cache implementation needs some improvements"""
         )
     else:
         metrics["recommendations"].append(
-            "Cache implementation requires significant improvements"
+            """Cache implementation requires significant improvements"""
         )
 
     return metrics

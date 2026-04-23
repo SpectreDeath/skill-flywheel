@@ -1,4 +1,4 @@
-"
+"""
 Competitive Landscape Analyzer
 
 Analyzes competitive landscape and identifies market positioning:
@@ -6,14 +6,14 @@ Analyzes competitive landscape and identifies market positioning:
 - Market share analysis
 - Positioning mapping
 - Competitive advantage assessment
-"
+"""
 
 from typing import Any, Dict, List
 from datetime import datetime
 
 
 def parse_competitors(competitor_data: List[Dict]) -> List[Dict]:
-    "Parse and validate competitor data"
+    """Parse and validate competitor data"""
     competitors = []
     for comp in competitor_data:
         competitors.append(
@@ -32,7 +32,7 @@ def parse_competitors(competitor_data: List[Dict]) -> List[Dict]:
 def analyze_market_position(
     competitors: List[Dict], your_company: Dict
 ) -> Dict[str, Any]:
-    "Analyze market position relative to competitors"
+    """Analyze market position relative to competitors"""
 
     # Calculate market position metrics
     total_share = sum(c["market_share"] for c in competitors)
@@ -71,7 +71,7 @@ def analyze_market_position(
 def identify_opportunities(
     competitors: List[Dict], market_gaps: List[str]
 ) -> List[Dict]:
-    "Identify market opportunities"
+    """Identify market opportunities"""
     opportunities = []
 
     # Analyze competitor weaknesses
@@ -105,7 +105,7 @@ def competitive_landscape_analyzer(
     market_gaps: List[str] | None = None,
     **kwargs,
 ) -> Dict[str, Any]:
-    "
+    """
     Analyze competitive landscape and identify positioning.
 
     Args:
@@ -116,7 +116,7 @@ def competitive_landscape_analyzer(
 
     Returns:
         Competitive analysis results
-    "
+    """
     if not competitor_data:
         return {"status": "error", "error": "No competitor data provided"}
 
@@ -140,7 +140,7 @@ def competitive_landscape_analyzer(
 
 
 async def invoke(payload: dict) -> dict:
-    "MCP skill invocation"
+    """MCP skill invocation"""
     action = payload.get("action", "analyze")
     competitor_data = payload.get("competitor_data", [])
     your_company = payload.get("your_company", {})
@@ -161,7 +161,7 @@ async def invoke(payload: dict) -> dict:
         },
     }
 def register_skill():
-    "Return skill metadata"
+    """Return skill metadata"""
     return {
         "name": "competitive-landscape-analyzer",
         "description": "Analyze competitive landscape and identify market positioning",

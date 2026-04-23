@@ -1,4 +1,4 @@
-"
+"""
 Prisoner's Dilemma Analyzer
 
 Analyzes classic and extended prisoner's dilemma scenarios:
@@ -6,7 +6,7 @@ Analyzes classic and extended prisoner's dilemma scenarios:
 - Cooperation/defection strategies
 - Tit-for-tat analysis
 - Evolutionary stability
-"
+"""
 
 from typing import Any, Dict, List
 from datetime import datetime
@@ -23,7 +23,7 @@ def prisoners_dilemma_analyzer(
     punishment: float = 1,
     **kwargs,
 ) -> Dict[str, Any]:
-    "
+    """
     Analyze prisoner's dilemma scenarios.
 
     Args:
@@ -39,7 +39,7 @@ def prisoners_dilemma_analyzer(
 
     Returns:
         Prisoner's dilemma analysis with equilibrium and recommendations
-    "
+    """
     # Validate payoff matrix (T > R > P > S is standard PD)
     if not (defection_temptation > cooperation_reward > punishment > sucker_payoff):
         return {
@@ -105,7 +105,7 @@ def prisoners_dilemma_analyzer(
 def _analyze_iterated_pd(
     num_rounds: int, R: float, T: float, S: float, P: float
 ) -> Dict[str, Any]:
-    "Analyze iterated prisoner's dilemma"
+    """Analyze iterated prisoner's dilemma"""
 
     if num_rounds == float("inf"):
         return {
@@ -129,7 +129,7 @@ def _analyze_iterated_pd(
 
 
 def _get_iterated_recommendations(num_rounds: int, p1: str, p2: str) -> List[str]:
-    "Generate recommendations for iterated PD"
+    """Generate recommendations for iterated PD"""
 
     recs = []
 
@@ -138,7 +138,7 @@ def _get_iterated_recommendations(num_rounds: int, p1: str, p2: str) -> List[str
         recs.append("Start with cooperation, then mirror opponent's last move")
     elif num_rounds <= 3:
         recs.append(
-            "Short horizon: defection is rational (last round is single-shot PD)"
+            """Short horizon: defection is rational (last round is single-shot PD)"""
         )
         recs.append("Consider making credible commitment to cooperate")
     else:
@@ -160,7 +160,7 @@ def _compare_strategies(
     P: float,
     rounds: int,
 ) -> Dict[str, Any]:
-    "Compare two known strategies"
+    """Compare two known strategies"""
 
     strategies = {
         "cooperate": R if p2 != "defect" else S,
@@ -176,7 +176,7 @@ def _compare_strategies(
 
 
 async def invoke(payload: dict) -> dict:
-    "MCP skill invocation"
+    """MCP skill invocation"""
     action = payload.get("action", "analyze")
     scenario = payload.get("scenario", ")
     num_rounds = payload.get("num_rounds", 1)
@@ -211,7 +211,7 @@ async def invoke(payload: dict) -> dict:
         },
     }
 def register_skill():
-    "Return skill metadata"
+    """Return skill metadata"""
     return {
         "name": "prisoners-dilemma-analyzer",
         "description": "Analyze prisoner's dilemma scenarios with equilibrium analysis",

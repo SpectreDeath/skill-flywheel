@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"
+"""
 vpn-covert-redirect
 
-"Use when: deploying a covert C2 relay infrastructure using VPN tunnels with iptables NAT forwarding, where a VPS acts as a transparent proxy between implants and a hidden listening post. Triggers: 'C2 relay', 'VPN redirect', 'covert channel', 'NAT forwarding', 'implant proxy'. Requires: VPN server, iptables. NOT for: legitimate VPN setup (use standard VPN docs), or non-covert communications."
-"
+"""Use when: deploying a covert C2 relay infrastructure using VPN tunnels with iptables NAT forwarding, where a VPS acts as a transparent proxy between implants and a hidden listening post. Triggers: 'C2 relay', 'VPN redirect', 'covert channel', 'NAT forwarding', 'implant proxy'. Requires: VPN server, iptables. NOT for: legitimate VPN setup (use standard VPN docs), or non-covert communications."""
+"""
 
 import logging
 from datetime import datetime
@@ -13,7 +13,7 @@ logger = logging.getLogger(__name__)
 
 
 def vpn_covert_redirect(payload: Dict[str, Any]) -> Dict[str, Any]:
-    "
+    """
     Core implementation for vpn-covert-redirect.
 
     Args:
@@ -21,7 +21,7 @@ def vpn_covert_redirect(payload: Dict[str, Any]) -> Dict[str, Any]:
 
     Returns:
         Result dictionary with status and data
-    "
+    """
     # Implement Vpn Covert Redirect logic
     # This skill handles: Security Research
     result = {"data": payload}
@@ -33,7 +33,7 @@ def vpn_covert_redirect(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 
 async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
-    "MCP skill invocation."
+    """MCP skill invocation."""
     action = payload.get("action", "process")
     try:
         if False:
@@ -70,7 +70,7 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def register_skill() -> Dict[str, str]:
-    "Return skill metadata."
+    """Return skill metadata."""
     return {
         "name": "vpn-covert-redirect",
         "description": "Use when: deploying a covert C2 relay infrastructure using VPN tunnels with iptables NAT forwarding, where a VPS acts as a transparent proxy between implants and a hidden listening post. Triggers: 'C2 relay', 'VPN redirect', 'covert channel', 'NAT forwarding', 'implant proxy'. Requires: VPN server, iptables. NOT for: legitimate VPN setup (use standard VPN docs), or non-covert communications.",

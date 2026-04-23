@@ -1,11 +1,11 @@
-"
+"""
 Gaussian Mixture Model Clustering
 
 Probabilistic clustering using GMM:
 - Soft clustering with probability assignments
 - Multiple covariance types (full, tied, diag, spherical)
 - EM algorithm for fitting
-"
+"""
 
 import math
 import random
@@ -16,7 +16,7 @@ from datetime import datetime
 def _multivariate_normal_pdf(
     x: List[float], mean: List[float], cov: List[List[float]]
 ) -> float:
-    "Calculate multivariate normal PDF (simplified)"
+    """Calculate multivariate normal PDF (simplified)"""
     n = len(x)
     diff = [x[i] - mean[i] for i in range(n)]
 
@@ -35,7 +35,7 @@ def _multivariate_normal_pdf(
 
 
 def _initialize_gmm(data: List[List[float]], k: int) -> Dict:
-    "Initialize GMM parameters"
+    """Initialize GMM parameters"""
     n = len(data)
     n_features = len(data[0])
 
@@ -63,7 +63,7 @@ def gmm_clustering(
     tolerance: float = 1e-4,
     **kwargs,
 ) -> Dict[str, Any]:
-    "
+    """
     Perform Gaussian Mixture Model clustering.
 
     Args:
@@ -75,7 +75,7 @@ def gmm_clustering(
 
     Returns:
         GMM clustering results with probabilities
-    "
+    """
 
     if len(data) < n_clusters:
         return {"status": "error", "error": "Need more points than clusters"}
@@ -193,7 +193,7 @@ def gmm_clustering(
 
 
 async def invoke(payload: dict) -> dict:
-    "MCP skill invocation"
+    """MCP skill invocation"""
     action = payload.get("action", "cluster")
     data = payload.get("data", [])
     n_clusters = payload.get("n_clusters", 3)
@@ -212,7 +212,7 @@ async def invoke(payload: dict) -> dict:
         },
     }
 def register_skill():
-    "Return skill metadata"
+    """Return skill metadata"""
     return {
         "name": "gmm-clustering",
         "description": "Perform Gaussian Mixture Model clustering with soft probability assignments",

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"
+"""
 Context Hub Provider Skill
 
 This skill provides a Python wrapper for the chub CLI tool, exposing its functionality
@@ -13,7 +13,7 @@ Tools:
 - annotate: Add persistent annotations to entries
 
 Safety: Verifies chub binary existence before execution
-"
+"""
 
 import asyncio
 import json
@@ -27,11 +27,11 @@ from typing import Any, Dict, List
 logger = logging.getLogger(__name__)
 
 class ChubError(Exception):
-    "Custom exception for chub-related errors"
+    """Custom exception for chub-related errors"""
     pass
 
 class Language(Enum):
-    "Supported languages for documentation retrieval"
+    """Supported languages for documentation retrieval"""
     PYTHON = "py"
     JAVASCRIPT = "js"
     TYPESCRIPT = "ts"
@@ -45,7 +45,7 @@ class Language(Enum):
 
 @dataclass
 class SearchResult:
-    "Represents a search result from chub"
+    """Represents a search result from chub"""
     id: str
     name: str
     description: str
@@ -56,7 +56,7 @@ class SearchResult:
 
 @dataclass
 class DocumentContent:
-    "Represents retrieved document content"
+    """Represents retrieved document content"""
     id: str
     content: str
     path: str
@@ -67,31 +67,31 @@ class DocumentContent:
 
 @dataclass
 class AnnotationResult:
-    "Represents annotation operation result"
+    """Represents annotation operation result"""
     id: str
     success: bool
     message: str
     annotation: str | None = None
 
 class ContextHubProvider:
-    "Main class for the context_hub_provider skill"
+    """Main class for the context_hub_provider skill"""
     
     def __init__(self):
         self.chub_path = self._find_chub_binary()
     
     def _find_chub_binary(self) -> str:
-        "Find the chub binary in system PATH"
+        """Find the chub binary in system PATH"""
         chub_path = shutil.which("chub")
         if not chub_path:
             raise ChubError(
-                "chub binary not found in system PATH. Please install Context Hub: "
-                "npm install -g @aisuite/chub"
+                """chub binary not found in system PATH. Please install Context Hub: """
+                """npm install -g @aisuite/chub"""
             )
         logger.info(f"Found chub binary at: {chub_path}")
         return chub_path
     
     async def _run_chub_command(self, args: List[str], timeout: int = 30) -> Dict[str, Any]:
-        "
+        """
         Execute a chub command and return parsed JSON output
         
         Args:
@@ -103,7 +103,7 @@ class ContextHubProvider:
             
         Raises:
             ChubError: If command fails or returns invalid JSON
-        "
+        """
         try:
             # Add --json flag for structured output
             full_args = [self.chub_path] + args + ["--json"]
@@ -141,7 +141,7 @@ class ContextHubProvider:
     
     async def search(self, query: str = ", tags: List[str] | None = None, 
                     limit: int = 20) -> List[SearchResult]:
-        "
+        """
         Search for documentation and skills in the Context Hub
         
         Args:
@@ -151,7 +151,7 @@ class ContextHubProvider:
             
         Returns:
             List of search results
-        "
+        """
         args = ["search"]
         
         if query:
@@ -195,7 +195,7 @@ class ContextHubProvider:
     
     async def get_doc(self, doc_id: str, language: str | None = None, 
                      version: str | None = None) -> DocumentContent:
-        "
+        """
         Retrieve documentation content by ID
         
         Args:
@@ -205,7 +205,7 @@ class ContextHubProvider:
             
         Returns:
             Document content and metadata
-        "
+        """
         args = ["get", doc_id]
         
         if language:
@@ -256,7 +256,7 @@ class ContextHubProvider:
             raise
     
     async def annotate(self, doc_id: str, note: str) -> AnnotationResult:
-        "
+        """
         Add or update an annotation for a document/skill
         
         Args:
@@ -265,7 +265,7 @@ class ContextHubProvider:
             
         Returns:
             Annotation operation result
-        "
+        """
         args = ["annotate", doc_id, note]
         
         try:
@@ -305,7 +305,7 @@ class ContextHubProvider:
             )
     
     async def clear_annotation(self, doc_id: str) -> AnnotationResult:
-        "
+        """
         Clear annotation for a document/skill
         
         Args:
@@ -313,7 +313,7 @@ class ContextHubProvider:
             
         Returns:
             Annotation operation result
-        "
+        """
         args = ["annotate", doc_id, "--clear"]
         
         try:
@@ -345,7 +345,7 @@ _context_hub_provider = ContextHubProvider()
 
 async def search(query: str = ", tags: List[str] | None = None, 
                 limit: int = 20) -> List[Dict[str, Any]]:
-    "
+    """
     Search for documentation and skills in the Context Hub
     
     Args:
@@ -355,7 +355,7 @@ async def search(query: str = ", tags: List[str] | None = None,
         
     Returns:
         List of search results with id, name, description, type, source, tags, languages
-    "
+    """
     results = await _context_hub_provider.search(query, tags, limit)
     return [
         {
@@ -372,7 +372,7 @@ async def search(query: str = ", tags: List[str] | None = None,
 
 async def get_doc(doc_id: str, language: str | None = None, 
                  version: str | None = None) -> Dict[str, Any]:
-    "
+    """
     Retrieve documentation content by ID
     
     Args:
@@ -382,7 +382,7 @@ async def get_doc(doc_id: str, language: str | None = None,
         
     Returns:
         Document content with id, content, path, language, version, additional_files, annotation
-    "
+    """
     result = await _context_hub_provider.get_doc(doc_id, language, version)
     return {
         "id": result.id,
@@ -395,7 +395,7 @@ async def get_doc(doc_id: str, language: str | None = None,
     }
 
 async def annotate(doc_id: str, note: str) -> Dict[str, Any]:
-    "
+    """
     Add or update an annotation for a document/skill
     
     Args:
@@ -404,7 +404,7 @@ async def annotate(doc_id: str, note: str) -> Dict[str, Any]:
         
     Returns:
         Annotation operation result with success status and message
-    "
+    """
     result = await _context_hub_provider.annotate(doc_id, note)
     return {
         "id": result.id,
@@ -414,7 +414,7 @@ async def annotate(doc_id: str, note: str) -> Dict[str, Any]:
     }
 
 async def clear_annotation(doc_id: str) -> Dict[str, Any]:
-    "
+    """
     Clear annotation for a document/skill
     
     Args:
@@ -422,7 +422,7 @@ async def clear_annotation(doc_id: str) -> Dict[str, Any]:
         
     Returns:
         Annotation operation result with success status and message
-    "
+    """
     result = await _context_hub_provider.clear_annotation(doc_id)
     return {
         "id": result.id,
@@ -432,7 +432,7 @@ async def clear_annotation(doc_id: str) -> Dict[str, Any]:
 
 # Example usage function
 async def example_usage():
-    "Example of how to use the context_hub_provider skill"
+    """Example of how to use the context_hub_provider skill"""
     try:
         # Search for OpenAI documentation
         print("Searching for OpenAI docs...")
@@ -464,7 +464,7 @@ if __name__ == "__main__":
 
 # --- invoke() wrapper added by batch fix ---
 async def invoke(payload: dict) -> dict:
-    "Entry point for skill invocation."
+    """Entry point for skill invocation."""
     import datetime as _dt
     action = payload.get("action", "search")
     timestamp = _dt.datetime.now().isoformat()
@@ -499,7 +499,7 @@ async def invoke(payload: dict) -> dict:
 
 
 def register_skill() -> dict:
-    "Return skill metadata."
+    """Return skill metadata."""
     return {
         "name": "context_hub_provider",
         "domain": "meta",

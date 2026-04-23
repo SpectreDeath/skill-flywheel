@@ -15,7 +15,7 @@ from datetime import datetime
 
 @dataclass
 class RepositoryAnalysis:
-    "Results from repository analysis"
+    """Results from repository analysis"""
 
     structure: Dict[str, Any] = field(default_factory=dict)
     tech_stack: List[Dict[str, str]] = field(default_factory=list)

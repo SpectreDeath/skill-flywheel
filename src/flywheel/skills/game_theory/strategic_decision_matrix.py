@@ -1,4 +1,4 @@
-"
+"""
 Strategic Decision Matrix
 
 Evaluates strategic options using multi-criteria decision analysis:
@@ -6,14 +6,14 @@ Evaluates strategic options using multi-criteria decision analysis:
 - Pros/cons analysis
 - Risk/reward scoring
 - Recommendation generation
-"
+"""
 
 from typing import Any, Dict, List
 from datetime import datetime
 
 
 def calculate_weighted_score(option: Dict, criteria: List[Dict]) -> float:
-    "Calculate weighted score for an option"
+    """Calculate weighted score for an option"""
     total_score = 0
     total_weight = 0
 
@@ -31,7 +31,7 @@ def calculate_weighted_score(option: Dict, criteria: List[Dict]) -> float:
 
 
 def analyze_risk_reward(option: Dict) -> Dict[str, Any]:
-    "Analyze risk/reward for an option"
+    """Analyze risk/reward for an option"""
     risks = option.get("risks", [])
     rewards = option.get("rewards", [])
 
@@ -59,7 +59,7 @@ def analyze_risk_reward(option: Dict) -> Dict[str, Any]:
 def strategic_decision_matrix(
     options: List[Dict], criteria: List[Dict], **kwargs
 ) -> Dict[str, Any]:
-    "
+    """
     Evaluate strategic options using decision matrix.
 
     Args:
@@ -69,7 +69,7 @@ def strategic_decision_matrix(
 
     Returns:
         Decision matrix analysis with recommendations
-    "
+    """
     if not options:
         return {"status": "error", "error": "No options provided"}
 
@@ -117,7 +117,7 @@ def strategic_decision_matrix(
 
 
 async def invoke(payload: dict) -> dict:
-    "MCP skill invocation"
+    """MCP skill invocation"""
     action = payload.get("action", "evaluate")
     options = payload.get("options", [])
     criteria = payload.get("criteria", [])
@@ -135,7 +135,7 @@ async def invoke(payload: dict) -> dict:
         },
     }
 def register_skill():
-    "Return skill metadata"
+    """Return skill metadata"""
     return {
         "name": "strategic-decision-matrix",
         "description": "Evaluate strategic options using decision matrices",

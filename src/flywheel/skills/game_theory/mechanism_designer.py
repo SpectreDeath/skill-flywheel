@@ -1,4 +1,4 @@
-"
+"""
 Mechanism Designer
 
 Designs mechanisms for strategic interaction:
@@ -7,7 +7,7 @@ Designs mechanisms for strategic interaction:
 - Double auctions
 - Efficient allocation mechanisms
 - Strategy-proof mechanisms
-"
+"""
 
 from typing import Any, Dict, List
 from datetime import datetime
@@ -21,7 +21,7 @@ def mechanism_designer(
     reserve_price: float | None = None,
     **kwargs,
 ) -> Dict[str, Any]:
-    "
+    """
     Design mechanisms for strategic settings.
 
     Args:
@@ -34,7 +34,7 @@ def mechanism_designer(
 
     Returns:
         Mechanism design with rules and properties
-    "
+    """
 
     mechanism_type = mechanism_type.lower().replace("-", "_").replace(" ", "_")
 
@@ -61,7 +61,7 @@ def _design_vickrey_mechanism(
     valuations: Dict | None,
     reserve_price: float | None,
 ) -> Dict[str, Any]:
-    "Design Vickrey-Clarke-Groves (VCG) mechanism"
+    """Design Vickrey-Clarke-Groves (VCG) mechanism"""
 
     if not items:
         items = ["item"]
@@ -114,7 +114,7 @@ def _design_myerson_mechanism(
     valuations: Dict | None,
     reserve_price: float | None,
 ) -> Dict[str, Any]:
-    "Design Myerson's optimal auction"
+    """Design Myerson's optimal auction"""
 
     if not items:
         items = ["single_item"]
@@ -158,7 +158,7 @@ def _design_double_auction(
     valuations: Dict | None,
     reserve_price: float | None,
 ) -> Dict[str, Any]:
-    "Design double auction mechanism"
+    """Design double auction mechanism"""
 
     return {
         "mechanism": "Double Auction",
@@ -198,7 +198,7 @@ def _design_bargaining_mechanism(
     valuations: Dict | None,
     reserve_price: float | None,
 ) -> Dict[str, Any]:
-    "Design bargaining mechanism"
+    """Design bargaining mechanism"""
 
     return {
         "mechanism": "Strategic Bargaining",
@@ -238,7 +238,7 @@ def _design_allocation_mechanism(
     valuations: Dict | None,
     reserve_price: float | None,
 ) -> Dict[str, Any]:
-    "Design efficient allocation mechanism"
+    """Design efficient allocation mechanism"""
 
     if not items:
         items = ["item_1", "item_2"]
@@ -275,7 +275,7 @@ def _design_allocation_mechanism(
 
 
 async def invoke(payload: dict) -> dict:
-    "MCP skill invocation"
+    """MCP skill invocation"""
     payload.get("action", "design")
     mechanism_type = payload.get("mechanism_type", "vickrey")
     players = payload.get("players", ["buyer1", "buyer2"])
@@ -299,7 +299,7 @@ async def invoke(payload: dict) -> dict:
         },
     }
 def register_skill():
-    "Return skill metadata"
+    """Return skill metadata"""
     return {
         "name": "mechanism-designer",
         "description": "Design VCG, Myerson, double auction, and other strategic mechanisms",

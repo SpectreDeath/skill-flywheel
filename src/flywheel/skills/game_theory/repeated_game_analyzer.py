@@ -1,4 +1,4 @@
-"
+"""
 Repeated Game Analyzer
 
 Analyzes repeated/iterated strategic interactions:
@@ -7,7 +7,7 @@ Analyzes repeated/iterated strategic interactions:
 - Trigger strategies
 - Tit-for-tat analysis
 - Collusion in oligopoly
-"
+"""
 
 from typing import Any, Dict, List
 from datetime import datetime
@@ -21,7 +21,7 @@ def repeated_game_analyzer(
     strategies: Dict[str, str] | None = None,
     **kwargs,
 ) -> Dict[str, Any]:
-    "
+    """
     Analyze repeated game scenarios.
 
     Args:
@@ -34,7 +34,7 @@ def repeated_game_analyzer(
 
     Returns:
         Repeated game analysis with equilibria and recommendations
-    "
+    """
 
     base_game = base_game.lower().replace("-", "_").replace(" ", "_")
 
@@ -55,7 +55,7 @@ def repeated_game_analyzer(
 def _analyze_repeated_prisoners(
     players: List[str], horizon: int, discount: float, strategies: Dict | None
 ) -> Dict[str, Any]:
-    "Analyze repeated prisoner's dilemma"
+    """Analyze repeated prisoner's dilemma"""
 
     results = {
         "status": "success",
@@ -130,7 +130,7 @@ def _analyze_repeated_prisoners(
 def _analyze_repeated_oligopoly(
     players: List[str], horizon: int, discount: float
 ) -> Dict[str, Any]:
-    "Analyze repeated oligopoly (collusion)"
+    """Analyze repeated oligopoly (collusion)"""
 
     n = len(players)
 
@@ -167,7 +167,7 @@ def _analyze_repeated_oligopoly(
 def _analyze_repeated_coordination(
     players: List[str], horizon: int, discount: float
 ) -> Dict[str, Any]:
-    "Analyze repeated coordination game"
+    """Analyze repeated coordination game"""
 
     return {
         "status": "success",
@@ -194,7 +194,7 @@ def _analyze_repeated_coordination(
 def _analyze_repeated_chicken(
     players: List[str], horizon: int, discount: float
 ) -> Dict[str, Any]:
-    "Analyze repeated chicken (hawk-dove) game"
+    """Analyze repeated chicken (hawk-dove) game"""
 
     return {
         "status": "success",
@@ -225,7 +225,7 @@ def _analyze_repeated_chicken(
 
 
 async def invoke(payload: dict) -> dict:
-    "MCP skill invocation"
+    """MCP skill invocation"""
     payload.get("action", "analyze")
     base_game = payload.get("base_game", "prisoner")
     players = payload.get("players", ["player1", "player2"])
@@ -249,7 +249,7 @@ async def invoke(payload: dict) -> dict:
         },
     }
 def register_skill():
-    "Return skill metadata"
+    """Return skill metadata"""
     return {
         "name": "repeated-game-analyzer",
         "description": "Analyze repeated/iterated games with trigger strategies and folk theorems",

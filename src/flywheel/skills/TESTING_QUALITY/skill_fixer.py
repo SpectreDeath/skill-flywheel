@@ -114,7 +114,7 @@ def fix_sync_invoke_file(filepath: str) -> Dict[str, Any]:
         "actions": [
             "check_datetime_import",
             "convert_to_async",
-            "fix_return_format"
+            """fix_return_format"""
         ]
     }
 

@@ -1,11 +1,11 @@
-"
+"""
 Unit Test Generator
 
 Generates unit tests from Python code snippets using:
 - AST analysis to understand function signatures
 - Pattern recognition for common test cases
 - Template-based test generation
-"
+"""
 
 import ast
 from typing import Any, Dict, List
@@ -13,7 +13,7 @@ from datetime import datetime
 
 
 def extract_functions(code: str) -> List[Dict[str, Any]]:
-    "Extract function definitions from code"
+    """Extract function definitions from code"""
     functions = []
 
     try:
@@ -50,7 +50,7 @@ def extract_functions(code: str) -> List[Dict[str, Any]]:
 
 
 def infer_test_type(func_name: str) -> str:
-    "Infer appropriate test type from function name"
+    """Infer appropriate test type from function name"""
     name_lower = func_name.lower()
 
     if "validate" in name_lower or "check" in name_lower:
@@ -64,7 +64,7 @@ def infer_test_type(func_name: str) -> str:
 
 
 def generate_tests(code: str, framework: str = "pytest") -> Dict[str, Any]:
-    "
+    """
     Generate unit tests from code.
 
     Args:
@@ -73,7 +73,7 @@ def generate_tests(code: str, framework: str = "pytest") -> Dict[str, Any]:
 
     Returns:
         Generated test code
-    "
+    """
     functions = extract_functions(code)
 
     if not functions:
@@ -158,7 +158,7 @@ def generate_tests(code: str, framework: str = "pytest") -> Dict[str, Any]:
 def unit_test_generator(
     code: str, framework: str = "pytest", **kwargs
 ) -> Dict[str, Any]:
-    "
+    """
     Main entry point for unit test generation.
 
     Args:
@@ -168,7 +168,7 @@ def unit_test_generator(
 
     Returns:
         Generated test code
-    "
+    """
     if not code:
         return {"status": "error", "error": "No code provided"}
 
@@ -176,7 +176,7 @@ def unit_test_generator(
 
 
 async def invoke(payload: dict) -> dict:
-    "MCP skill invocation"
+    """MCP skill invocation"""
     action = payload.get("action", "generate")
     code = payload.get("code", ")
     framework = payload.get("framework", "pytest")
@@ -194,7 +194,7 @@ async def invoke(payload: dict) -> dict:
         },
     }
 def register_skill():
-    "Return skill metadata"
+    """Return skill metadata"""
     return {
         "name": "unit-test-generator",
         "description": "Generate unit tests from Python code snippets",

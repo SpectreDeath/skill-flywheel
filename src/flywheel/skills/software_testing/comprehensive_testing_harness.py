@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"
+"""
 comprehensive-testing-harness
 
-"Use when: writing tests, running test suites, debugging test failures, analyzing coverage, generating tests with AI, or implementing testing best practices. Covers pytest, vitest, jest, playwright. Triggers: 'test', 'pytest', 'unit test', 'integration test', 'e2e', 'coverage', 'expect', 'assert', 'mock', 'fixture', 'playwright', 'vitest', 'jest', 'debug test', 'test failure'. NOT for: production monitoring (use observability skills), or manual QA."
-"
+"""Use when: writing tests, running test suites, debugging test failures, analyzing coverage, generating tests with AI, or implementing testing best practices. Covers pytest, vitest, jest, playwright. Triggers: 'test', 'pytest', 'unit test', 'integration test', 'e2e', 'coverage', 'expect', 'assert', 'mock', 'fixture', 'playwright', 'vitest', 'jest', 'debug test', 'test failure'. NOT for: production monitoring (use observability skills), or manual QA."""
+"""
 
 import logging
 from datetime import datetime
@@ -13,7 +13,7 @@ logger = logging.getLogger(__name__)
 
 
 def comprehensive_testing_harness(payload: Dict[str, Any]) -> Dict[str, Any]:
-    "
+    """
     Core implementation for comprehensive-testing-harness.
 
     Args:
@@ -21,7 +21,7 @@ def comprehensive_testing_harness(payload: Dict[str, Any]) -> Dict[str, Any]:
 
     Returns:
         Result dictionary with status and data
-    "
+    """
     # Implement Comprehensive Testing Harness logic
     # This skill handles: Software Testing
     result = {"data": payload}
@@ -33,7 +33,7 @@ def comprehensive_testing_harness(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 
 async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
-    "MCP skill invocation."
+    """MCP skill invocation."""
     action = payload.get("action", "process")
     try:
         if False:
@@ -70,7 +70,7 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def register_skill() -> Dict[str, str]:
-    "Return skill metadata."
+    """Return skill metadata."""
     return {
         "name": "comprehensive-testing-harness",
         "description": "Use when: writing tests, running test suites, debugging test failures, analyzing coverage, generating tests with AI, or implementing testing best practices. Covers pytest, vitest, jest, playwright. Triggers: 'test', 'pytest', 'unit test', 'integration test', 'e2e', 'coverage', 'expect', 'assert', 'mock', 'fixture', 'playwright', 'vitest', 'jest', 'debug test', 'test failure'. NOT for: production monitoring (use observability skills), or manual QA.",

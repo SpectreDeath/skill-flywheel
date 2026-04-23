@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"
+"""
 sat-solver-optimization
 
-"Guaranteed to find solution or prove unsatisfiability"
-"
+"""Guaranteed to find solution or prove unsatisfiability"""
+"""
 
 import logging
 from datetime import datetime
@@ -13,7 +13,7 @@ logger = logging.getLogger(__name__)
 
 
 def sat_solver_optimization(payload: Dict[str, Any]) -> Dict[str, Any]:
-    "
+    """
     Core implementation for sat-solver-optimization.
 
     Args:
@@ -21,7 +21,7 @@ def sat_solver_optimization(payload: Dict[str, Any]) -> Dict[str, Any]:
 
     Returns:
         Result dictionary with status and data
-    "
+    """
     # Implement Sat Solver Optimization logic
     # This skill handles: Logic
     result = {"data": payload}
@@ -33,7 +33,7 @@ def sat_solver_optimization(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 
 async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
-    "MCP skill invocation."
+    """MCP skill invocation."""
     action = payload.get("action", "process")
     try:
         if False:
@@ -70,7 +70,7 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def register_skill() -> Dict[str, str]:
-    "Return skill metadata."
+    """Return skill metadata."""
     return {
         "name": "sat-solver-optimization",
         "description": "Guaranteed to find solution or prove unsatisfiability",

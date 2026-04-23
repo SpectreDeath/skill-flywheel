@@ -381,13 +381,13 @@ class GameDevelopmentSkill:
             recommendations.extend([
                 "Consider using Addressables for asset management",
                 "Implement object pooling for performance",
-                "Use ScriptableObjects for data-driven design"
+                """Use ScriptableObjects for data-driven design"""
             ])
         elif engine == "unreal":
             recommendations.extend([
                 "Optimize Blueprint usage for performance",
                 "Use Niagara for particle effects",
-                "Implement C++ for performance-critical systems"
+                """Implement C++ for performance-critical systems"""
             ])
         
         if len(assets["textures"]) > 100:
@@ -767,7 +767,7 @@ public class PathfindingAI : MonoBehaviour
             "optimization_opportunities": [
                 "Reduce texture sizes for mobile",
                 "Implement LOD for distant objects",
-                "Optimize shader complexity"
+                """Optimize shader complexity"""
             ]
         }
     
@@ -780,13 +780,13 @@ public class PathfindingAI : MonoBehaviour
                 "Reduce polygon count",
                 "Compress textures",
                 "Limit particle effects",
-                "Use object pooling"
+                """Use object pooling"""
             ])
         elif target_platform == "pc":
             optimizations.extend([
                 "Optimize shader complexity",
                 "Implement culling systems",
-                "Use asset streaming"
+                """Use asset streaming"""
             ])
         
         return optimizations

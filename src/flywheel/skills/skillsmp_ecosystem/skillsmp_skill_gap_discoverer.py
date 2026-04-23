@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"
+"""
 skillsmp-skill-gap-discoverer
 
-"Use when: identifying missing capabilities in SkillsMP, discovering gaps in available skills for specific tasks, analyzing coverage, or recommending new skills to create. Triggers: 'find gaps', 'missing skills', 'coverage analysis', 'recommend skill', 'identify gaps'. Works with skillsmp-api-client."
-"
+"""Use when: identifying missing capabilities in SkillsMP, discovering gaps in available skills for specific tasks, analyzing coverage, or recommending new skills to create. Triggers: 'find gaps', 'missing skills', 'coverage analysis', 'recommend skill', 'identify gaps'. Works with skillsmp-api-client."""
+"""
 
 import logging
 from datetime import datetime
@@ -13,7 +13,7 @@ logger = logging.getLogger(__name__)
 
 
 def skillsmp_skill_gap_discoverer(payload: Dict[str, Any]) -> Dict[str, Any]:
-    "
+    """
     Core implementation for skillsmp-skill-gap-discoverer.
 
     Args:
@@ -21,7 +21,7 @@ def skillsmp_skill_gap_discoverer(payload: Dict[str, Any]) -> Dict[str, Any]:
 
     Returns:
         Result dictionary with status and data
-    "
+    """
     # Implement Skillsmp Skill Gap Discoverer logic
     # This skill handles: Skillsmp Ecosystem
     result = {"data": payload}
@@ -33,7 +33,7 @@ def skillsmp_skill_gap_discoverer(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 
 async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
-    "MCP skill invocation."
+    """MCP skill invocation."""
     action = payload.get("action", "process")
     try:
         if False:
@@ -70,7 +70,7 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def register_skill() -> Dict[str, str]:
-    "Return skill metadata."
+    """Return skill metadata."""
     return {
         "name": "skillsmp-skill-gap-discoverer",
         "description": "Use when: identifying missing capabilities in SkillsMP, discovering gaps in available skills for specific tasks, analyzing coverage, or recommending new skills to create. Triggers: 'find gaps', 'missing skills', 'coverage analysis', 'recommend skill', 'identify gaps'. Works with skillsmp-api-client.",

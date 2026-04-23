@@ -1,4 +1,4 @@
-"
+"""
 Socratic Questioner
 
 Applies Socratic questioning to explore concepts:
@@ -8,7 +8,7 @@ Applies Socratic questioning to explore concepts:
 - Perspective exploration
 - Implication analysis
 - Meta-questioning
-"
+"""
 
 from typing import Any, Dict, List
 from datetime import datetime
@@ -60,7 +60,7 @@ QUESTION_TYPES = {
 
 
 def analyze_concept(concept: str) -> Dict[str, Any]:
-    "Analyze a concept for questioning paths"
+    """Analyze a concept for questioning paths"""
 
     # Identify potential question targets
     nouns = concept.split()
@@ -74,7 +74,7 @@ def analyze_concept(concept: str) -> Dict[str, Any]:
 
 
 def generate_questions(concept: str, depth: int = 2) -> Dict[str, Any]:
-    "Generate Socratic questions for a concept"
+    """Generate Socratic questions for a concept"""
 
     analysis = analyze_concept(concept)
     questions = {}
@@ -115,7 +115,7 @@ def generate_questions(concept: str, depth: int = 2) -> Dict[str, Any]:
 def socratic_questioner(
     concept: str, depth: int = 2, focus: List[str] | None = None, **kwargs
 ) -> Dict[str, Any]:
-    "
+    """
     Apply Socratic questioning to explore a concept.
 
     Args:
@@ -126,7 +126,7 @@ def socratic_questioner(
 
     Returns:
         Socratic questioning exploration
-    "
+    """
     if not concept:
         return {"status": "error", "error": "No concept provided"}
 
@@ -144,7 +144,7 @@ def socratic_questioner(
 
 
 async def invoke(payload: dict) -> dict:
-    "MCP skill invocation"
+    """MCP skill invocation"""
     action = payload.get("action", "question")
     concept = payload.get("concept", ")
     depth = payload.get("depth", 2)
@@ -163,7 +163,7 @@ async def invoke(payload: dict) -> dict:
         },
     }
 def register_skill():
-    "Return skill metadata"
+    """Return skill metadata"""
     return {
         "name": "socratic-questioner",
         "description": "Apply Socratic questioning to explore concepts deeply",

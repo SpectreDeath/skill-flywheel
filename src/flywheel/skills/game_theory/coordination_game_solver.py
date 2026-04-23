@@ -1,4 +1,4 @@
-"
+"""
 Coordination Game Solver
 
 Helps resolve coordination problems:
@@ -7,7 +7,7 @@ Helps resolve coordination problems:
 - Stag Hunt
 - Network effects
 - Focal points (Schelling points)
-"
+"""
 
 from typing import Any, Dict, List
 from datetime import datetime
@@ -22,7 +22,7 @@ def coordination_game_solver(
     communication: bool = False,
     **kwargs,
 ) -> Dict[str, Any]:
-    "
+    """
     Solve coordination game scenarios.
 
     Args:
@@ -36,7 +36,7 @@ def coordination_game_solver(
 
     Returns:
         Coordination solutions and recommendations
-    "
+    """
 
     if game_type.lower() == "pure":
         return _solve_pure_coordination(players, options, payoffs)
@@ -58,7 +58,7 @@ def coordination_game_solver(
 def _solve_pure_coordination(
     players: List[str], options: List[str] | None, payoffs: Dict | None
 ) -> Dict[str, Any]:
-    "Pure coordination game - multiple equilibria with equal payoffs"
+    """Pure coordination game - multiple equilibria with equal payoffs"""
 
     if not options:
         options = ["A", "B"]
@@ -90,7 +90,7 @@ def _solve_pure_coordination(
 def _solve_battle_sexes(
     players: List[str], options: List[str] | None, preferences: Dict | None
 ) -> Dict[str, Any]:
-    "Battle of the Sexes - misaligned preferences"
+    """Battle of the Sexes - misaligned preferences"""
 
     if not options:
         options = ["opera", "football"]
@@ -130,7 +130,7 @@ def _solve_battle_sexes(
 def _solve_stag_hunt(
     players: List[str], options: List[str] | None
 ) -> Dict[str, Any]:
-    "Stag Hunt - safety vs. cooperation dilemma"
+    """Stag Hunt - safety vs. cooperation dilemma"""
 
     if not options:
         options = ["stag", "hare"]
@@ -159,7 +159,7 @@ def _solve_stag_hunt(
 def _solve_network_effects(
     players: List[str], options: List[str] | None
 ) -> Dict[str, Any]:
-    "Network effects coordination"
+    """Network effects coordination"""
 
     if not options:
         options = ["platform_a", "platform_b", "platform_c"]
@@ -196,7 +196,7 @@ def _solve_network_effects(
 def _solve_custom_coordination(
     players: List[str], options: List[str] | None, payoffs: Dict, communication: bool
 ) -> Dict[str, Any]:
-    "Solve custom coordination game"
+    """Solve custom coordination game"""
 
     equilibria = _find_pure_equilibria(payoffs)
     focal_points = _find_focal_points(options) if options else []
@@ -204,7 +204,7 @@ def _solve_custom_coordination(
     recommendations = []
     if communication:
         recommendations.append(
-            "Communication allows equilibrium selection through agreement"
+            """Communication allows equilibrium selection through agreement"""
         )
     if focal_points:
         recommendations.append(f"Focal points help: {focal_points}")
@@ -221,7 +221,7 @@ def _solve_custom_coordination(
 def _build_payoffs_from_preferences(
     players: List[str], options: List[str], preferences: Dict
 ) -> Dict:
-    "Build payoff matrix from preference rankings"
+    """Build payoff matrix from preference rankings"""
     payoffs = {}
     for opt1 in options:
         payoffs[opt1] = {}
@@ -240,7 +240,7 @@ def _build_payoffs_from_preferences(
 
 
 def _find_pure_equilibria(payoffs: Dict) -> List[str]:
-    "Find pure Nash equilibria"
+    """Find pure Nash equilibria"""
     equilibria = []
     options = list(payoffs.keys())
 
@@ -285,7 +285,7 @@ def _find_pure_equilibria(payoffs: Dict) -> List[str]:
 
 
 def _find_focal_points(options: List[str]) -> List[str]:
-    "Schelling focal points - salient options"
+    """Schelling focal points - salient options"""
     focal = []
 
     # Check for common/standard options
@@ -305,7 +305,7 @@ def _find_focal_points(options: List[str]) -> List[str]:
 def _calculate_battle_sexes_mixed(
     players: List[str], options: List[str], payoffs: Dict
 ) -> Dict:
-    "Calculate mixed equilibrium for battle of the sexes"
+    """Calculate mixed equilibrium for battle of the sexes"""
 
     # For BoS with payoffs (10,5) and (5,10)
     # Mixed equilibrium: P1 plays O 2/3, P2 plays F 2/3
@@ -318,7 +318,7 @@ def _calculate_battle_sexes_mixed(
 
 
 async def invoke(payload: dict) -> dict:
-    "MCP skill invocation"
+    """MCP skill invocation"""
     payload.get("action", "solve")
     game_type = payload.get("game_type", "pure")
     players = payload.get("players", ["player1", "player2"])
@@ -344,7 +344,7 @@ async def invoke(payload: dict) -> dict:
         },
     }
 def register_skill():
-    "Return skill metadata"
+    """Return skill metadata"""
     return {
         "name": "coordination-game-solver",
         "description": "Solve coordination problems including pure coordination, battle of the sexes, and stag hunt",

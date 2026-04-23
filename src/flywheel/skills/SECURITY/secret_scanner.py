@@ -306,41 +306,41 @@ def generate_recommendations(secrets: List[SecretFinding]) -> List[str]:
 
     recommendations.append("Remove all hardcoded secrets from source code immediately")
     recommendations.append(
-        "Use environment variables or a secrets manager (AWS Secrets Manager, HashiCorp Vault, Azure Key Vault)"
+        """Use environment variables or a secrets manager (AWS Secrets Manager, HashiCorp Vault, Azure Key Vault)"""
     )
 
     if any("AWS" in t for t in secret_types):
         recommendations.append(
-            "Rotate AWS credentials immediately and review IAM roles"
+            """Rotate AWS credentials immediately and review IAM roles"""
         )
         recommendations.append("Use IAM roles instead of access keys where possible")
 
     if any("GitHub" in t for t in secret_types):
         recommendations.append("Revoke the exposed GitHub tokens and create new ones")
         recommendations.append(
-            "Enable 2FA on GitHub account and use fine-grained tokens"
+            """Enable 2FA on GitHub account and use fine-grained tokens"""
         )
 
     if any("password" in t.lower() for t in secret_types):
         recommendations.append(
-            "Implement password hashing (bcrypt, argon2) for user credentials"
+            """Implement password hashing (bcrypt, argon2) for user credentials"""
         )
 
     if any("private" in t.lower() or "key" in t.lower() for t in secret_types):
         recommendations.append(
-            "Never commit private keys - use secure key management systems"
+            """Never commit private keys - use secure key management systems"""
         )
         recommendations.append("Add sensitive files to .gitignore")
 
     if any("database" in t.lower() or "connection" in t.lower() for t in secret_types):
         recommendations.append(
-            "Use database connection pooling with secure credential storage"
+            """Use database connection pooling with secure credential storage"""
         )
         recommendations.append("Implement database encryption at rest and in transit")
 
     recommendations.append("Set up automated secret scanning in CI/CD pipeline")
     recommendations.append(
-        "Consider using git-secrets or similar tools to prevent future leaks"
+        """Consider using git-secrets or similar tools to prevent future leaks"""
     )
 
     return recommendations
