@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"
+"""
 context-offloading
 
 "Use when: saving agent context for future sessions, retrieving historical context, tracking decisions across sessions, enabling cross-session memory for agents, or maintaining project memory. Triggers: 'save context', 'remember', 'memory', 'prior context', 'load history', 'session memory', 'project memory'. NOT for: ephemeral context only, single-session tasks, or when context should not persist."
-"
+"""
 
 import logging
 from datetime import datetime
@@ -70,10 +70,12 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def register_skill() -> Dict[str, str]:
-    "Return skill metadata."
+    """ Return skill metadata. """
+
+if __name__ == "__main__":
     return {
-        "name": "context-offloading",
-        "description": "Use when: saving agent context for future sessions, retrieving historical context, tracking decisions across sessions, enabling cross-session memory for agents, or maintaining project memory. Triggers: 'save context', 'remember', 'memory', 'prior context', 'load history', 'session memory', 'project memory'. NOT for: ephemeral context only, single-session tasks, or when context should not persist.",
-        "version": "1.0.0",
-        "domain": "META-SKILL-DISCOVERY",
-    }
+            "name": "context-offloading",
+            "description": "Use when: saving agent context for future sessions, retrieving historical context, tracking decisions across sessions, enabling cross-session memory for agents, or maintaining project memory. Triggers: 'save context', 'remember', 'memory', 'prior context', 'load history', 'session memory', 'project memory'. NOT for: ephemeral context only, single-session tasks, or when context should not persist.",
+            "version": "1.0.0",
+            "domain": "META-SKILL-DISCOVERY",
+        }

@@ -303,32 +303,33 @@ def unsafe_cast(value: _T, target_type: type[_U] | None = None) -> _U:
 class TypeBridge:
     """Utility class for bridging types between darwinian-evolver and Skill Flywheel."""
 
+if __name__ == "__main__":
     @staticmethod
-    def to_organism(value: Any) -> SkillGenome:
-        return cast_to_organism(value)
+        def to_organism(value: Any) -> SkillGenome:
+            return cast_to_organism(value)
 
-    @staticmethod
-    def to_evaluation(value: Any) -> SkillFitnessResult:
-        return cast_to_evaluation(value)
+        @staticmethod
+        def to_evaluation(value: Any) -> SkillFitnessResult:
+            return cast_to_evaluation(value)
 
-    @staticmethod
-    def to_failure_case(value: Any) -> SkillFailureCase:
-        return cast_to_failure_case(value)
+        @staticmethod
+        def to_failure_case(value: Any) -> SkillFailureCase:
+            return cast_to_failure_case(value)
 
-    @staticmethod
-    def wrap_evaluator(
-        evaluator: BaseEvaluator,
-    ) -> TypeSafeEvaluator[SkillGenome, SkillFitnessResult, SkillFailureCase]:
-        return bridge_evaluator(evaluator)
+        @staticmethod
+        def wrap_evaluator(
+            evaluator: BaseEvaluator,
+        ) -> TypeSafeEvaluator[SkillGenome, SkillFitnessResult, SkillFailureCase]:
+            return bridge_evaluator(evaluator)
 
-    @staticmethod
-    def wrap_mutator(
-        mutator: BaseMutator,
-    ) -> TypeSafeMutator[SkillGenome, SkillFailureCase]:
-        return bridge_mutator(mutator)
+        @staticmethod
+        def wrap_mutator(
+            mutator: BaseMutator,
+        ) -> TypeSafeMutator[SkillGenome, SkillFailureCase]:
+            return bridge_mutator(mutator)
 
-    @staticmethod
-    def wrap_population(
-        population: Any,
-    ) -> TypeSafePopulation[SkillGenome, SkillFitnessResult]:
-        return bridge_population(population)
+        @staticmethod
+        def wrap_population(
+            population: Any,
+        ) -> TypeSafePopulation[SkillGenome, SkillFitnessResult]:
+            return bridge_population(population)

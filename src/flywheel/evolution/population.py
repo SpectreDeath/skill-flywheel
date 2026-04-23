@@ -112,14 +112,16 @@ class EvolutionStatistics:
 
     def get_summary(self) -> Dict[str, Any]:
         """Get summary of evolution statistics."""
-        if not self.best_scores:
-            return {}
 
-        return {
-            "total_iterations": len(self.best_scores),
-            "initial_best": self.best_scores[0],
-            "final_best": self.best_scores[-1],
-            "improvement": self.best_scores[-1] - self.best_scores[0],
-            "max_score": max(self.best_scores),
-            "stagnation_periods": self.stagnation_count,
-        }
+if __name__ == "__main__":
+    if not self.best_scores:
+                return {}
+
+            return {
+                "total_iterations": len(self.best_scores),
+                "initial_best": self.best_scores[0],
+                "final_best": self.best_scores[-1],
+                "improvement": self.best_scores[-1] - self.best_scores[0],
+                "max_score": max(self.best_scores),
+                "stagnation_periods": self.stagnation_count,
+            }

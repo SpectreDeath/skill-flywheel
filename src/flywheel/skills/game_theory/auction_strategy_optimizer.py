@@ -1,4 +1,4 @@
-"
+"""
 Auction Strategy Optimizer
 
 Optimizes bidding strategies for various auction types:
@@ -7,7 +7,7 @@ Optimizes bidding strategies for various auction types:
 - First-price sealed-bid
 - Second-price sealed-bid (Vickrey)
 - All-pay auctions
-"
+"""
 
 from typing import Any, Dict, List
 from datetime import datetime
@@ -287,10 +287,12 @@ async def invoke(payload: dict) -> dict:
         },
     }
 def register_skill():
-    "Return skill metadata"
+    """ Return skill metadata """
+
+if __name__ == "__main__":
     return {
-        "name": "auction-strategy-optimizer",
-        "description": "Optimize bidding strategies for English, Dutch, sealed-bid, and all-pay auctions",
-        "version": "1.0.0",
-        "domain": "STRATEGY",
-    }
+            "name": "auction-strategy-optimizer",
+            "description": "Optimize bidding strategies for English, Dutch, sealed-bid, and all-pay auctions",
+            "version": "1.0.0",
+            "domain": "STRATEGY",
+        }

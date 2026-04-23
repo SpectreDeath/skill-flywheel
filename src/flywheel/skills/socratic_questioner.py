@@ -164,9 +164,11 @@ async def invoke(payload: dict) -> dict:
     }
 def register_skill():
     """Return skill metadata"""
+
+if __name__ == "__main__":
     return {
-        "name": "socratic-questioner",
-        "description": "Apply Socratic questioning to explore concepts deeply",
-        "version": "1.0.0",
-        "domain": "PHILOSOPHY",
-    }
+            "name": "socratic-questioner",
+            "description": "Apply Socratic questioning to explore concepts deeply",
+            "version": "1.0.0",
+            "domain": "PHILOSOPHY",
+        }

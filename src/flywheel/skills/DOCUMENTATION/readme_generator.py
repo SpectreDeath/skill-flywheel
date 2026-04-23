@@ -867,18 +867,20 @@ def register_skill() -> dict:
     Returns:
         Dictionary with skill name, description, version, and domain
     """
+
+if __name__ == "__main__":
     return {
-        "name": "readme-generator",
-        "description": "Generate comprehensive README files for various project types (Python, JavaScript, Go, Rust, etc.) with badges, installation, usage, and other sections",
-        "version": "1.0.0",
-        "domain": "DOCUMENTATION",
-        "capabilities": [
-            "Analyze project structure",
-            "Detect programming language",
-            "Extract dependencies and configuration",
-            "Generate README sections",
-            "Create Markdown badges",
-            "Support multiple templates (minimal, standard, comprehensive)",
-        ],
-        "supported_languages": list(SUPPORTED_LANGUAGES.keys()),
-    }
+            "name": "readme-generator",
+            "description": "Generate comprehensive README files for various project types (Python, JavaScript, Go, Rust, etc.) with badges, installation, usage, and other sections",
+            "version": "1.0.0",
+            "domain": "DOCUMENTATION",
+            "capabilities": [
+                "Analyze project structure",
+                "Detect programming language",
+                "Extract dependencies and configuration",
+                "Generate README sections",
+                "Create Markdown badges",
+                "Support multiple templates (minimal, standard, comprehensive)",
+            ],
+            "supported_languages": list(SUPPORTED_LANGUAGES.keys()),
+        }

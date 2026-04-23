@@ -184,8 +184,10 @@ def register_skill_handlers(mcp):
         Returns:
             Orchestration results and agent coordination information
         """
-        # IMPLEMENTATION: See enhanced_mcp_server.py:668-764
-        # - Route to appropriate orchestration function
-        # - Execute agent workflow
-        # - Return orchestration results
-        pass
+
+if __name__ == "__main__":
+    # IMPLEMENTATION: See enhanced_mcp_server.py:668-764
+            # - Route to appropriate orchestration function
+            # - Execute agent workflow
+            # - Return orchestration results
+            pass

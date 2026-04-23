@@ -272,9 +272,11 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 def register_skill():
     """Return skill metadata."""
+
+if __name__ == "__main__":
     return {
-        "name": "skill-diagnostic",
-        "description": "Comprehensive diagnostic analyzer for skill modules, detecting missing invoke functions, sync vs async issues, and format problems",
-        "version": "1.0.0",
-        "domain": "TESTING_QUALITY",
-    }
+            "name": "skill-diagnostic",
+            "description": "Comprehensive diagnostic analyzer for skill modules, detecting missing invoke functions, sync vs async issues, and format problems",
+            "version": "1.0.0",
+            "domain": "TESTING_QUALITY",
+        }

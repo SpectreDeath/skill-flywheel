@@ -271,9 +271,11 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 def register_skill():
     """Return skill metadata."""
+
+if __name__ == "__main__":
     return {
-        "name": "multi-platform-cross-compilation",
-        "description": "Build system patterns for cross-compiling C codebases against multiple target architectures (x86, ARM, MIPS, PPC) using Buildroot toolchains",
-        "version": "1.0.0",
-        "domain": "CLOUD_ENGINEERING",
-    }
+            "name": "multi-platform-cross-compilation",
+            "description": "Build system patterns for cross-compiling C codebases against multiple target architectures (x86, ARM, MIPS, PPC) using Buildroot toolchains",
+            "version": "1.0.0",
+            "domain": "CLOUD_ENGINEERING",
+        }

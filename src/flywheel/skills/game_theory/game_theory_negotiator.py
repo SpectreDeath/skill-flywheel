@@ -1,4 +1,4 @@
-"
+"""
 Game Theory Negotiator
 
 Models game theory scenarios for negotiation strategy:
@@ -6,7 +6,7 @@ Models game theory scenarios for negotiation strategy:
 - Payoff matrix evaluation
 - Strategy recommendations
 - Negotiation tactics
-"
+"""
 
 from typing import Any, Dict, List
 from datetime import datetime
@@ -161,10 +161,12 @@ async def invoke(payload: dict) -> dict:
         },
     }
 def register_skill():
-    "Return skill metadata"
+    """ Return skill metadata """
+
+if __name__ == "__main__":
     return {
-        "name": "game-theory-negotiator",
-        "description": "Model game theory scenarios for negotiation strategy",
-        "version": "1.0.0",
-        "domain": "STRATEGY",
-    }
+            "name": "game-theory-negotiator",
+            "description": "Model game theory scenarios for negotiation strategy",
+            "version": "1.0.0",
+            "domain": "STRATEGY",
+        }

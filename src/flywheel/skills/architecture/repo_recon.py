@@ -341,9 +341,11 @@ async def invoke(payload: dict) -> dict:
     }
 def register_skill():
     """Return skill metadata for MCP registration"""
+
+if __name__ == "__main__":
     return {
-        "name": "repo-recon",
-        "description": "Map structure, tech stack, and risks of a repository",
-        "version": "1.0.0",
-        "domain": "APPLICATION_SECURITY",
-    }
+            "name": "repo-recon",
+            "description": "Map structure, tech stack, and risks of a repository",
+            "version": "1.0.0",
+            "domain": "APPLICATION_SECURITY",
+        }

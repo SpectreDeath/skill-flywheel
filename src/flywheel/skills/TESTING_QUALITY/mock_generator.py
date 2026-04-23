@@ -424,17 +424,19 @@ async def invoke(payload: dict) -> dict:
     }
 def register_skill():
     """Return skill metadata."""
+
+if __name__ == "__main__":
     return {
-        "name": "mock-generator",
-        "description": "Creates mock objects for testing by analyzing class/function interfaces and generating MagicMock-based mock code",
-        "version": "1.0.0",
-        "domain": "TESTING_QUALITY",
-        "capabilities": [
-            "class_interface_analysis",
-            "function_signature_parsing",
-            "magicmock_generation",
-            "recursive_dependency_mocking",
-            "return_value_configuration",
-            "test_code_generation",
-        ],
-    }
+            "name": "mock-generator",
+            "description": "Creates mock objects for testing by analyzing class/function interfaces and generating MagicMock-based mock code",
+            "version": "1.0.0",
+            "domain": "TESTING_QUALITY",
+            "capabilities": [
+                "class_interface_analysis",
+                "function_signature_parsing",
+                "magicmock_generation",
+                "recursive_dependency_mocking",
+                "return_value_configuration",
+                "test_code_generation",
+            ],
+        }

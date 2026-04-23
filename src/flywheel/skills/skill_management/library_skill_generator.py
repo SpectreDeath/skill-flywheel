@@ -645,9 +645,11 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 def register_skill():
     """Return skill metadata for registration"""
+
+if __name__ == "__main__":
     return {
-        "name": "library-skill-generator",
-        "description": "Generate skill modules by wrapping Python library public APIs",
-        "version": "1.0.0",
-        "domain": "skill_management",
-    }
+            "name": "library-skill-generator",
+            "description": "Generate skill modules by wrapping Python library public APIs",
+            "version": "1.0.0",
+            "domain": "skill_management",
+        }

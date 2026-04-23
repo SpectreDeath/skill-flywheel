@@ -8,7 +8,7 @@ class ACPSystem:
         self.base_url = "https://api.acp.com/v1"
 
     def validate_api_key(self) -> bool:
-        " Validate the API key by making a request to a dummy endpoint "
+        """  Validate the API key by making a request to a dummy endpoint  """
         headers = {
             "Authorization": f"Bearer {self.api_key}"
         }

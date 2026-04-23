@@ -494,15 +494,17 @@ async def invoke(payload: dict) -> dict:
     }
 def register_skill():
     """Return skill metadata."""
+
+if __name__ == "__main__":
     return {
-        "name": "property-test-generator",
-        "description": "Generates property-based tests using Hypothesis framework",
-        "version": "1.0.0",
-        "domain": "TESTING_QUALITY",
-        "capabilities": [
-            "function_signature_analysis",
-            "edge_case_generation",
-            "property_detection",
-            "hypothesis_test_generation",
-        ],
-    }
+            "name": "property-test-generator",
+            "description": "Generates property-based tests using Hypothesis framework",
+            "version": "1.0.0",
+            "domain": "TESTING_QUALITY",
+            "capabilities": [
+                "function_signature_analysis",
+                "edge_case_generation",
+                "property_detection",
+                "hypothesis_test_generation",
+            ],
+        }

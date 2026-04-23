@@ -652,17 +652,19 @@ async def invoke(payload: dict) -> dict:
     }
 def register_skill():
     """Return skill metadata."""
+
+if __name__ == "__main__":
     return {
-        "name": "test-debug-helper",
-        "description": "Analyzes test failures to identify root cause, explain errors, and suggest fixes",
-        "version": "1.0.0",
-        "domain": "TESTING_QUALITY",
-        "capabilities": [
-            "test_output_parsing",
-            "failure_type_identification",
-            "root_cause_analysis",
-            "error_explanation",
-            "fix_suggestion",
-            "debug_steps_generation",
-        ],
-    }
+            "name": "test-debug-helper",
+            "description": "Analyzes test failures to identify root cause, explain errors, and suggest fixes",
+            "version": "1.0.0",
+            "domain": "TESTING_QUALITY",
+            "capabilities": [
+                "test_output_parsing",
+                "failure_type_identification",
+                "root_cause_analysis",
+                "error_explanation",
+                "fix_suggestion",
+                "debug_steps_generation",
+            ],
+        }

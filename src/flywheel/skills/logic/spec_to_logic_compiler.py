@@ -217,9 +217,11 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 def register_skill() -> Dict[str, str]:
     """Return skill metadata."""
+
+if __name__ == "__main__":
     return {
-        "name": "spec-to-logic-compiler",
-        "description": "Compiles task descriptions and specifications into executable logic programs (DML/Prolog) for guaranteed execution semantics.",
-        "version": "1.0.0",
-        "domain": "logic",
-    }
+            "name": "spec-to-logic-compiler",
+            "description": "Compiles task descriptions and specifications into executable logic programs (DML/Prolog) for guaranteed execution semantics.",
+            "version": "1.0.0",
+            "domain": "logic",
+        }

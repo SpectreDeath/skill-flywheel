@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"
+"""
 skill-analyzer
 
 "Use when: analyzing an existing skill to understand its capabilities, use cases, triggers, limitations, and how to invoke it. Also use when evaluating skill quality, finding gaps, or determining if a skill fits a specific use case. Triggers: 'analyze skill', 'what does this skill do', 'skill review', 'evaluate skill', 'skill analysis', 'understand skill', 'skill capability', 'can this skill'. NOT for: creating new skills (use skill-creator), or when skill documentation is sufficient."
-"
+"""
 
 import logging
 from datetime import datetime
@@ -70,10 +70,12 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def register_skill() -> Dict[str, str]:
-    "Return skill metadata."
+    """ Return skill metadata. """
+
+if __name__ == "__main__":
     return {
-        "name": "skill-analyzer",
-        "description": "Use when: analyzing an existing skill to understand its capabilities, use cases, triggers, limitations, and how to invoke it. Also use when evaluating skill quality, finding gaps, or determining if a skill fits a specific use case. Triggers: 'analyze skill', 'what does this skill do', 'skill review', 'evaluate skill', 'skill analysis', 'understand skill', 'skill capability', 'can this skill'. NOT for: creating new skills (use skill-creator), or when skill documentation is sufficient.",
-        "version": "1.0.0",
-        "domain": "META-SKILL-DISCOVERY",
-    }
+            "name": "skill-analyzer",
+            "description": "Use when: analyzing an existing skill to understand its capabilities, use cases, triggers, limitations, and how to invoke it. Also use when evaluating skill quality, finding gaps, or determining if a skill fits a specific use case. Triggers: 'analyze skill', 'what does this skill do', 'skill review', 'evaluate skill', 'skill analysis', 'understand skill', 'skill capability', 'can this skill'. NOT for: creating new skills (use skill-creator), or when skill documentation is sufficient.",
+            "version": "1.0.0",
+            "domain": "META-SKILL-DISCOVERY",
+        }

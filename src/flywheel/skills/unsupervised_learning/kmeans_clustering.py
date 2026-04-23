@@ -1,11 +1,11 @@
-"
+"""
 K-Means Clustering
 
 Performs k-means clustering analysis:
 - Optimal k selection via elbow method
 - Multiple initialization methods
 - Cluster assignment and centroids
-"
+"""
 
 import math
 from datetime import datetime
@@ -230,10 +230,12 @@ async def invoke(payload: dict) -> dict:
 
 
 def register_skill():
-    "Return skill metadata"
+    """ Return skill metadata """
+
+if __name__ == "__main__":
     return {
-        "name": "kmeans-clustering",
-        "description": "Perform k-means clustering with elbow method for optimal k selection",
-        "version": "1.0.0",
-        "domain": "DATA_SCIENCE",
-    }
+            "name": "kmeans-clustering",
+            "description": "Perform k-means clustering with elbow method for optimal k selection",
+            "version": "1.0.0",
+            "domain": "DATA_SCIENCE",
+        }

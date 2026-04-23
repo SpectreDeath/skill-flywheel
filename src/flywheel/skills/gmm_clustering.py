@@ -213,9 +213,11 @@ async def invoke(payload: dict) -> dict:
     }
 def register_skill():
     """Return skill metadata"""
+
+if __name__ == "__main__":
     return {
-        "name": "gmm-clustering",
-        "description": "Perform Gaussian Mixture Model clustering with soft probability assignments",
-        "version": "1.0.0",
-        "domain": "DATA_SCIENCE",
-    }
+            "name": "gmm-clustering",
+            "description": "Perform Gaussian Mixture Model clustering with soft probability assignments",
+            "version": "1.0.0",
+            "domain": "DATA_SCIENCE",
+        }

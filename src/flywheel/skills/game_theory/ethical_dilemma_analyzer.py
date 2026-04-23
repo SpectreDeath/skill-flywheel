@@ -1,11 +1,11 @@
-"
+"""
 Ethical Dilemma Analyzer
 
 Analyzes ethical dilemmas and applies moral frameworks:
 - Utilitarianism, Deontology, Virtue Ethics
 - Provides multi-perspective analysis
 - Identifies stakeholders and impacts
-"
+"""
 
 from typing import Any, Dict, List
 from datetime import datetime
@@ -204,10 +204,12 @@ async def invoke(payload: dict) -> dict:
         },
     }
 def register_skill():
-    "Return skill metadata"
+    """ Return skill metadata """
+
+if __name__ == "__main__":
     return {
-        "name": "ethical-dilemma-analyzer",
-        "description": "Analyze ethical dilemmas using moral frameworks",
-        "version": "1.0.0",
-        "domain": "PHILOSOPHY",
-    }
+            "name": "ethical-dilemma-analyzer",
+            "description": "Analyze ethical dilemmas using moral frameworks",
+            "version": "1.0.0",
+            "domain": "PHILOSOPHY",
+        }

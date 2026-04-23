@@ -194,9 +194,11 @@ async def invoke(payload: dict) -> dict:
     }
 def register_skill():
     """Return skill metadata"""
+
+if __name__ == "__main__":
     return {
-        "name": "argument-analyzer",
-        "description": "Evaluate philosophical arguments and detect logical fallacies",
-        "version": "1.0.0",
-        "domain": "EPISTEMOLOGY",
-    }
+            "name": "argument-analyzer",
+            "description": "Evaluate philosophical arguments and detect logical fallacies",
+            "version": "1.0.0",
+            "domain": "EPISTEMOLOGY",
+        }

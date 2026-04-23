@@ -303,32 +303,34 @@ def create_skill_evolver(
                      - "parameter": Use parameter tuning only
                      - "structure": Use structure mutation only
     """
+
+if __name__ == "__main__":
     config = config or EvolutionConfig()
 
-    if mutator_type == "llm":
-        mutators = [LLMMutator(llm_client=llm_client)]
-    elif mutator_type == "research":
-        from .kilo_research_mutator import KiloResearchMutator
-
-        mutators = [KiloResearchMutator()]
-    elif mutator_type == "parameter":
-        mutators = [ParameterTuningMutator(tuning_strategy="random")]
-    elif mutator_type == "structure":
-        mutators = [StructureMutationMutator()]
-    elif mutator_type == "auto":
-        if llm_client:
+        if mutator_type == "llm":
             mutators = [LLMMutator(llm_client=llm_client)]
-        else:
+        elif mutator_type == "research":
             from .kilo_research_mutator import KiloResearchMutator
 
             mutators = [KiloResearchMutator()]
-    else:
-        mutators = [LLMMutator(llm_client=llm_client)]
+        elif mutator_type == "parameter":
+            mutators = [ParameterTuningMutator(tuning_strategy="random")]
+        elif mutator_type == "structure":
+            mutators = [StructureMutationMutator()]
+        elif mutator_type == "auto":
+            if llm_client:
+                mutators = [LLMMutator(llm_client=llm_client)]
+            else:
+                from .kilo_research_mutator import KiloResearchMutator
 
-    return SkillEvolver(
-        initial_genome=initial_genome,
-        evaluator=evaluator,
-        mutators=mutators,
-        config=config,
-        output_dir=output_dir,
-    )
+                mutators = [KiloResearchMutator()]
+        else:
+            mutators = [LLMMutator(llm_client=llm_client)]
+
+        return SkillEvolver(
+            initial_genome=initial_genome,
+            evaluator=evaluator,
+            mutators=mutators,
+            config=config,
+            output_dir=output_dir,
+        )

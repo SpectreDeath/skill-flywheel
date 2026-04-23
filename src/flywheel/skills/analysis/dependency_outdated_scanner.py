@@ -244,9 +244,11 @@ async def invoke(payload: dict) -> dict:
     }
 def register_skill():
     """Return skill metadata"""
+
+if __name__ == "__main__":
     return {
-        "name": "dependency-outdated-scanner",
-        "description": "Scan for outdated dependencies and suggest updates",
-        "version": "1.0.0",
-        "domain": "DEVOPS",
-    }
+            "name": "dependency-outdated-scanner",
+            "description": "Scan for outdated dependencies and suggest updates",
+            "version": "1.0.0",
+            "domain": "DEVOPS",
+        }

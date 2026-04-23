@@ -401,9 +401,11 @@ async def invoke(payload: dict) -> dict:
     }
 def register_skill():
     """Return skill metadata for MCP registration"""
+
+if __name__ == "__main__":
     return {
-        "name": "security-scan",
-        "description": "Detect security vulnerabilities and misconfigurations",
-        "version": "1.0.0",
-        "domain": "APPLICATION_SECURITY",
-    }
+            "name": "security-scan",
+            "description": "Detect security vulnerabilities and misconfigurations",
+            "version": "1.0.0",
+            "domain": "APPLICATION_SECURITY",
+        }

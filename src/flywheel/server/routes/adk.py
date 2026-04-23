@@ -352,37 +352,39 @@ async def adk_tool_load_resource(
     resource_name: str = Query(..., description="Resource file name"),
 ):
     """ADK Tool: load_skill_resource"""
+
+if __name__ == "__main__":
     base_dir = Path(config.config.get("base_dir", ""))
-    domains_dir = base_dir / "domains"
+        domains_dir = base_dir / "domains"
 
-    for domain_dir in domains_dir.iterdir():
-        if domain_dir.is_dir():
-            skill_dir = domain_dir / f"SKILL.{skill_name}"
-            if not skill_dir.exists():
-                skill_dir = domain_dir / skill_name
-            if skill_dir.exists():
-                refs = skill_dir / "references"
-                resource_path = refs / f"{resource_name}.md"
-                if not resource_path.exists():
-                    asset_path = skill_dir / "assets" / resource_name
-                    if asset_path.exists():
-                        resource_path = asset_path
+        for domain_dir in domains_dir.iterdir():
+            if domain_dir.is_dir():
+                skill_dir = domain_dir / f"SKILL.{skill_name}"
+                if not skill_dir.exists():
+                    skill_dir = domain_dir / skill_name
+                if skill_dir.exists():
+                    refs = skill_dir / "references"
+                    resource_path = refs / f"{resource_name}.md"
+                    if not resource_path.exists():
+                        asset_path = skill_dir / "assets" / resource_name
+                        if asset_path.exists():
+                            resource_path = asset_path
 
-                if resource_path.exists():
-                    try:
-                        content = resource_path.read_text(encoding="utf-8")
-                        return {
-                            "resource": {
-                                "name": resource_name,
-                                "content": content,
-                                "path": str(resource_path.relative_to(base_dir)),
-                            },
-                            "tool": "load_skill_resource",
-                            "level": "L3",
-                        }
-                    except Exception as e:
-                        raise HTTPException(
-                            status_code=500, detail=f"Error reading resource: {e}"
-                        )
+                    if resource_path.exists():
+                        try:
+                            content = resource_path.read_text(encoding="utf-8")
+                            return {
+                                "resource": {
+                                    "name": resource_name,
+                                    "content": content,
+                                    "path": str(resource_path.relative_to(base_dir)),
+                                },
+                                "tool": "load_skill_resource",
+                                "level": "L3",
+                            }
+                        except Exception as e:
+                            raise HTTPException(
+                                status_code=500, detail=f"Error reading resource: {e}"
+                            )
 
-    raise HTTPException(status_code=404, detail=f"Resource not found: {resource_name}")
+        raise HTTPException(status_code=404, detail=f"Resource not found: {resource_name}")

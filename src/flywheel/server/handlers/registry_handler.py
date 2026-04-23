@@ -100,7 +100,9 @@ def register_registry_handlers(mcp):
         Returns:
             Formatted search results
         """
-        # IMPLEMENTATION: See enhanced_mcp_server.py:814-829
-        # - Use registry_search module
-        # - Return formatted results
-        pass
+
+if __name__ == "__main__":
+    # IMPLEMENTATION: See enhanced_mcp_server.py:814-829
+            # - Use registry_search module
+            # - Return formatted results
+            pass

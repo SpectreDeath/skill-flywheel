@@ -71,9 +71,11 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 def register_skill() -> Dict[str, str]:
     """Return skill metadata."""
+
+if __name__ == "__main__":
     return {
-        "name": "cutthroat-ilm-plugin",
-        "description": "Use when: building C++ shared library plugins for CutThroat ILM framework by hijacking primitive handler tables. Triggers: 'CutThroat ILM', 'plugin development', 'primitive handler', 'C++ plugin', 'framework integration'. NOT for: non-CutThroat frameworks, or when ILM isn't involved.",
-        "version": "1.0.0",
-        "domain": "EMBEDDED_SYSTEMS",
-    }
+            "name": "cutthroat-ilm-plugin",
+            "description": "Use when: building C++ shared library plugins for CutThroat ILM framework by hijacking primitive handler tables. Triggers: 'CutThroat ILM', 'plugin development', 'primitive handler', 'C++ plugin', 'framework integration'. NOT for: non-CutThroat frameworks, or when ILM isn't involved.",
+            "version": "1.0.0",
+            "domain": "EMBEDDED_SYSTEMS",
+        }

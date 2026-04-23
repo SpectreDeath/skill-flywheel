@@ -260,21 +260,23 @@ import inspect as _inspect
 
 async def invoke(payload: dict) -> dict:
     """Entry point for skill invocation."""
+
+if __name__ == "__main__":
     import datetime as _dt
-    action = payload.get("action", "solve_step_by_step")
-    timestamp = _dt.datetime.now().isoformat()
-    kwargs = {k: v for k, v in payload.items() if k != "action"}
+        action = payload.get("action", "solve_step_by_step")
+        timestamp = _dt.datetime.now().isoformat()
+        kwargs = {k: v for k, v in payload.items() if k != "action"}
 
-    instance = SequentialProblemSolver()
+        instance = SequentialProblemSolver()
 
-    if action == "get_info":
-        return {"result": {"name": "sequential_problem_solving", "actions": ['add_step', 'create_problem', 'execute_step', 'get_solution', 'solve_step_by_step', 'verify_step'] }, "metadata": {"action": action, "timestamp": timestamp}}
+        if action == "get_info":
+            return {"result": {"name": "sequential_problem_solving", "actions": ['add_step', 'create_problem', 'execute_step', 'get_solution', 'solve_step_by_step', 'verify_step'] }, "metadata": {"action": action, "timestamp": timestamp}}
 
-    method = getattr(instance, action, None)
-    if method is None:
-        return {"result": {"error": f"Unknown action: {action}"}, "metadata": {"action": action, "timestamp": timestamp}}
+        method = getattr(instance, action, None)
+        if method is None:
+            return {"result": {"error": f"Unknown action: {action}"}, "metadata": {"action": action, "timestamp": timestamp}}
 
-    result = method(**kwargs)
-    if _inspect.isawaitable(result):
-        result = await result
-    return {"result": result, "metadata": {"action": action, "timestamp": timestamp}}
+        result = method(**kwargs)
+        if _inspect.isawaitable(result):
+            result = await result
+        return {"result": result, "metadata": {"action": action, "timestamp": timestamp}}

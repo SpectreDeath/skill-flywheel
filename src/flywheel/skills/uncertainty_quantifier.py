@@ -163,9 +163,11 @@ async def invoke(payload: dict) -> dict:
     }
 def register_skill():
     """Return skill metadata"""
+
+if __name__ == "__main__":
     return {
-        "name": "uncertainty-quantifier",
-        "description": "Quantify uncertainty and calculate confidence levels from evidence",
-        "version": "1.0.0",
-        "domain": "EPISTEMOLOGY",
-    }
+            "name": "uncertainty-quantifier",
+            "description": "Quantify uncertainty and calculate confidence levels from evidence",
+            "version": "1.0.0",
+            "domain": "EPISTEMOLOGY",
+        }

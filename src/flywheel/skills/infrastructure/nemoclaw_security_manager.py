@@ -1,9 +1,9 @@
-"
+"""
 NemOClaw Security Configuration Skill
 
 Provides capabilities for configuring and managing NVIDIA NemOClaw
 security features including OpenShell guardrails and privacy controls.
-"
+"""
 
 import json
 import subprocess
@@ -50,7 +50,7 @@ class NemOClawSecurityManager:
         )
 
     def get_status(self) -> Dict[str, Any]:
-        "Get NemOClaw status."
+        """ Get NemOClaw status. """
         return {
             "status": "checking",
             "openclaw_installed": self._check_openclaw(),
@@ -59,19 +59,19 @@ class NemOClawSecurityManager:
         }
 
     def _check_openclaw(self) -> bool:
-        "Check if OpenClaw is installed."
+        """ Check if OpenClaw is installed. """
         result = subprocess.run(
             ["openclaw", "--version"], capture_output=True, text=True, check=False
         )
         return result.returncode == 0
 
     def _check_nemoclaw(self) -> bool:
-        "Check if NemOClaw is installed."
+        """ Check if NemOClaw is installed. """
         result = subprocess.run(["nemo", "--version"], capture_output=True, text=True, check=False)
         return result.returncode == 0
 
     def _check_openshell(self) -> bool:
-        "Check if OpenShell is installed."
+        """ Check if OpenShell is installed. """
         result = subprocess.run(
             ["openshell", "--version"], capture_output=True, text=True, check=False
         )
@@ -126,7 +126,7 @@ class NemOClawSecurityManager:
             return {"error": str(e)}
 
     def list_policies(self) -> List[Dict[str, Any]]:
-        "List all security policies."
+        """ List all security policies. """
         policy_dir = self.config_path / "policies"
 
         if not policy_dir.exists():
@@ -219,7 +219,7 @@ class NemOClawSecurityManager:
             return {"error": str(e)}
 
     def get_guardrails(self) -> Dict[str, Any]:
-        "Get current guardrail settings."
+        """ Get current guardrail settings. """
         guardrail_file = self.config_path / "guardrails.json"
 
         if not guardrail_file.exists():
@@ -243,7 +243,7 @@ class NemOClawSecurityManager:
         return self.configure_guardrails({"privacy_router_enabled": enabled})
 
     def get_security_audit(self) -> Dict[str, Any]:
-        "Get security audit log."
+        """ Get security audit log. """
         audit_file = self.config_path / "audit.log"
 
         if not audit_file.exists():
@@ -322,9 +322,11 @@ async def handle_request(action: str, params: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def register_skill() -> dict:
-    "Return skill metadata."
+    """ Return skill metadata. """
+
+if __name__ == "__main__":
     return {
-        "name": "nemoclaw_security_manager",
-        "domain": "infrastructure",
-        "version": "1.0.0",
-    }
+            "name": "nemoclaw_security_manager",
+            "domain": "infrastructure",
+            "version": "1.0.0",
+        }

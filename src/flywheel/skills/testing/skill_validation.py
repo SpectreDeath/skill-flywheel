@@ -1,10 +1,10 @@
-"
+"""
 Skill Validation Framework
 
 This module provides validation for skill definitions and implementations:
 - validate_skill_metadata: Validate skill metadata structure
 - validate_skill_implementation: Validate skill can be loaded and executed
-"
+"""
 
 import importlib.util
 import json
@@ -358,10 +358,12 @@ async def invoke(payload: dict) -> dict:
         },
     }
 def register_skill():
-    "Return skill metadata for MCP registration"
+    """ Return skill metadata for MCP registration """
+
+if __name__ == "__main__":
     return {
-        "name": "skill-validation",
-        "description": "Framework for validating skill definitions and implementations",
-        "version": "1.0.0",
-        "domain": "META_SKILL_DISCOVERY",
-    }
+            "name": "skill-validation",
+            "description": "Framework for validating skill definitions and implementations",
+            "version": "1.0.0",
+            "domain": "META_SKILL_DISCOVERY",
+        }

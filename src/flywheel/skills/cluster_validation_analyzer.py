@@ -247,9 +247,11 @@ async def invoke(payload: dict) -> dict:
     }
 def register_skill():
     """Return skill metadata"""
+
+if __name__ == "__main__":
     return {
-        "name": "cluster-validation-analyzer",
-        "description": "Evaluate cluster quality using silhouette, Calinski-Harabasz, Davies-Bouldin, and Dunn indices",
-        "version": "1.0.0",
-        "domain": "DATA_SCIENCE",
-    }
+            "name": "cluster-validation-analyzer",
+            "description": "Evaluate cluster quality using silhouette, Calinski-Harabasz, Davies-Bouldin, and Dunn indices",
+            "version": "1.0.0",
+            "domain": "DATA_SCIENCE",
+        }

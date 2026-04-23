@@ -1,11 +1,11 @@
-"
+"""
 Hierarchical Clustering
 
 Performs agglomerative hierarchical clustering:
 - Multiple linkage methods (single, complete, average, ward)
 - Dendrogram generation
 - Cut tree at different thresholds
-"
+"""
 
 import math
 from typing import Any, Dict, List
@@ -221,10 +221,12 @@ async def invoke(payload: dict) -> dict:
         },
     }
 def register_skill():
-    "Return skill metadata"
+    """ Return skill metadata """
+
+if __name__ == "__main__":
     return {
-        "name": "hierarchical-clustering",
-        "description": "Perform agglomerative hierarchical clustering with multiple linkage methods",
-        "version": "1.0.0",
-        "domain": "DATA_SCIENCE",
-    }
+            "name": "hierarchical-clustering",
+            "description": "Perform agglomerative hierarchical clustering with multiple linkage methods",
+            "version": "1.0.0",
+            "domain": "DATA_SCIENCE",
+        }

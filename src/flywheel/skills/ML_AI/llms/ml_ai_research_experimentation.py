@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"
+"""
 Skill: ml-ai-research-experimentation
 Domain: ML_AI
 Description: ## Purpose Advanced AI/ML research methodologies and experimental frameworks for cutting-edge machine learning techniques, novel algorithms, and research-driven development.
-"
+"""
 
 import logging
 from datetime import datetime
@@ -17,7 +17,7 @@ DESCRIPTION = "## Purpose Advanced AI/ML research methodologies and experimental
 
 
 def get_capabilities():
-    "Return skill capabilities."
+    """ Return skill capabilities. """
     return {
         "name": SKILL_NAME,
         "domain": DOMAIN,
@@ -78,7 +78,7 @@ if __name__ == "__main__":
 
 
 def register_skill() -> dict:
-    "Return skill metadata."
+    """ Return skill metadata. """
     return {
         "name": "ml_ai_research_experimentation",
         "domain": "ml_ai",

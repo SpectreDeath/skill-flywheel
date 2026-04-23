@@ -230,21 +230,23 @@ import inspect as _inspect
 
 async def invoke(payload: dict) -> dict:
     """Entry point for skill invocation."""
+
+if __name__ == "__main__":
     import datetime as _dt
-    action = payload.get("action", "evaluate_claim")
-    timestamp = _dt.datetime.now().isoformat()
-    kwargs = {k: v for k, v in payload.items() if k != "action"}
+        action = payload.get("action", "evaluate_claim")
+        timestamp = _dt.datetime.now().isoformat()
+        kwargs = {k: v for k, v in payload.items() if k != "action"}
 
-    instance = CriticalEvaluator()
+        instance = CriticalEvaluator()
 
-    if action == "get_info":
-        return {"result": {"name": "critical_evaluation", "actions": ['create_weighted_evaluation', 'evaluate_claim', 'evaluate_source'] }, "metadata": {"action": action, "timestamp": timestamp}}
+        if action == "get_info":
+            return {"result": {"name": "critical_evaluation", "actions": ['create_weighted_evaluation', 'evaluate_claim', 'evaluate_source'] }, "metadata": {"action": action, "timestamp": timestamp}}
 
-    method = getattr(instance, action, None)
-    if method is None:
-        return {"result": {"error": f"Unknown action: {action}"}, "metadata": {"action": action, "timestamp": timestamp}}
+        method = getattr(instance, action, None)
+        if method is None:
+            return {"result": {"error": f"Unknown action: {action}"}, "metadata": {"action": action, "timestamp": timestamp}}
 
-    result = method(**kwargs)
-    if _inspect.isawaitable(result):
-        result = await result
-    return {"result": result, "metadata": {"action": action, "timestamp": timestamp}}
+        result = method(**kwargs)
+        if _inspect.isawaitable(result):
+            result = await result
+        return {"result": result, "metadata": {"action": action, "timestamp": timestamp}}

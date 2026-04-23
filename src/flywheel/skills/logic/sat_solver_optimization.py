@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"
+"""
 sat-solver-optimization
 
 "Guaranteed to find solution or prove unsatisfiability"
-"
+"""
 
 import logging
 from datetime import datetime
@@ -70,10 +70,12 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def register_skill() -> Dict[str, str]:
-    "Return skill metadata."
+    """ Return skill metadata. """
+
+if __name__ == "__main__":
     return {
-        "name": "sat-solver-optimization",
-        "description": "Guaranteed to find solution or prove unsatisfiability",
-        "version": "1.0.0",
-        "domain": "LOGIC",
-    }
+            "name": "sat-solver-optimization",
+            "description": "Guaranteed to find solution or prove unsatisfiability",
+            "version": "1.0.0",
+            "domain": "LOGIC",
+        }

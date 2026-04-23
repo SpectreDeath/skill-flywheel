@@ -1,11 +1,11 @@
-"
+"""
 Unit Test Generator
 
 Generates unit tests from Python code snippets using:
 - AST analysis to understand function signatures
 - Pattern recognition for common test cases
 - Template-based test generation
-"
+"""
 
 import ast
 from typing import Any, Dict, List
@@ -194,10 +194,12 @@ async def invoke(payload: dict) -> dict:
         },
     }
 def register_skill():
-    "Return skill metadata"
+    """ Return skill metadata """
+
+if __name__ == "__main__":
     return {
-        "name": "unit-test-generator",
-        "description": "Generate unit tests from Python code snippets",
-        "version": "1.0.0",
-        "domain": "AI_AGENT_DEVELOPMENT",
-    }
+            "name": "unit-test-generator",
+            "description": "Generate unit tests from Python code snippets",
+            "version": "1.0.0",
+            "domain": "AI_AGENT_DEVELOPMENT",
+        }

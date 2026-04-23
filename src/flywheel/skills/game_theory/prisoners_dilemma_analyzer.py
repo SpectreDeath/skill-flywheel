@@ -1,4 +1,4 @@
-"
+"""
 Prisoner's Dilemma Analyzer
 
 Analyzes classic and extended prisoner's dilemma scenarios:
@@ -6,7 +6,7 @@ Analyzes classic and extended prisoner's dilemma scenarios:
 - Cooperation/defection strategies
 - Tit-for-tat analysis
 - Evolutionary stability
-"
+"""
 
 from typing import Any, Dict, List
 from datetime import datetime
@@ -211,10 +211,12 @@ async def invoke(payload: dict) -> dict:
         },
     }
 def register_skill():
-    "Return skill metadata"
+    """ Return skill metadata """
+
+if __name__ == "__main__":
     return {
-        "name": "prisoners-dilemma-analyzer",
-        "description": "Analyze prisoner's dilemma scenarios with equilibrium analysis",
-        "version": "1.0.0",
-        "domain": "STRATEGY",
-    }
+            "name": "prisoners-dilemma-analyzer",
+            "description": "Analyze prisoner's dilemma scenarios with equilibrium analysis",
+            "version": "1.0.0",
+            "domain": "STRATEGY",
+        }

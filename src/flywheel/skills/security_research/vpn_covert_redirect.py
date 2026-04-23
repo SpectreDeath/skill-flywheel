@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"
+"""
 vpn-covert-redirect
 
 "Use when: deploying a covert C2 relay infrastructure using VPN tunnels with iptables NAT forwarding, where a VPS acts as a transparent proxy between implants and a hidden listening post. Triggers: 'C2 relay', 'VPN redirect', 'covert channel', 'NAT forwarding', 'implant proxy'. Requires: VPN server, iptables. NOT for: legitimate VPN setup (use standard VPN docs), or non-covert communications."
-"
+"""
 
 import logging
 from datetime import datetime
@@ -70,10 +70,12 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def register_skill() -> Dict[str, str]:
-    "Return skill metadata."
+    """ Return skill metadata. """
+
+if __name__ == "__main__":
     return {
-        "name": "vpn-covert-redirect",
-        "description": "Use when: deploying a covert C2 relay infrastructure using VPN tunnels with iptables NAT forwarding, where a VPS acts as a transparent proxy between implants and a hidden listening post. Triggers: 'C2 relay', 'VPN redirect', 'covert channel', 'NAT forwarding', 'implant proxy'. Requires: VPN server, iptables. NOT for: legitimate VPN setup (use standard VPN docs), or non-covert communications.",
-        "version": "1.0.0",
-        "domain": "SECURITY-RESEARCH",
-    }
+            "name": "vpn-covert-redirect",
+            "description": "Use when: deploying a covert C2 relay infrastructure using VPN tunnels with iptables NAT forwarding, where a VPS acts as a transparent proxy between implants and a hidden listening post. Triggers: 'C2 relay', 'VPN redirect', 'covert channel', 'NAT forwarding', 'implant proxy'. Requires: VPN server, iptables. NOT for: legitimate VPN setup (use standard VPN docs), or non-covert communications.",
+            "version": "1.0.0",
+            "domain": "SECURITY-RESEARCH",
+        }

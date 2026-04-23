@@ -271,52 +271,53 @@ class _SimpleCircuitBreaker:
     Used when pybreaker is not available.
     """
 
+if __name__ == "__main__":
     def __init__(
-        self,
-        fail_max: int = 5,
-        reset_timeout: int = 60,
-        exclude: tuple = (),
-    ) -> None:
-        self.fail_max = fail_max
-        self.reset_timeout = reset_timeout
-        self.exclude = exclude
-        self._failure_count = 0
-        self._last_failure_time: float | None = None
-        self._state = "closed"
-        self._lock = threading.Lock()
+            self,
+            fail_max: int = 5,
+            reset_timeout: int = 60,
+            exclude: tuple = (),
+        ) -> None:
+            self.fail_max = fail_max
+            self.reset_timeout = reset_timeout
+            self.exclude = exclude
+            self._failure_count = 0
+            self._last_failure_time: float | None = None
+            self._state = "closed"
+            self._lock = threading.Lock()
 
-    @property
-    def state(self) -> str:
-        with self._lock:
-            if self._state == "open":
-                if self._last_failure_time is not None:
-                    if time.time() - self._last_failure_time >= self.reset_timeout:
-                        self._state = "half-open"
-            return self._state
-
-    def call(self, func: Callable[..., T], *args: Any, **kwargs: Any) -> T:
-        with self._lock:
-            if self.state == "open":
-                raise CircuitOpenError("Circuit breaker is open")
-
-            if self.state == "half-open":
-                pass
-
-        try:
-            result = func(*args, **kwargs)
+        @property
+        def state(self) -> str:
             with self._lock:
-                self._failure_count = 0
-                self._state = "closed"
-            return result
-        except Exception as e:
-            if isinstance(e, self.exclude):
+                if self._state == "open":
+                    if self._last_failure_time is not None:
+                        if time.time() - self._last_failure_time >= self.reset_timeout:
+                            self._state = "half-open"
+                return self._state
+
+        def call(self, func: Callable[..., T], *args: Any, **kwargs: Any) -> T:
+            with self._lock:
+                if self.state == "open":
+                    raise CircuitOpenError("Circuit breaker is open")
+
+                if self.state == "half-open":
+                    pass
+
+            try:
+                result = func(*args, **kwargs)
+                with self._lock:
+                    self._failure_count = 0
+                    self._state = "closed"
+                return result
+            except Exception as e:
+                if isinstance(e, self.exclude):
+                    raise
+
+                with self._lock:
+                    self._failure_count += 1
+                    self._last_failure_time = time.time()
+
+                    if self._failure_count >= self.fail_max:
+                        self._state = "open"
+
                 raise
-
-            with self._lock:
-                self._failure_count += 1
-                self._last_failure_time = time.time()
-
-                if self._failure_count >= self.fail_max:
-                    self._state = "open"
-
-            raise

@@ -281,29 +281,31 @@ MANIFEST = {
 
 def handle_request(action: str, params: Dict[str, Any]) -> Dict[str, Any]:
     """Handle incoming requests."""
+
+if __name__ == "__main__":
     manager = OpenClawDatabaseManager(params.get("db_path"))
 
-    handlers = {
-        "get_database_info": manager.get_database_info,
-        "list_tables": manager.list_tables,
-        "query_table": lambda: manager.query_table(
-            params.get("table_name"), params.get("limit", 100), params.get("offset", 0)
-        ),
-        "execute_query": lambda: manager.execute_query(params.get("query")),
-        "backup": lambda: manager.backup(params.get("backup_path")),
-        "compressed_backup": lambda: manager.compressed_backup(
-            params.get("backup_path")
-        ),
-        "restore": lambda: manager.restore(params.get("backup_path")),
-        "vacuum": manager.vacuum,
-        "get_conversation_history": lambda: manager.get_conversation_history(
-            params.get("agent_id"), params.get("limit", 50)
-        ),
-        "get_agent_stats": manager.get_agent_stats,
-    }
+        handlers = {
+            "get_database_info": manager.get_database_info,
+            "list_tables": manager.list_tables,
+            "query_table": lambda: manager.query_table(
+                params.get("table_name"), params.get("limit", 100), params.get("offset", 0)
+            ),
+            "execute_query": lambda: manager.execute_query(params.get("query")),
+            "backup": lambda: manager.backup(params.get("backup_path")),
+            "compressed_backup": lambda: manager.compressed_backup(
+                params.get("backup_path")
+            ),
+            "restore": lambda: manager.restore(params.get("backup_path")),
+            "vacuum": manager.vacuum,
+            "get_conversation_history": lambda: manager.get_conversation_history(
+                params.get("agent_id"), params.get("limit", 50)
+            ),
+            "get_agent_stats": manager.get_agent_stats,
+        }
 
-    handler = handlers.get(action)
-    if handler:
-        return handler()
+        handler = handlers.get(action)
+        if handler:
+            return handler()
 
-    return {"error": f"Unknown action: {action}"}
+        return {"error": f"Unknown action: {action}"}

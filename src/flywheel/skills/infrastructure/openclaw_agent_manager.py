@@ -1,8 +1,8 @@
-"
+"""
 OpenClaw Agent Management Skill
 
 Provides capabilities for creating, configuring, and managing OpenClaw agents.
-"
+"""
 
 import asyncio
 import json
@@ -20,7 +20,7 @@ class OpenClawAgentManager:
         )
 
     async def list_agents(self) -> List[Dict[str, Any]]:
-        "List all configured agents."
+        """ List all configured agents. """
         try:
             result = await self._run_command(["openclaw", "agent", "list", "--json"])
             if result.returncode == 0:
@@ -37,9 +37,9 @@ class OpenClawAgentManager:
         self,
         name: str,
         model: str = "gpt-4",
-        description: str = ",
+        description: str = """,
         system_prompt: str | None = None,
-    ) -> Dict[str, Any]:
+    ) -> Dict[str, Any]:"""
         "Create a new OpenClaw agent."
         cmd = ["openclaw", "agent", "create", name, "--model", model]
 
@@ -238,7 +238,7 @@ if __name__ == "__main__":
 
 
 def register_skill() -> dict:
-    "Return skill metadata."
+    """ Return skill metadata. """
     return {
         "name": "openclaw_agent_manager",
         "domain": "infrastructure",

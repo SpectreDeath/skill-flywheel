@@ -279,9 +279,11 @@ async def invoke(payload: dict) -> dict:
     }
 def register_skill():
     """Return skill metadata"""
+
+if __name__ == "__main__":
     return {
-        "name": "signaling-game-analyzer",
-        "description": "Analyze sender-receiver signaling games with costly and cheap talk variants",
-        "version": "1.0.0",
-        "domain": "STRATEGY",
-    }
+            "name": "signaling-game-analyzer",
+            "description": "Analyze sender-receiver signaling games with costly and cheap talk variants",
+            "version": "1.0.0",
+            "domain": "STRATEGY",
+        }

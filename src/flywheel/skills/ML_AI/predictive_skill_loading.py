@@ -179,9 +179,11 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 def register_skill() -> Dict[str, str]:
     """Return skill metadata."""
+
+if __name__ == "__main__":
     return {
-        "name": "predictive-skill-loading",
-        "description": "ML-based predictive skill preloading for Skill Flywheel",
-        "version": "1.0.0",
-        "domain": "ML_AI",
-    }
+            "name": "predictive-skill-loading",
+            "description": "ML-based predictive skill preloading for Skill Flywheel",
+            "version": "1.0.0",
+            "domain": "ML_AI",
+        }

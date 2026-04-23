@@ -797,26 +797,28 @@ def register_skill() -> dict:
     Returns:
         Dictionary with skill metadata
     """
+
+if __name__ == "__main__":
     return {
-        "name": "attack-surface-mapper",
-        "description": "Maps attack surfaces in application code by detecting endpoints, identifying inputs, analyzing authentication, mapping data flow, and scoring exposure",
-        "version": "1.0.0",
-        "domain": "SECURITY",
-        "capabilities": [
-            "endpoint_detection",
-            "input_identification",
-            "authentication_analysis",
-            "data_flow_mapping",
-            "exposure_scoring",
-        ],
-        "supported_languages": [
-            "python_fastapi",
-            "python_flask",
-            "express",
-            "django",
-            "spring",
-            "go_gin",
-            "ruby_rails",
-            "java_servlet",
-        ],
-    }
+            "name": "attack-surface-mapper",
+            "description": "Maps attack surfaces in application code by detecting endpoints, identifying inputs, analyzing authentication, mapping data flow, and scoring exposure",
+            "version": "1.0.0",
+            "domain": "SECURITY",
+            "capabilities": [
+                "endpoint_detection",
+                "input_identification",
+                "authentication_analysis",
+                "data_flow_mapping",
+                "exposure_scoring",
+            ],
+            "supported_languages": [
+                "python_fastapi",
+                "python_flask",
+                "express",
+                "django",
+                "spring",
+                "go_gin",
+                "ruby_rails",
+                "java_servlet",
+            ],
+        }

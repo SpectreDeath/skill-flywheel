@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"
+"""
 Skill: vector-embedding-opt-2
 Domain: ML_AI
 Description: # SKILL: Vector Embedding Opt 2
-"
+"""
 
 import logging
 from datetime import datetime
@@ -17,7 +17,7 @@ DESCRIPTION = "# SKILL: Vector Embedding Opt 2"
 
 
 def get_capabilities():
-    "Return skill capabilities."
+    """ Return skill capabilities. """
     return {
         "name": SKILL_NAME,
         "domain": DOMAIN,
@@ -78,7 +78,7 @@ if __name__ == "__main__":
 
 
 def register_skill() -> dict:
-    "Return skill metadata."
+    """ Return skill metadata. """
     return {
         "name": "vector_embedding_opt_2",
         "domain": "ml_ai",

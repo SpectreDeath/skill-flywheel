@@ -161,9 +161,11 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 def register_skill():
     """Return skill metadata."""
+
+if __name__ == "__main__":
     return {
-        "name": "cli-argument-parser",
-        "description": "Build structured CLI argument parsers with subcommands, validation, and grouped help output",
-        "version": "1.0.0",
-        "domain": "MODERN_BACKEND",
-    }
+            "name": "cli-argument-parser",
+            "description": "Build structured CLI argument parsers with subcommands, validation, and grouped help output",
+            "version": "1.0.0",
+            "domain": "MODERN_BACKEND",
+        }

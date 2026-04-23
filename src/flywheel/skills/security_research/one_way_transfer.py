@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"
+"""
 one-way-transfer
 
 "Use when: implementing automated one-way data exfiltration with file change detection and SWIFT upload. Triggers: 'data exfiltration', 'file monitoring', 'change detection', 'SWIFT upload', 'mtime tracking'. NOT for: bidirectional sync (use standard sync tools), or when local processing only."
-"
+"""
 
 import logging
 from datetime import datetime
@@ -70,10 +70,12 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def register_skill() -> Dict[str, str]:
-    "Return skill metadata."
+    """ Return skill metadata. """
+
+if __name__ == "__main__":
     return {
-        "name": "one-way-transfer",
-        "description": "Use when: implementing automated one-way data exfiltration with file change detection and SWIFT upload. Triggers: 'data exfiltration', 'file monitoring', 'change detection', 'SWIFT upload', 'mtime tracking'. NOT for: bidirectional sync (use standard sync tools), or when local processing only.",
-        "version": "1.0.0",
-        "domain": "SECURITY-RESEARCH",
-    }
+            "name": "one-way-transfer",
+            "description": "Use when: implementing automated one-way data exfiltration with file change detection and SWIFT upload. Triggers: 'data exfiltration', 'file monitoring', 'change detection', 'SWIFT upload', 'mtime tracking'. NOT for: bidirectional sync (use standard sync tools), or when local processing only.",
+            "version": "1.0.0",
+            "domain": "SECURITY-RESEARCH",
+        }

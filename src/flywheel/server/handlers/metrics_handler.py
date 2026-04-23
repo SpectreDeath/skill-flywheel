@@ -90,9 +90,11 @@ def register_metrics_handlers(mcp):
         Returns:
             Confirmation of reset
         """
-        # IMPLEMENTATION:
-        # - Get PerformanceMonitor instance
-        # - If skill_id provided, clear that skill's metrics
-        # - Otherwise, clear all metrics
-        # - Return confirmation message
-        pass
+
+if __name__ == "__main__":
+    # IMPLEMENTATION:
+            # - Get PerformanceMonitor instance
+            # - If skill_id provided, clear that skill's metrics
+            # - Otherwise, clear all metrics
+            # - Return confirmation message
+            pass

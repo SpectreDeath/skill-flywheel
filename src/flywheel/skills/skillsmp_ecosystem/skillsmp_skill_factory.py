@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"
+"""
 skillsmp-skill-factory
 
 "Use when: needing to both learn from SkillsMP skills AND orchestrate skill assembly in one workflow. Combines skill-learner and skill-orchestrator capabilities. Triggers: 'learn and create', 'generate from examples', 'build from skills', 'factory'. Requires API key from skillsmp.com."
-"
+"""
 
 import logging
 from datetime import datetime
@@ -70,10 +70,12 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def register_skill() -> Dict[str, str]:
-    "Return skill metadata."
+    """ Return skill metadata. """
+
+if __name__ == "__main__":
     return {
-        "name": "skillsmp-skill-factory",
-        "description": "Use when: needing to both learn from SkillsMP skills AND orchestrate skill assembly in one workflow. Combines skill-learner and skill-orchestrator capabilities. Triggers: 'learn and create', 'generate from examples', 'build from skills', 'factory'. Requires API key from skillsmp.com.",
-        "version": "1.0.0",
-        "domain": "SKILLSMP-ECOSYSTEM",
-    }
+            "name": "skillsmp-skill-factory",
+            "description": "Use when: needing to both learn from SkillsMP skills AND orchestrate skill assembly in one workflow. Combines skill-learner and skill-orchestrator capabilities. Triggers: 'learn and create', 'generate from examples', 'build from skills', 'factory'. Requires API key from skillsmp.com.",
+            "version": "1.0.0",
+            "domain": "SKILLSMP-ECOSYSTEM",
+        }

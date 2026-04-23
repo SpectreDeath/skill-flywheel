@@ -194,9 +194,11 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 def register_skill() -> Dict[str, str]:
     """Return skill metadata."""
+
+if __name__ == "__main__":
     return {
-        "name": "game-theory-simulation",
-        "description": "Game-theoretic decision making for agent simulations. Implements Prisoner's Dilemma, Hawk-Dove, evolutionary dynamics, and Nash equilibrium finding.",
-        "version": "1.0.0",
-        "domain": "strategic_simulation",
-    }
+            "name": "game-theory-simulation",
+            "description": "Game-theoretic decision making for agent simulations. Implements Prisoner's Dilemma, Hawk-Dove, evolutionary dynamics, and Nash equilibrium finding.",
+            "version": "1.0.0",
+            "domain": "strategic_simulation",
+        }

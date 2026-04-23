@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"
+"""
 skillsmp-skill-learner
 
 "Use when: analyzing existing skills from SkillsMP to learn patterns, extract reusable components, generate improved derivative skills, or synthesize multiple skills. Works with skillsmp-api-client. Triggers: 'learn from skills', 'analyze skill patterns', 'generate skill', 'improve skill', 'synthesize skills', 'extract patterns'. NOT for: directly executing tasks (use appropriate execution skills)."
-"
+"""
 
 import logging
 from datetime import datetime
@@ -70,10 +70,12 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def register_skill() -> Dict[str, str]:
-    "Return skill metadata."
+    """ Return skill metadata. """
+
+if __name__ == "__main__":
     return {
-        "name": "skillsmp-skill-learner",
-        "description": "Use when: analyzing existing skills from SkillsMP to learn patterns, extract reusable components, generate improved derivative skills, or synthesize multiple skills. Works with skillsmp-api-client. Triggers: 'learn from skills', 'analyze skill patterns', 'generate skill', 'improve skill', 'synthesize skills', 'extract patterns'. NOT for: directly executing tasks (use appropriate execution skills).",
-        "version": "1.0.0",
-        "domain": "SKILLSMP-ECOSYSTEM",
-    }
+            "name": "skillsmp-skill-learner",
+            "description": "Use when: analyzing existing skills from SkillsMP to learn patterns, extract reusable components, generate improved derivative skills, or synthesize multiple skills. Works with skillsmp-api-client. Triggers: 'learn from skills', 'analyze skill patterns', 'generate skill', 'improve skill', 'synthesize skills', 'extract patterns'. NOT for: directly executing tasks (use appropriate execution skills).",
+            "version": "1.0.0",
+            "domain": "SKILLSMP-ECOSYSTEM",
+        }

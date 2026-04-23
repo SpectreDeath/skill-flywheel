@@ -193,9 +193,11 @@ async def invoke(payload: dict) -> dict:
     }
 def register_skill():
     """Return skill metadata"""
+
+if __name__ == "__main__":
     return {
-        "name": "reasoning-chain-analyzer",
-        "description": "Construct and analyze deductive and inductive reasoning chains",
-        "version": "1.0.0",
-        "domain": "EPISTEMOLOGY",
-    }
+            "name": "reasoning-chain-analyzer",
+            "description": "Construct and analyze deductive and inductive reasoning chains",
+            "version": "1.0.0",
+            "domain": "EPISTEMOLOGY",
+        }

@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"
+"""
 self-deleting-daemon
 
 "Use when: implementing long-running background processes that must remove themselves from disk after a timeout. Triggers: 'self-delete', 'transient daemon', 'secure deletion', 'process hiding', 'lifecycle management'. NOT for: persistent services, or when file persistence is required."
-"
+"""
 
 import logging
 from datetime import datetime
@@ -70,10 +70,12 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def register_skill() -> Dict[str, str]:
-    "Return skill metadata."
+    """ Return skill metadata. """
+
+if __name__ == "__main__":
     return {
-        "name": "self-deleting-daemon",
-        "description": "Use when: implementing long-running background processes that must remove themselves from disk after a timeout. Triggers: 'self-delete', 'transient daemon', 'secure deletion', 'process hiding', 'lifecycle management'. NOT for: persistent services, or when file persistence is required.",
-        "version": "1.0.0",
-        "domain": "SECURITY-RESEARCH",
-    }
+            "name": "self-deleting-daemon",
+            "description": "Use when: implementing long-running background processes that must remove themselves from disk after a timeout. Triggers: 'self-delete', 'transient daemon', 'secure deletion', 'process hiding', 'lifecycle management'. NOT for: persistent services, or when file persistence is required.",
+            "version": "1.0.0",
+            "domain": "SECURITY-RESEARCH",
+        }

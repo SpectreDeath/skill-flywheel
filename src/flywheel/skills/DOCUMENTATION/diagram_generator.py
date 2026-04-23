@@ -422,23 +422,25 @@ async def invoke(payload: dict) -> dict:
     }
 def register_skill():
     """Return skill metadata"""
+
+if __name__ == "__main__":
     return {
-        "name": "diagram-generator",
-        "description": "Generate architecture diagrams from code - detects components, relationships and outputs Mermaid/PlantUML",
-        "version": "1.0.0",
-        "domain": "DOCUMENTATION",
-        "capabilities": [
-            "detect_services",
-            "detect_databases",
-            "detect_apis",
-            "detect_queues",
-            "detect_caches",
-            "detect_storage",
-            "detect_auth",
-            "detect_gateways",
-            "identify_relationships",
-            "generate_mermaid",
-            "generate_plantuml",
-            "apply_styling",
-        ],
-    }
+            "name": "diagram-generator",
+            "description": "Generate architecture diagrams from code - detects components, relationships and outputs Mermaid/PlantUML",
+            "version": "1.0.0",
+            "domain": "DOCUMENTATION",
+            "capabilities": [
+                "detect_services",
+                "detect_databases",
+                "detect_apis",
+                "detect_queues",
+                "detect_caches",
+                "detect_storage",
+                "detect_auth",
+                "detect_gateways",
+                "identify_relationships",
+                "generate_mermaid",
+                "generate_plantuml",
+                "apply_styling",
+            ],
+        }

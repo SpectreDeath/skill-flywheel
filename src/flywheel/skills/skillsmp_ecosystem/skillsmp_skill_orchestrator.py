@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"
+"""
 skillsmp-skill-orchestrator
 
 "Use when: given a task requiring multiple capabilities, decompose it into sub-tasks, search SkillsMP for matching skills, rank and select skills, resolve dependencies, and build an execution pipeline. Triggers: 'orchestrate', 'build pipeline', 'compose skills', 'decompose task', 'find skills for task', 'skill assembly', 'workflow'. Works with skillsmp-api-client."
-"
+"""
 
 import logging
 from datetime import datetime
@@ -70,10 +70,12 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def register_skill() -> Dict[str, str]:
-    "Return skill metadata."
+    """ Return skill metadata. """
+
+if __name__ == "__main__":
     return {
-        "name": "skillsmp-skill-orchestrator",
-        "description": "Use when: given a task requiring multiple capabilities, decompose it into sub-tasks, search SkillsMP for matching skills, rank and select skills, resolve dependencies, and build an execution pipeline. Triggers: 'orchestrate', 'build pipeline', 'compose skills', 'decompose task', 'find skills for task', 'skill assembly', 'workflow'. Works with skillsmp-api-client.",
-        "version": "1.0.0",
-        "domain": "SKILLSMP-ECOSYSTEM",
-    }
+            "name": "skillsmp-skill-orchestrator",
+            "description": "Use when: given a task requiring multiple capabilities, decompose it into sub-tasks, search SkillsMP for matching skills, rank and select skills, resolve dependencies, and build an execution pipeline. Triggers: 'orchestrate', 'build pipeline', 'compose skills', 'decompose task', 'find skills for task', 'skill assembly', 'workflow'. Works with skillsmp-api-client.",
+            "version": "1.0.0",
+            "domain": "SKILLSMP-ECOSYSTEM",
+        }

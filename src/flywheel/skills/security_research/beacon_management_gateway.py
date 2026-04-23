@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"
+"""
 beacon-management-gateway
 
 "Use when: building a Python beacon management gateway for encrypted implant check-ins, binary protocol parsing, and XML report generation. Triggers: 'beacon gateway', 'implant handler', 'BTHP protocol', 'XTEA decryption', 'RSI report'. Requires: Python. NOT for: real-time C2 (use C2 frameworks), or when encryption isn't needed."
-"
+"""
 
 import logging
 from datetime import datetime
@@ -70,10 +70,12 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def register_skill() -> Dict[str, str]:
-    "Return skill metadata."
+    """ Return skill metadata. """
+
+if __name__ == "__main__":
     return {
-        "name": "beacon-management-gateway",
-        "description": "Use when: building a Python beacon management gateway for encrypted implant check-ins, binary protocol parsing, and XML report generation. Triggers: 'beacon gateway', 'implant handler', 'BTHP protocol', 'XTEA decryption', 'RSI report'. Requires: Python. NOT for: real-time C2 (use C2 frameworks), or when encryption isn't needed.",
-        "version": "1.0.0",
-        "domain": "SECURITY-RESEARCH",
-    }
+            "name": "beacon-management-gateway",
+            "description": "Use when: building a Python beacon management gateway for encrypted implant check-ins, binary protocol parsing, and XML report generation. Triggers: 'beacon gateway', 'implant handler', 'BTHP protocol', 'XTEA decryption', 'RSI report'. Requires: Python. NOT for: real-time C2 (use C2 frameworks), or when encryption isn't needed.",
+            "version": "1.0.0",
+            "domain": "SECURITY-RESEARCH",
+        }

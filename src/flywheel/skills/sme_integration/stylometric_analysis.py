@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"
+"""
 stylometric-analysis
 
 Skill for sme_integration domain.
-"
+"""
 
 import logging
 from datetime import datetime
@@ -70,10 +70,12 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def register_skill() -> Dict[str, str]:
-    "Return skill metadata."
+    """ Return skill metadata. """
+
+if __name__ == "__main__":
     return {
-        "name": "stylometric-analysis",
-        "description": "stylometric-analysis",
-        "version": "1.0.0",
-        "domain": "SME_INTEGRATION",
-    }
+            "name": "stylometric-analysis",
+            "description": "stylometric-analysis",
+            "version": "1.0.0",
+            "domain": "SME_INTEGRATION",
+        }

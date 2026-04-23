@@ -1,4 +1,4 @@
-"
+"""
 Strategic Decision Matrix
 
 Evaluates strategic options using multi-criteria decision analysis:
@@ -6,7 +6,7 @@ Evaluates strategic options using multi-criteria decision analysis:
 - Pros/cons analysis
 - Risk/reward scoring
 - Recommendation generation
-"
+"""
 
 from typing import Any, Dict, List
 from datetime import datetime
@@ -135,10 +135,12 @@ async def invoke(payload: dict) -> dict:
         },
     }
 def register_skill():
-    "Return skill metadata"
+    """ Return skill metadata """
+
+if __name__ == "__main__":
     return {
-        "name": "strategic-decision-matrix",
-        "description": "Evaluate strategic options using decision matrices",
-        "version": "1.0.0",
-        "domain": "STRATEGY",
-    }
+            "name": "strategic-decision-matrix",
+            "description": "Evaluate strategic options using decision matrices",
+            "version": "1.0.0",
+            "domain": "STRATEGY",
+        }

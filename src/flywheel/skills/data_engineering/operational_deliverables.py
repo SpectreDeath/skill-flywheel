@@ -271,9 +271,11 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 def register_skill():
     """Return skill metadata."""
+
+if __name__ == "__main__":
     return {
-        "name": "operational-deliverables",
-        "description": "Packaging system for creating structured field deployment artifacts with MD5 integrity verification and compressed source archives",
-        "version": "1.0.0",
-        "domain": "DATA_ENGINEERING",
-    }
+            "name": "operational-deliverables",
+            "description": "Packaging system for creating structured field deployment artifacts with MD5 integrity verification and compressed source archives",
+            "version": "1.0.0",
+            "domain": "DATA_ENGINEERING",
+        }

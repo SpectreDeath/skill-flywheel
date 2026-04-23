@@ -7,6 +7,8 @@ from .skill_handler import register_skill_handlers
 
 def register_all_handlers(mcp):
     """Register all MCP handlers with the server."""
+
+if __name__ == "__main__":
     register_skill_handlers(mcp)
-    register_registry_handlers(mcp)
-    register_metrics_handlers(mcp)
+        register_registry_handlers(mcp)
+        register_metrics_handlers(mcp)

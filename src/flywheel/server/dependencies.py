@@ -246,4 +246,6 @@ def telemetry_logger() -> callable:
     Returns:
         The telemetry logging function.
     """
+
+if __name__ == "__main__":
     return log_skill_usage

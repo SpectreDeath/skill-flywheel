@@ -47,14 +47,15 @@ class SkillVersion(Base):
 class EvolutionJob(Base):
     """Evolution job tracking."""
 
+if __name__ == "__main__":
     __tablename__ = "evolution_jobs"
 
-    id: Mapped[int] = mapped_column(Integer, primary_key=True)
-    job_id: Mapped[str] = mapped_column(String(36), unique=True, nullable=False)
-    status: Mapped[str] = mapped_column(String(50), nullable=False, default="pending")
-    current_generation: Mapped[int] = mapped_column(Integer, default=0)
-    total_generations: Mapped[int] = mapped_column(Integer, default=0)
-    best_fitness: Mapped[float] = mapped_column(Float, default=0.0)
-    error_message: Mapped[Optional[str]] = mapped_column(Text)
-    created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
-    completed_at: Mapped[Optional[datetime]] = mapped_column(DateTime)
+        id: Mapped[int] = mapped_column(Integer, primary_key=True)
+        job_id: Mapped[str] = mapped_column(String(36), unique=True, nullable=False)
+        status: Mapped[str] = mapped_column(String(50), nullable=False, default="pending")
+        current_generation: Mapped[int] = mapped_column(Integer, default=0)
+        total_generations: Mapped[int] = mapped_column(Integer, default=0)
+        best_fitness: Mapped[float] = mapped_column(Float, default=0.0)
+        error_message: Mapped[Optional[str]] = mapped_column(Text)
+        created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
+        completed_at: Mapped[Optional[datetime]] = mapped_column(DateTime)

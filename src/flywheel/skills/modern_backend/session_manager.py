@@ -263,9 +263,11 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 def register_skill():
     """Return skill metadata."""
+
+if __name__ == "__main__":
     return {
-        "name": "session-manager",
-        "description": "Conversational session management with history tracking, token counting, and persistence for agent runtimes",
-        "version": "1.0.0",
-        "domain": "MODERN_BACKEND",
-    }
+            "name": "session-manager",
+            "description": "Conversational session management with history tracking, token counting, and persistence for agent runtimes",
+            "version": "1.0.0",
+            "domain": "MODERN_BACKEND",
+        }

@@ -162,9 +162,11 @@ async def invoke(payload: dict) -> dict:
     }
 def register_skill():
     """Return skill metadata"""
+
+if __name__ == "__main__":
     return {
-        "name": "competitive-landscape-analyzer",
-        "description": "Analyze competitive landscape and identify market positioning",
-        "version": "1.0.0",
-        "domain": "STRATEGY",
-    }
+            "name": "competitive-landscape-analyzer",
+            "description": "Analyze competitive landscape and identify market positioning",
+            "version": "1.0.0",
+            "domain": "STRATEGY",
+        }

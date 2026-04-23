@@ -71,9 +71,11 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 def register_skill() -> Dict[str, str]:
     """Return skill metadata."""
+
+if __name__ == "__main__":
     return {
-        "name": "deployment-patterns",
-        "description": "Use when: setting up deployment infrastructure, planning releases, configuring CI/CD pipelines, implementing Docker containerization, setting up health checks, or planning rollback strategies. Triggers: 'deploy', 'deployment', 'CI/CD', 'pipeline', 'Docker', 'containerize', 'release', 'rollback', 'health check', 'production ready'. NOT for: local development only, or when deployment is handled by external services without customization.",
-        "version": "1.0.0",
-        "domain": "DEVOPS",
-    }
+            "name": "deployment-patterns",
+            "description": "Use when: setting up deployment infrastructure, planning releases, configuring CI/CD pipelines, implementing Docker containerization, setting up health checks, or planning rollback strategies. Triggers: 'deploy', 'deployment', 'CI/CD', 'pipeline', 'Docker', 'containerize', 'release', 'rollback', 'health check', 'production ready'. NOT for: local development only, or when deployment is handled by external services without customization.",
+            "version": "1.0.0",
+            "domain": "DEVOPS",
+        }

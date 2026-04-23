@@ -551,9 +551,11 @@ async def invoke(payload: dict) -> dict:
     }
 def register_skill():
     """Return skill metadata for MCP registration"""
+
+if __name__ == "__main__":
     return {
-        "name": "architecture-analyzer",
-        "description": "Analyze Python code architecture - extract module structure, map dependencies, identify patterns, analyze coupling, and generate improvement recommendations",
-        "version": "1.0.0",
-        "domain": "CODEBASE_INTELLIGENCE",
-    }
+            "name": "architecture-analyzer",
+            "description": "Analyze Python code architecture - extract module structure, map dependencies, identify patterns, analyze coupling, and generate improvement recommendations",
+            "version": "1.0.0",
+            "domain": "CODEBASE_INTELLIGENCE",
+        }

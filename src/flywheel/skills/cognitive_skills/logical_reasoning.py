@@ -193,21 +193,23 @@ import inspect as _inspect
 
 async def invoke(payload: dict) -> dict:
     """Entry point for skill invocation."""
+
+if __name__ == "__main__":
     import datetime as _dt
-    action = payload.get("action", "evaluate_argument")
-    timestamp = _dt.datetime.now().isoformat()
-    kwargs = {k: v for k, v in payload.items() if k != "action"}
+        action = payload.get("action", "evaluate_argument")
+        timestamp = _dt.datetime.now().isoformat()
+        kwargs = {k: v for k, v in payload.items() if k != "action"}
 
-    instance = LogicalReasoner()
+        instance = LogicalReasoner()
 
-    if action == "get_info":
-        return {"result": {"name": "logical_reasoning", "actions": ['create_syllogism', 'detect_fallacy', 'evaluate_argument', 'evaluate_syllogism', 'modus_ponens', 'modus_tollens'] }, "metadata": {"action": action, "timestamp": timestamp}}
+        if action == "get_info":
+            return {"result": {"name": "logical_reasoning", "actions": ['create_syllogism', 'detect_fallacy', 'evaluate_argument', 'evaluate_syllogism', 'modus_ponens', 'modus_tollens'] }, "metadata": {"action": action, "timestamp": timestamp}}
 
-    method = getattr(instance, action, None)
-    if method is None:
-        return {"result": {"error": f"Unknown action: {action}"}, "metadata": {"action": action, "timestamp": timestamp}}
+        method = getattr(instance, action, None)
+        if method is None:
+            return {"result": {"error": f"Unknown action: {action}"}, "metadata": {"action": action, "timestamp": timestamp}}
 
-    result = method(**kwargs)
-    if _inspect.isawaitable(result):
-        result = await result
-    return {"result": result, "metadata": {"action": action, "timestamp": timestamp}}
+        result = method(**kwargs)
+        if _inspect.isawaitable(result):
+            result = await result
+        return {"result": result, "metadata": {"action": action, "timestamp": timestamp}}

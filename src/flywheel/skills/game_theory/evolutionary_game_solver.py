@@ -1,4 +1,4 @@
-"
+"""
 Evolutionary Game Solver
 
 Analyzes evolutionary stable strategies and dynamics:
@@ -6,7 +6,7 @@ Analyzes evolutionary stable strategies and dynamics:
 - Evolutionary stability
 - Population games
 - Hawk-Dove / Chicken game analysis
-"
+"""
 
 from typing import Any, Dict, List
 from datetime import datetime
@@ -250,10 +250,12 @@ async def invoke(payload: dict) -> dict:
         },
     }
 def register_skill():
-    "Return skill metadata"
+    """ Return skill metadata """
+
+if __name__ == "__main__":
     return {
-        "name": "evolutionary-game-solver",
-        "description": "Analyze evolutionary stable strategies and replicator dynamics",
-        "version": "1.0.0",
-        "domain": "STRATEGY",
-    }
+            "name": "evolutionary-game-solver",
+            "description": "Analyze evolutionary stable strategies and replicator dynamics",
+            "version": "1.0.0",
+            "domain": "STRATEGY",
+        }

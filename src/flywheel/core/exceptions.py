@@ -357,10 +357,12 @@ class ErrorResponse(BaseModel):
     @classmethod
     def from_exception(cls, exc: SkillFlywheelError) -> "ErrorResponse":
         """Create ErrorResponse from a SkillFlywheelError exception."""
-        return cls(
-            error_code=exc.error_code,
-            message=exc.message,
-            details=exc.details,
-            timestamp=exc.timestamp,
-            exception_type=exc.__class__.__name__,
-        )
+
+if __name__ == "__main__":
+    return cls(
+                error_code=exc.error_code,
+                message=exc.message,
+                details=exc.details,
+                timestamp=exc.timestamp,
+                exception_type=exc.__class__.__name__,
+            )

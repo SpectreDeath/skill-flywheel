@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"
+"""
 beacon-ip-resolution
 
 "Use when: post-processing beacon XML (RSI) files to resolve internal VPN tunnel IPs to external VPS IPs. Triggers: 'IP resolution', 'RSI parsing', 'VPN mapping', 'ifconfig parsing', 'beacon classification'. NOT for: real-time processing (use beacon-management-gateway), or when IPs are already resolved."
-"
+"""
 
 import logging
 from datetime import datetime
@@ -70,10 +70,12 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def register_skill() -> Dict[str, str]:
-    "Return skill metadata."
+    """ Return skill metadata. """
+
+if __name__ == "__main__":
     return {
-        "name": "beacon-ip-resolution",
-        "description": "Use when: post-processing beacon XML (RSI) files to resolve internal VPN tunnel IPs to external VPS IPs. Triggers: 'IP resolution', 'RSI parsing', 'VPN mapping', 'ifconfig parsing', 'beacon classification'. NOT for: real-time processing (use beacon-management-gateway), or when IPs are already resolved.",
-        "version": "1.0.0",
-        "domain": "SECURITY-RESEARCH",
-    }
+            "name": "beacon-ip-resolution",
+            "description": "Use when: post-processing beacon XML (RSI) files to resolve internal VPN tunnel IPs to external VPS IPs. Triggers: 'IP resolution', 'RSI parsing', 'VPN mapping', 'ifconfig parsing', 'beacon classification'. NOT for: real-time processing (use beacon-management-gateway), or when IPs are already resolved.",
+            "version": "1.0.0",
+            "domain": "SECURITY-RESEARCH",
+        }

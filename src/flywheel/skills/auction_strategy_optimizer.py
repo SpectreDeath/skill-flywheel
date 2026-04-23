@@ -288,9 +288,11 @@ async def invoke(payload: dict) -> dict:
     }
 def register_skill():
     """Return skill metadata"""
+
+if __name__ == "__main__":
     return {
-        "name": "auction-strategy-optimizer",
-        "description": "Optimize bidding strategies for English, Dutch, sealed-bid, and all-pay auctions",
-        "version": "1.0.0",
-        "domain": "STRATEGY",
-    }
+            "name": "auction-strategy-optimizer",
+            "description": "Optimize bidding strategies for English, Dutch, sealed-bid, and all-pay auctions",
+            "version": "1.0.0",
+            "domain": "STRATEGY",
+        }

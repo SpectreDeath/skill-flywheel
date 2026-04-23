@@ -316,27 +316,29 @@ class StructureMutationMutator(BaseMutator[SkillGenome, SkillFailureCase]):
         learning_log_entries: List[LearningLogEntry],
     ) -> List[SkillGenome]:
         """Mutate by changing orchestration structure or skill ordering."""
-        import random
 
-        available_strategies = [
-            s for s in self.STRATEGIES if s != genome.orchestration_strategy
-        ]
-        new_strategy = random.choice(available_strategies)
+if __name__ == "__main__":
+    import random
 
-        new_selections = list(genome.skill_selections)
-        if len(new_selections) > 1:
-            random.shuffle(new_selections)
+            available_strategies = [
+                s for s in self.STRATEGIES if s != genome.orchestration_strategy
+            ]
+            new_strategy = random.choice(available_strategies)
 
-        mutated = SkillGenome(
-            skill_selections=new_selections,
-            skill_parameters=dict(genome.skill_parameters),
-            prompt_templates=dict(genome.prompt_templates),
-            resource_allocation=dict(genome.resource_allocation),
-            orchestration_strategy=new_strategy,
-            timeout_ms=genome.timeout_ms,
-            retry_config=dict(genome.retry_config),
-            parent=genome,
-            from_change_summary=f"Structure change: {genome.orchestration_strategy} -> {new_strategy}",
-        )
+            new_selections = list(genome.skill_selections)
+            if len(new_selections) > 1:
+                random.shuffle(new_selections)
 
-        return [mutated]
+            mutated = SkillGenome(
+                skill_selections=new_selections,
+                skill_parameters=dict(genome.skill_parameters),
+                prompt_templates=dict(genome.prompt_templates),
+                resource_allocation=dict(genome.resource_allocation),
+                orchestration_strategy=new_strategy,
+                timeout_ms=genome.timeout_ms,
+                retry_config=dict(genome.retry_config),
+                parent=genome,
+                from_change_summary=f"Structure change: {genome.orchestration_strategy} -> {new_strategy}",
+            )
+
+            return [mutated]

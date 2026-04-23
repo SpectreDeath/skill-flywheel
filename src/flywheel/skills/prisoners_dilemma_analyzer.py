@@ -212,9 +212,11 @@ async def invoke(payload: dict) -> dict:
     }
 def register_skill():
     """Return skill metadata"""
+
+if __name__ == "__main__":
     return {
-        "name": "prisoners-dilemma-analyzer",
-        "description": "Analyze prisoner's dilemma scenarios with equilibrium analysis",
-        "version": "1.0.0",
-        "domain": "STRATEGY",
-    }
+            "name": "prisoners-dilemma-analyzer",
+            "description": "Analyze prisoner's dilemma scenarios with equilibrium analysis",
+            "version": "1.0.0",
+            "domain": "STRATEGY",
+        }

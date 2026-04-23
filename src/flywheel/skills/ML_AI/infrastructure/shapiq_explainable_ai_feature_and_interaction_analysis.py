@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"
+"""
 Skill: shapiq-explainable-ai-feature-and-interaction-analysis
 Domain: ML_AI
 Description: ## Purpose
-"
+"""
 
 import logging
 from datetime import datetime
@@ -17,7 +17,7 @@ DESCRIPTION = "## Purpose"
 
 
 def get_capabilities():
-    "Return skill capabilities."
+    """ Return skill capabilities. """
     return {
         "name": SKILL_NAME,
         "domain": DOMAIN,
@@ -72,7 +72,7 @@ if __name__ == "__main__":
 
 
 def register_skill() -> dict:
-    "Return skill metadata."
+    """ Return skill metadata. """
     return {
         "name": "shapiq_explainable_ai_feature_and_interaction_analysis",
         "domain": "ml_ai",

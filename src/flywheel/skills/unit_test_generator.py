@@ -195,9 +195,11 @@ async def invoke(payload: dict) -> dict:
     }
 def register_skill():
     """Return skill metadata"""
+
+if __name__ == "__main__":
     return {
-        "name": "unit-test-generator",
-        "description": "Generate unit tests from Python code snippets",
-        "version": "1.0.0",
-        "domain": "AI_AGENT_DEVELOPMENT",
-    }
+            "name": "unit-test-generator",
+            "description": "Generate unit tests from Python code snippets",
+            "version": "1.0.0",
+            "domain": "AI_AGENT_DEVELOPMENT",
+        }
