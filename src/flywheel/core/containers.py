@@ -297,8 +297,6 @@ class ContainerManager:
 
     def get_pool_stats(self) -> Dict[str, Any]:
         """Get container pool statistics."""
-
-if __name__ == "__main__":
-    if self.pool:
-                return self.pool.get_stats()
-            return {"status": "disabled"}
+        if self.pool:
+            return self.pool.get_stats()
+        return {"status": "disabled"}

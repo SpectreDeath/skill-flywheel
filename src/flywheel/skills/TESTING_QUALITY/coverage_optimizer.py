@@ -710,18 +710,16 @@ async def invoke(payload: dict) -> dict:
     }
 def register_skill():
     """Return skill metadata."""
-
-if __name__ == "__main__":
     return {
-            "name": "coverage-optimizer",
-            "description": "Suggests tests to maximize code coverage with prioritized test cases and ready-to-complete stubs",
-            "version": "1.0.0",
-            "domain": "TESTING_QUALITY",
-            "capabilities": [
-                "coverage_analysis",
-                "gap_identification",
-                "test_suggestion",
-                "impact_prioritization",
-                "test_stub_generation",
-            ],
-        }
+        "name": "coverage-optimizer",
+        "description": "Suggests tests to maximize code coverage with prioritized test cases and ready-to-complete stubs",
+        "version": "1.0.0",
+        "domain": "TESTING_QUALITY",
+        "capabilities": [
+            "coverage_analysis",
+            "gap_identification",
+            "test_suggestion",
+            "impact_prioritization",
+            "test_stub_generation",
+        ],
+    }

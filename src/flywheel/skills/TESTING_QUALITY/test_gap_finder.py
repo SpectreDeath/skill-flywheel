@@ -635,11 +635,9 @@ async def invoke(payload: dict) -> dict:
     }
 def register_skill():
     """Return skill metadata."""
-
-if __name__ == "__main__":
     return {
-            "name": "test-gap-finder",
-            "description": "Identifies untested code paths in Python source code",
-            "version": "1.0.0",
-            "domain": "TESTING_QUALITY",
-        }
+        "name": "test-gap-finder",
+        "description": "Identifies untested code paths in Python source code",
+        "version": "1.0.0",
+        "domain": "TESTING_QUALITY",
+    }

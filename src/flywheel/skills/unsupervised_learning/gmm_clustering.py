@@ -1,11 +1,11 @@
-"""
+"
 Gaussian Mixture Model Clustering
 
 Probabilistic clustering using GMM:
 - Soft clustering with probability assignments
 - Multiple covariance types (full, tied, diag, spherical)
 - EM algorithm for fitting
-"""
+"
 
 import math
 import random
@@ -212,12 +212,10 @@ async def invoke(payload: dict) -> dict:
         },
     }
 def register_skill():
-    """ Return skill metadata """
-
-if __name__ == "__main__":
+    "Return skill metadata"
     return {
-            "name": "gmm-clustering",
-            "description": "Perform Gaussian Mixture Model clustering with soft probability assignments",
-            "version": "1.0.0",
-            "domain": "DATA_SCIENCE",
-        }
+        "name": "gmm-clustering",
+        "description": "Perform Gaussian Mixture Model clustering with soft probability assignments",
+        "version": "1.0.0",
+        "domain": "DATA_SCIENCE",
+    }

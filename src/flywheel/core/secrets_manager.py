@@ -229,9 +229,7 @@ class SecretsManager:
 
     def list_all(self) -> list[str]:
         """List all secrets."""
-
-if __name__ == "__main__":
-    return self.backend.list_secrets()
+        return self.backend.list_secrets()
 
 
-    secrets_manager = SecretsManager()
+secrets_manager = SecretsManager()

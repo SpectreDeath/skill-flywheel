@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""
+"
 Skill: streaming-voice-agent-latency-budgets-end-to-end
 Domain: ML_AI
 Description: ## Purpose
-"""
+"
 
 import logging
 from datetime import datetime
@@ -17,7 +17,7 @@ DESCRIPTION = "## Purpose"
 
 
 def get_capabilities():
-    """ Return skill capabilities. """
+    "Return skill capabilities."
     return {
         "name": SKILL_NAME,
         "domain": DOMAIN,
@@ -72,7 +72,7 @@ if __name__ == "__main__":
 
 
 def register_skill() -> dict:
-    """ Return skill metadata. """
+    "Return skill metadata."
     return {
         "name": "streaming_voice_agent_latency_budgets_end_to_end",
         "domain": "ml_ai",

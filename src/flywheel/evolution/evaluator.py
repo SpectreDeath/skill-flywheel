@@ -262,18 +262,16 @@ class SkillFitnessEvaluator(
 
     def _check_output_match(self, actual: Any, expected: Dict[str, Any]) -> bool:
         """Check if actual output matches expected."""
-
-if __name__ == "__main__":
-    if not expected:
-                return True
-
-            for key, expected_value in expected.items():
-                actual_value = (
-                    actual.get(key)
-                    if isinstance(actual, dict)
-                    else getattr(actual, key, None)
-                )
-                if actual_value != expected_value:
-                    return False
-
+        if not expected:
             return True
+
+        for key, expected_value in expected.items():
+            actual_value = (
+                actual.get(key)
+                if isinstance(actual, dict)
+                else getattr(actual, key, None)
+            )
+            if actual_value != expected_value:
+                return False
+
+        return True

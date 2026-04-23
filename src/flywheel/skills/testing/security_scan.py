@@ -1,9 +1,9 @@
-"""
+"
 Onboarding Skills: Security Scan
 
 This module provides skills for security analysis:
 - security_scan: Detect security vulnerabilities and misconfigurations
-"""
+"
 
 import json
 import os
@@ -400,12 +400,10 @@ async def invoke(payload: dict) -> dict:
         },
     }
 def register_skill():
-    """ Return skill metadata for MCP registration """
-
-if __name__ == "__main__":
+    "Return skill metadata for MCP registration"
     return {
-            "name": "security-scan",
-            "description": "Detect security vulnerabilities and misconfigurations",
-            "version": "1.0.0",
-            "domain": "APPLICATION_SECURITY",
-        }
+        "name": "security-scan",
+        "description": "Detect security vulnerabilities and misconfigurations",
+        "version": "1.0.0",
+        "domain": "APPLICATION_SECURITY",
+    }

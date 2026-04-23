@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""
+"
 Skill: guide-to-building-an-end-to-end-speech-enhancement-and-recognition-pipeline-with-speechbrain
 Domain: ML_AI
 Description: ## Purpose
-"""
+"
 
 import logging
 from datetime import datetime
@@ -17,7 +17,7 @@ DESCRIPTION = "## Purpose"
 
 
 def get_capabilities():
-    """ Return skill capabilities. """
+    "Return skill capabilities."
     return {
         "name": SKILL_NAME,
         "domain": DOMAIN,
@@ -72,7 +72,7 @@ if __name__ == "__main__":
 
 
 def register_skill() -> dict:
-    """ Return skill metadata. """
+    "Return skill metadata."
     return {
         "name": "guide_to_building_an_end_to_end_speech_enhancement_and_recognition_pipeline_with",
         "domain": "ml_ai",

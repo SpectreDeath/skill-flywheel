@@ -1,10 +1,10 @@
-"""
+"
 Meta-Skills: Skill Drafting and Critiquing
 
 This module provides meta-skills for creating and improving other skills:
 - skill_drafting: Turn messy intent into structured skills
 - skill_critiquing: Review and refine existing skills
-"""
+"
 
 import os
 import re
@@ -549,12 +549,10 @@ async def invoke(payload: dict) -> dict:
         },
     }
 def register_skill():
-    """ Return skill metadata for MCP registration """
-
-if __name__ == "__main__":
+    "Return skill metadata for MCP registration"
     return {
-            "name": "meta-skills",
-            "description": "Meta-skills for creating and improving other skills",
-            "version": "1.0.0",
-            "domain": "META_SKILL_DISCOVERY",
-        }
+        "name": "meta-skills",
+        "description": "Meta-skills for creating and improving other skills",
+        "version": "1.0.0",
+        "domain": "META_SKILL_DISCOVERY",
+    }

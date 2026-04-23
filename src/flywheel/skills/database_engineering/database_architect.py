@@ -71,11 +71,9 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 def register_skill() -> Dict[str, str]:
     """Return skill metadata."""
-
-if __name__ == "__main__":
     return {
-            "name": "database-architect",
-            "description": "Use when: designing database schemas, writing SQL queries, optimizing database performance, implementing connection pooling, managing migrations, or working with PostgreSQL/MongoDB/cloud databases. Triggers: 'database', 'SQL', 'schema', 'PostgreSQL', 'MongoDB', 'query', 'migration', 'index', 'connection pool', 'repository pattern', 'ORM', 'EF Core', 'postgres'. NOT for: infrastructure (use devops skills), or analytics (use data analysis skills).",
-            "version": "1.0.0",
-            "domain": "DATABASE_ENGINEERING",
-        }
+        "name": "database-architect",
+        "description": "Use when: designing database schemas, writing SQL queries, optimizing database performance, implementing connection pooling, managing migrations, or working with PostgreSQL/MongoDB/cloud databases. Triggers: 'database', 'SQL', 'schema', 'PostgreSQL', 'MongoDB', 'query', 'migration', 'index', 'connection pool', 'repository pattern', 'ORM', 'EF Core', 'postgres'. NOT for: infrastructure (use devops skills), or analytics (use data analysis skills).",
+        "version": "1.0.0",
+        "domain": "DATABASE_ENGINEERING",
+    }

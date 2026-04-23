@@ -231,11 +231,9 @@ async def invoke(payload: dict) -> dict:
 
 def register_skill():
     """Return skill metadata"""
-
-if __name__ == "__main__":
     return {
-            "name": "kmeans-clustering",
-            "description": "Perform k-means clustering with elbow method for optimal k selection",
-            "version": "1.0.0",
-            "domain": "DATA_SCIENCE",
-        }
+        "name": "kmeans-clustering",
+        "description": "Perform k-means clustering with elbow method for optimal k selection",
+        "version": "1.0.0",
+        "domain": "DATA_SCIENCE",
+    }

@@ -71,11 +71,9 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 def register_skill() -> Dict[str, str]:
     """Return skill metadata."""
-
-if __name__ == "__main__":
     return {
-            "name": "sql-optimization-patterns",
-            "description": "Use when: optimizing SQL queries, debugging slow database operations, designing database schemas, improving database performance, or analyzing query execution plans. Triggers: 'SQL', 'query optimization', 'slow query', 'EXPLAIN', 'index', 'performance', 'database', 'optimize', 'execution plan'. NOT for: simple queries that already perform well, or when ORM handles optimization automatically.",
-            "version": "1.0.0",
-            "domain": "DATABASE_ENGINEERING",
-        }
+        "name": "sql-optimization-patterns",
+        "description": "Use when: optimizing SQL queries, debugging slow database operations, designing database schemas, improving database performance, or analyzing query execution plans. Triggers: 'SQL', 'query optimization', 'slow query', 'EXPLAIN', 'index', 'performance', 'database', 'optimize', 'execution plan'. NOT for: simple queries that already perform well, or when ORM handles optimization automatically.",
+        "version": "1.0.0",
+        "domain": "DATABASE_ENGINEERING",
+    }

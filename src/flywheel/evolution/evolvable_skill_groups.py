@@ -322,20 +322,18 @@ def create_genome_for_group(
     Returns:
         A SkillGenome instance, or None if the group doesn't exist
     """
-
-if __name__ == "__main__":
     group = get_evolvable_group(group_name)
-        if group is None:
-            return None
+    if group is None:
+        return None
 
-        strategy = orchestration_strategy or group.orchestration_modes[0]
+    strategy = orchestration_strategy or group.orchestration_modes[0]
 
-        parameters = group.default_parameters.copy()
-        if custom_parameters:
-            parameters.update(custom_parameters)
+    parameters = group.default_parameters.copy()
+    if custom_parameters:
+        parameters.update(custom_parameters)
 
-        return create_initial_genome(
-            skill_selections=group.skills,
-            default_parameters=parameters,
-            orchestration_strategy=strategy,
-        )
+    return create_initial_genome(
+        skill_selections=group.skills,
+        default_parameters=parameters,
+        orchestration_strategy=strategy,
+    )

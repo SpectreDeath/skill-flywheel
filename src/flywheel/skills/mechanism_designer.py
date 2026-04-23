@@ -300,11 +300,9 @@ async def invoke(payload: dict) -> dict:
     }
 def register_skill():
     """Return skill metadata"""
-
-if __name__ == "__main__":
     return {
-            "name": "mechanism-designer",
-            "description": "Design VCG, Myerson, double auction, and other strategic mechanisms",
-            "version": "1.0.0",
-            "domain": "STRATEGY",
-        }
+        "name": "mechanism-designer",
+        "description": "Design VCG, Myerson, double auction, and other strategic mechanisms",
+        "version": "1.0.0",
+        "domain": "STRATEGY",
+    }

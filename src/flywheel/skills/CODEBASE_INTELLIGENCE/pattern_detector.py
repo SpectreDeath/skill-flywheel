@@ -1271,11 +1271,9 @@ async def invoke(payload: dict) -> dict:
     }
 def register_skill():
     """Return skill metadata for MCP registration"""
-
-if __name__ == "__main__":
     return {
-            "name": "pattern-detector",
-            "description": "Detect GoF and enterprise design patterns in Python code - identifies Creational (Singleton, Factory, Abstract Factory, Builder, Prototype), Structural (Adapter, Bridge, Composite, Decorator, Facade, Flyweight, Proxy), and Behavioral (Chain of Responsibility, Command, Iterator, Mediator, Memento, Observer, State, Strategy, Template Method, Visitor) patterns with confidence scores",
-            "version": "1.0.0",
-            "domain": "CODEBASE_INTELLIGENCE",
-        }
+        "name": "pattern-detector",
+        "description": "Detect GoF and enterprise design patterns in Python code - identifies Creational (Singleton, Factory, Abstract Factory, Builder, Prototype), Structural (Adapter, Bridge, Composite, Decorator, Facade, Flyweight, Proxy), and Behavioral (Chain of Responsibility, Command, Iterator, Mediator, Memento, Observer, State, Strategy, Template Method, Visitor) patterns with confidence scores",
+        "version": "1.0.0",
+        "domain": "CODEBASE_INTELLIGENCE",
+    }

@@ -162,11 +162,9 @@ async def invoke(payload: dict) -> dict:
     }
 def register_skill():
     """Return skill metadata"""
-
-if __name__ == "__main__":
     return {
-            "name": "game-theory-negotiator",
-            "description": "Model game theory scenarios for negotiation strategy",
-            "version": "1.0.0",
-            "domain": "STRATEGY",
-        }
+        "name": "game-theory-negotiator",
+        "description": "Model game theory scenarios for negotiation strategy",
+        "version": "1.0.0",
+        "domain": "STRATEGY",
+    }

@@ -558,31 +558,29 @@ async def invoke(payload: dict) -> dict:
 
 def register_skill():
     """Return skill metadata."""
-
-if __name__ == "__main__":
     return {
-            "name": "changelog-generator",
-            "description": "Generate changelogs from git log data with semantic versioning support",
-            "version": "1.0.0",
-            "domain": "DOCUMENTATION",
-            "capabilities": [
-                "parse_git_log",
-                "detect_pr_numbers",
-                "detect_semver_tags",
-                "categorize_changes",
-                "format_markdown",
-                "format_json",
-                "format_keep_a_changelog",
-            ],
-            "options": {
-                "format": {
-                    "type": "string",
-                    "enum": ["markdown", "json", "keep-a-changelog"],
-                    "default": "markdown",
-                },
-                "detect_versions": {"type": "boolean", "default": True},
-                "show_pr": {"type": "boolean", "default": True},
-                "show_author": {"type": "boolean", "default": False},
-                "include_date": {"type": "boolean", "default": True},
+        "name": "changelog-generator",
+        "description": "Generate changelogs from git log data with semantic versioning support",
+        "version": "1.0.0",
+        "domain": "DOCUMENTATION",
+        "capabilities": [
+            "parse_git_log",
+            "detect_pr_numbers",
+            "detect_semver_tags",
+            "categorize_changes",
+            "format_markdown",
+            "format_json",
+            "format_keep_a_changelog",
+        ],
+        "options": {
+            "format": {
+                "type": "string",
+                "enum": ["markdown", "json", "keep-a-changelog"],
+                "default": "markdown",
             },
-        }
+            "detect_versions": {"type": "boolean", "default": True},
+            "show_pr": {"type": "boolean", "default": True},
+            "show_author": {"type": "boolean", "default": False},
+            "include_date": {"type": "boolean", "default": True},
+        },
+    }

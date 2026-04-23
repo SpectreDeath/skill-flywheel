@@ -1,11 +1,11 @@
-"""
+"
 Reasoning Chain Analyzer
 
 Constructs and analyzes deductive and inductive reasoning chains:
 - Validates logical connections
 - Identifies missing premises
 - Assesses conclusion strength
-"""
+"
 
 from typing import Any, Dict, List
 from datetime import datetime
@@ -192,12 +192,10 @@ async def invoke(payload: dict) -> dict:
         },
     }
 def register_skill():
-    """ Return skill metadata """
-
-if __name__ == "__main__":
+    "Return skill metadata"
     return {
-            "name": "reasoning-chain-analyzer",
-            "description": "Construct and analyze deductive and inductive reasoning chains",
-            "version": "1.0.0",
-            "domain": "EPISTEMOLOGY",
-        }
+        "name": "reasoning-chain-analyzer",
+        "description": "Construct and analyze deductive and inductive reasoning chains",
+        "version": "1.0.0",
+        "domain": "EPISTEMOLOGY",
+    }

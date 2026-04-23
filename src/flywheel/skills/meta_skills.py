@@ -550,11 +550,9 @@ async def invoke(payload: dict) -> dict:
     }
 def register_skill():
     """Return skill metadata for MCP registration"""
-
-if __name__ == "__main__":
     return {
-            "name": "meta-skills",
-            "description": "Meta-skills for creating and improving other skills",
-            "version": "1.0.0",
-            "domain": "META_SKILL_DISCOVERY",
-        }
+        "name": "meta-skills",
+        "description": "Meta-skills for creating and improving other skills",
+        "version": "1.0.0",
+        "domain": "META_SKILL_DISCOVERY",
+    }

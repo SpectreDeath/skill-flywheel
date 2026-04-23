@@ -1,4 +1,4 @@
-"""
+"
 Socratic Questioner
 
 Applies Socratic questioning to explore concepts:
@@ -8,7 +8,7 @@ Applies Socratic questioning to explore concepts:
 - Perspective exploration
 - Implication analysis
 - Meta-questioning
-"""
+"
 
 from typing import Any, Dict, List
 from datetime import datetime
@@ -163,12 +163,10 @@ async def invoke(payload: dict) -> dict:
         },
     }
 def register_skill():
-    """ Return skill metadata """
-
-if __name__ == "__main__":
+    "Return skill metadata"
     return {
-            "name": "socratic-questioner",
-            "description": "Apply Socratic questioning to explore concepts deeply",
-            "version": "1.0.0",
-            "domain": "PHILOSOPHY",
-        }
+        "name": "socratic-questioner",
+        "description": "Apply Socratic questioning to explore concepts deeply",
+        "version": "1.0.0",
+        "domain": "PHILOSOPHY",
+    }

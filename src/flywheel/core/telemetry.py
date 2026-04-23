@@ -229,27 +229,25 @@ class AdvancedTelemetryManager:
 
     def get_advanced_health_status(self) -> Dict[str, Any]:
         """Get comprehensive system health status."""
+        metrics = self.metrics_history[-1] if self.metrics_history else None
+        status = "healthy"
+        issues = []
 
-if __name__ == "__main__":
-    metrics = self.metrics_history[-1] if self.metrics_history else None
-            status = "healthy"
-            issues = []
+        if metrics:
+            if metrics.cpu_usage > 90:
+                status = "degraded"
+                issues.append("High CPU usage")
+            if metrics.memory_usage > 90:
+                status = "degraded"
+                issues.append("High memory usage")
 
-            if metrics:
-                if metrics.cpu_usage > 90:
-                    status = "degraded"
-                    issues.append("High CPU usage")
-                if metrics.memory_usage > 90:
-                    status = "degraded"
-                    issues.append("High memory usage")
-
-            return {
-                "status": status,
-                "timestamp": datetime.datetime.now().isoformat(),
-                "issues": issues,
-                "metrics": {
-                    "cpu": metrics.cpu_usage if metrics else 0,
-                    "memory": metrics.memory_usage if metrics else 0,
-                    "anomaly_score": metrics.anomaly_score if metrics else 0,
-                },
-            }
+        return {
+            "status": status,
+            "timestamp": datetime.datetime.now().isoformat(),
+            "issues": issues,
+            "metrics": {
+                "cpu": metrics.cpu_usage if metrics else 0,
+                "memory": metrics.memory_usage if metrics else 0,
+                "anomaly_score": metrics.anomaly_score if metrics else 0,
+            },
+        }

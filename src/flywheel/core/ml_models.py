@@ -243,16 +243,14 @@ class MLModelManager:
 
     def detect_anomalies(self, metrics: np.ndarray) -> bool:
         """Detect anomalies in system metrics."""
+        if "anomaly_detection" not in self.models:
+            return False
 
-if __name__ == "__main__":
-    if "anomaly_detection" not in self.models:
-                return False
-
-            try:
-                anomaly_score = self.models["anomaly_detection"].decision_function(
-                    metrics.reshape(1, -1)
-                )
-                return bool(anomaly_score[0] < -0.5)
-            except Exception as e:
-                logger.error(f"Anomaly detection failed: {e}")
-                return False
+        try:
+            anomaly_score = self.models["anomaly_detection"].decision_function(
+                metrics.reshape(1, -1)
+            )
+            return bool(anomaly_score[0] < -0.5)
+        except Exception as e:
+            logger.error(f"Anomaly detection failed: {e}")
+            return False

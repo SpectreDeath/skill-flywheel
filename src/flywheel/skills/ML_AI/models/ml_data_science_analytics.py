@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""
+"
 Skill: ml-data-science-analytics
 Domain: ML_AI
 Description: ## Purpose Comprehensive data science and analytics workflows using machine learning techniques for business intelligence, data-driven decision making, and advanced analytics.
-"""
+"
 
 import logging
 from datetime import datetime
@@ -17,7 +17,7 @@ DESCRIPTION = "## Purpose Comprehensive data science and analytics workflows usi
 
 
 def get_capabilities():
-    """ Return skill capabilities. """
+    "Return skill capabilities."
     return {
         "name": SKILL_NAME,
         "domain": DOMAIN,
@@ -78,7 +78,7 @@ if __name__ == "__main__":
 
 
 def register_skill() -> dict:
-    """ Return skill metadata. """
+    "Return skill metadata."
     return {
         "name": "ml_data_science_analytics",
         "domain": "ml_ai",

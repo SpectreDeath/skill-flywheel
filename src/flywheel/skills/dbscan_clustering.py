@@ -157,11 +157,9 @@ async def invoke(payload: dict) -> dict:
     }
 def register_skill():
     """Return skill metadata"""
-
-if __name__ == "__main__":
     return {
-            "name": "dbscan-clustering",
-            "description": "Perform DBSCAN density-based clustering with automatic cluster detection",
-            "version": "1.0.0",
-            "domain": "DATA_SCIENCE",
-        }
+        "name": "dbscan-clustering",
+        "description": "Perform DBSCAN density-based clustering with automatic cluster detection",
+        "version": "1.0.0",
+        "domain": "DATA_SCIENCE",
+    }

@@ -510,19 +510,17 @@ async def invoke(payload: dict) -> dict:
     }
 def register_skill():
     """Return skill metadata"""
-
-if __name__ == "__main__":
     return {
-            "name": "api-doc-generator",
-            "description": "Generate API documentation from FastAPI, Flask, or Django code",
-            "version": "1.0.0",
-            "domain": "DOCUMENTATION",
-            "capabilities": [
-                "parse_fastapi",
-                "parse_flask",
-                "parse_django",
-                "generate_openapi",
-                "generate_markdown",
-                "generate_examples",
-            ],
-        }
+        "name": "api-doc-generator",
+        "description": "Generate API documentation from FastAPI, Flask, or Django code",
+        "version": "1.0.0",
+        "domain": "DOCUMENTATION",
+        "capabilities": [
+            "parse_fastapi",
+            "parse_flask",
+            "parse_django",
+            "generate_openapi",
+            "generate_markdown",
+            "generate_examples",
+        ],
+    }

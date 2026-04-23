@@ -257,11 +257,9 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 def register_skill():
     """Return skill metadata."""
-
-if __name__ == "__main__":
     return {
-            "name": "tool-definition-builder",
-            "description": "Build structured tool definitions with schemas, permission checking, concurrency safety, and execution for agent harness systems",
-            "version": "1.0.0",
-            "domain": "MODERN_BACKEND",
-        }
+        "name": "tool-definition-builder",
+        "description": "Build structured tool definitions with schemas, permission checking, concurrency safety, and execution for agent harness systems",
+        "version": "1.0.0",
+        "domain": "MODERN_BACKEND",
+    }

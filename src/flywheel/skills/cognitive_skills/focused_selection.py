@@ -178,23 +178,21 @@ import inspect as _inspect
 
 async def invoke(payload: dict) -> dict:
     """Entry point for skill invocation."""
-
-if __name__ == "__main__":
     import datetime as _dt
-        action = payload.get("action", "filter_information")
-        timestamp = _dt.datetime.now().isoformat()
-        kwargs = {k: v for k, v in payload.items() if k != "action"}
+    action = payload.get("action", "filter_information")
+    timestamp = _dt.datetime.now().isoformat()
+    kwargs = {k: v for k, v in payload.items() if k != "action"}
 
-        instance = FocusedSelector()
+    instance = FocusedSelector()
 
-        if action == "get_info":
-            return {"result": {"name": "focused_selection", "actions": ['calculate_relevance', 'define_frame', 'filter_information', 'filter_items', 'identify_noise', 'select_best', 'verify_focus'] }, "metadata": {"action": action, "timestamp": timestamp}}
+    if action == "get_info":
+        return {"result": {"name": "focused_selection", "actions": ['calculate_relevance', 'define_frame', 'filter_information', 'filter_items', 'identify_noise', 'select_best', 'verify_focus'] }, "metadata": {"action": action, "timestamp": timestamp}}
 
-        method = getattr(instance, action, None)
-        if method is None:
-            return {"result": {"error": f"Unknown action: {action}"}, "metadata": {"action": action, "timestamp": timestamp}}
+    method = getattr(instance, action, None)
+    if method is None:
+        return {"result": {"error": f"Unknown action: {action}"}, "metadata": {"action": action, "timestamp": timestamp}}
 
-        result = method(**kwargs)
-        if _inspect.isawaitable(result):
-            result = await result
-        return {"result": result, "metadata": {"action": action, "timestamp": timestamp}}
+    result = method(**kwargs)
+    if _inspect.isawaitable(result):
+        result = await result
+    return {"result": result, "metadata": {"action": action, "timestamp": timestamp}}

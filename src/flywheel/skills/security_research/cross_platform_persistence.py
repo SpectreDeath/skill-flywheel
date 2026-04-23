@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""
+"
 cross-platform-persistence
 
 "Use when: implementing daemon persistence across Linux, Solaris, and MikroTik platforms with platform-specific daemonization. Triggers: 'daemon persistence', 'service init', 'autostart', 'systemd', 'init script', 'core dump prevention'. NOT for: single-platform only (use platform-specific skills), or when daemon isn't required."
-"""
+"
 
 import logging
 from datetime import datetime
@@ -70,12 +70,10 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def register_skill() -> Dict[str, str]:
-    """ Return skill metadata. """
-
-if __name__ == "__main__":
+    "Return skill metadata."
     return {
-            "name": "cross-platform-persistence",
-            "description": "Use when: implementing daemon persistence across Linux, Solaris, and MikroTik platforms with platform-specific daemonization. Triggers: 'daemon persistence', 'service init', 'autostart', 'systemd', 'init script', 'core dump prevention'. NOT for: single-platform only (use platform-specific skills), or when daemon isn't required.",
-            "version": "1.0.0",
-            "domain": "SECURITY-RESEARCH",
-        }
+        "name": "cross-platform-persistence",
+        "description": "Use when: implementing daemon persistence across Linux, Solaris, and MikroTik platforms with platform-specific daemonization. Triggers: 'daemon persistence', 'service init', 'autostart', 'systemd', 'init script', 'core dump prevention'. NOT for: single-platform only (use platform-specific skills), or when daemon isn't required.",
+        "version": "1.0.0",
+        "domain": "SECURITY-RESEARCH",
+    }

@@ -275,11 +275,9 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 def register_skill() -> Dict[str, str]:
     """Return skill metadata."""
-
-if __name__ == "__main__":
     return {
-            "name": "logic-programmer",
-            "description": "General logic programming principles and relational design patterns. Covers unification, backtracking, recursion, meta-programming, and difference lists.",
-            "version": "1.0.0",
-            "domain": "logic",
-        }
+        "name": "logic-programmer",
+        "description": "General logic programming principles and relational design patterns. Covers unification, backtracking, recursion, meta-programming, and difference lists.",
+        "version": "1.0.0",
+        "domain": "logic",
+    }

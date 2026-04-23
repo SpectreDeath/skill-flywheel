@@ -95,8 +95,6 @@ def get_repository() -> SkillRepository:
 
 def init_db():
     """Initialize database tables."""
-
-if __name__ == "__main__":
     db_url = get_database_url()
-        engine = create_engine(db_url.replace("sqlite:///", "sqlite:///"))
-        Base.metadata.create_all(engine)
+    engine = create_engine(db_url.replace("sqlite:///", "sqlite:///"))
+    Base.metadata.create_all(engine)

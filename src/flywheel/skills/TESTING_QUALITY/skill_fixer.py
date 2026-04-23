@@ -260,11 +260,9 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 def register_skill():
     """Return skill metadata."""
-
-if __name__ == "__main__":
     return {
-            "name": "skill-fixer",
-            "description": "Automatically fixes sync invoke functions by converting them to async and adding metadata to return format",
-            "version": "1.0.0",
-            "domain": "TESTING_QUALITY",
-        }
+        "name": "skill-fixer",
+        "description": "Automatically fixes sync invoke functions by converting them to async and adding metadata to return format",
+        "version": "1.0.0",
+        "domain": "TESTING_QUALITY",
+    }

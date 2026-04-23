@@ -113,11 +113,9 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 def register_skill() -> Dict[str, str]:
     """Return skill metadata."""
-
-if __name__ == "__main__":
     return {
-            "name": "skillsmp-ecosystem-mapping",
-            "description": "Maps Skill Flywheel domains to SkillsMP categories and occupations",
-            "version": "1.0.0",
-            "domain": "SKILLSMP_ECOSYSTEM",
-        }
+        "name": "skillsmp-ecosystem-mapping",
+        "description": "Maps Skill Flywheel domains to SkillsMP categories and occupations",
+        "version": "1.0.0",
+        "domain": "SKILLSMP_ECOSYSTEM",
+    }

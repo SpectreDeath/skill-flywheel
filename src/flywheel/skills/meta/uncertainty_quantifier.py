@@ -1,11 +1,11 @@
-"""
+"
 Uncertainty Quantification
 
 Calculates confidence levels and uncertainty from evidence:
 - Bayesian probability updates
 - Evidence weighting
 - Confidence intervals
-"""
+"
 
 import math
 from typing import Any, Dict, List
@@ -162,12 +162,10 @@ async def invoke(payload: dict) -> dict:
         },
     }
 def register_skill():
-    """ Return skill metadata """
-
-if __name__ == "__main__":
+    "Return skill metadata"
     return {
-            "name": "uncertainty-quantifier",
-            "description": "Quantify uncertainty and calculate confidence levels from evidence",
-            "version": "1.0.0",
-            "domain": "EPISTEMOLOGY",
-        }
+        "name": "uncertainty-quantifier",
+        "description": "Quantify uncertainty and calculate confidence levels from evidence",
+        "version": "1.0.0",
+        "domain": "EPISTEMOLOGY",
+    }

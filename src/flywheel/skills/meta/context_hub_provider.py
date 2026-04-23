@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""
+"
 Context Hub Provider Skill
 
 This skill provides a Python wrapper for the chub CLI tool, exposing its functionality
@@ -13,7 +13,7 @@ Tools:
 - annotate: Add persistent annotations to entries
 
 Safety: Verifies chub binary existence before execution
-"""
+"
 
 import asyncio
 import json
@@ -80,7 +80,7 @@ class ContextHubProvider:
         self.chub_path = self._find_chub_binary()
     
     def _find_chub_binary(self) -> str:
-        """ Find the chub binary in system PATH """
+        "Find the chub binary in system PATH"
         chub_path = shutil.which("chub")
         if not chub_path:
             raise ChubError(
@@ -139,8 +139,8 @@ class ContextHubProvider:
         except Exception as e:
             raise ChubError(f"Failed to execute chub command: {e}")
     
-    async def search(self, query: str = """, tags: List[str] | None = None, 
-                    limit: int = 20) -> List[SearchResult]:"""
+    async def search(self, query: str = ", tags: List[str] | None = None, 
+                    limit: int = 20) -> List[SearchResult]:
         "
         Search for documentation and skills in the Context Hub
         
@@ -343,8 +343,8 @@ class ContextHubProvider:
 # Global instance
 _context_hub_provider = ContextHubProvider()
 
-async def search(query: str = """, tags: List[str] | None = None, 
-                limit: int = 20) -> List[Dict[str, Any]]:"""
+async def search(query: str = ", tags: List[str] | None = None, 
+                limit: int = 20) -> List[Dict[str, Any]]:
     "
     Search for documentation and skills in the Context Hub
     
@@ -432,7 +432,7 @@ async def clear_annotation(doc_id: str) -> Dict[str, Any]:
 
 # Example usage function
 async def example_usage():
-    """ Example of how to use the context_hub_provider skill """
+    "Example of how to use the context_hub_provider skill"
     try:
         # Search for OpenAI documentation
         print("Searching for OpenAI docs...")
@@ -499,7 +499,7 @@ async def invoke(payload: dict) -> dict:
 
 
 def register_skill() -> dict:
-    """ Return skill metadata. """
+    "Return skill metadata."
     return {
         "name": "context_hub_provider",
         "domain": "meta",

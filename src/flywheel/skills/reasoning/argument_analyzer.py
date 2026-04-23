@@ -1,11 +1,11 @@
-"""
+"
 Argument Analysis and Fallacy Detection
 
 Analyzes philosophical arguments for:
 - Logical validity and soundness
 - Common logical fallacies
 - Argument structure and components
-"""
+"
 
 import re
 from typing import Any, Dict, List
@@ -193,12 +193,10 @@ async def invoke(payload: dict) -> dict:
         },
     }
 def register_skill():
-    """ Return skill metadata """
-
-if __name__ == "__main__":
+    "Return skill metadata"
     return {
-            "name": "argument-analyzer",
-            "description": "Evaluate philosophical arguments and detect logical fallacies",
-            "version": "1.0.0",
-            "domain": "EPISTEMOLOGY",
-        }
+        "name": "argument-analyzer",
+        "description": "Evaluate philosophical arguments and detect logical fallacies",
+        "version": "1.0.0",
+        "domain": "EPISTEMOLOGY",
+    }

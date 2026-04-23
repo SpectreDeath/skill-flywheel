@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""
+"
 beacon-data-pipeline
 
 "Use when: implementing periodic system survey collection with compression, encryption, and TLS transmission. Triggers: 'data collection', 'periodic survey', 'TLS transmission', 'encrypted payload', 'jitter timing'. NOT for: real-time streaming (use streaming skills), or when encryption isn't required."
-"""
+"
 
 import logging
 from datetime import datetime
@@ -70,12 +70,10 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def register_skill() -> Dict[str, str]:
-    """ Return skill metadata. """
-
-if __name__ == "__main__":
+    "Return skill metadata."
     return {
-            "name": "beacon-data-pipeline",
-            "description": "Use when: implementing periodic system survey collection with compression, encryption, and TLS transmission. Triggers: 'data collection', 'periodic survey', 'TLS transmission', 'encrypted payload', 'jitter timing'. NOT for: real-time streaming (use streaming skills), or when encryption isn't required.",
-            "version": "1.0.0",
-            "domain": "SECURITY-RESEARCH",
-        }
+        "name": "beacon-data-pipeline",
+        "description": "Use when: implementing periodic system survey collection with compression, encryption, and TLS transmission. Triggers: 'data collection', 'periodic survey', 'TLS transmission', 'encrypted payload', 'jitter timing'. NOT for: real-time streaming (use streaming skills), or when encryption isn't required.",
+        "version": "1.0.0",
+        "domain": "SECURITY-RESEARCH",
+    }

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""
+"
 Data Analysis Skill
 
 This skill provides data analysis capabilities including:
@@ -7,7 +7,7 @@ This skill provides data analysis capabilities including:
 - Data visualization
 - Trend analysis
 - Data cleaning and preprocessing
-"""
+"
 
 import logging
 from datetime import datetime
@@ -264,7 +264,7 @@ def generate_insights(data: List[Dict[str, Any]],
 
 # Example usage function
 def example_usage():
-    """ Example of how to use the data analyzer skill """
+    "Example of how to use the data analyzer skill"
     sample_data = [
         {"age": 25, "income": 50000, "score": 85},
         {"age": 30, "income": 60000, "score": 90},
@@ -319,7 +319,7 @@ async def invoke(payload: dict) -> dict:
 
 
 def register_skill() -> dict:
-    """ Return skill metadata. """
+    "Return skill metadata."
     return {
         "name": "data_analyzer",
         "domain": "meta",

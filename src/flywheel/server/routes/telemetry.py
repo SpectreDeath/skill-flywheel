@@ -52,29 +52,27 @@ async def health_check():
 @router.get("/metrics")
 async def get_metrics():
     """Get performance metrics from telemetry"""
-
-if __name__ == "__main__":
     telemetry = get_telemetry()
 
-        try:
-            metrics = {
-                "history": [asdict(m) for m in telemetry.metrics_history[-10:]],
-                "skill_metrics": {k: asdict(v) for k, v in telemetry.skill_metrics.items()},
+    try:
+        metrics = {
+            "history": [asdict(m) for m in telemetry.metrics_history[-10:]],
+            "skill_metrics": {k: asdict(v) for k, v in telemetry.skill_metrics.items()},
+        }
+
+        if telemetry.metrics_history:
+            latest = telemetry.metrics_history[-1]
+            metrics["system"] = {
+                "cpu_usage": latest.cpu_usage,
+                "memory_usage": latest.memory_usage,
+                "disk_usage": latest.disk_usage,
+                "optimization_score": telemetry.resource_optimizer.calculate_utilization_score(
+                    latest.cpu_usage, latest.memory_usage, latest.disk_usage
+                ),
             }
 
-            if telemetry.metrics_history:
-                latest = telemetry.metrics_history[-1]
-                metrics["system"] = {
-                    "cpu_usage": latest.cpu_usage,
-                    "memory_usage": latest.memory_usage,
-                    "disk_usage": latest.disk_usage,
-                    "optimization_score": telemetry.resource_optimizer.calculate_utilization_score(
-                        latest.cpu_usage, latest.memory_usage, latest.disk_usage
-                    ),
-                }
+        metrics["optimization"] = telemetry.get_advanced_optimization_recommendations()
 
-            metrics["optimization"] = telemetry.get_advanced_optimization_recommendations()
-
-            return metrics
-        except Exception as e:
-            raise HTTPException(status_code=500, detail=f"Metrics error: {e}")
+        return metrics
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Metrics error: {e}")

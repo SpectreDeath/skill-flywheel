@@ -99,14 +99,12 @@ def create_local_llm_client(
     Returns:
         LocalLLMClient instance
     """
-
-if __name__ == "__main__":
     model = model or os.environ.get("LLM_MODEL", "llama2")
-        base_url = base_url or os.environ.get("LLM_BASE_URL", "http://localhost:11434")
+    base_url = base_url or os.environ.get("LLM_BASE_URL", "http://localhost:11434")
 
-        if provider == "ollama":
-            return OllamaClient(model=model, base_url=base_url)
-        elif provider == "lmstudio":
-            return LMStudioClient(model=model, base_url=base_url)
-        else:
-            return LocalLLMClient(model=model, base_url=base_url)
+    if provider == "ollama":
+        return OllamaClient(model=model, base_url=base_url)
+    elif provider == "lmstudio":
+        return LMStudioClient(model=model, base_url=base_url)
+    else:
+        return LocalLLMClient(model=model, base_url=base_url)

@@ -245,39 +245,37 @@ from enum import Enum
 
 async def invoke(payload: dict) -> dict:
     """Entry point for skill invocation."""
-
-if __name__ == "__main__":
     import datetime as _dt
 
-        action = payload.get("action", "solve_with_time_limit")
-        timestamp = _dt.datetime.now().isoformat()
-        kwargs = {k: v for k, v in payload.items() if k != "action"}
+    action = payload.get("action", "solve_with_time_limit")
+    timestamp = _dt.datetime.now().isoformat()
+    kwargs = {k: v for k, v in payload.items() if k != "action"}
 
-        instance = AccuracySpeedOptimizer()
+    instance = AccuracySpeedOptimizer()
 
-        if action == "get_info":
-            return {
-                "result": {
-                    "name": "accuracy_and_speed",
-                    "actions": [
-                        "allocate_time",
-                        "eliminate_wrong_answers",
-                        "estimate_difficulty",
-                        "solve_with_time_limit",
-                        "verify_answer",
-                    ],
-                },
-                "metadata": {"action": action, "timestamp": timestamp},
-            }
+    if action == "get_info":
+        return {
+            "result": {
+                "name": "accuracy_and_speed",
+                "actions": [
+                    "allocate_time",
+                    "eliminate_wrong_answers",
+                    "estimate_difficulty",
+                    "solve_with_time_limit",
+                    "verify_answer",
+                ],
+            },
+            "metadata": {"action": action, "timestamp": timestamp},
+        }
 
-        method = getattr(instance, action, None)
-        if method is None:
-            return {
-                "result": {"error": f"Unknown action: {action}"},
-                "metadata": {"action": action, "timestamp": timestamp},
-            }
+    method = getattr(instance, action, None)
+    if method is None:
+        return {
+            "result": {"error": f"Unknown action: {action}"},
+            "metadata": {"action": action, "timestamp": timestamp},
+        }
 
-        result = method(**kwargs)
-        if _inspect.isawaitable(result):
-            result = await result
-        return {"result": result, "metadata": {"action": action, "timestamp": timestamp}}
+    result = method(**kwargs)
+    if _inspect.isawaitable(result):
+        result = await result
+    return {"result": result, "metadata": {"action": action, "timestamp": timestamp}}

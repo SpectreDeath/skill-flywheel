@@ -1,8 +1,8 @@
-"""
+"
 OpenClaw Skill Development Skill
 
 Provides capabilities for creating, testing, and deploying OpenClaw skills.
-"""
+"
 
 import json
 import os
@@ -80,10 +80,10 @@ class OpenClawSkillDeveloper:
     async def create_skill(
         self,
         name: str,
-        description: str = ""","""
-        author: str = """,
+        description: str = ",
+        author: str = ",
         capabilities: List[str] | None = None,
-    ) -> Dict[str, Any]:"""
+    ) -> Dict[str, Any]:
         "Create a new OpenClaw skill from template."
         skill_path = self.skills_path / name
 
@@ -125,161 +125,159 @@ class OpenClawSkillDeveloper:
             return {"error": str(e)}
 
     async def list_skills(self) -> List[Dict[str, Any]]:
-        """ List all installed skills. """
+        "List all installed skills."
+        if not self.skills_path.exists():
+            return []
 
-if __name__ == "__main__":
-    if not self.skills_path.exists():
-                return []
+        skills = []
+        for item in self.skills_path.iterdir():
+            if item.is_dir() and (item / "manifest.json").exists():
+                try:
+                    manifest = json.loads((item / "manifest.json").read_text())
+                    skills.append(
+                        {
+                            "name": manifest.get("name", item.name),
+                            "description": manifest.get("description", "),
+                            "version": manifest.get("version", "unknown"),
+                            "path": str(item),
+                        }
+                    )
+                except json.JSONDecodeError:
+                    skills.append({"name": item.name, "error": "Invalid manifest"})
 
-            skills = []
-            for item in self.skills_path.iterdir():
-                if item.is_dir() and (item / "manifest.json").exists():
-                    try:
-                        manifest = json.loads((item / "manifest.json").read_text())
-                        skills.append(
-                            {
-                                "name": manifest.get("name", item.name),
-                                "description": manifest.get("description", "),
-                                "version": manifest.get("version", "unknown"),
-                                "path": str(item),
-                            }
-                        )
-                    except json.JSONDecodeError:
-                        skills.append({"name": item.name, "error": "Invalid manifest"})
+        return skills
 
-            return skills
+    async def get_skill_manifest(self, name: str) -> Dict[str, Any]:
+        "Get skill manifest."
+        manifest_path = self.skills_path / name / "manifest.json"
 
-        async def get_skill_manifest(self, name: str) -> Dict[str, Any]:
-            "Get skill manifest."
-            manifest_path = self.skills_path / name / "manifest.json"
+        if not manifest_path.exists():
+            return {"error": f"Skill '{name}' not found"}
 
-            if not manifest_path.exists():
-                return {"error": f"Skill '{name}' not found"}
+        try:
+            return json.loads(manifest_path.read_text())
+        except json.JSONDecodeError as e:
+            return {"error": f"Invalid manifest: {e}"}
 
-            try:
-                return json.loads(manifest_path.read_text())
-            except json.JSONDecodeError as e:
-                return {"error": f"Invalid manifest: {e}"}
+    async def update_skill(self, name: str, updates: Dict[str, Any]) -> Dict[str, Any]:
+        "Update skill manifest."
+        manifest_path = self.skills_path / name / "manifest.json"
 
-        async def update_skill(self, name: str, updates: Dict[str, Any]) -> Dict[str, Any]:
-            "Update skill manifest."
-            manifest_path = self.skills_path / name / "manifest.json"
+        if not manifest_path.exists():
+            return {"error": f"Skill '{name}' not found"}
 
-            if not manifest_path.exists():
-                return {"error": f"Skill '{name}' not found"}
+        try:
+            manifest = json.loads(manifest_path.read_text())
+            manifest.update(updates)
+            manifest_path.write_text(json.dumps(manifest, indent=2))
 
-            try:
-                manifest = json.loads(manifest_path.read_text())
-                manifest.update(updates)
-                manifest_path.write_text(json.dumps(manifest, indent=2))
+            return {"status": "success", "manifest": manifest}
+        except Exception as e:
+            return {"error": str(e)}
 
-                return {"status": "success", "manifest": manifest}
-            except Exception as e:
-                return {"error": str(e)}
+    async def validate_skill(self, name: str) -> Dict[str, Any]:
+        "Validate a skill structure."
+        skill_path = self.skills_path / name
 
-        async def validate_skill(self, name: str) -> Dict[str, Any]:
-            "Validate a skill structure."
-            skill_path = self.skills_path / name
+        if not skill_path.exists():
+            return {"error": f"Skill '{name}' not found"}
 
-            if not skill_path.exists():
-                return {"error": f"Skill '{name}' not found"}
+        required_files = ["manifest.json", "index.mjs", "handler.mjs"]
+        missing = []
 
-            required_files = ["manifest.json", "index.mjs", "handler.mjs"]
-            missing = []
+        for file in required_files:
+            if not (skill_path / file).exists():
+                missing.append(file)
 
-            for file in required_files:
-                if not (skill_path / file).exists():
-                    missing.append(file)
+        if missing:
+            return {"valid": False, "missing_files": missing}
 
-            if missing:
-                return {"valid": False, "missing_files": missing}
+        try:
+            manifest = json.loads((skill_path / "manifest.json").read_text())
 
-            try:
-                manifest = json.loads((skill_path / "manifest.json").read_text())
+            required_fields = ["name", "description", "version"]
+            missing_fields = [f for f in required_fields if f not in manifest]
 
-                required_fields = ["name", "description", "version"]
-                missing_fields = [f for f in required_fields if f not in manifest]
+            if missing_fields:
+                return {"valid": False, "missing_fields": missing_fields}
 
-                if missing_fields:
-                    return {"valid": False, "missing_fields": missing_fields}
+            return {"valid": True, "manifest": manifest}
+        except json.JSONDecodeError as e:
+            return {"valid": False, "error": str(e)}
 
-                return {"valid": True, "manifest": manifest}
-            except json.JSONDecodeError as e:
-                return {"valid": False, "error": str(e)}
+    async def build_skill(self, name: str) -> Dict[str, Any]:
+        "Build a skill (compile TypeScript if needed)."
+        skill_path = self.skills_path / name
 
-        async def build_skill(self, name: str) -> Dict[str, Any]:
-            "Build a skill (compile TypeScript if needed)."
-            skill_path = self.skills_path / name
+        if not skill_path.exists():
+            return {"error": f"Skill '{name}' not found"}
 
-            if not skill_path.exists():
-                return {"error": f"Skill '{name}' not found"}
+        if (skill_path / "tsconfig.json").exists():
+            result = os.system(f"cd {skill_path} && npx tsc")
+            if result != 0:
+                return {"error": "TypeScript compilation failed"}
 
-            if (skill_path / "tsconfig.json").exists():
-                result = os.system(f"cd {skill_path} && npx tsc")
-                if result != 0:
-                    return {"error": "TypeScript compilation failed"}
+        return {"status": "success", "skill": name}
 
-            return {"status": "success", "skill": name}
+    async def register_skill(self, name: str) -> Dict[str, Any]:
+        "Register skill with OpenClaw."
+        skill_path = self.skills_path / name
 
-        async def register_skill(self, name: str) -> Dict[str, Any]:
-            "Register skill with OpenClaw."
-            skill_path = self.skills_path / name
+        if not skill_path.exists():
+            return {"error": f"Skill '{name}' not found"}
 
-            if not skill_path.exists():
-                return {"error": f"Skill '{name}' not found"}
+        try:
+            result = os.system(f"openclaw skill register {skill_path}")
 
-            try:
-                result = os.system(f"openclaw skill register {skill_path}")
-
-                if result == 0:
-                    return {"status": "success", "skill": name}
-                else:
-                    return {"error": "Registration failed"}
-            except Exception as e:
-                return {"error": str(e)}
+            if result == 0:
+                return {"status": "success", "skill": name}
+            else:
+                return {"error": "Registration failed"}
+        except Exception as e:
+            return {"error": str(e)}
 
 
-    MANIFEST = {
-        "name": "openclaw_skill_developer",
-        "description": "Create, develop, test, and deploy OpenClaw skills",
-        "version": "1.0.0",
-        "author": "Skill Flywheel",
-        "capabilities": [
-            "create_skill",
-            "list_skills",
-            "get_skill_manifest",
-            "update_skill",
-            "validate_skill",
-            "build_skill",
-            "register_skill",
-        ],
-        "requirements": {"node": ">=22.0.0", "openclaw_cli": "npm i -g @openclaw/cli"},
+MANIFEST = {
+    "name": "openclaw_skill_developer",
+    "description": "Create, develop, test, and deploy OpenClaw skills",
+    "version": "1.0.0",
+    "author": "Skill Flywheel",
+    "capabilities": [
+        "create_skill",
+        "list_skills",
+        "get_skill_manifest",
+        "update_skill",
+        "validate_skill",
+        "build_skill",
+        "register_skill",
+    ],
+    "requirements": {"node": ">=22.0.0", "openclaw_cli": "npm i -g @openclaw/cli"},
+}
+
+
+async def handle_request(action: str, params: Dict[str, Any]) -> Dict[str, Any]:
+    "Handle incoming requests."
+    developer = OpenClawSkillDeveloper(params.get("skills_path"))
+
+    handlers = {
+        "create_skill": lambda: developer.create_skill(
+            params.get("name"),
+            params.get("description", "),
+            params.get("author", "),
+            params.get("capabilities"),
+        ),
+        "list_skills": developer.list_skills,
+        "get_skill_manifest": lambda: developer.get_skill_manifest(params.get("name")),
+        "update_skill": lambda: developer.update_skill(
+            params.get("name"), params.get("updates", {})
+        ),
+        "validate_skill": lambda: developer.validate_skill(params.get("name")),
+        "build_skill": lambda: developer.build_skill(params.get("name")),
+        "register_skill": lambda: developer.register_skill(params.get("name")),
     }
 
+    handler = handlers.get(action)
+    if handler:
+        return await handler()
 
-    async def handle_request(action: str, params: Dict[str, Any]) -> Dict[str, Any]:
-        "Handle incoming requests."
-        developer = OpenClawSkillDeveloper(params.get("skills_path"))
-
-        handlers = {
-            "create_skill": lambda: developer.create_skill(
-                params.get("name"),
-                params.get("description", "),
-                params.get("author", "),
-                params.get("capabilities"),
-            ),
-            "list_skills": developer.list_skills,
-            "get_skill_manifest": lambda: developer.get_skill_manifest(params.get("name")),
-            "update_skill": lambda: developer.update_skill(
-                params.get("name"), params.get("updates", {})
-            ),
-            "validate_skill": lambda: developer.validate_skill(params.get("name")),
-            "build_skill": lambda: developer.build_skill(params.get("name")),
-            "register_skill": lambda: developer.register_skill(params.get("name")),
-        }
-
-        handler = handlers.get(action)
-        if handler:
-            return await handler()
-
-        return {"error": f"Unknown action: {action}"}
+    return {"error": f"Unknown action: {action}"}

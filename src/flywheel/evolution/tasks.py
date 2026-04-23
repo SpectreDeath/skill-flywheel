@@ -146,20 +146,18 @@ def start_evolution_job(
     max_generations: int = 10,
 ) -> str:
     """Start a new evolution job."""
-
-if __name__ == "__main__":
     job_id = str(uuid.uuid4())
-        status = EvolutionJobStatus(job_id)
-        status.total_generations = max_generations
-        status.population_size = (
-            config_dict.get("population_size", 20) if config_dict else 20
-        )
-        _active_jobs[job_id] = status
+    status = EvolutionJobStatus(job_id)
+    status.total_generations = max_generations
+    status.population_size = (
+        config_dict.get("population_size", 20) if config_dict else 20
+    )
+    _active_jobs[job_id] = status
 
-        # Queue the task
-        run_full_evolution.apply_async(
-            args=[job_id, initial_genome_data, config_dict or {}, max_generations],
-            task_id=job_id,
-        )
+    # Queue the task
+    run_full_evolution.apply_async(
+        args=[job_id, initial_genome_data, config_dict or {}, max_generations],
+        task_id=job_id,
+    )
 
-        return job_id
+    return job_id

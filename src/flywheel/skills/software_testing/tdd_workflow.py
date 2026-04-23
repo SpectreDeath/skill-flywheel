@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""
+"
 tdd-workflow
 
 "Use when: writing new features, fixing bugs, or refactoring code with test-driven development methodology. Enforces 80%+ test coverage including unit, integration, and E2E tests. Triggers: 'TDD', 'test driven', 'write tests first', 'red green refactor', 'test coverage', 'unit test', 'integration test'. NOT for: prototype code, experiments, or one-off scripts that won't be maintained."
-"""
+"
 
 import logging
 from datetime import datetime
@@ -70,12 +70,10 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def register_skill() -> Dict[str, str]:
-    """ Return skill metadata. """
-
-if __name__ == "__main__":
+    "Return skill metadata."
     return {
-            "name": "tdd-workflow",
-            "description": "Use when: writing new features, fixing bugs, or refactoring code with test-driven development methodology. Enforces 80%+ test coverage including unit, integration, and E2E tests. Triggers: 'TDD', 'test driven', 'write tests first', 'red green refactor', 'test coverage', 'unit test', 'integration test'. NOT for: prototype code, experiments, or one-off scripts that won't be maintained.",
-            "version": "1.0.0",
-            "domain": "SOFTWARE-TESTING",
-        }
+        "name": "tdd-workflow",
+        "description": "Use when: writing new features, fixing bugs, or refactoring code with test-driven development methodology. Enforces 80%+ test coverage including unit, integration, and E2E tests. Triggers: 'TDD', 'test driven', 'write tests first', 'red green refactor', 'test coverage', 'unit test', 'integration test'. NOT for: prototype code, experiments, or one-off scripts that won't be maintained.",
+        "version": "1.0.0",
+        "domain": "SOFTWARE-TESTING",
+    }

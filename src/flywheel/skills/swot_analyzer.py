@@ -150,11 +150,9 @@ async def invoke(payload: dict) -> dict:
     }
 def register_skill():
     """Return skill metadata"""
-
-if __name__ == "__main__":
     return {
-            "name": "swot-analyzer",
-            "description": "Conduct SWOT analysis from business data",
-            "version": "1.0.0",
-            "domain": "STRATEGY",
-        }
+        "name": "swot-analyzer",
+        "description": "Conduct SWOT analysis from business data",
+        "version": "1.0.0",
+        "domain": "STRATEGY",
+    }

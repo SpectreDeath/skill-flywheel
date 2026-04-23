@@ -14,20 +14,18 @@ logger = logging.getLogger(__name__)
 
 async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
     return {{"result": {{"message": "{0}"}}, "metadata": {{"timestamp": datetime.now().isoformat()}}}}"""
-
-if __name__ == "__main__":
     return {"skill_name": name, "domain": domain, "template": template.format(name)}
 
 
-    async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
-        try:
-            name = payload.get("name", "new_skill")
-            domain = payload.get("domain", "general")
-            desc = payload.get("description", "")
-            result = draft_skill(name, domain, desc)
-            return {"result": result, "metadata": {"timestamp": datetime.now().isoformat()}}
-        except Exception as e:
-            return {
-                "result": {"error": str(e)},
-                "metadata": {"timestamp": datetime.now().isoformat()},
-            }
+async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
+    try:
+        name = payload.get("name", "new_skill")
+        domain = payload.get("domain", "general")
+        desc = payload.get("description", "")
+        result = draft_skill(name, domain, desc)
+        return {"result": result, "metadata": {"timestamp": datetime.now().isoformat()}}
+    except Exception as e:
+        return {
+            "result": {"error": str(e)},
+            "metadata": {"timestamp": datetime.now().isoformat()},
+        }

@@ -284,40 +284,38 @@ MANIFEST = {
 
 async def handle_request(action: str, params: Dict[str, Any]) -> Dict[str, Any]:
     """Handle incoming requests."""
-
-if __name__ == "__main__":
     manager = NemOClawSecurityManager(params.get("config_path"))
 
-        handlers = {
-            "get_status": manager.get_status,
-            "install": lambda: manager.install(params.get("model", "nemotron")),
-            "create_policy": lambda: manager.create_policy(
-                params.get("name"), params.get("rules"), params.get("guardrails")
-            ),
-            "list_policies": manager.list_policies,
-            "get_policy": lambda: manager.get_policy(params.get("name")),
-            "update_policy": lambda: manager.update_policy(
-                params.get("name"), params.get("updates", {})
-            ),
-            "apply_policy": lambda: manager.apply_policy(params.get("policy_name")),
-            "configure_guardrails": lambda: manager.configure_guardrails(
-                params.get("settings", {})
-            ),
-            "get_guardrails": manager.get_guardrails,
-            "set_allowed_domains": lambda: manager.set_allowed_domains(
-                params.get("domains", [])
-            ),
-            "set_blocked_domains": lambda: manager.set_blocked_domains(
-                params.get("domains", [])
-            ),
-            "enable_privacy_router": lambda: manager.enable_privacy_router(
-                params.get("enabled", True)
-            ),
-            "get_security_audit": manager.get_security_audit,
-        }
+    handlers = {
+        "get_status": manager.get_status,
+        "install": lambda: manager.install(params.get("model", "nemotron")),
+        "create_policy": lambda: manager.create_policy(
+            params.get("name"), params.get("rules"), params.get("guardrails")
+        ),
+        "list_policies": manager.list_policies,
+        "get_policy": lambda: manager.get_policy(params.get("name")),
+        "update_policy": lambda: manager.update_policy(
+            params.get("name"), params.get("updates", {})
+        ),
+        "apply_policy": lambda: manager.apply_policy(params.get("policy_name")),
+        "configure_guardrails": lambda: manager.configure_guardrails(
+            params.get("settings", {})
+        ),
+        "get_guardrails": manager.get_guardrails,
+        "set_allowed_domains": lambda: manager.set_allowed_domains(
+            params.get("domains", [])
+        ),
+        "set_blocked_domains": lambda: manager.set_blocked_domains(
+            params.get("domains", [])
+        ),
+        "enable_privacy_router": lambda: manager.enable_privacy_router(
+            params.get("enabled", True)
+        ),
+        "get_security_audit": manager.get_security_audit,
+    }
 
-        handler = handlers.get(action)
-        if handler:
-            return await handler() if action in ["install"] else handler()
+    handler = handlers.get(action)
+    if handler:
+        return await handler() if action in ["install"] else handler()
 
-        return {"error": f"Unknown action: {action}"}
+    return {"error": f"Unknown action: {action}"}

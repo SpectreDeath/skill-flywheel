@@ -157,14 +157,12 @@ class ServerConfig:
 
     def _merge_config(self, default: Dict, user: Dict) -> None:
         """Recursively merge user config with defaults"""
-
-if __name__ == "__main__":
-    for key, value in user.items():
-                if (
-                    key in default
-                    and isinstance(default[key], dict)
-                    and isinstance(value, dict)
-                ):
-                    self._merge_config(default[key], value)
-                else:
-                    default[key] = value
+        for key, value in user.items():
+            if (
+                key in default
+                and isinstance(default[key], dict)
+                and isinstance(value, dict)
+            ):
+                self._merge_config(default[key], value)
+            else:
+                default[key] = value

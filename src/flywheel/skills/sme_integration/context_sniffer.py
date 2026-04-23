@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""
+"
 context-sniffer
 
 Skill for sme_integration domain.
-"""
+"
 
 import logging
 from datetime import datetime
@@ -70,12 +70,10 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def register_skill() -> Dict[str, str]:
-    """ Return skill metadata. """
-
-if __name__ == "__main__":
+    "Return skill metadata."
     return {
-            "name": "context-sniffer",
-            "description": "context-sniffer",
-            "version": "1.0.0",
-            "domain": "SME_INTEGRATION",
-        }
+        "name": "context-sniffer",
+        "description": "context-sniffer",
+        "version": "1.0.0",
+        "domain": "SME_INTEGRATION",
+    }

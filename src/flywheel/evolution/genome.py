@@ -177,14 +177,12 @@ def create_initial_genome(
     orchestration_strategy: str = "sequential",
 ) -> SkillGenome:
     """Create an initial skill genome with sensible defaults."""
-
-if __name__ == "__main__":
     default_params = default_parameters or {}
 
-        return SkillGenome(
-            skill_selections=skill_selections,
-            skill_parameters=default_params,
-            prompt_templates={},
-            resource_allocation=dict.fromkeys(skill_selections, 1.0),
-            orchestration_strategy=orchestration_strategy,
-        )
+    return SkillGenome(
+        skill_selections=skill_selections,
+        skill_parameters=default_params,
+        prompt_templates={},
+        resource_allocation=dict.fromkeys(skill_selections, 1.0),
+        orchestration_strategy=orchestration_strategy,
+    )

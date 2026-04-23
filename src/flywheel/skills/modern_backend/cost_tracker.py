@@ -240,11 +240,9 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 def register_skill():
     """Return skill metadata."""
-
-if __name__ == "__main__":
     return {
-            "name": "cost-tracker",
-            "description": "Track and report LLM API session costs including token usage, USD cost per model, API duration, and code change metrics",
-            "version": "1.0.0",
-            "domain": "MODERN_BACKEND",
-        }
+        "name": "cost-tracker",
+        "description": "Track and report LLM API session costs including token usage, USD cost per model, API duration, and code change metrics",
+        "version": "1.0.0",
+        "domain": "MODERN_BACKEND",
+    }

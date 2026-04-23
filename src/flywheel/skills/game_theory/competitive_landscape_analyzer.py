@@ -1,4 +1,4 @@
-"""
+"
 Competitive Landscape Analyzer
 
 Analyzes competitive landscape and identifies market positioning:
@@ -6,7 +6,7 @@ Analyzes competitive landscape and identifies market positioning:
 - Market share analysis
 - Positioning mapping
 - Competitive advantage assessment
-"""
+"
 
 from typing import Any, Dict, List
 from datetime import datetime
@@ -161,12 +161,10 @@ async def invoke(payload: dict) -> dict:
         },
     }
 def register_skill():
-    """ Return skill metadata """
-
-if __name__ == "__main__":
+    "Return skill metadata"
     return {
-            "name": "competitive-landscape-analyzer",
-            "description": "Analyze competitive landscape and identify market positioning",
-            "version": "1.0.0",
-            "domain": "STRATEGY",
-        }
+        "name": "competitive-landscape-analyzer",
+        "description": "Analyze competitive landscape and identify market positioning",
+        "version": "1.0.0",
+        "domain": "STRATEGY",
+    }

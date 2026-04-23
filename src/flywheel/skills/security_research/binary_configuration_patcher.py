@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""
+"
 binary-configuration-patcher
 
 "Use when: embedding runtime configuration into precompiled binaries by searching for signature markers. Triggers: 'binary patch', 'config injection', 'signature search', 'offset patch', 'runtime config'. Requires: binary analysis tools. NOT for: source-based configuration, or when rebuilding is possible."
-"""
+"
 
 import logging
 from datetime import datetime
@@ -70,12 +70,10 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def register_skill() -> Dict[str, str]:
-    """ Return skill metadata. """
-
-if __name__ == "__main__":
+    "Return skill metadata."
     return {
-            "name": "binary-configuration-patcher",
-            "description": "Use when: embedding runtime configuration into precompiled binaries by searching for signature markers. Triggers: 'binary patch', 'config injection', 'signature search', 'offset patch', 'runtime config'. Requires: binary analysis tools. NOT for: source-based configuration, or when rebuilding is possible.",
-            "version": "1.0.0",
-            "domain": "SECURITY-RESEARCH",
-        }
+        "name": "binary-configuration-patcher",
+        "description": "Use when: embedding runtime configuration into precompiled binaries by searching for signature markers. Triggers: 'binary patch', 'config injection', 'signature search', 'offset patch', 'runtime config'. Requires: binary analysis tools. NOT for: source-based configuration, or when rebuilding is possible.",
+        "version": "1.0.0",
+        "domain": "SECURITY-RESEARCH",
+    }

@@ -257,29 +257,27 @@ MANIFEST = {
 
 async def handle_request(action: str, params: Dict[str, Any]) -> Dict[str, Any]:
     """Handle incoming requests."""
-
-if __name__ == "__main__":
     developer = OpenClawSkillDeveloper(params.get("skills_path"))
 
-        handlers = {
-            "create_skill": lambda: developer.create_skill(
-                params.get("name"),
-                params.get("description", ""),
-                params.get("author", ""),
-                params.get("capabilities"),
-            ),
-            "list_skills": developer.list_skills,
-            "get_skill_manifest": lambda: developer.get_skill_manifest(params.get("name")),
-            "update_skill": lambda: developer.update_skill(
-                params.get("name"), params.get("updates", {})
-            ),
-            "validate_skill": lambda: developer.validate_skill(params.get("name")),
-            "build_skill": lambda: developer.build_skill(params.get("name")),
-            "register_skill": lambda: developer.register_skill(params.get("name")),
-        }
+    handlers = {
+        "create_skill": lambda: developer.create_skill(
+            params.get("name"),
+            params.get("description", ""),
+            params.get("author", ""),
+            params.get("capabilities"),
+        ),
+        "list_skills": developer.list_skills,
+        "get_skill_manifest": lambda: developer.get_skill_manifest(params.get("name")),
+        "update_skill": lambda: developer.update_skill(
+            params.get("name"), params.get("updates", {})
+        ),
+        "validate_skill": lambda: developer.validate_skill(params.get("name")),
+        "build_skill": lambda: developer.build_skill(params.get("name")),
+        "register_skill": lambda: developer.register_skill(params.get("name")),
+    }
 
-        handler = handlers.get(action)
-        if handler:
-            return await handler()
+    handler = handlers.get(action)
+    if handler:
+        return await handler()
 
-        return {"error": f"Unknown action: {action}"}
+    return {"error": f"Unknown action: {action}"}

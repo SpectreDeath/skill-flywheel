@@ -250,11 +250,9 @@ async def invoke(payload: dict) -> dict:
     }
 def register_skill():
     """Return skill metadata"""
-
-if __name__ == "__main__":
     return {
-            "name": "repeated-game-analyzer",
-            "description": "Analyze repeated/iterated games with trigger strategies and folk theorems",
-            "version": "1.0.0",
-            "domain": "STRATEGY",
-        }
+        "name": "repeated-game-analyzer",
+        "description": "Analyze repeated/iterated games with trigger strategies and folk theorems",
+        "version": "1.0.0",
+        "domain": "STRATEGY",
+    }

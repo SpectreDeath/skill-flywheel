@@ -251,11 +251,9 @@ async def invoke(payload: dict) -> dict:
     }
 def register_skill():
     """Return skill metadata"""
-
-if __name__ == "__main__":
     return {
-            "name": "evolutionary-game-solver",
-            "description": "Analyze evolutionary stable strategies and replicator dynamics",
-            "version": "1.0.0",
-            "domain": "STRATEGY",
-        }
+        "name": "evolutionary-game-solver",
+        "description": "Analyze evolutionary stable strategies and replicator dynamics",
+        "version": "1.0.0",
+        "domain": "STRATEGY",
+    }

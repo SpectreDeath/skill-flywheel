@@ -245,164 +245,162 @@ class EnhancedSkillManager:
 
     def _extract_metadata(self, skill_file: Path) -> SkillMetadata:
         """Extract metadata from skill file docstring or attributes"""
+        # Simple extraction logic
+        return SkillMetadata(
+            name=skill_file.stem,
+            description=f"Skill from {skill_file.name}",
+            version="1.0.0",
+            author="auto-discovered",
+        )
 
-if __name__ == "__main__":
-    # Simple extraction logic
-            return SkillMetadata(
-                name=skill_file.stem,
-                description=f"Skill from {skill_file.name}",
-                version="1.0.0",
-                author="auto-discovered",
-            )
+    async def load_skill_dynamically(
+        self, skill_name: str, parallel: bool = True
+    ) -> Any:
+        # Same logic as before...
+        if skill_name not in self.skills:
+            raise ValueError(f"Skill {skill_name} not found")
 
-        async def load_skill_dynamically(
-            self, skill_name: str, parallel: bool = True
-        ) -> Any:
-            # Same logic as before...
-            if skill_name not in self.skills:
-                raise ValueError(f"Skill {skill_name} not found")
-
-            if skill_name in self.loaded_skills:
-                result = self.skill_cache.get(skill_name)
-                if not isinstance(result, ModuleDict) and not isinstance(result, Mock):
-                    result = ModuleDict(
-                        {k: v for k, v in vars(result).items() if not k.startswith("_")}
-                    )
-                return result
-
-            if skill_name in self.loading_tasks:
-                await self.loading_tasks[skill_name]
-                return self.skill_cache.get(skill_name)
-
-            if skill_name not in self.loading_locks:
-                self.loading_locks[skill_name] = asyncio.Lock()
-
-            async with self.loading_locks[skill_name]:
-                if skill_name in self.loaded_skills:
-                    return self.skill_cache.get(skill_name)
-
-                start_time = time.time()
-                loading_task = asyncio.create_task(
-                    self._load_skill_with_dependencies(skill_name, parallel)
+        if skill_name in self.loaded_skills:
+            result = self.skill_cache.get(skill_name)
+            if not isinstance(result, ModuleDict) and not isinstance(result, Mock):
+                result = ModuleDict(
+                    {k: v for k, v in vars(result).items() if not k.startswith("_")}
                 )
-                self.loading_tasks[skill_name] = loading_task
-
-                try:
-                    result = await loading_task
-                    load_time = time.time() - start_time
-                    dependencies = self.dependency_graph.get_dependencies(skill_name)
-                    self.telemetry.track_advanced_skill_execution(
-                        skill_name, load_time, 0.0, True, dependencies
-                    )
-                    logger.info(f"Loaded skill: {skill_name} in {load_time:.2f}s")
-                    return result
-                except Exception as e:
-                    load_time = time.time() - start_time
-                    dependencies = self.dependency_graph.get_dependencies(skill_name)
-                    self.telemetry.track_advanced_skill_execution(
-                        skill_name, load_time, 0.0, False, dependencies
-                    )
-                    logger.error(f"Failed to load skill {skill_name}: {str(e)}")
-                    raise
-                finally:
-                    if skill_name in self.loading_tasks:
-                        del self.loading_tasks[skill_name]
-
-        async def _load_skill_with_dependencies(
-            self, skill_name: str, parallel: bool
-        ) -> Any:
-            dependencies = self.dependency_graph.get_dependencies(skill_name)
-            dep_count = len(dependencies) if not isinstance(dependencies, Mock) else 0
-            if parallel and dep_count > 1:
-                dependency_tasks = [
-                    asyncio.create_task(self.load_skill_dynamically(dep, parallel=True))
-                    for dep in dependencies
-                    if dep not in self.loaded_skills
-                ]
-                if dependency_tasks:
-                    await asyncio.gather(*dependency_tasks, return_exceptions=True)
-            else:
-                for dep in dependencies:
-                    if dep not in self.loaded_skills:
-                        await self.load_skill_dynamically(dep, parallel=False)
-
-            skill_file = self.skills_dir / f"{skill_name}.py"
-            if not skill_file.exists():
-                raise FileNotFoundError(f"Skill file not found: {skill_file}")
-
-            # Proper dynamic import
-            spec = importlib.util.spec_from_file_location(skill_name, skill_file)
-            if spec is None or spec.loader is None:
-                raise ImportError(f"Cannot load module spec for {skill_name}")
-            module = importlib.util.module_from_spec(spec)
-            spec.loader.exec_module(module)
-
-            # Call register_skill() if it exists to get/update metadata
-            if hasattr(module, "register_skill"):
-                try:
-                    reg = module.register_skill()
-                    if isinstance(reg, dict) and "name" in reg:
-                        # Update metadata from register_skill()
-                        metadata = self.skills.get(skill_name)
-                        if metadata:
-                            metadata.version = reg.get("version", metadata.version)
-                            desc = reg.get("description")
-                            if desc:
-                                metadata.description = desc
-                            logger.info(
-                                f"Registered skill metadata: {skill_name} v{metadata.version}"
-                            )
-                except Exception as e:
-                    logger.warning(f"register_skill() failed for {skill_name}: {e}")
-
-            self.skill_cache.put(skill_name, module)
-            self.loaded_skills.add(skill_name)
-
-            metadata = self.skills[skill_name]
-            metadata.status = SkillStatus.ACTIVE
-            metadata.is_loaded = True
-            metadata.last_accessed = datetime.now()
-
-            # Return a ModuleDict for backward compatibility with tests
-            result = ModuleDict(
-                {k: v for k, v in vars(module).items() if not k.startswith("_")}
-            )
-            self.skill_cache.put(skill_name, result)
             return result
 
-        async def execute_skill(self, skill_name: str, *args, **kwargs) -> Any:
-            if skill_name not in self.skills:
-                raise ValueError(f"Skill {skill_name} not found")
+        if skill_name in self.loading_tasks:
+            await self.loading_tasks[skill_name]
+            return self.skill_cache.get(skill_name)
 
-            metadata = self.skills[skill_name]
+        if skill_name not in self.loading_locks:
+            self.loading_locks[skill_name] = asyncio.Lock()
+
+        async with self.loading_locks[skill_name]:
+            if skill_name in self.loaded_skills:
+                return self.skill_cache.get(skill_name)
+
             start_time = time.time()
+            loading_task = asyncio.create_task(
+                self._load_skill_with_dependencies(skill_name, parallel)
+            )
+            self.loading_tasks[skill_name] = loading_task
+
             try:
-                skill_module = await self.load_skill_dynamically(skill_name)
-                skill_func = getattr(skill_module, skill_name, None)
-                if not skill_func:
-                    raise ValueError(f"Skill function {skill_name} not found")
-
-                result = skill_func(*args, **kwargs)
-                execution_time = time.time() - start_time
-                metadata.execution_count += 1
-                metadata.total_execution_time = (
-                    metadata.total_execution_time * (metadata.execution_count - 1)
-                    + execution_time
-                ) / metadata.execution_count
-                metadata.last_accessed = datetime.now()
-
+                result = await loading_task
+                load_time = time.time() - start_time
                 dependencies = self.dependency_graph.get_dependencies(skill_name)
                 self.telemetry.track_advanced_skill_execution(
-                    skill_name, 0.0, execution_time, True, dependencies
+                    skill_name, load_time, 0.0, True, dependencies
                 )
-
-                logger.info(f"Skill {skill_name} executed in {execution_time:.2f}s")
+                logger.info(f"Loaded skill: {skill_name} in {load_time:.2f}s")
                 return result
             except Exception as e:
-                execution_time = time.time() - start_time
+                load_time = time.time() - start_time
                 dependencies = self.dependency_graph.get_dependencies(skill_name)
                 self.telemetry.track_advanced_skill_execution(
-                    skill_name, 0.0, execution_time, False, dependencies
+                    skill_name, load_time, 0.0, False, dependencies
                 )
-                logger.error(f"Skill {skill_name} execution failed: {str(e)}")
+                logger.error(f"Failed to load skill {skill_name}: {str(e)}")
                 raise
+            finally:
+                if skill_name in self.loading_tasks:
+                    del self.loading_tasks[skill_name]
+
+    async def _load_skill_with_dependencies(
+        self, skill_name: str, parallel: bool
+    ) -> Any:
+        dependencies = self.dependency_graph.get_dependencies(skill_name)
+        dep_count = len(dependencies) if not isinstance(dependencies, Mock) else 0
+        if parallel and dep_count > 1:
+            dependency_tasks = [
+                asyncio.create_task(self.load_skill_dynamically(dep, parallel=True))
+                for dep in dependencies
+                if dep not in self.loaded_skills
+            ]
+            if dependency_tasks:
+                await asyncio.gather(*dependency_tasks, return_exceptions=True)
+        else:
+            for dep in dependencies:
+                if dep not in self.loaded_skills:
+                    await self.load_skill_dynamically(dep, parallel=False)
+
+        skill_file = self.skills_dir / f"{skill_name}.py"
+        if not skill_file.exists():
+            raise FileNotFoundError(f"Skill file not found: {skill_file}")
+
+        # Proper dynamic import
+        spec = importlib.util.spec_from_file_location(skill_name, skill_file)
+        if spec is None or spec.loader is None:
+            raise ImportError(f"Cannot load module spec for {skill_name}")
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+
+        # Call register_skill() if it exists to get/update metadata
+        if hasattr(module, "register_skill"):
+            try:
+                reg = module.register_skill()
+                if isinstance(reg, dict) and "name" in reg:
+                    # Update metadata from register_skill()
+                    metadata = self.skills.get(skill_name)
+                    if metadata:
+                        metadata.version = reg.get("version", metadata.version)
+                        desc = reg.get("description")
+                        if desc:
+                            metadata.description = desc
+                        logger.info(
+                            f"Registered skill metadata: {skill_name} v{metadata.version}"
+                        )
+            except Exception as e:
+                logger.warning(f"register_skill() failed for {skill_name}: {e}")
+
+        self.skill_cache.put(skill_name, module)
+        self.loaded_skills.add(skill_name)
+
+        metadata = self.skills[skill_name]
+        metadata.status = SkillStatus.ACTIVE
+        metadata.is_loaded = True
+        metadata.last_accessed = datetime.now()
+
+        # Return a ModuleDict for backward compatibility with tests
+        result = ModuleDict(
+            {k: v for k, v in vars(module).items() if not k.startswith("_")}
+        )
+        self.skill_cache.put(skill_name, result)
+        return result
+
+    async def execute_skill(self, skill_name: str, *args, **kwargs) -> Any:
+        if skill_name not in self.skills:
+            raise ValueError(f"Skill {skill_name} not found")
+
+        metadata = self.skills[skill_name]
+        start_time = time.time()
+        try:
+            skill_module = await self.load_skill_dynamically(skill_name)
+            skill_func = getattr(skill_module, skill_name, None)
+            if not skill_func:
+                raise ValueError(f"Skill function {skill_name} not found")
+
+            result = skill_func(*args, **kwargs)
+            execution_time = time.time() - start_time
+            metadata.execution_count += 1
+            metadata.total_execution_time = (
+                metadata.total_execution_time * (metadata.execution_count - 1)
+                + execution_time
+            ) / metadata.execution_count
+            metadata.last_accessed = datetime.now()
+
+            dependencies = self.dependency_graph.get_dependencies(skill_name)
+            self.telemetry.track_advanced_skill_execution(
+                skill_name, 0.0, execution_time, True, dependencies
+            )
+
+            logger.info(f"Skill {skill_name} executed in {execution_time:.2f}s")
+            return result
+        except Exception as e:
+            execution_time = time.time() - start_time
+            dependencies = self.dependency_graph.get_dependencies(skill_name)
+            self.telemetry.track_advanced_skill_execution(
+                skill_name, 0.0, execution_time, False, dependencies
+            )
+            logger.error(f"Skill {skill_name} execution failed: {str(e)}")
+            raise

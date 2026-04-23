@@ -318,30 +318,28 @@ MANIFEST = {
 
 async def handle_request(action: str, params: Dict[str, Any]) -> Dict[str, Any]:
     """Handle incoming requests."""
-
-if __name__ == "__main__":
     deployer = OpenClawDeployer(params.get("deployment_path"))
 
-        handlers = {
-            "check_requirements": deployer.check_requirements,
-            "deploy_local": lambda: deployer.deploy_local(params.get("model", "gpt-4")),
-            "deploy_docker": lambda: deployer.deploy_docker(
-                params.get("model_provider", "openai"), params.get("model_name", "gpt-4")
-            ),
-            "deploy_vps": lambda: deployer.deploy_vps(
-                params.get("host"), params.get("user", "root"), params.get("key_path")
-            ),
-            "get_status": deployer.get_status,
-            "stop": lambda: deployer.stop(params.get("mode", "all")),
-            "restart": lambda: deployer.restart(params.get("mode", "docker")),
-            "update": deployer.update,
-            "generate_nginx_config": lambda: deployer.generate_nginx_config(
-                params.get("domain"), params.get("ssl", True)
-            ),
-        }
+    handlers = {
+        "check_requirements": deployer.check_requirements,
+        "deploy_local": lambda: deployer.deploy_local(params.get("model", "gpt-4")),
+        "deploy_docker": lambda: deployer.deploy_docker(
+            params.get("model_provider", "openai"), params.get("model_name", "gpt-4")
+        ),
+        "deploy_vps": lambda: deployer.deploy_vps(
+            params.get("host"), params.get("user", "root"), params.get("key_path")
+        ),
+        "get_status": deployer.get_status,
+        "stop": lambda: deployer.stop(params.get("mode", "all")),
+        "restart": lambda: deployer.restart(params.get("mode", "docker")),
+        "update": deployer.update,
+        "generate_nginx_config": lambda: deployer.generate_nginx_config(
+            params.get("domain"), params.get("ssl", True)
+        ),
+    }
 
-        handler = handlers.get(action)
-        if handler:
-            return await handler()
+    handler = handlers.get(action)
+    if handler:
+        return await handler()
 
-        return {"error": f"Unknown action: {action}"}
+    return {"error": f"Unknown action: {action}"}

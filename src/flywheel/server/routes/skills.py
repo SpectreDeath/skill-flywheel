@@ -68,15 +68,13 @@ async def search_skills(q: str = Query(..., min_length=2)):
 @router.get("/domains")
 async def list_domains():
     """List all unique domains and their skill counts"""
-
-if __name__ == "__main__":
     try:
-            with get_db() as db:
-                cursor = db.cursor()
-                cursor.execute(
-                    "SELECT domain, COUNT(*) as count FROM skills GROUP BY domain"
-                )
-                domains = [dict(row) for row in cursor.fetchall()]
-                return {"domains": domains}
-        except Exception as e:
-            raise HTTPException(status_code=500, detail=f"Database error: {e}")
+        with get_db() as db:
+            cursor = db.cursor()
+            cursor.execute(
+                "SELECT domain, COUNT(*) as count FROM skills GROUP BY domain"
+            )
+            domains = [dict(row) for row in cursor.fetchall()]
+            return {"domains": domains}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Database error: {e}")

@@ -1,4 +1,4 @@
-"""
+"
 Repeated Game Analyzer
 
 Analyzes repeated/iterated strategic interactions:
@@ -7,7 +7,7 @@ Analyzes repeated/iterated strategic interactions:
 - Trigger strategies
 - Tit-for-tat analysis
 - Collusion in oligopoly
-"""
+"
 
 from typing import Any, Dict, List
 from datetime import datetime
@@ -249,12 +249,10 @@ async def invoke(payload: dict) -> dict:
         },
     }
 def register_skill():
-    """ Return skill metadata """
-
-if __name__ == "__main__":
+    "Return skill metadata"
     return {
-            "name": "repeated-game-analyzer",
-            "description": "Analyze repeated/iterated games with trigger strategies and folk theorems",
-            "version": "1.0.0",
-            "domain": "STRATEGY",
-        }
+        "name": "repeated-game-analyzer",
+        "description": "Analyze repeated/iterated games with trigger strategies and folk theorems",
+        "version": "1.0.0",
+        "domain": "STRATEGY",
+    }

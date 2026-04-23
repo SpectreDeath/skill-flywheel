@@ -113,11 +113,9 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 def register_skill():
     """Return skill metadata for registration"""
-
-if __name__ == "__main__":
     return {
-            "name": "pathlib-wrapper",
-            "description": "Auto-generated skill wrapping pathlib public API",
-            "domain": "skill_management",
-            "version": "1.0.0",
-        }
+        "name": "pathlib-wrapper",
+        "description": "Auto-generated skill wrapping pathlib public API",
+        "domain": "skill_management",
+        "version": "1.0.0",
+    }

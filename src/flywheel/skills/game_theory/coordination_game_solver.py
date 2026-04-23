@@ -1,4 +1,4 @@
-"""
+"
 Coordination Game Solver
 
 Helps resolve coordination problems:
@@ -7,7 +7,7 @@ Helps resolve coordination problems:
 - Stag Hunt
 - Network effects
 - Focal points (Schelling points)
-"""
+"
 
 from typing import Any, Dict, List
 from datetime import datetime
@@ -344,12 +344,10 @@ async def invoke(payload: dict) -> dict:
         },
     }
 def register_skill():
-    """ Return skill metadata """
-
-if __name__ == "__main__":
+    "Return skill metadata"
     return {
-            "name": "coordination-game-solver",
-            "description": "Solve coordination problems including pure coordination, battle of the sexes, and stag hunt",
-            "version": "1.0.0",
-            "domain": "STRATEGY",
-        }
+        "name": "coordination-game-solver",
+        "description": "Solve coordination problems including pure coordination, battle of the sexes, and stag hunt",
+        "version": "1.0.0",
+        "domain": "STRATEGY",
+    }

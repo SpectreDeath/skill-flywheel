@@ -151,29 +151,27 @@ def auction_strategy_analyzer(
 
 async def invoke(payload: dict) -> dict:
     """MCP skill invocation"""
-
-if __name__ == "__main__":
     action = payload.get("action", "analyze")
-        auction_type = payload.get("auction_type", "sealed_bid")
-        private_value = payload.get("private_value", 0)
-        num_bidders = payload.get("num_bidders", 5)
+    auction_type = payload.get("auction_type", "sealed_bid")
+    private_value = payload.get("private_value", 0)
+    num_bidders = payload.get("num_bidders", 5)
 
-        if action == "analyze":
-            result = auction_strategy_analyzer(auction_type, private_value, num_bidders)
-        else:
-            result = {"status": "error", "message": f"Unknown action: {action}"}
+    if action == "analyze":
+        result = auction_strategy_analyzer(auction_type, private_value, num_bidders)
+    else:
+        result = {"status": "error", "message": f"Unknown action: {action}"}
 
-        return{
-            "result": result,
-            "metadata": {
-                "action": action,
-                "timestamp": datetime.now().isoformat(),
-            },
-        }
-    def register_skill():
-        return {
-            "name": "auction-strategy-analyzer",
-            "description": "Model auction strategies and optimal bidding",
-            "version": "1.0.0",
-            "domain": "STRATEGY",
-        }
+    return{
+        "result": result,
+        "metadata": {
+            "action": action,
+            "timestamp": datetime.now().isoformat(),
+        },
+    }
+def register_skill():
+    return {
+        "name": "auction-strategy-analyzer",
+        "description": "Model auction strategies and optimal bidding",
+        "version": "1.0.0",
+        "domain": "STRATEGY",
+    }

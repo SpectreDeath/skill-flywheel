@@ -483,11 +483,9 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 def register_skill() -> Dict[str, str]:
     """Return skill metadata."""
-
-if __name__ == "__main__":
     return {
-            "name": "adk-bridge",
-            "description": "ADK Skills integration bridge with L1/L2/L3 progressive disclosure",
-            "version": "1.0.0",
-            "domain": "INTEGRATION",
-        }
+        "name": "adk-bridge",
+        "description": "ADK Skills integration bridge with L1/L2/L3 progressive disclosure",
+        "version": "1.0.0",
+        "domain": "INTEGRATION",
+    }

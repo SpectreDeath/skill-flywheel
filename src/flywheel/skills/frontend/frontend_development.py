@@ -71,11 +71,9 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 def register_skill() -> Dict[str, str]:
     """Return skill metadata."""
-
-if __name__ == "__main__":
     return {
-            "name": "frontend-development",
-            "description": "Use when: developing frontend applications, creating React/Vue/Angular components, implementing state management, optimizing frontend performance, or building responsive layouts. Triggers: 'frontend', 'react', 'vue', 'angular', 'component', 'state management', 'responsive', 'UI', 'web development'. NOT for: backend-only projects, when no web UI needed, or when using pre-built component libraries only.",
-            "version": "1.0.0",
-            "domain": "FRONTEND",
-        }
+        "name": "frontend-development",
+        "description": "Use when: developing frontend applications, creating React/Vue/Angular components, implementing state management, optimizing frontend performance, or building responsive layouts. Triggers: 'frontend', 'react', 'vue', 'angular', 'component', 'state management', 'responsive', 'UI', 'web development'. NOT for: backend-only projects, when no web UI needed, or when using pre-built component libraries only.",
+        "version": "1.0.0",
+        "domain": "FRONTEND",
+    }

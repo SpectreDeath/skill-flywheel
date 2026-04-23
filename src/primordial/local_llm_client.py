@@ -26,43 +26,41 @@ class LocalLLMClient:
 
     def generate(self, prompt: str, system: str | None = None) -> str:
         """Generate a response using the local model."""
+        import requests
 
-if __name__ == "__main__":
-    import requests
+        payload = {
+            "model": self.model,
+            "prompt": prompt,
+            "temperature": self.temperature,
+            "max_tokens": self.max_tokens,
+            "stream": False,
+        }
 
-            payload = {
-                "model": self.model,
-                "prompt": prompt,
-                "temperature": self.temperature,
-                "max_tokens": self.max_tokens,
-                "stream": False,
-            }
+        if system:
+            payload["system"] = system
 
-            if system:
-                payload["system"] = system
+        # Try Ollama format first
+        try:
+            response = requests.post(
+                f"{self.base_url}/api/generate",
+                json=payload,
+                timeout=120,
+            )
+            response.raise_for_status()
+            return response.json().get("response", "")
+        except requests.exceptions.RequestException:
+            pass
 
-            # Try Ollama format first
-            try:
-                response = requests.post(
-                    f"{self.base_url}/api/generate",
-                    json=payload,
-                    timeout=120,
-                )
-                response.raise_for_status()
-                return response.json().get("response", "")
-            except requests.exceptions.RequestException:
-                pass
+        # Try OpenAI-compatible format
+        try:
+            response = requests.post(
+                f"{self.base_url}/v1/completions",
+                json=payload,
+                timeout=120,
+            )
+            response.raise_for_status()
+            return response.json().get("choices", [{}])[0].get("text", "")
+        except requests.exceptions.RequestException:
+            pass
 
-            # Try OpenAI-compatible format
-            try:
-                response = requests.post(
-                    f"{self.base_url}/v1/completions",
-                    json=payload,
-                    timeout=120,
-                )
-                response.raise_for_status()
-                return response.json().get("choices", [{}])[0].get("text", "")
-            except requests.exceptions.RequestException:
-                pass
-
-            raise RuntimeError(f"Failed to connect to local LLM at {self.base_url}")
+        raise RuntimeError(f"Failed to connect to local LLM at {self.base_url}")

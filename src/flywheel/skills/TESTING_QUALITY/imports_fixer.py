@@ -326,11 +326,9 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 def register_skill():
     """Return skill metadata."""
-
-if __name__ == "__main__":
     return {
-            "name": "imports-fixer",
-            "description": "Detects and fixes Python imports that are placed inside function bodies instead of at module level",
-            "version": "1.0.0",
-            "domain": "TESTING_QUALITY",
-        }
+        "name": "imports-fixer",
+        "description": "Detects and fixes Python imports that are placed inside function bodies instead of at module level",
+        "version": "1.0.0",
+        "domain": "TESTING_QUALITY",
+    }

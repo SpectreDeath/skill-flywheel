@@ -339,14 +339,12 @@ class MockResearchMutator(KiloResearchMutator):
         self, failure_cases: List[SkillFailureCase]
     ) -> Dict[str, Any]:
         """Simulate research findings."""
+        logger.info("Using mock research (no external APIs)")
 
-if __name__ == "__main__":
-    logger.info("Using mock research (no external APIs)")
+        results = {
+            "web_findings": ["mock web finding 1", "mock web finding 2"],
+            "code_findings": ["mock code finding 1"],
+            "patterns": self._identify_patterns(failure_cases),
+        }
 
-            results = {
-                "web_findings": ["mock web finding 1", "mock web finding 2"],
-                "code_findings": ["mock code finding 1"],
-                "patterns": self._identify_patterns(failure_cases),
-            }
-
-            return results
+        return results

@@ -275,11 +275,9 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 def register_skill() -> Dict[str, str]:
     """Return skill metadata."""
-
-if __name__ == "__main__":
     return {
-            "name": "axelrod-strategies",
-            "description": "All classic Axelrod tournament strategies for iterative Prisoner's Dilemma. Includes Tit-For-Tat, Grudger, and 17+ more strategies.",
-            "version": "1.0.0",
-            "domain": "strategic_simulation",
-        }
+        "name": "axelrod-strategies",
+        "description": "All classic Axelrod tournament strategies for iterative Prisoner's Dilemma. Includes Tit-For-Tat, Grudger, and 17+ more strategies.",
+        "version": "1.0.0",
+        "domain": "strategic_simulation",
+    }

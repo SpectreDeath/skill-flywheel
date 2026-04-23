@@ -1,9 +1,9 @@
-"""
+"
 OpenClaw Deployment Skill
 
 Provides capabilities for deploying and managing OpenClaw across
 different platforms including local, VPS, Docker, and cloud environments.
-"""
+"
 
 import asyncio
 import os
@@ -49,7 +49,7 @@ class OpenClawDeployer:
         )
 
     def check_requirements(self) -> Dict[str, Any]:
-        """ Check deployment requirements. """
+        "Check deployment requirements."
         requirements = {
             "docker": self._check_command("docker"),
             "docker_compose": self._check_command("docker-compose")
@@ -180,7 +180,7 @@ OPENAI_API_KEY=$OPENAI_API_KEY
             return {"error": str(e)}
 
     async def get_status(self) -> Dict[str, Any]:
-        """ Get deployment status. """
+        "Get deployment status."
         status = {
             "local": self._check_local_running(),
             "docker": self._check_docker_running(),
@@ -192,7 +192,7 @@ OPENAI_API_KEY=$OPENAI_API_KEY
         return status
 
     def _check_local_running(self) -> Dict[str, Any]:
-        """ Check if local OpenClaw is running. """
+        "Check if local OpenClaw is running."
         result = subprocess.run(["pgrep", "-f", "openclaw"], capture_output=True, check=False)
 
         return {
@@ -201,7 +201,7 @@ OPENAI_API_KEY=$OPENAI_API_KEY
         }
 
     def _check_docker_running(self) -> Dict[str, Any]:
-        """ Check if Docker containers are running. """
+        "Check if Docker containers are running."
         result = subprocess.run(
             ["docker", "ps", "--filter", "name=openclaw", "--format", "{{.Names}}"],
             capture_output=True, check=False,
@@ -239,7 +239,7 @@ OPENAI_API_KEY=$OPENAI_API_KEY
         return {"status": "success", "restarted": mode}
 
     async def update(self) -> Dict[str, Any]:
-        """ Update OpenClaw to latest version. """
+        "Update OpenClaw to latest version."
         result = await self._run_command(["npm", "update", "-g", "@openclaw/cli"])
 
         if result.returncode == 0:
@@ -346,11 +346,9 @@ async def handle_request(action: str, params: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def register_skill() -> dict:
-    """ Return skill metadata. """
-
-if __name__ == "__main__":
+    "Return skill metadata."
     return {
-            "name": "openclaw_deployer",
-            "domain": "infrastructure",
-            "version": "1.0.0",
-        }
+        "name": "openclaw_deployer",
+        "domain": "infrastructure",
+        "version": "1.0.0",
+    }

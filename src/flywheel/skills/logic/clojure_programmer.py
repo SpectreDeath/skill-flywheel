@@ -279,11 +279,9 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 def register_skill() -> Dict[str, str]:
     """Return skill metadata."""
-
-if __name__ == "__main__":
     return {
-            "name": "clojure-programmer",
-            "description": "Clojure programming for agent systems. Use when building with functional patterns, core.logic, core.async, or immutable state. Requires JVM.",
-            "version": "1.0.0",
-            "domain": "logic",
-        }
+        "name": "clojure-programmer",
+        "description": "Clojure programming for agent systems. Use when building with functional patterns, core.logic, core.async, or immutable state. Requires JVM.",
+        "version": "1.0.0",
+        "domain": "logic",
+    }

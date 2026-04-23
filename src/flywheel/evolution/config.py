@@ -88,6 +88,4 @@ class EvolutionConfig:
     @classmethod
     def from_dict(cls, data: Dict[str, Any]) -> EvolutionConfig:
         """Create config from dictionary."""
-
-if __name__ == "__main__":
-    return cls(**data)
+        return cls(**data)

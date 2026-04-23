@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""
+"
 Skill: how-to-master-advanced-torchvision-v2-transforms-mixup-cutmix-and-modern-cnn-training-for-state-of-the-art-computer-vision
 Domain: ML_AI
 Description: ## Purpose
-"""
+"
 
 import logging
 from datetime import datetime
@@ -17,7 +17,7 @@ DESCRIPTION = "## Purpose"
 
 
 def get_capabilities():
-    """ Return skill capabilities. """
+    "Return skill capabilities."
     return {
         "name": SKILL_NAME,
         "domain": DOMAIN,
@@ -72,7 +72,7 @@ if __name__ == "__main__":
 
 
 def register_skill() -> dict:
-    """ Return skill metadata. """
+    "Return skill metadata."
     return {
         "name": "how_to_master_advanced_torchvision_v2_transforms_mixup_cutmix_and_modern_cnn_tra",
         "domain": "ml_ai",

@@ -144,11 +144,9 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 def register_skill() -> Dict[str, str]:
     """Return skill metadata."""
-
-if __name__ == "__main__":
     return {
-            "name": "swi-prolog-programmer",
-            "description": "SWI-Prolog-specific tooling, standards, and idioms. Use when working with SWI-Prolog code. Emphasizes relational thinking, steadfastness, DCGs, constraints, and mandatory testing with PlUnit.",
-            "version": "1.0.0",
-            "domain": "logic",
-        }
+        "name": "swi-prolog-programmer",
+        "description": "SWI-Prolog-specific tooling, standards, and idioms. Use when working with SWI-Prolog code. Emphasizes relational thinking, steadfastness, DCGs, constraints, and mandatory testing with PlUnit.",
+        "version": "1.0.0",
+        "domain": "logic",
+    }

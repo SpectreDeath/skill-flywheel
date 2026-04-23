@@ -375,16 +375,14 @@ def create_real_executor(
 
 def get_skill_from_registry(skill_name: str) -> Any:
     """Import and return a skill module from the skills package."""
-
-if __name__ == "__main__":
     try:
-            import src.skills
+        import src.skills
 
-            skills_path = Path(src.skills.__file__).parent
+        skills_path = Path(src.skills.__file__).parent
 
-            loader = SkillLoader(skills_path)
-            return loader.load_skill(skill_name)
-        except Exception as e:
-            raise SkillNotFoundError(
-                f"Could not load skill '{skill_name}' from registry: {e}"
-            )
+        loader = SkillLoader(skills_path)
+        return loader.load_skill(skill_name)
+    except Exception as e:
+        raise SkillNotFoundError(
+            f"Could not load skill '{skill_name}' from registry: {e}"
+        )

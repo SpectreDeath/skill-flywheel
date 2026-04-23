@@ -66,9 +66,7 @@ async def start_evolution(
 @router.get("/status/{job_id}")
 async def get_evolution_status(job_id: str):
     """Get evolution job status."""
-
-if __name__ == "__main__":
     status = tasks.get_job_status(job_id)
-        if not status:
-            raise HTTPException(status_code=404, detail="Job not found")
-        return status.to_dict()
+    if not status:
+        raise HTTPException(status_code=404, detail="Job not found")
+    return status.to_dict()

@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""
+"
 skillsmp-master
 
 "Use when: working with SkillsMP to discover, learn from, orchestrate, generate skills, or find capability gaps. Master skill that delegates to specialized skills (api-client, skill-learner, skill-orchestrator, skill-factory, gap-discoverer). Triggers: 'skillsmp', 'skill marketplace', 'AI skills', 'agent skills', 'find skills', 'learn skills', 'orchestrate'. Requires API key from skillsmp.com."
-"""
+"
 
 import logging
 from datetime import datetime
@@ -70,12 +70,10 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def register_skill() -> Dict[str, str]:
-    """ Return skill metadata. """
-
-if __name__ == "__main__":
+    "Return skill metadata."
     return {
-            "name": "skillsmp-master",
-            "description": "Use when: working with SkillsMP to discover, learn from, orchestrate, generate skills, or find capability gaps. Master skill that delegates to specialized skills (api-client, skill-learner, skill-orchestrator, skill-factory, gap-discoverer). Triggers: 'skillsmp', 'skill marketplace', 'AI skills', 'agent skills', 'find skills', 'learn skills', 'orchestrate'. Requires API key from skillsmp.com.",
-            "version": "1.0.0",
-            "domain": "SKILLSMP-ECOSYSTEM",
-        }
+        "name": "skillsmp-master",
+        "description": "Use when: working with SkillsMP to discover, learn from, orchestrate, generate skills, or find capability gaps. Master skill that delegates to specialized skills (api-client, skill-learner, skill-orchestrator, skill-factory, gap-discoverer). Triggers: 'skillsmp', 'skill marketplace', 'AI skills', 'agent skills', 'find skills', 'learn skills', 'orchestrate'. Requires API key from skillsmp.com.",
+        "version": "1.0.0",
+        "domain": "SKILLSMP-ECOSYSTEM",
+    }

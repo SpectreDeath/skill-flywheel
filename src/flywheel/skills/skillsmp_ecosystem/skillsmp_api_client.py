@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""
+"
 skillsmp-api-client
 
 "Use when: making HTTP requests to the SkillsMP API (skillsmp.com) to search for AI agent skills, query the skill marketplace, or retrieve skill metadata. Triggers: 'skillsmp', 'search skills', 'find skill', 'skill marketplace', 'AI skills', 'agent skills'. Requires API key from skillsmp.com. NOT for: skills that are already installed locally."
-"""
+"
 
 import logging
 from datetime import datetime
@@ -70,12 +70,10 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def register_skill() -> Dict[str, str]:
-    """ Return skill metadata. """
-
-if __name__ == "__main__":
+    "Return skill metadata."
     return {
-            "name": "skillsmp-api-client",
-            "description": "Use when: making HTTP requests to the SkillsMP API (skillsmp.com) to search for AI agent skills, query the skill marketplace, or retrieve skill metadata. Triggers: 'skillsmp', 'search skills', 'find skill', 'skill marketplace', 'AI skills', 'agent skills'. Requires API key from skillsmp.com. NOT for: skills that are already installed locally.",
-            "version": "1.0.0",
-            "domain": "SKILLSMP-ECOSYSTEM",
-        }
+        "name": "skillsmp-api-client",
+        "description": "Use when: making HTTP requests to the SkillsMP API (skillsmp.com) to search for AI agent skills, query the skill marketplace, or retrieve skill metadata. Triggers: 'skillsmp', 'search skills', 'find skill', 'skill marketplace', 'AI skills', 'agent skills'. Requires API key from skillsmp.com. NOT for: skills that are already installed locally.",
+        "version": "1.0.0",
+        "domain": "SKILLSMP-ECOSYSTEM",
+    }

@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""
+"
 covert-network-triggers
 
 "Use when: implementing covert wake-up mechanisms for dormant processes using protocol-specific packet encoding across ICMP, DNS, TFTP, TCP/UDP. Triggers: 'covert trigger', 'beacon wake-up', 'DNS tunnel', 'ICMP ping', 'protocol steganography'. NOT for: standard network communication, or when overt channels are acceptable."
-"""
+"
 
 import logging
 from datetime import datetime
@@ -70,12 +70,10 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def register_skill() -> Dict[str, str]:
-    """ Return skill metadata. """
-
-if __name__ == "__main__":
+    "Return skill metadata."
     return {
-            "name": "covert-network-triggers",
-            "description": "Use when: implementing covert wake-up mechanisms for dormant processes using protocol-specific packet encoding across ICMP, DNS, TFTP, TCP/UDP. Triggers: 'covert trigger', 'beacon wake-up', 'DNS tunnel', 'ICMP ping', 'protocol steganography'. NOT for: standard network communication, or when overt channels are acceptable.",
-            "version": "1.0.0",
-            "domain": "SECURITY-RESEARCH",
-        }
+        "name": "covert-network-triggers",
+        "description": "Use when: implementing covert wake-up mechanisms for dormant processes using protocol-specific packet encoding across ICMP, DNS, TFTP, TCP/UDP. Triggers: 'covert trigger', 'beacon wake-up', 'DNS tunnel', 'ICMP ping', 'protocol steganography'. NOT for: standard network communication, or when overt channels are acceptable.",
+        "version": "1.0.0",
+        "domain": "SECURITY-RESEARCH",
+    }

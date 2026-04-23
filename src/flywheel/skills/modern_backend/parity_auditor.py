@@ -243,11 +243,9 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 def register_skill():
     """Return skill metadata."""
-
-if __name__ == "__main__":
     return {
-            "name": "parity-auditor",
-            "description": "Compares porting workspace against archived source to identify missing files, subsystems, and coverage gaps",
-            "version": "1.0.0",
-            "domain": "MODERN_BACKEND",
-        }
+        "name": "parity-auditor",
+        "description": "Compares porting workspace against archived source to identify missing files, subsystems, and coverage gaps",
+        "version": "1.0.0",
+        "domain": "MODERN_BACKEND",
+    }

@@ -1,9 +1,9 @@
-"""
+"
 OpenClaw Database Management Skill
 
 Provides capabilities for managing OpenClaw's SQLite database,
 including backup, restore, query, and maintenance operations.
-"""
+"
 
 import gzip
 import shutil
@@ -23,7 +23,7 @@ class OpenClawDatabaseManager:
             self.db_path = Path.home() / ".openclaw" / "openclaw.db"
 
     def get_database_info(self) -> Dict[str, Any]:
-        """ Get database information. """
+        "Get database information."
         if not self.db_path.exists():
             return {"error": "Database not found"}
 
@@ -37,7 +37,7 @@ class OpenClawDatabaseManager:
         }
 
     def list_tables(self) -> List[Dict[str, Any]]:
-        """ List all tables in the database. """
+        "List all tables in the database."
         if not self.db_path.exists():
             return [{"error": "Database not found"}]
 
@@ -201,7 +201,7 @@ class OpenClawDatabaseManager:
             return {"error": str(e)}
 
     def vacuum(self) -> Dict[str, Any]:
-        """ Run VACUUM to optimize database. """
+        "Run VACUUM to optimize database."
         if not self.db_path.exists():
             return {"error": "Database not found"}
 
@@ -232,7 +232,7 @@ class OpenClawDatabaseManager:
         return self.query_table("conversations", limit=limit)
 
     def get_agent_stats(self) -> Dict[str, Any]:
-        """ Get agent usage statistics. """
+        "Get agent usage statistics."
         if not self.db_path.exists():
             return {"error": "Database not found"}
 
@@ -310,11 +310,9 @@ def handle_request(action: str, params: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def register_skill() -> dict:
-    """ Return skill metadata. """
-
-if __name__ == "__main__":
+    "Return skill metadata."
     return {
-            "name": "openclaw_database_manager",
-            "domain": "infrastructure",
-            "version": "1.0.0",
-        }
+        "name": "openclaw_database_manager",
+        "domain": "infrastructure",
+        "version": "1.0.0",
+    }

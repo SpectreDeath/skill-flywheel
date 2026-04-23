@@ -263,11 +263,9 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 def register_skill() -> Dict[str, str]:
     """Return skill metadata."""
-
-if __name__ == "__main__":
     return {
-            "name": "prolog-agent-reasoning",
-            "description": "Python-Prolog bridge for agent behavioral reasoning with fallback to pure Python.",
-            "version": "1.0.0",
-            "domain": "strategic_simulation",
-        }
+        "name": "prolog-agent-reasoning",
+        "description": "Python-Prolog bridge for agent behavioral reasoning with fallback to pure Python.",
+        "version": "1.0.0",
+        "domain": "strategic_simulation",
+    }

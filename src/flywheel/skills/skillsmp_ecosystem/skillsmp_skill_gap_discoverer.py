@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""
+"
 skillsmp-skill-gap-discoverer
 
 "Use when: identifying missing capabilities in SkillsMP, discovering gaps in available skills for specific tasks, analyzing coverage, or recommending new skills to create. Triggers: 'find gaps', 'missing skills', 'coverage analysis', 'recommend skill', 'identify gaps'. Works with skillsmp-api-client."
-"""
+"
 
 import logging
 from datetime import datetime
@@ -70,12 +70,10 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def register_skill() -> Dict[str, str]:
-    """ Return skill metadata. """
-
-if __name__ == "__main__":
+    "Return skill metadata."
     return {
-            "name": "skillsmp-skill-gap-discoverer",
-            "description": "Use when: identifying missing capabilities in SkillsMP, discovering gaps in available skills for specific tasks, analyzing coverage, or recommending new skills to create. Triggers: 'find gaps', 'missing skills', 'coverage analysis', 'recommend skill', 'identify gaps'. Works with skillsmp-api-client.",
-            "version": "1.0.0",
-            "domain": "SKILLSMP-ECOSYSTEM",
-        }
+        "name": "skillsmp-skill-gap-discoverer",
+        "description": "Use when: identifying missing capabilities in SkillsMP, discovering gaps in available skills for specific tasks, analyzing coverage, or recommending new skills to create. Triggers: 'find gaps', 'missing skills', 'coverage analysis', 'recommend skill', 'identify gaps'. Works with skillsmp-api-client.",
+        "version": "1.0.0",
+        "domain": "SKILLSMP-ECOSYSTEM",
+    }

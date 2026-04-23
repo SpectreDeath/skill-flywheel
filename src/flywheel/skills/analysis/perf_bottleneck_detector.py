@@ -190,11 +190,9 @@ async def invoke(payload: dict) -> dict:
     }
 def register_skill():
     """Return skill metadata"""
-
-if __name__ == "__main__":
     return {
-            "name": "perf-bottleneck-detector",
-            "description": "Detect performance bottlenecks in Python code",
-            "version": "1.0.0",
-            "domain": "DATA_ENGINEERING",
-        }
+        "name": "perf-bottleneck-detector",
+        "description": "Detect performance bottlenecks in Python code",
+        "version": "1.0.0",
+        "domain": "DATA_ENGINEERING",
+    }

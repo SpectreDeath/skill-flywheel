@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""
+"
 layered-crypto-channel
 
 "Use when: implementing encrypted network communications with defense-in-depth using multiple cryptographic layers. Triggers: 'layered encryption', 'crypto channel', 'defense in depth', 'key exchange', 'symmetric encryption'. NOT for: single-layer encryption (use standard TLS), or when performance is critical."
-"""
+"
 
 import logging
 from datetime import datetime
@@ -70,12 +70,10 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def register_skill() -> Dict[str, str]:
-    """ Return skill metadata. """
-
-if __name__ == "__main__":
+    "Return skill metadata."
     return {
-            "name": "layered-crypto-channel",
-            "description": "Use when: implementing encrypted network communications with defense-in-depth using multiple cryptographic layers. Triggers: 'layered encryption', 'crypto channel', 'defense in depth', 'key exchange', 'symmetric encryption'. NOT for: single-layer encryption (use standard TLS), or when performance is critical.",
-            "version": "1.0.0",
-            "domain": "SECURITY-RESEARCH",
-        }
+        "name": "layered-crypto-channel",
+        "description": "Use when: implementing encrypted network communications with defense-in-depth using multiple cryptographic layers. Triggers: 'layered encryption', 'crypto channel', 'defense in depth', 'key exchange', 'symmetric encryption'. NOT for: single-layer encryption (use standard TLS), or when performance is critical.",
+        "version": "1.0.0",
+        "domain": "SECURITY-RESEARCH",
+    }

@@ -136,11 +136,9 @@ async def invoke(payload: dict) -> dict:
     }
 def register_skill():
     """Return skill metadata"""
-
-if __name__ == "__main__":
     return {
-            "name": "strategic-decision-matrix",
-            "description": "Evaluate strategic options using decision matrices",
-            "version": "1.0.0",
-            "domain": "STRATEGY",
-        }
+        "name": "strategic-decision-matrix",
+        "description": "Evaluate strategic options using decision matrices",
+        "version": "1.0.0",
+        "domain": "STRATEGY",
+    }

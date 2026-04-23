@@ -526,18 +526,16 @@ def register_skill() -> dict:
     Returns:
         Dictionary with skill metadata
     """
-
-if __name__ == "__main__":
     return {
-            "name": "secret-scanner",
-            "description": "Scan code for hardcoded secrets, API keys, tokens, and passwords with severity assessment and redaction",
-            "version": "1.0.0",
-            "domain": "SECURITY",
-            "capabilities": [
-                "credential_detection",
-                "secret_redaction",
-                "severity_assessment",
-                "remediation_guidance",
-            ],
-            "supported_secret_types": list(SECRET_PATTERNS.keys()),
-        }
+        "name": "secret-scanner",
+        "description": "Scan code for hardcoded secrets, API keys, tokens, and passwords with severity assessment and redaction",
+        "version": "1.0.0",
+        "domain": "SECURITY",
+        "capabilities": [
+            "credential_detection",
+            "secret_redaction",
+            "severity_assessment",
+            "remediation_guidance",
+        ],
+        "supported_secret_types": list(SECRET_PATTERNS.keys()),
+    }

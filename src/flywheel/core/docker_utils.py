@@ -43,21 +43,19 @@ class DockerUtils:
 
     async def get_infrastructure_status(self) -> Dict[str, Any]:
         """Get the current status of all containers in the infrastructure."""
+        if not self.client:
+            return {"status": "error", "message": "Docker client not initialized"}
 
-if __name__ == "__main__":
-    if not self.client:
-                return {"status": "error", "message": "Docker client not initialized"}
-
-            try:
-                containers = await asyncio.to_thread(self.client.containers.list)
-                running_services = [c.name for c in containers]
-                return {
-                    "status": "success",
-                    "verification": {
-                        "services_running": len(running_services),
-                        "running_containers": running_services,
-                    },
-                }
-            except Exception as e:
-                logger.error(f"Failed to get infrastructure status: {e}")
-                return {"status": "error", "message": str(e)}
+        try:
+            containers = await asyncio.to_thread(self.client.containers.list)
+            running_services = [c.name for c in containers]
+            return {
+                "status": "success",
+                "verification": {
+                    "services_running": len(running_services),
+                    "running_containers": running_services,
+                },
+            }
+        except Exception as e:
+            logger.error(f"Failed to get infrastructure status: {e}")
+            return {"status": "error", "message": str(e)}

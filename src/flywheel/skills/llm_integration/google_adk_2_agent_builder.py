@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""
+"
 google-adk-2-agent-builder
 
 "Use when: building AI agents with Google Agent Development Kit (ADK) 2.0, creating graph-based workflows, building multi-agent systems, or running agents with Gemini/Claude. Triggers: 'ADK', 'agent development kit', 'google adk', 'build agent', 'graph workflow', 'workflow agent', 'multi-agent', 'sequential agent', 'parallel agent', 'loop agent', 'run agent'. Requires: google-adk 2.0.0a2+. NOT for: ADK 1.x (use google-adk 1.x skills)."
-"""
+"
 
 import logging
 from datetime import datetime
@@ -70,12 +70,10 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def register_skill() -> Dict[str, str]:
-    """ Return skill metadata. """
-
-if __name__ == "__main__":
+    "Return skill metadata."
     return {
-            "name": "google-adk-2-agent-builder",
-            "description": "Use when: building AI agents with Google Agent Development Kit (ADK) 2.0, creating graph-based workflows, building multi-agent systems, or running agents with Gemini/Claude. Triggers: 'ADK', 'agent development kit', 'google adk', 'build agent', 'graph workflow', 'workflow agent', 'multi-agent', 'sequential agent', 'parallel agent', 'loop agent', 'run agent'. Requires: google-adk 2.0.0a2+. NOT for: ADK 1.x (use google-adk 1.x skills).",
-            "version": "1.0.0",
-            "domain": "LLM_INTEGRATION",
-        }
+        "name": "google-adk-2-agent-builder",
+        "description": "Use when: building AI agents with Google Agent Development Kit (ADK) 2.0, creating graph-based workflows, building multi-agent systems, or running agents with Gemini/Claude. Triggers: 'ADK', 'agent development kit', 'google adk', 'build agent', 'graph workflow', 'workflow agent', 'multi-agent', 'sequential agent', 'parallel agent', 'loop agent', 'run agent'. Requires: google-adk 2.0.0a2+. NOT for: ADK 1.x (use google-adk 1.x skills).",
+        "version": "1.0.0",
+        "domain": "LLM_INTEGRATION",
+    }
