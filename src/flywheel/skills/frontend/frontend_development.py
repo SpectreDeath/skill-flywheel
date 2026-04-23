@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"
+"""
 frontend-development
 
-"Use when: developing frontend applications, creating React/Vue/Angular components, implementing state management, optimizing frontend performance, or building responsive layouts. Triggers: 'frontend', 'react', 'vue', 'angular', 'component', 'state management', 'responsive', 'UI', 'web development'. NOT for: backend-only projects, when no web UI needed, or when using pre-built component libraries only."
-"
+Use when: developing frontend applications, creating React/Vue/Angular components, implementing state management, optimizing frontend performance, or building responsive layouts. Triggers: 'frontend', 'react', 'vue', 'angular', 'component', 'state management', 'responsive', 'UI', 'web development'. NOT for: backend-only projects, when no web UI needed, or when using pre-built component libraries only.
+"""
 
 import logging
 from datetime import datetime
@@ -13,7 +13,7 @@ logger = logging.getLogger(__name__)
 
 
 def frontend_development(payload: Dict[str, Any]) -> Dict[str, Any]:
-    "
+    """
     Core implementation for frontend-development.
 
     Args:
@@ -21,7 +21,7 @@ def frontend_development(payload: Dict[str, Any]) -> Dict[str, Any]:
 
     Returns:
         Result dictionary with status and data
-    "
+    """
     # Implement Frontend Development logic
     # This skill handles: Frontend
     result = {"data": payload}
@@ -70,7 +70,7 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def register_skill() -> Dict[str, str]:
-    "Return skill metadata."
+    """Return skill metadata."""
     return {
         "name": "frontend-development",
         "description": "Use when: developing frontend applications, creating React/Vue/Angular components, implementing state management, optimizing frontend performance, or building responsive layouts. Triggers: 'frontend', 'react', 'vue', 'angular', 'component', 'state management', 'responsive', 'UI', 'web development'. NOT for: backend-only projects, when no web UI needed, or when using pre-built component libraries only.",

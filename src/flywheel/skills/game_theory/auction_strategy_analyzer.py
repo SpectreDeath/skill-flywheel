@@ -1,4 +1,4 @@
-"
+"""
 Auction Strategy Analyzer
 
 Models auction strategies and optimal bidding:
@@ -6,7 +6,7 @@ Models auction strategies and optimal bidding:
 - English, Dutch, Vickrey, sealed-bid analysis
 - Optimal bidding strategies
 - Reserve price calculations
-"
+"""
 
 import random
 from typing import Any, Dict, List
