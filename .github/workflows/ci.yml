@@ -25,4 +25,4 @@ jobs:
       
       - name: Run tests
         run: |
-          pytest --cache-clear tests/ -v --tb=long -o addopts= --no-cov
+          pytest --cache-clear tests/ -v --tb=long --no-cov
