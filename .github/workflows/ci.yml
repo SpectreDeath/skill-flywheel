@@ -22,8 +22,7 @@ jobs:
       - name: Install dependencies
         run: |
           pip install --no-cache-dir -e ".[dev]"
-          pip install pytest
       
       - name: Run tests
         run: |
-          pytest tests/ -v --tb=long
+          pytest tests/ -v --tb=long -o "addopts=" --no-cov
