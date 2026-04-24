@@ -79,7 +79,7 @@ desc = "Bandit security warning"
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 asyncio_mode = "auto"
-addopts = \"--cov=src.flywheel --cov-report=term-missing\"
+addopts = "--cov=src.flywheel --cov-report=term-missing"
 markers = [
     "slow: marks tests as slow (deselect with '-m \"not slow\"')",
     "integration: marks tests as integration tests",
