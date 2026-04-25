@@ -8,8 +8,18 @@ from dataclasses import dataclass, field
 from datetime import datetime
 from enum import Enum
 from pathlib import Path
-from typing import Any, Dict, List, Set
+from typing import Any, Dict, List, Set, Optional
 from unittest.mock import Mock
+
+try:
+    import hy
+except ImportError:
+    hy = None
+
+try:
+    from pyswip import Prolog
+except ImportError:
+    Prolog = None
 
 logger = logging.getLogger(__name__)
 
@@ -48,6 +58,7 @@ class SkillMetadata:
     execution_count: int = 0
     total_execution_time: float = 0.0
     avg_execution_time: float = 0.0
+    surfaces: Dict[str, Any] = field(default_factory=dict)
 
 
 class DependencyGraph:
@@ -262,7 +273,7 @@ class EnhancedSkillManager:
 
         if skill_name in self.loaded_skills:
             result = self.skill_cache.get(skill_name)
-            if not isinstance(result, ModuleDict) and not isinstance(result, Mock):
+            if result is not None and not isinstance(result, (dict, Mock)) and hasattr(result, "__dict__"):
                 result = ModuleDict(
                     {k: v for k, v in vars(result).items() if not k.startswith("_")}
                 )
@@ -361,6 +372,9 @@ class EnhancedSkillManager:
         metadata.is_loaded = True
         metadata.last_accessed = datetime.now()
 
+        # Initialize surfaces (Prolog, Hy)
+        self._initialize_surfaces(skill_name, module)
+
         # Return a ModuleDict for backward compatibility with tests
         result = ModuleDict(
             {k: v for k, v in vars(module).items() if not k.startswith("_")}
@@ -376,11 +390,14 @@ class EnhancedSkillManager:
         start_time = time.time()
         try:
             skill_module = await self.load_skill_dynamically(skill_name)
+            
             skill_func = getattr(skill_module, skill_name, None)
             if not skill_func:
                 raise ValueError(f"Skill function {skill_name} not found")
 
-            result = skill_func(*args, **kwargs)
+            # Pass surfaces if the function accepts them or just as extra kwargs
+            # For simplicity, we just pass them and let the function handle them
+            result = skill_func(*args, surfaces=metadata.surfaces, **kwargs)
             execution_time = time.time() - start_time
             metadata.execution_count += 1
             metadata.total_execution_time = (
@@ -404,3 +421,35 @@ class EnhancedSkillManager:
             )
             logger.error(f"Skill {skill_name} execution failed: {str(e)}")
             raise
+
+    def _initialize_surfaces(self, skill_name: str, module: Any) -> None:
+        """Initialize additional reasoning surfaces (Prolog, Hy) for a skill."""
+        metadata = self.skills.get(skill_name)
+        if not metadata:
+            return
+
+        # Prolog Surface
+        if hasattr(module, "PROLOG_SURFACE") and Prolog:
+            try:
+                prolog = Prolog()
+                logic = getattr(module, "PROLOG_SURFACE")
+                # Clear existing facts if necessary or just append
+                # Simple implementation: write to a temp file and consult
+                temp_pl = Path(f"data/temp_{skill_name}.pl")
+                temp_pl.parent.mkdir(exist_ok=True)
+                temp_pl.write_text(logic)
+                prolog.consult(str(temp_pl))
+                metadata.surfaces["prolog"] = prolog
+                logger.info(f"Initialized Prolog surface for {skill_name}")
+            except Exception as e:
+                logger.error(f"Failed to initialize Prolog surface for {skill_name}: {e}")
+
+        # Hy Surface
+        if hasattr(module, "HY_SURFACE") and hy:
+            try:
+                # If HY_SURFACE is a string, it could be code to evaluate
+                # Or it could be a reference to a .hy file
+                metadata.surfaces["hy"] = getattr(module, "HY_SURFACE")
+                logger.info(f"Initialized Hy surface for {skill_name}")
+            except Exception as e:
+                logger.error(f"Failed to initialize Hy surface for {skill_name}: {e}")
