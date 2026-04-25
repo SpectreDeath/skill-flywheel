@@ -125,37 +125,7 @@ def register_skill():
     }
 
 
-# --- SURFACE 1: PROLOG (Hard Rules) ---
-PROLOG_SURFACE = """
-% Tier 1 domains (Hard Rules)
-is_tier1_domain(epistemology).
-is_tier1_domain(logic).
-is_tier1_domain(logic_programming).
-is_tier1_domain(game_theory).
-is_tier1_domain(formal_methods).
-is_tier1_domain(reasoning).
-
-% Rule: Recommended if it's a Tier 1 domain
-recommendation(Skill, "Highly Recommended") :- 
-    domain(Skill, Domain), 
-    is_tier1_domain(Domain).
-
-% Default recommendation
-recommendation(Skill, "Consider for Enhancement") :- 
-    not(recommendation(Skill, "Highly Recommended")).
-"""
-
-# --- SURFACE 2: HY (Soft Heuristics) ---
-HY_SURFACE = """
-(defn calculate-suitability-score [description]
-  (let [keywords ["logic" "heuristic" "rules" "reliability" "trust" 
-                  "verification" "optimization" "orchestration" 
-                  "reasoning" "epistemic" "validation" "consensus"
-                  "formal" "mathematical" "truth" "inference" "engine"]
-        score 0.1
-        desc-lower (.lower description)]
-    (for [kw keywords]
-      (if (> (.count desc-lower kw) 0)
-          (setv score (+ score 0.15))))
-    (min 1.0 score)))
-"""
+# --- SURFACE LOADING ---
+_base_path = Path(__file__).parent
+PROLOG_SURFACE = (_base_path / "candidate_identifier.pl").read_text()
+HY_SURFACE = (_base_path / "candidate_identifier.hy").read_text()

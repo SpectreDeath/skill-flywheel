@@ -10,6 +10,7 @@ Demonstrates the three-surface architecture:
 """
 
 import logging
+from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 logger = logging.getLogger(__name__)
@@ -105,24 +106,7 @@ def register_skill():
     }
 
 
-# --- SURFACE 1: PROLOG (Hard Rules) ---
-PROLOG_SURFACE = """
-% Disqualify if source is on a known banned list
-disqualified(Source) :- banned(Source).
-% Disqualify if source has zero reputation
-disqualified(Source) :- reputation(Source, 0).
-
-% Example data (could be dynamic)
-banned(malicious_actor_01).
-banned(shadow_node_42).
-reputation(anonymous_proxy, 0).
-reputation(verified_expert, 100).
-"""
-
-# --- SURFACE 2: HY (Soft Heuristics) ---
-HY_SURFACE = """
-(defn calculate-heuristic [features]
-  (if (> (.count features "peer_reviewed") 0)
-      0.9
-      0.5))
-"""
+# --- SURFACE LOADING ---
+_base_path = Path(__file__).parent
+PROLOG_SURFACE = (_base_path / "trust_scorer.pl").read_text()
+HY_SURFACE = (_base_path / "trust_scorer.hy").read_text()
