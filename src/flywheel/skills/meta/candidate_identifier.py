@@ -3,14 +3,14 @@
 Architecture Candidate Identifier Skill
 Domain: META
 
-Identifies existing skills that would benefit from the "Collective-Mind" 
+Identifies existing skills that would benefit from the "Collective-Mind"
 (Python-Prolog-Hy) architecture.
 """
 
 import logging
 import sqlite3
 from pathlib import Path
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Optional
 
 logger = logging.getLogger(__name__)
 
@@ -49,17 +49,20 @@ HY_SURFACE = """
     (min 1.0 score)))
 """
 
-def candidate_identifier(payload: Dict[str, Any], surfaces: Dict[str, Any] = None) -> Dict[str, Any]:
+
+def candidate_identifier(
+    payload: Dict[str, Any], surfaces: Optional[Dict[str, Any]] = None
+) -> Dict[str, Any]:
     """
     Analyzes the skill registry to find candidates for the new architecture.
     """
     limit = payload.get("limit", 10)
-    
+
     # 1. Fetch skills from database
     db_path = Path("data/skill_registry.db")
     if not db_path.exists():
         return {"error": "Skill database not found"}
-        
+
     candidates = []
     try:
         conn = sqlite3.connect(str(db_path))
@@ -73,7 +76,7 @@ def candidate_identifier(payload: Dict[str, Any], surfaces: Dict[str, Any] = Non
     # 2. Process each skill using surfaces
     import hy
     import types
-    
+
     hy_mod = None
     if surfaces and "hy" in surfaces:
         try:
@@ -99,7 +102,7 @@ def candidate_identifier(payload: Dict[str, Any], surfaces: Dict[str, Any] = Non
                     prio = val.decode("utf-8")
                 else:
                     prio = str(val)
-            
+
         # Hy Surface check
         score = 0.1
         if hy_mod and hasattr(hy_mod, "calculate_suitability_score"):
@@ -109,39 +112,47 @@ def candidate_identifier(payload: Dict[str, Any], surfaces: Dict[str, Any] = Non
                 logger.error(f"Hy eval failed for {name}: {e}")
 
         # Final collation
-        candidates.append({
-            "name": name,
-            "domain": domain,
-            "description": description[:100] + "..." if description else "",
-            "priority": prio,
-            "suitability_score": round(float(score), 2)
-        })
+        candidates.append(
+            {
+                "name": name,
+                "domain": domain,
+                "description": description[:100] + "..." if description else "",
+                "priority": prio,
+                "suitability_score": round(float(score), 2),
+            }
+        )
 
     # Sort by suitability score and then priority
-    candidates.sort(key=lambda x: (x["suitability_score"], x["priority"] == "Highly Recommended"), reverse=True)
-    
+    candidates.sort(
+        key=lambda x: (x["suitability_score"], x["priority"] == "Highly Recommended"),
+        reverse=True,
+    )
+
     return {
         "top_candidates": candidates[:limit],
         "total_analyzed": len(all_skills),
         "surfaces_used": ["prolog", "hy", "python"],
-        "architecture_applied": "Collective-Mind"
+        "architecture_applied": "Collective-Mind",
     }
+
 
 async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
     """MCP entry point."""
     from datetime import datetime
+
     return {
         "result": candidate_identifier(payload),
         "metadata": {
             "timestamp": datetime.now().isoformat(),
-            "skill": "architecture-candidate-identifier"
-        }
+            "skill": "architecture-candidate-identifier",
+        },
     }
+
 
 def register_skill():
     return {
         "name": "architecture-candidate-identifier",
         "description": "Identifies best skills for Collective-Mind architecture upgrade.",
         "version": "1.0.0",
-        "domain": "META"
+        "domain": "META",
     }
