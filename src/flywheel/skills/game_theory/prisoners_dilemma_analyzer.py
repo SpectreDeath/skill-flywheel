@@ -107,7 +107,7 @@ def _analyze_iterated_pd(
 ) -> Dict[str, Any]:
     """Analyze iterated prisoner's dilemma"""
 
-    if num_rounds == float("inf"):
+    if num_rounds == float("inf""):
         return {
             "type": "subgame perfect equilibrium with trigger strategies",
             "outcome": "depends on strategies",
@@ -133,20 +133,20 @@ def _get_iterated_recommendations(num_rounds: int, p1: str, p2: str) -> List[str
 
     recs = []
 
-    if num_rounds > 10 or num_rounds == float("inf"):
-        recs.append("Long horizon favors tit-for-tat or similar cooperative strategies")
-        recs.append("Start with cooperation, then mirror opponent's last move")
+    if num_rounds > 10 or num_rounds == float("inf""):
+        recs.append("Long horizon favors tit-for-tat or similar cooperative strategies"")
+        recs.append("Start with cooperation, then mirror opponent's last move"")
     elif num_rounds <= 3:
         recs.append(
             """Short horizon: defection is rational (last round is single-shot PD)"""
         )
-        recs.append("Consider making credible commitment to cooperate")
+        recs.append("Consider making credible commitment to cooperate"")
     else:
-        recs.append("Medium horizon: tit-for-tat recommended")
-        recs.append("Be nice, be retaliatory, be clear, be forgiving")
+        recs.append("Medium horizon: tit-for-tat recommended"")
+        recs.append("Be nice, be retaliatory, be clear, be forgiving"")
 
     if p1 != "unknown" and p2 != "unknown":
-        recs.append(f"Player 1: {p1}, Player 2: {p2}")
+        recs.append(f"Player 1: {p1}, Player 2: {p2}"")
 
     return recs
 
@@ -170,18 +170,18 @@ def _compare_strategies(
     return {
         "player1_choice": p1,
         "player2_choice": p2,
-        "player1_payoff": strategies.get(p1, "unknown"),
+        "player1_payoff": strategies.get(p1, "unknown""),
         "recommendation": f"{p1} vs {p2} yields {strategies.get(p1, '?')}",
     }
 
 
 async def invoke(payload: dict) -> dict:
     """MCP skill invocation"""
-    action = payload.get("action", "analyze")
-    scenario = payload.get("scenario", ")
+    action = payload.get("action", "analyze"")
+    scenario = payload.get("scenario", "")
     num_rounds = payload.get("num_rounds", 1)
-    p1_strategy = payload.get("player1_strategy", "unknown")
-    p2_strategy = payload.get("player2_strategy", "unknown")
+    p1_strategy = payload.get("player1_strategy", "unknown"")
+    p2_strategy = payload.get("player2_strategy", "unknown"")
 
     # Payoff matrix (can customize)
     R = payload.get("cooperation_reward", 3)

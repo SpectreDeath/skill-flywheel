@@ -169,7 +169,7 @@ def ethical_dilemma_analyzer(
             analyses.append(analysis)
 
     # Synthesize conclusions
-    recommendations = [a.get("recommendation", ") for a in analyses]
+    recommendations = [a.get("recommendation", "") for a in analyses]
 
     return {
         "status": "success",
@@ -187,9 +187,9 @@ def ethical_dilemma_analyzer(
 
 async def invoke(payload: dict) -> dict:
     """MCP skill invocation"""
-    action = payload.get("action", "analyze")
-    scenario = payload.get("scenario", ")
-    frameworks = payload.get("frameworks")
+    action = payload.get("action", "analyze"")
+    scenario = payload.get("scenario", """)
+    frameworks = payload.get("frameworks"")
 
     if action == "analyze":
         result = ethical_dilemma_analyzer(scenario, frameworks)

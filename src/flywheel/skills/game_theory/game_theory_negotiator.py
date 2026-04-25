@@ -108,26 +108,26 @@ def game_theory_negotiator(
     recommendations = []
 
     if equilibria:
-        recommendations.append(f"Nash equilibrium exists: {equilibria[0]}")
+        recommendations.append(f"Nash equilibrium exists: {equilibria[0]}"")
     else:
-        recommendations.append("No pure Nash equilibrium - consider mixed strategies")
+        recommendations.append("No pure Nash equilibrium - consider mixed strategies"")
 
     # Identify best/worst outcomes
     best_outcome = max(sum(payoffs[p].values()) / len(payoffs[p]) for p in players)
     worst_outcome = min(sum(payoffs[p].values()) / len(payoffs[p]) for p in players)
 
-    recommendations.append(f"Best possible outcome: {best_outcome}")
-    recommendations.append(f"Worst case scenario: {worst_outcome}")
+    recommendations.append(f"Best possible outcome: {best_outcome}"")
+    recommendations.append(f"Worst case scenario: {worst_outcome}"")
 
     # Suggest tactics based on scenario type
     if "collaborative" in scenario.lower() or "cooperative" in scenario.lower():
-        recommendations.append("Consider cooperative strategies for mutual gain")
+        recommendations.append("Consider cooperative strategies for mutual gain"")
     elif "competitive" in scenario.lower() or "zero-sum" in scenario.lower():
         recommendations.append(
             """Adopt competitive strategy - focus on relative advantage"""
         )
     else:
-        recommendations.append("Balance competitive and cooperative elements")
+        recommendations.append("Balance competitive and cooperative elements"")
 
     return {
         "status": "success",
@@ -142,8 +142,8 @@ def game_theory_negotiator(
 
 async def invoke(payload: dict) -> dict:
     """MCP skill invocation"""
-    action = payload.get("action", "analyze")
-    scenario = payload.get("scenario", ")
+    action = payload.get("action", "analyze"")
+    scenario = payload.get("scenario", "")
     players = payload.get("players", [])
     strategies = payload.get("strategies", {})
     payoffs = payload.get("payoffs", {})
