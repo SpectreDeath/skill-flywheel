@@ -272,7 +272,7 @@ def generate_validation_report(results: Dict[str, ValidationResult]) -> str:
     Returns:
         Formatted report string
     """
-    lines = ["Skill Validation Report", "=" * 50, "]
+    lines = ["Skill Validation Report", "=" * 50, ""]
 
     total = len(results)
     valid = sum(1 for r in results.values() if r.valid)
@@ -281,7 +281,7 @@ def generate_validation_report(results: Dict[str, ValidationResult]) -> str:
     lines.append(f"Total Skills: {total}")
     lines.append(f"Valid: {valid}")
     lines.append(f"Invalid: {invalid}")
-    lines.append(")
+    lines.append("")
 
     if invalid > 0:
         lines.append("Issues Found:")
@@ -303,7 +303,7 @@ async def invoke(payload: dict) -> dict:
     action = payload.get("action", "validate")
 
     if action == "validate":
-        skill_path = payload.get("skill_path", ")
+        skill_path = payload.get("skill_path", "")
         result = validate_skill_implementation(skill_path)
         return{
         "result": {
@@ -318,7 +318,7 @@ async def invoke(payload: dict) -> dict:
     }
         }
     elif action == "validate_catalog":
-        catalog_path = payload.get("catalog_path", ")
+        catalog_path = payload.get("catalog_path", "")
         results = validate_skill_catalog(catalog_path)
         report = generate_validation_report(results)
         return{

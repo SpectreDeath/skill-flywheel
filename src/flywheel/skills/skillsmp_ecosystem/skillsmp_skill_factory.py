@@ -2,7 +2,7 @@
 """
 skillsmp-skill-factory
 
-"""Use when: needing to both learn from SkillsMP skills AND orchestrate skill assembly in one workflow. Combines skill-learner and skill-orchestrator capabilities. Triggers: 'learn and create', 'generate from examples', 'build from skills', 'factory'. Requires API key from skillsmp.com."""
+Use when: needing to both learn from SkillsMP skills AND orchestrate skill assembly in one workflow. Combines skill-learner and skill-orchestrator capabilities. Triggers: 'learn and create', 'generate from examples', 'build from skills', 'factory'. Requires API key from skillsmp.com.
 """
 
 import logging

@@ -2,7 +2,7 @@
 """
 self-deleting-daemon
 
-"""Use when: implementing long-running background processes that must remove themselves from disk after a timeout. Triggers: 'self-delete', 'transient daemon', 'secure deletion', 'process hiding', 'lifecycle management'. NOT for: persistent services, or when file persistence is required."""
+Use when: implementing long-running background processes that must remove themselves from disk after a timeout. Triggers: 'self-delete', 'transient daemon', 'secure deletion', 'process hiding', 'lifecycle management'. NOT for: persistent services, or when file persistence is required.
 """
 
 import logging

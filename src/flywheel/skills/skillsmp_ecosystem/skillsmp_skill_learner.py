@@ -2,7 +2,7 @@
 """
 skillsmp-skill-learner
 
-"""Use when: analyzing existing skills from SkillsMP to learn patterns, extract reusable components, generate improved derivative skills, or synthesize multiple skills. Works with skillsmp-api-client. Triggers: 'learn from skills', 'analyze skill patterns', 'generate skill', 'improve skill', 'synthesize skills', 'extract patterns'. NOT for: directly executing tasks (use appropriate execution skills)."""
+Use when: analyzing existing skills from SkillsMP to learn patterns, extract reusable components, generate improved derivative skills, or synthesize multiple skills. Works with skillsmp-api-client. Triggers: 'learn from skills', 'analyze skill patterns', 'generate skill', 'improve skill', 'synthesize skills', 'extract patterns'. NOT for: directly executing tasks (use appropriate execution skills).
 """
 
 import logging

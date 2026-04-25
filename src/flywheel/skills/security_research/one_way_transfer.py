@@ -2,7 +2,7 @@
 """
 one-way-transfer
 
-"""Use when: implementing automated one-way data exfiltration with file change detection and SWIFT upload. Triggers: 'data exfiltration', 'file monitoring', 'change detection', 'SWIFT upload', 'mtime tracking'. NOT for: bidirectional sync (use standard sync tools), or when local processing only."""
+Use when: implementing automated one-way data exfiltration with file change detection and SWIFT upload. Triggers: 'data exfiltration', 'file monitoring', 'change detection', 'SWIFT upload', 'mtime tracking'. NOT for: bidirectional sync (use standard sync tools), or when local processing only.
 """
 
 import logging

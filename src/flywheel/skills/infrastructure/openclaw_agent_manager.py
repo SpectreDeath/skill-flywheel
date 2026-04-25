@@ -37,7 +37,7 @@ class OpenClawAgentManager:
         self,
         name: str,
         model: str = "gpt-4",
-        description: str = ",
+        description: str = "",
         system_prompt: str | None = None,
     ) -> Dict[str, Any]:
         """Create a new OpenClaw agent."""
@@ -201,7 +201,7 @@ async def handle_request(action: str, params: Dict[str, Any]) -> Dict[str, Any]:
         "create_agent": lambda: manager.create_agent(
             params.get("name"),
             params.get("model", "gpt-4"),
-            params.get("description", "),
+            params.get("description", ""),
             params.get("system_prompt"),
         ),
         "configure_agent": lambda: manager.configure_agent(

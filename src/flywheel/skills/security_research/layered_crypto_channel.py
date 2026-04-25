@@ -2,7 +2,7 @@
 """
 layered-crypto-channel
 
-"""Use when: implementing encrypted network communications with defense-in-depth using multiple cryptographic layers. Triggers: 'layered encryption', 'crypto channel', 'defense in depth', 'key exchange', 'symmetric encryption'. NOT for: single-layer encryption (use standard TLS), or when performance is critical."""
+Use when: implementing encrypted network communications with defense-in-depth using multiple cryptographic layers. Triggers: 'layered encryption', 'crypto channel', 'defense in depth', 'key exchange', 'symmetric encryption'. NOT for: single-layer encryption (use standard TLS), or when performance is critical.
 """
 
 import logging

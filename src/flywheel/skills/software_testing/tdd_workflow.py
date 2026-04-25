@@ -2,7 +2,7 @@
 """
 tdd-workflow
 
-"""Use when: writing new features, fixing bugs, or refactoring code with test-driven development methodology. Enforces 80%+ test coverage including unit, integration, and E2E tests. Triggers: 'TDD', 'test driven', 'write tests first', 'red green refactor', 'test coverage', 'unit test', 'integration test'. NOT for: prototype code, experiments, or one-off scripts that won't be maintained."""
+Use when: writing new features, fixing bugs, or refactoring code with test-driven development methodology. Enforces 80%+ test coverage including unit, integration, and E2E tests. Triggers: 'TDD', 'test driven', 'write tests first', 'red green refactor', 'test coverage', 'unit test', 'integration test'. NOT for: prototype code, experiments, or one-off scripts that won't be maintained.
 """
 
 import logging

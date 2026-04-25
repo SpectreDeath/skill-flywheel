@@ -2,7 +2,7 @@
 """
 beacon-data-pipeline
 
-"""Use when: implementing periodic system survey collection with compression, encryption, and TLS transmission. Triggers: 'data collection', 'periodic survey', 'TLS transmission', 'encrypted payload', 'jitter timing'. NOT for: real-time streaming (use streaming skills), or when encryption isn't required."""
+Use when: implementing periodic system survey collection with compression, encryption, and TLS transmission. Triggers: 'data collection', 'periodic survey', 'TLS transmission', 'encrypted payload', 'jitter timing'. NOT for: real-time streaming (use streaming skills), or when encryption isn't required.
 """
 
 import logging

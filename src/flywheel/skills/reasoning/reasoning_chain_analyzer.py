@@ -61,7 +61,7 @@ def validate_deductive_chain(steps: List[Dict[str, Any]]) -> Dict[str, Any]:
     """Validate a deductive reasoning chain"""
     # Check for logical patterns
     premises = [s["text"].lower() for s in steps if s["type"] == "premise"]
-    conclusion = next((s["text"] for s in steps if s["type"] == "conclusion"), ")
+    conclusion = next((s["text"] for s in steps if s["type"] == "conclusion"), "")
 
     # Check for modus ponens pattern
     any("if" in p and "then" in p for p in premises)
@@ -176,7 +176,7 @@ def reasoning_chain_analyzer(
 async def invoke(payload: dict) -> dict:
     """MCP skill invocation"""
     action = payload.get("action", "analyze")
-    reasoning_text = payload.get("reasoning_text", ")
+    reasoning_text = payload.get("reasoning_text", "")
     evidence_count = payload.get("evidence_count", 10)
 
     if action == "analyze":

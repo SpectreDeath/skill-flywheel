@@ -178,7 +178,7 @@ def unit_test_generator(
 async def invoke(payload: dict) -> dict:
     """MCP skill invocation"""
     action = payload.get("action", "generate")
-    code = payload.get("code", ")
+    code = payload.get("code", "")
     framework = payload.get("framework", "pytest")
 
     if action == "generate":

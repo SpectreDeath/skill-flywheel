@@ -2,7 +2,7 @@
 """
 sat-solver-optimization
 
-"""Guaranteed to find solution or prove unsatisfiability"""
+Guaranteed to find solution or prove unsatisfiability
 """
 
 import logging

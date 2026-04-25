@@ -170,7 +170,7 @@ async def invoke(payload: Dict[str, Any]) -> Dict[str, Any]:
             return {"result": result, "metadata": {"action": action, "timestamp": datetime.now().isoformat()}}
         
         else:
-            return {"result": {"error": f"Unknown action: {action}"}, "metadata": {"action": action}}}
+            return {"result": {"error": f"Unknown action: {action}"}, "metadata": {"action": action}}
     
     except Exception as e:
         logger.error(f"Error in predictive-skill-loading: {e}")

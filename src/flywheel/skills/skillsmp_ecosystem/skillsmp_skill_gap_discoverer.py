@@ -2,7 +2,7 @@
 """
 skillsmp-skill-gap-discoverer
 
-"""Use when: identifying missing capabilities in SkillsMP, discovering gaps in available skills for specific tasks, analyzing coverage, or recommending new skills to create. Triggers: 'find gaps', 'missing skills', 'coverage analysis', 'recommend skill', 'identify gaps'. Works with skillsmp-api-client."""
+Use when: identifying missing capabilities in SkillsMP, discovering gaps in available skills for specific tasks, analyzing coverage, or recommending new skills to create. Triggers: 'find gaps', 'missing skills', 'coverage analysis', 'recommend skill', 'identify gaps'. Works with skillsmp-api-client.
 """
 
 import logging

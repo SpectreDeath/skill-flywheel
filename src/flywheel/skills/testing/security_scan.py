@@ -384,7 +384,7 @@ async def invoke(payload: dict) -> dict:
     action = payload.get("action", "scan")
 
     if action == "scan":
-        repo_path = payload.get("repository_path", ")
+        repo_path = payload.get("repository_path", "")
         standards = payload.get("standards", [])
         severity = payload.get("severity_threshold", "low")
         focus = payload.get("focus_areas", [])

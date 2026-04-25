@@ -170,7 +170,7 @@ class ModelHealthMonitor:
             if result.returncode == 0:
                 lines = result.stdout.strip().split('\n')
                 if lines and lines[0]:
-                    parts = lines[0].split(', ')
+                    parts = lines[0].split(',')
                     if len(parts) >= 2:
                         total_gb = float(parts[0]) / 1024.0
                         used_gb = float(parts[1]) / 1024.0

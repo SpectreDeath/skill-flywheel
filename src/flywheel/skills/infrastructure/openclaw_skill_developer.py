@@ -11,13 +11,13 @@ from typing import Any, Dict, List
 
 SKILL_TEMPLATE = {
     "manifest": {
-        "name": ",
-        "description": ",
+        "name": "",
+        "description": "",
         "version": "1.0.0",
-        "author": ",
+        "author": "",
         "capabilities": [],
     },
-    "index_mjs": "import {{ handle_request }} from './handler.mjs';
+    "index_mjs": """import {{ handle_request }} from './handler.mjs';
 
 /**
  * OpenClaw Skill: {skill_name}
@@ -29,8 +29,8 @@ SKILL_TEMPLATE = {
 export const handler = handle_request;
 
 export default {{ handler }};
-",
-    "handler_mjs": r"/**
+""",
+    "handler_mjs": r"""/**
  * Handle requests to this skill.
  * 
  * @param {{ action: string, params: Object }} request
@@ -51,8 +51,8 @@ async function execute(params) {{
     // Your implementation here
     return {{ success: true, result: params }};
 }}
-",
-    "test_js": "import {{ describe, it, expect }} from 'jest';
+""",
+    "test_js": """import {{ describe, it, expect }} from 'jest';
 import {{ handle_request }} from '../index.mjs';
 
 describe('{skill_name}', () => {{
@@ -65,7 +65,7 @@ describe('{skill_name}', () => {{
         expect(result).toBeDefined();
     }});
 }});
-",
+""",
 }
 
 
@@ -80,8 +80,8 @@ class OpenClawSkillDeveloper:
     async def create_skill(
         self,
         name: str,
-        description: str = ",
-        author: str = ",
+        description: str = "",
+        author: str = "",
         capabilities: List[str] | None = None,
     ) -> Dict[str, Any]:
         """Create a new OpenClaw skill from template."""
@@ -137,7 +137,7 @@ class OpenClawSkillDeveloper:
                     skills.append(
                         {
                             "name": manifest.get("name", item.name),
-                            "description": manifest.get("description", "),
+                            "description": manifest.get("description", ""),
                             "version": manifest.get("version", "unknown"),
                             "path": str(item),
                         }
@@ -262,8 +262,8 @@ async def handle_request(action: str, params: Dict[str, Any]) -> Dict[str, Any]:
     handlers = {
         "create_skill": lambda: developer.create_skill(
             params.get("name"),
-            params.get("description", "),
-            params.get("author", "),
+            params.get("description", ""),
+            params.get("author", ""),
             params.get("capabilities"),
         ),
         "list_skills": developer.list_skills,

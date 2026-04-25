@@ -12,7 +12,7 @@ from pathlib import Path
 from typing import Any, Dict, List
 from datetime import datetime
 
-SKILL_TEMPLATE = """---
+SKILL_TEMPLATE = '''---
 Domain: {domain}
 Version: 1.0.0
 Complexity: {complexity}
@@ -133,7 +133,7 @@ Run `{skill_name}` as part of your workflow.
 ## License
 
 MIT License - Part of the Open AgentSkills Library.
-"""
+'''
 
 REQUIRED_SECTIONS = [
     "Domain",

@@ -2,7 +2,7 @@
 """
 domain-analysis-and-remediation
 
-"""Use when: analyzing domain directories for quality issues, identifying placeholder or underdeveloped skills, evaluating skill value and potential, implementing missing skills, or refreshing stale domains. Triggers: 'analyze domain', 'domain analysis', 'skill remediation', 'fix skills', 'evaluate skills', 'domain refresh', 'clean up domain'. NOT for: when domains are healthy, when no issues are suspected, or when manual review is preferred."""
+Use when: analyzing domain directories for quality issues, identifying placeholder or underdeveloped skills, evaluating skill value and potential, implementing missing skills, or refreshing stale domains. Triggers: 'analyze domain', 'domain analysis', 'skill remediation', 'fix skills', 'evaluate skills', 'domain refresh', 'clean up domain'. NOT for: when domains are healthy, when no issues are suspected, or when manual review is preferred.
 """
 
 import logging

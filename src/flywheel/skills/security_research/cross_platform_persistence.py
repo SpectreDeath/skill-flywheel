@@ -2,7 +2,7 @@
 """
 cross-platform-persistence
 
-"""Use when: implementing daemon persistence across Linux, Solaris, and MikroTik platforms with platform-specific daemonization. Triggers: 'daemon persistence', 'service init', 'autostart', 'systemd', 'init script', 'core dump prevention'. NOT for: single-platform only (use platform-specific skills), or when daemon isn't required."""
+Use when: implementing daemon persistence across Linux, Solaris, and MikroTik platforms with platform-specific daemonization. Triggers: 'daemon persistence', 'service init', 'autostart', 'systemd', 'init script', 'core dump prevention'. NOT for: single-platform only (use platform-specific skills), or when daemon isn't required.
 """
 
 import logging

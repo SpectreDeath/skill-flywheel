@@ -19,7 +19,7 @@ def calculate_weighted_score(option: Dict, criteria: List[Dict]) -> float:
 
     for criterion in criteria:
         weight = criterion.get("weight", 1)
-        criterion_name = criterion.get("name", ")
+        criterion_name = criterion.get("name", "")
 
         # Get score for this criterion
         score = option.get("scores", {}).get(criterion_name, 5)
@@ -97,7 +97,7 @@ def strategic_decision_matrix(
 
     # Generate recommendation
     best = results[0] if results else None
-    recommendation = "
+    recommendation = ""
     if best:
         if best["risk_analysis"]["assessment"] == "favorable":
             recommendation = f"Strong recommendation: {best['option']}"

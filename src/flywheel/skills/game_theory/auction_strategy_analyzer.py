@@ -86,7 +86,7 @@ def analyze_auction_type(
         "auction_type": auction_type,
         "description": info["type"],
         "analysis": analysis,
-        "strategy": strategies.get(auction_type, "Custom strategy needed""),
+        "strategy": strategies.get(auction_type, "Custom strategy needed"),
         "tips": get_auction_tips(auction_type, private_value, num_bidders),
     }
 
@@ -96,20 +96,20 @@ def get_auction_tips(auction_type: str, value: float, bidders: int) -> List[str]
     tips = []
 
     if auction_type == "sealed_bid":
-        tips.append("Never bid more than your true value"")
+        tips.append("Never bid more than your true value")
         tips.append(
             """Consider the number of bidders - more competition = higher optimal bid"""
         )
     elif auction_type == "vickrey":
-        tips.append("Truth-telling is dominant strategy - bid your true value"")
+        tips.append("Truth-telling is dominant strategy - bid your true value")
     elif auction_type == "english":
-        tips.append("Watch for signals from other bidders"")
-        tips.append("Drop out when price exceeds your value"")
+        tips.append("Watch for signals from other bidders")
+        tips.append("Drop out when price exceeds your value")
     elif auction_type == "dutch":
-        tips.append("Balance speed against getting the item"")
+        tips.append("Balance speed against getting the item")
 
     if value > 100:
-        tips.append("Consider hire an expert for high-value auctions"")
+        tips.append("Consider hire an expert for high-value auctions")
 
     return tips
 
@@ -151,8 +151,8 @@ def auction_strategy_analyzer(
 
 async def invoke(payload: dict) -> dict:
     """MCP skill invocation"""
-    action = payload.get("action", "analyze"")
-    auction_type = payload.get("auction_type", "sealed_bid"")
+    action = payload.get("action", "analyze")
+    auction_type = payload.get("auction_type", "sealed_bid")
     private_value = payload.get("private_value", 0)
     num_bidders = payload.get("num_bidders", 5)
 

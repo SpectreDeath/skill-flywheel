@@ -2,7 +2,7 @@
 """
 context-offloading
 
-"""Use when: saving agent context for future sessions, retrieving historical context, tracking decisions across sessions, enabling cross-session memory for agents, or maintaining project memory. Triggers: 'save context', 'remember', 'memory', 'prior context', 'load history', 'session memory', 'project memory'. NOT for: ephemeral context only, single-session tasks, or when context should not persist."""
+Use when: saving agent context for future sessions, retrieving historical context, tracking decisions across sessions, enabling cross-session memory for agents, or maintaining project memory. Triggers: 'save context', 'remember', 'memory', 'prior context', 'load history', 'session memory', 'project memory'. NOT for: ephemeral context only, single-session tasks, or when context should not persist.
 """
 
 import logging

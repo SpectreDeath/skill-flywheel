@@ -45,12 +45,12 @@ class OpenClawDatabaseManager:
             conn = sqlite3.connect(str(self.db_path))
             cursor = conn.cursor()
 
-            cursor.execute("
+            cursor.execute("""
                 SELECT name, type 
                 FROM sqlite_master 
                 WHERE type IN ('table', 'view')
                 ORDER BY type, name
-            ")
+            """)
 
             tables = []
             for row in cursor.fetchall():

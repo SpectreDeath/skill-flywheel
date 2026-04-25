@@ -139,7 +139,7 @@ class ContextHubProvider:
         except Exception as e:
             raise ChubError(f"Failed to execute chub command: {e}")
     
-    async def search(self, query: str = ", tags: List[str] | None = None, 
+    async def search(self, query: str = "", tags: List[str] | None = None, 
                     limit: int = 20) -> List[SearchResult]:
         """
         Search for documentation and skills in the Context Hub
@@ -177,9 +177,9 @@ class ContextHubProvider:
             search_results = []
             for entry in entries:
                 search_results.append(SearchResult(
-                    id=entry.get("id", "),
-                    name=entry.get("name", "),
-                    description=entry.get("description", "),
+                    id=entry.get("id", ""),
+                    name=entry.get("name", ""),
+                    description=entry.get("description", ""),
                     type=entry.get("_type", "doc"),
                     source=entry.get("source"),
                     tags=entry.get("tags"),
@@ -222,7 +222,7 @@ class ContextHubProvider:
                 if "content" in result:
                     # Single document result
                     content = result["content"]
-                    path = result.get("path", ")
+                    path = result.get("path", "")
                     additional_files = result.get("additionalFiles", [])
                     annotation = result.get("annotation", {}).get("note") if result.get("annotation") else None
                     
@@ -243,7 +243,7 @@ class ContextHubProvider:
                         return DocumentContent(
                             id=doc_id,
                             content=main_file["content"],
-                            path=result.get("path", "),
+                            path=result.get("path", ""),
                             language=language,
                             version=version
                         )
@@ -343,7 +343,7 @@ class ContextHubProvider:
 # Global instance
 _context_hub_provider = ContextHubProvider()
 
-async def search(query: str = ", tags: List[str] | None = None, 
+async def search(query: str = "", tags: List[str] | None = None, 
                 limit: int = 20) -> List[Dict[str, Any]]:
     """
     Search for documentation and skills in the Context Hub
@@ -476,19 +476,19 @@ async def invoke(payload: dict) -> dict:
 
     try:
         if action == "search":
-            result = await search(query=payload.get("query", "), tags=payload.get("tags"), limit=payload.get("limit", 20))
+            result = await search(query=payload.get("query", ""), tags=payload.get("tags"), limit=payload.get("limit", 20))
             return {"result": result, "metadata": {"action": action, "timestamp": timestamp}}
 
         elif action == "get_doc":
-            result = await get_doc(doc_id=payload.get("doc_id", "), language=payload.get("language"))
+            result = await get_doc(doc_id=payload.get("doc_id", ""), language=payload.get("language"))
             return {"result": result, "metadata": {"action": action, "timestamp": timestamp}}
 
         elif action == "annotate":
-            result = await annotate(doc_id=payload.get("doc_id", "), note=payload.get("note", "))
+            result = await annotate(doc_id=payload.get("doc_id", ""), note=payload.get("note", ""))
             return {"result": result, "metadata": {"action": action, "timestamp": timestamp}}
 
         elif action == "clear_annotation":
-            result = await clear_annotation(doc_id=payload.get("doc_id", "))
+            result = await clear_annotation(doc_id=payload.get("doc_id", ""))
             return {"result": result, "metadata": {"action": action, "timestamp": timestamp}}
 
         else:

@@ -2,7 +2,7 @@
 """
 skillsmp-skill-orchestrator
 
-"""Use when: given a task requiring multiple capabilities, decompose it into sub-tasks, search SkillsMP for matching skills, rank and select skills, resolve dependencies, and build an execution pipeline. Triggers: 'orchestrate', 'build pipeline', 'compose skills', 'decompose task', 'find skills for task', 'skill assembly', 'workflow'. Works with skillsmp-api-client."""
+Use when: given a task requiring multiple capabilities, decompose it into sub-tasks, search SkillsMP for matching skills, rank and select skills, resolve dependencies, and build an execution pipeline. Triggers: 'orchestrate', 'build pipeline', 'compose skills', 'decompose task', 'find skills for task', 'skill assembly', 'workflow'. Works with skillsmp-api-client.
 """
 
 import logging

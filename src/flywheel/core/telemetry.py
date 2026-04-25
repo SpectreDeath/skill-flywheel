@@ -4,7 +4,11 @@ from dataclasses import dataclass, field
 from typing import Any, Dict, List
 from unittest.mock import Mock
 
-import GPUtil
+try:
+    import GPUtil
+except ImportError:
+    GPUtil = None
+
 import psutil
 from prometheus_client import Counter, Gauge, Histogram
 
@@ -92,9 +96,10 @@ class AdvancedTelemetryManager:
 
             gpu_usage = None
             try:
-                gpus = GPUtil.getGPUs()
-                if gpus:
-                    gpu_usage = gpus[0].load * 100
+                if GPUtil:
+                    gpus = GPUtil.getGPUs()
+                    if gpus:
+                        gpu_usage = gpus[0].load * 100
             except Exception:
                 pass
 

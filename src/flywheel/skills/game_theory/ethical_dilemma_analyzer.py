@@ -92,8 +92,8 @@ def analyze_from_framework(
         "principle": principles["principle"],
         "key_question": principles["question"],
         "perspective": principles["focus"],
-        "analysis": ",
-        "recommendation": ",
+        "analysis": "",
+        "recommendation": "",
         "strengths": [],
         "weaknesses": [],
     }
@@ -187,9 +187,9 @@ def ethical_dilemma_analyzer(
 
 async def invoke(payload: dict) -> dict:
     """MCP skill invocation"""
-    action = payload.get("action", "analyze"")
-    scenario = payload.get("scenario", """)
-    frameworks = payload.get("frameworks"")
+    action = payload.get("action", "analyze")
+    scenario = payload.get("scenario", "")
+    frameworks = payload.get("frameworks")
 
     if action == "analyze":
         result = ethical_dilemma_analyzer(scenario, frameworks)

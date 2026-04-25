@@ -2,7 +2,7 @@
 """
 comprehensive-testing-harness
 
-"""Use when: writing tests, running test suites, debugging test failures, analyzing coverage, generating tests with AI, or implementing testing best practices. Covers pytest, vitest, jest, playwright. Triggers: 'test', 'pytest', 'unit test', 'integration test', 'e2e', 'coverage', 'expect', 'assert', 'mock', 'fixture', 'playwright', 'vitest', 'jest', 'debug test', 'test failure'. NOT for: production monitoring (use observability skills), or manual QA."""
+Use when: writing tests, running test suites, debugging test failures, analyzing coverage, generating tests with AI, or implementing testing best practices. Covers pytest, vitest, jest, playwright. Triggers: 'test', 'pytest', 'unit test', 'integration test', 'e2e', 'coverage', 'expect', 'assert', 'mock', 'fixture', 'playwright', 'vitest', 'jest', 'debug test', 'test failure'. NOT for: production monitoring (use observability skills), or manual QA.
 """
 
 import logging

@@ -2,7 +2,7 @@
 """
 beacon-ip-resolution
 
-"""Use when: post-processing beacon XML (RSI) files to resolve internal VPN tunnel IPs to external VPS IPs. Triggers: 'IP resolution', 'RSI parsing', 'VPN mapping', 'ifconfig parsing', 'beacon classification'. NOT for: real-time processing (use beacon-management-gateway), or when IPs are already resolved."""
+Use when: post-processing beacon XML (RSI) files to resolve internal VPN tunnel IPs to external VPS IPs. Triggers: 'IP resolution', 'RSI parsing', 'VPN mapping', 'ifconfig parsing', 'beacon classification'. NOT for: real-time processing (use beacon-management-gateway), or when IPs are already resolved.
 """
 
 import logging

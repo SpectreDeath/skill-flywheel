@@ -146,7 +146,7 @@ def socratic_questioner(
 async def invoke(payload: dict) -> dict:
     """MCP skill invocation"""
     action = payload.get("action", "question")
-    concept = payload.get("concept", ")
+    concept = payload.get("concept", "")
     depth = payload.get("depth", 2)
     focus = payload.get("focus")
 

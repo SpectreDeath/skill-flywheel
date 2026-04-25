@@ -2,7 +2,7 @@
 """
 skillsmp-api-client
 
-"""Use when: making HTTP requests to the SkillsMP API (skillsmp.com) to search for AI agent skills, query the skill marketplace, or retrieve skill metadata. Triggers: 'skillsmp', 'search skills', 'find skill', 'skill marketplace', 'AI skills', 'agent skills'. Requires API key from skillsmp.com. NOT for: skills that are already installed locally."""
+Use when: making HTTP requests to the SkillsMP API (skillsmp.com) to search for AI agent skills, query the skill marketplace, or retrieve skill metadata. Triggers: 'skillsmp', 'search skills', 'find skill', 'skill marketplace', 'AI skills', 'agent skills'. Requires API key from skillsmp.com. NOT for: skills that are already installed locally.
 """
 
 import logging

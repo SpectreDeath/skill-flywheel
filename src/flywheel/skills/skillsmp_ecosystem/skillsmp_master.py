@@ -2,7 +2,7 @@
 """
 skillsmp-master
 
-"""Use when: working with SkillsMP to discover, learn from, orchestrate, generate skills, or find capability gaps. Master skill that delegates to specialized skills (api-client, skill-learner, skill-orchestrator, skill-factory, gap-discoverer). Triggers: 'skillsmp', 'skill marketplace', 'AI skills', 'agent skills', 'find skills', 'learn skills', 'orchestrate'. Requires API key from skillsmp.com."""
+Use when: working with SkillsMP to discover, learn from, orchestrate, generate skills, or find capability gaps. Master skill that delegates to specialized skills (api-client, skill-learner, skill-orchestrator, skill-factory, gap-discoverer). Triggers: 'skillsmp', 'skill marketplace', 'AI skills', 'agent skills', 'find skills', 'learn skills', 'orchestrate'. Requires API key from skillsmp.com.
 """
 
 import logging

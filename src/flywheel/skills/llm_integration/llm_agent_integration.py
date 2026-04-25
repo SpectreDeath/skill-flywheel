@@ -2,7 +2,7 @@
 """
 llm-agent-integration
 
-"""Use when: integrating LLMs (Claude/GPT/Gemini), building RAG systems, implementing agent tool-use/function-calling, handling streaming responses, managing multi-turn conversations, building AI agents, creating embeddings, or building production AI applications. Triggers: 'LLM', 'Claude', 'OpenAI', 'GPT', 'Gemini', 'prompt', 'embedding', 'RAG', 'tool use', 'function calling', 'streaming', 'AI agent', 'chat completion'. NOT for: pure code generation (use coding skills), or when no AI/LLM involvement."""
+Use when: integrating LLMs (Claude/GPT/Gemini), building RAG systems, implementing agent tool-use/function-calling, handling streaming responses, managing multi-turn conversations, building AI agents, creating embeddings, or building production AI applications. Triggers: 'LLM', 'Claude', 'OpenAI', 'GPT', 'Gemini', 'prompt', 'embedding', 'RAG', 'tool use', 'function calling', 'streaming', 'AI agent', 'chat completion'. NOT for: pure code generation (use coding skills), or when no AI/LLM involvement.
 """
 
 import logging

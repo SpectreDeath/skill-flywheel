@@ -12,7 +12,7 @@ from pathlib import Path
 from typing import Any, Dict, List
 from datetime import datetime
 
-SKILL_TEMPLATE = "---
+SKILL_TEMPLATE = """---
 Domain: {domain}
 Version: 1.0.0
 Complexity: {complexity}
@@ -30,11 +30,11 @@ name: {skill_name}
 
 ### Basic Usage
 
-"""{basic_usage}"""
+'''{basic_usage}'''
 
 ### Advanced Usage
 
-"""{advanced_usage}"""
+'''{advanced_usage}'''
 
 ## Purpose
 
@@ -383,26 +383,26 @@ def _extract_purpose(intent: str) -> str:
 
 def _generate_input_format(skill_type: str, intent: str) -> str:
     if skill_type == "Process":
-        return "input_data:
+        return """input_data:
   data: string        # Input data to process
   options:            # Optional parameters
-    format: json"
+    format: json"""
     elif skill_type == "Tool":
-        return "query:
+        return """query:
   term: string        # Search term
   filters:            # Optional filters
-    domain: string"
+    domain: string"""
     else:
-        return "request:
+        return """request:
   action: string      # Action to perform
-  parameters: object  # Action parameters"
+  parameters: object  # Action parameters"""
 
 
 def _generate_output_format(skill_type: str) -> str:
-    return "result:
+    return """result:
   status: string      # success or error
   data: object        # Result data
-  metadata: object   # Execution metadata"
+  metadata: object   # Execution metadata"""
 
 
 def _estimate_execution_time(complexity: str) -> str:
@@ -424,7 +424,7 @@ def _generate_capabilities(intent: str, skill_type: str) -> List[str]:
 
 def _generate_skill_name(intent: str) -> str:
     name = intent.lower()
-    name = re.sub(r"[^\w\s-]", ", name)
+    name = re.sub(r"[^\w\s-]", "", name)
     name = re.sub(r"[\s_]+", "-", name)
     name = re.sub(r"-+", "-", name)
     if len(name) > 50:
@@ -527,12 +527,12 @@ async def invoke(payload: dict) -> dict:
     action = payload.get("action", "draft")
 
     if action == "draft":
-        intent = payload.get("intent", ")
+        intent = payload.get("intent", "")
         domain = payload.get("domain", "META_SKILL_DISCOVERY")
         complexity = payload.get("complexity", "Intermediate")
         result = skill_drafting(intent, domain, complexity)
     elif action == "critique":
-        skill_path = payload.get("skill_path", ")
+        skill_path = payload.get("skill_path", "")
         focus_areas = payload.get("focus_areas", [])
         result = skill_critiquing(skill_path, focus_areas)
     elif action == "validate":

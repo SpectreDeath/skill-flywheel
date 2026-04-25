@@ -2,7 +2,7 @@
 """
 binary-configuration-patcher
 
-"""Use when: embedding runtime configuration into precompiled binaries by searching for signature markers. Triggers: 'binary patch', 'config injection', 'signature search', 'offset patch', 'runtime config'. Requires: binary analysis tools. NOT for: source-based configuration, or when rebuilding is possible."""
+Use when: embedding runtime configuration into precompiled binaries by searching for signature markers. Triggers: 'binary patch', 'config injection', 'signature search', 'offset patch', 'runtime config'. Requires: binary analysis tools. NOT for: source-based configuration, or when rebuilding is possible.
 """
 
 import logging

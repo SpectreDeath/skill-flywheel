@@ -2,7 +2,7 @@
 """
 skill-analyzer
 
-"""Use when: analyzing an existing skill to understand its capabilities, use cases, triggers, limitations, and how to invoke it. Also use when evaluating skill quality, finding gaps, or determining if a skill fits a specific use case. Triggers: 'analyze skill', 'what does this skill do', 'skill review', 'evaluate skill', 'skill analysis', 'understand skill', 'skill capability', 'can this skill'. NOT for: creating new skills (use skill-creator), or when skill documentation is sufficient."""
+Use when: analyzing an existing skill to understand its capabilities, use cases, triggers, limitations, and how to invoke it. Also use when evaluating skill quality, finding gaps, or determining if a skill fits a specific use case. Triggers: 'analyze skill', 'what does this skill do', 'skill review', 'evaluate skill', 'skill analysis', 'understand skill', 'skill capability', 'can this skill'. NOT for: creating new skills (use skill-creator), or when skill documentation is sufficient.
 """
 
 import logging

@@ -11,7 +11,7 @@ import subprocess
 from pathlib import Path
 from typing import Any, Dict, List
 
-DOCKER_COMPOSE_TEMPLATE = "version: '3.8'
+DOCKER_COMPOSE_TEMPLATE = """version: '3.8'
 
 services:
   openclaw:
@@ -93,7 +93,7 @@ class OpenClawDeployer:
                 }
 
             env_file = self.deployment_path / ".env"
-            env_content = f"MODEL_PROVIDER=openai
+            env_content = f"""MODEL_PROVIDER=openai
 MODEL_NAME={model}
 OPENAI_API_KEY=$OPENAI_API_KEY
 """
@@ -249,9 +249,9 @@ OPENAI_API_KEY=$OPENAI_API_KEY
 
     def generate_nginx_config(self, domain: str, ssl: bool = True) -> Dict[str, Any]:
         """Generate Nginx configuration."""
-        config = f"server {{
+        config = f"""server {{
     listen 80;
-    {"listen 443 ssl http2;" if ssl else "}
+    {"listen 443 ssl http2;" if ssl else ""}
     server_name {domain};
     
     location / {{
@@ -264,7 +264,7 @@ OPENAI_API_KEY=$OPENAI_API_KEY
     }}
 """
         if ssl:
-            config += f"
+            config += f"""
     ssl_certificate /etc/letsencrypt/live/{domain}/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/{domain}/privkey.pem;
 """

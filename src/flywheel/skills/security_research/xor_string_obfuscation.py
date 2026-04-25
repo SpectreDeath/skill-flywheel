@@ -2,7 +2,7 @@
 """
 xor-string-obfuscation
 
-"""Use when: hiding sensitive strings (debug messages, error text, IP addresses, file paths) from binary analysis by XOR-encoding at build time and decoding at runtime. Triggers: 'obfuscate strings', 'hide strings', 'XOR encode', 'string encryption', 'anti-reverse engineering'. NOT for: protecting data at runtime in memory (use encryption), or when performance overhead is unacceptable."""
+Use when: hiding sensitive strings (debug messages, error text, IP addresses, file paths) from binary analysis by XOR-encoding at build time and decoding at runtime. Triggers: 'obfuscate strings', 'hide strings', 'XOR encode', 'string encryption', 'anti-reverse engineering'. NOT for: protecting data at runtime in memory (use encryption), or when performance overhead is unacceptable.
 """
 
 import logging

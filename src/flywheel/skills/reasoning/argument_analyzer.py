@@ -62,7 +62,7 @@ def analyze_argument_structure(argument: str) -> Dict[str, Any]:
     sentences = [s.strip() for s in sentences if s.strip()]
 
     premises = []
-    conclusion = "
+    conclusion = ""
 
     for i, sentence in enumerate(sentences):
         sentence_lower = sentence.lower()
@@ -178,7 +178,7 @@ def argument_analyzer(argument: str, **kwargs) -> Dict[str, Any]:
 async def invoke(payload: dict) -> dict:
     """MCP skill invocation"""
     action = payload.get("action", "analyze")
-    argument = payload.get("argument", ")
+    argument = payload.get("argument", "")
 
     if action == "analyze":
         result = argument_analyzer(argument)

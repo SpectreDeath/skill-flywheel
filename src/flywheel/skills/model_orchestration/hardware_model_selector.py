@@ -179,7 +179,7 @@ class HardwareModelSelector:
                 lines = result.stdout.strip().split('\n')
                 if lines and lines[0]:
                     # Parse the first GPU (assuming single GPU for simplicity)
-                    parts = lines[0].split(', ')
+                    parts = lines[0].split(',')
                     if len(parts) >= 5:
                         return {
                             'total': float(parts[0]) / 1024.0,  # Convert MB to GB

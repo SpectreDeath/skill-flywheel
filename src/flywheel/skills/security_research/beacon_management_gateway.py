@@ -2,7 +2,7 @@
 """
 beacon-management-gateway
 
-"""Use when: building a Python beacon management gateway for encrypted implant check-ins, binary protocol parsing, and XML report generation. Triggers: 'beacon gateway', 'implant handler', 'BTHP protocol', 'XTEA decryption', 'RSI report'. Requires: Python. NOT for: real-time C2 (use C2 frameworks), or when encryption isn't needed."""
+Use when: building a Python beacon management gateway for encrypted implant check-ins, binary protocol parsing, and XML report generation. Triggers: 'beacon gateway', 'implant handler', 'BTHP protocol', 'XTEA decryption', 'RSI report'. Requires: Python. NOT for: real-time C2 (use C2 frameworks), or when encryption isn't needed.
 """
 
 import logging

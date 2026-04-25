@@ -2,7 +2,7 @@
 """
 covert-network-triggers
 
-"""Use when: implementing covert wake-up mechanisms for dormant processes using protocol-specific packet encoding across ICMP, DNS, TFTP, TCP/UDP. Triggers: 'covert trigger', 'beacon wake-up', 'DNS tunnel', 'ICMP ping', 'protocol steganography'. NOT for: standard network communication, or when overt channels are acceptable."""
+Use when: implementing covert wake-up mechanisms for dormant processes using protocol-specific packet encoding across ICMP, DNS, TFTP, TCP/UDP. Triggers: 'covert trigger', 'beacon wake-up', 'DNS tunnel', 'ICMP ping', 'protocol steganography'. NOT for: standard network communication, or when overt channels are acceptable.
 """
 
 import logging
