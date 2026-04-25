@@ -6,7 +6,7 @@ from unittest.mock import Mock
 
 try:
     import GPUtil
-except ImportError:
+except Exception:
     GPUtil = None
 
 import psutil

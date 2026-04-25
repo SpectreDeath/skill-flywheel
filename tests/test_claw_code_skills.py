@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 r"""
-Tests for skills generated from D:\GitHub\claw-code repository.
+Tests for skills generated from D:/GitHub/claw-code repository.
 """
 import asyncio
 import sys

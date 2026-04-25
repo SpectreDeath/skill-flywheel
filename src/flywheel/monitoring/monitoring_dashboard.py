@@ -19,7 +19,7 @@ from typing import Any, Dict, List
 
 try:
     import GPUtil
-except ImportError:
+except Exception:
     GPUtil = None
 
 from contextlib import asynccontextmanager

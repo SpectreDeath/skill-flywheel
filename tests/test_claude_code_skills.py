@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 r"""
-Tests for skills generated from D:\GitHub\claude-code repository.
+Tests for skills generated from D:/GitHub/claude-code repository.
 """
 import sys
 import unittest

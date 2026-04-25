@@ -3,7 +3,10 @@ import json
 import os
 from pathlib import Path
 
-from google import genai
+try:
+    from google import genai
+except ImportError:
+    genai = None
 
 
 def enrich_skill_content(content, skill_name, domain):
@@ -37,6 +40,9 @@ Return the FULL updated Markdown content.
     if not api_key:
         # Accessibility: Graceful disable if key missing
         return f"ENRICHMENT_DISABLED: Requires GEMINI_API_KEY\n\n{content}"
+
+    if not genai:
+        return f"ENRICHMENT_DISABLED: Requires google-genai library\n\n{content}"
 
     try:
         client = genai.Client(api_key=api_key)
