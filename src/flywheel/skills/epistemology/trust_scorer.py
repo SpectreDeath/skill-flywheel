@@ -14,27 +14,7 @@ from typing import Any, Dict, List, Optional
 
 logger = logging.getLogger(__name__)
 
-# --- SURFACE 1: PROLOG (Hard Rules) ---
-PROLOG_SURFACE = """
-% Disqualify if source is on a known banned list
-disqualified(Source) :- banned(Source).
-% Disqualify if source has zero reputation
-disqualified(Source) :- reputation(Source, 0).
 
-% Example data (could be dynamic)
-banned(malicious_actor_01).
-banned(shadow_node_42).
-reputation(anonymous_proxy, 0).
-reputation(verified_expert, 100).
-"""
-
-# --- SURFACE 2: HY (Soft Heuristics) ---
-HY_SURFACE = """
-(defn calculate-heuristic [features]
-  (if (> (.count features "peer_reviewed") 0)
-      0.9
-      0.5))
-"""
 
 
 def trust_scorer(
@@ -123,3 +103,26 @@ def register_skill():
         "version": "1.0.0",
         "domain": "EPISTEMOLOGY",
     }
+
+
+# --- SURFACE 1: PROLOG (Hard Rules) ---
+PROLOG_SURFACE = """
+% Disqualify if source is on a known banned list
+disqualified(Source) :- banned(Source).
+% Disqualify if source has zero reputation
+disqualified(Source) :- reputation(Source, 0).
+
+% Example data (could be dynamic)
+banned(malicious_actor_01).
+banned(shadow_node_42).
+reputation(anonymous_proxy, 0).
+reputation(verified_expert, 100).
+"""
+
+# --- SURFACE 2: HY (Soft Heuristics) ---
+HY_SURFACE = """
+(defn calculate-heuristic [features]
+  (if (> (.count features "peer_reviewed") 0)
+      0.9
+      0.5))
+"""
