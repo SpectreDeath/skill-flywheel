@@ -395,9 +395,13 @@ class EnhancedSkillManager:
             if not skill_func:
                 raise ValueError(f"Skill function {skill_name} not found")
 
-            # Pass surfaces if the function accepts them or just as extra kwargs
-            # For simplicity, we just pass them and let the function handle them
-            result = skill_func(*args, surfaces=metadata.surfaces, **kwargs)
+            # Pass surfaces if the function accepts them
+            import inspect
+            sig = inspect.signature(skill_func)
+            if 'surfaces' in sig.parameters:
+                result = skill_func(*args, surfaces=metadata.surfaces, **kwargs)
+            else:
+                result = skill_func(*args, **kwargs)
             execution_time = time.time() - start_time
             metadata.execution_count += 1
             metadata.total_execution_time = (
