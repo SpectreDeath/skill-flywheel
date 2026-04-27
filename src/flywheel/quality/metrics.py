@@ -42,8 +42,7 @@ class ComplexityMetric:
             indent = len(line) - len(line.lstrip())
             depth = indent // 4
 
-            if depth > max_depth:
-                max_depth = depth
+            max_depth = max(max_depth, depth)
 
         return max_depth
 

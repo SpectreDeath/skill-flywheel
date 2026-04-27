@@ -134,7 +134,10 @@ class BehavioralOrchestrator:
         
         if hasattr(skill_module, "HY_SURFACE"):
             surfaces["hy"] = skill_module.HY_SURFACE
-        
+
+        if hasattr(skill_module, "DATALOG_SURFACE"):
+            surfaces["datalog"] = skill_module.DATALOG_SURFACE
+
         return surfaces
     
     def _run_pre_checks(self, payload, profile, surfaces):

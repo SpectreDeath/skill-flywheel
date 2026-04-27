@@ -53,6 +53,7 @@ dependencies = [
     "setuptools>=70.0.0",
     "hy>=1.0.0",
     "pyswip>=0.3.3",
+    "pyDatalog>=0.17.0",
 ]
 
 [project.optional-dependencies]

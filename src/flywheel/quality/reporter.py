@@ -147,12 +147,7 @@ class QualityReporter:
             if "passed" in check:
                 return check["passed"]
             # Check if any nested check passed
-            for v in check.values():
-                if not self._is_passed(v):
-                    return False
-            return True
-        return bool(check)
-
+            # Check if any nested check passed\n            return all(self._is_passed(v) for v in check.values())\n
     def get_grade(self, score: float) -> str:
         """Convert numeric score to letter grade."""
         for grade, threshold in self.GRADE_THRESHOLDS.items():

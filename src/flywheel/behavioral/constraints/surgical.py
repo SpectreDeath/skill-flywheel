@@ -140,10 +140,9 @@ class SurgicalConstraint:
                         change_type="add",
                     )
                 )
-            else:
-                # Context line (unchanged)
-                if line.strip():
-                    current_line += 1
+            # Context line (unchanged)
+            elif line.strip():
+                current_line += 1
 
         return changes
 
@@ -155,7 +154,7 @@ class SurgicalConstraint:
             "the", "a", "an", "and", "or", "but", "in", "on", "at", "to", "for",
             "of", "with", "by", "from", "is", "are", "was", "were", "be", "been",
             "this", "that", "these", "those", "will", "should", "could", "may",
-            "can", "must", "shall", "would", "could", "might", "has", "have", "had",
+            "can", "must", "shall", "would", "might", "has", "have", "had",
         }
 
         return set(w for w in words if w not in stop_words and len(w) > 2)
@@ -312,7 +311,7 @@ warn_non_surgical(passed).
         """
         Generate Hy/Lisp heuristics for surgical changes.
         """
-        return """
+        return r"""
 ;; === Surgical Change Heuristics ===
 ;; Ensure changes are minimal, focused, and traceable
 

@@ -21,6 +21,11 @@ try:
 except ImportError:
     Prolog = None
 
+try:
+    from pyDatalog import pyDatalog
+except ImportError:
+    pyDatalog = None
+
 logger = logging.getLogger(__name__)
 
 
@@ -451,9 +456,22 @@ class EnhancedSkillManager:
         # Hy Surface
         if hasattr(module, "HY_SURFACE") and hy:
             try:
-                # If HY_SURFACE is a string, it could be code to evaluate
+                # If HY_SURFACE is a string, it could be a code to evaluate
                 # Or it could be a reference to a .hy file
                 metadata.surfaces["hy"] = getattr(module, "HY_SURFACE")
                 logger.info(f"Initialized Hy surface for {skill_name}")
             except Exception as e:
                 logger.error(f"Failed to initialize Hy surface for {skill_name}: {e}")
+
+        # Datalog Surface
+        if hasattr(module, "DATALOG_SURFACE") and pyDatalog:
+            try:
+                # Initialize a fresh pyDatalog environment for this skill
+                datalog_env = pyDatalog.Logic()
+                logic = getattr(module, "DATALOG_SURFACE")
+                # Execute the datalog rules in the skill's environment
+                datalog_env.load(logic)
+                metadata.surfaces["datalog"] = datalog_env
+                logger.info(f"Initialized Datalog surface for {skill_name}")
+            except Exception as e:
+                logger.error(f"Failed to initialize Datalog surface for {skill_name}: {e}")

@@ -155,7 +155,7 @@ class TestEnhancedSkillManager:
             # Create a test skill file
             skill_file = skills_dir / "test_skill.py"
             skill_file.write_text("""
-def test_skill():
+def test_skill(*args, **kwargs):
     return "Hello from test skill"
 """)
 

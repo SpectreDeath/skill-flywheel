@@ -1,0 +1,37 @@
+"""
+Datalog surface for knowledge_graph skill
+Defines relational facts and rules for querying knowledge relationships
+"""
+
+# Define entity relationships
+entity_type('person', 'human')
+entity_type('organization', 'group')
+entity_type('technology', 'artifact')
+
+# Define relationships between entities
+relationship('alice', 'works_at', 'openai')
+relationship('bob', 'works_at', 'google')
+relationship('charlie', 'collaborates_with', 'alice')
+relationship('charlie', 'uses', 'python')
+relationship('alice', 'uses', 'pytorch')
+relationship('google', 'develops', 'tensorflow')
+
+# Transitive collaboration rules
+collaborates_with(X, Y) <= relationship(X, 'collaborates_with', Y)
+collaborates_with(X, Y) <= relationship(Y, 'collaborates_with', X)
+
+# Indirect relationships through collaboration
+collaborates_with(X, Z) <= (collaborates_with(X, Y) & collaborates_with(Y, Z) & (X != Z))
+
+# Technology usage through collaboration
+uses(X, Tech) <= (collaborates_with(X, Y) & relationship(Y, 'uses', Tech))
+
+# Organization technology stack
+org_uses(Org, Tech) <= (relationship(Person, 'works_at', Org) & relationship(Person, 'uses', Tech))
+
+# Find collaboration networks
+collaboration_network(Person1, Person2, Tech) <= (
+    collaborates_with(Person1, Person2) &
+    uses(Person1, Tech) &
+    uses(Person2, Tech)
+)

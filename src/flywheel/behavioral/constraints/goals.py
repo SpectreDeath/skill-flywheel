@@ -236,7 +236,7 @@ class GoalsConstraint:
         
         details['actual'] = f"{tests_passed}/{tests_total} tests passed"
         details['steps'] = [
-            f"Run test suite",
+            "Run test suite",
             f"Expected: {criterion.target}",
             f"Actual: {tests_passed} of {tests_total} passed",
             f"Result: {'PASS' if passed else 'FAIL'}",
