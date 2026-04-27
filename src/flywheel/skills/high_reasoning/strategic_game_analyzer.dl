@@ -1,0 +1,49 @@
+"""
+Datalog surface for strategic game analyzer
+Models player relationships, strategy sets, and payoff structures
+"""
+
+# Player and strategy definitions
+player(alice).
+player(bob).
+
+# Strategy sets for different games
+strategy_set(prisoners_dilemma, [cooperate, defect]).
+strategy_set(chicken, [swerve, straight]).
+strategy_set(stag_hunt, [stag, hare]).
+
+# Strategy relationships (dominance, compatibility)
+strategy_relationship(cooperate, defect, dominated) :- game_type(prisoners_dilemma).
+strategy_relationship(defect, cooperate, dominates) :- game_type(prisoners_dilemma).
+
+# Payoff structures (simplified - would be parameterized in real implementation)
+payoff_structure(alice, cooperate, cooperate, 3, 3) :- game_type(prisoners_dilemma).
+payoff_structure(alice, cooperate, defect, 0, 5) :- game_type(prisoners_dilemma).
+payoff_structure(alice, defect, cooperate, 5, 0) :- game_type(prisoners_dilemma).
+payoff_structure(alice, defect, defect, 1, 1) :- game_type(prisoners_dilemma).
+
+# Dominant strategy detection
+dominant_strategy(Player, Strategy) :-
+    player(Player),
+    strategy_relationship(Strategy, _, dominates),
+    not(strategy_relationship(_, Strategy, dominates)).
+
+# Player network analysis
+player_connection(P1, P2) :- player(P1), player(P2), P1 != P2.
+
+# Strategy compatibility
+compatible_strategies(S1, S2) :- strategy_relationship(S1, S2, compatible).
+conflicting_strategies(S1, S2) :- strategy_relationship(S1, S2, conflicts).
+
+# Coalition analysis
+potential_coalition(P1, P2) :-
+    player_connection(P1, P2),
+    compatible_strategies(_, _).
+
+# Game outcome classification
+cooperative_outcome(Payoff1, Payoff2) :- Payoff1 > 2, Payoff2 > 2.
+competitive_outcome(Payoff1, Payoff2) :- Payoff1 > Payoff2 + 1.
+
+# Trust network (simplified)
+trust_level(P1, P2, high) :- player_connection(P1, P2), cooperative_outcome(_, _).
+trust_level(P1, P2, low) :- player_connection(P1, P2), competitive_outcome(_, _).
