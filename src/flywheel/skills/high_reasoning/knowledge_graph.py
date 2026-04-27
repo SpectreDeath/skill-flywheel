@@ -103,25 +103,18 @@ def knowledge_graph(query_type: str, **params) -> Dict[str, Any]:
         pyDatalog.assert_fact('relationship', 'charlie', 'collaborates_with', 'alice')
         pyDatalog.assert_fact('relationship', 'charlie', 'uses', 'python')
         pyDatalog.assert_fact('relationship', 'alice', 'uses', 'pytorch')
-        pyDatalog.assert_fact('relationship', 'google', 'develops', 'tensorflow')
+        pyDatalog.assert_fact('relationship', 'bob', 'uses', 'tensorflow')
 
-        # Add rules using string-based loading
-        rules = '''
-        collaborates_with(X, Y) <= relationship(X, 'collaborates_with', Y)
-        collaborates_with(X, Y) <= relationship(Y, 'collaborates_with', X)
-        collaborates_with(X, Z) <= (collaborates_with(X, Y) & collaborates_with(Y, Z) & (X != Z))
+        # Add rules one by one for debugging
+        try:
+            pyDatalog.load("collaborates_with(X, Y) <= relationship(X, 'collaborates_with', Y)")
+            pyDatalog.load("collaborates_with(X, Y) <= relationship(Y, 'collaborates_with', X)")
+            pyDatalog.load("uses(X, Tech) <= (collaborates_with(X, Y) & relationship(Y, 'uses', Tech))")
+            pyDatalog.load("org_uses(Org, Tech) <= (relationship(Person, 'works_at', Org) & relationship(Person, 'uses', Tech))")
+            # Skip complex rules for now
 
-        uses(X, Tech) <= (collaborates_with(X, Y) & relationship(Y, 'uses', Tech))
-        org_uses(Org, Tech) <= (relationship(Person, 'works_at', Org) & relationship(Person, 'uses', Tech))
-
-        collaboration_network(Person1, Person2, Tech) <= (
-            collaborates_with(Person1, Person2) &
-            uses(Person1, Tech) &
-            uses(Person2, Tech) &
-            (Person1 != Person2)
-        )
-        '''
-        pyDatalog.load(rules)
+        except Exception as e:
+            return {"error": f"Failed to load Datalog rules: {e}", "results": []}
 
     except Exception as e:
         return {"error": f"Failed to initialize Datalog knowledge base: {e}", "results": []}
@@ -136,7 +129,7 @@ def knowledge_graph(query_type: str, **params) -> Dict[str, Any]:
         try:
             query_result = pyDatalog.ask(f"collaborates_with('{person}', Y)")
             if query_result and hasattr(query_result, 'answers'):
-                collaborators = [result[1] for result in query_result.answers if len(result) > 1]
+                collaborators = [result[0] for result in query_result.answers if len(result) > 0]
         except Exception as e:
             return {"error": f"Query failed: {e}", "results": []}
 
@@ -150,7 +143,7 @@ def knowledge_graph(query_type: str, **params) -> Dict[str, Any]:
         try:
             query_result = pyDatalog.ask(f"org_uses('{org}', Tech)")
             if query_result and hasattr(query_result, 'answers'):
-                tech_stack = [result[1] for result in query_result.answers if len(result) > 1]
+                tech_stack = [result[0] for result in query_result.answers if len(result) > 0]
         except Exception as e:
             return {"error": f"Query failed: {e}", "results": []}
 
