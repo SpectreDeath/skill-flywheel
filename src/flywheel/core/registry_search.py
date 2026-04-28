@@ -2,7 +2,7 @@ import json
 import sys
 from pathlib import Path
 
-REGISTRY_FILE = Path(r"D:\Skill Flywheel\skill_registry.json")
+REGISTRY_FILE = Path(__file__).parent.parent.parent.parent / "skill_registry.json"
 
 
 def search_registry(query, max_results=10):
@@ -21,6 +21,9 @@ def search_registry(query, max_results=10):
             name = skill.get("name", "").lower()
             purpose = skill.get("purpose", "").lower()
             description = skill.get("description", "").lower()
+            surfaces = [s.lower() for s in skill.get("surfaces", [])]
+            logic_tags = [t.lower() for t in skill.get("logic_tags", [])]
+            heuristic_tags = [t.lower() for t in skill.get("heuristic_tags", [])]
 
             if query in name:
                 score += 10
@@ -28,11 +31,17 @@ def search_registry(query, max_results=10):
                 score += 5
             if query in description:
                 score += 3
+            if query in surfaces:
+                score += 6
 
             # Substring matches for words in query
             for word in query.split():
                 if word in name or word in purpose or word in description:
                     score += 2
+                if word in surfaces:
+                    score += 4
+                if word in logic_tags or word in heuristic_tags:
+                    score += 8
 
             if score > 0:
                 results.append(
@@ -41,6 +50,9 @@ def search_registry(query, max_results=10):
                         "domain": skill.get("domain"),
                         "purpose": (purpose[:100] + "...") if purpose else "",
                         "path": skill.get("path"),
+                        "surfaces": skill.get("surfaces", []),
+                        "logic_tags": skill.get("logic_tags", []),
+                        "heuristic_tags": skill.get("heuristic_tags", []),
                         "score": score,
                     }
                 )
