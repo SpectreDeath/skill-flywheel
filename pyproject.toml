@@ -49,11 +49,7 @@ dependencies = [
     "pyjwt>=2.8.0",
     "sqlalchemy>=2.0.0",
     "asyncpg>=0.29.0",
-    "google-genai>=0.3.0",
-    "setuptools>=70.0.0",
-    "hy>=1.0.0",
-    "pyswip>=0.3.3",
-    "pyDatalog>=0.17.0",
+    "em-cubed @ file:///D:/GitHub/projects/em-cubed",
 ]
 
 [project.optional-dependencies]
