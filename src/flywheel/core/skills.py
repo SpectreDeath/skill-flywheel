@@ -261,7 +261,31 @@ class EnhancedSkillManager:
 
     def _extract_metadata(self, skill_file: Path) -> SkillMetadata:
         """Extract metadata from skill file docstring or attributes"""
-        # Simple extraction logic
+        try:
+            # Try to import the skill module and call register_skill() if available
+            spec = importlib.util.spec_from_file_location(skill_file.stem, skill_file)
+            if spec and spec.loader:
+                module = importlib.util.module_from_spec(spec)
+                spec.loader.exec_module(module)
+
+                # Check if register_skill function exists
+                if hasattr(module, "register_skill"):
+                    try:
+                        reg_data = module.register_skill()
+                        if isinstance(reg_data, dict):
+                            return SkillMetadata(
+                                name=reg_data.get("name", skill_file.stem),
+                                description=reg_data.get("description", f"Skill from {skill_file.name}"),
+                                version=reg_data.get("version", "1.0.0"),
+                                author="auto-discovered",
+                                dependencies=reg_data.get("dependencies", []),
+                            )
+                    except Exception as e:
+                        logger.warning(f"Failed to call register_skill() for {skill_file}: {e}")
+        except Exception as e:
+            logger.warning(f"Failed to load skill module {skill_file}: {e}")
+
+        # Fallback to simple extraction logic
         return SkillMetadata(
             name=skill_file.stem,
             description=f"Skill from {skill_file.name}",
